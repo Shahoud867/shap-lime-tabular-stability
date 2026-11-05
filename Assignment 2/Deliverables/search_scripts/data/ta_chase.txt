@@ -1,0 +1,70 @@
+C001 E2 MRI-based classification
+C002 E1 Review of XAI for strategic MIS decisions (no stability focus)
+C003 E2 Robustness of XAI under natural image corruptions
+C004 E3 Consensus across explanation methods (agreement)
+C005 E3 Evaluation of uncertainty attributions
+C006 E2 Saliency maps for image classifiers
+C007 E1 Applied water-quality ML with stability-guided selection
+C008 E1 Systematic review of XAI in fraud detection (no stability focus)
+C009 I EK-LIME fidelity-stability trade-off under class imbalance (tabular)
+C010 E2 Time-series cryptocurrency XAI
+C011 E3 Concept-based explanations
+C012 E3 Regional explanations (definitions of local attributions)
+C013 I Adversarial robustness and SHAP explainability drift in cybersecurity classifiers (tabular)
+C014 E2 Attributional robustness of deep image networks
+C015 E2 Activation-deactivation for deep networks
+C016 E1 Governance/metrics position paper
+C017 E1 Applied autism triage validation
+C018 U LIME variant claiming robust explanations (conditional pairwise contrast) - check modality/stability
+C019 E1 Applied air-quality model
+C020 E5 Emulsion stability (chemistry)
+C021 E2 LIME for deep dynamical (time-series) models
+C022 E1 Consistency-driven feature elimination
+C023 E2 MCMC-LIME for visual explanations
+C024 I Survey of LIME variants incl. stability challenges (review)
+C025 E1 Profit-sensitive credit models with explanations
+C026 DUP Earlier title of U491 (duplicate of a database record)
+C027 E2 Post-hoc interpretability robustness for deep image models
+C028 E1 Learning-analytics position paper
+C029 E1 Feature-selection validity
+C030 E5 Slope stability
+C031 E1 Feature-selection strategy
+C032 E1 Applied adversarial-detection framework
+C033 U Reliability analysis of explainable ML (endocrinology) - check stability outcome
+C034 E3 Counterfactual explanation of uncertainty
+C035 E2 EEG channel importance
+C036 E3 Rule-based explainer consistency
+C037 U US-LIME uncertainty sampling on tabular data - check stability outcome
+C038 E3 Explainable recommendation (not feature attribution)
+C039 E2 Meta-evaluation of XAI metrics (images)
+C040 U Uncertainty intervals for local explanations without model access - check
+C041 DUP Version of C040
+C042 E1 Applied heart-attack model
+C043 E3 Belief-rule time-series explanations
+C044 E2 Code classifiers
+C045 U Calibrated Explanations: instability of feature weights - check
+C046 E2 Survey of DNN explanation robustness (deep vision focus)
+C047 E1 SoK on explainability in security analytics
+C048 U Explainer robustness via probabilistic Lipschitzness - check modality
+C049 U Boundary-aware uncertainty for feature-attribution explainers - check
+C050 E1 Applied parking-occupancy model
+C051 E3 Robust interpretability of numerical models (sensitivity analysis)
+C052 E3 Axiomatic inconsistencies of feature importance
+C053 DUP Version of C049
+C054 U Smoother predictions and explanation robustness - check modality
+C055 U TrustyAI toolkit incl. LIME stability evaluation - check
+C056 E3 Consensus among uncertain attributions (ordinal aggregation)
+C057 E3 Ordinal consensus for surrogate explanations
+C058 I Reliable post-hoc explanations: Bayesian LIME/SHAP uncertainty (tabular and image)
+C059 E2 Attribution sensitivity to hyperparameters (images)
+C060 DUP Earlier title of C058
+C061 I Improving LIME robustness with smarter locality sampling (tabular)
+C062 I Fooling LIME and SHAP: robustness to adversarial manipulation (tabular)
+C063 DUP Version of C062
+C064 E2 Explanation manipulation in deep image networks
+C065 U Critique of additive explanations (tabular) - check stability content
+C066 DUP Earlier title of C065 (same arXiv 1903.11420)
+C067 U Developing the sensitivity of LIME - check
+C068 U Uncertainty in LIME explanations - check
+C069 I Robustness of interpretability methods incl. LIME/SHAP on tabular UCI data
+C070 E2 Fragility of neural-network interpretation (images)
