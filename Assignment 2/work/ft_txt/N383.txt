@@ -1,0 +1,2115 @@
+<<PAGE 1>>
+33746 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+DEM Resolution Drives AI V ariability: Tradeoffs
+Between Performance and Explainability in
+Landslide Susceptibility Prediction
+Yi Xia ,H a o y iY a o , Chao Ma, Feixiang Chen , and Y uanyuan Liu
+Abstract—Artiﬁcial intelligence (AI) has shown strong predic-
+tive capability in landslide susceptibility prediction (LSP), but its
+closed-box nature creates a trust gap in geohazard decision support,
+where predictive accuracy alone is insufﬁcient. High-resolution
+digital elevation models (DEMs) are commonly expected to im-
+prove terrain representation and prediction, yet it remains unclear
+whether ﬁner DEMs also improve explanation reliability. This
+study investigates the resolution-dependent mismatch between pre-
+dictive performance and SHapley Additive exPlanations (SHAP)-
+based explanation reliability in AI-based LSP . A 1 m Gaofen-7
+DEM was used as the reference and resampled to 5, 10, 12.5, 30,
+and 90 m. To isolate DEM-resolution effects, the slope-unit layer,
+landslide labels, and DEM-derived input-factor types were kept
+consistent across resolutions. Logistic regression (LR), support
+vector machine (SVM), random forest (RF), and XGBoost were
+evaluated under repeated random seeds. A quantitative SHAP-
+based framework integrating faithfulness, stability, and geomor-
+phic consistency was further used to assess explanation reliabil-
+ity. The results show that ﬁner DEMs, especially the 1 m DEM,
+generally improved classiﬁcation performance and mapping efﬁ-
+ciency. However, this predictive gain did not lead to a synchronous
+improvement in explanation reliability. Faithfulness was largely
+insensitive to DEM resolution, whereas stability and geomorphic
+consistency showed resolution- and model-dependent responses.
+Coarser DEMs could reduce attribution sensitivity through terrain
+smoothing, but this apparent stability could be accompanied by
+shifts in feature-importance structure, especially at 90 m and for
+LR/SVM, where attribution moved from slope-related information
+Received 4 March 2026; revised 12 June 2026, 21 July 2026, and 6 September
+2026; accepted 17 September 2026. Date of publication 21 September 2026; date
+of current version 19 October 2026. This work was supported by The National
+Key R&D Program of China under Grant 2022YFF1302700 and in part by
+the The Outstanding Y outh Team Project of Central Universities under Grant
+QNTD202504. (Corresponding authors: Feixiang Chen; Yuanyuan Liu.)
+Yi Xia is with the School of Information Science and Technology, Beijing
+Forestry University, Beijing 100083, China (e-mail: xiayi@bjfu.edu.cn).
+Haoyi Y ao is with the Key Laboratory of Land Surface Pattern and Simulation,
+Institute of Geographic Sciences and Natural Resources Research, Chinese
+Academy of Sciences, Beijing 100101, China, also with the School of Soil
+and Water Conservation, Beijing Forestry University, Beijing 100083, China,
+and also with the College of Resources and Environment, University of Chinese
+Academy of Sciences, Beijing 101408, China (e-mail: yaohaoyi@bjfu.edu.cn).
+Chao Ma is with the School of Soil and Water Conservation, Beijing Forestry
+University, Beijing 100083, China (e-mail: sanguoxumei@163.com).
+Feixiang Chen is with the School of Information Science and Technology,
+Beijing Forestry University, Beijing 100083, China, and also with the Key
+Laboratory of Smart National Park in Hebei Province, Beijing 100083, China
+(e-mail: bjfxchen@bjfu.edu.cn).
+Y uanyuan Liu is with the College for Elite Engineers, China University of
+Geosciences, Wuhan 430074, China, and also with the Comprehensive Survey
+Command Center for Natural Resources, China Geological Survey, Beijing
+100055, China (e-mail: liuyuan311@163.com).
+Digital Object Identiﬁer 10.1109/JSTARS.2026.3736041
+toward broader roughness proxies. Among the tested models, RF
+showed comparatively strong predictive performance and more
+stable attribution patterns. These ﬁndings show that ﬁner DEMs
+improve predictive performance but do not necessarily improve
+explanation reliability. DEM-resolution selection should therefore
+be treated as an objective-dependent tradeoff rather than being
+guided by the assumption that ﬁner resolution is always preferable.
+Index Terms —Artiﬁcial intelligence (AI), digital elevation
+models (DEMs), explainability, landslide susceptibility prediction
+(LSP), performance.
+I. I NTRODUCTION
+L
+ANDSLIDES are among the most common and most
+destructive geological hazards in mountainous areas [1],
+[2], [3]. They have long posed signiﬁcant threats to human safety,
+infrastructure, and regional economies [4], [5], [6]. Therefore,
+landslide susceptibility prediction (LSP) has become a key
+component of geological hazard prevention and control, as
+well as territorial spatial planning [7], [8]. Although traditional
+physical models have high physical consistency, they often rely
+on detailed geotechnical parameters [9], [10]. This reliance
+leads to excessive computational demands for regional-scale
+mapping [11]. With advances in geospatial data acquisition and
+computing power, artiﬁcial intelligence (AI) methods have been
+widely applied to LSP [7], [8], [12], [13], [14]. These methods
+have shown strong capability in capturing the complex nonlinear
+relationships between landslide conditioning factors (LCFs) and
+landslide occurrence [15], [16].
+However, the rapid adoption of AI has created a critical
+trust gap in geohazard management [17], [18], [19].M a n y
+high-performance models remain opaque to practitioners, and
+their decision logic is not transparent [12]. In the high-risk ﬁeld
+of disaster risk reduction, predictive performance alone is not
+sufﬁcient [20]. Models must also demonstrate explanation relia-
+bility [21], [22], [23], [24], [25]. This means that the predictions
+should be consistent with established geomorphological princi-
+ples [26]. Although explainable AI frameworks, such as SHapley
+Additive exPlanations (SHAP) [27], have begun to improve
+model transparency by quantifying feature contributions [28],
+the reliability of these explanations is highly sensitive to the
+quality and size of the input data [29], [30], [31].
+Among LSP input data, the digital elevation model (DEM)
+plays a fundamental role [20], [32], [33]. In geoscience, a
+common view is that higher spatial resolution can capture
+© 2026 The Authors. This work is licensed under a Creative Commons Attribution 4.0 License. For more information, see
+https://creativecommons.org/licenses/by/4.0/
+<<PAGE 2>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33747
+ﬁner terrain features and therefore should produce better re-
+sults [34], [35]. However, increasing evidence has revealed
+a spatial resolution paradox: extremely ﬁne resolutions may
+introduce microtopographic noise, such as single road features
+or vegetation artifacts [36], [37]. This noise can obscure the
+large-scale physical processes that drive slope instability [38].
+These studies generally indicate that DEM resolution affects
+LSP results. However, most existing studies focus on predictive
+performance metrics, such as Accuracy and AUC. Research
+on how DEM resolution affects model explainability remains
+limited. This assessment is necessary because a DEM resolution
+selected for high predictive accuracy may not provide equally
+stable or geomorphologically consistent explanations. Such dif-
+ferences matter when model explanations are used to support
+susceptibility-based decisions.
+This gap should be considered within the broader scale-
+sensitivity literature in LSP . Earlier studies examined how raster
+resolution inﬂuences conditioning-factor representation, factor
+selection, and predictive performance. Arnone et al. [39] evalu-
+ated raster resolution together with inventory rasterization and
+found that the ﬁnest resolution did not necessarily yield the
+best predictive performance. Liao et al. [40] further examined
+resolution-dependent factor selection and its implications for
+LSP . More recent work has extended scale analysis to model
+interpretation. Hu et al. [41] combined multiscale slope-unit
+delineation with XGBoost (XGB) and SHAP to examine factor
+contributions and interactions. Related research has examined
+how slope-unit scale affects factor selection and XAI-based
+interpretation [42]. Pradhan et al. [43] used XGBoost and SHAP
+to compare susceptibility predictions and feature contributions
+between slope units and hydrological response units. Huang
+et al. [44] compared grid- and slope-unit models using feature
+importance, response curves, interaction analysis, and local
+SHAP explanations. Collectively, these studies demonstrate that
+spatial representation affects both predictive performance and
+model interpretation. However, DEM resolution and mapping-
+unit conﬁguration represent distinct sources of spatial variation.
+DEM resolution controls the terrain information represented
+within each slope unit, whereas slope-unit scale deﬁnes the
+spatial support of modeling samples. Their respective effects
+therefore need to be distinguished when assessing explanation
+reliability. Speciﬁcally, it remains unclear whether ﬁner DEMs
+improve explanation reliability when slope-unit boundaries are
+held ﬁxed. Addressing this question requires evaluating predic-
+tive performance alongside complementary aspects of explana-
+tion reliability, including faithfulness, stability, and geomorphic
+consistency.
+To address this gap, this study investigates the joint effects
+of DEM resolution on predictive performance and SHAP-based
+explanation reliability in AI-based LSP . A 1 m Gaofen-7 (GF-7)
+DEM was resampled to 5, 10, 12.5, 30, and 90 m. All DEMs
+were derived from the same source, and slope-unit boundaries,
+landslide labels, and DEM-derived input-factor types were kept
+consistent across resolutions. This controlled design reduces
+confounding from data-source heterogeneity and mapping-unit
+changes, allowing DEM resolution to be treated as the primary
+source of terrain-scale variation. Four representative models,
+including LR, SVM, RF, and XGBoost, were evaluated under
+repeated random seeds.
+Compared with previous LSP studies, the main novelty of this
+study lies in linking DEM resolution with explanation reliability
+under a controlled experimental design. Speciﬁcally, this study
+makes three contributions. First, it isolates DEM-resolution
+effects from mapping-unit effects by deriving all DEMs from
+the same GF-7 source and ﬁxing the slope-unit conﬁguration.
+Second, it evaluates SHAP explanation reliability using faithful-
+ness, stability, and geomorphic consistency, rather than relying
+only on global feature ranking. These three criteria assess ﬁdelity
+to model outputs, sensitivity to input perturbations, and agree-
+ment with empirical geomorphic response patterns, respectively.
+Together, they provide complementary diagnostics for exam-
+ining explanation reliability across DEM resolutions. Third, it
+shows that ﬁner DEMs improve predictive performance but do
+not necessarily improve explanation reliability. DEM-resolution
+selection should therefore be treated as an objective-dependent
+tradeoff rather than being guided by the assumption that ﬁner
+resolution is always preferable.
+II. M A TERIALS
+A. Study Area
+The study area is located in the Huairou and Miyun districts of
+northeastern Beijing, China, roughly between 40 ◦13’–41◦04’N
+and 116◦16’–117◦30’E (see Fig. 1). The main exposed litholo-
+gies consist of Archean metamorphic rocks (gneiss), Proterozoic
+carbonate rocks (dolomite), and Mesozoic Jurassic volcanic-
+sedimentary rocks (andesite and tuff). The Miyun Shachang–
+Qiangzilu fault zone and the Huairou Changshaoying-Miyun
+Gubeikou fault zone are the primary regional faults. The study
+area lies within the Y anshan Mountain belt, characterized by
+rugged terrain with an overall northwest-to-southeast slope gra-
+dient. Elevations range from 40 m in the foreland plains to over
+1700 m in the high mountain zones. Slopes are predominantly
+covered by thin layers of mountain brown soils and leached
+brown soils, averaging 20–50 cm in thickness. The study area
+exhibits a warm-temperate, semihumid continental monsoon
+climate, with an annual average temperature of approximately
+11.6◦C and annual precipitation of 600–700 mm. Precipitation
+distribution is highly uneven, with over 80% of annual rainfall
+concentrated during the monsoon season from June to Septem-
+ber. This often manifests as short-duration, high-intensity torren-
+tial rain events, which are the primary trigger for local geological
+hazards.
+Over the past decade, the study area has long been a frequent
+and severely impacted zone for landslides in Beijing [45], [46].
+On 20 July 2016, torrential rains in North China triggered
+multiple small-scale collapses and landslides in the northern
+mountainous areas of Huairou District and around Miyun Reser-
+voir, causing temporary trafﬁc disruptions. On 16 July 2018,
+heavy rains in the Y unmeng Mountain area triggered landslides,
+unleashing large-scale, clustered debris ﬂows that damaged sev-
+eral villages and numerous transportation facilities. In late July
+2023, Typhoon Doksuri triggered not only shallow landslides
+but also numerous deep rock-mass landslides and high-elevation
+<<PAGE 3>>
+33748 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+Fig. 1. Location of Study Area.
+rockfalls in Huairou and Miyun, forcing large-scale evacuations.
+On 26 July 2025, heavy rainfall caused ﬂooding and landslides,
+damaging tens of thousands of homes in Huairou and Miyun,
+affecting tens of thousands of residents, and resulting in dozens
+of fatalities.
+B. Landslide Inventory
+Using high-resolution PLANET remote sensing imagery ac-
+quired before and after the “7 ·26” disaster, we identiﬁed 2998
+event-related rainfall-induced shallow landslides through man-
+ual visual interpretation, ﬁeld surveys, and supplementary UA V
+imagery. The mapped landslides were mainly concentrated
+around Liulimiao Town in Huairou District.
+The inventory should be interpreted as an event-based inven-
+tory of visually detectable rainfall-induced shallow landslides.
+No a priori numerical minimum mapping size was imposed,
+because practical detectability depends not only on image spa-
+tial resolution, but also on surface exposure, vegetation cover,
+shadow conditions, landslide morphology, and the contrast be-
+tween pre and postevent images. Therefore, very small or weakly
+exposed failures may be underrepresented.
+Several sources of inventory uncertainty remain, including
+image acquisition timing, vegetation and shadow occlusion,
+ambiguity between source and runout areas, possible confusion
+with erosion-related disturbed surfaces, and positional mismatch
+among PLANET imagery, DEMs, and slope-unit boundaries.
+These uncertainties may affect the absolute values of model per-
+formance and local SHAP-based explanation patterns. However,
+because the same inventory, slope-unit partitioning, and labeling
+protocol were used for all DEM-resolution experiments, their
+inﬂuence should be limited mainly to the common background
+uncertainty rather than the relative comparison among DEM
+resolutions.
+C. Landslide Conditioning Factors
+Due to the complexity of landslide mechanisms and differ-
+ences among landslide types, no established guidelines currently
+exist for selecting LCFs [47], [48], [49]. The aim of this study
+was not to maximize landslide prediction accuracy, but to isolate
+and quantify the inﬂuence of DEM resolution on AI model
+behavior. Including multisource factors with heterogeneous spa-
+tial resolutions would confound the isolated effect of DEM
+resolution, making it difﬁcult to attribute model performance and
+explainability to DEM-derived information alone. Conversely,
+DEM derivatives are directly and exclusively controlled by
+DEM resolution, making them ideal indicators for assessing how
+<<PAGE 4>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33749
+TABLE I
+DETAILED INFORMA TION ON THE LCFS
+Fig. 2. Workﬂow of the study.
+resolution propagates into AI model performance and explain-
+ability. Therefore, based on prior research and aligned with
+our study’s focus, we used a 1 m-resolution DEM from GF-7
+and selected ten DEM-derived LCFs: elevation, slope, aspect,
+curvature, proﬁle curvature, plane curvature, terrain wetness
+index (TWI), relief degree of land surface (RDL), topographic
+ruggedness index (TRI), and elevation coefﬁcient of variation
+(CV) [50]. Table I summarizes the LCFs.
+III. M ETHODS
+This section outlines the workﬂow used to compare the im-
+pacts of DEM resolution on AI performance and explainability
+(see Fig. 2). First, data processing includes DEM resampling
+and slope-unit delineation. Second, model performance metrics
+are deﬁned and compared across AI models. Third, model ex-
+plainability metrics are deﬁned and compared across AI models.
+A. Data Preprocessing
+1) DEM Resampling: A high-resolution DEM with a spatial
+resolution of 1 m derived from GF-7 stereo imagery was used as
+the reference dataset in our study. To systematically investigate
+the effect of spatial resolution on LSP , the original 1 m DEM was
+resampled to a series of coarser and representative resolutions,
+including 5, 10, 12.5, 30, and 90 m [39], [51].A l lD E M s
+were generated from the same source to ensure that differences
+in model performance and explainability could be attributed
+<<PAGE 5>>
+33750 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+solely to changes in spatial resolution rather than data source
+variability.
+DEM resampling was performed using a consistent bilinear
+interpolation method, ensuring that all derived DEMs differed
+solely in spatial resolution while maintaining elevation continu-
+ity and overall terrain characteristics [52], [53].
+To examine whether the use of bilinear interpolation in-
+troduced method-dependent artifacts, we further conducted a
+resampling-method sensitivity analysis in Appendix F.I nt h i s
+analysis, the original 1 m GF-7 DEM was resampled using
+bilinear interpolation, nearest neighbor resampling, and cubic
+convolution. DEM-derived factors were recalculated from each
+resampled DEM and aggregated to the same slope-unit layer.
+Pairwise Spearman distances of slope-unit mean factor values
+and RF-based performance–explainability metrics were then
+compared across the three resampling methods.
+2) Slope Unit Delineation: Slope units were delineated using
+the r.slopeunits tool and the related parameter-free slope-unit
+terrain-subdivision framework [54], [55]. To keep the mapping-
+unit framework consistent across all experiments, slope-unit
+delineation was performed using the 30 m DEM resampled from
+the original GF-7 dataset.
+The 30 m DEM was selected because it represents an in-
+termediate scale within the 1–90 m resolution series and pro-
+vides a practical balance between preserving drainage-divide
+terrain structure and avoiding excessive fragmentation [38].I n
+this study, the ﬁxed 30 m slope-unit conﬁguration was used
+as an experimental control rather than being interpreted as a
+universally optimal slope-unit scale. Although slope-unit scale
+can inﬂuence LSP [56], its systematic optimization is beyond
+the main scope of this study. The same slope-unit layer was
+therefore applied to all DEM resolutions. To examine whether
+this choice affected the main conclusions, an additional slope-
+unit sensitivity experiment using 10, 30, and 90 m slope-unit
+conﬁgurations was conducted and reported in Appendix E.
+3) Slope Unit Factor Integration: Slope units were used as
+the minimum spatial units for LSP . They represent terrain-based
+geomorphological units bounded by drainage and divide lines,
+and are more consistent with hillslope processes than indi-
+vidual raster pixels. This choice is consistent with previous
+studies showing that slope-unit-based frameworks can provide
+geomorphologically meaningful alternatives to pixel-based sus-
+ceptibility or hazard mapping, especially for ﬁrst-time failures
+or heterogeneous landslide inventories [57], [58]. Therefore,
+the modeling workﬂow was slope-unit-based rather than pixel-
+based.
+The ten DEM-derived raster factors were overlaid with the
+ﬁxed slope-unit polygons and summarized using zonal statistics
+in ArcGIS Pro. For each slope unit, the mean value of each factor
+was assigned to the slope-unit attribute table, so that each unit
+formed one modeling sample with a consistent terrain-attribute
+vector.
+Landslide labels were generated by spatially joining the in-
+ventory with the slope-unit layer. Units containing at least one
+mapped landslide were labeled as landslide-present, whereas
+units without mapped landslides were treated as candidate non-
+landslide units for subsequent sampling. These candidate units
+represent pseudoabsence rather than conﬁrmed stable samples,
+because unmapped or very small failures may still be present.
+B. AI Methods
+To evaluate LSP predictive performance under different DEM
+resolutions, four widely used machine learning models were
+selected, including LR, SVM, RF, and XGB. These models
+represent different learning paradigms, ranging from linear to
+nonlinear and from single-model to ensemble-based approaches,
+and have been extensively applied in landslide susceptibility
+studies [59], [60], [61].
+1) Logistic Regression: LR is a classical linear classiﬁcation
+model that estimates the probability of landslide occurrence
+using a logistic function [62]. It models the relationship between
+conditioning factors and the probability of landslide occurrence
+as
+ˆP= 11+e −z = ez1+e z (1)
+where ˆP denotes the probability of landslide occurrence, and
+z is a linear ﬁtting function of landslide-related conditioning
+variables, deﬁned as
+Z=b 0 +b 1X1 +b 2X2 +··· +b nXn (2)
+where b0 represents the intercept of the model, b1 to bn are the
+partial regression coefﬁcients, andX1 toXn denote the landslide
+conditioning variables.
+2) Support V ector Machine (SVM): SVM is a supervised
+learning model that seeks an optimal separating hyperplane
+by maximizing the margin between different classes. Through
+kernel functions, SVM can effectively handle nonlinear relation-
+ships between terrain factors and landslide occurrence [63].T h e
+optimization objective of SVM can be expressed as
+min
+w,b
+1
+2‖w‖2, s.t. yi(w⊤xi +b) ≥ 1 (3)
+where w denotes the normal vector of the separating hyperplane,
+b is the bias term, xi represents the input feature vector,yi is the
+class label, and m is the number of training samples.
+3) Random F orest (RF): RF is an ensemble learning method
+composed of multiple decision trees. In RF, each decision tree
+is trained using a bootstrap sample randomly drawn from the
+original training dataset. During the construction of each tree,
+a random subset of conditioning factors is selected at each split
+node, rather than using all available variables. The prediction of
+RF is obtained by aggregating the outputs of all individual trees,
+typically through majority voting for classiﬁcation or probability
+averaging. This procedure introduces randomness in both the
+sample space and the feature space, resulting in a collection of
+diverse decision trees [64].
+4) Extreme Gradient Boosting (XGB): XGB was adopted as
+an ensemble learning model for LSP . XGB extends traditional
+gradient boosting decision trees by incorporating a regulariza-
+tion term into the objective function, which helps control model
+complexity and prevent overﬁtting [65]. The objective function
+<<PAGE 6>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33751
+of XGB is deﬁned as
+obj(θ)=
+n∑
+i=1
+L(yi,ˆyi)+
+K∑
+k=1
+Ω(fk) (4)
+where the ﬁrst term represents the loss function measuring the
+discrepancy between the observed label yi and the predicted
+value ˆyi, and the second term denotes the regularization penalty
+that controls the complexity of K weak learners
+Ω(f)= γT + 12 λ‖w‖2 (5)
+where T is the number of leaf nodes in the tree, γ is a regular-
+ization parameter controlling the penalty on tree complexity, w
+denotes the vector of leaf node weights, and λ is a regularization
+coefﬁcient that penalizes large prediction scores.
+5) Performance Metrics: Model performance was evaluated
+using accuracy, area under the receiver operating characteristic
+curve (AUC), precision, recall, and F1-score.
+Accuracy = TP+ TNTP+ TN+ FP+ FN (6)
+AUC=
+∫ 1
+0
+TPR(t)dFPR(t)
+TPR(t)= TP(t)TP(t)+ FN(t)
+FPR(t)= FP(t)FP(t)+ TN(t) (7)
+Precision = TPTP+ FP (8)
+Recall = TPTP+ FN (9)
+F1 =2 × Precision× RecallPrecision+ Recall = 2TP2TP+ FP+ FN
+(10)
+where t denotes the classiﬁcation threshold for the model’s
+predicted probability. TP , FP , TN, and FN denote true positives,
+false positives, true negatives, and false negatives, respectively.
+C. XAI Methods
+1) SHapley Additive Explanations: To evaluate explanation
+reliability under different DEM resolutions, the SHAP frame-
+work was employed. SHAP quantiﬁes the contribution of each
+input feature to an individual model prediction by computing
+Shapley values derived from cooperative game theory, ensuring
+local accuracy and consistency of feature attributions [27].
+In our study, SHAP values were computed using model-
+speciﬁc explainers according to the underlying learning algo-
+rithm. For LR, a linear SHAP explainer was adopted. For SVM,
+which does not have a model-speciﬁc SHAP formulation under
+nonlinear kernel settings, a model-agnostic SHAP explainer was
+adopted. For tree-based models (RF and XGB), a TreeExplainer
+implemented with GPU acceleration was used to efﬁciently
+estimate SHAP values.
+For each random seed, the corresponding training subset was
+used as the SHAP background dataset, and SHAP values were
+computed for all testing samples. The featurewise mean of the
+training subset was used as the masking baseline in faithful-
+ness and related perturbation-based evaluations. The complete
+SHAP explainer settings and masking parameters are reported
+in Appendix Table IX.
+2) Explainability Metrics: To quantitatively assess model
+explainability, a set of SHAP-based evaluation metrics was
+employed. These metrics are independent of predictive perfor-
+mance and include faithfulness, stability, and consistency.
+Explanation quality is multifaceted and cannot be fully char-
+acterized by a single metric. Therefore, we treat the pro-
+posed metrics as complementary operational proxies rather
+than exhaustive deﬁnitions of explanation quality. Faithful-
+ness is aligned with perturbation/deletion-based ﬁdelity and
+inﬁdelity evaluation. Stability is aligned with perturbation-
+sensitivity evaluation. Geomorphic consistency is designed as an
+application-grounded domain-prior alignment metric for LSP .
+These metrics were developed based on established XAI eval-
+uation protocols [66], [67]. To further verify this, we conducted a
+deletion-based perturbation test, a masking-inﬁdelity alignment
+test, and a randomized-label sanity check for benchmark testing
+(see Appendix D). The proposed metrics should be interpreted as
+complementary operational proxies for explanation credibility
+rather than exhaustive deﬁnitions of explanation quality.
+Faithfulness evaluates whether the features identiﬁed as im-
+portant by SHAP are actually inﬂuential for the model output. It
+follows the logic of perturbation/deletion-based XAI evaluation,
+where important features are masked or perturbed and the result-
+ing model-output change is measured[68], [69], [70]. Therefore,
+faithfulness should be interpreted as model-behavior ﬁdelity
+rather than as a sufﬁcient condition for geomorphic correctness.
+It was evaluated by examining the relationship between fea-
+ture attributions and the corresponding changes in model output.
+For each sample i, the top-k features S(i)k were selected based
+on the magnitude of their SHAP values. The cumulative SHAP
+attribution was computed as
+A(i)k = ∑
+j∈S(i)k
+φ(i)j . (11)
+These features were then masked by replacing their values with
+baseline estimates derived from the training data, yielding a
+masked input x(i)\Sk . The corresponding change in model outputwas deﬁned as
+Δf (i)k = f(x(i))−f(x(i)\Sk) (12)
+where f(·) denotes the model prediction function. Faithfulness
+was quantiﬁed using the Pearson correlation coefﬁcient between
+{A(i)k } and{Δf (i)k } across all samples
+Fcorr(k)= Corr
+(
+{A(i)k }Ni=1,{Δf (i)k }Ni=1
+)
+. (13)
+Stability evaluates the perturbation sensitivity of SHAP attri-
+bution vectors. Following perturbation-based XAI evaluation,
+a more robust explanation should change only slightly when
+<<PAGE 7>>
+33752 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+the input is subjected to small perturbations that do not alter
+the physical meaning of the sample [68], [69], [70].I nt h i s
+study, Gaussian perturbations were added to DEM-derived con-
+ditioning factors, and the resulting changes in SHAP attribution
+vectors were measured. The reported Stability metric is an
+attribution-distance measure; therefore, smaller values indicate
+lower attribution sensitivity and stronger attribution stability.
+Importantly, Stability alone does not imply geomorphic or causal
+correctness, because coarse DEMs may produce stable attribu-
+tions by suppressing high-frequency terrain variability rather
+than by providing more reliable geomorphological reasoning.
+For each testing sample x(i), a set of perturbed samples x(i,t)
+was generated by adding Gaussian noise scaled according to the
+featurewise standard deviation of the training dataset. SHAP
+values were recomputed for each perturbed sample, and the
+deviation between SHAP vectors was measured as
+D(i,t) = ‖‖‖φ(i,t) − φ(i)‖‖‖
+2
+(14)
+where φ(i) and φ(i,t) denote the SHAP vectors of the original
+and perturbed samples, respectively. The stability for each sam-
+ple was deﬁned as the maximum deviation over all perturbations
+S(i)max =m a xt D(i,t) (15)
+and the overall stability metric was obtained by averaging across
+all samples
+Smax = 1N
+N∑
+i=1
+S(i)max. (16)
+In the main experiments, each testing sample was perturbed
+ten times using Gaussian noise scaled by the featurewise stan-
+dard deviation of the training subset, with the default noise
+scale set to 0.05. Therefore, for feature j, the perturbation
+noise was sampled from N(0,(0.05σj)2), where σj denotes
+the standard deviation of feature j in the training subset. The
+attribution-distance calculation used the L2 norm. Additional
+noise-scale sensitivity tests using 0.02, 0.04, 0.06, 0.08, and 0.10
+are reported in Appendix B.
+Consistency is deﬁned here as geomorphic consistency, which
+evaluates whether SHAP attribution directions agree with em-
+pirical geomorphic priors for factor–landslide response relation-
+ships [71] (see Appendix C). This metric does not assess the
+absolute or causal correctness of SHAP explanations. Instead,
+it measures domain-prior alignment by comparing intervalwise
+attribution directions with expected response signs derived from
+intervalwise landslide-rate patterns. Therefore, it should be in-
+terpreted as an application-grounded diagnostic for LSP rather
+than a complete measure of explanation quality.
+For each conditioning factor j and interval s, the Pearson
+correlation coefﬁcient between feature values and their corre-
+sponding SHAP values was computed as
+cj,s = Corr
+(
+{x(i)j }i∈Bj,s,{φ(i)j }i∈Bj,s
+)
+(17)
+where Bj,s denotes the set of samples belonging to interval s.
+The observed correlation sign is compared with the expected
+sign, and a ternary consistency index is assigned based on a
+thresholdε close to zero. The consistency score for featurej was
+calculated as the average consistency across all valid intervals
+Ij,s =
+⎧
+⎪⎪⎨
+⎪⎪⎩
++1,c j,s >ε
+−1,c j,s < −ε
+0, |cj,s|≤ ε
+(18)
+Cj = 1|Sj| ∑s∈Sj Ij,s (19)
+and an overall consistency metric was obtained by averaging
+across all conditioning factors
+Cmean = 1M
+M∑
+j=1
+Cj (20)
+whereM denotes the number of conditioning factors.
+D. Experimental Settings
+All modeling samples were deﬁned at the slope-unit level.
+Slope units containing at least one mapped landslide were re-
+tained as landslide-present samples, whereas slope units without
+mapped landslides were regarded as candidate nonlandslide
+samples. For each random seed, nonlandslide samples were
+randomly selected without replacement from the candidate pool
+to match the number of landslide-present samples, producing
+a balanced binary dataset with a 1:1 class ratio. No additional
+spatial declustering was applied in the main experiments; inven-
+tory clustering was treated as an invariant background condition
+because the same inventory and sampling protocol were used
+across all DEM-resolution experiments.
+For each seed, the balanced dataset was divided into
+training, validation, and testing subsets using a stratiﬁed
+60%/20%/20% split. Stratiﬁcation preserved the 1:1 class ratio
+in each subset. The same seed-speciﬁc sample selection and
+train/validation/test split were shared by all four models and all
+DEM-resolution experiments, so that differences among models
+and DEM resolutions were not introduced by inconsistent sam-
+pling or data partitioning. The testing subset was used only for
+reporting predictive performance and SHAP-based explainabil-
+ity metrics.
+All experiments were repeated using ten random seeds to
+reduce dependence on a single nonlandslide selection or data
+partition. The reported metrics are the mean values across the
+ten repetitions, and the corresponding standard deviations de-
+scribe variability associated with nonlandslide sampling, dataset
+partitioning, and model training stochasticity.
+The main experimental design is summarized here, while
+implementation-level settings are provided in Appendix G.A p -
+pendix Tables VII–X report the sample construction strategy,
+train/validation/test split, random-seed protocol, SHAP back-
+ground dataset, masking baseline, stability perturbation settings,
+geomorphic consistency priors, and model-speciﬁc hyperpa-
+rameter search spaces. Hyperparameter search was conducted
+before the repeated evaluation experiments; the ﬁnal repeated
+<<PAGE 8>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33753
+Fig. 3. Performance comparison of models at different DEM resolutions. Each subplot ﬁxes one GF-7 DEM resolution (1, 5, 10, 12.5, 30, and 90 m). The rada r
+axes report accuracy, AUC, precision, recall, and F1-score, and the colored polygons denote LR, SVM, XGBoost, and RF. V alues are averaged over ten ran dom
+seeds, and the radial error bars indicate standard deviation. For each axis, the ﬁlled marker and bold label indicate the best model at that resolution, while the hollow
+marker and gray label indicate the worst model.
+experiments used the selected GridSearch parameter presets
+rather than rerunning GridSearch for every seed.
+IV . RESULTS
+To ensure comparability, all reported metrics are averaged
+over ten random seeds. The corresponding standard deviations
+are shown as error bars where applicable. The speciﬁc val-
+ues for all evaluation metrics are presented in tabular form in
+Appendix A. Below, we present the results from the perspectives
+of performance and explainability.
+We ﬁrst evaluate how DEM resolution affects predictive
+performance, and then examine whether the same resolution
+dependence propagates into explainability.
+A. Performance Comparison
+Fig. 3 illustrates how DEM resolution drives performance
+shifts across the four models. A progressive coarsening
+from 1 to 90 m generally leads to a resolution-induced
+degradation in predictive capability. This resolution effect is
+model-dependent: RF and XGB show comparatively limited
+shrinkage, maintaining relatively stable AUC (RF largely within
+73.48% ± 3.07%–76.34% ± 2.45%; XGB largely within
+73.23% ± 3.58%–75.41% ± 2.63%) and F1-score levels (RF
+around 69.76% ± 3.38% to 72.11% ± 2.81%; XGB around
+68%–71%). In contrast, LR and SVM exhibit a much stronger
+resolution sensitivity, with the most pronounced polygon shrink-
+age occurring at 90 m, reﬂecting substantial reductions in
+AUC and F1 relative to ﬁner resolutions. The resolution-driven
+changes are also metric-speciﬁc: Precision varies less with res-
+olution, and at several intermediate/coarse scales (5, 10, and
+90 m) XGB slightly exceeds RF by less than 1%. However, the
+overall multimetric comparison still indicates that coarse DEMs
+exert a numerically larger negative impact on the performance
+of simpler models (LR/SVM) compared with tree-ensemble
+models (RF/XGB).
+This pattern is consistent with common LSP observations
+that tree ensembles often achieve stronger and more consistent
+benchmark performance under complex and scale-varying ter-
+rain signals [72], [73], [74].
+Having established the model-dependent sensitivity to DEM
+coarsening, we next identify which DEM resolutions are prefer-
+able when the model is ﬁxed. Fig. 4 emphasizes which DEM
+resolutions are preferable by ﬁxing the model and sweep-
+ing the DEM scale. For LR, 1 m achieves the best accu-
+racy/precision/recall/F1 (63.92% ± 1.86%, 62.08% ± 2.64%,
+<<PAGE 9>>
+33754 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+Fig. 4. Performance comparison of DEM resolution across different models. Each subplot ﬁxes one model (LR, SVM, RF, and XGBoost) and compares six
+GF-7 DEM resolutions (1, 5, 10, 12.5, 30, and 90 m) over accuracy, AUC, precision, recall, and F1-score. Bar heights denote the mean over ten random seed sa n d
+the error bars indicate standard deviation. Filled triangles and their colors mark the resolution with the best performance for each metric across al l models, while
+hollow triangles denote the resolution with the worst performance.
+68.63% ± 4.65%, and 65.11% ± 2.65%), while AUC peaks
+slightly at 10 m (68.58%± 1.78%); by contrast, 90 m yields uni-
+formly lower values across all ﬁve metrics (accuracy 60.93% ±
+2.10%, AUC 65.52% ± 2.22%, Precision 60.09% ± 2.37%,
+Recall 61.02% ± 4.76%, and F1 60.50% ± 3.25%). For
+SVM, 1 m provides the best Accuracy/Recall/F1 (64.08% ±
+2.56%, 74.87% ± 5.35%, and 67.15% ± 3.19%), whereas
+AUC/Precision peak at 5 m (69.18% ± 1.94% and 61.13% ±
+3.03%); again, 90 m gives the lowest overall proﬁle (60.96% ±
+2.47%, 66.12% ± 2.14%, 60.30% ± 2.79%, 59.66% ± 7.39%,
+and 59.84% ± 4.86%). For the tree-ensemble models, the
+preference for ﬁne DEMs is most consistent: RF attains the
+best Accuracy/AUC/Precision/F1 at 1 m (70.14% ± 2.81%,
+76.34%± 2.45%, 66.72%± 3.33%, and 72.11%± 2.81%) with
+Recall slightly peaking at 5 m (79.08% ± 2.77%), while XGB
+peaks at 1 m for Accuracy/AUC/Precision/F1 (68.68%± 2.41%,
+75.41%± 2.63%, 65.88%± 2.86%, and 70.24%± 2.77%) and
+at 10 m for Recall (75.39% ± 3.64%). Overall, these results
+suggest that 1 m is the most consistently favorable resolution
+across models and metrics, with 5–10 m serving as competitive
+alternatives for AUC/Recall in some cases, whereas 90 m is
+systematically inferior across the ﬁve performance metrics.
+In practical landslide susceptibility mapping, reporting only
+classiﬁcation performance is often insufﬁcient for spatial man-
+agement decisions. Decision makers care more about covering
+as many true landslides as possible within the smallest possi-
+ble delineated unstable area. Therefore, we used the predicted
+probability for each slope unit from each model. We divided
+the study area into ﬁve risk classes with an interval width of
+0.2. The classes are V eryLow (0–0.2), Low (0.2–0.4), Moderate
+(0.40.6), High (0.6–0.8), and V eryHigh (0.8–1.0)[75], [76].W e
+then computed the coverage of true landslides in the High and
+V eryHigh zones[77].
+Fig. 5 compares mapping efﬁciency across the four models
+under different DEM resolutions. Overall, tree-ensemble models
+show the most stable spatial focusing on high-risk zones. For
+the High zone indicator, RF remains the best at all resolutions,
+at about 2.79–2.99. Its value decreases only slightly as the
+DEM becomes coarser. XGB is lower but still clearly better
+than SVM and LR, at about 2.31–2.46 versus 1.76–1.90. For
+the stricter V eryHigh zone indicator, the differences become
+larger. RF is about 6.14–6.27. This is much higher than XGB
+at about 3.08–3.24 and SVM and LR at about 1.77–2.67. RF is
+also nearly unchanged across resolutions, at about 6.24–6.27. In
+contrast, LR and SVM reach relatively high values at medium
+resolutions, but drop clearly at 90 m. This suggests that linear
+and kernel methods have more difﬁculty maintaining effective
+focus on very-high-risk zones at very coarse scales. Overall,
+these results indicate that RF, followed by XGB, tends to con-
+centrate true landslides into smaller unstable areas. This better
+matches engineering-oriented zoning objectives. V ery coarse
+DEMs weaken this spatial focusing ability, but the impact is
+milder for tree-ensemble models.
+B. Explainability Comparison
+We next examine whether this resolution preference persists
+when moving from predictive performance to explainability.
+Fig. 6 illustrates how DEM resolution drives explainability
+shifts across the four models. Overall, explainability is relatively
+more stable to DEM coarsening, but the resolution effect remains
+metric dependent. For faithfulness (F), LR, SVM, and RF are
+consistently saturated at 100.00% ± 0.00% across all resolu-
+tions, while XGB remains slightly lower yet stable at 96.90% ±
+0.34%–97.38% ± 0.33%. In contrast, consistency (C) and sta-
+bility (S; lower is more stable) exhibit clearer resolution-driven
+variations. RF maintains the highest C across all resolutions,
+peaking at 79.17% ± 5.71% at 5 m and decreasing toward
+70.17% ± 5.55% at 90 m. LR and SVM show lower C overall
+and their minima occur at 30m (LR: 45.33% ± 8.23%; SVM:
+<<PAGE 10>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33755
+Fig. 5. Mapping comparison of four models (LR, SVM, XGB, and RF) across GF-7 DEM resolutions (1, 5, 10, 12.5, 30, and 90 m). The top panel ( High_presence)
+shows, for landslide presence cells (Presence =1), the proportion of area predicted as high-risk (0.6–0.8) and very-high-risk (0.8–1.0). The bottom panel
+(V eryHigh_presence) shows the proportion of presence cells predicted as very-high-risk (0.8–1.0). Annotated values indicate the corresponding scores at each
+resolution.
+41.33%± 6.75%), while both recover to their highest C at 90m
+(LR: 62.33% ± 5.16%; SVM: 57.33% ± 8.76%). For Stability,
+the most stable explanations (smallest S) occur at 90m for LR and
+SVM (LR: 0.0227 ±0.0063; SVM: 0.1012 ± 0.0396), whereas
+RF is most stable at 30m (0.0365± 0.0034), and XGB improves
+monotonically toward 90 m (0.3743 ±0.0272). Overall, Fig. 6
+indicates that DEM resolution mainly inﬂuences explainability
+through C and S rather than F, and RF provides consistently
+more reliable explanations (higher C and generally low S) across
+resolutions.
+To make the resolution preference explicit for each model,
+we next ﬁx the model and compare resolutions directly.
+Fig. 7 emphasizes which DEM resolutions are preferable
+in terms of explainability by ﬁxing the model and sweep-
+ing the DEM scale (note that a smaller stability value in-
+dicates more stable explanations). For LR, faithfulness re-
+mains invariant across all resolutions (100.00% ± 0.00%),
+while consistency peaks at 90 m (62.33% ± 5.16%) and
+reaches its minimum at 30 m (45.33% ± 8.23%); correspond-
+ingly, stability is best at 90 m (0.0227 ±0.0063) and worst
+at 12.5 m (0.0481 ±0.0067). For SVM, faithfulness is also
+resolution-insensitive (100.00%± 0.00%), whereas consistency
+is highest at 90 m (57.33% ± 8.76%) and lowest at 30 m
+(41.33%± 6.75%); likewise, stability is best at 90 m (0.1010 ±
+0.0394) and worst at 30 m (0.1671 ± 0.0307). For the tree-
+ensemble models, the preferable resolutions become metric-
+dependent: RF keeps faithfulness at 100.00%± 0.00% across all
+scales, attains the highest consistency at 5 m (79.17%± 5.71%),
+and achieves the best stability at 30 m (0.0365 ± 0.0034); in
+contrast, XGB shows its highest faithfulness at 90 m (97.38%±
+0.33%), its highest consistency at 30 m (66.00% ± 6.61%),
+and its best stability at 90 m (0.3743 ± 0.0272). Additional
+Gaussian noise-scale tests were conducted to examine changes
+in the Stability metric, as detailed in Appendix B. Overall, these
+results suggest that Faithfulness is largely resolution-insensitive,
+and 90 m is the most consistently favorable resolution for Sta-
+bility across all models, whereas consistency is maximized at
+ﬁner-to-intermediate scales (5 m for RF and 30 m for XGB,
+while LR/SVM peak at 90 m), implying that the preferable
+DEM resolution for explainability depends on whether stability
+or consistency is prioritized.
+Beyond aggregated explainability metrics, we further in-
+spect whether DEM resolution changes what the models con-
+sider important, using SHAP feature importance. Fig. 8 com-
+pares SHAP-based feature importance patterns across models
+at each DEM resolution. At ﬁne-to-intermediate resolutions
+(1–30 m), LR and SVM are consistently dominated by slope
+(top-1), followed by RDL and TRI (top-2/3), whereas the tree
+<<PAGE 11>>
+33756 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+Fig. 6. Explainability comparison of models at different DEM resolutions. Each subplot ﬁxes one GF-7 DEM resolution (1, 5, 10, 12.5, 30, and 90 m). The r adar
+axes report faithfulness (F, %), stability (S; lower is better), and consistency (C, %), and the colored polygons denote LR, SVM, XGBoost, and RF. V alu es are
+averaged over ten random seeds, and the radial error bars indicate standard deviation. For each axis, the ﬁlled marker and bold label indicate the best model at that
+resolution (maximum for F/C and minimum for S), while the hollow marker and gray label indicate the worst model.
+Fig. 7. Explainability comparison of DEM resolution across different models. Each subplot ﬁxes one model (LR, SVM, RF, and XGBoost) and compares six
+GF-7 DEM resolutions (1, 5, 10, 12.5, 30, and 90 m) over faithfulness (F, %), consistency (C, %), and stability (S; raw, lower is better). Bar heights den ote the
+mean over ten random seeds and the error bars indicate standard deviation. The left y-axis is used for F/C, while the right y-axis is used for S. Filled triangles
+and their colors mark the resolution with the best explainability for each metric across all models (maximum for F/C and minimum for S), while hollow tr iangles
+denote the resolution with the worst explainability.
+<<PAGE 12>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33757
+Fig. 8. Feature importance comparison of models at different DEM resolutions. Each subplot ﬁxes one GF-7 DEM resolution (1, 5, 10, 12.5, 30, and 90 m) an d
+compares global SHAP feature importance among LR, SVM, RF, and XGB. Cell colors represent the mean absolute SHAP importance (%) of each conditioning
+factor averaged over ten random seeds, with a shared color scale across panels. Symbols indicate rank within each model column: open triangle (top-1) , open circle
+(top-2), and short dash (top-3), with the adjacent numbers (1–3) denoting the rank.
+ensembles distribute importance more evenly, typically sharing
+dominance between slope and elevation with CV remaining
+among the top contributors. In contrast, at 90 m, the attribution
+structure of LR/SVM shifts markedly: TRI becomes the top
+driver and slope drops out of the leading position, indicating
+a strong resolution-induced change in the apparent controlling
+factors for simpler models. Across all resolutions and models,
+curvature-related variables (curvature, proﬁle/plane curvature)
+remain consistently low-ranked, suggesting limited explanatory
+contribution under this DEM-only factor setting. Overall, Fig. 8
+shows that DEM coarsening mainly affects feature-importance
+structure through a resolution-driven reranking that is strongest
+for LR/SVM and comparatively muted for RF/XGB.
+While Fig. 8 highlights cross-model differences at a ﬁxed res-
+olution, we next isolate the resolution effect within each model.
+Fig. 9 further emphasizes how DEM resolution alters feature
+importance by ﬁxing the model and sweeping the DEM scale.
+For LR, slope strengthens from 1–30 m (about 43%→50%) but
+collapses at 90 m (9%), where TRI becomes the top feature
+(26%), indicating a resolution-driven switch in the dominant
+factor. For SVM, a similar pattern is observed: slope peaks at
+30 m (47%), while 90 m shifts dominance to TRI (29%) with
+slope reduced to 17%. In contrast, RF shows higher attribu-
+tion stability across resolutions: elevation remains consistently
+top-ranked (about 19–22%) and CV stays near 16%, while
+slope gradually weakens toward 90 m (down to 7%) without
+a complete driver replacement. XGB exhibits a similarly stable
+structure, with elevation staying dominant (about 19%–22%)
+and only moderate redistribution among slope, RDL, and TRI
+as resolution coarsens. Overall, Fig. 9 indicates that 90 m
+produces the largest resolution-induced reranking in feature
+importance (especially for LR/SVM), whereas 1–30 m pre-
+serve more consistent attribution structures, particularly for tree
+ensembles.
+Taken together, the performance and explainability results
+reveal a resolution-dependent performance–explanation mis-
+match: DEM resolution affects not only how well models predict
+landslides, but also how they attribute predictions to terrain fac-
+tors. This empirical mismatch motivates the joint performance–
+explanation tradeoff analysis in the next section.
+C. Tradeoff Between Performance and Explainability
+To synthesize the preceding results, RF was selected as
+the representative model for the performance–explainability
+tradeoff analysis. This choice was based on its strong pre-
+dictive performance, stable mapping efﬁciency, and consis-
+tently high SHAP-based geomorphic consistency in the previous
+<<PAGE 13>>
+33758 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+Fig. 9. Feature importance comparison of DEM resolution across different models. Each subplot ﬁxes one model (LR, SVM, RF, and XGB) and compares six
+GF-7 DEM resolutions (1, 5, 10, 12.5, 30, and 90 m). Cell colors represent the mean absolute SHAP importance (%) of each conditioning factor averaged ov er
+ten random seeds, with a shared color scale across panels. Symbols indicate rank within each resolution: open triangle (top-1), open circle (top-2), and short dash
+(top-3), with the adjacent numbers (1–3) denoting the rank.
+comparisons. Therefore, the RF-based synthesis should be
+interpreted as a representative best-performing case rather than
+a replacement for the cross-model analyses. If a resolution-
+dependent mismatch remains visible for RF, the mismatch can-
+not be attributed only to the instability of weaker models.
+Fig. 10 compares the normalized trajectories of three pre-
+dictive performance metrics and three explanation indicators
+across the six DEM resolutions. The normalization was used
+only for visual comparison among metrics with different units
+and directions. It does not deﬁne a weighted joint score or a
+mathematically optimized optimum. The raw mean and standard
+deviation values are reported in Appendix A.
+The upper row of Fig. 10 shows a clear performance-oriented
+preference for ﬁne DEMs. Accuracy, AUC, and F1-score reach
+their highest normalized values at 1 m and generally decrease
+as DEM resolution becomes coarser. Although the decline is
+not strictly monotonic for every metric, the 90 m DEM consis-
+tently lies near the low-performance end. This indicates that, for
+RF, ﬁne-resolution terrain information provides useful discrim-
+inative signals for separating landslide-present and candidate
+nonlandslide slope units.
+The lower row of Fig. 10 shows that the explanation
+indicators do not follow the same resolution trajectory.
+Faithfulness remains effectively invariant across all DEM res-
+olutions, indicating that this metric is not sensitive to DEM
+resolution for RF under the present masking baseline. The
+resolution-sensitive explanation information is therefore mainly
+provided by stability and geomorphic consistency. Geomorphic
+consistency reaches its highest value at 5 m, whereas attribu-
+tion stability reaches its strongest value at 30 m after reverse
+normalization. Thus, the 1 m DEM, although optimal for pre-
+dictive performance, is not simultaneously optimal for the two
+resolution-sensitive explanation indicators.
+This empirical mismatch leads to the central practical
+tradeoff shown by Fig. 10. Finer DEMs improve RF predictive
+performance, but this improvement does not translate into
+a synchronous improvement in SHAP-based explanation
+reliability. Conversely, the resolutions that improve stability or
+geomorphic consistency do not provide the strongest predictive
+performance. Therefore, no single DEM resolution dominates
+all performance and explanation criteria in the RF case. DEM
+resolution should be treated as an objective-dependent tradeoff
+<<PAGE 14>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33759
+Fig. 10. Resolution-dependent variation of predictive performance and explainability metrics for the RF model. The upper row shows the normalized p redictive
+performance metrics, including accuracy, AUC, and F1-score. The lower row shows the normalized explainability metrics, including faithfulness, s tability, and
+consistency. For each metric, values were normalized to the range of 0–1 within the RF model across the six DEM resolutions. Stability was reverse-nor malized
+so that higher values indicate stronger explanation stability.
+rather than being guided by the assumption that ﬁner resolution
+is always preferable. Prediction-oriented applications may
+prioritize ﬁne-resolution DEMs, whereas studies emphasizing
+explanation reliability should additionally examine explanation
+reliability before selecting a DEM resolution.
+V. D ISCUSSION
+AI has been rapidly integrated into geohazard modeling [8],
+[13], [14]. This process has often been guided by the common
+heuristic that higher spatial resolution necessarily leads to better
+predictive performance [34], [35]. Our results do not simply
+reject the predictive value of ﬁne-resolution terrain data; rather,
+they show that this heuristic is incomplete when explanation reli-
+ability is also considered. Under the controlled DEM-resolution
+experiment, ﬁner DEMs generally improved predictive perfor-
+mance and zoning efﬁciency, but the same resolutions did not
+consistently produce more stable or geomorphologically con-
+sistent SHAP explanations. Conversely, coarser DEMs could
+reduce attribution sensitivity through spatial smoothing, but
+this apparent stability may be accompanied by shifts in the
+geomorphic information used by the models. Therefore, the
+central implication is that DEM resolution should be treated as an
+objective-dependent tradeoff: prediction-oriented applications
+may beneﬁt from ﬁne-resolution DEMs, whereas applications
+requiring defensible explanations should jointly evaluate pre-
+dictive performance and explanation reliability.
+A. Spatial Resolution Paradox: Performance V ersus
+Explainability
+The results reveal a clear divergence between predictive per-
+formance and SHAP-based explanation reliability. Fine DEMs,
+especially the 1 m DEM, generally produce the strongest clas-
+siﬁcation performance and the sharpest delineation of high-
+susceptibility zones. However, this predictive advantage does
+not translate into a synchronous improvement in all explanation
+indicators. Faithfulness remains almost invariant across DEM
+resolutions, indicating that this metric is not the main source
+of the observed performance–explanation mismatch under the
+present masking baseline. The resolution-sensitive part of ex-
+planation reliability is instead expressed mainly through attri-
+bution stability, geomorphic consistency, and resolution-driven
+feature-importance drift.
+At ﬁne resolution, DEM-derived factors preserve local terrain
+conditions associated with rainfall-induced shallow landslides,
+such as steep hillslope gradients and small-scale terrain vari-
+ation. These ﬁne-scale signals can improve class separability
+and mapping efﬁciency. At the same time, ultra-ﬁne DEMs may
+also retain high-frequency components caused by small surface
+irregularities, vegetation effects, human modiﬁcations, or local
+DEM artifacts (see Fig. 11) [37], [78], [79]. These components
+can increase the sensitivity of SHAP attribution vectors to small
+input perturbations. Therefore, the reduced stability observed
+at ﬁne resolutions should be interpreted as increased attribution
+<<PAGE 15>>
+33760 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+Fig. 11. Illustration of how DEM spatial resolution alters terrain detail and effective noise. The same area is shown using three DEM resolutions (lef t: 1 m;
+middle: 30 m; right: 90 m; derived by resampling a 1 m elevation source). Colors represent elevation (red = higher, green = lower), and axes are longitude and
+latitude.
+sensitivity, not simply as evidence that ﬁne-scale terrain infor-
+mation is irrelevant or erroneous. Physically meaningful micro-
+topography and weakly relevant high-frequency variability may
+coexist in ultra-ﬁne DEM-derived predictors.
+At coarser resolutions, spatial aggregation acts as a low-pass
+ﬁlter by smoothing terrain variability and reducing local per-
+turbability [80]. This helps explain why attribution stability often
+improves toward the coarse end of the resolution sequence,
+although the most stable resolution is model-dependent. LR,
+SVM, and XGB show their strongest or progressively improved
+stability at 90 m, whereas RF reaches its strongest stability
+at 30 m. This pattern indicates that coarse DEMs can reduce
+attribution sensitivity, but such stability should not be interpreted
+as direct evidence of more reliable geomorphological reasoning.
+Geomorphic consistency provides a complementary perspec-
+tive. Unlike stability, which evaluates perturbation sensitivity,
+geomorphic consistency evaluates whether attribution directions
+agree with empirical geomorphic priors. The results show that
+consistency is also resolution- and model-dependent: RF reaches
+its highest consistency at 5 m, XGB at 30 m, whereas LR and
+SVM reach their highest consistency at 90 m. This conﬁrms
+that explanation reliability cannot be represented by stability
+alone. Moreover, high consistency at coarse resolution should
+still be interpreted together with feature-importance structure.
+At 90 m, LR and SVM show a marked attribution shift from
+local slope-related information toward TRI, suggesting that the
+model explanation may become more stable while relying on a
+different, broader terrain descriptor.
+This is the spatial-resolution paradox observed in this
+study. Fine DEMs improve predictive performance by pre-
+serving discriminative terrain detail, but they can increase
+attribution sensitivity. Coarse DEMs can stabilize SHAP attribu-
+tions through terrain smoothing, but this stability may coincide
+with simpliﬁed or shifted geomorphic information. Faithfulness
+remains largely insensitive to DEM resolution, so it does not
+resolve this tradeoff. Therefore, explanation reliability should
+be interpreted jointly through faithfulness, stability, geomorphic
+consistency, and feature-importance drift rather than through any
+single metric. The geomorphological meaning of the observed
+attribution drift is examined in the next section in relation to
+rainfall-induced shallow-slope failure mechanics.
+It should be emphasized that the mechanisms discussed
+here are interpretations of empirical patterns rather than direct
+causal proof. The experiments show that DEM coarsening is
+associated with lower predictive performance, lower attribu-
+tion sensitivity in several cases, and resolution-dependent shifts
+in SHAP feature importance. The low-pass ﬁltering effect,
+microtopographic-noise explanation, and different responses of
+linear, kernel-based, and tree-ensemble models provide plausi-
+ble interpretations of these patterns, but they do not demonstrate
+a complete physical causal pathway. Therefore, the discussion
+distinguishes between observed empirical regularities and their
+geomorphological or algorithmic interpretation.
+B. Geomorphological Grounding of Resolution-Driven
+Attribution Drift
+The resolution-driven changes in SHAP feature importance
+should be interpreted in relation to the dominant slope-process
+mechanics of rainfall-induced shallow landslides. In the present
+study area, the mapped failures are mainly shallow landslides
+triggered by short-duration, high-intensity rainfall under thin
+soil-cover conditions. Under such conditions, local slope gra-
+dient is expected to be a ﬁrst-order terrain control because it is
+directly related to gravitational driving stress, runoff concentra-
+tion, and shallow slope-failure thresholds [20], [26], [77].H y -
+drological and local-shape variables, such as TWI and curvature-
+related factors, may further reﬂect local water accumulation and
+hillslope morphology. By contrast, RDL, TRI, CV , elevation,
+and aspect are better interpreted as broader terrain-context or
+roughness descriptors rather than direct substitutes for local
+slope-failure mechanisms [81].
+<<PAGE 16>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33761
+From this perspective, the attribution structures observed
+at ﬁne-to-intermediate resolutions are more consistent with
+shallow-slope failure mechanics. As shown in Figs. 8 and 9,
+LR and SVM are mainly dominated by slope from 1 to 30 m,
+with RDL and TRI acting as secondary relief or roughness
+descriptors. This suggests that, when DEM resolution is ﬁne
+enough to preserve hillslope-scale gradients, the models still rely
+primarily on local slope-process information. For RF and XGB,
+feature importance is more distributed among elevation, slope,
+CV , RDL, and TRI, indicating that tree-ensemble models may
+capture nonlinear combinations between local gradient, terrain
+dissection, and broader geomorphic context.
+The attribution pattern at 90 m requires more caution. For
+LR and SVM, the dominant feature shifts from slope to TRI,
+while the contribution of slope decreases sharply (see Fig. 9).
+This shift should not be interpreted as evidence that macroscale
+roughness is physically more important than local slope for
+shallow landslide initiation. One plausible interpretation is that
+DEM coarsening may smooth local gradient information and
+lead simpler models to rely more strongly on broader roughness
+proxies. Therefore, the higher attribution stability observed at
+coarse resolution does not necessarily imply stronger geomor-
+phological credibility. Instead, it may reﬂect a scale-induced
+simpliﬁcation of terrain representation. Taken together, these
+observations suggest that attribution drift is not only a statistical
+pattern, but may also reﬂect changes in the type of geomorphic
+information used by the models under the tested setting.
+C. Why Does a Coarser DEM Reduce Performance but
+Sometimes Improve Explainability?
+The following interpretation is based on comparative empiri-
+cal patterns rather than direct causal evidence of terrain-process
+mechanisms. From a terrain-information perspective, DEM res-
+olution can be interpreted as inﬂuencing the frequency-band cov-
+erage of geomorphic signals[82]. Fine resolution preserves more
+high-frequency microtopographic details. Coarse resolution can
+be conceptually understood as applying a stronger low-pass
+ﬁltering effect to the terrain surface. For LSP , this change may
+propagate through DEM-derived factors. It can affect slope, cur-
+vature, wetness indices, roughness, and related variables. Their
+statistical distributions, local gradients, and second-derivative
+structures all show resolution-dependent variations (see Fig.12).
+The overall decline in performance at coarser resolutions sug-
+gests that, in our study area, ﬁne-scale terrain variability still pro-
+vides information gain for separating unstable and stable slope
+units under rainfall-induced shallow landslide mechanisms. This
+aligns with the intuition that higher resolution can help. At
+the same time, our results show model-dependent empirical
+differences. Tree-ensemble models, including RF and XGB,
+degrade more slowly as resolution becomes coarser. Linear
+and kernel-based methods, including LR and SVM, are more
+sensitive. This suggests that signal loss at coarser resolution
+is not only noise reduction. It also changes class separability
+and feature interaction patterns. One possible explanation is
+that tree models are better suited to representing geomorphic
+processes with nonlinear thresholds, interactions, and piecewise
+responses [64], [83]. This may help them retain more stable
+discriminative ability under scale changes. In contrast, LR and
+SVM may rely more on direct separating boundaries. They
+may therefore be more affected by distribution shifts caused by
+changes in scale, especially when kernel parameters and sample
+splits vary across repeated trials [84].
+In contrast to performance, SHAP stability is often better
+at coarser resolution. This reﬂects a key but often overlooked
+point. Stability depends on both the model and the perturbability
+and local smoothness of the input signal [85], [86]. When the
+DEM is coarser, local variability and high-frequency ﬂuctu-
+ations in derived factors tend to be suppressed. Under input
+perturbations of the same normalized magnitude, the response
+in the model-output space is more likely to be smooth and
+approximately linear. This may lead to smaller shifts in SHAP
+attribution vectors. In other words, coarse resolution is not
+necessarily more physically realistic. However, it may produce
+more stable attributions because it can weaken the ampliﬁcation
+of ﬁne-scale noise and local discontinuities in explanations[82],
+[85], [87].
+This provides an AI-based interpretation of the resolution
+paradox in geoscience. Microtopographic details can reﬂect
+real process signals, but they can also represent measurement
+errors, object artifacts, or high-frequency structures that are
+weakly related to landslide mechanisms. Models may not reli-
+ably separate these components a priori during learning. There-
+fore, under the tested setting, the beneﬁts of high-resolution
+data can be accompanied by the cost of reduced explanation
+stability.
+The additional resampling-method sensitivity analysis in
+Appendix F further suggests that interpolation artifacts may
+affect local numerical values of curvature-derived factors, but
+they did not substantially alter the RF-based performance, SHAP
+stability, consistency, or dominant Top-3 SHAP factors under the
+tested setting.
+D. Inﬂuence of the Fixed Slope-Unit Framework
+The ﬁxed 30 m slope-unit framework is an experimental
+control rather than a claim that 30 m is the optimal mapping-unit
+scale. This design helps isolate the effect of DEM resolution
+by preventing the mapping units, landslide labels, and sample
+deﬁnitions from changing simultaneously with raster resolution.
+However, it may also partially anchor the analysis to an inter-
+mediate terrain-partition scale. For very ﬁne DEMs, slope-unit
+aggregation may suppress part of the pixel-level terrain vari-
+ability; for very coarse DEMs, several DEM cells may represent
+the internal terrain structure of one slope unit only coarsely.
+Therefore, the reported resolution-dependent tradeoff should be
+interpreted within this ﬁxed slope-unit modeling framework.
+The additional slope-unit sensitivity analysis in Appendix E
+indicates that the main performance–explanation mismatch re-
+mains visible under representative 10, 30, and 90 m slope-unit
+conﬁgurations. This suggests that the mismatch is not solely
+caused by the 30 m slope-unit choice. Nevertheless, the exact
+numerical values of performance and SHAP-based explainabil-
+ity metrics may vary with slope-unit scale. Future studies should
+<<PAGE 17>>
+33762 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+Fig. 12. Kernel density distributions of DEM-derived terrain factors across spatial resolutions. Kernel density estimates of DEM-derived terrain factors computed
+from multiple DEM resolutions (1, 5, 10, 12.5, 30, and 90 m). Each panel corresponds to one factor (elevation, slope, aspect, curvature, plan/proﬁle curvature, TWI,
+RDL, TRI, and CV), and colors indicate different resolutions. Dashed vertical lines mark the median value for each resolution to highlight resolutio n-dependent
+shifts in central tendency and distribution shape.
+<<PAGE 18>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33763
+jointly examine DEM resolution and mapping-unit scale when
+the objective is to identify an application-speciﬁc optimal terrain
+representation.
+E. Implications for DEM-Resolution Selection in Trustworthy
+AI
+These ﬁndings challenge the common “ﬁner is better” view in
+geospatial AI. If the primary objective is predictive discrimina-
+tion or emergency-oriented susceptibility mapping, then using a
+ﬁne-resolution DEM can be advantageous because it preserves
+terrain details that improve model separability. However, when
+the objective also includes explanation reliability, geomorpho-
+logical interpretability, or defensible decision support, DEM
+resolution cannot be selected solely according to predictive
+accuracy [21], [26].
+The results show that ﬁner DEMs and stronger predictive
+performance do not necessarily correspond to more reliable
+explanations. Explanation metrics respond to DEM resolution
+in a metric-speciﬁc manner, and stable attributions at coarser
+resolutions may partly result from spatial smoothing rather
+than more physically meaningful reasoning. Therefore, DEM
+resolution should be treated as a modeling design parameter
+rather than a universally optimized input setting. Researchers
+should explicitly evaluate whether the selected DEM resolution
+supports the intended balance between predictive performance
+and explanation reliability.
+F . Limitations and Transferability
+Several limitations should be considered when transferring
+the ﬁndings to other regions or modeling tasks. First, the land-
+slide inventory used here is an event-based inventory of visually
+detectable rainfall-induced shallow landslides. The conclusions
+may differ for deep-seated landslides, rockfalls, debris ﬂows,
+or multitemporal inventories. Second, the predictor set was
+intentionally restricted to DEM-derived factors to isolate DEM-
+resolution effects. In operational LSP , lithology, rainfall, vege-
+tation, land use, faults, roads, and human activity may interact
+with DEM resolution and alter both performance and SHAP
+explanations. Third, nonlandslide samples were constructed as
+pseudoabsence samples, and the spatial clustering of landslides
+was treated as an invariant background condition rather than
+fully declustered. These choices support controlled comparison
+across DEM resolutions, but they limit direct claims about abso-
+lute model generalization. Future work should test the proposed
+framework using independent event inventories, spatial-block
+validation, density-stratiﬁed sampling, and multisource condi-
+tioning factors.
+G. Broader Implications for Geospatial AI
+The implications of this mismatch extend beyond landslide
+susceptibility. Remote sensing is advancing rapidly, and sub-
+meter global terrain data are becoming more common [88],
+[89], [90]. Earth science will soon face a ﬂood of ultra-high-
+resolution data. Our study offers an important warning. Feeding
+high-ﬁdelity data into closed-box algorithms does not automat-
+ically produce more reliable science. Trustworthy AI for Earth
+systems requires more than single-dimensional performance
+metrics. Future research frameworks should jointly optimize
+predictive performance and explanation reliability. This will
+ensure that AI not only gives the correct answer, but also does
+so for the correct physical reasons.
+VI. C ONCLUSION
+Earth observation and terrain data are now widely available.
+LSP often assumes that ﬁner resolution is always better. Our
+study examined whether ﬁner DEM resolution necessarily im-
+proves AI-based LSP from both predictive performance and
+explanation reliability. To isolate DEM-resolution effects, all
+DEMs were derived from the same 1 m GF-7 source, while
+slope-unit conﬁguration, landslide labels, and DEM-derived
+predictor types were kept consistent across experiments. We
+further developed a SHAP-based evaluation framework inte-
+grating faithfulness, stability, and geomorphic consistency, so
+that explanation reliability can be evaluated quantitatively rather
+than inferred only from feature-importance rankings. Additional
+slope-unit and resampling-method sensitivity analyses indicate
+that the main performance–explanation mismatch is not solely
+an artifact of the ﬁxed 30 m slope-unit conﬁguration or bilinear
+resampling.
+Three main ﬁndings emerge as follows.
+1) Predictive performance was generally stronger at ﬁner
+DEM resolutions. Across LR, SVM, RF, and XGBoost
+under repeated random seeds, the 1 m DEM was the
+most consistently favorable resolution for classiﬁcation
+performance and mapping efﬁciency, whereas the 90 m
+DEM generally showed the weakest predictive perfor-
+mance. This pattern was especially clear for tree-ensemble
+models, although some metric-speciﬁc optima occurred at
+5–10 m for individual models.
+2) Explanation reliability did not improve synchronously
+with predictive performance. Faithfulness was largely
+insensitive to DEM resolution, whereas stability and
+geomorphic consistency showed clear scale- and model-
+dependent responses. This indicates that predictive met-
+rics alone cannot determine whether a DEM resolution
+provides reliable model explanations.
+3) Coarser DEMs often reduced attribution sensitivity,
+but more stable attributions did not necessarily imply
+stronger geomorphological credibility. At 90 m, LR and
+SVM showed a pronounced attribution shift from slope-
+dominated patterns toward broader roughness proxies,
+such as TRI, which may weaken the link between model
+reasoning and rainfall-induced shallow-slope failure me-
+chanics. By contrast, tree ensembles, particularly RF,
+showed less abrupt attribution reranking and maintained
+comparatively higher geomorphic consistency across
+resolutions.
+Together, these ﬁndings reveal a performance–explanation
+mismatch that leads to an objective-dependent DEM-resolution
+tradeoff in AI-based LSP . Finer DEMs can improve class sep-
+arability and zoning efﬁciency by preserving discriminative
+terrain detail, but this predictive gain does not necessarily lead
+to more stable or geomorphologically consistent explanations.
+<<PAGE 19>>
+33764 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+Conversely, coarser DEMs can stabilize SHAP attributions
+through terrain smoothing, but they may also simplify or shift
+the geomorphic information used by the models. Therefore, no
+single DEM resolution dominates all performance and explana-
+tion criteria. DEM resolution should be treated as an explicit,
+objective-dependent modeling design parameter rather than as
+a one-directional “ﬁner is better” setting. For the present study
+area and DEM-only predictor set, prediction-oriented applica-
+tions may beneﬁt from ﬁne-resolution DEMs, whereas appli-
+cations emphasizing defensible explanation should jointly ex-
+amine predictive performance and explanation reliability before
+selecting a DEM resolution.
+These conclusions are bounded by the event-based landslide
+inventory, the DEM-only predictor set, and the tested slope-
+unit framework. Future work should extend this framework to
+multisource predictors, including lithology, land use, rainfall,
+vegetation, and human activities, and should test its transfer-
+ability across different climatic regions, landslide types, and
+mapping-unit schemes. Spatially uneven landslide distribution
+and inventory-density clustering should also be examined ex-
+plicitly using spatial declustering, density-stratiﬁed sampling,
+spatial-block validation, or independent event inventories. These
+steps are needed to support trustworthy geospatial AI for risk
+reduction and spatial planning.
+APPENDIX A
+COMPARISON OF GRID PARAMETERIZA TIONRESULTS FOR
+DEMSO F DIFFERENT RESOLUTIONS
+Table II reports a sensitivity analysis of the DEM resolution
+used for hyperparameter GridSearch. In each block, GridSearch
+was performed using one DEM resolution, namely, 1, 5, 10, 12.5,
+30, or 90 m. The selected parameter preset was then applied to all
+six evaluated DEM-resolution datasets under the same sampling
+and evaluation protocol. Therefore, the column “GridSearch”
+denotes the DEM resolution used for hyperparameter selection,
+whereas the column “DEM” denotes the DEM resolution of the
+evaluated input dataset.
+The results indicate that the main predictive patterns are not
+driven by the speciﬁc DEM resolution used for GridSearch.
+Across the GridSearch settings, RF and XGB generally retain
+higher accuracy, AUC, and F1-score than LR and SVM, and
+predictive performance usually decreases toward the 90 m DEM
+within each model. Although the exact numerical values vary
+among GridSearch settings, the broad model ranking and the
+ﬁne-to-coarse performance tendency are not reversed.
+The explainability metrics show a more metric-dependent
+response. Faithfulness is nearly invariant for LR, SVM, and RF,
+and remains only slightly lower for XGB. In contrast, stability
+and geomorphic consistency vary with both the GridSearch
+setting and the evaluated DEM resolution, especially for LR and
+SVM. Therefore, Table II should not be interpreted as evidence
+that all explainability metrics are numerically stable. Rather,
+it shows that the overall performance–explanation mismatch
+remains visible under alternative GridSearch presets, while
+speciﬁc explainability values remain sensitive to model type,
+DEM resolution, and hyperparameter setting.
+For the main-text analyses, the GS30 M parameter preset was
+used as a representative implementation setting. This choice is
+consistent with the ﬁxed 30 m slope-unit delineation and avoids
+repeatedly presenting highly similar performance tables. The
+complete GridSearch-sensitivity results are retained here for re-
+producibility and to document that the main conclusions are not
+an artifact of using a single hyperparameter-tuning resolution.
+APPENDIX B
+COMPARISON OF ST ABILITYRESULTS FOR DEMS UNDER
+DIFFERENT NOISE CONDITIONS
+Fig. 13 reveals a consistent monotonic increase in the metric
+with increasing noise for all models and DEM resolutions,
+but with pronounced differences in response amplitude, slope,
+and curvature across model families. LR and SVM exhibit
+near-linear trajectories over the tested noise interval, implying a
+stable, approximately proportional propagation of perturbation
+into model outputs. The stronger slope of SVM relative to
+LR indicates a systematically higher sensitivity to noise. In
+contrast, RF shows the smallest dynamic range and the weakest
+resolution-dependent separation, supporting the interpretation
+that RF has lower attribution sensitivity to noise and is less
+sensitive to changes in DEM spatial resolution under the tested
+conditions. XGB displays the highest overall metric values and
+a nonlinear response characterized by rapid growth at low noise
+and attenuated increases at higher noise, suggesting a threshold-
+like sensitivity at low perturbation levels followed by partial
+saturation.
+Notably, the resolution effect is not uniform across models.
+For LR and SVM, GF-7 DEM 90 m is consistently lower
+than ﬁner resolution DEMs, indicating that coarser inputs may
+dampen the transmission of perturbation effects in these models.
+By contrast, RF curves are tightly clustered across resolutions,
+implying weak resolution dependence. For XGB, resolution
+primarily shifts the vertical level of the response (with ﬁner reso-
+lution DEMs generally yielding higher values), while preserving
+a similar curve shape, indicating that nonlinearity is an intrinsic
+property of the model response rather than a resolution-induced
+artifact. Taken together, these results show that the stability
+response is model-dependent and does not vary consistently
+with the performance metrics across DEM resolutions, further
+supporting the observed performance–explainability mismatch.
+APPENDIX C
+LANDSLIDE RAT EWITHIN FACTOR CLASSIFICA TIONINTERV ALS
+To operationalize the Consistency metric deﬁned in
+Section III-C, we do not assign the expected attribution di-
+rections heuristically. Instead, the expected sign constraints are
+derived from the empirical landslide rate computed within fac-
+tor classiﬁcation intervals. For each DEM-derived conditioning
+factor, its values are classiﬁed into ten intervals using Jenks
+natural breaks, and the landslide rate is calculated as the ratio of
+landslide-presence samples within each interval. Fig. 14 sum-
+marizes the interval-based landslide-rate curves for all ten fac-
+tors, which provide an empirical description of factor–landslide
+responses in the study area.
+<<PAGE 20>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33765
+TABLE II
+RESULTS UNDER OPTIMAL MODEL PARAMETERS AFTER GRID PARAMETER TUNING ACROSS DEM RESOLUTIONS
+<<PAGE 21>>
+33766 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+TABLE II
+(CONTINUED.)
+<<PAGE 22>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33767
+TABLE II
+(CONTINUED.)
+<<PAGE 23>>
+33768 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+TABLE II
+(CONTINUED.)
+<<PAGE 24>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33769
+TABLE II
+(CONTINUED.)
+<<PAGE 25>>
+33770 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+TABLE II
+(CONTINUED.)
+<<PAGE 26>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33771
+Fig. 13. Stability curves of four models across DEM resolutions as a function of noise.
+TABLE III
+CORE XAI BENCHMARK INDICA TORSUSED FOR VALIDA TINGSHAP-BASED EXPLANA TIONMETRICS
+Based on these curves, we deﬁne an intervalwise expected
+sign map to evaluate whether SHAP attributions align with
+the observed response trend. During consistency evaluation,
+for each factor and each interval, we compute the Pearson
+correlation between factor values and their SHAP values within
+that interval, and compare the observed correlation sign with
+the expected sign. If the correlation magnitude is below a
+small threshold ε, then the attribution direction is treated
+as indistinguishable from zero and is assigned 0; other-
+wise it is assigned +1 or −1. The factor-level consis-
+tency is obtained by averaging the intervalwise matches,
+and the overall consistency score is the average across all
+factors.
+To accommodate nonmonotonic responses, the intervalwise
+expected sign map allows piecewise speciﬁcations across
+intervals. For instance, elevation exhibits an increasing landslide
+rate in lower-to-middle intervals but a decreasing trend in
+higher intervals, hence a positive expected sign is assigned
+for the former and a negative sign for the latter. Similarly,
+aspect is speciﬁed with piecewise signs to reﬂect its directional
+heterogeneity. In contrast, factors showing near-monotonic
+trends (e.g., Slope, TRI, and RDL) are assigned a global
+expected sign. This design ensures that consistency quantiﬁes
+whether model attributions follow empirically observed,
+interval-dependent geomorphic responses rather than enforcing
+a global linear assumption.
+<<PAGE 27>>
+33772 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+Fig. 14. Landslide rate within factor classiﬁcation intervals.
+<<PAGE 28>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33773
+TABLE IV
+XAI BENCHMARK VALIDA TIONRESULTS AND ADJACENT INTERMETRIC RELA TIONSUNDER GRID PARAMETER TUNING ACROSS DEM RESOLUTIONS
+APPENDIX D
+BENCHMARK VALIDA TION OFSHAP-BASED EXPLAINABILITY
+METRICS
+To further verify whether the proposed SHAP-based ex-
+plainability metrics reﬂect meaningful explanation credibility
+rather than arbitrary attribution patterns, we conducted addi-
+tional benchmark analyses following established XAI evalua-
+tion protocols. These analyses were designed to complement
+the faithfulness, stability, and geomorphic consistency metrics
+deﬁned in Section III-C. Speciﬁcally, the deletion-based pertur-
+bation test and the masking-inﬁdelity alignment test were used to
+examine model-output faithfulness, while the randomized-label
+sanity check was used to assess whether geomorphic consis-
+tency depends on meaningful terrain–landslide relationships.
+The ﬁrst two benchmarks are related to perturbation-based
+XAI evaluation, but they assess model-output faithfulness rather
+than attribution stability. Stability is directly examined through
+the Gaussian noise-scale sensitivity analysis reported in Ap-
+pendix B.
+For the deletion-based benchmark, the top-3 features were
+selected according to the absolute SHAP values of each testing
+sample. These features were masked by replacing their values
+with baseline estimates derived from the training data. The
+resulting output change was then compared with two baselines:
+randomly selected three features and bottom-ranked three fea-
+tures. The three deletion indicators are deﬁned as
+Dtop3 =
+⏐⏐f(x)−f(x\Stop3)⏐⏐ (21)
+Drandom3 =
+⏐⏐f(x)−f(x\Srandom3)⏐⏐ (22)
+Dbottom3 =
+⏐⏐f(x)−f(x\Sbottom3)⏐⏐ (23)
+<<PAGE 29>>
+33774 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+TABLE IV
+(CONTINUED.)
+where Stop3, Srandom3, and Sbottom3 denote the top-ranked, ran-
+domly selected, and bottom-ranked feature subsets, respectively.
+A valid explanation is expected to satisfy
+Dtop3 >D random3 >D bottom3. (24)
+This design follows the logic of perturbation/deletion-based
+XAI evaluation, in which features identiﬁed as important by
+an explanation method should cause larger changes in model
+output when removed or masked.
+For the masking-inﬁdelity benchmark, we further measured
+the alignment between the summed SHAP attribution of a feature
+subset and the actual model-output change caused by mask-
+ing that subset. Instead of using only the raw inﬁdelity error,
+we report the correlation between attribution sums and output
+changes
+Rsubset = Corr
+⎛
+⎝ ∑
+j∈Ssubset
+φj,f (x)−f(x\Ssubset)
+⎞
+⎠ (25)
+whereSsubset can beStop3,Srandom3,o rSbottom3. This correlation-
+based form is more appropriate here because the absolute inﬁ-
+delity error is affected by the magnitude of the output perturba-
+tion. A reliable attribution pattern is expected to show
+Rtop3 >R random3 >R bottom3. (26)
+For the randomized-label sanity check, we destroyed the
+empirical terrain–landslide relationship by randomly shufﬂing
+the training labels and retraining the same model type. SHAP
+values and geomorphic consistency were then recalculated for
+<<PAGE 30>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33775
+TABLE IV
+(CONTINUED.)
+the randomized-label model. The sanity score was deﬁned as
+SANITY = Cmean −Crandommean (27)
+where Cmean is the geomorphic consistency of the origi-
+nal model, and Crandommean is the geomorphic consistency of
+the randomized-label model. A positive SANITY value indi-
+cates that geomorphic consistency decreases after the terrain–
+landslide relationship is disrupted, suggesting that the metric
+does not merely reﬂect random noise or arbitrary attribution
+patterns.
+Table III summarizes the benchmark indicators used in this
+appendix. These indicators mainly validate the faithfulness and
+geomorphic consistency components of the proposed frame-
+work. The deletion-based indicators evaluate whether SHAP-
+ranked important features are more inﬂuential to model outputs
+than random or low-ranked features. The inﬁdelity-alignment
+indicators evaluate whether attribution sums are consistent
+with actual output changes. The SANITY indicator evaluates
+whether geomorphic consistency decreases when the training
+labels are randomized. Stability is evaluated separately through
+the independent noise-scale sensitivity experiment reported in
+Appendix B.
+Table IV lists the complete benchmark results under differ-
+ent parameter settings. The benchmark results show that the
+deletion-based evaluation generally supports the faithfulness
+metric. Across most parameter settings, masking the top-3
+SHAP-ranked features produced larger output changes than
+masking randomly selected or bottom-ranked features. This
+pattern was especially clear for RF and XGB, indicating that the
+features identiﬁed as important by SHAP were indeed inﬂuential
+<<PAGE 31>>
+33776 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+TABLE IV
+(CONTINUED.)
+for model predictions. The bottom-ranked features consistently
+produced the smallest output changes, which further supports
+the ranking validity of SHAP attributions.
+The masking-inﬁdelity benchmark provides additional evi-
+dence for attribution–output alignment. The correlation between
+SHAP attribution sums and actual output changes was consis-
+tently higher for top-3 features than for bottom-ranked features.
+For tree-based models, especially RF and XGB, the expected
+orderingRtop3 >R random3 >R bottom3 was clearly observed. This
+indicates that SHAP attributions are not only large in magnitude
+for important features, but also aligned with the actual changes
+in model output induced by feature masking. Therefore, the
+proposed faithfulness metric is supported by both deletion-based
+perturbation and masking-inﬁdelity evaluation.
+The randomized-label sanity check shows that geomorphic
+consistency is more informative for nonlinear tree-based models
+than for linear or kernel-based models. For RF and XGB, the
+SANITY value was clearly positive, indicating that geomor-
+phic consistency decreased after the terrain–landslide relation-
+ship was disrupted by label randomization. This result sug-
+gests that the consistency metric captures meaningful alignment
+with empirical geomorphic priors rather than simply reﬂecting
+noise ampliﬁcation. In contrast, LR and SVM showed weaker
+reductions in geomorphic consistency after label randomiza-
+tion. This indicates that geomorphic consistency should not be
+interpreted in isolation, especially for simpler models. Instead,
+it should be considered together with predictive performance,
+model capacity, and attribution stability.
+<<PAGE 32>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33777
+TABLE IV
+(CONTINUED.)
+Overall, these benchmark analyses support the use of the
+proposed SHAP-based metrics as complementary operational
+proxies for explanation credibility. The deletion-based and
+masking-inﬁdelity benchmarks provide evidence for model-
+output faithfulness, while the randomized-label sanity check
+provides additional support for the geomorphic relevance of
+the consistency metric, particularly in tree-based models. To-
+gether with the noise-scale sensitivity analysis of stability in
+Appendix B, these results indicate that the proposed framework
+captures different aspects of explanation reliability rather than
+a single notion of explanation quality. At the same time, no
+individual metric should be interpreted as independent proof
+of explanation correctness. Faithfulness can remain high even
+when geomorphic alignment is weak, and Stability can im-
+prove under coarse DEM resolutions because spatial smoothing
+suppresses high-frequency variability. Therefore, faithfulness,
+stability, and geomorphic consistency should be interpreted
+jointly as a multidimensional evaluation framework.
+APPENDIX E
+SENSITIVITY OF DEM-RESOLUTION EFFECTS TO SLOPE-UNIT
+CONFIGURA TION
+To examine whether the ﬁxed 30 m slope-unit conﬁguration
+affected the main conclusions, we conducted a representative
+slope-unit sensitivity experiment. In addition to the original 30 m
+slope-unit layer, two alternative slope-unit conﬁgurations were
+generated from the 10 and 90 m DEMs, respectively. These three
+conﬁgurations represent ﬁne-, intermediate-, and coarse-scale
+slope-unit settings. For each slope-unit conﬁguration, the full
+<<PAGE 33>>
+33778 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+TABLE IV
+(CONTINUED.)
+DEM-resolution sequence from 1 to 90 m was evaluated, in-
+cluding 1, 5, 10, 12.5, 30, and 90 m DEMs. For each DEM
+resolution under each slope-unit conﬁguration, DEM-derived
+conditioning factors were reintegrated into slope units using the
+same zonal-statistics procedure, landslide labels were reassigned
+at the slope-unit level, and the same sampling, training, and
+evaluation workﬂow was repeated.
+RF was used as the representative model because it showed
+the best predictive performance and explanation reliabil-
+ity in the main experiments. To match the corresponding
+slope-unit scales, the 10MSU, 30MSU, and 90MSU experiments
+were evaluated under the GS1M, GS5M, GS10M, GS12.5M,
+GS30M, and GS90M parameter settings, respectively. There-
+fore, this sensitivity analysis covers three slope-unit conﬁgu-
+rations and six DEM resolutions for each conﬁguration, while
+only the key RF results are reported to avoid redundant pre-
+sentation. The normalized mismatch patterns are shown in
+Fig. 15, and the corresponding metric values are reported in
+Table V.
+The results show that slope-unit conﬁguration affects the ab-
+solute values of model performance and explainability metrics,
+conﬁrming that mapping-unit scale is not a neutral modeling
+choice. However, the main DEM-resolution-dependent patterns
+remain consistent across the representative ﬁne-, intermediate-,
+<<PAGE 34>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33779
+Fig. 15. Sensitivity comparison of RF results under representative slope-unit conﬁgurations.
+and coarse-scale slope-unit conﬁgurations. In all three conﬁg-
+urations, RF achieves its best accuracy, AUC, and F1-score
+at the 1 m DEM. AUC decreases from 73.29% to 72.11%
+under 10MSU-GS10M, from 76.34% to 73.48% under 30MSU-
+GS30M, and from 73.06% to 70.56% under 90MSU-GS90M
+when the DEM resolution changes from 1 to 90 m. F1-score
+shows a similar overall decline from ﬁne to coarse DEM
+resolutions.
+The explainability metrics also support the main conclusion.
+Faithfulness remains unchanged at 100.00% across all DEM
+resolutions and slope-unit conﬁgurations, indicating that this
+metric is insensitive to the tested slope-unit settings for RF.
+Stability, in contrast, generally improves under coarser terrain
+representation, although the best resolution differs slightly
+among slope-unit conﬁgurations. The best stability occurs at
+90 m under 10MSU-GS10M, at 30 m under 30MSU-GS30M,
+and at 90 m under 90MSU-GS90M. Consistency also varies with
+slope-unit conﬁguration, with the best value occurring at 30 m
+under 10MSU-GS10M, 5 m under 30MSU-GS30M, and 30 m
+under 90MSU-GS90M. Notably, under the 30MSU-GS30M
+setting, although the highest consistency is obtained at 5 m,
+the values at 10 and 12.5 m are also higher than that at
+1 m. This indicates that the consistency advantage under the
+intermediate 30MSU conﬁguration is not limited to a single 5 m
+<<PAGE 35>>
+33780 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+TABLE V
+SENSITIVITY COMPARISON OF RF RESULTS UNDER REPRESENTA TIVESLOPE-UNIT CONFIGURA TIONS
+resolution, but is also observed at nearby intermediate DEM
+resolutions.
+Overall, this sensitivity experiment indicates that the ﬁxed
+30 m slope-unit conﬁguration may inﬂuence the magnitude of
+the reported metrics, but it does not overturn the main conclusion
+of this study: DEM resolution affects predictive performance
+and explanation reliability in different ways. The additional
+10MSU and 90MSU experiments show that this conclusion is
+not dependent on the original 30MSU setting.
+APPENDIX F
+SENSITIVITY OF DEM-DERIVED FACTORS AND MODEL
+RESULTS TO RESAMPLING METHOD
+To address the potential inﬂuence of DEM resampling ar-
+tifacts, we conducted an additional sensitivity analysis using
+three commonly used resampling methods: bilinear interpo-
+lation, nearest neighbor resampling, and cubic convolution.
+The analysis was performed under the ﬁxed 30MSU slope-unit
+conﬁguration. For factor-level comparison, all DEM-derived
+factors were recalculated from the resampled GF-7 DEMs and
+aggregated to the slope-unit level. Pairwise Spearman distances
+were computed between slope-unit mean factor values from
+different resampling methods, deﬁned as D =( 1−ρ)×104,
+where ρ is the Spearman rank correlation coefﬁcient. A larger
+value indicates greater sensitivity of the corresponding factor to
+the resampling method.
+As shown in Fig. 16, ﬁrst-order and relief-based terrain fac-
+tors, such as elevation, slope, RDL, TRI, and CV , show very
+small pairwise Spearman distances across resampling methods.
+In contrast, curvature-derived factors, including curvature, pro-
+ﬁle curvature, and plane curvature, exhibit larger differences,
+<<PAGE 36>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33781
+Fig. 16. Pairwise Spearman-distance heatmaps of slope-unit mean factors under different DEM resampling methods.
+TABLE VI
+SENSITIVITY COMPARISON OF RF RESULTS UNDER DIFFERENT DEM RESAMPLING METHODS
+<<PAGE 37>>
+33782 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+TABLE VII
+GENERAL EXPERIMENTAL AND SAMPLING SETTINGS USED IN THE IMPLEMENTA TION
+TABLE VIII
+MODEL-SPECIFIC HYPERPARAMETER SEARCH SPACES FOR LR, SVM, RF, AND XGB
+especially when NEAREST is compared with BILINEAR or
+CUBIC. This result is expected because curvature-related vari-
+ables depend on second-order elevation derivatives and are
+therefore more sensitive to local interpolation or sampling
+artifacts. However, BILINEAR and CUBIC remain highly con-
+sistent for most factors, indicating that the main bilinear-based
+preprocessing workﬂow is not strongly divergent from another
+continuous-surface interpolation method.
+Table VI further show’s that these factor-level differences
+do not substantially alter model results. Across BILINEAR,
+NEAREST, and CUBIC, Accuracy, AUC, F1-score, Faithful-
+ness, Stability, and Consistency remain highly similar under the
+GS30M parameter setting and ﬁxed 30MSU slope-unit conﬁgu-
+ration. The dominant Top-3 SHAP factors are also stable across
+resampling methods. For example, the 30 m DEM consistently
+identiﬁes elevation, CV , and slope as the three most important
+factors, while the 90 m DEM consistently identiﬁes elevation,
+CV , and TRI. These results indicate that resampling artifacts may
+inﬂuence local numerical values of curvature-derived variables,
+but they do not reverse the main mismatch between predictive
+performance and explanation reliability observed in this study.
+APPENDIX G
+IMPLEMENTA TIONDETAILS
+Appendix Tables VII and VIII summarize the random-
+seed protocol, slope-unit and DEM-resolution settings, pos-
+itive/negative sample construction, train/validation/test split,
+SHAP background dataset, masking baseline, perturbation set-
+tings for stability, geomorphic consistency priors, optional XAI
+benchmark settings, and model-speciﬁc hyperparameter search
+spaces.
+<<PAGE 38>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33783
+TABLE IX
+SHAP , EXPLAINABILITY-METRIC, AND OPTIONAL XAI-BENCHMARK SETTINGS
+TABLE X
+GEOMORPHIC CONSISTENCY PRIOR SIGNS UNDER 10MSU, 30MSU, AND 90MSU SLOPE-UNIT CONFIGURA TIONS
+<<PAGE 39>>
+33784 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+All tables and ﬁgures in this appendix are reported as re-
+producibility and sensitivity-supporting materials; they do not
+change the main experimental design or the interpretation of the
+results in the main text.
+ACKNOWLEDGMENT
+The authors would like to thank the editors and anonymous
+reviewers for their valuable comments on this manuscript.
+REFERENCES
+[1] R. Emberson, D. Kirschbaum, and T. Stanley, “Global connections be-
+tween el nino and landslide impacts,” Nature Commun. , vol. 12, no. 1,
+2021, Art. no. 2262.
+[2] Z. Zhang et al., “Landslide hazard cascades can trigger earthquakes,”
+Nature Commun., vol. 15, no. 1, 2024, Art. no. 2878.
+[3] A. M. Nemnem, A. H. Tanim, A. Nahian, S. Khan, E. Goharian, and J.
+Imran, “How extreme rainfall and failing dams unleashed the derna ﬂood
+disaster,” Nature Commun., vol. 16, no. 1, 2025, Art. no. 4191.
+[4] S. L. Gariano and F. Guzzetti, “Landslides in a changing climate,” Earth-
+Sci. Rev., vol. 162, pp. 227–252, 2016.
+[5] S. Fidan, H. Tanya¸ s, A. Akba¸ s, L. Lombardo, D. N. Petley, and T.
+Görüm, “Understanding fatal landslides at global scales: A summary of
+topographic, climatic, and anthropogenic perspectives,” Natural Hazards,
+vol. 120, no. 7, pp. 6437–6455, 2024.
+[6] I. Alcántara-Ayala, “Landslides in a changing world,” Landslides, vol. 22,
+no. 9, pp. 2851–2865, 2025.
+[7] A. C. Mondini, F. Guzzetti, and M. Melillo, “Deep learning forecast of
+rainfall-induced shallow landslides,”Nature Commun., vol. 14, no. 1, 2023,
+Art. no. 2466.
+[8] S. Zhao, Z. Chen, Z. Xiong, Y . Shi, S. Saha, and X. X. Zhu, “Beyond
+grid data: Exploring graph neural networks for Earth observation,” IEEE
+Geosci. Remote Sens. Mag. , vol. 13, no. 1, pp. 175–208, Mar. 2025.
+[9] A. Segalini, A. V alletta, and A. Carri, “Landslide time-of-failure forecast
+and alert threshold assessment: A generalized criterion,” Eng. Geol. ,
+vol. 245, pp. 72–80, 2018.
+[10] H. Cui, J. Ji, M. Hürlimann, and V . Medina, “Probabilistic and physically-
+based modelling of rainfall-induced landslide susceptibility using inte-
+grated GIS-form algorithm,” Landslides, vol. 21, no. 6, pp. 1461–1481,
+2024.
+[11] Z. Chen, Y . Liu, and H. Sun, “Physics-informed learning of governing
+equations from scarce data,” Nature Commun., vol. 12, no. 1, 2021, Art.
+no. 6136.
+[12] M. Reichstein et al., “Deep learning and process understanding for data-
+driven Earth system science,” Nature, vol. 566, no. 7743, pp. 195–204,
+2019.
+[13] M. Chen et al., “Collaboration between AI and Earth science communities
+for mutual beneﬁt,” Nature Geosci., vol. 17, no. 10, pp. 949–952, 2024.
+[14] D. Koldasbayeva, P . Tregubova, M. Gasanov, A. Zaytsev, A. Petrovskaia,
+and E. Burnaev, “Challenges in data-driven geospatial modeling for envi-
+ronmental research and practice,” Nature Commun., vol. 15, no. 1, 2024,
+Art. no. 10700.
+[15] A. Merghadi et al., “Machine learning methods for landslide susceptibility
+studies: A comparative overview of algorithm performance,” Earth- Sci.
+Rev., vol. 207, 2020, Art. no. 103225.
+[16] A. Dikshit, B. Pradhan, and A. M. Alamri, “Pathways and challenges of the
+application of artiﬁcial intelligence to geohazards modelling,” Gondwana
+Res., vol. 100, pp. 290–301, 2021.
+[17] A. Dahal and L. Lombardo, “Explainable artiﬁcial intelligence in geo-
+science: A glimpse into the future of landslide susceptibility modeling,”
+Comput. Geosciences, vol. 176, 2023, Art. no. 105364.
+[18] J. S. Dramsch et al., “Explainability can foster trust in artiﬁcial intelligence
+in geoscience,” Nature Geosci., vol. 18, no. 2, pp. 112–114, 2025.
+[19] J. Schiller, S. Stiller, and M. Ryo, “Artiﬁcial intelligence in environmental
+and Earth system sciences: Explainability and trustworthiness,” Artif.
+Intell. Rev., vol. 58, no. 10, 2025, Art. no. 316.
+[20] P . Reichenbach, M. Rossi, B. D. Malamud, M. Mihir, and F. Guzzetti, “A
+review of statistically-based landslide susceptibility models,” Earth- Sci.
+Rev., vol. 180, pp. 60–91, 2018.
+[21] E. Desjardins, M. V an De Wiel, and Y . Rousseau, “Predicting, explain-
+ing and exploring with computer simulations in ﬂuvial geomorphology,”
+Earth- Sci. Rev., vol. 209, 2020, Art. no. 102654.
+[22] H. A. Al-Najjar, B. Pradhan, G. Beydoun, R. Sarkar, H.-J. Park, and A.
+Alamri, “A novel method using explainable artiﬁcial intelligence (XAI)-
+based Shapley Additive Explanations for spatial landslide prediction using
+time-series SAR dataset,” Gondwana Res., vol. 123, pp. 107–124, 2023.
+[23] Y . He, M. Ding, Y . Duan, H. Zheng, J. Wu, and L. Feng, “Exploring
+the dynamic impact of urbanization on landslide susceptibility in Sichuan
+province using an explainable XGBoost model,” Eng. Geol. , vol. 357,
+2025, Art. no. 108372.
+[24] S. Ma, X. Shao, R. Y uan, and C. Xu, “Interpretable susceptibility assess-
+ment of coseismic landslides using a superposable neural network,”J. Rock
+Mechan. Geotechnical Eng., vol. 18, 2025, Art. no. S1674775525005451.
+[25] M. Utthasini et al., “Enhancing landslide susceptibility mapping in the
+himalayas: Geospatial and machine learning with explainable AI (XAI),”
+Gondwana Res., vol. 149, pp. 262–290, 2026.
+[26] L. Lombardo, T. Opitz, F. Ardizzone, F. Guzzetti, and R. Huser, “Space-
+time landslide predictive modelling,” Earth- Sci. Rev., vol. 209, 2020, Art.
+no. 103318.
+[27] S. Lundberg and S.-I. Lee, “A uniﬁed approach to interpreting model
+predictions,” in Proc. 31st Int. Conf. Neural Inf. Process. Syst. , 2017,
+pp. 4768–4777.
+[28] B. Pradhan, A. Dikshit, S. Lee, and H. Kim, “An explainable AI (XAI)
+model for landslide susceptibility modeling,”Appl. Soft Comput., vol. 142,
+2023, Art. no. 110324.
+[29] I. E. Kumar, S. V enkatasubramanian, C. Scheidegger, and S. Friedler,
+“Problems with Shapley-value-based explanations as feature importance
+measures,” in Proc. 37th Int. Conf. Mach. Learn. , 2020, pp. 5491–5500.
+[30] Y . Chen, R. Calabrese, and B. Martin-Barragan, “Interpretable machine
+learning for imbalanced credit scoring datasets,” Eur . J. Oper . Res. ,
+vol. 312, no. 1, pp. 357–372, 2024.
+[31] E. A. Abdellaoui Alaoui, H. Sahlaoui, A. Sallah, and A. Nayyar, “DE-
+SHAP: A meta-optimization framework leveraging differential evolution
+for efﬁcient and scalable kernel shap explanations,” Inf. Sci. , vol. 739,
+2026, Art. no. 123128.
+[32] A. Trigila, C. Iadanza, and D. Spizzichino, “Quality assessment of the
+Italian landslide inventory using GIS processing,”Landslides, vol. 7, no. 4,
+pp. 455–470, 2010.
+[33] M. Alvioli et al., “A benchmark dataset and workﬂow for landslide
+susceptibility zonation,” Earth- Sci. Rev., vol. 258, 2024, Art. no. 104927.
+[34] S. Saksena and V . Merwade, “Incorporating the effect of DEM resolution
+and accuracy for improved ﬂood inundation mapping,”J. Hydrol., vol. 530,
+pp. 180–194, 2015.
+[35] X. Zhou, L. Mou, T. Ao, X. Huang, and H. Y ang, “Effect of the spatial
+resolution of digital terrain data obtained by drone on urban ﬂuvial ﬂood
+modeling of mountainous regions,” Hydrol. Earth System Sci. , vol. 29,
+no. 7, pp. 1963–1980, 2025.
+[36] S. Cavazzi, R. Corstanje, T. Mayr, J. Hannam, and R. Fealy, “Are ﬁne
+resolution digital elevation models always the best choice in digital soil
+mapping?,” Geoderma, vol. 195–196, pp. 111–121, 2013.
+[37] G. L. O’Neil, L. Saby, L. E. Band, and J. L. Goodall, “Effects of
+LiDAR DEM smoothing and conditioning techniques on a topography-
+based wetland identiﬁcation model,” Water Resour . Res., vol. 55, no. 5,
+pp. 4343–4363, 2019.
+[38] M. Ahmed, G. Titti, S. Trevisani, L. Borgatti, and M. Francioni, “Is
+higher resolution always better? a comparison of open-access DEMs
+for optimized slope unit delineation and regional landslide prediction,”
+Natural Hazards Earth System Sci. , vol. 25, no. 7, pp. 2519–2539, 2025.
+[39] E. Arnone, A. Francipane, A. Scarbaci, C. Puglisi, and L. Noto, “Effect of
+raster resolution and polygon-conversion algorithm on landslide suscepti-
+bility mapping,” Environ. Modelling Softw., vol. 84, pp. 467–481, 2016.
+[40] M. Liao, H. Wen, and L. Y ang, “Identifying the essential conditioning
+factors of landslide susceptibility models under different grid resolutions
+using hybrid machine learning: A case of Wushan and Wuxi counties,
+China,” CATENA, vol. 217, 2022, Art. no. 106428.
+[41] W. Hu et al., “Scale effects in landslide susceptibility assessment: Integrat-
+ing slope unit division and SHAP-based interpretability in a typical river
+basin,” Water, vol. 17, no. 13, 2025, Art. no. 1877. [Online]. Available:
+https://doi.org/10.3390/w17131877
+[42] J. Huang, H. Wen, X. Zhou, and J. Xiao, “Is there difference in landslide
+susceptibility model based on explainable artiﬁcial intelligence from the
+perspective of slope units with different scales?,” Rel. Eng. Syst. Saf. ,
+vol. 266, 2026, Art. no. 111701.
+[43] A. M. S. Pradhan, P . Ghimire, S. Shrestha, J.-S. Lee, J.-H. Lee, and H.-J.
+Park, “Extreme gradient boosting with shapley additive explanations for
+landslide susceptibility at slope unit and hydrological response unit scales,”
+Geosci. Front., vol. 16, no. 4, 2025, Art. no. 102081. [Online]. Available:
+https://doi.org/10.1016/j.gsf.2025.102081
+<<PAGE 40>>
+XIA et al.: DEM RESOLUTION DRIVES AI V ARIABILITY: TRADEOFFS BETWEEN PERFORMANCE AND EXPLAINABILITY 33785
+[44] F. Huang et al., “Mapping unit selection in landslide susceptibility predic-
+tion: A comprehensive explainable framework integrating multi-method
+interpretability,” Int. J. Coal Sci. Technol. , vol. 13, no. 1, p. 62, 2026.
+[Online]. Available: https://doi.org/10.1007/s40789-026-00897-3
+[45] W. Cheng, N. Wang, M. Zhao, and S. Zhao, “Relative tectonics and debris
+ﬂow hazards in the Beijing mountain area from dem-derived geomor-
+phic indices and drainage analysis,” Geomorphol., vol. 257, pp. 134–142,
+2016.
+[46] L. Luo et al., “Raindrop size distribution and microphysical characteristics
+of a great rainstorm in 2016 in Beijing, China,”Atmospheric Res., vol. 239,
+2020, Art. no. 104895.
+[47] Z. Ma, G. Mei, and F. Piccialli, “Machine learning for landslides preven-
+tion: A survey,” Neural Comput. Appl., vol. 33, no. 17, pp. 10881–10907,
+2021.
+[48] F. Huang et al., “Optimization method of conditioning factors selection
+and combination for landslide susceptibility prediction,” J. Rock Mechan.
+Geotechnical Eng., vol. 17, 2024, Art. no. S1674775524003524.
+[49] W. Zhou, Y . Zhou, S. Liang, C. Zhang, H. Dai, and X. Sun, “A new
+framework for landslide susceptibility mapping in contiguous impover-
+ished areas using machine learning and catastrophe theory,” Sci. Rep. ,
+vol. 15, no. 1, 2025, Art. no. 10620.
+[50] F. Huang et al., “Modelling landslide susceptibility prediction: A review
+and construction of semi-supervised imbalanced theory,” Earth- Sci. Rev.,
+vol. 250, 2024, Art. no. 104700.
+[51] J. Brock, P . Schratz, H. Petschko, J. Muenchow, M. Micu, and A. Brenning,
+“The performance of landslide susceptibility models critically depends on
+the quality of digital elevation models,”Geomatics, Natural Hazards Risk,
+vol. 11, no. 1, pp. 1075–1092, 2020.
+[52] M. L. Tan, D. L. Ficklin, B. Dixon, A. L. Ibrahim, Z. Y usop, and
+V . Chaplot, “Impacts of dem resolution, source, and resampling tech-
+nique on swat-simulated streamﬂow,” Appl. Geogr ., vol. 63, pp. 357–368,
+2015.
+[53] B. Wang, W. Shi, and E. Liu, “Robust methods for assessing the accuracy
+of linear interpolated dem,” Int. J. Appl. Earth Observ. Geoinformation ,
+vol. 34, pp. 198–206, 2015.
+[54] M. Alvioli et al., “Automatic delineation of geomorphological slope units
+with r.slopeunits v1.0 and their optimization for landslide susceptibility
+modeling,” Geoscientiﬁc Model Develop. , vol. 9, no. 11, pp. 3975–3991,
+2016.
+[55] M. Alvioli, F. Guzzetti, and I. Marchesini, “Parameter-free delineation of
+slope units and terrain subdivision of Italy,” Geomorphol., vol. 358, 2020,
+Art. no. 107124.
+[56] G. Y an, D. Lu, S. Li, S. Liang, L. Xiong, and G. Tang, “Optimizing slope
+unit-based landslide susceptibility mapping using the priority-ﬂood ﬂow
+direction algorithm,” CATENA, vol. 235, 2024, Art. no. 107657.
+[57] G. Domènech, M. Alvioli, and J. Corominas, “Preparing ﬁrst-time slope
+failures hazard maps: From pixel-based to slope unit-based,” Landslides,
+vol. 17, no. 2, pp. 249–265, 2020.
+[58] L. Jacobs et al., “Regional susceptibility assessments with heterogeneous
+landslide information: Slope unit- vs. pixel-based approach,”Geomorphol-
+ogy, vol. 356, 2020, Art. no. 107084.
+[59] F. S. Tehrani, M. Calvello, Z. Liu, L. Zhang, and S. Lacasse, “Machine
+learning and landslide studies: Recent advances and applications,”Natural
+Hazards, vol. 114, no. 2, pp. 1197–1245, 2022.
+[60] G. Agboola, L. H. Beni, T. Elbayoumi, and G. Thompson, “Optimizing
+landslide susceptibility mapping using machine learning and geospatial
+techniques,” Ecological Informat., vol. 81, 2024, Art. no. 102583.
+[61] K. Halder et al., “Improving landslide susceptibility prediction through
+ensemble recursive feature elimination and meta-learning framework,”Sci.
+Rep., vol. 15, no. 1, 2025, Art. no. 5170.
+[62] Cox, “The regression analysis of binary sequences,” J. Roy. Stat. Soc. Ser .
+B: Stat. Methodol. , vol. 20, 1958, pp. 215–242.
+[63] C. Cortes and V . V apnik, “Support-vector networks,”Mach. Learn., vol. 20,
+no. 3, pp. 273–297, 1995.
+[64] L. Breiman, “Random forests,” Mach. Learn. , vol. 45, no. 1, pp. 5–32,
+2001.
+[65] T. Chen and C. Guestrin, “XGBoost: A scalable tree boosting system,” in
+Proc. 22nd ACM SIGKDD Int. Conf. Knowl. Discov. Data Mining , 2016,
+pp. 785–794.
+[66] A. Hedström et al., “Quantus: An explainable AI toolkit for responsible
+evaluation of neural network explanations and beyond,” J. Mach. Learn
+Res., 2023, pp. 1–11.
+[67] C. Agarwal et al., “OpenXAI: Towards a transparent evaluation of model
+explanations,” in Proc. 36th Int. Conf. Neural Inf. Process. Syst. , 2024,
+pp. 15784–15799.
+[68] W. Samek, A. Binder, G. Montavon, S. Lapuschkin, and K.-R. Müller,
+“Evaluating the visualization of what a deep neural network has learned,”
+IEEE Trans. Neural Netw. Learn. Syst. , vol. 28, no. 11, pp. 2660–2673,
+Nov. 2017.
+[69] C.-K. Y eh, C.-Y . Hsieh, A. Suggala, D. I. Inouye, and P . K. Ravikumar,
+“On the (in)ﬁdelity and sensitivity of explanations,” in Proc. 33rd Int.
+Conf. Neural Inf. Process. Syst. , 2019, pp. 10967–10978.
+[70] S. Hooker, D. Erhan, P .-J. Kindermans, and B. Kim, “A benchmark for
+interpretability methods in deep neural networks,” in Proc. 33rd Int. Conf.
+Neural Inf. Process. Syst., 2019, pp. 9737–9748.
+[71] G. Vilone and L. Longo, “Notions of explainability and evaluation ap-
+proaches for explainable artiﬁcial intelligence,” Inf. Fusion , vol. 76,
+pp. 89–106, 2021.
+[72] D. Sun, J. Xu, H. Wen, and D. Wang, “Assessment of landslide sus-
+ceptibility mapping based on Bayesian hyperparameter optimization: A
+comparison between logistic regression and random forest,” Eng. Geol.,
+vol. 281, 2021, Art. no. 105972.
+[73] T. Zeng, L. Wu, D. Peduto, T. Glade, Y . S. Hayakawa, and K. Yin, “En-
+semble learning framework for landslide susceptibility mapping: Different
+basic classiﬁer and ensemble strategy,”Geosci. Front., vol. 14, no. 6, 2023,
+Art. no. 101645.
+[74] D. Sun, J. Wang, H. Wen, Y . Ding, and C. Mi, “Landslide sus-
+ceptibility mapping (LSM) based on different boosting and hyperpa-
+rameter optimization algorithms: A case of Wanzhou district, China,”
+J. Rock Mechan. Geotechnical Eng. , vol. 16, no. 8, pp. 3221–3232,
+2024.
+[75] S. Fu et al., “Landslide hazard probability and risk assessment at the
+community level: A case of western Hubei, China,”Natural Hazards Earth
+Syst. Sci., vol. 20, no. 2, pp. 581–601, 2020.
+[76] P . Ou et al., “Assessment of landslide hazard in jiangxi us-
+ing geo-information technology,” Front. Earth Sci. , vol. 9, 2021,
+Art. no. 648342.
+[77] M. Casadei, W. E. Dietrich, and N. L. Miller, “Testing a model for predict-
+ing the timing and location of shallow landslide initiation in soil-mantled
+landscapes,”Earth Surf. Processes Landforms, vol. 28, no. 9, pp. 925–950,
+2003.
+[78] M. Fuchs, J. Torizin, and F. Kühn, “The effect of DEM resolution on
+the computation of the factor of safety using an inﬁnite slope model,”
+Geomorphol., vol. 224, pp. 16–26, 2014.
+[79] J. Erdbrügger, I. V an Meerveld, K. Bishop, and J. Seibert, “Effect of DEM-
+smoothing and -aggregation on topographically-based ﬂow directions and
+catchment boundaries,” J. Hydrol., vol. 602, 2021, Art. no. 126717.
+[80] V . Nieuwenhuizen, L. , and DeVries, “Smoothing of digital elevation
+models and the alteration of overland ﬂow path length distributions,”
+Hydrological Processes, vol. 35, 2021, Art. no. e14271.
+[81] A. E. Maxwell and C. M. Shobe, “Land-surface parameters for spatial
+predictive mapping and modeling,” Earth- Sci. Rev., vol. 226, 2022, Art.
+no. 103944.
+[82] K.-T. Chang, A. Merghadi, A. P . Y unus, B. T. Pham, and J. Dou, “Eval-
+uating scale effects of topographic variables in landslide susceptibility
+models using GIS-based machine learning techniques,” Sci. Rep.,v o l .9 ,
+no. 1, 2019, Art. no. 12296.
+[83] A. Trigila, C. Iadanza, C. Esposito, and G. Scarascia-Mugnozza, “Com-
+parison logistic regression random forests techniques shallow landslide
+susceptibility assessment Giampilieri (NE Sicily, Italy),”Geomorphology,
+vol. 249, 2015, pp. 119–136.
+[84] C. Soares, P . B. Brazdil, and P . Kuba, “A meta-learning method to select
+the kernel width in support vector regression,”Mach. Learn., vol. 54, no. 3,
+pp. 195–209, 2004.
+[85] A.-K. Dombrowski, C. J. Anders, K.-R. Müller, and P . Kessel, “Towards
+robust explanations for deep neural networks,”Pattern Recognit., vol. 121,
+Art. no. 108194, 2022.
+[86] A. Xu, Z. Li, T. Wu, and Y . Cao, “Enhancing the robustness of counter-
+factual explanations via modular robust compatibility,” Expert Syst. with
+Appl., vol. 304, 2026, Art. no. 130746.
+[87] X. Xiang, H. Y u, Y . Wang, and G. Wang, “Stable local interpretable model-
+agnostic explanations based on a variational autoencoder,” Appl. Intell. ,
+vol. 53, no. 23, pp. 28226–28240, 2023.
+[88] P . Passalacqua et al., “Analyzing high resolution topography for advancing
+the understanding of mass and energy transfer through landscapes: A
+review,”Earth- Sci. Rev., vol. 148, pp. 174–193, 2015.
+[89] S. Bhushan, D. Shean, O. Alexandrov, and S. Henderson, “Automated dig-
+ital elevation model (DEM) generation from very-high-resolution planet
+skysat triplet stereo and video imagery,”ISPRS J. Photogrammetry Remote
+Sens., vol. 173, pp. 151–165, 2021.
+<<PAGE 41>>
+33786 IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERV ATIONS AND REMOTE SENSING, VOL. 19, 2026
+[90] H. Li, J. Zhao, B. Y an, L. Y ue, and L. Wang, “Global DEMs vary from
+one to another: An evaluation of newly released copernicus, NASA and
+AW3D30 DEM on selected terrains of China using ICESat-2 altimetry
+data,” Int. J. Digit. Earth , vol. 15, no. 1, pp. 1149–1168, 2022.
+Yi Xia received the bachelor’s degree in computer
+science and technology from the School of Informa-
+tion Science and Technology, Beijing Forestry Uni-
+versity, Beijing, China, in 2022, where he is currently
+working toward the Ph.D. degree in spatial informa-
+tion technology.
+His research focuses on geological disasters, such
+as rainfall-induced shallow landslides, artiﬁcial intel-
+ligence, and geographic information science.
+Haoyi Yao received the B.E. degree in natural ge-
+ography and resource environment, with a minor in
+computer science and technology, from the School
+of Soil and Water Conservation, Beijing Forestry
+University, Beijing, China, in 2026. He is currently
+working toward the Ph.D. degree in physical geogra-
+phy with the Academician Peng Cui’s Group, Insti-
+tute of Geographic Sciences and Natural Resources
+Research, Chinese Academy of Sciences, Beijing.
+His research interests include mountain hazards
+and hazard-chain processes, extreme-rainfall trigger-
+ing mechanisms and threshold identiﬁcation, remote-sensing interpretation and
+multisource data fusion, terrain and hydrological process analysis, as well
+as machine-learning and GIS-based spatial analysis for hazard detection and
+prediction.
+Chao Ma received the Ph.D. degree in geotechnical
+engineering from the Institute of Mountain Hazards
+and Environment (IMHE), Chinese Academy of Sci-
+ences, Chengdu, China, in 2014.
+He was a Visiting Scholar with Department of Civil
+Engineering and Environment, Clarkson University,
+Potsdam, NY , USA. He is a Professor with the School
+of Soil and Water Conservation, Beijing Forestry
+University, Beijing, China. His research interests in-
+clude the effect of vegetation on shallow landslides,
+mountain hazard response to climate warming, and
+debris ﬂow prediction on basis of deep learning.
+Feixiang Chen received the B.S. and M.S. degrees
+in computer science and technology from the China
+University of Geosciences, Wuhan, China, in 2000
+and 2003, respectively, and the D.Sc. degree in car-
+tography and geographic information systems from
+the Institute of Remote Sensing Application, Chinese
+Academy of Sciences, Beijing, China, in 2006.
+He is currently a Professor with the School of In-
+formation Science and Technology, Beijing Forestry
+University, Beijing. He has authored or coauthored
+more than 40 scientiﬁc research articles. His research
+interests include deep learning and remote sensing information processing.
+Yuanyuan Liureceived the M.E. degree in geomatics
+information engineering from the China University of
+Geosciences, Wuhan, China, in 2010, where he is cur-
+rently working toward the Ph.D. degree in resources
+and environment with the College for Elite Engineers
+on a part-time basis.
+He is currently a Software Systems Engineer with
+the Comprehensive Survey Command Center for Nat-
+ural Resources, China Geological Survey, Beijing.
+His research interests include geological informa-
+tion technology, and theories and methods of digital
+geological survey.

@@ -1,0 +1,1134 @@
+<<PAGE 1>>
+Enhancing LIME using Neural Decision Trees
+Mohamed Aymen Bouyahia1,2 and Argyris Kalogeratos1
+1 ENS Paris-Saclay, Centre Borelli, CNRS, Gif-Sur-Yvette, France
+2 Le Crédit Lyonnais, Paris, France
+mohamed-aymen.bouyahia@lcl.fr,argyris.kalogeratos@ens-paris-saclay.fr
+Abstract.Interpreting complex machine learning models is a critical
+challenge, especially for tabular data where model transparency is para-
+mount. Local Interpretable Model-Agnostic Explanations (LIME) has
+been a very popular framework for interpretable machine learning, also
+inspiring many extensions. While traditional surrogate models used in
+LIME variants (e.g. linear regression and decision trees) offer a degree of
+stability, they can struggle to faithfully capture the complex non-linear
+decision boundaries that are inherent in many sophisticated black-box
+models. This work contributes toward bridging the gap between high pre-
+dictive performance and interpretable decision-making. Specifically, we
+propose the NDT-LIME variant that integrates Neural Decision Trees
+(NDTs) as surrogate models. By leveraging the structured, hierarchi-
+cal nature of NDTs, our approach aims at providing more accurate and
+meaningful local explanations. We evaluate its effectiveness on several
+benchmark tabular datasets, showing consistent improvements in expla-
+nation fidelity over traditional LIME surrogates.
+Keywords:Explainable models, local interpretability, surrogate models, neural
+decision trees, fidelity, stability, regularity.
+1 Introduction
+Inrecentyears,machinelearningmodelshaveachievedremarkablesuccessacross
+a variety of domains, including healthcare, finance, and marketing. Many state-
+of-the-art models, though, especially complex ones like deep neural networks and
+ensemble methods, are often considered “black boxes” due to their lack of trans-
+parency. This opacity poses a significant barrier to their adoption in high-stakes
+settings where understanding the rationale behind a prediction is crucial for
+trust, accountability, and regulatory compliance. Critically, in domains where
+decisions must be both accurate and interpretable, such as healthcare and fi-
+nance, tabular data is the most common form of data. Despite the success of
+deep learning in several other contexts, building foundation models and beating
+tree-based models on tabular data [1,2] remain big challenges. This is because
+handling tabular data is a setting in which until recently tree-based models have
+been consistently better due to their inherent inductive biases, notably since
+they handle uninformative features gracefully [3]. This inherent advantage of
+arXiv:2603.20919v1  [cs.LG]  21 Mar 2026
+<<PAGE 2>>
+2 M.A. Bouyahia and A. Kalogeratos
+tree-based models on tabular data makes them the preferred choice in these
+applications.
+Explainable artificial intelligence (XAI) techniques have emerged to provide
+insights into model behavior. Among these, Local Interpretable Model-Agnostic
+Explanations (LIME) [4] has gained popularity for generating interpretable lo-
+cal explanations for individual predictions. LIME uses traditional and rather
+simple surrogate models, like linear regression or decision trees, to capture and
+explain locally the decision boundaries of a given more complex model. Subse-
+quent studies have shown that LIME can exhibit low local fidelity and sensitivity
+to perturbations [5] [6], and it can also struggle to faithfully capture complex,
+non-linear decision boundaries with traditional surrogates [7]. In simple terms,
+this highlights a trade-off between capacity and explainability of the surrogate
+models used. Those limitations have spurred the development of many variants.
+As detailed in Table 1, these include methods like Anchors [8] for rule-based
+explanations, GLIME [5] for improved stability and fidelity via unbiased sam-
+pling, and LIMEtree [9] utilizing tree-based ensembles for consistency. Despite
+these advancements, many variants still rely on simple surrogate models that
+may fall short in accurately representing intricate local decision manifolds.
+In this paper, we propose the novel NDT-LIME variant of the LIME frame-
+work, that improves interpretability and robustness by integrating Neural De-
+cision Trees (NDTs) [10,11,12] as local surrogate models. NDTs combine the
+expressive power of neural networks with the hierarchical, rule-based structure
+of decision trees, enabling more faithful and stable explanations. By initializing
+NDTs from traditional decision trees, our NDT-LIME approach directly lever-
+ages this established strength of tree-based models. Furthermore, by employing
+the differentiable approximation of splits inherent in NDTs, our method can
+generate smoother local explanations, providing a more nuanced view of deci-
+sion boundaries compared to the rigid, axis-aligned splits of traditional decision
+trees. Our approach leverages this synergy to improve both local and global
+interpretability for tabular datasets. By employing NDTs, we aim at providing
+more accurate and meaningful local explanations, directly addressing the fidelity
+limitations often encountered with simpler LIME surrogates.
+WevalidateNDT-LIMEthroughexperimentsonbenchmarktabulardatasets,
+demonstrating superior explanation fidelity compared to traditional LIME sur-
+rogates. Tab.1 provides a shortlist of existing methods (for a survey, see the
+survey in [13]) and gives the positioning of the proposed NDT-LIME therein.
+Additionally, we provide tools for discretization, visualization, and decision tree
+analysis to facilitate deeper insights into model behavior. This work contributes
+a practical and effective method to bridge the gap between black-box predictive
+models and transparent, trustworthy AI.
+<<PAGE 3>>
+Enhancing LIME using Neural Decision Trees 3
+LIME variant Surrogate model Improvement features Limitations Repository
+LIME [4] Linear Standard LIME: perturbation-based local explanations Instability, low fidelity for complex models GitHub
+Anchors [8] Rule-based High-precision rules for local explanations Explaining complex output spaces can be challenging GitHub
+LORE [14] Decision Tree Generates local logical rules and counterfactuals to explain decisions. Requires a genetic algorithm for neighborhood generation GitHub
+GLIME [5] Linear Improved stability and local fidelity via unbiased sampling Still limited by simple surrogate GitHub
+DLIME [15] Linear Deterministic sampling using hierarchical clustering May miss subtle patterns of model GitHub
+MPS-LIME [16] Linear Modified perturbation sampling to improve fidelity Complex to implement, limited generalization –
+KL-LIME [17] Linear Uses Kullback-Leibler projection for Bayesian models Limited to Bayesian models –
+MeLIME [18] Linear Data-aware neighborhood sampling, robust convergence, counterfactuals Requires domain knowledge for setup GitHub
+sLIME [6] Linear Stabilizes explanations by adaptively determining perturbations Effectiveness can vary based on black-box model type GitHub
+ILIME [19] Linear + Influence Combines proximity and influence functions for more faithful explanations Requires access to model gradients for influence functions –
+BayLIME [20] Bayesian Linear Regr. Improves consistency, robustness, and fidelity by leveraging priors Risk of introducing bias with incorrect priors GitHub
+LIMEtree [9] Tree-based Ensemble Greater consistency towards perturbations in local explanations Less interpretable due to ensemble aggregation –
+OptiLIME [21] Linear Framework to optimize kernel width for adherence-stability trade-off Computationally intensive due to Bayesian Optimization GitHub
+GMM-LIME [22] Gaussian Mixture Improved stability and potentially better local approximation Increased model complexity and parameter tuning –
+NDT-LIME (ours)Neural Decision Tree Uses NDTs as surrogate models for higher fidelity More computationally intensive GitHub
+T able 1:A comprehensive list of LIME variants in the literature.
+2 Background
+2.1 Local Interpretable Model-Agnostic Explanations
+LIME, standing for Local Interpretable Model-Agnostic Explanations [4], is a
+widely adopted post-hoc method that explains individual predictions by approx-
+imating the behavior of a complex model (f) with a simpler and interpretable
+surrogate model (g), e.g. linear regression or decision trees. The key steps LIME
+follows to assess the decisionf(x), that is the output of the black-box model for
+a data instance of interestx, are:
+1.Perturbation: Generate a synthetic dataset withRinstancesx ′ around the
+original instancex, by randomly perturbing feature values.
+2.Weighting: Assign a weightwto each perturbedx ′ instance based on its
+proximity tox.
+3.Surrogate model: Train an interpretable modelgto imitate the output of the
+black-box on the weighted perturbed instances,{w, x′, f(x′)}x′, and use it
+to explain the local decision boundary offaroundx.
+Formally, LIME’s explanation for a decisionf(x)writes:
+expl(x) = argmin
+g∈G
+L(f, g, πx) +Ω(g),(1)
+whereπ x is a proximity kernel that emphasizes samples closer to the instance
+of interest,L(f, g, πx)is a loss function measuring how well g approximates f
+in the locality defined byπx, andΩ(g)is a complexity penalty that encourages
+simpler explanations.
+While the LIME framework is generic, model-agnostic, and flexible, its prac-
+tical instantiation is challenging due to a series of critical choices that need to
+be made, which have motivated many research works:
+–Surrogate model selection: This choice affects the decision boundary approx-
+imation. Simple models, e.g. linear, may fail to capture non-linear or hierar-
+chical decision boundaries inferred by complex black-box models, leading to
+explanations of low-fidelity.
+<<PAGE 4>>
+4 M.A. Bouyahia and A. Kalogeratos
+–Instability: Explanations can vary significantly with minor changes in per-
+turbations or sampling.
+–Tuning difficulty:Sensitiveparametersneedtobetuned,suchastodefinethe
+neighborhood kernel width, a suitable distance measure, and perturbation
+strategy for the localityπx.
+Inadequate choices for the above can lead to unfaithful or unstable explanations.
+These challenges are extensively reviewed in the literature, for instance in the
+survey in [13].
+Surrogate models.Having the generic LIME framework, the choice of surro-
+gate model is the main point on which the community has focused (see Tab.1).
+Although the main principle is to choose a surrogate model that is properly sim-
+ple and interpretable, in fact the model at the same time has to have sufficient
+capacity to capture the local decision boundaries of the black-box model. De-
+cision Trees (DTs) are a typical choice for surrogate models in LIME, for both
+classification and regression tasks, as they are inherently interpretable due to
+theirrule-based structurethat mimics human reasoning [9]. However, traditional
+DTs are trained via greedy splitting, which can lead to suboptimal or unsta-
+ble trees. Moreover, their rigid splits may not adequately represent the decision
+boundaries of modern ML models, particularly in high-dimensional spaces [3]. A
+number of LIME variants are briefly described in Appendix 8.
+2.2 Quality measures for surrogate models
+We employ three quality metrics to evaluate surrogate models with respect to
+a black-box model, namely,fidelity,stability, andregularity. These metrics are
+complementary as they jointly capture faithfulness, robustness to randomness,
+and smoothness of explanations. Each of the metrics computes a score for each
+of theN=|D|datapoints of a given datasetD, and then the overall score for
+the dataset is computed by averaging the instance-wise scores:
+QualMetric(D) = 1N
+NX
+i=1
+QualMetric(xi).(2)
+In the following, we denote byE(x)∈Rd theexplanation vectorproduced for the
+data instancex∈D, which is the feature importance vector, i.e. the coefficients
+or weights derived from the trained local surrogate model.
+Fidelity.The primary goal of a local surrogate model is to be faithful to the
+approximated black-box model. Local fidelity measures how well the explana-
+tion model mimics the predictions of the black-box model on the neighborhood
+data generated around the instance of interest. High fidelity indicates that the
+explanation is a trustworthy representation of the model’s local behavior.
+To quantify fidelity, we first generateRperturbed samples around a chosen
+test instance. We then obtain predictions for this data from both the complex
+black-box model and the trained surrogate model. We measure fidelity using the
+<<PAGE 5>>
+Enhancing LIME using Neural Decision Trees 5
+Coefficient of Determination (R2) score [23], which calculates the proportion of
+the variance in the black-box model’s predictions that is predictable from the
+surrogate model’s predictions:
+Fidelity(xi) := R2 = 1−
+Pn
+j=1[f(x ′i,j)−g(x ′i,j)]2Pn
+j=1[f(x ′i,j)− Y] 2 ,(3)
+where ¯Y= 1n Pnj=1 f(x ′i,j). This index takes values in(−∞,1]. A value ofR2 =
+1indicates a perfect local approximation, while negative values correspond to
+explanations that perform worse than a constant baseline predictor.
+Stability.An essential quality of a reliable explanation method is stability: for
+a given instancex, the explanation should not change drastically due to random
+artifacts of the explanation process. To evaluate stability, we generateRrandom
+local data perturbations ofx, and then we produce one explanation for each of
+them,E r(x),r= 1, ..., R. We then calculate the stability score by measuring
+the average pairwise cosine similarity among theseRvectors. The cosine sim-
+ilarity is employed as it assesses the structural consistency of the explanation,
+i.e. whether the relative ordering and direction of feature importance remain the
+same, regardless of minor variations in the magnitude of the weights.
+The stability score defined below by Eq.4 is normalized by the total number
+ofuniqueexplanationpairs,andtakesvaluesin[0,1].Ascorecloserto1indicates
+high stability, hence the explanation is robust to the randomness inherent in the
+LIME sampling process:
+Stability(xi) = 1 R
+2
+
+R−1X
+r=1
+RX
+r′=r+1
+Cosine(Er(xi), Er′(xi)),(4)
+where
+ R
+2
+
+= R!2!(R−2)!, andCosine(a, b) = aTb||a||2||b||2, for two column vectorsa,b
+of same dimension.
+Regularity.Further, we can assess thesmoothnessof an explanation method
+through regularity, which measures how the generated explanations vary locally
+in the input space, and more specifically across nearby datapoints. This can be
+seen as a stability score conditional to a givenxi, where instead of random per-
+turbations, the test points are constrained over the real nearby data. Intuitively,
+if two datapoints are close to each other, their corresponding explanations should
+also be similar. High regularity indicates that the surrogate model yields expla-
+nations that evolve smoothly and coherently, avoiding abrupt changes that could
+hinder human interpretability.
+For each instancexin a test set, we identify itsk-Nearest Neighbors (k-NN),
+denoted byN k(x), using the Euclidean distance in the input space. Thelocal
+regularityforxis then computed as the average cosine similarity between the
+explanation ofxand those of its neighbors:
+Regularityk(x) = 1k Xxi∈Nk(x) Cosine(E(x), E(xi)).(5)
+<<PAGE 6>>
+6 M.A. Bouyahia and A. Kalogeratos
+This index takes values in[0,1]. A regularity score closer to1indicates that
+similar inputs produce highly consistent explanations, reflecting smooth and
+well-structured surrogate behavior. In contrast, low regularity suggests that ex-
+planations fluctuate irregularly across neighboring points, which can undermine
+the interpretability and reliability of the explanation method.
+2.3 Understanding Neural Decision Trees
+There exist several propositions regarding how to build an NDT, see surveys in
+[24,12]. In the following, we refer to the work in [10], and also the work in [11]
+that sheds light to certain properties and practical considerations of that model.
+NDTs bridge the gap between neural networks and symbolic reasoning, and most
+notably DTs that are rule-based models:
+–Differentiable architecture: NDTs replace hard splits (e.g.1{xd ≤β i}) with
+soft, differentiable approximations, enabling end-to-end training via back-
+propagation [11].
+–Global optimization: Unlike greedy DTs, NDTs optimize all splits simultane-
+ously, potentially discovering more expressive and stable decision boundaries
+[10].
+–Hybrid strengths: NDTs retain the interpretability of DTs while leveraging
+therepresentation power of neural networks, making them suitable for ap-
+proximating complex models [11].
+More formally, consider a DT defined over an input space[0,1]d withK≥2
+leaves. Recent work has shown that any such DT can be represented as a three-
+layer neural network with two hidden layers and one output layer [10]. This
+simple architecture is illustrated in Fig.1. LetH={H 1, . . . , HK−1 }be the
+set of hyperplanes corresponding to the internal splits of the DT, where each
+hyperplane is:
+Hk ={x∈[0,1] d |h k(x) = 0}, h k(x) =x (jk) −α jk ,(6)
+wherej k ∈ {1, . . . , d}is the index of the splitting feature, andαjk ∈[0,1]is the
+associated split threshold.
+First hidden layer.This layer encodes the decisions at internal nodes. Let
+τ(u) = 21{u≥0} −1be a threshold activation function. The activation for
+neuronkis:
+z(1)k =τ  x(jk) −α jk .(7)
+The weight matrixW (1) ∈R (K−1)×d is defined by:
+W (1)k,m =
+(
+1,if nodeksplits on featurem,
+0,otherwise,
+and the bias vectorb(1) ∈R K−1 withb (1)k =−α jk. The output of this layer is a
+{±1}vector encoding all internal decisions.
+<<PAGE 7>>
+Enhancing LIME using Neural Decision Trees 7
+0
+1 6
+2 3 7 8
+4 5 9 10
+x1
+x2
+0
+1
+3
+6
+8
+2
+4
+5
+7
+9
+10
+Fig. 1:Transforming a DT to its equivalent NDT.
+Second hidden layer.This layer maps the internal decision bits to leaf indi-
+cators. LetL={L 1, . . . , LK}be the set of leaves, andl(k ′)the length of the
+path from root to leafLk′. We connect neuronkin layer1to neuronk ′ in layer
+2if the hyperplaneH k is on the path toLk′. The connection weight is [10]:
+W (2)k,k′ =
+
+
+
++1,ifH k leads to a right child on path toLk′,
+−1,ifH k leads to a left child on path toLk′,
+0,otherwise.
+The bias isb(2)k′ =− 12 (l(k′)−1).
+The activation is:vk′(x) =τ(W (2)T z(1) +b (2))k′, yielding a vector with the value
+−1in all entries but for the leaf node reached byxfor which the value is+1.
+Output layer.For regression, let¯yk′ be the average target value for samples in
+leafL k′. Then:
+Woutk′ = 12 ¯yk′, b out = 12
+KX
+k′=1
+¯yk′.
+The prediction is:
+ˆy(x) = (Wout)Tv(x) +b out.
+For classification withCclasses, letP ck′ be the empirical class probability in leaf
+Lk′. Then:
+Woutk′,c = 12 P ck′, b outc = 12
+KX
+k′=1
+P ck′,
+and the logits are:
+f(x) = (W out)Tv(x) +b out.
+3 LIME with NDTs as surrogate models
+In Sec.2.3, we provided a comprehensive overview of Neural Decision Trees
+(NDTs), highlighting their unique properties and why they are particularly well-
+suited for generating interpretable explanations. NDTs combine the hierarchical,
+rule-based structure of traditional decision trees with the expressive power of
+<<PAGE 8>>
+8 M.A. Bouyahia and A. Kalogeratos
+neural networks, enabling them to capture complex, non-linear decision bound-
+aries while retaining interpretability. This makes NDTs an ideal candidate for
+addressing the limitations of conventional surrogate models in explainable AI,
+particularly in scenarios where both fidelity and transparency are critical.
+Next, we propose the NDT-LIME variant that integrates effectively NDTs
+as surrogate models in the LIME framework. By leveraging their differentiable
+architecture and global optimization capabilities, NDTs offer a robust solution
+for improving the local fidelity and stability of explanations. This integration
+not only enhances the accuracy of local approximations but also ensures that
+explanations remain human-interpretable and consistent across perturbations,
+which is a key requirement for trustworthy AI systems.
+3.1 The proposed NDT-LIME method
+To overcome the limitations of standard LIME surrogates, we propose using
+Neural Decision Trees (NDTs) as local surrogate models. NDTs combine the
+hierarchical, rule-based structure of decision trees with the expressive power of
+neural networks [11]. Importantly, NDTs retain interpretability: for any instance,
+one can trace the path from root to leaf to extract explicit rules or feature
+contributions, and softened decision boundaries via differentiable activations do
+not obscure this interpretability. This ensures explanations remain both faithful
+to the black-box model and comprehensible to humans.
+Beyond serving as a drop-in replacement for traditional LIME surrogates,
+the integration of NDTs introduces several methodological advantages. Unlike
+training an NDT from scratch, NDT-LIME initializes the neural decision tree
+usingthestructureandsplitparametersofaconventionaldecisiontreetrainedon
+the local neighborhood. Thiswarm-startapproach allows the surrogate to inherit
+a meaningful hierarchical partition of the input space while still permitting fine-
+tuning through differentiable optimization, resulting in a smoother and more
+stable local decision boundary.
+Once initialized, the NDT is refined using gradient-based optimization to
+minimize the discrepancy between its predictions and those of the black-box
+model on the perturbed samples [4]. This optimization follows a local fidelity
+objective defined as:
+Lfidelity =
+NX
+i=1
+π(xi, x)∥f(xi)−g(x i)∥2,(8)
+whereπ(x i, x) = exp(−∥x−xi∥2σ2 ),σis the kernel width that controls locality. We
+optimize this loss via backpropagation over the soft splits and leaf parameters of
+the NDT, thereby tuning the surrogate to align locally with the black-box pre-
+dictions. By minimizingLfidelity, the surrogate concentrates its representational
+power on the most relevant region, improving local fidelity while preserving in-
+terpretability [4].
+NDT-LIME is summarized in Alg.1, which outlines the main steps from
+generating perturbed samples to training the NDT surrogate and extracting
+<<PAGE 9>>
+Enhancing LIME using Neural Decision Trees 9
+Algorithm 1 NDT-LIME: LIME with Neural Decision T rees
+Input:Data instancexto explain; black-box modelf; number of perturbed samples
+N; proximity kernelπ; feature setF.
+Output:Local explanationexplforx(e.g. feature importance vector or rule set).
+■ Step 1: Generate perturbed samples around the instance
+X ′ ←Perturb(x, N, F)▷Randomly perturb features ofx
+to form a local neighborhood
+■ Step 2: Obtain black-box predictions
+Y←f(X ′)▷Evaluate the black-box model
+on all perturbed instances
+■ Step 3: Compute proximity weights
+W←π(X ′, x)▷Assign higher weights to samples closer tox
+■ Step 4: T rain the NDT surrogate model
+(i)DT surr ←TrainDT(X ′, Y,sample_weight=W)
+(ii)g←ConvertDTtoNDT(DT surr)▷Initialize NDT⋆
+■ Step 5: Extract interpretable local explanation
+expl←ExtractRules(g, x, F)▷Derive feature importance
+or rule-based explanation forx
+returnexpl
+⋆Initialize NDT structure and parameters (splits, thresholds, leaf values) using an
+input trained DT.
+the final local explanation. The pseudocode above summarizes the NDT-LIME
+pipeline. The conversion from a decision tree to an NDT allows leveraging the
+interpretability of rule-based structures while enabling continuous optimization
+in the local neighborhood of the explained instance. In practice, this process
+adds only a modest computational overhead compared to traditional LIME but
+yields explanations that are smoother, more faithful to the underlying model.
+3.2 Properties of NDTs as LIME surrogate models
+The NDT of choice.As already mentioned in Sec.2.3, there are several NDT
+architectures. Our choice of NDT model is driven by its unique properties that
+are particularly well-suited for generating interpretable local explanations.
+A key property we leverage is regularity, which stems from the use of soft,
+differentiable splits. Unlike the rigid, axis-aligned partitions of classical decision
+trees, these soft splits promote smoother transitions between local regions of
+the input space. This allows NDT-LIME to provide explanations that are both
+faithful to the complex model and continuous across the input manifold. As a
+result, the explanations gain enhanced human interpretability and coherence, as
+minor changes in the input data do not lead to abrupt, counter-intuitive shifts
+in the explanation. Technically, this smoothness is achieved by replacing the
+hard threshold functionτ(u)from Eq. (7), which is non-differentiable and thus
+prevents gradient-based optimization, with a smooth activation function [11]:
+σγ(u) = tanh(γu), γ >0,
+<<PAGE 10>>
+10 M.A. Bouyahia and A. Kalogeratos
+where the parameterγcontrols the sharpness of the decision boundaries. Prior
+work in [11] has investigated in detail how these smoothing parameters affect
+the flexibility of NDTs. Specifically, it was shown that largeγvalues approxi-
+mate hard, tree-like splits, whereas smallerγvalues produce smoother, neural-
+network-liketransitions.Furthermore,ananalysisoftherelationshipbetweenthe
+parameters of the first and second layers,γ1 andγ 2, led to the suggestion that
+γ1 should be greater than or equal toγ2 (γ1 ≥γ 2). This guideline helps preserve
+meaningful split activations at the decision nodes while enabling smoother, more
+adaptive leaf-level predictions, and it is a handy rule of thumb when exploring
+the parametrization space for NDTs.
+Plotting the decision boundaries.To qualitatively assess the smoothness
+induced by NDTs, we visualize the local decision boundaries of three surrogate
+models: a standard DT, an NDT initialized from the DT without further refine-
+ment, and a fine-tuned NDT. We use a subset of two features and two classes
+from the Wine dataset. A single instance is selected as the point of interest,
+around whichR= 800perturbed samples are generated to form a local neigh-
+borhood. The labels of these perturbed samples are obtained from a Random
+Forest trained on the full dataset, which serves as the black-box model to be ex-
+plained. Each surrogate model is then trained on this locally generated dataset.
+For each point in the grid, predictions are computed using the corresponding
+surrogate model, allowing us to render their respective decision regions.
+As illustrated in Fig.2, the DT exhibits sharp and axis-aligned decision
+boundaries that reflect the rigidity of hard splits. In contrast, the NDT initialized
+from that DT, before refinement, produces poorly structured and irregular deci-
+sion regions. This is a direct consequence of replacing hard threshold functions
+with soft activations without subsequent refinement. Finally, through gradient-
+based optimization, the fine-tuned NDT adapts its soft splits and leaf parameters
+to the local neighborhood, transforming the initially degraded boundary into a
+coherent and faithful approximation. Eventually, NDT recovers well-shaped and
+smoothdecisionboundariesthatfollowthelocalbehavioroftheblack-boxmodel.
+Continuity of explanations.Letg NDT :R d →Rdenote an NDT surrogate.
+We define the associated explanation map as:
+E:R d →R d, E(x) :=∇g NDT(x),(9)
+where∇g NDT(x)is the gradient of the surrogate with respect to the input fea-
+tures.
+Proposition 1 (Continuity of explanations).AsgNDT ∈C 1(Rd)(formally
+established in Appendix 10.1), then the explanation mapEdefined in Eq.9,
+belongs toC 0(Rd). In particular, for anyx∈R d and for anyε >0, there exists
+δ >0such that:∥x−x ′∥< δ⇒ ∥E(x)−E(x ′)∥< ε.
+Proof.Sinceg NDT ∈C 1(Rd), its gradient exists and is continuous onRd. There-
+fore, the mappingx7→ ∇gNDT(x)is continuous, which impliesE∈C 0(Rd).
+<<PAGE 11>>
+Enhancing LIME using Neural Decision Trees 11
+Fig. 2:Local decision boundaries of surrogate models on the Wine dataset (a subset
+of2features and2classes). From left to right: a standard DT, an NDT initialized from
+the DT without fine-tuning, and a fine-tuned NDT. While the DT exhibits rigid, axis-
+aligned partitions, the non-fine-tuned NDT produces degraded and poorly structured
+decision regions due to soft splits applied without optimization. Fine-tuning the NDT
+restores coherent and smooth decision boundaries, yielding a faithful approximation of
+the black-box model’s local decision boundary.
+Fig. 3:Stability matrices of DT-LIME (left) and NDT-LIME (right) explanations for
+a fixed instance from the Digits dataset.
+The continuity of the explanation map ensures that small perturbations of
+the input produce small variations in the resulting explanations. This provides
+a formal notion ofinput-level stabilityfor NDT-based explanations, which is not
+guaranteed for non-differentiable surrogate models such as hard decision trees.
+Stability of NDTs.We analyze the stability of explanations produced for a
+fixed input instance from the Digits dataset by repeating the surrogate training
+procedure with different random initializations. The resulting stability matrix
+illustrated in Fig.3, summarizes how feature attributions vary across runs.
+This analysis captures algorithmic variability in the explanation process, aris-
+ing from factors such as random sampling, model initialization, and non-convex
+optimization. It is therefore complementary to the theoretical continuity guar-
+antees established for NDTs, which concern stability with respect to input per-
+turbations for a fixed surrogate model. The observed variability reflects a funda-
+mental bias-variance tradeoff in explanation models. Linear surrogates exhibit
+highly stable but overly simplistic explanations, while more expressive models
+may yield explanations that vary across runs despite improved fidelity. NDTs
+<<PAGE 12>>
+12 M.A. Bouyahia and A. Kalogeratos
+occupy an intermediate regime, combining smooth and expressive explanations
+with moderate variability. The stability matrix provides an empirical perspective
+on explanation robustness that complements theoretical regularity results.
+4 Experiments
+The experiments are focused on tabular data and conduct a series of experiments
+on eight benchmark datasets: Breast Cancer, Iris, Wine, Digits, Covertype, Di-
+abetes, California Housing, and Ames Housing. The details of the datasets are
+provided in Tab.3 in Appendix 9. Tab.4 in the Appendix, puts in perspective
+the range of datasets used in this work and how it compares to related works.
+The empirical results evaluating the effectiveness of the proposed NDT-LIME
+method are reported in Tab.2. We compare against two baselines: the standard
+LIME using a linear regression surrogate (LR-LIME), and LIME using a tra-
+ditional greedy DT regressor as surrogate (DT-LIME). Additional comparisons
+with several LIME variants from the literature are provided in Fig.4 and in the
+Appendix 8 to further contextualize the performance of the proposed approach.
+For all experiments, the black-box model to be explained is a neural network
+with four hidden layers of sizes512,256,128, and64neurons, which allows us
+to evaluate the interpretability of NDT-LIME on a complex, non-linear model.
+In all experiments, the NDT’s smoothing parameters were set toγ1 = 1for the
+first layer andγ 2 = 1for the second layer, following the guideline of [11] that
+γ1 should be greater than or equal toγ2 (γ1 ≥γ 2) to preserve meaningful split
+activations while allowing smoother leaf-level transitions.
+An open source repository with implementations for the proposed NDT-
+LIME and the compared methods is publicly available3.
+4.1 Comparing NDT-LIME to existing LIME Variants
+Measuring Stability.Tab.2 shows that all three surrogate models produce
+highly stable explanations, with the vast majority of scores exceeding0.95. The
+traditional LR-LIME and DT-LIME surrogates consistently yield extremely high
+stability scores, often approaching a perfect1.0. This is expected, as their simpler
+structures are less sensitive to minor variations in the local data sample, at the
+expense of faithfully modeling complex decision boundaries.
+The proposed NDT-LIME method also demonstrates strong stability across
+the benchmark. On datasets such as Breast Cancer (0.991), Diabetes (0.998),
+Wine (0.998), and Ames Housing (0.990), stability scores are nearly indistin-
+guishable from the baselines. Slightly lower stability is observed on California
+Housing (0.973), Iris (0.943), Digits (0.816), and Covtype (0.931). This minor
+or small decrease in stability is not a sign of inferiority, but reflects the greater
+expressive power of the NDT. The gradient-based, global optimization of the
+3 Accessible at:https://github.com/aymen20002005/lime_ndt
+<<PAGE 13>>
+Enhancing LIME using Neural Decision Trees 13
+Dataset Stability↑Fidelity↑Regularity↑LR-LIME DT-LIME NDT-LIME LR-LIME DT-LIME NDT-LIME LR-LIME DT-LIME NDT-LIME
+Breast Cancer0.997±0.0030.986±0.1030.991±0.0040.527±0.0850.686±0.0490.785±0.0310.812±0.0140.873±0.0050.915±0.024
+Iris0.994±0.0060.997±0.0030.943±0.010 0.554±0.1500.777±0.0370.860±0.0210.743±0.0170.813±0.0280.820±0.039
+Wine0.999±0.0010.997±0.0010.998±0.0020.321±0.1330.395±0.1830.518±0.1310.830±0.0190.864±0.0420.910±0.023
+Digits0.980±0.0090.961±0.0910.816±0.023 0.243±0.1410.440±0.0760.577±0.106 0.654±0.0210.512±0.0840.563±0.034
+Covtype0.984±0.0050.983±0.1080.931±0.007 0.362±0.0520.556±0.1100.632±0.0670.890±0.0120.926±0.0200.849±0.072
+California Housing0.999±0.000 0.999±0.0000.973±0.0010.297±0.1480.890±0.0220.960±0.0140.834±0.0090.864±0.0110.794±0.033
+Diabetes0.999±0.001 0.999±0.0010.998±0.002 0.886±0.0120.562±0.1240.920±0.0350.956±0.0100.794±0.1020.978±0.017
+Ames Housing0.998±0.0000.996±0.0410.990±0.0130.865±0.0300.506±0.0620.713±0.0540.976±0.0080.903±0.0120.893±0.027
+T able 2:Stability, Fidelity and Regularity for LR-LIME, DT-LIME, and NDT-LIME
+methods on benchmark datasets. The stability of local explanations is measured as the
+average pairwise cosine similarity across repeated runs with random data perturba-
+tions. The fidelity of the involved surrogate models (i.e. LR, DT, NDT) is measured
+as theR 2 score between the surrogate predictions and the black-box model predictions
+on perturbed neighborhood samples. The regularity is computed as the average cosine
+similarity between the explanation of each test instance and the explanations of its
+k-NNs (withk= 2), measuring how smoothly explanations evolve across nearby in-
+stances. Higher values indicate better approximation of the black-box model.
+NDT surrogate can capture subtle non-linear patterns in each random pertur-
+bation of the local data. As a result, explanations may vary slightly across runs
+while remaining valid. In fact, having slightly lower stability introduces more
+variance in the explanations, which can increase the chance of discovering the
+most faithful or insightful explanation for the underlying black-box model.
+This is a critical distinction, as most other LIME variants shown in Fig.4
+retain a linear surrogate and instead focus on modifying the sampling or weight-
+ing process. Their near-perfect stability is often a byproduct of the surrogate’s
+inflexibility. By fundamentally changing the surrogate model to an NDT, our
+method achieves a more meaningful balance between stability and expressive-
+ness, as visually confirmed in the trade-off plots of Fig.4.
+Measuring Fidelity.As shown in Tab.2, NDT-LIME consistently achieves
+higher fidelity scores compared to both LR-LIME and DT-LIME across most
+datasets. On California Housing and Diabetes, the Neural Decision Tree sur-
+rogate significantly outperforms the linear and greedy decision tree surrogates,
+reachingR 2 scores above0.9. For Iris and Breast Cancer datasets, NDT-LIME
+still surpasses the other surrogates, though the fidelity remains below0.9, reflect-
+ing moderate local approximation accuracy. This indicates that NDTs can better
+capture non-linear local decision boundaries than traditional surrogates, even if
+the approximation is not perfect. For instance, on California Housing, LR-LIME
+achieves a modest fidelity of0.297, reflecting its limited ability to approximate
+highly non-linear patterns. In contrast, NDT-LIME reaches a nearly perfect fi-
+delity (0.960), while maintaining interpretability through its tree-like structure.
+Similarly, for the Diabetes, LR-LIME performs well (0.886), but NDT-LIME
+remains competitive (0.920) and surpasses the decision tree surrogate (0.562).
+The Wine, Covtype and Digits datasets represent challenging scenarios where
+all surrogates achieve relatively low fidelity, withR2 scores below0.7. This sug-
+<<PAGE 14>>
+14 M.A. Bouyahia and A. Kalogeratos
+0.92 0.94 0.96 0.98 1
+0.5
+0.6
+0.7 NDT-LIME
+GLIME
+DLIME
+MPS-LIME
+KL-LIME
+MeLIME
+sLIME
+iLIME
+BayLIME
+OptiLIME
+GMM-LIME
+stability
+fidelity
+0.65 0.7 0.75 0.8 0.85 0.9
+0.5
+0.6
+0.7 NDT-LIME
+GLIME
+DLIME
+MPS-LIME
+KL-LIME
+MeLIME
+sLIME
+iLIME
+BayLIME
+OptiLIME
+GMM-LIME
+regularity
+fidelity
+0.92 0.94 0.96 0.98 1
+0.7
+0.8
+0.9
+NDT-LIME
+GLIME
+DLIME
+MPS-LIME
+KL-LIME
+MeLIME sLIME
+iLIME
+BayLIME
+OptiLIME
+GMM-LIME
+stability
+regularity
+Fig. 4:Visual summary of the results comparing NDT-LIME with other LIME variants
+in terms of stability-vs-fidelity, regularity-vs-fidelity, and stability-vs-regularity. The
+results in tabilar format are presented in Tabs.5-7.
+gests that the Neural Networks’ decision boundaries in these datasets are in-
+tricate and difficult for simple surrogates to capture locally. Nonetheless, NDT-
+LIME performs better than LR-LIME and DT-LIME, highlighting its robustness
+even in difficult cases. Overall, these results indicate that NDT-LIME provides
+a strong balance between interpretability and fidelity. By leveraging the expres-
+sive power of Neural Decision Trees, it achieves explanations that are generally
+faithful to the black-box model and more representative of its local decision
+boundaries compared to traditional surrogates. This performance gain stems di-
+rectly from our choice of surrogate model, which is the most critical factor for
+achieving high fidelity. As illustrated in Fig.4, many competing LIME variants
+fail to reach high fidelity scores precisely because they are constrained by a
+simple linear surrogate. By replacing this core component with a more power-
+ful NDT, NDT-LIME fundamentally overcomes this limitation, allowing it to
+capture complex, non-linear behaviors where other methods fail.
+To further evaluate the robustness of NDT-LIME, we also conducted exper-
+iments to assess how local fidelity is impacted by the complexity of the global
+black-box model. We systematically increased the complexity of the Neural Net-
+work used as black-box model and measured the fidelity of NDT-LIME. The
+results, detailed in Appendix 6, demonstrate that NDT-LIME maintains signif-
+icantly higher local fidelity as the complexity of the black-box model increases.
+Measuring Regularity.As defined in Sec.2.2, regularity evaluates whether
+similar inputs yield similar explanation vectors, an essential property for human
+interpretability and trust. For this experiment, we compute the regularity using
+ak-NN approach. For each test instancexi, we identify itskclosest neighbors
+in the original feature space using Euclidean distance, and compute the cosine
+similarity between the explanation vectorE(xi)and those of its neighbors, as
+formalized in Eq.5. We choosek= 2to focus the evaluation on very local coher-
+ence, ensuring that the metric captures genuine smoothness rather than global
+averaging effects. This is particularly important in the context of local expla-
+nation methods such as LIME, whose objective is to faithfully describe model
+behavior in a tightly constrained neighborhood. A more detailed exploration of
+how regularity behaves across different neighborhood sizes (i.e. for varying values
+of k) is provided in the Appendix 7.
+<<PAGE 15>>
+Enhancing LIME using Neural Decision Trees 15
+The regularity results in Tab.2, reveal several notable trends. NDT-LIME
+achieves the highest or near-highest regularity scores on the majority of datasets,
+indicating that its explanations vary more smoothly across neighboring data-
+points than those produced by traditional surrogates. On Breast Cancer, Wine,
+and Diabetes, NDT-LIME exhibits clear gains in regularity, reaching scores of
+0.915,0.910, and0.978respectively. These improvements suggest that the soft,
+differentiable splits of the NDTs promote coherent transitions between nearby
+explanations, in contrast to the potentially abrupt changes induced by hard,
+axis-aligned splits in DTs or the overly rigid structure of linear models. For Cal-
+ifornia Housing, NDT-LIME achieves slightly lower regularity (0.794) compared
+toLR-LIME(0.834)andDT-LIME(0.864).Thisreflectsaknowntrade-off:while
+NDTs capture more complex local non-linearities leading to very high fidelity,
+this expressiveness can introduce subtle variations in explanation vectors even
+among very close neighbors. Importantly, this does not indicate incoherent be-
+havior, but rather a more faithful adaptation to local curvature in the black-box
+model’s decision boundaries.
+5 Conclusion
+In this work, we introduced NDT-LIME, a novel approach that enhances the
+LIME methodology by integrating Neural DTs as surrogates. Through exten-
+sive experiments on multiple benchmark tabular datasets, we demonstrated that
+NDT-LIME achieves a strong balance between stability and fidelity.
+Overall, the findings confirm that NDTs are powerful surrogates for enhanc-
+ing LIME, providing explanations that are at once interpretable, stable, and
+faithful. This synergy bridges the gap between black-box predictive accuracy
+and transparent decision-making, opening new perspectives for explainable AI
+in critical domains such as healthcare, finance, and policy-making.
+As highlighted in the recent work in [13], ensuring the trustworthiness and
+consistency of LIME-based explanations remains a central challenge for the eX-
+plainable AI community. Future work may focus on extending NDT-LIME to
+other types of data beyond tabular formats, such as images or text, as well as
+investigating hybrid strategies that combine local explanations with global inter-
+pretability frameworks. By doing so, we aim to further strengthen the trustwor-
+thiness and applicability of machine learning in real-world, high-stakes scenarios.
+References
+1. H.-J. Ye, S.-Y. Liu, H.-R. Cai, Q.-L. Zhou, and D.-C. Zhan, “A closer look at deep
+learning methods on tabular datasets,”arXiv:2407.00956v4, 2025.
+2. N. Hollmann, S. Müller, L. Purucker, A. Krishnakumar, M. Körfer, S. B. Hoo,
+R. T. Schirrmeister, and F. Hutter, “Accurate predictions on small data with a
+tabular foundation model,”Nature, vol. 637, p. 319–326, 2025.
+3. L. Grinsztajn, E. Oyallon, and G. Varoquaux, “Why do tree-based models still
+outperform deep learning on typical tabular data?” inInternational Conference on
+Neural Information Processing Systems, 2022.
+<<PAGE 16>>
+16 M.A. Bouyahia and A. Kalogeratos
+4. M. T. Ribeiro, S. Singh, and C. Guestrin, “Why should i trust you? Explaining
+the predictions of any classifier,” inACM SIGKDD International Conference on
+Knowledge Discovery and Data Mining, 2016, p. 1135–1144.
+5. Z. Tan, Y. Tian, and J. Li, “GLIME: General, stable and local LIME explanation,”
+inAdvances in Neural Information Processing Systems, 2023, pp. 36250–36277.
+6. Z. Zhou, G. Hooker, and F. Wang, “S-LIME: Stabilized-LIME for model expla-
+nation,” inACM SIGKDD Conference on Knowledge Discovery & Data Mining,
+2021, p. 2429–2438.
+7. J. Dieber and S. Kirrane, “Why model why? Assessing the strengths and limitations
+of LIME,”arXiv:2012.00093v1, 2020.
+8. M. T. Ribeiro, S. Singh, and C. Guestrin, “Anchors: High-precision model-agnostic
+explanations,” inAAAI Conference on Artificial Intelligence, 2018.
+9. K. Sokol and P. Flach, “LIMETREE: Consistent and faithful surrogate explana-
+tions of multiple classes,”Electronics, vol. 14, no. 5, 2025.
+10. R. Balestriero, “Neural decision trees,”arXiv:1702.07360, 2017.
+11. A. M. Montes de Oca, A. Kalogeratos, and M. Mougeot, “To tree or not to tree?
+Assessing the impact of smoothing the decision boundaries,” inArtificial Neural
+Networks and Machine Learning, 2022, pp. 660–672.
+12. H. Li, J. Song, M. Xue, H. Zhang, J. Ye, L. Cheng, and M. Song, “A survey of
+neural trees,”aXiv:2209.03415, 2022.
+13. P. Knab, S. Marton, U. Schlegel, and C. Bartelt, “Which LIME should I trust?
+Concepts, challenges, and solutions,” inExplainable Artificial Intelligence, 2026,
+pp. 28–52.
+14. R. Guidotti, A. Monreale, S. Ruggieri, D. Pedreschi, F. Turini, and F. Giannotti,
+“Local rule-based explanations of black box decision systems,”arXiv:1805.10820,
+2018.
+15. M. R. Zafar and N. M. Khan, “Deterministic local interpretable model-agnostic ex-
+planations for stable explainability,”Machine Learning and Knowledge Extraction,
+no. 3, pp. 525–541, 2019.
+16. S. Shi, X. Zhang, and W. Fan, “A modified perturbed sampling method for local
+interpretable model-agnostic explanation,”arXiv:2002.07434, 2020.
+17. T. Peltola, “Local interpretable model-agnostic explanations of Bayesian predictive
+models via Kullback–Leibler projections,”arXiv:1810.02678v1, 2018.
+18. T. Botari, F. Hvilshøj, R. Izbicki, and A. C. P. L. F. de Carvalho, “MeLIME: Mean-
+ingful local explanation for machine learning models,”arXiv:2009.05818, 2020.
+19. R. ElShawi, Y. Sherif, M. Al-Mallah, and S. Sakr, “ILIME: Local and global inter-
+pretable model-agnostic explainer of black-box decision,” inAdvances in Databases
+and Information Systems, 2019.
+20. X. Zhao, W. Huang, X. Huang, V. Robu, and D. Flynn, “BayLIME: Bayesian
+local interpretable model-agnostic explanations,” inConference on Uncertainty in
+Artificial Intelligence, 2020.
+21. G. Visani, E. Bagli, and F. Chesani, “OptiLIME: Optimized lime explanations for
+diagnostic computer algorithms,”arXiv:2006.05714, 2022.
+22. M. M. Mulwa, R. W. Mwangi, and A. Mindila, “GMM-LIME: Explainable machine
+learning model for interpreting sensor-based human gait,”Engineering Reports,
+vol. 6, no. 10, p. e12864, 2024.
+23. D.C.Montgomery,E.A.Peck,andG.G.Vining,Introduction to Linear Regression
+Analysis, 5th ed. Wiley, 2012.
+24. H. Li, J. Song, M. Xue, H. Zhang, and M. Song, “A survey of neural trees: Co-
+evolving neural networks and decision trees,”IEEE Transactions on Neural Net-
+works and Learning Systems, vol. 36, no. 7, pp. 11718–11737, 2025.
+<<PAGE 17>>
+Enhancing LIME using Neural Decision Trees 17
+APPENDIX
+6 Analysis of Local Surrogate Fidelity Against Global
+Model Complexity
+To demonstrate the robustness and necessity of the NDT as a surrogate model,
+we investigated how local explanation fidelity is impacted by the complexity
+of the global black-box model. We trained a series of Multi-Layer Perceptrons
+(MLPs) on five benchmark datasets, systematically increasing complexity by
+adding hidden layers. Fidelity is measured using theR2 score of the local sur-
+rogate model’s predictions against the complex model’s predictions in the local
+neighborhood. Fig.5, presented as eight subplots, illustrates the fidelity of LR-
+LIME, DT-LIME, and NDT-LIME as the global model complexity increases for
+five distinct datasets. Across all datasets, a clear and consistent pattern emerges:
+NDT-LIME maintains significantly higher local fidelity as the complexity of the
+black-box model increases, while the fidelity of traditional surrogates (LR-LIME
+and DT-LIME) declines drastically or collapses.
+In all figures, LR-LIME shows the steepest decline in fidelity. For models with
+3or more hidden layers, theR2 score often drops below0.2, or even approaches
+zero. This confirms that linear models are fundamentally incapable of approxi-
+mating the highly non-linear, multi-dimensional decision boundaries created by
+deep, multi-layer networks. The local explanation derived from LR-LIME quickly
+becomes unfaithful and untrustworthy as the global model gains complexity.
+DT-LIME performs marginally better than LR-LIME initially, as its hierar-
+chical structure offers more flexibility than a simple hyperplane. However, its
+fidelity rapidly plateaus or drops off after the model reaches moderate complex-
+ity (2-3layers). The rigid, axis-aligned splits of traditional decision trees cannot
+capture the smooth, curved, or high-dimensional manifolds generated by deeper
+MLPs,causingitslocalfidelitytofailtokeeppacewiththeincreasingcomplexity
+of the target black-box function.
+NDT-LIME consistently outperforms both baseline surrogates. Even when
+the global MLP model reaches maximum complexity, NDT-LIME maintains a
+strongR 2 score. This sustained performance is directly attributable to the core
+innovation of NDTs: the use of soft, differentiable splits. These soft splits allow
+the NDT to smoothly approximate complex decision boundaries without the
+limitations imposed by the rigid axis-aligned cuts of traditional decision trees,
+ensuring the local explanation remains faithful even for the most complex black-
+box models.
+7 Analysis of Regularity in Different Local Regions
+The regularity score, defined by averaging the score of Eq.5 overall datapoints
+of a dataset, depends critically on the choice ofk, the number of nearest neigh-
+bors used to assess the coherence of explanations across the input space. While
+small values ofkcapture strictly local smoothness, larger values progressively
+<<PAGE 18>>
+18 M.A. Bouyahia and A. Kalogeratos
+(a)Iris
+ (b)Breast Cancer
+ (c)Wine
+ (d)Digits
+(e)Covertype
+ (f )Diabetes
+ (g)California Housing
+ (h)Ames Housing
+Fig. 5:Local fidelity comparison of LIME surrogates (LR-LIME, DT-LIME, and NDT-
+LIME) across increasing complexity of black-box models on benchmark datasets.
+(a)Iris
+ (b)Breast Cancer
+ (c)Wine
+ (d)Digits
+(e)Covertype
+ (f )Diabetes
+ (g)California Housing
+ (h)Ames Housing
+Fig. 6:Regularity of LIME surrogates (LR-LIME, DT-LIME, and NDT-LIME) across
+increasingk-NNs on benchmark datasets.
+include instances that may lie in different local regimes of the black-box decision
+function.
+For inherently local explanation methods such as LIME, high regularity is
+expected to hold within a limited neighborhood. However, the way regularity
+decreases askincreases reveals important differences between surrogate models,
+particularly their ability to handle decision boundaries and local variations.
+To analyze this behavior, we varykfrom1to10and compute the global
+regularity score for LR-LIME, DT-LIME, and NDT-LIME across all benchmark
+datasets.
+LR-LIME exhibits the slowest decay in regularity askincreases. This behav-
+ior is a direct consequence of the global linear nature of the surrogate model,
+which produces explanation vectors that are nearly invariant across the input
+space. While this results in relatively high regularity values even for large k, it
+comes at the cost of poor local fidelity, as shown in Sec.4.1. Consequently, the
+<<PAGE 19>>
+Enhancing LIME using Neural Decision Trees 19
+apparent robustness of LR-LIME at larger neighborhood scales reflects model
+rigidity rather than faithful local approximation of the black-box model.
+DT-LIMEshowsasharper declineinregularityaskincreases. Thehard, axis-
+aligned splits induced by greedy decision tree training lead to abrupt changes in
+explanation vectors when instances cross split thresholds. As the neighborhood
+expands, neighboring instances are increasingly likely to fall into different leaf
+regions, resulting in sudden drops in cosine similarity between explanations. This
+behavior highlights the sensitivity of classical decision trees to neighborhood
+definitions and their limited ability to produce smooth explanation transitions.
+In contrast, NDT-LIME demonstrates a more balanced and desirable behav-
+ior. For small values ofk, NDT-LIME achieves high regularity, indicating strong
+local coherence between explanations of nearby instances. Askincreases, regu-
+larity decreases gradually rather than abruptly, reflecting the surrogate’s ability
+to adapt smoothly to evolving decision boundaries. This behavior is a direct
+consequence of the soft, differentiable splits of NDTs, which allow explanations
+to transition continuously across regions of the input space without introducing
+sharp discontinuities.
+Therateatwhichregularitydecreaseswithincreasingkvariesacrossdatasets
+andisinfluencedbyintrinsicdatacharacteristicssuchasdimensionalityandclass
+complexity. High-dimensional datasets such as Digits and Covtype exhibit faster
+regularity decay for all methods, reflecting the fragmented nature of their input
+spaces. In contrast, lower-dimensional datasets such as Iris and Wine preserve
+higherregularityoverawiderrangeofk,indicatingsmootherunderlyingdecision
+boundaries.
+Overall, this analysis confirms that NDT-LIME produces explanations that
+are locally smooth yet globally adaptive. Unlike linear surrogates, which remain
+artificially consistent across large neighborhoods, and traditional decision trees,
+whichsufferfromabruptexplanationshifts,NeuralDecisionTreesstrikeaprinci-
+pled balance between continuity and expressiveness. This behavior aligns closely
+with the fundamental objective of local interpretability: providing explanations
+that are stable where they should be, and flexible where they must be.
+8 Description and implementation details for the main
+LIME competitors
+GLIMEis a generalized framework that extends LIME to address its core
+limitations of instability and low local fidelity. These issues stem from LIME’s
+sampling process, which is often non-local and biased, and from the dominance
+of the regularization term when sample weights are small. GLIME reformulates
+the explanation problem by integrating the weighting kernel directly into the
+sampling distribution.
+DLIMEis implemented following the original formulation, which does not
+rely on perturbation-based sampling. Instead of generating synthetic instances,
+DLIME operates directly on the original training data. An agglomerative hierar-
+chical clustering is first applied to partition the dataset into locally homogeneous
+<<PAGE 20>>
+20 M.A. Bouyahia and A. Kalogeratos
+regions based on feature similarity. For a given instance to be explained, the cor-
+responding cluster is identified using a nearest-neighbor assignment strategy. A
+local linear surrogate model is then trained exclusively on the datapoints be-
+longing to this cluster to approximate the behavior of the black-box model in
+the vicinity of the instance. By defining locality through data-driven clustering
+rather than random perturbations, DLIME produces deterministic explanations
+and improves stability compared to standard LIME.
+BayLIMEis implemented by integrating Bayesian principles into the stan-
+dard LIME workflow. It uses the same perturbation and weighting scheme as
+LR-LIME. The key difference lies in the surrogate model: instead of a stan-
+dard linear regression, BayLIME employs a Bayesian Linear Regression model
+(BayesianRidge from scikit-learn). This model introduces a probabilistic prior
+over the regression coefficients, which helps regularize the model and makes it
+more robust to noise in the local data sample. The explanation is derived from
+the posterior mean of the surrogate’s coefficients, representing the most probable
+feature importance values. We used the default non-informative, zero-centered
+prior for our experiments to ensure a fair and general comparison.
+OptiLIMEis implemented as a framework that optimizes the LIME hyperpa-
+rameters, particularly the kernel width, to manage the trade-off between fidelity
+(adherence) and stability. Its implementation involves wrapping the standard
+LIME process within an optimization loop, typically using Bayesian optimiza-
+tion. For each instance, this optimizer systematically searches for the kernel
+width that yields the best possible explanation according to a combined objec-
+tive function that rewards both high fidelity and high stability. This makes the
+explanation process more computationally intensive but tailored to each specific
+datapoint.
+GMM-LIMEmodifies the local neighborhood definition. It first fits a Gaus-
+sian Mixture Model to the training data to identify underlying clusters. When
+explaining an instance, it uses the GMM to define a probabilistic local neighbor-
+hood based on the cluster the instance belongs to. Perturbed samples are then
+generated according to the learned Gaussian distribution of that specific cluster.
+This creates a more data-aware neighborhood than standard isotropic pertur-
+bations, aiming for improved local approximation and stability by aligning the
+sampling with the natural structure of the data.
+sLIMEbrings as key innovation is an adaptive perturbation strategy. Its im-
+plementation requires modifying the initial data generation step. Instead of a
+fixed perturbation scale, sLIME introduces an algorithm to automatically deter-
+mine the optimal neighborhood size for each instance. It iteratively adjusts the
+perturbation kernel width to find a balance where the local linear model is both
+stable and a good fit. The rest of the pipeline (weighting and training a linear
+surrogate) remains consistent with standard LIME.
+<<PAGE 21>>
+Enhancing LIME using Neural Decision Trees 21
+Dataset T ask # Instances # V ariables T arget variable
+Breast Cancer Wisconsin (Diagnostic) Classification 569 30 Diagnosis (malignant/benign)
+Iris Classification 150 4 Species of Iris flower (3classes)
+Digits Classification 1797 64 Handwritten digit (0-9)
+Covertype (forest cover type) Classification 581012 54 Forest cover type (7 classes)
+Wine Classification 178 13 Cultivar (3 classes)
+California Housing Regression 20640 8 Median house value
+Diabetes Regression 442 10 Disease progression score
+Ames Housing Regression 2930 80 Sale Price
+T able 3:Benchmark tabular datasets used in the experiments.
+9 Details of the used datasets
+This appendix provides a comprehensive description of the benchmark tabular
+datasets used to evaluate the proposed NDT-LIME framework. These datasets
+were selected to represent a diverse range of classification and regression prob-
+lems,withvaryingfeaturedimensions,instancecounts,andlevelsofnon-linearity.
+All datasets were obtained from well-established machine learning repositories
+such as the UCI Repository and scikit-learn. A summary of these datasets, in-
+cluding their task type, size, and feature composition, is provided in Tab.3.
+Datasets used in other research papers.We present different datasets used
+in works proposing other LIME variants in the related literature. This overview,
+summarized in Tab.4, contextualizes the selection of datasets in our study and
+highlights common benchmarks used to evaluate local explanation methods.
+Several variants, including GLIME, MPS-LIME, and KL-LIME, were pri-
+marily evaluated on non-tabular data, such as images or text, and therefore did
+not use the tabular datasets common in this paper. For tabular data, DLIME
+experiments were conducted on the Breast Cancer Wisconsin, Indian Liver Pa-
+tient, and Hepatitis datasets, focusing on medical diagnosis scenarios. The Me-
+LIME variant used the classic Iris dataset to demonstrate its approach, while
+SLIME was validated on the Breast Cancer Wisconsin, MARS test function, and
+Sepsis prediction datasets. The iLIME variant was tested on a broader range
+of classification tasks, including the Iris, Wine, Breast Cancer, Cervical Can-
+cer, Diabetes, Hypertension, and Mortality datasets. Similarly, BayLIME used
+the Boston House-Price and Breast Cancer Wisconsin datasets to showcase its
+Bayesian framework. Other methods, like OptiLIME, used synthetic toy data
+and the NHANES I dataset, and GMM-LIME evaluations were performed on
+the Human Gait Database (HugaDB) and GaitRec for interpreting sensor-based
+models.
+This compilation shows a diverse but somewhat fragmented use of datasets
+across different LIME variants, underscoring the need for standardized, compre-
+hensive benchmarks like those employed in our work to enable fair and robust
+comparisons.
+<<PAGE 22>>
+22 M.A. Bouyahia and A. Kalogeratos
+LIME variant Datasets used
+GLIME No tabular data
+DLIME Breast Cancer Wisconsin, Indian Liver Patient,
+Hepatitis
+MPS-LIME No tabular data
+KL-LIME No tabular data
+MeLIME Iris
+sLIME Breast Cancer Wisconsin, MARS test function,
+Sepsis prediction
+iLIME Iris, Wine, Breast Cancer, Cervical Cancer,
+Diabetes, Hypertension, Mortality
+BayLIME Boston House-Price, Breast Cancer Wisconsin
+OptiLIME Toy data, NHANES I
+GMM-LIME Human Gait Database (HugaDB), GaitRec
+T able 4:A list of the datasets used in the LIME-related literature.
+LIME V ariant Breast Cancer Iris Wine Digits Covtype CA Housing Diabetes Ames Housing
+GLIME0.825±0.0120.640±0.021 0.420±0.0150.510±0.011 0.590±0.0250.465±0.0310.907±0.0280.913±0.022
+DLIME 0.435±0.009 0.563±0.025 0.395±0.018 0.285±0.013 0.410±0.028 0.260±0.035 0.760±0.031 0.751±0.025
+MPS-LIME 0.612±0.015 0.600±0.028 0.365±0.021 0.260±0.016 0.385±0.031 0.342±0.040 0.840±0.035 0.830±0.029
+KL-LIME 0.514±0.016 0.585±0.031 0.350±0.023 0.245±0.018 0.370±0.033 0.321±0.045 0.798±0.0380.871±0.032
+MeLIME 0.547±0.018 0.630±0.033 0.435±0.025 0.514±0.020 0.355±0.035 0.415±0.048 0.812±0.040 0.808±0.035
+sLIME 0.718±0.005 0.610±0.026 0.405±0.017 0.457±0.012 0.468±0.0270.502±0.0330.853±0.026 0.834±0.023
+iLIME 0.688±0.0140.655±0.019 0.440±0.0130.325±0.010 0.460±0.023 0.369±0.028 0.882±0.024 0.852±0.020
+BayLIME 0.739±0.022 0.624±0.030 0.418±0.024 0.476±0.019 0.415±0.034 0.397±0.043 0.894±0.037 0.845±0.030
+OptiLIME 0.559±0.013 0.570±0.022 0.415±0.016 0.305±0.011 0.435±0.026 0.298±0.030 0.817±0.025 0.720±0.021
+GMM-LIME 0.621±0.025 0.545±0.038 0.320±0.028 0.215±0.022 0.335±0.038 0.295±0.051 0.775±0.043 0.798±0.038
+NDT (ours)0.785±0.0310.860±0.021 0.518±0.131 0.577±0.106 0.632±0.067 0.960±0.014 0.920±0.0350.713±0.054
+T able 5:Fidelity of different LIME variants on benchmark datasets.
+10 Smoothness and local Taylor expansion of Neural
+Decision Trees
+In this appendix, we formally establish the smoothness properties of Neural
+Decision Trees (NDTs) and discuss their implications for local interpretability.
+Our goal is to demonstrate that NDTs belong to the class ofC∞(Rd)functions,
+which allows for the use of Taylor expansions to characterize their local behav-
+ior. This smoothness is a critical advantage over traditional decision trees, as it
+enables continuous and differentiable explanations that better capture local de-
+cision boundaries. To achieve this, we provide proofs of the smoothness of NDTs
+and derive their local Taylor expansion, thereby highlighting how this property
+contributes to the interpretability and stability of the explanations generated by
+NDT-LIME.
+<<PAGE 23>>
+Enhancing LIME using Neural Decision Trees 23
+LIME V ariant Breast Cancer Iris Wine Digits Covtype CA Housing Diabetes Ames Housing
+GLIME0.996±0.0030.987±0.011 0.997±0.0010.990±0.0040.991±0.0100.999±0.000 0.999±0.0030.994±0.007
+DLIME1.000±0.000 1.000±0.000 1.000±0.000 1.000±0.000 1.000±0.000 1.000±0.000 1.000±0.000 1.000±0.000
+MPS-LIME 0.956±0.005 0.963±0.008 0.974±0.003 0.908±0.018 0.954±0.024 0.973±0.009 0.972±0.004 0.965±0.010
+KL-LIME 0.960±0.007 0.954±0.013 0.965±0.010 0.938±0.024 0.949±0.018 0.960±0.007 0.971±0.002 0.954±0.014
+MeLIME 0.949±0.0100.995±0.0040.934±0.012 0.973±0.012 0.982±0.005 0.963±0.0030.999±0.0000.995±0.004
+sLIME 0.995±0.005 0.986±0.0030.999±0.0000.985±0.0050.999±0.002 0.999±0.001 0.999±0.001 0.998±0.002
+iLIME 0.975±0.004 0.974±0.010 0.984±0.005 0.953±0.022 0.972±0.015 0.976±0.005 0.978±0.005 0.973±0.011
+BayLIME 0.940±0.015 0.935±0.043 0.948±0.027 0.910±0.055 0.926±0.025 0.944±0.013 0.951±0.009 0.939±0.036
+OptiLIME 0.980±0.003 0.974±0.017 0.982±0.005 0.968±0.017 0.975±0.015 0.987±0.002 0.984±0.005 0.993±0.002
+GMM-LIME 0.930±0.020 0.926±0.006 0.936±0.024 0.908±0.030 0.917±0.021 0.934±0.010 0.947±0.008 0.925±0.036
+NDT (ours)0.991±0.004 0.943±0.010 0.998±0.002 0.816±0.023 0.931±0.007 0.973±0.001 0.998±0.002 0.990±0.013
+T able 6:Stability of different LIME variants on benchmark datasets.
+LIME V ariant Breast Cancer Iris Wine Digits Covtype CA Housing Diabetes Ames Housing
+GLIME 0.905±0.014 0.812±0.021 0.842±0.018 0.597±0.0270.894±0.0190.869±0.0160.952±0.0120.962±0.015
+DLIME 0.718±0.012 0.725±0.019 0.675±0.017 0.508±0.025 0.806±0.017 0.756±0.015 0.844±0.011 0.814±0.014
+MPS-LIME 0.782±0.018 0.761±0.026 0.764±0.022 0.622±0.031 0.811±0.024 0.812±0.021 0.905±0.017 0.853±0.020
+KL-LIME 0.803±0.020 0.722±0.028 0.739±0.025 0.623±0.034 0.816±0.026 0.755±0.023 0.828±0.019 0.818±0.022
+MeLIME 0.852±0.021 0.748±0.030 0.802±0.027 0.610±0.0360.901±0.0280.781±0.025 0.874±0.020 0.844±0.024
+sLIME 0.888±0.010 0.746±0.0160.892±0.0130.731±0.0210.881±0.015 0.819±0.013 0.958±0.008 0.826±0.011
+iLIME0.912±0.0130.831±0.018 0.879±0.015 0.714±0.023 0.889±0.0170.858±0.0140.946±0.0100.918±0.013
+BayLIME 0.843±0.024 0.739±0.034 0.795±0.029 0.602±0.041 0.814±0.031 0.773±0.027 0.868±0.022 0.839±0.026
+OptiLIME 0.911±0.0110.838±0.0190.886±0.0140.724±0.0220.866±0.016 0.864±0.013 0.912±0.009 0.902±0.012
+GMM-LIME 0.817±0.027 0.721±0.039 0.781±0.033 0.538±0.044 0.772±0.035 0.762±0.030 0.857±0.025 0.826±0.029
+NDT (ours) 0.915±0.024 0.820±0.039 0.910±0.0230.563±0.034 0.849±0.072 0.794±0.0330.978±0.0170.893±0.027
+T able 7:Regularity of different LIME variants on benchmark datasets.
+10.1 Neural Decision Trees areC ∞
+Definition.A Neural Decision Tree (NDT) defines a functiong:R d →Rof
+the form:
+g(x) =
+KX
+k=1
+ak
+Y
+m∈Pk
+σγ(xjm −α m),(10)
+where the sum goes over eachk= 1, ..., Kroot-to-leaf path,Pk is the set of splits
+along that path,ak ∈Rare leaf values, andσ γ is a smooth gating function (e.g.
+σγ(u) = tanh(γu)).
+Lemma 1.The functionσ γ(u) = tanh(γu)belongs toC ∞(R).
+Proof.The hyperbolic tangent function is analytic onR, and composition with
+an affine map preserves smoothness.
+Lemma 2.Finite sums and finite products ofC∞ functions areC ∞.
+Proof.This follows directly from standard differentiation rules.
+Proposition 2.The functiongdefined in Eq.10 belongs toC ∞(Rd).
+<<PAGE 24>>
+24 M.A. Bouyahia and A. Kalogeratos
+Proof.Each gating functionσ γ(xjm −α m)isC ∞ by the previous lemma. Each
+path contribution is a finite product ofC∞ functions and is thereforeC∞. Since
+gis a finite sum of such terms, we conclude thatg∈C∞(Rd).
+In particular, NDTs define functions inC2(Rd), which is sufficient for second-
+order Taylor expansions. 10.2
+10.2 Local Taylor Expansion of an NDT
+Letx 0 ∈R d be a point of interest. Sinceg∈C 2(Rd), Taylor’s theorem applies
+in a neighborhood ofx0.
+Proposition 3 (Second-order Taylor expansion).For anyh∈R d suffi-
+ciently small,
+g(x0 +h) =g(x 0) +∇g(x 0)Th+ 12 hTHg(x0)h+o(∥h∥ 2),(11)
+where∇g(x 0)denotes the gradient andH g(x0)the Hessian matrix ofgatx 0.
+The first-order term∇g(x0)provides well-defined and continuous feature at-
+tributions, while the second-order term captures local curvature and interactions
+between features that appear jointly along decision paths. This contrasts with
+linear surrogates, whose Hessian is identically zero, and with hard decision trees,
+which do not admit a Taylor expansion due to discontinuities.
+11 Theoretical limits of local fidelity
+11.1 Local fidelity as a constrained approximation problem
+Letf:R d →Rbe a black-box model and letx0 ∈R d be a point of interest. We
+consider a locality distributionπx0 supported on a neighborhoodU=B(x 0, r).
+For a given class of surrogate modelsG, we define the minimal achievable
+local fidelity error as
+EG(f;x 0) = infg∈G ∥f−g∥ L2(πx0 ).(12)
+This quantity characterizes intrinsic limitations of the surrogate class, indepen-
+dently of optimization or sampling effects.
+11.2 Linear surrogates (LR-LIME)
+Assume thatfis twice continuously differentiable in a neighborhood ofx0 and
+that
+Hf (x0)̸= 0,
+whereH f (x0)denotes the Hessian offatx 0. LetG LR denote the class of affine
+functions.
+<<PAGE 25>>
+Enhancing LIME using Neural Decision Trees 25
+Proposition 4 (Lower bound for linear surrogates, informal).For suf-
+ficiently smallr, there exists a constantc >0such that
+EGLR (f;x 0)≥c r 2 ∥Hf (x0)∥.(13)
+Linear surrogates can match the first-order Taylor expansion off, but cannot
+represent local curvature. As a consequence, the approximation error remains
+strictly positive, even in an arbitrarily small neighborhood.
+11.3 Decision tree surrogates (DT-LIME)
+LetG DT,d denote the class of decision trees of depthd, which define piecewise-
+constant functions on partitions of sizeO(2d). Assume thatfis locally Lipschitz
+inU.
+Proposition 5 (Approximation rate of decision trees, informal).There
+exists a constantC >0such that
+EGDT,d (f;x 0) =O
+
+2−d/deff
+
+,(14)
+whered eff denotes the effective local dimension of the input.
+Increasing the tree depth refines the local partition, but approximation is
+limited by discontinuities at split boundaries and lack of smoothness within
+each cell, leading to slow convergence with depth.
+11.4 Neural Decision Trees (NDT-LIME)
+LetG NDT,d denote the class of NDTs of depthdwith smooth gating functions.
+Assume thatf∈C 2(U). NDTs define smooth, non-linear surrogates that can
+locally approximate both gradient and curvature information.
+Proposition 6 (Local approximation by NDTs, informal).There exists
+a constantC >0such that
+EGNDT,d (f;x 0) =O
+
+2−2d/deff
+
+.(15)
+NDTs behave as piecewise-smooth approximators, analogous to spline models.
+They combine the expressive power of non-linear models with the regularity of
+smooth functions, yielding an intermediate convergence regime.
+11.5 Comparison and takeaway
+Combining the above results yields the hierarchy
+ELR ≫ ENDT,d ≫ EDT,d,(16)
+highlighting the structural advantage of Neural Decision Trees as local surro-
+gates.
+The bounds presented above are indicative and rely on standard assumptions
+from approximation theory. They are intended to explain qualitative differences
+between surrogate classes, rather than provide optimal approximation rates.

@@ -1,0 +1,351 @@
+[
+ {
+  "uid": "N029",
+  "ta": "U",
+  "title": "Using Decision Tree as Local Interpretable Model in Autoencoder-based LIME",
+  "year": 2022,
+  "venue": "2022 27th International Computer Conference, Computer Society of Iran (CSICC)",
+  "doi": "10.1109/csicc55295.2022.9780503",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Niloofar Ranjbar",
+   "Reza Safabakhsh"
+  ]
+ },
+ {
+  "uid": "N036",
+  "ta": "U",
+  "title": "A SHAP-Guided Approach to Feature Stability for Robust Android Malware Detection",
+  "year": 2026,
+  "venue": "2026 International Conference on Networks Computers and Communications (ICNCCom)",
+  "doi": "10.1109/icnccom69117.2026.11736292",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Albin Chacko",
+   "Vinayak VH",
+   "Mahesh A. S."
+  ]
+ },
+ {
+  "uid": "N048",
+  "ta": "U",
+  "title": "Empirical Validation of Explainable AI Models for High-Stakes Decision-Making Scenarios",
+  "year": 2026,
+  "venue": "2026 1st International Conference on AI, Data Science, Cyber Security and Smart Manufacturing for Sustainable Development (ICADCS)",
+  "doi": "10.1109/icadcs70036.2026.11583167",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Nusrath Konnola",
+   "Julfar Thaliyil",
+   "Nafseera C."
+  ]
+ },
+ {
+  "uid": "N101",
+  "ta": "I",
+  "title": "Can We Trust Your Explanations? Sanity Checks for Interpreters in Android Malware Analysis",
+  "year": 2021,
+  "venue": "IEEE Transactions on Information Forensics and Security",
+  "doi": "10.1109/tifs.2020.3021924",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Ming Fan",
+   "Wenying Wei",
+   "Xiaofei Xie",
+   "Yang Liu",
+   "Xiaohong Guan",
+   "Ting Liu"
+  ]
+ },
+ {
+  "uid": "N126",
+  "ta": "U",
+  "title": "Hierarchical Group-Based Shapley Explanation for Interpretable Financial Fraud Detection",
+  "year": 2026,
+  "venue": "2026 IEEE International Conference on Big Data and Smart Computing (BigComp)",
+  "doi": "10.1109/bigcomp68355.2026.00056",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Seungho Choi",
+   "Seonkyu Lim",
+   "Kim Kwanggeun",
+   "Jinwook Seo"
+  ]
+ },
+ {
+  "uid": "N239",
+  "ta": "U",
+  "title": "LIME-Based Analysis of Adversarial Feature Manipulation in Cloud Intrusion Detection Systems",
+  "year": 2026,
+  "venue": "2026 2nd International Conference on Computational Intelligence Approaches and Applications (ICCIAA)",
+  "doi": "10.1109/icciaa68481.2026.11543654",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Humberto Goncalves",
+   "Zakaria Alomari"
+  ]
+ },
+ {
+  "uid": "N300",
+  "ta": "I",
+  "title": "Hypothesis Class Determines Explanation: Why Accurate Models Disagree on Feature Attribution",
+  "year": 2026,
+  "venue": "arXiv.org",
+  "doi": "10.48550/arxiv.2603.15821",
+  "arxiv": "2603.15821",
+  "oa_pdf": "https://arxiv.org/pdf/2603.15821",
+  "authors": [
+   "B. Thackshanaramana"
+  ]
+ },
+ {
+  "uid": "N303",
+  "ta": "U",
+  "title": "ELIME: Exact Local Interpretable Model-Agnostic Explanation",
+  "year": 2025,
+  "venue": "The European Journal on Artificial Intelligence",
+  "doi": "10.1177/30504554251325141",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Jun-Yan Qian",
+   "Xiaofu Du",
+   "Rui Pan",
+   "Ming Ling",
+   "Hao Ding"
+  ]
+ },
+ {
+  "uid": "N305",
+  "ta": "U",
+  "title": "Stability-XAI: Analisis Stabilitas Fitur dan Interpretabilitas Model Machine Learning pada Prediksi Penyakit Jantung",
+  "year": 2026,
+  "venue": "Jurnal Algoritma",
+  "doi": "10.35957/algoritme.v7i1.17538",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.35957/algoritme.v7i1.17538",
+  "authors": [
+   "Ubaidillah Ubaidillah",
+   "Muhammad Taufik Roseno",
+   "Serly Oktarina"
+  ]
+ },
+ {
+  "uid": "N312",
+  "ta": "U",
+  "title": "Uncertainty in machine learning feature importance for climate science: a comparative analysis of SHAP, PDP, and gain-based methods",
+  "year": 2025,
+  "venue": "Theoretical and Applied Climatology",
+  "doi": "10.1007/s00704-025-05703-9",
+  "arxiv": null,
+  "oa_pdf": "https://link.springer.com/content/pdf/10.1007/s00704-025-05703-9.pdf",
+  "authors": [
+   "C. Ibebuchi"
+  ]
+ },
+ {
+  "uid": "N313",
+  "ta": "I",
+  "title": "Explanation Uncertainty in Tabular Data Models",
+  "year": 2026,
+  "venue": "International Conference on Pattern Recognition Applications and Methods",
+  "doi": "10.5220/0014435900004067",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Yingsi Gao",
+   "Ö. Özyilmaz",
+   "M. Valdenegro-Toro"
+  ]
+ },
+ {
+  "uid": "N339",
+  "ta": "U",
+  "title": "Shapley variable importance cloud for machine learning models",
+  "year": 2022,
+  "venue": "arXiv.org",
+  "doi": "10.48550/arxiv.2212.08370",
+  "arxiv": "2212.08370",
+  "oa_pdf": "http://arxiv.org/pdf/2212.08370",
+  "authors": [
+   "Yi-Lin Ning",
+   "Mingxuan Liu",
+   "Nan Liu"
+  ]
+ },
+ {
+  "uid": "N383",
+  "ta": "U",
+  "title": "DEM Resolution Drives AI Variability: Tradeoffs Between Performance and Explainability in Landslide Susceptibility Prediction",
+  "year": 2026,
+  "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+  "doi": "10.1109/jstars.2026.3736041",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.1109/jstars.2026.3736041",
+  "authors": [
+   "Yi Xia",
+   "Hao-Yi Yao",
+   "Chao Ma",
+   "Fei-Xiang Chen",
+   "Yuan-Yuan Liu"
+  ]
+ },
+ {
+  "uid": "N386",
+  "ta": "U",
+  "title": "Accurate and robust Shapley Values for explaining predictions and focusing on local important variables",
+  "year": 2021,
+  "venue": "arXiv.org",
+  "doi": null,
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Salim I. Amoukou",
+   "N. Brunel",
+   "Tangi Salaün"
+  ]
+ },
+ {
+  "uid": "N420",
+  "ta": "U",
+  "title": "DSExplainer: Enhancing Model Interpretability with Belief and Plausibility Intervals via Dempster–Shafer Theory",
+  "year": 2026,
+  "venue": "Journal of Intelligent &amp; Fuzzy Systems: Applications in Engineering and Technology",
+  "doi": "10.1177/18758967261442858",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Jonathan Frez Zachary",
+   "Nelson Baloian",
+   "Marcelo E. Fuenzalida",
+   "Mauricio Hidalgo",
+   "Alex Aramyan"
+  ]
+ },
+ {
+  "uid": "N459",
+  "ta": "I",
+  "title": "Tilia: Enhancing LIME with Decision Tree Surrogates",
+  "year": 2025,
+  "venue": "International Conference on Information and Knowledge Management",
+  "doi": "10.1145/3746252.3761130",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Jihang Li",
+   "Jiawei Qiu",
+   "Yin-Ping Zhao",
+   "Ze-Yi Wen"
+  ]
+ },
+ {
+  "uid": "N479",
+  "ta": "U",
+  "title": "A Hybrid Explainable Logistic Regression model with Bayesian Feature Selection, SHAP Explainability, Stability Analysis, and Uncertainty Quantification for Breast Cancer Diagnosis",
+  "year": 2026,
+  "venue": "International Journal of Artificial Intelligence and Machine Learning",
+  "doi": "10.51483/ijaiml.6.11s.2026.1284-1289",
+  "arxiv": null,
+  "oa_pdf": "https://www.svedbergopen.com/index.php/ijaiml/article/download/2294/1441",
+  "authors": [
+   "Khamrunissa Hussain Sheikh",
+   "*. sharma",
+   "Narendra Kumar"
+  ]
+ },
+ {
+  "uid": "N480",
+  "ta": "U",
+  "title": "Explainable Machine Learning for ICU Mortality Prediction: Comparing SHAP, LIME and Anchors on MIMIC-IV",
+  "year": 2026,
+  "venue": "International Journal of Computer Science and Engineering",
+  "doi": "10.26438/ijcse.v14i5.7396",
+  "arxiv": null,
+  "oa_pdf": "https://ijcseonline.org/index.php/j/article/download/7396/7350",
+  "authors": [
+   "B. Sidhu"
+  ]
+ },
+ {
+  "uid": "N557",
+  "ta": "U",
+  "title": "Enhancing LIME using Neural Decision Trees",
+  "year": 2026,
+  "venue": "arXiv.org",
+  "doi": "10.48550/arxiv.2603.20919",
+  "arxiv": "2603.20919",
+  "oa_pdf": "https://arxiv.org/pdf/2603.20919",
+  "authors": [
+   "Mohamed Aymen Bouyahia",
+   "Argyris Kalogeratos"
+  ]
+ },
+ {
+  "uid": "N616",
+  "ta": "I",
+  "title": "How Understanding Forecast Uncertainty Resolves the Explainability Problem in Machine Learning Models",
+  "year": 2026,
+  "venue": "arXiv.org",
+  "doi": "10.48550/arxiv.2602.00179",
+  "arxiv": "2602.00179",
+  "oa_pdf": "https://arxiv.org/pdf/2602.00179",
+  "authors": [
+   "Joseph L. Breeden"
+  ]
+ },
+ {
+  "uid": "N692",
+  "ta": "U",
+  "title": "BMB-LIME: LIME with modeling local nonlinearity and uncertainty in explainability",
+  "year": 2024,
+  "venue": "Knowl. Based Syst.",
+  "doi": "10.1016/j.knosys.2024.111732",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Yu-Hsin Hung",
+   "Chia-Yen Lee"
+  ]
+ },
+ {
+  "uid": "N693",
+  "ta": "U",
+  "title": "Variational Shapley Network: A Probabilistic Approach to Self-Explaining Shapley values with Uncertainty Quantification",
+  "year": 2024,
+  "venue": "CoRR",
+  "doi": "10.48550/arxiv.2402.04211",
+  "arxiv": "2402.04211",
+  "oa_pdf": null,
+  "authors": [
+   "Mert Ketenci",
+   "Iñigo Urteaga",
+   "V. Rodriguez",
+   "Noémie Elhadad",
+   "A. Perotte"
+  ]
+ },
+ {
+  "uid": "N708",
+  "ta": "I",
+  "title": "The Distributional Uncertainty of the SHAP Score in Explainable Machine Learning",
+  "year": 2024,
+  "venue": "ECAI",
+  "doi": "10.3233/faia240586",
+  "arxiv": "2401.12731",
+  "oa_pdf": null,
+  "authors": [
+   "S. Cifuentes",
+   "L. Bertossi",
+   "Nina Pardal",
+   "S. Abriola",
+   "Maria Vanina Martinez",
+   "Miguel Romero"
+  ]
+ }
+]

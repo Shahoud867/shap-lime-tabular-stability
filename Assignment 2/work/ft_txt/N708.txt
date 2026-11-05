@@ -1,0 +1,1625 @@
+<<PAGE 1>>
+The Distributional Uncertainty of the SHAP Score in
+Explainable Machine Learning
+Santiago Cifuentesa,d,*, Leopoldo Bertossib,1, Nina Pardalc,a, Sergio Abriolaa,d, Maria Vanina Martineze and
+Miguel Romerof
+aInstituto de Ciencias de la Computación, UBA-CONICET, Argentina
+bUniversidad San Sebastián, FIAD, Santiago, Chile
+cDepartment of Computer Science, University of Sheffield, UK
+dDepartment of Computer Science, Universidad de Buenos Aires, Argentina
+eArtificial Intelligence Research Institute (IIIA-CSIC), Spain
+fDepartment of Computer Science, Universidad Católica de Chile, Chile
+fCENIA Chile
+ORCID (Santiago Cifuentes): https://orcid.org/0000-0002-6375-2045, ORCID (Leopoldo Bertossi):
+https://orcid.org/0000-0002-1144-3179, ORCID (Nina Pardal): https://orcid.org/0000-0002-5150-6947, ORCID
+(Sergio Abriola): https://orcid.org/0000-0002-1979-5443, ORCID (Maria Vanina Martinez):
+https://orcid.org/https://orcid.org/0000-0003-2819-4735, ORCID (Miguel Romero):
+https://orcid.org/0000-0002-2615-6455
+Abstract. Attribution scores reflect how important the feature val-
+ues in an input entity are for the output of a machine learning model.
+One of the most popular attribution scores is the SHAP score, which
+is an instantiation of the general Shapley value used in coalition game
+theory. The definition of this score relies on a probability distribu-
+tion on the entity population. Since the exact distribution is generally
+unknown, it needs to be assigned subjectively or be estimated from
+data, which may lead to misleading feature scores. In this paper, we
+propose a principled framework for reasoning on SHAP scores under
+unknown entity population distributions. In our framework, we con-
+sider an uncertainty region that contains the potential distributions,
+and the SHAP score of a feature becomes a function defined over this
+region. We study the basic problems of finding maxima and minima
+of this function, which allows us to determine tight ranges for the
+SHAP scores of all features. In particular, we pinpoint the complex-
+ity of these problems, and other related ones, showing them to be
+intractable. Finally, we present experiments on a real-world dataset,
+showing that our framework may contribute to a more robust feature
+scoring.
+1 Introduction
+Proposing and investigating different forms of explaining and inter-
+preting the outcomes from AI-based systems has become an efferves-
+cent area of research and applications [18], leading to the emergence
+of the area of Explainable Machine Learning. In particular, one wants
+to explain results obtained from ML-based classification systems. A
+widespread approach to achieve this consists in assigning numeri-
+cal attribution scores to the feature values that, together, represent
+∗ Corresponding Author. Email: scifuentes@dc.uba.ar
+1 Prof. Emeritus, Carleton Univ., Ottawa, Canada. bertossi@scs.carleton.ca.
+Senior Researcher IMFD, Chile.
+a given entity under classification, for which a given label has been
+obtained. The score of a feature value indicates how relevant it is for
+this output label.
+One of the most popular attribution scores is the so-called SHAP
+score [16, 22], which is a particular form of the generalShapley value
+used in coalition game theory [23, 21]. SHAP, as every instantiation
+of the Shapley value, requires a wealth function shared by all the
+players in the coalition game. SHAP uses one that is an expected
+value based on a probability distribution on the entity population. 2
+Since the exact distribution is generally unknown, it needs to be as-
+signed subjectively or be estimated from data. This may lead to dif-
+ferent kinds of errors, and in particular, to misleading feature scores.
+In this work, we propose a principled framework for reasoning
+on SHAP scores under distributional uncertainty, that is, under an
+unknown distribution over the entity population. We focus onbinary
+classifiers, i.e., classifiers that returns 1 (accept) or 0 (reject). We
+also assume that the inputs to these classifiers are binary features,
+i.e., features that can take values 0 or 1. Furthermore, we focus on
+product distributions. Their use for SHAP computation is common,
+and imposes feature independence [3, 27]. In practice, one frequently
+uses an empirical product distribution (of the empirical marginals),
+which may vary depending on the data set from which the sampling is
+performed [7]. We see our concentration on product distributions as
+an important first step towards the distributional analysis of SHAP.
+Our approach allows us to reinterpret and analyze SHAP as afunc-
+tion defined on the uncertainty region. As it turns out, this function
+is always a polynomial on n variables (where n is the number of fea-
+tures), and hence we refer to it as theSHAP polynomial. We can then
+analyze the behavior of this polynomial to gain concrete insights on
+2 Since SHAP’s inception, several variations have been proposed and inves-
+tigated, but they all rely on some probability distribution. In this work we
+stick to the original formulation.
+arXiv:2401.12731v4  [cs.AI]  13 Aug 2024
+<<PAGE 2>>
+the importance of a feature.
+Example 1. Consider the classifier M given in Table 1. Let e be the
+null entity (first row), and assume a product distribution⟨px, py, pz⟩
+over the feature space, e.g.,P(x = 1, y= 0, z= 1) =px(1−py)pz.
+The SHAP score for entity e and feature z depends on the probabil-
+ities px, py and pz, and this relation can be expressed through the
+following function:
+Shap(M, e, z) = ShapM,e,z (px, py, pz)
+= 16 pz(−4pxpy + 3px + 3py). (1)
+We call this function the SHAP polynomial for entity e and fea-
+ture z (details are provided in Section 2). Observe that the term
+(−4pxpy + 3px + 3py) is strictly positive whenever px, py ̸= 0,
+and in those cases the SHAP score for z grows when pz grows. This
+is intuitive: as pz grows the probability that e′(z) = 1 for a ran-
+domly chosen entity e′ increases and this predisposes the classifier
+towards rejection (three out of four entities with z = 1are rejected
+by M). Therefore, the fact e(z) = 0becomes more informative, and
+consequently the SHAP score increases. Meanwhile, if px = py = 0
+then the prediction is 1 with probability 1 independently of the value
+of z, and the SHAP score of z is 0.
+x y z M
+0 0 0 1
+0 0 1 1
+0 1 0 1
+1 0 0 1
+Table 1: Classifier M, it labels the remaining entities with 0.
+There are different kinds of analysis one can carry out on the
+SHAP polynomial. As a first step, in this work we investigate the
+basic problem of finding maxima and minima of SHAP scores in
+the given region. This allows us to compute SHAP intervals for each
+feature: a range of all the values that the SHAP score can attain in
+the uncertainty region. We believe these tight ranges to be a valuable
+tool for reasoning about feature importance under distributional un-
+certainty. For instance, the length of the interval for a given feature
+provides information about the robustness of SHAP for that feature.
+Furthermore, changes of sign in a SHAP interval tells us if and when
+a feature has negative or positive impact on classifications. A global
+analysis of SHAP intervals can also be used to rank features accord-
+ing to their general importance.
+To determine the SHAP intervals it is necessary to find minimal
+upper-bounds and maximal lower-bounds for the SHAP score in the
+uncertainty region. Formulated in terms of thresholds, these prob-
+lems turn out to be in the class NP 3 for a wide class of classifiers.
+Furthermore, we establish that this problem becomes NP-complete
+even for simple models such as decision trees (and other classifiers
+that share some properties with them). Notice that computing SHAP
+for decision trees can be done in polynomial time under the product
+and uniform distributions. Actually, this result can be obtained for
+larger classes of classifiers that include decision trees [3, 27].
+We also propose and study three other problems related to the be-
+havior of the SHAP score in the uncertainty region, and obtain the
+same complexity theoretical results as for the problem of computing
+the maximum and minimum SHAP score. These problems are: (1)
+deciding whether there are two different distributions in the uncer-
+tainty region such that the SHAP score is positive in one of them
+3 See [12] for a standard introduction into the complexity classes considered
+in this paper.
+and negative in the other one (and therefore there is no certainty on
+whether the feature contributes positively or negatively to the predic-
+tion), (2) deciding if there is some distribution such that the SHAP
+score is 0 (i.e., if the feature can be considered irrelevant in some
+sense), and (3) deciding if for every distribution in the uncertainty
+region it holds that a feature x is better ranked than a feature y (i.e.,
+if x dominates y).
+We remark that the upper bound of NP for all these problems is not
+evident since they all involve reasoning around polynomial expres-
+sions, and in principle we may not have polynomial bounds for the
+size of the witnesses. Moreover, as we will see further on, the SHAP
+polynomial cannot even be computed explicitly for most models.
+To conclude, we carry out an experimentation to compute these
+SHAP intervals over a real dataset in order to observe what addi-
+tional information is provided by the use of the SHAP intervals. We
+find out that, under the presence of uncertainty, most of the rankings
+are sensitive to the choice of the distribution over the uncertainty
+region: the ranking may vary depending on the chosen distribution,
+even when taking into account only the top 3 ranked features. We
+also study how this sensitivity decreases as the precision of the dis-
+tribution estimation increases.
+Related work. Close to our work, but aiming towards a different
+direction, we find the problem of distributional shifts [8, 18, 15],
+which in ML occur when the distribution of the training data dif-
+fers from the data the classifier encounters in a particular applica-
+tion. This discrepancy poses significant challenges, as can lead to
+decreased performance and unexpected behavior of models.
+Also related is the problem of scorerobustness [1, 13]: one can an-
+alyze how scores change under small perturbations of an input. In our
+case, we study uncertainty at the level of the underlying probability
+distributions.
+The work [25] also tries to address uncertainty in the importance
+of features for local explanations, but does so from a Bayesian per-
+spective: they use a novel sampling procedure to estimate credible in-
+tervals around the mean of the feature importance, and derive closed-
+form expressions for the number of perturbations required to reach
+explanations within the desired levels of confidence.
+Finding optimal intervals under uncertainty as done here, is rem-
+iniscent of finding tight ranges for aggregate queries from uncer-
+tain databases which are repaired due to violations of integrity con-
+straints [2].
+Finally, other lines of work such as [17] aim to understand the
+uncertainty that arises from approximation errors when computing
+the Shapley values via a sampling procedure over the feature space.
+In such contexts, the distribution is usually assumed as given, and
+therefore these works focus on formalizing a scenario that differs
+from ours. Moreover, all our analyses and algorithms are based on
+optimal confidence intervals that arise from exact computation of the
+Shapley values.
+Our contributions. In this work we make the following contribu-
+tions:
+1. We propose a new approach to understand the SHAP score by in-
+terpreting it as a polynomial evaluated over an uncertainty region
+of probability distributions.
+2. We analyze at which points of the uncertainty region the maxi-
+mum and minimum values for SHAP are attained.
+3. We establish NP-completeness of deciding if the score of a fea-
+ture can be larger than a given threshold; we also show NP-
+completeness for some related problems.
+<<PAGE 3>>
+4. We provide experimental results showing how SHAP scores can
+vary over the uncertainty region, and how considering uncertainty
+makes it possible to define more nuanced rankings of feature im-
+portance.
+Organization. This paper is structured as follows: In Section 2 we
+introduce notation and recall basic definitions. In Section 3, we for-
+malize our problems and obtain the first results. Section 4 presents
+our main complexity results. In Section 5, we describe our experi-
+ments and show their outcome. Finally, in Section 6, we make some
+final remarks and point to open problems. Proofs for all our results
+can be found in [9].
+2 Preliminaries
+Let X be a finite set of features. An entity e over X is a mapping
+e : X → {0, 1}. We denote by ent(X) the set of all entities over
+X. Given a subset of features S ⊆ X and an entity e over X, we
+define the set of entities consistent with e on S as:
+cw(e, S) := {e′ ∈ ent(X) :e′(x) =e(x) for all x ∈ S}.
+As already discussed in Section 1, we shall consider product dis-
+tributions as our basic probability distributions over the entity popu-
+lation ent(X). A product distribution P over ent(X) is parameter-
+ized by values (px)x∈X. For every e ∈ ent(X) we have:
+P(e) =
+Y
+x∈X:e(x)=1
+px
+Y
+x∈X:e(x)=0
+(1 − px).
+That is, each feature value e(x) is chosen independently with a prob-
+ability according to px (e(x) = 1with probability px).
+A (binary) classifier or model M over X is a mapping M :
+ent(X) → {0, 1}. We say that M accepts e if M (e) = 1, oth-
+erwise M rejects the entity. Let M be a binary classifier and e an
+entity, both over X. We define the function ϕM,e : 2X → [0, 1] as:
+ϕM,e(S) := E[M | cw(e, S)].
+In other words, ϕM,e(S) is the expected value of M conditioned to
+the event cw(e, S). More explicitly:
+ϕM,e(S) =
+X
+e′∈cw(e,S)
+P(e′ | cw(e, S))M (e′).
+A direct calculation shows that the conditional probability
+P(e′ | cw(e, S)) can be written as:
+P(e′ | cw(e, S)) = Y
+x∈X\S:e′(x)=1
+px
+Y
+x∈X\S:e′(x)=0
+(1 − px).
+The function ϕM,e can be used as the wealth function in the gen-
+eral formula of the Shapley value [23, 21] to obtain the SHAP score
+of the feature values in e.
+Definition 1 (SHAP score). Given a classifier M over a set of fea-
+tures X, an entity e over X, and a feature x ∈ X, the SHAP score
+of feature x with respect to M and e is
+Shap(M, e, x) :=
+X
+S⊆X\x
+c|S| (ϕM,e(S ∪ {x}) − ϕM,e(S)) ,
+where ci := i!(|X|−i−1)!|X|! .
+Intuitively, the SHAP score intends to measure how the inclusion
+of x affects the conditional expectation of the prediction. In order to
+do this, it considers every possible subset S ⊆ X \ {x} of the fea-
+tures and compares the expectation for the set S against S ∪ {x}.
+A score close to 1 implies that x heavily leans the classifier M to-
+wards acceptance, while a score close to −1 indicates that it leans
+the prediction towards rejection (note that SHAP always takes values
+in [−1, 1]).
+Example 2. Consider again the model M from Table 1. It can be
+shown that if px = py = 12 and pz = 34 then feature z has
+SHAP score 0.25 while x and y have score 0.1875. Meanwhile,
+if pz = 14 then Shap(M, e, z) ∼ 0.08 and Shap(M, e, x) =
+Shap(M, e, y) ∼ 0.15.
+In practical applications, the exact distribution of entities is gener-
+ally unknown and subjectively assumed or estimated from data. The
+previous example shows that the choice of the underlying distribution
+can have severe effects when establishing the importance of features
+in the classifications. To overcome these problems, in the next sec-
+tion we formalize the notion of distributional uncertainty and present
+our framework for reasoning about SHAP scores in that setting.
+3 SHAP under Distributional Uncertainty
+The general idea of our framework is as follows: we explicitly con-
+sider a set that contains the potential distributions. This provides us
+with what we call the uncertainty region. This allows us to reinter-
+pret the SHAP score as a function from the uncertainty region to R.
+We can then analyze the behavior of this function in order to gain
+concrete insights about the importance of a feature.
+Recall that a product distribution is determined by its parameters
+(px)x∈X. For convenience, we always assume an implicit ordering
+on the features. Hence, we can identify our space of probability dis-
+tributions over ent(X) with the set [0, 1]|X|. In order to define
+uncertainty regions, it is natural then to consider hyperrectangles
+I ⊆[0, 1]|X|, i.e., subsets of the form I = Śx∈X [ax, bx]. Intu-
+itively, these regions correspond to independently choosing a confi-
+dence interval [ax, bx] for the unknown probability px, for each fea-
+ture x ∈ X.
+Example 3. Within the setting from Example 1, consider the fol-
+lowing uncertainty regions defined by hyperrectangles I1 and I2,
+respectively:
+I1 := [13 , 12 ] × [1, 1] × [ 13 , 23 ]
+I2 := [12 , 12 ] × [ 12 , 1] × [0, 12 ]
+Notice that the SHAP polynomial in region 1 attains a maximum at
+px = 13 , py = 1, and pz = 23 , where the maximum score is 827 .
+The minimum value, corresponding to the score 536 , is attained at
+px = 12 , py = 1, pz = 13 .
+For the second region, the maximum is attained at px = 12 , py =
+1, and pz = 12 , and the maximum value is 524 . Similarly, the minimum
+score 0 is attained whenever pz = 0.
+The SHAP score now becomes a function taking probability dis-
+tributions and returning real values. This is formalized below.
+Definition 2 (SHAP polynomial). Given a classifier M over a set
+of features X, an entity e over X, and a feature x ∈ X, the SHAP
+polynomial ShapM,e,x is the function from [0, 1]X to R mapping
+each (px)x∈X to the SHAP score Shap(M, e, x) using (px)x∈X as
+the underlying product distribution.
+<<PAGE 4>>
+As the name suggests, the SHAP polynomial ShapM,e,x is actu-
+ally a multivariate polynomial on the variables (px)x∈X. Moreover,
+it is a multilinear polynomial: it is linear on each of its variables sep-
+arately (equivalently, no variable occurs at a power of2 or higher).
+Proposition 1. Given a classifier M over a set of features X, an
+entity e over X, and a feature x ∈ X, the SHAP polynomial
+ShapM,e,x is a multilinear polynomial on variables (px)x∈X.
+Proof. Note that ϕM,e(S) is a multilinear polynomial for any subset
+of features S ⊆ X. Since ShapM,e,x is a weighted sum of expres-
+sions of the form ϕM,e(S) the result follows by observing that mul-
+tilinear polynomials are closed with respect to sum and product by
+constants.
+We can then reason about the importance of features via the anal-
+ysis of SHAP polynomials. Here we concentrate on the fundamental
+problems of finding maxima and minima of these polynomials over
+the uncertainty region. This allows us to determine the SHAP inter-
+val of a feature, i.e., the set of possible SHAP scores of the feature
+over the uncertainty region. SHAP intervals may provide useful in-
+sights. For instance, obtaining smaller SHAP intervals for a feature
+suggests its SHAP score is more robust against uncertainty. On the
+other hand, they can be used to assess the relative importance of fea-
+tures (see Section 5 for more details).
+We aim to characterize the complexity of these problems, thus we
+formulate them as decision problems4:
+PROBLEM : REGION-MAX-SHAP
+INPUT : A classifier M, an entity e, a feature x, a
+hyperrectangle I and a rational number q.
+OUTPUT : Is there a point p ∈ I such that
+ShapM,e,x(p) ≥ q?.
+The problem REGION-MIN-SHAP is defined analogously by requir-
+ing ShapM,e,x(p) ≤ q. We also consider some related problems:
+• REGION-AMBIGUITY: given a classifier M, an entity e, a fea-
+ture x, and a hyperrectangle I, check whether there are two points
+p1, p2 ∈ Isuch that ShapM,e,x(p1) > 0 and ShapM,e,x(p2) <
+0. This problem can be understood as a simpler test for robustness
+(in comparison to actually computing the SHAP intervals).
+• REGION-IRRELEV ANCY: given a classifier M, an entity e, a
+feature x, and a hyperrectangle I, check whether there is a point
+p ∈ Isuch that ShapM,e,x(p) = 0. This is the natural adapta-
+tion of checking irrelevancy of a feature (score equal to 0) to the
+uncertainty setting.
+• FEATURE-DOMINANCE: given a classifier M, an entity e, fea-
+tures x and y, and a hyperrectangle I, check whether x domi-
+nates y, that is, for all points p ∈ I, we have ShapM,e,x(p) ≥
+ShapM,e,y (p). The notion of dominance provides a safe way to
+compare features under uncertainty.
+4 Complexity Results
+We now present our main technical contributions, namely, we pin-
+point the complexity of the problems presented in the previous sec-
+tion.
+4 The encoding of M depends on the class of classifiers considered, while I
+is given by listing the rationals ai, bi (1 ≤ i ≤ n).
+4.1 Preliminaries on multilinear polynomials
+A vertex of a hyperrectangle I = ×ni=1[ai, bi] is a point p ∈ Isuch
+that pi ∈ {ai, bi} for each 1 ≤ i ≤ n. The following is a well-known
+fact about multilinear polynomials (see e.g., [14]). For completeness
+we provide a simple self-contained proof in Appendix A.1.
+Proposition 2. Let f be a multilinear polynomial over n variables.
+Let I ⊆[0, 1]n be a hyperrectangle. Then the maximum and mini-
+mum of f restricted to I is attained in the vertices of I.
+Proposition 2 yields two algorithmic consequences. On the one
+hand, it induces an algorithm to find the maximum off over I in time
+2npoly(|f |): simply evaluate the polynomial on all the vertices, and
+keep the maximum 5. On the other hand, it shows that this problem
+is certifiable: to decide whether f can reach a value as big as q, we
+just need to guess the corresponding vertex and evaluate it. We show
+that, within the usual complexity theoretical assumptions, there is no
+polynomial algorithm to find this maximum (see Appendix A.1):
+Theorem 3. Given a multilinear polynomial f, a hyperrectangle
+I = Śni=1[ai, bi], and a rational q, the problem of deciding whether
+there is an x ∈ Isuch that f (x) ≥ q is NP-complete.
+4.2 Complexity of REGION-MAX-SHAP
+It is well-known that computing SHAP scores is hard for general
+classifiers. For instance, the problem is already #P-hard when con-
+sidering Boolean circuits [3] or logistic regression models [27]. For
+linear perceptrons, model counting is intractable [4] and by the re-
+sults in [3], it follows that SHAP computation for perceptrons is also
+intractable. On the other hand, computing maxima of SHAP polyno-
+mials for a certain class of classifiers is as hard as computing SHAP
+scores for that class of classifiers: if we consider the hyperrectan-
+gle consisting of a single point I = Śni=1[pi, pi], the maximum of
+the SHAP polynomial coincides with the SHAP score for the prod-
+uct distribution (pi)1≤i≤n. Therefore, we focus on family of classi-
+fiers where the SHAP score can be computed in polynomial time. A
+prominent example is the class of decomposable and deterministic
+Boolean circuits, whose tractable SHAP score computation has been
+shown recently [3]. This class contains as a special case the well-
+known class of decision trees. For a formal definition see [10, 11].
+As a consequence of Proposition 2, we obtain the following com-
+plexity upper bound:
+Corollary 4. Let F be a class of classifiers for which computing
+the SHAP score for given product distributions can be done in poly-
+nomial time. Then REGION-MAX-SHAP is in NP for the class F.
+In particular, REGION-MAX-SHAP is in NP for decomposable and
+deterministic Boolean circuits.
+Next, we show a matching lower bound for REGION-MAX-
+SHAP. Interestingly, this holds even for decision trees. We stress that
+the NP-hardness of REGION-MAX-SHAP does not follow directly
+from Theorem 3: in REGION-MAX-SHAP the multilinear polyno-
+mial is given implicitly, and it is by no means obvious how to encode
+the multilinear polynomials used in the hardness argument of The-
+orem 3. Instead, we follow a different direction and encode directly
+the classical problem of VERTEX-COVER.
+5 We assume f is given by listing its non-zero coefficients and their corre-
+sponding monomials.
+<<PAGE 5>>
+Theorem 5. The problem REGION-MAX-SHAP is NP-hard for de-
+composable and deterministic Boolean circuits. The result holds even
+when restricted to decision trees.
+Sketch of the proof. We reduce from the well-known NP-complete
+problem VERTEX-COVER: given a graph G = (V, E) and k ≥ 1,
+decide whether there is a vertex cover6 of size at most k.
+The hardness proof relies on two observations. Firstly, by using
+|V | features and choosing the hyperrectangle I = [0, 1]|V | as the
+uncertainty region, there is a natural bijection p(C) = pC ∈ Ibe-
+tween the subsets C ⊆ V and the vertices of I (v ∈ C iff pv = 0).
+Secondly, by properly picking the entities accepted by modelM, the
+SHAP polynomial will be
+ShapM,e,x(pC ) =− X
+{u,v}∈E
+pupvIu,v − Tn,ℓ
+where ℓ is the size of the subset C and the term Tn,ℓ grows as ℓ
+grows. The term Iu,v is positive and works as a penalization factor
+which is “activated” if pu = pv = 1, i.e., when the edge uv is un-
+covered. Furthermore, by adding an extra featurew to the model (and
+consequently, another probability pw) we can make this penalization
+factor arbitrarily big in relation to the size factor Tn,ℓ.
+We choose the bound q to be −Tn,k. If C is a vertex cover of size
+ℓ, then each term pupvIu,v equals 0 and hence ShapM,e,x(pC ) =
+−Tn,ℓ. On the other hand, if C is not a vertex cover, then some
+pupvIu,v is non-zero, and by defining an adequate interval for pw
+we can ensure that −pvpvIu,v < q. Hence, the only way to obtain
+ShapM,e0,x0 (pC ) ≥ q is to pick C to be, in the first place, a vertex
+cover, and secondly, one of size ℓ ≤ k.
+Both Corollary 4 and Theorem 5 also apply to REGION-MIN-
+SHAP (see Appendix A.3 for details).
+4.3 Related problems
+In this section we show some results related to the problems proposed
+in Section 3. As in the case of REGION-MAX-SHAP they turn out
+to be NP-complete, even when restricting the input classifiers to be
+decision trees.
+Again, as a consequence of Proposition 2 we obtain the
+NP membership for REGION-AMBIGUITY and REGION-
+IRRELEV ANCY, and the CONP membership for FEATURE-
+DOMINANCE.
+Corollary 6. Let F be a class of classifiers for which computing the
+SHAP score for given product distributions can be done in polyno-
+mial time. Then the problems REGION-AMBIGUITY and REGION-
+IRRELEVANCY are in NP for the class F, while the FEATURE-
+DOMINANCE is in CONP7.
+The hardness for these problems follows under the same condi-
+tions as Theorem 5.
+Theorem 7. The problems REGION-AMBIGUITY and REGION-
+IRRELEVANCY are NP-hard for decision trees, while FEATURE-
+DOMINANCE is CONP-hard.
+6 Recall a vertex cover of G = (V, E) is a subset of the nodes C ⊆ V such
+that for each edge {u, v} ∈E, either u ∈ C or v ∈ C.
+7 The proof for FEATURE-DOMINANCE follows by observing that
+diff(p) = ShapM,e,x(p) − ShapM,e,y (p) is again a multilinear poly-
+nomial.
+Sketch of the proof. The proof follows the same techniques as the
+proof for Theorem 5, through a reduction from VERTEX-COVER.
+For the case of REGION-IRRELEV ANCY we devise a model M
+such that
+ShapM,e,x(pC ) =Tn,k − X
+{u,v}∈E
+pupvIu,v − Tn,ℓ (2)
+where ℓ is the size of C, Tn,ℓ corresponds to the size factor , and
+Iu,v is the penalization factor for uncovered edges. Observe that
+the first term Tn,k does not depend on the set C, and consequently
+ShapM,e,x(pC ) = 0if C is a vertex cover of size k. The construc-
+tion is a bit more complex, and we have to add2(n−k) extra features
+to those considered in the construction of Theorem 5.
+The proof for REGION-AMBIGUITY is obtained by a slight mod-
+ification of Equation 2 in order to make the SHAP score positive (in-
+stead of 0) if C is a vertex cover of size k.
+Finally, for the hardness of FEATURE-DOMINANCE we prove
+that REGION-AMBIGUITY ≤p FEATURE-DOMINANCE8. This
+reduction is achieved by adding a “dummy feature” w that does not
+affect the prediction of the model. We prove that its SHAP polyno-
+mial is constant and equal to 0, and consequently deciding the ambi-
+guity for a feature x is equivalent to deciding the dominance relation
+between x and w.
+5 Experimentation
+As a case study, we are going to use the California Housing dataset
+[19], a comprehensive collection of housing data within the state of
+California containing 20,640 samples and eight features9. Our choice
+of dataset relies mainly on the fact that this dataset has already been
+considered in the context of SHAP score computation [6] and its size
+and number of features allow us to compute most of the proposed
+parameters (as the SHAP polynomial itself, for each feature) in a
+reasonable time. Nonetheless, we recall that the proposed framework
+can be applied to any dataset, as long as there is some uncertainty on
+the real distribution of feature values and uncertainty regions can be
+estimated for it (e.g., via sampling the data as we do here).
+Note that, while there is no reason to expect that the probabilities
+of each feature are independent of each other in the California Hous-
+ing dataset, we make this assumption in our framework (which is a
+common one in the literature [26, 24]).
+5.1 Objectives
+The purpose of this experiment is to use a real dataset to simulate a
+situation where we have uncertainty over the proportions of each fea-
+ture in the dataset. We want to derive suitable hyperrectangles rep-
+resenting the distribution uncertainty where our extended concepts
+of SHAP scores apply, and compare these scores against the usual,
+point-like SHAP score, in order to reveal cases where these new hy-
+pervolume scores are more informative than the traditional scheme.
+We expect our proposal to be able to detect features whose ranking
+is vulnerable to small distribution shifts, and aim to study how such
+sensitivity starts to vanish as we reduce the uncertainty over the dis-
+tribution (i.e., as the hyperrectangles get smaller).
+8 If Π is a decision problem, we denote its complement as Π.
+9 The code developed for the experimentation can be found at https://git.
+exactas.uba.ar/scifuentes/fuzzyshapley.
+<<PAGE 6>>
+5.2 Methodology
+Preparing dataset Our framework is defined for binary features,
+and therefore we need to binarize the features from the California
+Housing dataset. Of the eight features, seven are numerical and one is
+categorical. To binarize each of the numerical ones, we take the aver-
+age value across all entities and use it as a threshold. We also binarize
+the target median_house_value using the same strategy. The
+categorical one is ocean_proximity, which describes how close
+each entity is to the ocean, with the categories being {INLAND, <1H
+OCEAN, NEAR OCEAN , NEAR BAY , ISLAND}. The INLAND one
+represents the farthest distance away from the ocean, and we binarize
+that category to 0, while the other ones are mapped to 1. Finally, we
+remove the rows with NaN values.
+The model M We take 70% of the data for training, and
+keep 30% for testing. As a model we employ the sklearn
+DecisionTreeClassifier. For regularization we considered
+both bounding the depth of the tree by 5 and bounding the minimum
+samples to split a node by 100. The obtained results were similar for
+both mechanisms, and therefore we only show here the results for
+the model regularized by restricting the number of samples required
+to split a node. The trained model has 80.0% accuracy and 76.5%
+precision.
+Creating the hyperrectangle We assume independence between
+the different distributions of the features, and ignorance of their true
+probabilities. Therefore, to obtain an estimation of the probabilitypx
+that a feature x has value 1 for a random entity, we will sample a
+subset of the available data and compute an empirical average. We
+vary the number of samples taken in order to simulate situations with
+different uncertainty.
+Let N be the number of samples. Given 0 < p <1, we sample
+⌈pN ⌉ entities 5 times, and for each of these times we compute an
+empirical average pjx for each feature x. We then define the estima-
+tion for px as the median of {pjx}1≤j≤5 and compute a deviation σx
+by taking the deviation over the set {pjx}1≤j≤5. Finally, the hyper-
+rectangle is defined as Śx[px − σx, px + σx]. We experiment with
+different values for p from 10−3 to 12 .
+Comparing SHAP scores We pick 20 different entities uniformly
+at random and compute the SHAP score for each of these entities
+and for each feature at all the vertices of the different hyperrectan-
+gles. Instead of using the polynomial-time algorithm for the SHAP
+value computation over decision trees, we actually compute an al-
+gebraic expression for the SHAP polynomial for each pair of entity
+and feature, simplify it, and then use it to compute any desired SHAP
+score given any product distribution.
+5.3 Results
+We recall that theSHAP interval of feature x for entity e over the hy-
+perrectangle I is [minp∈I ShapM,e,x(p), maxp∈I ShapM,e,x(p)].
+In Figure 1 we plot the SHAP intervals of all features for one of
+the entities we used and two sampling percentages. By observing the
+intervals it is clear that, even in the presence of the uncertainty of
+the real distribution, as long as it belongs to the hyperrectangle I the
+features median_income and ocean_proximity will be the
+top 2 in the ranking defined by the SHAP score, for both sampling
+percentages considered. However, when the sampling percentage is
+small (p = 0.4%) the SHAP intervals of both features intersect, and
+therefore it could be the case that their relative ranking actually de-
+pends on the chosen distribution inside I.
+To decide whether this happens, one should find two
+points p1, p2 ∈ I such that ShapM,e,med_inc(p1) <
+ShapM,e,ocean_prox(p1) and ShapM,e,med_inc(p2) >
+ShapM,e,ocean_prox(p2) (i.e., solve the FEATURE-DOMINANCE
+problem). This can be done by observing that diff(p) =
+ShapM,e,med_inc(p) − ShapM,e,ocean_prox(p) is a multilinear
+polynomial, and therefore its maximum and minimum are attained
+at the vertices of I. By computing diff(p) on all these points we
+observed that in 4 of the 256 vertices median_income has a
+bigger SHAP score than ocean_proximity, and consequently
+their relative ranking depends on the chosen underlying distribution.
+Figure 1: SHAP intervals for all features and a fixed entity, over two
+different sampling percentages. When p = 0.4% it is clear that,
+according to the SHAP score, the features median_income and
+ocean_proximity are the two most relevant, but there is an un-
+certainty on which one of the two is the most important. When the
+sampling percentage increases to p = 6.4% the SHAP intervals be-
+come disjoint, and we can be certain that ocean_proximity is
+the most relevant feature. Observe that the same kind of uncertainty
+exists regarding the third ranked feature.
+We can also observe in Figure 1 that something similar happens
+as well for feature housing_median_age. When p = 0.4%
+its SHAP interval intersects with the intervals of the three features
+longitude, latitude and population. Nonetheless, by in-
+specting the difference of the scores at the vertices ofI it can be seen
+that there is no point in which housing_median_age is ranked
+below the other features (i.e., housing_median_age dominates
+all three features). Meanwhile, if we compare two of the other fea-
+tures such as longitude and latitude, we observe that they
+have a relevant intersection even when p = 6.4%, and in 179 out of
+the 256 vertices latitude is ranked below longitude.
+In Figure 2 we can see how the SHAP intervals shrink as the sam-
+pling percentage increases. For all sampling percentages above 6.4%
+we can say with certainty thatocean_proximity is ranked above
+median_income. This behavior is natural since the size of the hy-
+perrectangles is getting smaller, because the deviation of the empir-
+ical samples pix tends to get smaller as the sampling percentage in-
+creases.
+Finally, in Figure 3 we plot the number of entities whose ranking
+depends on the chosen distribution, for each sampling percentage,
+and restricting ourselves to some subset of the ranking. We found
+out that for 10 of the 20 entities the complete ranking defined by the
+SHAP score depends on the chosen distribution even when the sam-
+ple percentage is as big as p = 12.8% (recall that due to the way
+<<PAGE 7>>
+Figure 2 : Evolution of the SHAP intervals for features
+median_income and ocean_proximity considering the
+same entity as in Figure 1 and the different sampling percentages.
+we built our hyperrectangles, we are sampling 5p times the dataset,
+and therefore if p >10% we might be inspecting more than half of
+the data points). If we are only concerned with the top three ranked
+features, we can observe that even when p = 6.4% there are still 4
+entities for which the top 3 ranking is sensitive to the selected distri-
+bution.
+Figure 3: Number of entities whose feature ranking may vary depend-
+ing on the chosen distribution inside the uncertainty hyperrectangle,
+for each sampling percentage. The Top k line indicates whether
+there was a change in the ranking of the top k features, ignoring
+changes in the rest of the ranking. As expected, sensitivity of the
+ranking is more common when the sampling percentage is smaller.
+6 Conclusions
+We have analyzed how SHAP scores for classification problems de-
+pend on the underlying distribution over the entity population when
+the distribution varies over a given uncertainty region. As a first and
+important step, we focused on product distributions and hyperrectan-
+gles as uncertainty regions, and obtained algorithmic and complexity
+results for fundamental problems related to how SHAP scores vary
+under these conditions. As a proof of concept, we showed through
+experimentation that considering uncertainty regions has an impact
+on feature rankings for a non-negligible percentage of the entities,
+and that the solutions to our proposed problems can provide insight
+on the relative rankings even in the presence of uncertainty.
+Feature Independence. We stress that from a complexity point
+of view, it is natural to start with product distributions. As shown
+in [27], the computation of SHAP scores becomes intractable for
+trivial classifiers as soon as we consider simple non-product distri-
+butions such as naive Bayes distributions. As a consequence, com-
+puting maxima of SHAP polynomials is trivially intractable in this
+setting. As we discussed at the beginning of Section 4.2, we focused
+on the cases for which computing SHAP scores is tractable, since
+this gives us the possibility to also obtain tractability for computing
+maxima of SHAP polynomials. We considered the prominent case
+of decomposable and deterministic Boolean circuits under product
+distributions. This case has been shown to be tractable in [27] and
+[3] (in [27] product distributions are referred to as fully-factorized
+distributions).
+For our distributional shift analysis, considering more general dis-
+tributions on the entity population would still require specifying a
+class of them and their regions of variation. A natural next step in
+this direction, that would build on our work, consists in imposing
+additional domain knowledge on the product distribution, leading,
+in particular, to certain dependencies among features. For example,
+a constraint specifying that “house lots located at the seaside have
+a price about $2M". More generally, a conjunction φ of such con-
+straints is associated to an event Eφ ⊆ ent(X) containing all en-
+tities that satisfy it. Conditioning on this event leads to a new dis-
+tribution P′ defined by P′(A) := P(A|Eφ), for A ⊆ ent(X). The
+shift analysis would be done on the new entity space ⟨ent(X), P′⟩,
+where (in general) features will not be fully independent anymore.
+This would be done, without having to start from scratch with P′,
+by taking advantage of our previous analysis of the original product
+distribution P.
+It is worth mentioning that imposing and exploiting domain se-
+mantics when defining and computing explanation scores is interest-
+ing in its own right (see [5] in relation to the RESP score). The prob-
+lem of using domain knowledge in Explainable AI has been scarcely
+investigated in the literature.
+Explanatory Robustness. It would be interesting to know how a
+local perturbation of a given distribution in the uncertainty region
+affects the SHAP scores, or their rankings. This would be a proper
+robustness analysis with respect to the distribution (as opposed to
+how SHAP scores vary in a region). Of course, this is a different
+problem from the most common one of robustness with respect to
+the perturbation of an input entity (see e.g., [1, 13]).
+There are several other problems left open by our work. The in-
+clusion of non-binary features and labels is a natural next step. It
+would also be interesting to analyze others proposed scores (e.g.,
+LIME [20], RESP [7], Kernel-SHAP [16]) in the setting of distribu-
+tional uncertainty.
+Acknowledgments
+This research has been supported by an STIC-AmSud program,
+project AMSUD210006. We appreciate the code made available by
+Jorge E. León (UAI, Chile) for SHAP computation with the same
+dataset used in our work. Bertossi has been supported by NSERC-
+DG 2023-04650, the Millennium Institute for Foundational Re-
+search on Data (IMFD, Chile), and CENIA (Basal ANID FB210017,
+Chile). Romero is funded by the National Center for Artificial
+Intelligence CENIA FB210017, Basal ANID. Pardal is funded by
+DFG VI 1045-1/1. Abriola, Cifuentes and Pardal are funded by
+FONCyT, ANPCyT and CONICET, in the context of the projects
+<<PAGE 8>>
+PICT 01481 and PIP 11220200101408CO. Abriola is additionally
+funded by the project PIBAA 28720210100188CO. Martinez is par-
+tially funded under the Spanish project PID2022-139835NB-C21
+funded by MCIN/AEI/10.13039/501100011033, PIE 20235AT010
+and iTrust (PCI2022-135010-2). Pardal was supported by the DFG
+grant VI 1045-1/1.
+References
+[1] D. Alvarez-Melis and T. Jaakkola. On the Robustness of Interpretability
+Methods. ArXiv preprint: 1806.08049, 2018.
+[2] M. Arenas, L. Bertossi, J. Chomicki, X. He, V . Raghavan, and J. Spin-
+rad. Scalar Aggregation in Inconsistent Databases. Theoretical Com-
+puter Science, 296(3):405–434, 2003.
+[3] M. Arenas, P. Barcelo, L. Bertossi, and M. Monet. On the Complex-
+ity of SHAP-Score- Based Explanations: Tractability via Knowledge
+Compilation and Non-Approximability Results. J. Machine Learning
+Research, 24(63):1–58, 2023.
+[4] P. Barceló, M. Monet, J. Pérez, and B. Subercaseaux. Model Inter-
+pretability through the Lens of Computational Complexity. Advances
+in Neural Information Processing Systems, 2020.
+[5] L. Bertossi. Declarative approaches to counterfactual explanations for
+classification. Theory and Practice of Logic Programming, 23(3):559–
+593, 2023.
+[6] L. Bertossi and J. E. León. Efficient Computation of Shap Explana-
+tion Scores for Neural Network Classifiers via Knowledge Compilation.
+In European Conference on Logics in Artificial Intelligence (JELIA),
+LNCS 14281, pages 49–64. Springer, 2023.
+[7] L. Bertossi, J. Li, M. Schleich, D. Suciu, and Z. Vagena. Causality-
+based Explanation of Classification Outcomes. Proc. 4th SIGMOD Int.
+WS on Data Management for End-to-End Machine Learning, pages 70–
+81, 2020.
+[8] D. V . Carvalho, E. M. Pereira, and J. S. Cardoso. Machine Learning
+Interpretability: A Survey on Methods and Metrics. Electronics, 8(8):
+832, 2019.
+[9] S. Cifuentes, L. Bertossi, N. Pardal, S. Abriola, M. V . Martinez, and
+M. Romero. The distributional uncertainty of the shap score in explain-
+able machine learning. arXiv preprint arXiv:2401.12731, 2024.
+[10] A. Darwiche. On the Tractable Counting of Theory Models and its Ap-
+plication to Truth Maintenance and Belief Revision. Journal of Applied
+Non-Classical Logics, 11(1-2):11–34, 2001.
+[11] A. Darwiche and P. Marquis. A Knowledge Compilation Map. J. Artif.
+Int. Res., 17(1):229–264, 2002. ISSN 1076-9757.
+[12] M. R. Garey and D. S. Johnson. Computers and Intractability, volume
+174. Freeman, San Francisco, 1979.
+[13] X. Huang and J. Marques-Silva. From Robustness to Explainability and
+Back Again. ArXiv preprint: 2306.03048, 2023.
+[14] C. Laneve, T. A. Lascu, and V . Sordoni. The Interval Analysis of Multi-
+linear Expressions. Electronic Notes in Theoretical Computer Science,
+267(2):43–53, 2010.
+[15] P. Linardatos, V . Papastefanopoulos, and S. Kotsiantis. Explainable AI:
+A Review of Machine Learning Interpretability Methods. Entropy, 23
+(1):18, 2020.
+[16] S. M. Lundberg and S.-I. Lee. A Unified Approach to Interpreting
+Model Predictions. Advances in Neural Information Processing Sys-
+tems, 30, 2017.
+[17] L. Merrick and A. Taly. The explanation game: Explaining machine
+learning models using shapley values. InMachine Learning and Knowl-
+edge Extraction: 4th IFIP TC 5, TC 12, WG 8.4, WG 8.9, WG 12.9 Inter-
+national Cross-Domain Conference, CD-MAKE 2020, Dublin, Ireland,
+August 25–28, 2020, Proceedings 4, pages 17–38. Springer, 2020.
+[18] C. Molnar. Interpretable Machine Learning. 2020.
+[19] Nugent, C. California Housing Prices. https://www.kaggle.com/
+datasets/camnugent/california-housing-prices, 2018.
+[20] M. T. Ribeiro, S. Singh, and C. Guestrin. " why should i trust you?"
+explaining the predictions of any classifier. In Proceedings of the 22nd
+ACM SIGKDD international conference on knowledge discovery and
+data mining, pages 1135–1144, 2016.
+[21] A. E. Roth, editor. The Shapley Value: Essays in Honor of Lloyd S.
+Shapley. Cambridge Univ. Press, 1988.
+[22] S. Lundberg et al. From Local Explanations to Global Understanding
+with Explainable AI for Trees.Nature Machine Intelligence, 2(1):2522–
+5839, 2020.
+[23] L. S. Shapley. A Value for n-Person Games.Contributions to the Theory
+of Games, 2(28):307–317, 1953.
+[24] A. Shrikumar, P. Greenside, and A. Kundaje. Learning Important Fea-
+tures through Propagating Activation Differences. InInternational Con-
+ference on Machine Learning, pages 3145–3153. PMLR, 2017.
+[25] D. Slack, A. Hilgard, S. Singh, and H. Lakkaraju. Reliable Post Hoc Ex-
+planations: Modeling Uncertainty in Explainability.Advances in Neural
+Information Processing Systems, 34:9391–9404, 2021.
+[26] E. Štrumbelj and I. Kononenko. Explaining Prediction Models and In-
+dividual Predictions with Feature Contributions. Knowledge and Infor-
+mation Systems, 41:647–665, 2014.
+[27] G. Van Den Broeck, A. Lykov, M. Schleich, and D. Suciu. On the
+Tractability of SHAP Explanations. J. Artif. Intell. Res. , 74:851–886,
+2022.
+<<PAGE 9>>
+A Appendix
+A.1 Complete proofs from Section 4.1
+Proposition 2. Let f be a multilinear polynomial over n variables.
+Let I ⊆[0, 1]n be a hyperrectangle. Then the maximum and mini-
+mum of f restricted to I is attained in the vertices of I.
+Before showing the proposition, we need an auxiliary result.
+Proposition 8. Given a closed bounded region R ⊆ Rn and a mul-
+tilinear polynomial f, the latter attains its maximum and minimum
+in the boundary ∂R of R.10
+Proof. Although the proof of this proposition can be found in [14],
+we show a different argument that we consider simpler.
+Let x⋆ = (x⋆1, . . . , x⋆n) ∈ R be a maximum for f over R. Since f
+is a multilinear polynomial, we may write it as:
+f (x1, . . . , xn) =x1f1(x2, . . . , xn) +f2(x2, . . . , xn)
+where both f1 and f2 are multilinear polynomials that do not de-
+pend on x1.
+If x⋆ /∈ ∂R then, since R is bounded, there are reals
+ε1, ε2 > 0 such that x⋆ + (ε1, 0, . . . ,0), x⋆ − (ε2, 0, . . . ,0) ∈
+∂R. We show that f1(x⋆2, . . . , x⋆n) = 0 : indeed, observe that
+if f1(x⋆2, . . . , x⋆n) > 0, then f (x⋆ + (ε1, 0, . . . ,0)) = ( x⋆1 +
+ε1)f1(x2, . . . , xn) +f2(x2, . . . , xn) > f(x⋆) which contradicts x⋆
+being a maximum. Similarly, but considering x⋆ − (ε2, 0, . . . ,0),
+it follows that f1(x⋆2, . . . , x⋆n) cannot be negative. Consequently,
+f1(x⋆2, . . . , x⋆n) = 0 , which implies that f (x⋆) = f (x⋆ +
+(ε1, 0, . . . ,0)), showing that the polynomial also attains its maxi-
+mum in ∂R.
+We can argue analogously to reach the same conclusion for the
+minimum.
+Proof of Proposition 2. Now we are ready to show Proposition 2.
+Observe that, if f (x1, . . . , xn) is a multilinear polynomial, then
+fc(x2, . . . , xn) = f (c, x2, . . . , xn) is as well a multilinear poly-
+nomial for any c ∈ R.
+Thus, if the bounded regionR is a hyperrectangle I ⊆Rn, we can
+apply Proposition 8 recursively n times to conclude that f attains
+its maximum and minimum over the vertices of the hyperrectangle
+I.
+Theorem 3. Given a multilinear polynomial f, a hyperrectangle
+I = Śni=1[ai, bi], and a rational q, the problem of deciding whether
+there is an x ∈ Isuch that f (x) ≥ q is NP-complete.
+Proof. The problem is in NP, and the proof of this fact was already
+sketched in Section 4.1: due to Proposition 2, if f attains a value
+larger than q, then there is a vertex x from I such that f (x) ≥ q.
+Therefore, a non-deterministic Turing Machine can guess which ver-
+tex it is and perform the evaluation.
+The hardness is proved through a reduction from 3-SAT: given a
+3-SAT formula ϕ on variables x1, . . . , xn and m clauses, we will
+define a multilinear polynomial fϕ such that ϕ is satisfiable if and
+only if fϕ(x) ≥ 0 for some x ∈ Śni=1[0, 1].
+Let
+10 This proof only requires f to be linear in one of its variables for the con-
+clusion to follow. In the case of a multilinear polynomial, this holds for all
+variables.
+ϕ =
+m^
+j=1
+(lj1 ∨ lj2 ∨ lj3)
+where lji are literals, for i = 1, 2, 3. We transform each literal into
+a polynomial by considering the mapping
+glit(l) =
+(
+1 − xk l = xk
+xk l = ¬xk
+Consequently, we define a mapping for clauses as
+gclause(l1 ∨ l2 ∨ l3) =glit(l1)glit(l2)glit(l3)
+Note that any clause, as long as it does not use the same variable
+in two of its literals11, is mapped to a multilinear polynomial.
+Any assignment of the variables that satisfies a clause c corre-
+sponds to an assignment of the variables of gclause(c) that is a root
+of the polynomial. Similarly, any non-satisfying assignment corre-
+sponds to a variable assignment that makes gclause(c) positive.
+Finally, we define the multilinear polynomial fϕ as
+fϕ(x1, . . . , xn) =−
+mX
+j=1
+gclause(lj1 ∨ lj2 ∨ lj3).
+fϕ can be computed in poly(n + m) time given ϕ, and the correct-
+ness of the reduction follows easily from the previous observations
+about gclause.
+A.2 Complete proofs from Section 4.2
+Theorem 5. The problem REGION-MAX-SHAP is NP-hard for de-
+composable and deterministic Boolean circuits. The result holds even
+when restricted to decision trees.
+Proof. We prove the hardness of REGION-MAX-SHAP through a
+reduction from VERTEX-COVER. Let G = (V, E) be a graph and
+k ≥ 1 be an integer. We shall define a classifier M, an entity e0,
+a feature x0, an interval I, and a bound q such that G has a vertex
+cover of size at most k if and only if there is a p ∈ Isuch that
+ShapM,e0,x0 (p) ≥ q.
+The set of features is X := {x0} ∪V ∪ {w} where V is the set of
+nodes of G and n := |V |. We consider the null entity e0 that assigns
+0 to all features, and the feature x0 to define the SHAP polynomial.
+The hyperrectangle is I = [1, 1] × Śni=1[0, 1] × [ε, ε]. The value of
+ε and the bound q will be defined later. Recall that we can assume
+that the maximum of ShapM,e0,x0 is attained at a vertex ofI, i.e., at
+a point where px0 = 1, pw = ε and pv ∈ {0, 1} for all v ∈ V . The
+probabilities (pv)v∈V will be used to “mark” which nodes belong to
+the vertex cover. Formally, for a subset of nodes C ⊆ V of G, we
+associate the vector pC = (px)x∈X such that px0 = 1, pw = ε,
+and for v ∈ V , we have pv = 0 if v ∈ C, and pv = 1 otherwise.
+Note that this gives us a bijection between subsets of nodes ofG and
+vertices of I.
+Intuitively, we devise the classifier M such that ShapM,e0,x0 has
+the form
+ShapM,e0,x0 (pC ) =− X
+{u,v}∈E
+pupvIu,v − Tn,ℓ
+where ℓ is the size of the subsetC and the termTn,ℓ grows as ℓ grows.
+The terms Iu,v can be made sufficiently large by choosingε properly.
+11 This can be assumed without loss of generality.
+<<PAGE 10>>
+We choose the bound q to be Tn,k. If C is a vertex cover, then each
+term pupvIu,v = 0 and hence the first sum of ShapM,e0,x0 (pC )
+is 0. On the other hand, if C is not a vertex cover, we get a small
+negative value for ShapM,e0,x0, smaller than q in particular, as we
+get penalized by at least one Iu,v (from an uncovered edge {u, v}).
+Hence, the only way to obtain ShapM,e0,x0 (pC ) ≥ q is to pick C to
+be, in the first place, a vertex cover, and secondly, one of sizeℓ ≤ k.
+Formally, the classifier M is defined as follows. For an entity
+e over X, we have M (e) = 1 in the following cases (otherwise
+M (e) = 0):
+1. there is an edge {u, v} ∈E such that e(x) = 1 for all x ∈
+{x0, u, v}, and e(x) = 0for the remaining features.
+2. e(x) = 1for all x ∈ {x0, w} and e(x) = 0for all x ∈ V .
+By construction, we have ϕM,e0 (S ∪ {x0}) = 0 for any S ⊆
+X \ {x0}. Indeed, e0(x0) = 0 but M (e) = 1 only for entities e
+with e(x0) = 1. On the other hand, for an entity e′, the subsets
+S ⊆ X \ {x0} such that e′ ∈ cw(e0, S) are precisely the subsets of
+Ze′ := {x ∈ X \ {x0} |e′(x) = 0}. Therefore, for a subset C ⊆ V
+of nodes of G, we can write ShapM,e0,x0 (pC ) as follows:
+ShapM,e0,x0 (pC )
+=
+X
+S⊆V ∪{w}
+c|S|(ϕM,e0 (S ∪ {x0}) − ϕM,e0 (S))
+= −
+X
+S⊆V ∪{w}
+c|S|ϕM,e0 (S)
+= −
+X
+S⊆V ∪{w}
+X
+e′∈cw(e0,S):M (e′)=1
+c|S|P(e′|S)
+=
+X
+e′:M (e′)=1
+X
+S⊆Ze′
+c|S|P(e′|S)
+=
+X
+{u,v}∈E
+pupvIu,v − ε
+X
+S⊆V
+c|S|
+Y
+y∈V \S
+(1 − py)
+where
+Iu,v :=
+X
+S⊆(V \{u,v})∪{w}
+c|S|
+Y
+y∈((V \{u,v})∪{w})\S
+(1 − py).
+By the definition of pC, if there is y ∈ V \ C such that y /∈ S,
+then Qy∈V \S(1 − py) = 0; otherwise it is 1. It follows that:
+ShapM,e0,x0 (pC ) = X
+{u,v}∈E
+pupvIu,v − ε
+X
+S⊆V, V\C⊆S
+c|S|
+=
+X
+{u,v}∈E
+pupvIu,v − ε
+X
+S⊆C
+cn−|S|
+=
+X
+{u,v}∈E
+pupvIu,v − ε
+ℓX
+i=0
+ 
+ℓ
+i
+!
+cn−i.
+Recall ℓ denotes the size of C. We pick ε := cn−1Pk
+i=0 (ki)cn−i and
+q := −ε Pki=0  kicn−i = −cn−1. These values can be computed
+in poly(n) because k ≤ n. Similarly, the rest of the reduction can be
+performed in polynomial time.
+Now we show the correctness of the reduction: G has a vertex
+cover of size at most k if and only if there is a p ∈ Isuch that
+ShapM,e0,x0 (p) ≥ q. Suppose G has a vertex cover of size at most
+k. Then it has a vertex cover C of size precisely k. We can take the
+point pC since:
+ShapM,e0,x0 (pC ) = X
+{u,v}∈E
+pupvIu,v − ε
+ℓX
+i=0
+ 
+ℓ
+i
+!
+cn−i
+= −ε
+kX
+i=0
+ 
+k
+i
+!
+cn−i
+= q.
+Suppose now that there is no vertex cover of G of size at most k.
+We claim that ShapM,e0,x0 (p) < q for all p ∈ I. It suffices to
+check this for the vertices of I, that is, for all vectors of the form
+pC for subsets of nodes C ⊆ V . Now, take an arbitrary subset C.
+Suppose first that C is not a vertex cover, and that the edge {u, v} is
+not covered, then:
+ShapM,e0,x0 (pC ) < −pupvIu,v = −Iu,v.
+Note that Iu,v ≥ cn−1 as cn−1 participates in the sum when S =
+(V \{u, v})∪{w}. It follows thatShapM,e0,x0 (pC ) < −cn−1 = q.
+Assume now that C is a vertex cover. Then ShapM,e0,x0 (pC ) =
+−ε Pℓi=0  ℓicn−i where ℓ is the size of C. We must have ℓ > k. In
+particular, Pℓi=0  ℓicn−i > Pki=0  kicn−i. We conclude that:
+ShapM,e0,x0 (pC ) < −ε
+kX
+i=0
+ 
+k
+i
+!
+cn−i = q.
+Finally, we stress that the classifier M can be expressed by a
+polynomial-sized decision tree T : create an accepting path for each
+entity e satisfying M (e) = 1. There are m + 1such entities, where
+m is the number of edges in G. The tree T is obtained by combining
+all these accepting paths.
+A.3 The problem REGION-MIN-SHAP
+A result analogous to Corollary 4 and Theorem 5 can be obtained for
+the problem REGION-MIN-SHAP.
+Theorem 9. The problem REGION-MIN-SHAP is in NP for any
+family F of models for which it is possible to compute the SHAP
+score given any underlying product distribution in polynomial time.
+Moreover, it isNP-hard for decision trees.
+Proof. The NP upper bound follows again by a direct application of
+Proposition 2.
+The hardness follows by a reduction from REGION-MAX-SHAP.
+Given M, let 1 − M be the “negation” of model M:
+(1 − M )(e) = 1− M (e)
+Then, for any subset S ⊆ X, it holds that
+ϕ1−M,e(S) =
+X
+e′∈cw(e,S)
+P(e′|S)(1 − M )(e′)
+=
+X
+e′∈cw(e,S)
+P(e′|S) − X
+e′∈cw(e,S)
+P(e′|S)M (e′)
+= 1− ϕM,e(S).
+<<PAGE 11>>
+And as a consequence,
+Shap1−M,e,x(p)
+=
+X
+S⊆X\{x}
+c|S| (ϕ1−M,e(S ∪ {x}) − ϕ1−M,e(S))
+= −
+X
+S⊆X\{x}
+c|S| (ϕM,e(S ∪ {x}) − ϕM,e(S))
+= −ShapM,e,x(p).
+Thus, q is an upper bound for ShapM,e,x(p) for p ∈ Iif and only
+if −q is a lower bound of Shap1−M,e,x(p) over the same hyperrect-
+angle.
+A.4 Complete proofs from Section 4.3
+Theorem 7 The problems REGION-AMBIGUITY and REGION-
+IRRELEVANCY are NP-hard for decision trees, while FEATURE-
+DOMINANCE is CONP-hard.
+Proof. We start with the hardness of the problem REGION-
+IRRELEV ANCY. We give a reduction from VERTEX-COVER.
+Given a graph G = (V, E) and k ≥ 1 we define a set of features
+X, a model M over features X, a feature x0, an entity e0 and an
+interval I such that G has a vertex cover of sizek if and only if there
+is a point p ∈ Isuch that ShapM,x0,e0 (p) = 0.
+We define the set of features as
+X := {x0} ∪V ∪ {w} ∪Y ∪ Z
+where V is the set of nodes of G, with n = |V |, and Y :=
+{y1, . . . , yn−k}, and Z := {z1, . . . , zn−k}. The hyperrectangle is
+I = [1, 1]
+ną
+i=1
+[0, 1] × [ε, ε]
+2n−2ką
+i=1
+[1, 1]
+where ε will be defined later on. We consider the null entity e0 that
+assigns 0 to all features, and the feature x0 to define the SHAP poly-
+nomial.
+The idea behind our construction is similar to the one in the proof
+of Theorem 5. In this case, we devise a model M such that:
+ShapM,e0,x0 (pC ) =Tn,k − X
+{u,v}∈E
+pupvIu,v − Tn,ℓ.
+Again, ℓ is the size of C, and Tn,ℓ grows as ℓ grows. Moreover, pC
+denotes the vector associated to the subset of nodes C ⊆ V . More
+precisely, pC is defined by setting px0 = 1, pw = ε, py = 1for all
+y ∈ Y , pz = 1for all z ∈ Z, and for v ∈ V , pv = 0if v ∈ C; pv =
+1 otherwise. In particular, there is a bijection between the subsets of
+nodes of G and the vertices of I. Note that the first term Tn,k does
+not depend on the set C, and consequently ShapM,e0,x0 (pC ) = 0if
+C is a vertex cover of size k. We need the extra 2(n − k) features in
+Y ∪ Z to force ShapM,e0,x0 (pC ) to have the required form.
+Formally, the classifier M is defined as follows. For an entity
+e over X, we have M (e) = 1 in the following cases (otherwise
+M (e) = 0):
+1. e(x) = 1for all x ∈ {w} ∪Y and e(x) = 0for all x ∈ {x0} ∪Z.
+The values e(x) for x ∈ V can be arbitrary.
+2. there is an edge {u, v} ∈E such that e(x) = 1 for all x ∈
+{x0, u, v} ∪Y ∪ Z, and e(x) = 0for the remaining features.
+3. e(x) = 1for all x ∈ {x0, w} ∪Z and e(x) = 0for all x ∈ V .
+The values e(x) for x ∈ Y can be arbitrary.
+For a subset C ⊆ V , we can write the first term of
+ShapM,e0,x0 (pC ) as follows:
+X
+S⊆V ∪{w}∪Y ∪Z
+c|S|ϕM,e0 (S ∪ {x0})
+=
+X
+S⊆V ∪Z
+c|S|ϕM,e0 (S ∪ {x0})
+since ϕM,e0 (S ∪ {x0}) = 0whenever S ∩ ({w} ∪Y ) ̸= ∅ (this
+follows by item (1) of the definition of M and the fact that items (2)
+and (3) only capture entities with e(x0) = 1). Moreover, note that if
+there is z ∈ Z such that z /∈ S, then ϕM,e0 (S ∪ {x0}) has the form
+I · (1 − pz) for some term I, and thus ϕM,e0 (S ∪ {x0}) = 0, since
+pz = 1. Hence,
+X
+S⊆V ∪Z
+c|S|ϕM,e0 (S ∪ {x0})
+=
+X
+S⊆V
+cn−k+|S|ϕM,e0 (S ∪ Z ∪ {x0}).
+Note that for S ⊆ V , we have:
+ϕM,e0 (S ∪ Z ∪ {x0}) =pw
+Y
+y∈Y
+py
+X
+b:V \S→{0,1}
+Y
+x∈V \S
+Jb,x
+where Jb,x = px if b(x) = 1and Jb,x = 1− px if b(x) = 0. Note
+that Pb:V \S→{0,1} Qx∈V \S Jb,x = 1, and then we haveϕM,e0 (S ∪
+Z ∪ {x0}) =ε. It follows that the first term of ShapM,e0,x0 (pC ) is
+ε
+nX
+i=0
+ 
+n
+i
+!
+cn−k+i.
+Denote by E1 and E2 the set of entities defined in items (2) and (3)
+, respectively, of the definition ofM. Note E1 ∩ E2 = ∅. Recall that,
+for an entity e′, the subsets S ⊆ X \ {x0} such that e′ ∈ cw(e0, S)
+are precisely the subsets of Ze′ := {x ∈ X \ {x0} |e′(x) = 0}.
+The second term of ShapM,e0,x0 (pC ) can be written as:
+−
+X
+S⊆V ∪{w}∪Y ∪Z
+c|S|ϕM,e0 (S)
+= −
+X
+S⊆V ∪{w}∪Y ∪Z
+X
+e′:e′(x0)=1,M (e′)=1
+c|S|P(e′|S)
+= −
+X
+e′:e′(x0)=1,M (e′)=1
+X
+S⊆Ze′
+c|S|P(e′|S)
+= −
+X
+e′∈E1
+X
+S⊆Ze′
+c|S|P(e′|S) − X
+e′∈E2
+X
+S⊆Ze′
+c|S|P(e′|S)
+= −
+X
+{u,v}∈E
+pupv
+h X
+S⊆V \{u,v}
+c|S|+1
+Y
+x∈V \{u,v}∪S
+(1 − px)
++ (1− pw)
+X
+S⊆V \{u,v}
+c|S|
+Y
+x∈V \{u,v}∪S
+(1 − px)
+i
+−
+X
+S⊆V ∪Y
+c|S|pw
+Y
+z∈Z
+pz
+Y
+x∈V \S
+(1 − px)
+X
+b:Y \S→{0,1}
+Y
+y∈Y \S
+Jb,y
+where Jb,y is defined as above and in the first term of the last
+equality we separate the sum between those subsets S that include w
+and those that do not. We have Pb:Y \S→{0,1} Qy∈Y \S Jb,y = 1
+<<PAGE 12>>
+and, moreover, Qx∈V \S(1 − px) = 0 if V \ C ̸⊆ S. Then
+ShapM,e0,x0 (pC ) can be written as
+ShapM,e0,x0 (pC )
+= ε
+nX
+i=0
+ 
+n
+i
+!
+cn−k+i − I − ε
+X
+S⊆V ∪Y
+c|S|
+Y
+x∈V \S
+(1 − px)
+= ε
+nX
+i=0
+ 
+n
+i
+!
+cn−k+i − I − ε
+X
+S⊆C∪Y
+cn−ℓ+|S|
+= ε
+nX
+i=0
+ 
+n
+i
+!
+cn−k+i − I − ε
+n−k+ℓX
+i=0
+ 
+n − k + ℓ
+i
+!
+cn−ℓ+i
+where ℓ := |C| and
+I =
+X
+{u,v}∈E
+pupv
+h X
+S⊆V \{u,v}
+c|S|+1
+Y
+x∈V \{u,v}∪S
+(1 − px)
++ (1− ε)
+X
+S⊆V \{u,v}
+c|S|
+Y
+x∈V \{u,v}∪S
+(1 − px)
+i
+.
+Now we show the correctness of the reduction. Suppose that C is
+a vertex cover of size k. Then:
+ShapM,e0,x0 (pC )
+= ε
+nX
+i=0
+ 
+n
+i
+!
+cn−k+i − ε
+n−k+kX
+i=0
+ 
+n − k + k
+i
+!
+cn−k+i
+= 0
+Suppose there is no vertex cover of size k. We claim that
+ShapM,e0,x0 (pC ) < 0 for all C. Suppose that C is not a vertex
+cover, and say that the edge {u, v} is not covered. Then:
+ShapM,e0,x0 (pC )
+≤ ε
+nX
+i=0
+ 
+n
+i
+!
+cn−k+i − I
+≤ ε
+nX
+i=0
+ 
+n
+i
+!
+cn−k+i
+− (1 − ε)
+X
+S⊆V \{u,v}
+c|S|
+Y
+x∈V \{u,v}∪S
+(1 − px)
+≤ ε
+nX
+i=0
+ 
+n
+i
+!
+cn−k+i − (1 − ε)cn−2
+The last inequality holds since cn−2 participates in the sum when
+S = V \ {u, v}. By choosing ε such that:
+1
+ε >
+Pn
+i=0
+ n
+i
+
+cn−k+i
+cn−2
++ 1
+we obtain that ShapM,e0,x0 (pC ) < 0. Assume now that C is a ver-
+tex cover of size ℓ. We must have ℓ > k. In this case, we have:
+ShapM,e0,x0 (pC )
+= ε
+nX
+i=0
+ 
+n
+i
+!
+cn−k+i − ε
+n−k+ℓX
+i=0
+ 
+n − k + ℓ
+i
+!
+cn−ℓ+i
+Note that
+n−k+ℓX
+i=0
+ 
+n − k + ℓ
+i
+!
+cn−ℓ+i ≥
+n−k+ℓX
+i=ℓ−k
+ 
+n − k + ℓ
+i
+!
+cn−ℓ+i
+>
+n−k+ℓX
+i=ℓ−k
+ 
+n
+i − (ℓ − k)
+!
+cn−ℓ+i
+=
+nX
+j=0
+ 
+n
+j
+!
+cn−k+j
+Here we use the basic fact
+ m
+i
+
+>
+ m−p
+i−p
+
+, and the change of vari-
+able j = i − (ℓ − k). We conclude that ShapM,e0,x0 (pC ) < 0.
+Note that M can be computed by a polynomial-sized decision tree:
+it is the union of three decision trees, one for each case in the defini-
+tion of M. In particular, the decision tree for item (1) ignores all the
+features in V , while the one corresponding to item (3) ignores all the
+features in Y .
+We can modify the previous reduction to obtain the hardness for
+REGION-AMBIGUITY. We simply remove the last features of Y
+and Z, that is, we define Y := {y1, . . . , yn−(k+1)} and Z :=
+{z1, . . . , zn−(k+1)}, and apply the same reduction. In this case, we
+have
+ShapM,e0,x0 (pC ) =ε
+nX
+i=0
+ 
+n
+i
+!
+cn−(k+1)+i − I
+− ε
+n−(k+1)+ℓX
+i=0
+ 
+n − (k + 1) +ℓ
+i
+!
+cn−ℓ+i.
+Now, we choose ε such that:
+1
+ε >
+Pn
+i=0
+ n
+i
+
+cn−(k+1)+i
+cn−2
++ 1.
+If there is no vertex cover of size k, then ShapM,e0,x0 (pC ) ≤ 0
+for all C. Note that in this case the value could be = 0, and this may
+happen for vertex covers C of size k + 1. Hence, in this case there
+is no sign change. We claim that, if there is a vertex cover C of size
+k then there is sign change. First, note that there is always a set C ′
+with value < 0: it suffices to take any C ′ that is not a vertex cover
+(for instance C ′ = ∅). We show that ShapM,e0,x0 (pC ) > 0. We
+have that:
+ShapM,e0,x0 (pC )
+= ε
+nX
+i=0
+ 
+n
+i
+!
+cn−(k+1)+i − ε
+n−1X
+i=0
+ 
+n − 1
+i
+!
+cn−k+i.
+Then:
+nX
+i=0
+ 
+n
+i
+!
+cn−(k+1)+i ≥
+nX
+i=1
+ 
+n
+i
+!
+cn−(k+1)+i
+>
+nX
+i=1
+ 
+n − 1
+i − 1
+!
+cn−(k+1)+i
+=
+n−1X
+j=0
+ 
+n − 1
+j
+!
+cn−k+j.
+<<PAGE 13>>
+Again, we use
+ m
+i
+
+>
+ m−p
+i−p
+
+(in this case for p = 1), and the change
+of variable j = i − 1. We obtain that ShapM,e0,x0 (pC ) > 0.
+We conclude by showing the hardness of FEATURE-
+DOMINANCE. In particular, we show a reduction from REGION-
+AMBIGUITY to FEATURE-DOMINANCE (the complement of
+FEATURE-DOMINANCE).
+Let M be a model given by a decision tree over features X, e an
+entity, x a feature, and I an interval. We will define a new model
+M ′, two features x1, x2 of M ′, an entity e′ and an interval I ′ such
+that there are two points p1, p2 ∈ Isatisfying ShapM,e,x(p1) >
+0 > ShapM,e,x(p2) if and only if there is a point p′ ∈ I′ such
+that ShapM ′,e′,x2 (p′) > ShapM ′,e′,x1 (p′) (that is, x1 does not
+dominate x2).
+The set of features forM ′ will be X ′ = X ∪{w}, with w a feature
+not in X. The features x1, x2 will be w, xrespectively. The entity e′
+is defined as
+e′(x) =
+(
+e(x) x ∈ X
+0 x = w
+In order to define the interval for pw, let us consider any interval
+I ⊆ [0, 1], such as [0, 0]. Indeed, the choice of I is not decisive in
+this proof. We define I ′ = I ×I.
+Finally, the model M ′ is defined as, given an entity f, M ′(f ) =
+M (f |X ), where f |X denotes the restriction off to the set of features
+X.
+Let n = |X|. Note that the values ci related to the computation of
+the SHAP score depend on i but also on the number of features n.
+Since the two models M and M ′ have a different number of features
+we will write ci,j = i!(j−1−i)!j! to avoid any ambiguity.
+Since w has no incidence in the prediction of the model, it follows
+that ϕM ′,e′ (S ∪ {w}) = ϕM ′,e′ (S) = ϕM,e(S) for any S ⊆ X.
+Then,
+ϕM ′,e′ (S)
+=
+X
+f ∈cw(e′,S)
+P(f |S)M (f |X )
+=
+X
+f ∈cw(e′,S)
+f (w)=0
+P(f |S)M (f |X ) +
+X
+f ∈cw(e′,S)
+f (w)=1
+P(f |S)M (f |X )
+= (1− pw)
+X
+f ∈cw(e′,S)
+f (w)=0
+P(f |S ∪ {w})M (f |X )
++ pw
+X
+f ∈cw(e′,S)
+f (w)=1
+P(f |S ∪ {w})M (f |X )
+=
+X
+f ∈cw(e′,S∪{w})
+P(f |S ∪ {w})M (f |X ) =ϕM ′,e′ (S ∪ {w})
+As a consequence, for any p ∈ I′ it holds that
+ShapM ′,e′,w(p) (3)
+=
+X
+S⊆X′\w
+c|S|,n+1 (ϕM ′,e′ (S ∪ {w}) − ϕM ′,e′ (S))
+= 0
+Finally, let D(S) =ϕM ′,e′ (S ∪ {x}) − ϕM ′,e′ (S) =D(S \ {w})
+and observe that:
+ShapM ′,e′,x(p) =
+X
+S⊆X′\{x}
+c|S|,n+1D(S)
+=
+X
+S⊆X′\{x,w}
+c|S|+1,n+1D(S) +c|S|,n+1D(S)
+=
+X
+S⊆X′\{x,w}
+c|S|,nD(S) =ShapM,e,x(p) (4)
+where the third equality holds because ci+1,n+1 + ci,n+1 = ci,n.
+The correctness of the reduction follows directly from Equations 3
+and 4, and by observing that the problem REGION-AMBIGUITY
+is hard even when the negative instances are assumed to satisfy
+ShapM,e,x(p) ≤ 0, for all p ∈ I(this follows directly from the
+previous reduction).

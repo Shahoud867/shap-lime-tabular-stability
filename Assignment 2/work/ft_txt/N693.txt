@@ -1,0 +1,1872 @@
+<<PAGE 1>>
+Probabilistic Shapley Value Modeling and Inference
+Mert Ketenci mk4139@columbia.edu
+Department of Computer Science
+Columbia University
+New York, NY
+Iñigo Urteaga iurteaga@bcamath.org
+BCAM — Basque Center for Applied Mathematics
+Bilbao, Spain
+Victor A. Rodriguezvar2112@cumc.columbia.edu
+Department of Biomedical Informatics
+Columbia University
+New York, NY
+Noémie Elhadad ne60@cumc.columbia.edu
+Department of Biomedical Informatics & Computer Science
+Columbia University
+New York, NY
+Adler Perotte ajp2120@cumc.columbia.edu
+Department of Biomedical Informatics
+Columbia University
+New York, NY
+Abstract
+We propose probabilistic Shapley inference (PSI), a novel probabilistic framework to model
+and infer sufficient statistics of feature attributions in flexible predictive models, via latent
+random variables whose mean recovers Shapley values. PSI enables efficient, scalable in-
+ference over input-to-output attributions, and their uncertainty, via a variational objective
+that jointly trains a predictive (regression or classification) model and its attribution dis-
+tributions. To address the challenge of marginalizing over variable-length input feature
+subsets in Shapley value calculation, we introduce a masking-based neural network ar-
+chitecture, with a modular training and inference procedure. We evaluate PSI on synthetic
+and real-world datasets, showing that it achieves competitive predictive performance com-
+pared to strong baselines, while learning feature attribution distributions —centered at
+Shapley values— that reveal meaningful attribution uncertainty across data modalities.
+1 Introduction
+Learning feature attributions, i.e., quantifying how individual input features contribute to a (black-box)
+model’s prediction, is a fundamental problem in interpretable and explainable machine learning. Shap-
+ley values (Shapley et al., 1953), originating from cooperative game theory and the study of transferable
+utility, have become widely adopted in machine learning as a principled approach for feature attributions
+(Lundberg & Lee, 2017; Lundberg et al., 2020; Covert & Lee, 2021). For a supervised learning model, the
+Shapley value for featuredis defined as its expected marginal contribution across all possible coalitions
+—where each coalitionSis a subset of features that excludes featured— see Equation 3. Shapley value
+is the uniqueremoval based attribution method(Covert et al., 2021) satisfying four key explainability ax-
+ioms: Efficiency, Symmetry, Dummy (Null Player), and Additivity (Linearity); underpinning their appeal
+1
+arXiv:2402.04211v2  [cs.LG]  8 Sep 2025
+<<PAGE 2>>
+in model explanation (Merrick & Taly, 2020). We refer to Rozemberczki et al. (2022) for details on their
+theoretical foundation.
+Despite its desirable properties and widespread application, most existing Shapley-based feature attribu-
+tion methods operate on point estimates, thereby collapsing information in a dataset into a single summary
+statistic. This approach ignores the inherent uncertainty in the data, which can be caused by noise, limited
+observations, or feature correlations. For instance, when model predictions are uncertain, deterministic
+Shapley values may give a false sense of confidence about the importance of specific features. In addition,
+we are often not interested in identifying features with only high attributions, but also those with consis-
+tently low or negligible attributions (i.e.,dummy features), so we can isolate and focus on the true drivers of
+a model’s decisions. Overlooking negligible or uncertain attribution information can lead to misleading or
+unstable attributions, of particular relevance in high-stakes domains such as healthcare or policymaking,
+where attribution reliability is paramount. Therefore, it is crucial to characterize (I) the inherent noise
+in the data, (II) the model’s predictive uncertainty, and (III) how it all propagates to and impacts feature
+attributions.
+In this work, we describe the attribution of a model’s inputs to outputs through latent random variables,
+centered at Shapley values, via a probabilistic generative model of observed data, that is fully learnable (i.e.,
+the model and the attribution distributions) via an efficient, stochastic variational inference procedure.
+Our main contributions are as follows:
+1.A Novel, Input-Conditional Prior Distribution Modeling (Uncertain) Shapley Feature Attribu-
+tions.We introduce in Section 3 an input-conditional prior distribution over feature attributions,
+centered around Shapley values. We pose that the observed outputs are generated through a lin-
+ear combination of attributions drawn from this Shapley prior that parameterize a Gaussian or a
+Bernoulli likelihood for regression and classification tasks, respectively (see Figure 1).
+2.Efficient Variational Inference for Simultaneous Model and Feature Attribution Learning.We
+overcome challenges in model learning (non-analytical likelihoods and computationally demand-
+ing operations in feature size) by devising, in Section 3.3, a variational inference framework for
+Probabilistic Shapley Inference (PSI). We derive a stochastic estimator of a (tighter) variational ob-
+jective that enables efficient and scalable learning of the model and the attribution Shapley prior,
+simultaneously.
+3.Efficient Processing of Variable Length Inputs.A key challenge for removal-based attribution
+methods (e.g., Shapley values) lies in efficiently handling variable-length inputs and computing
+their marginals. In Section 3.4, we introduce a novel, masked embedding neural network (MENN)
+architecture that supports flexible modeling of variable-length, continuous and discrete inputs.
+MENN leverages the inherent parallelism of neural networks, enabling efficient computation on
+modern hardware (GPUs) by avoiding the need for sequential processing over feature subsets.
+We evaluate and assess theexplainability and predictive performanceof the probabilistic Shapley inference
+(PSI) framework via empirical studies with the following aims:
+1.Objective 1.To demonstrate that PSI recovers a distribution over attributions that closely reflects
+the true data-generating process, according to the Shapley value framework, via the empirical
+study presented in Section 4.1.
+2.Objective 2.To showcase, through two illustrative case studies in Section 4.2, how probabilistic
+Shapley attributions that incorporate attribution uncertainty via coverage intervals provide more
+meaningful and informative explainability insights across multiple data modalities.
+3.Objective 3.To establish, with results in Section 4.3, that the masking-based network presented
+in Section 3.4, which parameterizes the sufficient statistics of the feature attribution distribution,
+produces more accurate predictive data estimates than standard baseline methods.
+2
+<<PAGE 3>>
+4.Objective 4.To verify PSI’s competitive predictive performance across regression and classification
+tasks in Section 4.4, in par with several well-established explainable and black-box baselines.
+2 Connections and Differences with Related Work
+In this work, we address several core challenges in the application, computation and interpretation of
+feature attribution via Shapley values. We review and contextualize here the literature at the intersection of
+Shapley values and machine learning, with a focus on methods that address their computational, modeling
+and estimation challenges. Despite its desirable properties and widespread application, Shapley value
+computation is burdened with inherent difficulties, due to its computational complexity (Van den Broeck
+et al., 2022), the difficulty in estimating model marginals (Covert et al., 2021), and their lack of uncertainty
+quantification.
+Computation of exact Shapley values for a given featuredis expensive, as it requires evaluating all possible
+feature coalitions, i.e., iterating overS∈2 [D]\{d} , where 2 [D]\{d} represents the power set over{1,2···,d−
+1,d+ 1,···,D}. To mitigate this, recent work has framed the problem as a post-hoc weighted least squares
+estimation (Lundberg & Lee, 2017; Covert et al., 2020; Adebayo et al., 2021). While such methods offer
+useful insights into black-box model behavior, they come with notable limitations: they can be highly
+sensitive to small input perturbations (Ghorbani et al., 2019), may fail to faithfully reflect the decision
+boundaries of the original model (Rudin, 2019), and often require extensive sampling to produce reliable
+attributions (Jethani et al., 2021). FastSHAP (Jethani et al., 2021) addresses the computational bottleneck
+of Shapley estimation by learning attributions in a single forward pass. However, it relies on training
+multiple neural networks in sequence, resulting in significant computational overhead. In contrast, we
+propose traininga single modelin which feature attributions areembedded directly into the generative process,
+rather than relying on post-hoc attributions.
+A second challenge in Shapley value estimation is dealing with feature subsets of varying lengths. Typi-
+cally, feature removal is treated as a marginalization process, where the model output is averaged over the
+omitted features. A common strategy is to marginalize removed features using an empirical or approximate
+input distribution. Existing methods approximate these marginals with distributions such as the product
+of independent input marginals, the empirical joint distribution, or uniform sampling over the input space
+(Datta et al., 2016; Lundberg & Lee, 2017; Strumbelj & Kononenko, 2010). However, these approximations
+can lead to misleading attributions when input features exhibit strong correlations. For a comprehensive
+discussion of marginalization strategies and their limitations, we refer the reader to Covert et al. (2021). Re-
+cent work has explored the use of baseline values as substitutes for marginalized features in Shapley value
+estimation: Sundararajan & Najmi (2020) proposed replacing missing features with fixed baselines, while
+Covert et al. (2021) showed that training models with independently replaced features can approximate
+marginalization under the input conditional distribution. Jethani et al. (2021) further extended this idea
+by selecting baseline values outside the observed data distribution to enhance distinguishability. However,
+Covert et al. (2021) also highlighted the inherent difficulties of using baselines in continuous domains,
+where poorly chosen baselines can distort marginal estimates and lead to inaccurate attributions. In this
+work, we address these issues bydefining both feature embeddings and baseline values in a learned latent space,
+and demonstrate that this leads to improved quality over prior approaches.
+A third challenge and core limitation lies in the common treatment of Shapley values as deterministic
+quantities. This view is largely influenced by the prevalence of non-probabilistic machine learning pre-
+dictive models that produce single-point predictions —and explanations. However, this simplification can
+obscure important insights, underscoring the need to explicitly account for the uncertainty inherent in
+explanations (Chan et al., 2020; Alaa & Van Der Schaar, 2020; Lee et al., 2020). Although some post-hoc
+methods attempt to quantify uncertainty in Shapley estimates, they focus on capturing it through its vari-
+ance estimation arising from ad-hoc approximations (Covert & Lee, 2021; Slack et al., 2021). As a result,
+they fail to reflect the aleatoric uncertainty present in data, which we here characterize via a distribution
+over feature attributions. Recent work by Chau et al. (2023) is similar in spirit to ours, in that they assume
+a Shapley value centered Gaussian Process (GP) prior to, after observing some data, use the GP posterior to
+distribute its predictive uncertainty to feature attributions. However, the framework we present here dif-
+3
+<<PAGE 4>>
+fers fundamentally from GP-SHAP: rather than providing post-hoc explanations under a Gaussian process
+prior, we put forward an end-to-end probabilistic learning framework thatjointly trains a predictive model
+and a conditional prior over feature attributions.
+3 Probabilistic Shapley Inference (PSI)
+Definitions and notations.LetX⊆R D denote the input space of a model overDfeatures. We define a
+functionfd that operates on variable-length subsets of features as
+fd :
+[
+S⊆[D]
+XS→R,withf d(∅) = 0,(1)
+where [D] ={1,2,...,D}is the index set of all input dimensions,S⊆[D] is a feature subset, andX S =
+d∈S Xd denotes the corresponding subspace. We defineX ∅ as a singleton (e.g.,{∅}) to allow calls such as
+fd(x∅) =fd(∅).
+Without loss of generality, we assume an additive output structuref(x s) = PDd=1fd(xs) over input subsets,
+and we writef(x) = PDd=1fd(x) for the output given full inputx.
+3.1 PSI’s Generative Model: Conditional Shapley Priors
+PSI characterizes feature attributions via probabilistic modeling, where we formulate the attribution of
+each input feature as a random variable conditioned on the inputx. Precisely, we assert a conditional prior
+distributionϕd|xfor the contribution of each featuredof the the inputx:
+ϕd|x∼P (ϕd|x ) =N(φ d(x),σ 2d (x)),(2)
+where its conditional meanφd(x) is given by the Shapley-weighted marginal contribution off:
+φd(x) =
+X
+S⊆[D]\{d}
+P(S)
+
+f(xS∪{d} )−f(x s)
+
+,such thatf(x s) =
+Z
+f(x)dP (x|x s),(3)
+with Shapley kernel P(S) =|s|!(D−|s|−1)!D! .
+We refer to P(ϕd|x ) as theShapley prior, and denote samplesϕ d drawn from this distribution asstochas-
+tic Shapley values(SSV). We writeΦ={ϕ d}Dd=1 for the concatenation of SSVs for all input features. By
+construction,ϕd(x) is distributed around the Shapley values and satisfies the following properties.
+Theorem 3.1(Axiomatic properties ofφ(x)).The expected valueφ(x)of the Shapley prior satisfies the following
+properties, by the definitions off(x s)and the Shapley kernel P (S):
+Property 1.(Efficiency) PDd=1φd(x) =f(x). We start with PDd=1PS⊆[D]\{d} P(S)f(xS∪{d} )−f(x s) =P
+T⊆[D] c(T)f(x T ), wherec(T) = Pj∈T P(T\{j} )− Pj<T P(T ), which is0except forc(D) = 1, and
+C(∅) =−1. Hence, PDd=1φd(x) =f(x)−f(∅) =f(x)by definition in Equation 1.
+Property 2.(Symmetry) iff(x S∪d1) =f(x S∪d2), for alls∈[D], thenφ d1(x) =φ d2(x), by application of
+Equation 3.
+Property 3.(Dummy) iff(x S∪d ) =f(x s), for alls∈[D], thenφ d(x)is0, by direct use of Equation 3.
+Property 4.(Additivity) For two functionsf 1 andf 2, the contribution tof=f 1 +f 2 of featured, due to
+the linearity of the expectation, isφd(x) =φ 1d(x) +φ 2d(x).
+Observation likelihood.In practice, we do not observe random variablesϕ d —nor their realizations—
+but observations that depend on these latent variables. In this work, we consider data likelihood functions
+for observations corresponding to regression and binary classification1 tasks.
+1Extensions to multi-class classification are left as future work.
+4
+<<PAGE 5>>
+We describe below the complete, Shapley prior-based probabilistic model by specifying the task-specific
+likelihoods that relate the latent functionfto observed data throughϕ, as illustrated in Figure 1.
+For regression tasks wherey∈R, we adopt a Gaussian likelihood conditioned on the latent variablesϕ d:
+y=
+DX
+d=1
+ϕd +ϵ, ϵ∼N
+
+φ0,σ 20.(4)
+The marginal distribution of the observations —after integrating out the latent random variables over the
+Shapley prior— is tractable:
+y|x∼N (µ(x),σ(x) ),whereµ(x) =φ 0 +f(x) andσ 2(x) =σ 0 +
+DX
+d=1
+σ 2d (x),(5)
+by theefficiencyproperty. Notice how the marginal distribution of the observations linksφ 0 +f(x) to the
+expected value of the datay.
+For classification tasks, we denote with binary indicator1 i whether observationiis positive (1) or nega-
+tive (0). We interpretyas a latent logit random variable, with the observed label defined by a Bernoulli
+likelihood parameterized by the logit, i.e.,
+1∼Bernoulli (logits =y ).(6)
+Unfortunately, the classification’s marginal likelihood is analytically intractable —we explain how we over-
+come this challenge in Section 3.3.
+i={1,···,N}
+d∈[D]
+S⊆[D]\{d}
+xi,S
+xi,d
+ϕi,d yi
+ϵi
+1i
+Figure 1: Graphical model (left) and data-
+generating procedure (DGP, on the right) for PSI’s
+generative story. Shaded squares denote determin-
+istic inputs, while shaded circles represent observed
+stochastic variables. Unshaded nodes correspond to
+latent variables. In regression,ydenotes the ob-
+served response; in classification, it represents la-
+tent logit values. Note that the first step of the DGP
+(on the right) involves a sum over subsets that is
+computationally,O
+
+2D, expensive.
+Fori={1,···,N}:
+1. Calculate the expected value of per-
+featured∈[D] Shapley priors:
+φd(xi) =
+X
+S⊆[D]\{d}
+P(S)
+
+f(xi,S∪{d} )−f(x i,S )
+
+2. Draw per featured∈[D] stochastic Shap-
+ley values, from their conditional Shapley
+priors:
+ϕi,d|xi∼N
+
+φd(xi),σ 2d (xi)
+3. Draw global data uncertainty terms:
+ϵi∼N
+
+φ0,σ 20
+4. Draw observed response (or latent logit)y:
+yi =
+DX
+d=1
+ϕi,d +ϵi
+(a) If classification, draw binary label:
+1i∼Bernoulli (logits =yi)
+3.2 PSI Learning
+In PSI’s generative model,fis an arbitrary functional connecting inputs to outputs. In practice, given
+Ninput-output pairs, the goal is to identify an instancef∈Fthat best fits the observed data, where we
+5
+<<PAGE 6>>
+denote the empirical dataset asD= (x i,yi)Ni=1 for regression and useD= (x i,1i)Ni=1 for classification tasks.
+To that end, one may either try to directly maximize the log-marginal likelihood of the dataset, or in a
+Bayesian fashion, compute the posterior over all the unknown latents, given the dataset.
+In any case, the marginal likelihood of observations is a critical function to compute. Although the log-
+marginal overDfor regression tasks
+Lreg = log
+NY
+i=1
+P(yi|xi) = log
+NY
+i=1
+Z
+ϵi
+
+Zϕi,d P(yi|Φi,ϵi)P(ϵi)dϵi DYd=1 P ϕi,d|xidΦi,(7)
+is analytically tractable; the classification log-marginal likelihood
+Lclass = log
+Z
+yi
+exp
+Lreg + log NYi=1 P(1i|yi)dyi,(8)
+is analytically intractable.
+More importantly, the computation ofϕ d|xinvolvesevaluating an exponential number of feature sub-
+sets, with a computational cost ofO
+
+2D —a well-known bottleneck in Shapley value estimation that hin-
+ders direct calculation of the marginal likelihoods in Equations 7-8.
+To overcome these issues, we adopt a variational framework that enables joint model learning and tractable
+inference of the stochastic Shapley values of interest. Precisely, PSI aims tosimultaneously learnthe un-
+known functionalsf, along with the global bias termφ 0 and the uncertainty sources in the data: the input
+conditional (heteroscedastic) uncertaintyσ(x) and the observation’s homoscedastic uncertaintyσ 0. Fur-
+thermore, and leveraging the probabilistic nature of the model, we are also interested in the inference of
+latent random variablesϕd|x,to facilitate interpretable attributions of each input instance. We denote the full
+set of learnable parameters withθ, which includes parameters of functionalsf(x) andσ(x) (e.g., neural
+network weights and biases), the global bias termφ 0, and the homoscedastic variance termσ 0.
+3.3 Variational PSI
+We hereby introduce a variational approximation to the otherwise intractable posterior over latent vari-
+ables, by computing the evidence lower-bound (ELBO) for regression and classification tasks:
+Lreg≥LELBOreg =
+NX
+i=1
+EQshapi
+(
+log P(yi,Φi|xi)Qshapi
+)
+,(9)
+Lclass≥LELBOclass =
+NX
+i=1
+EQlogiti Qshapi
+(
+log P(1i,yi,Φi|xi)Qlogiti Qshapi
+)
+,(10)
+where we define variational families
+Qshapi = Qshapi (Φi|xi) =
+DY
+d=1
+Qshapd
+ ϕi,d|xi with Q shapd (ϕd|x ) =N( ˜fd(x), ˜σ 2d (x)),and (11)
+Qlogiti = Qlogiti (yi|xi,1i) = P(yi|yi>0,x i)1i P(yi|yi≤0,x i)1−1i .(12)
+The variational Shapley distribution Qshapi —the critical component of the probabilistic Shapley inference
+(PSI) framework— is shared between the regression and classification tasks.
+For classification, we incorporate additional probabilistic components that model the logit (the logarithm
+of the odds) of the binary observation probability. Precisely, we condition the logit’s distribution on their
+sign, as determined by the observed binary variable1: logits are greater than zero if1= 1, and less than
+or equal to zero otherwise. This extra element of the classification approximate posterior is a truncated
+6
+<<PAGE 7>>
+normal distribution overy, i.e.,
+P(y|y≥0,x )1P(y|y≤0,x )1−1 =N
+
+µ(x),σ 2(x)
+Ψ (1,x ) withΨ (1,x ) = 12  1 + erf(µ(x)σ(x) )!1 1 + erf(−µ(x)σ(x) )!1−1 ,
+(13)
+given logit sufficient statisticsµ(x) andσ(x) as in Equation 5, after marginalization of the Shapley prior.
+Before delving into additional details and technicalities of PSI’s variational inference procedure, we rewrite
+the regression ELBO in terms of the variational Shapley distribution Qshapi as
+Lreg≥
+NX
+i=1
+EQshapi{logP(yi|Φi)}|                    {z                    }
+(i)
+−D KL
+
+Qshapi∥P(Φi|xi)
+
+|                       {z                       }
+(ii)
+,(14)
+highlighting that (i) the first term fits the observed data, while (ii) the second term finds a variational
+distribution Qshapi that approximates the Shapley prior P(Φi|xi).
+Following standard variatonal inference, one would optimize the ELBOs in Equations 9-10 with respect to
+variational parameters in Equations 11-12. In contrast, we propose a revision to the lower-bounds of PSI,
+based on a careful choice of the conditional variational families Qshapd (ϕd|x ).
+3.3.1 A Tighter and Computationally Efficient ELBO for PSI
+To devise a tighter, and computationally efficient, computation of PSI’s variational lower-bound, we pose
+the same functional form for the variational and prior functions, i.e.,f d(x) = ˜fd(x), and uncertainty
+functionalsσ d(x) = ˜σd(x). Recall that we are not equating the conditional Shapley prior P (Φi|xi) =
+N
+
+φd(xi),σ 2d (xi) to the variational family Q shapd (ϕd|x ) =N(f d(x),σ 2d (x)), but imposing a shared func-
+tional parameterization between the generative model and the variational family. This shared functional
+parameterization enables us to establish the following proposition.
+Proposition 3.2.For Q shapd (ϕd|x ) =N(f d(x),σ 2d (x))and any functionh, theefficiencyproperty of Shapley
+values guarantees thatE Qshapi
+n
+h
+
+φ0 +PDd=1ϕi,do is equal toE P(Φi|xi)nhφ0 +PDd=1ϕi,do.
+Proof.The proof is followed by the efficiency property and is detailed in Appendix A.
+Equipped with this proposition, we can now equate expectations over the variational Shapley distribu-
+tion Qshapi with those over the true prior, to compute the first term of the ELBO in Equation 14 as
+EQshapi{P(yi|Φi)} =E P(Φi|xi){P(yi|Φi)} =
+R
+Φi P(yi|Φi)P(Φi|xi)dΦi = P(yi|xi).
+Tighter variational PSI ELBOs.We now formulate a modified ELBO for PSI
+LELBOreg ≤Vreg =
+NX
+i=1
+logP(yi|xi)−βD KL
+
+Qshapi∥P(Φi|xi)
+
+≤Lreg ,(15)
+with hyperparameter 0≤β≤1, which regulates the tightness of the lower-bound (V reg =Lreg , forβ= 0) by
+controlling the influence of the second term in the loss. Additionally, we use this new lower-bound,Vreg , to
+rewrite the ELBO for the binary classification task (see detailed derivations in Appendix B):
+LELBOclass ≤Vclass =
+NX
+i=1
+EQlogiti{logP(1i|yi) + logP(yi|xi)}|                                       {z                                       }
+(I)
++H(Qlogiti )|     {z     }
+(II)
+−βD KL
+
+Qshapi∥P(Φi|xi)
+
+|                         {z                         }
+(III)
+≤Lclass ,(16)
+whereH(Q logiti ) is the entropy of the variational logit distribution. This PSI classification objective pro-
+motes (I) learning input-conditional predictive logitsyi, marginalized over SSVs, that explain the observed
+binary labels1i; (II) high-entropy variational distributions over logits, to avoid overconfident or degenerate
+solutions; and (III) fitting a tractable variational Qshapi distribution over SSVs.
+7
+<<PAGE 8>>
+The subset marginal constraint for Shapley computations.MaximizingV(for regression or classifica-
+tion) encourages learning parametric functionalsfd that, due to PSI model design, directly satisfy Property
+1. To meet the remaining properties described in Theorem 3.1, it is mandatory to fulfill the subset-marginal
+constraintf d(xs) =
+R
+fd(x)dP (x|x s), where under slight abuse of notation, we denote with P (x|x s) the dis-
+tribution of features not in the subsetS. Namely, we must ensure that the model’s output for a subsetx s
+aligns with the expected output under the corresponding marginalized input distribution. In training, we
+enforce this by randomly masking the features inx, in a similar fashion to Jethani et al. (2021), where the
+feature subsets were replaced with values outside the support of the data distribution. In Appendix C, we
+show that under reasonable assumptions, random feature removal during the variational training proce-
+dure withVreg andVclass guarantees that this constraint is satisfied.
+Efficient computation ofV reg andV class .We describe below how the tighter ELBOs of Equations 15 &16
+can be computed through closed-form expressions that enable their scalable optimization.
+•The Shapley Kullback-Leibler divergence.The key term (ii) in Equation 14 obeys
+DSHAP =D KL
+
+Qshapd (Φ|x )∥P(Φ|x )
+
+=
+DX
+d=1
+hP
+S⊆[D]\{d} P(S)(f(xS∪d )−f(x s))
+i
+−fd(x)
+2
+2σd(x)2 .(17)
+Instead of its exact computation (of exponential complexity due to the sum over coalitions), we derive a
+computationally efficient,stochastic estimateas follows:
+ˆDSHAP =D
+ PK1k=1f(xs1,k∪d)−f(xs1,k )K1 −fd(x)!PK2k′=1f(xs2,k′∪d)−f(xs2,k′ )K2 −fd(x)
+2σd(x)2 ,(18)
+withs 1,k, s2,k′∼P (S) andd∼U(1,D). The theoretical properties of this estimator ˆDSHAP are detailed in
+Appendix D. In practice, we use a single sample for each subset —s1,k ands 2,k (i.e.,K 1 =K 2 = 1) —along
+with a single sample over the feature dimensiondto ensure computational efficiency.
+Remark 3.3.D SHAP →0impliesf d≈φ d. A property ofφ d is thatE x∼D{φd(x)}≈E x∼D{fd(x)}≈0. This
+serves as a useful diagnostic tool during training: the average output of the variationally trained functionalf d
+should converge toward zero per training iteration. We illustrate this behavior in Figure 8 of Appendix H.
+•Observation likelihood terms.We leverage standard gradient reparameterizations for the expectation
+of the regression likelihood, and the inverse transform sampling (Bou et al., 2023) for the unbiased esti-
+mation of the expectation of Bernoulli log-likelihoodsE Qlogit{logP(1|y )} —term (I) in Equation 16.
+•Classification entropy and cross-entropy terms.The classification entropy termH(Q logit ) =
+EP(y|y>0,x )1P(y|y≤0,x )1−1
+n
+−logP (y|y>0,x )1P(y|y≤0,x )1−1o corresponds to the entropy of a truncated nor-
+mal distribution, given logit sufficient statisticsµ(x) andσ(x) as in Equation 5:
+H(Qlogit ) = 12 logn2πeσ 2(x)Ψ(1,x) o +Ω(1,x) ,whereΩ(1,x) = (−1) 1·
+µ(x)
+σ(x)
+1√
+2π exp
+
+−µ2(x)σ 2(x)
+Ψ(1,x) .(19)
+Additionally, we compute the cross-entropy term in Equation 16 as
+EQlogit{logP(y|x )} = 12 log2πσ 2(x) + 12σ 2(x) v2(1,x) + (m(1,x)−µ(x) )2,(20)
+wheremandv 2 are the mean and variance statistics of the truncated normal distribution given by:
+m(1,x) =µ(x)− σ 2(x)µ(x) Ω(1,x) andv 2(1,x) =σ 2(x)1−Ω(1,x)−  σ(x)µ(x) Ω(1,x)!2.(21)
+8
+<<PAGE 9>>
+Efficient and scalable PSI learning procedure.We summarize PSI’s learning procedure, according to the
+ELBOs of Equations 15 &16, in Algorithm 1 (Appendix E).
+3.4 Neural Network-based Shapley Prior Sufficient Statistics: Thef d andσ d networks
+In this section, we describe how we leverageneural networks to model the sufficient statistics of the Shapley
+priorin Equations 1 &2, i.e.,f d andσ d. In Section 3.4.1, we also describe the proposed masked embedding
+neural network (MENN) architecture that enables efficientvariable length input(VLI) modeling.
+We start by clarifying why our framework is based on embedded baselines for marginal estimation. Re-
+cent methods estimate marginal contributions by modifying the input space with baseline values. For
+example, Yoon et al. (2018) simulate feature removal by replacing input features with a fixed zero vector.
+However, using constant baselines in the input space can lead to misleading attributions —especially in
+high-dimensional or structured data. A more principled alternative, proposed by Jethani et al. (2021), is to
+explicitly append a feature removal maskR, allowing a neural network to distinguish between original and
+substituted inputs. We follow a similar technique, by operating in a (learned) embedded space. Precisely,
+rather than operating directly in the input space, we map each featurexd to a high-dimensional embedding
+zd, and substitute missing features with their baseline embeddingsbd.
+We begin by mapping the inputsx∈X [D] toZ∈R D×Dz, where each row ofZrepresentsz d =MENN 1(xd)∈
+RDz. Because sequentially iterating over alld∈[D] is computationally inefficient, we employ a masked net-
+work architecture that performs these operations in parallel, as described in Section 3.4.1. When marginal-
+izing overxd, i.e., using variable length input that does not include featurex d described byfeature removal
+matrixR, we replace the embeddingz d ofx d with the learnable baseline vectorb d to simulate feature
+removal, and constructz′d. We then take a linear combination of these embeddings using an affine transfor-
+mation matrixWand reduce the dimensionality fromD×D z toDz. We input the result into a feedforward
+neural network (FFNN) to obtainfd(x).
+Forσ d(x), we want to associate each per input feature dimensionx d and its corresponding outputf d(xd)
+with their uncertainty. In order to leverage the learned (variable input) embeddings and associate them
+with their corresponding functional outputfd, we concatenatez′d withod =MENN 2(fd), and use a feedfor-
+ward neural network (FFNN) to obtainσd(x). To avoid this uncertainty module altering the learned feature
+embeddings and their outputs, we freezez ′d andf d when inputting them to the FNNN that outputsσ d,
+following a similar approach as in (Stirn et al., 2023) and more recently (Bramlage & Curio, 2025). We
+showcase the overall neural network architecture to compute Shapley prior sufficient statistics in Figure 2.
+{fd}Dd=1
+Z′
+O
+M EN N2
+F F N N
+{σd}Dd=1
+⊙R
+x
+Z
+B
+⊙(1 − R)
++
+Z′
+W
+·
+baseline
+replacement
+R =
+
+
+1 1 . . . 1
+0 ... . . . 0
+1 1 . . . 1
+
+
+V
+VLI Matrix
+F F N N
+M EN N1
+{fd}Dd=1
+⊙R
+Figure 2: Thef d andσ d networks. We independently generate latent embedding vectors for each feature,
+and replace absent features with a baseline vector in the embedding space. We compute a linear combi-
+nation of these embeddings to arrive at a single vector, which we use as model outputf d. To compute the
+varianceσd, we re-utilize the information in the model predictions along with the feature representations.
+Note that,f(∅) = 0 can easily be satisfied by multiplying the final output byR.
+3.4.1 The Masked Embedding Neural Network (MENN) Architecture
+We present here the masked-neural architecture used for efficient computation of (subset marginal) suffi-
+cient statistics. While masked neural architectures have been widely used across domains such as natural
+language processing and density estimation (Vaswani et al., 2017; Devlin et al., 2018; Papamakarios et al.,
+9
+<<PAGE 10>>
+2017), our goal here is distinct: i.e., the efficient computation of high-dimensional per-feature embeddings
+in parallel —avoiding the need to iterate over individual feature dimensions. The masked embedding neu-
+ral network (MENN) architecture we describe here enables efficient information flow across neurons while
+generating continuous per-feature embeddings in parallel —see an illustrative example in Appendix F.
+AK-layer neural network can be represented byz k =act k(zk−1Wk), wherez 0 =x⊤ andz L = ˆy. We define
+eachWk =W′k⊙Mk, whereMk are binaryD k1×Dk2 masking matrices withD k2≥D. The permeability of the
+network is determined by the non-zero elements ofM 1:K = QKk=1 Mk. In particular, ifM 1:K(d,l)>0, then
+there is an information flow fromd th feature tol th output neuron (Germain et al., 2015).
+We begin by defining the MENN initial masking matrixM 1 as
+M1(d,l) =
+1 if 1 + (d−1)e 1≤l≤de 11d,D +D 121d=D0 otherwise,
+andM k, fork>1, ascol l(Mk) =sgn(row d(M1:k−1)⊤), for 1 + (d−1)e k≤j≤de k1d,D +Dk21d=D , wheresgn(·)
+is the sign function,e k =nint(D k2/D) ford∈[D],k∈[K], andD K2 is an integer multiple ofD. Here,nint(.)
+refers to the nearest integer function. The multiplication of a sequence of such matrices has the following
+recursion:
+coll(M1:k) =γdcol1+(d−1)ek−1(M1:k−1),(22)
+where 1 + (d−1)e k≤l≤de k1d,D +Dk21d=D , andγ d∈N + ford∈[D]. SinceD K2 is an integer multiple ofD,
+the columns ofM 1:K repeatcol 1+(d−1)eK−1 (M1:K−1)eK number of times. Then,D×De K matrixM 1:K obeys:
+M1:K(d,l) =
+γd,forγ d>0,if 1 + (d−1)e K≤l≤de K0,otherwise.
+For instance, forD= 3,D K2 = 6 (i.e.,Dz =eK = 2),M 1:K is (see a step-by-step example in Appendix F):
+KY
+k=1
+Mk =
+
+ γ1 γ1 0 0 0 00 0 γ2 γ2 0 00 0 0 0 γ3 γ3
+
+.
+We emphasize thatM 1:K in MENN is a masking operation applied to neural network weights, to efficiently
+map each input feature to a different embedding. On the contrary,Ras depicted in Figure 2 is a feature
+removal matrix for baseline embedding replacement, i.e., it discards the MENN generated embeddings if a
+feature is absent and modulates their replacement with a baseline vector.
+4 Results
+4.1 PSI F aithfully Captures the Data Generating Process’ F eature Attribution Distribution
+To illustrate PSI’s capabilities in capturing true feature attributions, we generate synthetic datasets via
+the following process: (I) draw independent featuresx 1,x 2,x 3∼U(−4,4); (II) sample feature-conditional
+SSVsϕ 1∼N
+
+exp{−x21}−
+√π
+8 erf{4},0.6cos(0.03x 1)800
+
+,ϕ 2∼N
+
+sin{−x 22}+
+√
+2π
+8 S(4
+q
+2
+π ),0.2|x 2|
+
+, andϕ 3 =
+3cos(3x 3) + 4sin(5x3); finally, (III) observe data as the linear combination of drawn SSVsy=ϕ 1 +ϕ 2 +ϕ 3.
+The summary statistics of theground truth, data generating process (DGP) attribution of features are de-
+picted in the top row of Figure 3. We observe input-output pairs, i.e.,D={x i,yi}Di=1, generated from the
+DGP above, and use them for training PSI. Recall thatϕare latent variables,not available in training.
+We showcase in the bottom row of Figure 3 PSI’s learned variational distributions over latentϕvalues, i.e.,
+Qshapd (ϕ|x ). Each learnedf d(x) closely aligns with the mean of the true data-generating feature attribu-
+tions, while the learned uncertaintyσd(x) accurately captures the underlying input-conditional attribution
+noise. In particular, we highlight that PSI successfully:
+10
+<<PAGE 11>>
+4
+ 2
+ 0 2 4
+x1
+0
+1
+21
+exp{ x21 } 8 erf{4}
+0.6cos{0.03x1}800
+4
+ 2
+ 0 2 4
+x2
+2
+0
+2
+2
+sin{ x22 } + 28 S(4 2 )
+0.2|x2|
+4
+ 2
+ 0 2 4
+x3
+5
+0
+5
+3
+3cos{3x3} + 4sin{5x3}
+4
+ 2
+ 0 2 4
+x1
+0
+1
+2
+4
+ 2
+ 0 2 4
+x2
+2
+0
+2
+fd True Feature Attibution Mean ( )
+ d
+ Latent Feature Attibution Samples ( )
+4
+ 2
+ 0 2 4
+x3
+5
+0
+5
+Figure 3: Ground truth feature attributions (top) and the attributions learned by PSI (bottom). Gray areas
+representtrue(top) andlearned(bottom) heteroscedastic uncertainty functions, both of which are two
+standard deviations away from the mean statistics. The learned PSI meanf d closely aligns with the true
+data-generating feature attributions, while PSI’ learnedσ d accurately captures the underlying attribution
+uncertainty. Notably, latent SSV samples drawn from the true data generating functions (not observed during
+trainingand shown in green) fall within two standard deviations of PSI’s credible intervals, indicating well-
+calibrated feature attribution uncertainty.
+1.Captures the true underlying heteroscedastic uncertainty—approximating noise functions
+0.6cos(0.03x 1)800 forf 1, 0.2|x2|forf 2, and near-zero variance forf 3— in alignment with the true
+data patterns.
+2.Covers the latent, random SSV samplesϕwithin credible intervals of two standard deviations,
+indicating well-calibrated uncertainty estimates. These latent SSV samplesare not observed, and
+are overlaid over the learned summary statistics of Figure 3 solely for illustrative purposes.
+4.2 On the Benefits of F eature Attribution Decisions based on Credible Intervals
+We hereby illustrate the significance of considering distributional Shapley attributions for model explain-
+ability, i.e., the added benefits of modeling and learning Shapley distributions for nuanced feature attri-
+bution understanding. With access to a variational Shapley distribution Qshapi , uncertainty quantification
+can be used to probabilistically identify informative features, by considering credible attribution intervals.
+We define a probabilistic Shapley attribution asatt d(z,x) =f d(x) +zσd(x), where we can elucidate attribu-
+tions based not only on the mean Shapley value, but considering full attribution probabilities: i.e., we can
+move away from the expected attribution and consider the attribution probability covered byzstandard
+deviations.
+There are two hypotheses that motivate the full probabilistic characterization of feature attributions: (i) the
+conditional mean statistic can often relate (and be limited) tospurious correlationsthat explain average at-
+tributions of observed data, and (ii) irrelevant regions of input feature space —that do not contribute to the
+observed model outputs— act asdummy attributions, and hence tend to exhibitlow attribution uncertainty.
+Hence, the rationale for making decisions with higher posterior probabilities is that dummy features will
+have bothnegligible mean and negligible variance. By increasing the probabilistic attribution threshold, we
+11
+<<PAGE 12>>
+move beyond average attributions, shifting the focus of explanations to high-confidence attribution regions
+that better explain the model’s decisions.
+In what follows, we first assess how feature attribution uncertainty enhances the explainability of image
+recognition tasks. Then, we showcase how probabilistic ranking of feature attributions reveals subtleties
+on which inputs most critically influence a model’s prediction, aiding subsequent decision-making.
+Localization of relevant image regions on MNIST.To apply PSI, with the proposed MENN architec-
+ture, to image data, we convert MNIST digit images into a tabular format by dividing each image into
+D′×D′ non-overlapping patches, whereD ′ <D, andDis the original image height/width. Each patch is
+individuallymapped to a scalar value, producing a latent representation that serves as input to a decoder
+reconstructing the original image. We use this representation to learn the PSI model, i.e.,xis the encoded
+image representation,yis the per-image latent logit random variable, and1is the observed label. We train
+separate models on four of the MNIST digits (0, 2, 4, and 8), using one versus all binary classifiers with
+Bernoulli likelihoods.2
+0.0
+0.5
+1.0
+1.5
+2.0
+1
+2
+3
+4
+5
+6
+7
+0.00
+0.25
+0.50
+0.75
+1.00
+1.25
+1.50
+1.75
+1
+2
+3
+4
+5
+6
+0.0
+0.1
+0.2
+0.3
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+3.0
+0.00
+0.25
+0.50
+0.75
+1.00
+1.25
+1
+2
+3
+4
+Figure 4: MNIST digit localization according toatt d(z,x) with respect to varyingz-values. (top) The 50%
+credible attribution (z= 0), that corresponds to standard Shapley values, often results in coarse or low-
+resolution attributions. In contrast, (bottom) using 98% confidence intervals (z= 2) yields more informa-
+tive feature attributions localized around the full digit of interest and its key traces.
+In Figure 4, we illustrate how decisions based on probabilistic Shapley attributionsatt d(z,x), for varying
+z, enhances explainability. In the top row, we show how relying solely on mean attributions, i.e., standard
+Shapley values, can lead to low information granularity. For instance, the mean attribution for digit 0
+emphasizes the hollow center significantly, rather than the digit’s outline, reflecting a spurious pattern.
+Similarly, for digit 4, the mean attribution highlights the empty space between the vertical and diagonal
+strokes. In contrast, when usingatt d(z= 2,x), the attribution map more effectively highlights the digit
+regions where the actual number is displayed, demonstrating improved localization of relevant features.
+We emphasize that dummy features, i.e., regions that do not include digit strokes, have zero attribution for
+bothz= 0 andz= 2 (illustrated in dark-blue color in Figure 4).
+We quantify this qualitative improvement in explainability with results presented in Figure 5, for vary-
+ing decision thresholds, fromz= 0 toz= 8. We first standardize the attribution scores, gattd(z,x) =
+attd(z,x)−infd∈[D]attd(z,x)
+supd∈[D]attd(z,x)−infd∈[D]attd(z,x) , to ensure that probabilistic Shapley attributions are between 0 and 1,
+hence enabling consistent comparison across instances. We measure the precision (PR= TPTP+FP ), re-
+call (RCL= TPTP+FN ), and F-metrics (F= 2 RCL×PRRCL+PR ) according to the following definitions: True posi-
+tives,TP=E x∼D
+n
+Ed∼U(1,D′)
+n
+xd∗ gattd(z,x)|x,x d ,0
+oo
+, where high TP values correspond to when the at-
+tribution score is high in regions where the digit is present (i.e.,x d = 1). False positives,FP=
+Ex∼D
+n
+Ed∼U(1,D′)
+n
+(1−x d)∗ gattd(z,x)|x,x d = 0
+oo
+, with high values arising when the attribution score is high
+2Extension of PSI to the multinomial likelihood is left as future work.
+12
+<<PAGE 13>>
+in regions without a digit (i.e.,x d = 0). False negatives,FN=E x∼D
+n
+Ed∼U(1,D′)
+n
+xd∗(1− gattd(z,x))|x,x d ,0
+oo
+,
+occurring when the attribution score is low in regions where a digit actually exists. Results in Figure 5
+demonstrate that incorporating more attribution mass leads to better localization and explainability, with
+saturation beyond thez= 2 (98% confidence) case.
+0 2 4 6 8
+z
+0.60
+0.65
+0.70
+P R
+Digit: 0
+Digit: 2
+Digit: 4
+Digit: 8
+0 2 4 6 8
+z
+0.3
+0.4
+0.5
+0.6
+RCL
+Digit: 0
+Digit: 2
+Digit: 4
+Digit: 8
+0 2 4 6 8
+z
+0.3
+0.4
+0.5
+0.6
+F
+Digit: 0
+Digit: 2
+Digit: 4
+Digit: 8
+Figure 5: Precision, recall, and F-metrics for varyingzvalue. We observe that for digits 0, 2, and 4 precision
+increases withzand plateaus around/afterz= 2. For digit 8, PSI loses precision forz>2, indicating that
+the model assigns attributions to regions that do not include the digit. We conclude that incorporation of
+regions outside of mean attributions (fd =φd, withz= 0) leads to better localization and interpretability.
+Probabilistic Ranking of Feature Attributions.Knowing the ranking of feature attributions of a model
+reveals which inputs most strongly influence the model’s predictions, aiding interpretation and decision-
+making. We showcase here the use of probabilistic Shapley attribution rankings on a task of clinical rel-
+evance. Specifically, we train PSI on the ICU mortality dataset of (Meredith et al., 2020), which contains
+anonymized electronic health records from ICU patients (including demographics, vital signs, laboratory
+test results, and interventions over the first 24 hours of admission) for the task of predicting mortality.
+In Figure 6, we illustrate how mean attribution-based rankings (z= 0, on the left) can differ significantly
+from worst-case scenarios (z= 2, on the right).
+z=0 z=2
+1
+2
+3
+4
+5
+6
+7 Feature Rankings
+PH: 7.07
+LAC (mmol/L): 4.25
+RESP (bpm): 32.5
+HR (bpm): 154.0
+FIO2 (%): 1.0
+BUN (mmol/L): 51.0
+BIL (micromol/L): 2.5
+Figure 6: Probabilistic ranking of measurements for predicting
+ICU mortality of a patient, with a higher ranking indicating
+higher feature attribution to mortality. Ranking input feature
+importance varies with respect to the considered credible inter-
+val, highlighting different insights on their significance.
+In particular, from the mean feature
+attribution ranks, one would conclude
+that respiratory and heart rates (RESP
+and HR) are, on average, more influ-
+ential than lactate (LAC). However, the
+uncertainty around LAC’s attribution is
+significantly higher, suggesting that in
+certain high-risk cases, LAC may be one
+of the most critical features. Indeed, as
+explained by a clinical expert, a lactate
+level of 4.25 mmol/L reflects severe tis-
+sue hypoperfusion and is strongly asso-
+ciated with life-threatening conditions
+like sepsis or shock, whereas a respira-
+tory rate of 32.5 bpm, while elevated,
+typically indicates compensatory stress
+and is less directly tied to mortality. In
+other words, RESP and HR are typically
+indicative of risk rather than a direct
+marker of a life-threatening pathology.
+In contrast, LAC, which is at the top of
+the rank when considering feature attri-
+bution probabilities, is a direct indica-
+tor of critical outcomes.
+13
+<<PAGE 14>>
+4.3 PSI: efficient and accurate data-marginal computations via MENN
+In this ablation study, we demonstrate the benefits of the MENN architecture proposed in Section 3.4.1 for
+efficiently and accurately computing data-marginals of variable input-length.
+We provide comparative predictive performance results for synthetic regression tasks in Table 1 (see Ap-
+pendix G.1 for their corresponding DGPs), by comparing PSI’s performance when using MENN or a stan-
+dard feedforward neural network (FFNN). Precisely, we replicate the FFNN-based procedure by Jethani
+et al. (2021), where variable-length input modeling is achieved by replacing removed features with a base-
+line value outside the data support, based on inputting the FFNN with a concatenation of data and the
+feature removal valuesR. We train both alternatives using the PSI objective, and compare their predictive
+(RMSE) performance.
+We observe in Table 1 that modeling variable-length inputs using the MENN architecture leads to better
+predictive performance, across different scaling factors of ˆDSHAP , grouped together asβ′ =Dβ/2.
+Net β′ synth1 synth2 synth3 synth4 synth5
+0.001 0.605 0.004 0.125 0.669 0.419
+0.01 0.611 0.004 0.120 0.669 0.416
+0.1 0.595 0.004 0.221 0.673 0.417MENN
+1 0.582 0.004 1.118 0.579 0.446
+0.001 0.642 0.071 0.368 0.689 0.433
+0.01 0.640 0.128 0.234 0.677 0.435
+0.1 0.624 0.103 0.174 0.674 0.431FFNN
+1 0.599 0.186 0.897 0.660 0.477
+Table 1: RMSE results of PSI when
+using different model architectures,
+for variousβ′ values. The best results
+are shown inbold. The masked net-
+work outperforms the widely used
+baseline on all datasets (see Ap-
+pendix G.1 for DGPs).
+Additionally, we demonstrate how data samples drawn from the MENN-based PSI procedure are closer to
+the true data distribution, i.e., it provides a more accurate description of the observed data. To that end,
+we measure the J-Divergence between empirical samples drawn from PSI and the original, synthetic data
+generating process —we refer to Appendix G.6 for details on how we compute these divergences.
+In Figure 7, we clearly observe that the MENN architecture leads to better data-marginal density modeling.
+MENN FFNN
+4
+5J-Divergence
+synthetic1
+MENN FFNN1
+2
+synthetic2
+MENN FFNN
+4
+5
+synthetic3
+MENN FFNN
+2
+4
+6
+synthetic4
+MENN FFNN20
+22
+24
+synthetic5
+Figure 7: Jeffreys (J)-Divergence of data drawn from PSI to the observed empirical data, per considered
+architecture.▲is the mean and–is the median of results across folds, error bars denote the 1.5 interquartile
+range. We observe that data simulated using MENN leads to values closer to the observed data distribution,
+as indicated by lower divergences.
+4.4 Predictive Performance Results
+In this section, we perform 5-fold cross validation to assess, in addition to PSI’s benefits on explainability,
+its predictive performance. Figure 2 presents a comparison between PSI and several established baselines
+in four real-world regression and classification datasets —details on the baselines and the datasets are
+provided in Appendix G.3 and G.2, respectively. Overall, PSI achieves predictive performance in par
+14
+<<PAGE 15>>
+with not only state-of-the-art interpretable methods, but strong black-box models such as Random Forests,
+XG-Boost and deep neural networks.3
+Interpretable Black-box
+Data PSI LIN EBM RF LGBM XGB DNN
+PKSN 0.026 0.867 0.195 0.040 0.072 0.063 0.111
+MED 0.447 0.608 0.447 0.4480.4470.454 0.467
+BIKE 0.019 0.518 0.038 0.0080.017 0.013 0.019
+GAS 0.269 60.93 0.153 0.151 0.1520.1500.256
+FICO 0.771 0.766 0.771 0.7700.773 0.7730.771
+SPAM 0.977 0.946 0.977 0.9830.982 0.981 0.967
+ICU 0.872 0.851 0.872 0.8690.874 0.8740.860
+CENS 0.803 0.768 0.825 0.800 0.8300.8310.788
+Table 2: Averaged results (see
+Appendix G.5 for their neg-
+ligible standard errors) on 8
+real-world datasets. We report
+RMSE for regression (purple)
+and PR-AUC for classification
+(pink) datasets. We indicate
+best overall performing mod-
+els inbold, with best perform-
+ing explainable models in blue,
+where lower RMSE and higher
+PR-AUC scores are better.
+5 Discussion and Limitations
+PSI provides a probabilistic framework for feature attribution by modeling Shapley values as latent random
+variables with input-conditional Shapley priors. Inference over latents and learning of feature attribution
+distributions is enabled by efficient variational inference. We acknowledge that PSI does not explicitly
+enforce thefd =φd constraint, instead relying on regularization through theDSHAP term. Diagnostic tools,
+as described Remark 3.3, assist practitioners in evaluating this alignment; as validated by the presented
+empirical performance in different case studies. However, we recall that the conditionE x{fd(x)}→0 is
+necessary but not sufficient for guaranteeingf d =φ d. Looking ahead, promising directions for extending
+PSI include support for multinomial likelihoods and the incorporation of causal feature attributions.
+6 Conclusion
+We presented Probabilistic Shapley inference (PSI), a probabilistic framework for feature attribution that
+models Shapley values as latent random variables with input-conditional Shapley priors, linking attri-
+bution uncertainty to predictive uncertainty. We present a revised variational inference framework that
+efficiently, via stochastic optimization, enables simultaneous inference over the latent Shapley values of a
+flexible (e.g., neural network-based) predictive model. Empirical results across synthetic and real-world
+datasets demonstrate not only the explainability benefits of the probabilistic treatment of feature attribu-
+tions intrinsic to PSI, but its flexibility in accurately describing data marginals, feature attributions and
+their uncertainty, while providing state-of-the-art predictive performance.
+References
+Julius Adebayo, Michael Muelly, Harold Abelson, and Been Kim. Post hoc explanations may be ineffective
+for detecting unknown spurious correlation. InInternational conference on learning representations, 2021.
+Ahmed Alaa and Mihaela Van Der Schaar. Discriminative jackknife: Quantifying uncertainty in deep
+learning via higher-order influence functions. InInternational Conference on Machine Learning, pp. 165–
+174. PMLR, 2020.
+Albert Bou, Matteo Bettini, Sebastian Dittert, Vikash Kumar, Shagun Sodhani, Xiaomeng Yang, Gianni
+De Fabritiis, and Vincent Moens. Torchrl: A data-driven decision-making library for pytorch.arXiv
+preprint arXiv:2306.00577, 2023.
+3Reported results are on a test-set, based on optimum model hyperparameter configurations found via cross-validation, as de-
+scribed in Appendix G.4.
+15
+<<PAGE 16>>
+Lennart Bramlage and Cristóbal Curio. Principled input-output-conditioned post-hoc uncertainty estima-
+tion for regression networks.arXiv preprint arXiv:2506.00918, 2025.
+Rich Caruana, Yin Lou, Johannes Gehrke, Paul Koch, Marc Sturm, and Noemie Elhadad. Intelligible Models
+for Healthcare: Predicting Pneumonia Risk and Hospital 30-day Readmission. InProceedings of the 21th
+ACM SIGKDD international conference on knowledge discovery and data mining, pp. 1721–1730, 2015.
+Alex Chan, Ahmed Alaa, Zhaozhi Qian, and Mihaela Van Der Schaar. Unlabelled data improves bayesian
+uncertainty calibration under covariate shift. InInternational conference on machine learning, pp. 1392–
+1402. PMLR, 2020.
+Siu Lun Chau, Krikamol Muandet, and Dino Sejdinovic. Explaining the uncertain: Stochastic shapley
+values for gaussian process models.arXiv preprint arXiv:2305.15167, 2023.
+Tianqi Chen and Carlos Guestrin. Xgboost: A Scalable Tree Boosting System. InProceedings of the 22nd
+ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, pp. 785–794, 2016.
+Ian Covert and Su-In Lee. Improving kernelshap: Practical shapley value estimation using linear regres-
+sion. InInternational Conference on Artificial Intelligence and Statistics, pp. 3457–3465. PMLR, 2021.
+Ian Covert, Scott M Lundberg, and Su-In Lee. Understanding global feature contributions with additive
+importance measures.Advances in Neural Information Processing Systems, 33:17212–17223, 2020.
+Ian C Covert, Scott Lundberg, and Su-In Lee. Explaining by removing: A unified framework for model
+explanation.The Journal of Machine Learning Research, 22(1):9477–9566, 2021.
+Anupam Datta, Shayak Sen, and Yair Zick. Algorithmic transparency via quantitative input influence:
+Theory and experiments with learning systems. In2016 IEEE symposium on security and privacy (SP), pp.
+598–617. IEEE, 2016.
+Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. Bert: Pre-training of deep bidirec-
+tional transformers for language understanding.arXiv preprint arXiv:1810.04805, 2018.
+Hadi Fanaee-T. Bike Sharing Dataset. UCI Machine Learning Repository, 2013. DOI:
+https://doi.org/10.24432/C5W894.
+FICO. Fico explainable machine learning challenge.https://community.fico.com/s/
+explainable-machine-learning-challenge, 2018.
+Mathieu Germain, Karol Gregor, Iain Murray, and Hugo Larochelle. Made: Masked autoencoder for distri-
+bution estimation. InInternational conference on machine learning, pp. 881–889. PMLR, 2015.
+Amirata Ghorbani, Abubakar Abid, and James Zou. Interpretation of neural networks is fragile. InPro-
+ceedings of the AAAI conference on artificial intelligence, volume 33, pp. 3681–3688, 2019.
+Mark Hopkins, Erik Reeber, George Forman, and Jaap Suermondt. Spambase. UCI Machine Learning
+Repository, 1999. DOI: https://doi.org/10.24432/C53G6X.
+Neil Jethani, Mukund Sudarshan, Ian Connick Covert, Su-In Lee, and Rajesh Ranganath. Fastshap: Real-
+time shapley value estimation. InInternational Conference on Learning Representations, 2021.
+Guolin Ke, Qi Meng, Thomas Finley, Taifeng Wang, Wei Chen, Weidong Ma, Qiwei Ye, and Tie-Yan Liu.
+Lightgbm: A highly efficient gradient boosting decision tree.Advances in neural information processing
+systems, 30, 2017.
+Ron Kohavi. Census Income. UCI Machine Learning Repository, 1996. DOI:
+https://doi.org/10.24432/C5GP7S.
+Brett Lantz.Machine Learning with R: Expert techniques for predictive modeling. Packt publishing ltd, 2019.
+16
+<<PAGE 17>>
+Hyun-Suk Lee, Yao Zhang, William Zame, Cong Shen, Jang-Won Lee, and Mihaela van der Schaar. Robust
+recursive partitioning for heterogeneous treatment effects with uncertainty quantification.Advances in
+Neural Information Processing Systems, 33:2282–2292, 2020.
+Yin Lou, Rich Caruana, Johannes Gehrke, and Giles Hooker. Accurate Intelligible Models with Pairwise
+Interactions. InProceedings of the 19th ACM SIGKDD International Conference on Knowledge Discovery and
+Data Mining, pp. 623–631, 2013.
+D. Lucas. Greenhouse Gas Observing Network. UCI Machine Learning Repository, 2015. DOI:
+https://doi.org/10.24432/C5JK5M.
+Scott M Lundberg and Su-In Lee. A unified approach to interpreting model predictions.Advances in neural
+information processing systems, 30, 2017.
+Scott M Lundberg, Gabriel Erion, Hugh Chen, Alex DeGrave, Jordan M Prutkin, Bala Nair, Ronit Katz,
+Jonathan Himmelfarb, Nisha Bansal, and Su-In Lee. From local explanations to global understanding
+with explainable ai for trees.Nature machine intelligence, 2(1):56–67, 2020.
+Meredith Meredith, Jesse Raffa, Marzyeh Ghassemi, Tom Pollard, Sharada Kalanidhi, Omar Badawi, Karen
+Matthys, and Leo Anthony Celi. Wids (Women in Data Science) Datathon 2020: Icu Mortality Prediction.
+Journal of Statistics Education, 2020.
+Luke Merrick and Ankur Taly. The explanation game: Explaining machine learning models using shapley
+values. InMachine Learning and Knowledge Extraction: 4th IFIP TC 5, TC 12, WG 8.4, WG 8.9, WG 12.9
+International Cross-Domain Conference, CD-MAKE 2020, Dublin, Ireland, August 25–28, 2020, Proceedings
+4, pp. 17–38. Springer, 2020.
+Harsha Nori, Samuel Jenkins, Paul Koch, and Rich Caruana. Interpretml: A Unified Framework for Ma-
+chine Learning Interpretability.arXiv preprint arXiv:1909.09223, 2019.
+George Papamakarios, Theo Pavlakou, and Iain Murray. Masked autoregressive flow for density estimation.
+Advances in neural information processing systems, 30, 2017.
+Fabian Pedregosa, Gaël Varoquaux, Alexandre Gramfort, Vincent Michel, Bertrand Thirion, Olivier Grisel,
+Mathieu Blondel, Peter Prettenhofer, Ron Weiss, Vincent Dubourg, et al. Scikit-learn: Machine learning
+in Python.Journal of Machine Learning Research, 12:2825–2830, 2011.
+Benedek Rozemberczki, Lauren Watson, Péter Bayer, Hao-Tsung Yang, Olivér Kiss, Sebastian Nilsson, and
+Rik Sarkar. The shapley value in machine learning.arXiv preprint arXiv:2202.05594, 2022.
+Cynthia Rudin. Stop explaining black box machine learning models for high stakes decisions and use
+interpretable models instead.Nature machine intelligence, 1(5):206–215, 2019.
+Lloyd S Shapley et al. A value for n-person games. 1953.
+Dylan Slack, Anna Hilgard, Sameer Singh, and Himabindu Lakkaraju. Reliable post hoc explanations:
+Modeling uncertainty in explainability.Advances in neural information processing systems, 34:9391–9404,
+2021.
+Andrew Stirn, Harm Wessels, Megan Schertzer, Laura Pereira, Neville Sanjana, and David Knowles. Faith-
+ful heteroscedastic regression with neural networks. InInternational Conference on Artificial Intelligence
+and Statistics, pp. 5593–5613. PMLR, 2023.
+Erik Strumbelj and Igor Kononenko. An efficient explanation of individual classifications using game the-
+ory.The Journal of Machine Learning Research, 11:1–18, 2010.
+Mukund Sundararajan and Amir Najmi. The many shapley values for model explanation. InInternational
+conference on machine learning, pp. 9269–9278. PMLR, 2020.
+17
+<<PAGE 18>>
+Athanasios Tsanas, Max Little, Patrick McSharry, and Lorraine Ramig. Accurate telemonitoring of parkin-
+son’s disease progression by non-invasive speech tests.Nature Precedings, pp. 1–1, 2009.
+Guy Van den Broeck, Anton Lykov, Maximilian Schleich, and Dan Suciu. On the tractability of shap expla-
+nations.Journal of Artificial Intelligence Research, 74:851–886, 2022.
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser,
+and Illia Polosukhin. Attention is all you need.Advances in neural information processing systems, 30,
+2017.
+Jinsung Yoon, James Jordon, and Mihaela van der Schaar. Invase: Instance-wise variable selection using
+neural networks. InInternational Conference on Learning Representations, 2018.
+18
+<<PAGE 19>>
+A Proof of Proposition 3.2
+The proof of Proposition 3.2 follows:
+For Qshapd (ϕd|x ) =N(f d(x),σ 2d (x)) and any functionh, theefficiencyproperty of Shapley values guarantees
+thatE Qshapi
+n
+h
+
+φ0 +PDd=1ϕi,do is equal toE P(Φi|xi)nhφ0 +PDd=1ϕi,do.
+Proof.Showing thatφ 0 +PDd=1ϕi,d is the same random variable underPandQconcludes the proof.
+Since, Q(ϕd|x ) =N
+
+fd(x),σ 2d (x),φ 0 +PDd=1ϕi,d∼N φ0 +PDd fd(x),PDd σ 2d (x), underQ, and
+given P(ϕd|x ) =N
+P
+S⊆[D]\{d} P(S)
+
+f(xS∪{d} )−f(x s)
+
+,σ 2d (x),
+φ0 +PDd=1ϕi,d∼N φ0 +PDd fd(x),PDd σ 2d (x), underPdue to the efficiency property.
+Since sum overϕhave the same distribution underPandQ, the expected values with respect to these
+distributions are the same.
+B Details on PSI’s Variational Evidence Lower-Bounds
+We describe here the procedures to bound data marginals logP (y|x ) and logP (1|x ) for PSI on regression
+and classification tasks.
+Regression.By direct application of Proposition 3.2, we write
+LELBOreg ≤Vreg =
+NX
+i=1
+logP(yi|xi)−βD KL
+
+Qshapi∥P(Φi|xi)
+
+≤Lreg ,(23)
+which follows fromLreg = PNi=1 logP(yi|xi) given thatD KLQshapi∥P(Φi|xi)≥0.
+The inequality is valid for 0≤β≤1, withV reg =Lreg forβ= 0. Note that the lower-bound over the marginal
+log-likelihood is valid∀β≥0, and the upper boundβ≤1 is only necessary to keep theV reg ≥L ELBOreg
+constraint, with equality whenβ= 1.
+Classification.For binary classification, we start by writing the ELBO as
+LELBOclass =
+NX
+i=1
+EQlogiti Qshapi
+n
+logP(1i|yi)P(yi|Φi)P(Φi|xi)−logQ logiti Qshapi
+o
+(24)
+=
+NX
+i=1
+EQlogiti
+n
+logP(1i|yi)−logQ logiti +E Qshapi
+n
+logP(yi|Φi)−D KL
+
+Qshapi∥P(Φi|xi)
+oo
+(25)
+=
+NX
+i=1
+EQlogiti
+n
+logP(1i|yi)−logQ logiti +LELBOregi
+o
+(26)
+=
+NX
+i=1
+EQlogiti
+n
+logP(1i|yi) +LELBOregi
+o
++H(Qlogiti ),(27)
+whereH(Qlogiti ) is the entropy of the variational logit distribution Qlogiti .
+SinceLELBOregi ≤Vregi
+19
+<<PAGE 20>>
+LELBOclass ≤Vclass =
+NX
+i=1
+EQlogiti
+n
+logP(1i|yi) +Vregi
+o
++H(Qlogiti )≤L class ,(28)
+=
+NX
+i=1
+EQlogiti{logP(1i|yi) + logP(yi|xi)} +H(Qlogiti )−βD KL
+
+Qshapi∥P(Φi|xi)
+
+≤Lclass .(29)
+C F eature Removal and the Subset Marginal Constraint During Optimization
+In this section, we show that for PSI’s variational regression and classification loss functionsVreg andVclass ,
+introducing missing values during training satisfies the integral constraint:
+f(xs) =
+Z
+f(x)dP (x|x s).(30)
+The proof for regression tasks is straightforward, as PSI model learning is carried out by optimizing the
+marginal log-likelihood, which is a proper scoring rule. For classification, we show that the integral con-
+straint is still satisfied under two assumptions.
+We define the notation for the following paragraphs, distinguishing true data generating distributions with
+P(·) and using parameterized distributions (e.g.,θ) to denote model and variational families:
+•θ: Model and variational parameters
+• P (·|θ ): Model distribution
+• Q (·|θ ): Variational distribution
+• P (·|· ) (notice, withoutθ): True data generating distribution (analytical form is often unknown)
+•x s: Variable length input features (i.e., a subset of features fed to the neural network, where features
+dnot ins(i.e.,d<s) are replaced by their corresponding baseline vectorb d, as described in Section
+3.4.
+Regression.MaximizingV reg by introducing missing values during training is equal to minimizing the
+following divergence:
+EP(x){DKL (P(y|x )∥P(y|x s;θ )) +βD KL (Q(Φ|x s;θ )∥P(Φ|x s;θ ))}.(31)
+This follows from the fact that Equation 31 bounds− 1NVreg p− →−EP(x)nVregio, asN→∞, by a constant factor
+C1:
+EP(x){DKL (P(y|x )∥P(y|x s;θ )) +βD KL (Q(Φ|x s;θ )∥P(Φ|x s;θ ))} (32)
+=−E P(x)P(y|x){logP(y|x s;θ ) +βD KL (Q(Φ|x s;θ )∥P(Φ|x s;θ ))}|                                                                         {z                                                                         }
+−EP(x)
+n
+Vregi
+o
++E P(x)P(y|x){logP(y|x )}|                      {z                      }
+C1
+(33)
+C1 =E P(x)P(y|x){logP(y|x )} is a constant with respect to model parameters and depends on the data distri-
+bution.
+Moving forward,
+− 1NVreg +C 1 =E P(x)P(y|x)
+(
+log P(y|x )P(y|x s;θ ) +βD KL (Q(Φ|x s;θ )∥P(Φ|x s;θ ))).(34)
+20
+<<PAGE 21>>
+By dividing and multiplying by the data feature (covariate) distribution P (x) the log-ratio within the first
+term of the right hand side:
+− 1NVreg +C 1 =E P(x)P(y|x)
+(
+log P(y|x )P(x)P(y|x s;θ )P(x) +βD KL (Q(Φ|x s;θ )∥P(Φ|x s;θ ))),(35)
+and rearranging terms according to Bayes’ rule, we have:
+− 1NVreg +C 1 =E P(x)P(y|x)
+(
+log P(y|x s)P(x−s|xs,y )P(xs)P(y|x s;θ )P(x−s|xs)P(xs) +βD KL (Q(Φ|x s;θ )∥P(Φ|x s;θ ))).(36)
+Finally, we group expectations in terms of KL divergences:
+− 1NVreg +C 1 =Ep(xs){DKL (P(y|x s)∥P(y|x s;θ ))} +E P(xs){βDKL (Q(Φ|x s;θ )∥P(Φ|x s;θ ))}
++E P(y,x){DKL (P(x−s|xs,y )∥P(x−s|xs))}|                                           {z                                           }
+C2
+=Ep(xs)
+DKL (P(y|x s)∥P(y|x s;θ ))|                          {z                          }(I)  +E P(xs)βDKL (Q(Φ|x s;θ )∥P(Φ|x s;θ ))|                                  {z                                  }(II)  +C 2.(37)
+Note that,C 2 is a constant that depends on data distribution (e.g., ifx−s⊥y|x s, thenC 2 = 0).
+The above quantity is minimized when (I) model marginal is equal to data distribution’s marginal, i.e.,
+P(y|x s) = P(y|x s;θ ) and (II) Shapley Kullback-Leibler divergence is 0.
+Therefore, for a sufficiently flexible conditional model, the marginal likelihood will approach the data’s
+marginal density, while the variational distribution captures the computationally expensive model prior.
+Classification.The difference between the regression and classification objectives is that for the latter, we
+also approximate latentyvalues via a variational distribution, that will determine the logits of the observed
+labels1i. In what follows, we assume that there exists a DGP under which P(1|x ) =
+R
+P(1|y )P(y|x )dy, i.e.,
+data generating P(y|x ) exists and the integral can be computed.
+Maximizing theV class by introducing missing values during training is equal to minimizing the following
+divergence:
+EP(x){DKL (P(1|x )Q(y|x s;θ )∥P(1|y;θ )P(y|x s;θ ) +βD KL (Q(Φ|x s;θ )∥P(Φ|x s;θ )))} (38)
+The above follows because Equation 38 bounds− 1NVclass p− →−EP(x)nVclassio, asN→∞, by a constant factor
+C3:
+EP(x){DKL (P(1|x )Q(y|x s;θ )∥P(1|y;θ )P(y|x s;θ )) +βD KL (Q(Φ|x s;θ )∥P(Φ|x s;θ ))} (39)
+=E P(x){DKL (P(1|x )Q(y|x s;θ )∥P(1|y;θ )P(y|x s;θ )) +βD KL (Q(Φ|x s;θ )∥P(Φ|x s;θ ))} (40)
+=E Q(y|xs;θ)P(x)P(1|x){−logP (1|y ) +D KL (Q(y|x s;θ )∥P(y|x s;θ )) +βD KL (Q(Φ|x s;θ )∥P(Φ|x s;θ ))}|                                                                                                                         {z                                                                                                                         }
+−EP(x){Vclass}
+(41)
++E P(x)P(1|x){logP(1|x )}|                      {z                      }
+C3
+(42)
+21
+<<PAGE 22>>
+− 1NVclass +C 3 =E P(x)P(1|x)Q(y|xs;θ)
+(
+log P(1|x )Q(y|x s;θ )P(1|y;θ )P(y|x s;θ ) +βD KL (Q(Φ|x s;θ )∥P(Φ|x s;θ ))),(43)
+Multiplying and dividing by the log-ratio within the first term with P(y|x s), we have
+− 1NVclass +C 3 =E P(x)P(1|x)Q(y|xs;θ)
+(
+log P(1|x )Q(y|x s;θ )P(y|x s)P(1|y;θ )P(y|x s;θ )P(y|x s) +βD KL (Q(Φ|x s;θ )∥P(Φ|x s;θ ))),(44)
+which can be rearranged as:
+− 1NVclass +C 3 =E P(x)P(1|x)Q(y|xs;θ)
+(
+log P(1|x )P(y|x s)P(1|y;θ )P(y|x s;θ )) +D KL (Q(y|x s;θ )∥P(y|x s))
++E P(xs){βDKL (Q(Φ|x s;θ )∥P(Φ|x s;θ ))}.
+(45)
+Now, as the learning procedure evolves, we assumeDKL (Q(y|x s;θ )∥P(y|x s))→0: 4
+− 1NVclass +C 3 =E P(x)P(1|x)P(y|xs)
+(
+log P(1|x )P(y|x s)P(1|y;θ )P(y|x s;θ )) +E P(xs){βDKL (Q(Φ|x s;θ )∥P(Φ|x s;θ ))},(46)
+− 1NVclass +C 3 =E P(x)P(1|x)P(y|xs){DKL (P(1|x )∥P(1|y;θ ))}
++Ep(xs){DKL (P(y|x s)∥P(y|x s;θ ))} +E P(xs){DKL (Q(Φ|x s;θ )∥P(Φ|x s;θ ))}|                                                                                          {z                                                                                          }
+− 1NVreg +C1−C2
+=E P(x)P(1|x)P(y|xs)
+DKL (P(1|x )∥P(1|y;θ ))|                        {z                        }(I) − 1NVreg +C 1−C 2|              {z              }(II)  (47)
+Namely, under the assumption that the variational posterior is close to the data-generating posterior and is
+stable, PSI’s classification lossVclass : (I) encourages learning latent logit marginals, and (II) partitions their
+influence to their corresponding Shapley feature attributions viaVreg (which includesDSHAP ).
+Conclusion.Under both losses, as learning proceeds with P (y|x s;θ )
+d
+− →P(y|x s), we can write:
+f(xs) +φ0 =E P(y|xs;θ){y} =E P(y|x;θ)P(x|xs){y} =
+Z
+f(x)dP (x|x s) +φ 0.(48)
+Hence,f(x s) =
+R
+f(x)dP (x|x s), concluding that, under reasonable learning assumptions, randomly remov-
+ing feature dimensions during training meets the integral constraint.
+D Stochastic estimation of the Shapley Kullback-Leibler Divergence
+In this section, we characterize the stochastic estimator of the Shapley Kullback-Leibler divergence and
+demonstrate that the gradients of the proposed stochastic estimator point in the same direction as the exact
+one’s, in expectation.
+4An assumption based on the universal approximation properties of neural networks.
+22
+<<PAGE 23>>
+We start by recalling the definition of the proposed stochastic estimator ˆDSHAP :
+ˆDSHAP =D
+PK1k=1f(xs1,k∪d)−f(x s1,k)K1 −fd(x)|                                   {z                                   }term 1 PK2k=1f(xs2,k∪d)−f(x s2,k)K2 −fd(x)|                                   {z                                   }term 2 
+2σd(x)2 ,(49)
+withs 1,k, s2,k∼P (S), andd∼U(1,D). We denote ˆφj,d =
+PK1
+k=1f(xsj,k∪d)−f(xsj,k )
+Kj , and write:
+ˆDSHAP =D
+ ˆφ1,d−fd(x)|       {z       }term 1  ˆφ2,d−fd(x)|       {z       }term 2 
+2σd(x)2 .(50)
+When computing stochastic estimates ˆDSHAP , there are two possible cases that can occur: either both terms
+in the numerator have the same sign, or they have different signs. We denote these as two disjoint events:
+A:=sign(term 1) =sign(term 2),B:=sign(term 1),sign(term 2). (51)
+To compute the probabilities of such events, we first define intermediate probabilities as determined by the
+stochastic ˆφj,d terms
+P
+ ˆφ1,d>fd(x) = P ˆφ2,d>fd(x) =p,(52)
+P
+ ˆφ1,d<fd(x) = P ˆφ2,d<fd(x) = 1−p,(53)
+to conclude that
+P(A) = P
+ ˆφ1,d>fd(x)P ˆφ2,d>fd(x) + P ˆφ1,d<fd(x)P ˆφ2,d<fd(x) (54)
+=p 2 + (1−p) 2,(55)
+P(B) = P
+ ˆφ1,d<fd(x)P ˆφ2,d>fd(x) + P ˆφ1,d>fd(x)P ˆφ2,d<fd(x) (56)
+= 2p(1−p).(57)
+We investigate each of these two events separately below.
+23
+<<PAGE 24>>
+EventA: Both terms have the same sign.
+EP(s1)P(s2)U(1,D)
+n ˆDSHAP|Ao =E P(s1)P(s2)U(1,D)
+D ˆφ1,d−fd(x) ˆφ2,d−fd(x)2σd(x)2  (58)
+=DE P(s1)P(s2)U(1,D)
+ ˆφ1,d ˆφ2,d−fd(x) ˆφ1,d−fd(x) ˆφ2,d +f 2d (x)2σd(x)2  (59)
+=D
+DX
+d=1
+1
+D
+EP(s1)
+n ˆφ1,do EP(s2)n ˆφ2,do−fd(x)EP(s1)n ˆφ1,do−fd(x)EP(s2)n ˆφ2,do +f 2d (x)
+2σd(x)2
+(60)
+Becauseφd =E P(s1)
+n ˆφ1,do =E P(s2)n ˆφ2,do = X
+S⊆[D]\{d}
+P(S)(f(xS∪d )−f(x s))
+=D
+DX
+d=1
+1
+D
+φ2d−2fd(x)φd +f 2d (x)
+2σd(x)2 (61)
+=D
+DX
+d=1
+1
+D
+(φd−fd(x))2
+2σd(x)2 (62)
+=D SHAP (63)
+EventB: The terms have opposite signs.
+EP(s1)P(s2)U(1,D)
+n ˆDSHAP|Bo =E P(s1)P(s2)U(1,D)
+Dfd(x)− ˆφ1,d ˆφ2,d−fd(x)2σd(x)2  (64)
+=DE P(s1)P(s2)U(1,D)
+− ˆφ1,d ˆφ2,d +fd(x) ˆφ1,d +fd(x) ˆφ2,d−f 2d (x)2σd(x)2  (65)
+=D
+DX
+d=1
+1
+D
+−EP(s1)
+n ˆφ1,do EP(s2)n ˆφ2,do +fd(x)EP(s1)n ˆφ1,do +fd(x)EP(s2)n ˆφ2,do−f 2d (x)
+2σd(x)2
+(66)
+Becauseφd =E P(s1)
+n ˆφ1,do =E P(s2)n ˆφ2,do = X
+S⊆[D]\{d}
+P(S)(f(xS∪d )−f(x s))
+=D
+DX
+d=1
+1
+D
+−φ2d + 2fd(x)φd−f 2d (x)
+2σd(x)2 (67)
+=
+DX
+d=1
+1
+D
+−(φd−fd(x))2
+2σd(x)2 (68)
+=−D SHAP (69)
+24
+<<PAGE 25>>
+The expected value of ˆDSHAP .We compute the overall expected value of ˆDSHAP , using the law of total
+expectation:
+E
+n ˆDSHAP o =EP(A,B) nEP(s1)P(s2)U(1,D) n ˆDSHAP|A,Boo (70)
+= P(A)
+n
+EP(s1)P(s2)U(1,D)
+n ˆDSHAP|Aoo + P(B)nEP(s1)P(s2)U(1,D) n ˆDSHAP|Boo (71)
+= P(A)DSHAP + P(B)(−DSHAP ) (72)
+=DSHAP (P(A)−P (B)) (73)
+=DSHAP
+
+p2 + (1−p) 2−2p(1−p)  (74)
+=DSHAP
+
+p2 + 1−2p+p 2−2p+ 2p 2 (75)
+=DSHAP
+
+4p2−4p+ 1  (76)
+First, we note that
+
+4p2−4p+ 1 ≥0. Hence, ˆDSHAP is a biased estimator in general, where the bias is
+strictly positive:
+
+4p2−4p+ 1 ≥0. Therefore, the gradients ofD SHAP and ˆDSHAP are always proportional
+to each other, and point to the same direction —a key property for the optimization of the proposed loss.
+Second,E
+n ˆDSHAP o =D SHAP whenp= 0. Hence,E n ˆDSHAP o =D SHAP = 0 only whenf d(x) =φ d. Namely,
+ˆDSHAP =DSHAP = 0, only when the model’s Shapley prior is centered exactly at the function values.
+E PSI Learning: The Algortihm
+Algorithm 1Mini-batch, SGD-based variational PSI learning (using a batch size ofM≤N).
+Input:DatasetD, model parametersθ, batch sizeM, and feature removal probabilityp
+whilenot convergeddo
+# 1. Sample features for marginal integral constraint (described by the binary matrixRin Figure 2)
+Draw a subset of feature indices for each instanceias:
+Si ={d|1 d = 1,∀d∈[D]}, where1 d∼Bernoulli(p)
+# 2. Sample (variable length) observed (empirical) data usingR i
+Draw{(x Si,i,yi)}Mi=1∼D
+# 3. Compute stochastic estimate of ˆDSHAP
+# 3.a Sample per instances 1 ands 2 coalitions (givenSi)
+Draw{si,1,k1,si,2,k2}Mi=1∼|s|!(|Si|−|s|−1)!|Si|! for each data instancei
+Note that we useK 1 =K 2 = 1 (as described in Equation 18)
+# 3.b Sample feature indicesd∈S i
+Draw{di}Mi=1∼ 1|Si| uniformly for each instancei, as described in Equation 18
+# 3.c Compute ˆDSHAP as in Equation 18ˆDSHAP ←Equation 18, usings i,1,k1,si,2,k2, anddi for per-instancei
+# 5. Compute PSI loss (V) and its gradients using the closed form solutions described in Section 3.3.1
+g←∇ θV
+θ←Update using gradientsg
+end while
+Output:PSI model, with parametersθ
+25
+<<PAGE 26>>
+F The MENN architecture: A Masking Operation Example
+In this section, we demonstrate an illustrative example masking matrices and operations. For simplicity,
+we use a four layer MENN, with hidden dimensions [10,10,10], and input/output dimensions 3 and 6,
+respectively. This set-up corresponds to two-dimensional embeddings per input feature. We begin by
+defining our initial masking matrixM 1:
+M1 =
+
+ 1 1 1 0 0 0 0 0 0 00 0 0 1 1 1 0 0 0 00 0 0 0 0 0 1 1 1 1 
+Moving deeper in the network, we define intermediate masking matricesM k by repeating the rows of
+M1:k−1 as described in Section 3.4.1:
+M2 =
+
+ 1 1 1 0 0 0 0 0 0 01 1 1 0 0 0 0 0 0 01 1 1 0 0 0 0 0 0 00 0 0 1 1 1 0 0 0 00 0 0 1 1 1 0 0 0 00 0 0 1 1 1 0 0 0 00 0 0 0 0 0 1 1 1 10 0 0 0 0 0 1 1 1 10 0 0 0 0 0 1 1 1 10 0 0 0 0 0 1 1 1 1 
+M3 =
+
+ 1 1 1 0 0 0 0 0 0 01 1 1 0 0 0 0 0 0 01 1 1 0 0 0 0 0 0 00 0 0 1 1 1 0 0 0 00 0 0 1 1 1 0 0 0 00 0 0 1 1 1 0 0 0 00 0 0 0 0 0 1 1 1 10 0 0 0 0 0 1 1 1 10 0 0 0 0 0 1 1 1 10 0 0 0 0 0 1 1 1 1 
+and
+M4 =
+
+ 1 1 0 0 0 01 1 0 0 0 01 1 0 0 0 00 0 1 1 0 00 0 1 1 0 00 0 1 1 0 00 0 0 0 1 10 0 0 0 1 10 0 0 0 1 10 0 0 0 1 1 
+Observe thatM 4 distributes 2 embedding dimensions per feature.
+Now we compute the following matrix multiplication with non-zero elements ofM 1:k denoting the infor-
+mation flow until layerk(Germain et al., 2015):
+M1:2 =
+
+ 3 3 3 0 0 0 0 0 0 00 0 0 3 3 3 0 0 0 00 0 0 0 0 0 4 4 4 4 
+26
+<<PAGE 27>>
+Notice that the columns ofM 3 have been constructed by repeating the rows of binarizedM 1:2 (compare)
+as described in the main manuscript (i.e., rows ofM 3 are constructed by repeating the rows ofM′1:2, where
+each element inM′1:2 is defined byM′1:2(d,l) =1 M1:2>0(d,l)). We now computeM 1:3:
+M1:3 =
+
+ 9 9 9 0 0 0 0 0 0 00 0 0 9 9 9 0 0 0 00 0 0 0 0 0 16 16 16 16 
+We finally compute
+M1:4 =
+
+ 27 27 0 0 0 00 0 27 27 0 00 0 0 0 64 64  =  γ1 γ1 0 0 0 00 0 γ2 γ2 0 00 0 0 0 γ3 γ3 
+Notice thatM 1:4 allows for creating two dimensional embeddings as it permits information flow to two
+disjoint output neurons for each input feature: i.e., outputs one and two only depend onx 1, outputs three
+and four only depend onx 2, and output three only depends onx 3.
+Observe howγi values depend on how the 1s are distributed in the masking matrices; an equal distribution
+would result in more uniformγi values. In practice, instead of using a singlenint(.) function, we choose to
+round up or down, randomly.
+G PSI evaluation: Experimental set-up and additional details
+G.1 Simulated Data Generating Processes
+We describe below the data generating processes (DGPs) of the simulated datasets, where access to ground-
+truth feature attribution information is available. We use non-trivial functions for the heteroscedastic noise,
+and impose complex feature-interactions. We generate 8000 examples for each synthetic dataset.
+Synthetic1.DGP is as described in Section 4.1: (i) Drawx 1,x 2,x 3 ∼U(−4,4), (ii) Drawf 1 ∼
+N
+
+2 + exp
+n
+−x12o−√π8 erf{4},0.6cos(0.03x 1)800,f 2 ∼ N1 + sin(−x22) +√2π8 S(4q 2π ),0.2|x 2|, andf 3 =
+3cos(3x 3) + 4sin(5x3), (iii) Observey=f 1 +f 2 +f 3. Here,S(.) is the Fresnel integral.
+Synthetic2.(i) Drawx 1,x 2,x 3 ∼U(−4,4), (ii) Calculatef 1 = exp
+n
+−x12ox1,f 2 = 0.5x 2 sin(x2),f 3 =
+cos(3x3)sin(x 3), (iii) Observey=f 1 +f 2 +f 3.
+Synthetic3.(i) Drawx 1,x 2,x 3∼U(−4,4), (ii) Calculatef 1 = 4sin(x 1) + 2sin(2x1),f 2 = 3cos(3x 2)sin(5x 2),
+f3 = cos(2x 3) +x 32/7,f 12 = exp n−(x1 +x 2)2o,f 13 = (x 1−3)x 3 sin(x1)cos(x 3)/2,f 23 =x 2x3/2, (iii) Observe
+randomy∼N (f1 +f 2 +f 3 +f 12 +f 13 +f 23,0.01).
+Synthetic4.(i) Drawx 1,x 2,x 3 ∼U(−4,4), (ii) Calculatef 1 = exp
+n
+−1/x12o + sin(100/x 1)),f 2 =
+exp{−|cos(|x 2|) + 1/2sin(2x2)|} +x 2/4,f 3 = tanh(x32),f 12 = sin(x12 +x 22)/2, (iii) Observey=f 1 +f 2 +f 3 +f 12.
+Synthetic5.(i) Drawx 1,x 2,x 3∼U(−4,4), (ii) Calculatef 1 =|x 1|/10 +x 12/10 + sin(x1),f 2 = cos(5x 2) +
+sin(2x2) +x 2,f 3 = exp
+n
+−x3100o,f 12 = 5(x110 +x 210)1/10/2,f 23 = 5|sin(x 3x2)cos(x 3x2)|/2, (iii) Observe ran-
+domy∼N (f1 +f 2 +f 3 +f 12,0.01).
+The observed data consists of only{x,y} Ni=1 pairs for all simulated datasets.
+G.2 Real-world Datasets
+Regression Datasets.We describe here the datasets used in regression tasks:
+27
+<<PAGE 28>>
+1.Parkinsons telemonitoring (PKSN):The dataset features voice data from 42 Parkinson’s patients
+in the early stages, captured over six months using a telemonitoring device for distant symptom
+monitoring. These autonomous recordings, taken at their homes, total 5875 data points. The task
+is to predict Clinician’s motor UPDRS score (Tsanas et al., 2009).
+2.Medical expenses (MED):1,338 patients from United States (Lantz, 2019). The task is to predict
+medical expenses. Here, the unit of measurement is United States Dolars (USD).
+3.Bike sharing (BIKE):The dataset of 17,389 entries aims to predict total bike rentals, covering both
+casual and registered users (Fanaee-T, 2013).
+4.Greenhouse gas observing network (GAS):The dataset features time series of greenhouse gas
+concentrations across 2,921 grid cells in California, generated using the WRF-Chem simulation
+model. The goal is to predict the green house gas concentration (Lucas, 2015).
+Classification Datasets.These are the datasets used in classification tasks:
+1.Heloc (FICO):9,861 credit applications (FICO, 2018). The task is to classify risk performance. The
+good risk performance is represented by 1.
+2.Spambase (SPAM):The classification task involves 4601 instances aimed at determining whether
+a given email is classified as spam or not (Hopkins et al., 1999). Spam emails are represented by 1.
+3.Intensive care unit (ICU):15,830 intensive care unit (ICU) cases from Argentina, Australia, New
+Zealand, Sri Lanka, Brazil, and United States (Meredith et al., 2020). The task is to classify ICU
+mortality. The ICU mortality is represented by 1.
+4.Census income (CENS):Demographic (such as age, education etc.) information of 48,842 people.
+The task is to predict if the person earns more than 50,000 USD a year (Kohavi, 1996). Income of
+more than 50,000 USD a year is represented by 1.
+G.3 Baseline Models
+1.Bayesian Linear/Logistic Regression (LIN):The simplest, yet explainable model. Linear mod-
+els quantify the feature importance and feature importance uncertainty through the model co-
+efficients. We use Bayesian linear regression for regression and Bayesian logistic regression for
+classification tasks. We use the implementation by Pedregosa et al. (2011).
+2.Explainable Boosting Machines (EBM):The state-of-the-art explainable additive model which
+uses ensemble shallow trees with boosting to model each component (Lou et al., 2013; Caruana
+et al., 2015). We use the implementation by Nori et al. (2019).
+3.Random Forest (RF):Another ensemble learning algorithm that works by building multiple trees
+independently using bagging, and averaging the predictions of each individual tree. We use the
+implementation by Pedregosa et al. (2011).
+4.Light Gradient Boosting Machines (LGBM):LGBM uses a leaf-wise growth strategy, prioritizing
+splits that result in the largest decrease in loss, whereas most traditional tree-based algorithms
+grow trees level-wise. While leaf-wise growth can achieve better accuracy, it might also lead to
+overfitting, especially on smaller datasets. Thus, careful hyperparameter tuning, including regu-
+larization, is essential when using LGBM (Ke et al., 2017).
+5.Gradient Boosted Trees (XGB):A well-known ensemble learning algorithm that combines several
+week learners. In particular, each weak learner is trained to improve the ensemble performance,
+one at a time. We use the implementation by Chen & Guestrin (2016).
+6.Deep Neural Network (DNN):Universal function approximators, where DNNs relate input and
+output through non-linear mappings.
+28
+<<PAGE 29>>
+G.4 Baseline Hyperparameters
+We sample 300 hyperparameters, train each model on test set and evaluate on the validation set to find the
+optimum parameters for learning a train-test split. We then test the models on the remaining test fold. We
+do this 5 times. We use NVIDIA RTX 2080 graphics card for training neural models.
+The hyperparameter search space of all models are as follows:
+LIN
+• Regressor
+param_grid = {
+"C": [5e-2, 1e-1, 5e-1, 1],
+"max_iter":[5000]
+}
+• Classsifier
+param_grid = {
+"C": [5e-2, 1e-1, 5e-1, 1],
+"max_iter":[5000]
+}
+EBM
+• Regressor
+param_grid = {
+"outer_bags": [8, 25, 75, 100],
+"inner_bags":[0, 1, 2, 5, 10]
+}
+• Classsifier
+param_grid = {
+"outer_bags": [8, 25, 75, 100],
+"inner_bags":[0, 1, 2, 5, 10]
+}
+RF
+• Regressor
+param_grid = {
+"ccp_theta": [0.0, 1e-1, 1e-2],
+"max_depth": [None, 4, 8, 16, 40, 100],
+"min_samples_leaf": [1, 3, 5, 10],
+"min_samples_split": [2, 4, 6, 12],
+"n_estimators": [100, 200, 600, 800]
+}
+• Classsifier
+param_grid = {
+"ccp_theta": [0.0, 1e-1, 1e-2],
+"max_depth": [None, 4, 8, 16, 40, 100],
+"min_samples_leaf": [1, 3, 5, 10],
+"min_samples_split": [2, 4, 6, 12],
+"n_estimators": [100, 200, 600, 800]
+}
+29
+<<PAGE 30>>
+LGBM
+• Regressor
+param_grid = {
+"num_leaves": [31, 50, 70, 100],
+"max_depth": [-1, 5, 7, 10],
+"learning_rate": [0.001, 0.01, 0.05, 0.1],
+"n_estimators": [100, 200, 500],
+"min_split_gain": [0.0, 0.1, 0.5],
+"min_child_weight": [1e-3, 1e-2, 1e-1, 1],
+"min_child_samples": [20, 30],
+"subsample": [0.8, 0.9, 1.0],
+"colsample_bytree": [0.7, 0.8, 0.9, 1.0],
+"reg_theta": [0, 1, 2],
+"reg_lambda": [0, 1, 2],
+"boosting_type": [’gbdt’, ’dart’],
+}
+• Classsifier
+param_grid = {
+"num_leaves": [31, 50, 70, 100],
+"max_depth": [-1, 5, 7, 10],
+"learning_rate": [0.001, 0.01, 0.05, 0.1],
+"n_estimators": [100, 200, 500],
+"min_split_gain": [0.0, 0.1, 0.5],
+"min_child_weight": [1e-3, 1e-2, 1e-1, 1],
+"min_child_samples": [20, 30],
+"subsample": [0.8, 0.9, 1.0],
+"colsample_bytree": [0.7, 0.8, 0.9, 1.0],
+"reg_theta": [0, 1, 2],
+"reg_lambda": [0, 1, 2],
+"boosting_type": [’gbdt’, ’dart’],
+}
+XGB
+• Regressor param_grid = {
+"learning_rate" : [0.05, 0.10, 0.15, 0.30],
+"max_depth" : [3, 5, 8, 15],
+"min_child_weight" : [1, 3, 7],
+"theta" : [0.0, 0.1, 0.3],
+"colsample_bytree" : [0.3, 0.4, 0.5],
+’ccp_theta’: [0.0,1e-3,1e-2],
+"min_impurity_decrease": [0, 1e-1]
+}
+• Classsifier
+param_grid = {
+"learning_rate" : [0.05, 0.10, 0.15, 0.30],
+"max_depth" : [3, 5, 8, 15],
+"min_child_weight" : [1, 3, 7],
+"theta" : [0.0, 0.1, 0.3],
+"colsample_bytree" : [0.3, 0.4, 0.5],
+’ccp_theta’: [0.0,1e-3,1e-2],
+"min_impurity_decrease": [0, 1e-1]
+}
+DNN
+• Regressor
+param_grid = { "batch_size": [1024, 512],
+"lr":[5e-4, 1e-3, 2e-3],
+"act": [’relu’, ’snake’, ’elu’],
+"norm":[None, ’layer’, ’batch’],
+"n_layers":[2, 3, 4, 5],
+"d_hid":[25, 50, 75, 100, 200],
+"weight_decay": [0, 1e-10, 1e-8, 1e-6],
+"dropout": [0, 0.2, 0.4, 0.5],
+}
+• Classsifier
+param_grid = { "batch_size": [1024, 512],
+"lr":[5e-4, 1e-3, 2e-3],
+"act": [’relu’, ’snake’, ’elu’],
+"norm":[None, ’layer’, ’batch’],
+"n_layers":[2, 3, 4, 5],
+"d_hid":[25, 50, 75, 100, 200],
+"weight_decay": [0, 1e-10, 1e-8, 1e-6],
+"dropout": [0, 0.2, 0.4, 0.5],
+}
+30
+<<PAGE 31>>
+PSI
+• Regressor
+param_grid = { "batch_size": [1024, 512,
+256],
+"lr":[2e-3, 1e-3, 5e-4],
+"beta":[10, 1, 0.1, 0.01, 0.001],
+"act": [’relu’, ’snake’, ’elu’],
+"arch":[FFNN, MENN’],
+"norm":[None, ’layer’],
+"n_layers":[5, 4, 3, 2],
+"d_hid":[300, 200, 150, 100],
+"weight_decay": [1e-6, 1e-7, 1e-8, 0],
+"dropout": [0],
+"p_missing":[1/2, 2/3, ’shapley’],
+}
+• Classsifier
+param_grid = { "batch_size": [1024, 512,
+256],
+"lr":[2e-3, 1e-3, 5e-4],
+"beta":[10, 1, 0.1, 0.01, 0.001],
+"act": [’relu’, ’snake’, ’elu’],
+"arch":[FFNN, MENN’],
+"norm":[None, ’layer’],
+"n_layers":[5, 4, 3, 2],
+"d_hid":[300, 200, 150, 100],
+"weight_decay": [1e-6, 1e-7, 1e-8, 0],
+"dropout": [0],
+"p_missing":[1/2, 2/3, ’shapley’],
+}
+"p_missing" refers to the probability of introducing a feature to the network during training (Jethani et al.,
+2021).
+G.5 Predictive performance results
+Interpretable Black-box
+Data PSI LIN EBM RF LGBM XGB DNN
+PKSN 0.026±0.002 0.867±0.009 0.195±0.002 0.040±0.006 0.072±0.009 0.063±0.002 0.111±0.005
+MED 0.447±0.018 0.608±0.015 0.447±0.021 0.448±0.018 0.447±0.020 0.454±0.016 0.467±0.005
+BIKE 0.019±0.001 0.518±0.004 0.038±0.001 0.008±0.001 0.017±0.002 0.013±0.001 0.019±0.001
+GAS 0.269±0.045 60.93±60.060 0.153±0.016 0.151±0.015 0.152±0.012 0.150±0.021 0.256±0.019
+FICO 0.771±0.004 0.766±0.004 0.771±0.004 0.770±0.003 0.773±0.005 0.773±0.004 0.771±0.007
+SPAM 0.977±0.006 0.946±0.006 0.977±0.003 0.983±0.002 0.982±0.002 0.981±0.003 0.967±0.005
+ICU 0.872±0.004 0.851±0.004 0.872±0.004 0.869±0.004 0.874±0.003 0.874±0.003 0.860±0.004
+CENS 0.803±0.003 0.768±0.003 0.825±0.003 0.800±0.002 0.830±0.003 0.831±0.004 0.788±0.003
+Table 3: PSI and baseline comparison across real-world datasets with standard deviation results.
+Net Dβ/2 synth1 synth2 synth3 synth4 synth5
+0.001 0.605±0.011 0.004±0.000 0.125±0.006 0.669±0.017 0.419±0.003
+0.01 0.611±0.014 0.004±0.000 0.120±0.002 0.669±0.018 0.416±0.010
+0.1 0.595±0.011 0.004±0.000 0.221±0.006 0.673±0.016 0.417±0.003MENN
+1 0.582±0.009 0.004±0.000 1.118±0.027 0.579±0.029 0.446±0.005
+0.001 0.642±0.012 0.071±0.063 0.368±0.155 0.689±0.022 0.433±0.008
+0.01 0.640±0.009 0.128±0.074 0.234±0.078 0.677±0.018 0.435±0.007
+0.1 0.624±0.011 0.103±0.059 0.174±0.006 0.674±0.014 0.431±0.007FFNN
+1 0.599±0.008 0.186±0.110 0.897±0.024 0.660±0.017 0.477±0.005
+Table 4: Comparison of FFNN and MENN architectures with fold-wise standard deviation results.
+31
+<<PAGE 32>>
+G.6 Jeffreys Divergence
+The metric that we are interested in is:
+1
+D
+X
+j∈[D]
+X
+s∈A\{j}
+P(s)×J-Divergence(Model Marginals, Empirical Marginals),(77)
+which calculates the distance between marginals for every possible coalition that can be computed for
+any given featurej, weighted according to its Shapley value weights. This allows for arriving at a single
+metric calculated by weighting the distance between ground truth marginals and model marginals by their
+occurrence in Shapley value calculations.
+Precisely, we follow the steps below:
+Definedist= 0.
+For every featurej∈[D] ands∈s∈[D]\{j}:
+1.Empirical sampling:Sample [y,x]∼Dfrom the empirical data joint distribution.
+2.Empirical marginals:Remove the columnsk<sfrom [y,x] to obtain empirical marginals [y,x s].
+3.Sample from model marginals:Sample ˆy∼P (y|x s) from PSI using MENN/FFNN, and denote
+[ ˆy,xs] as PSI marginal samples.
+4.Measure distance:Computedist=dist+ 1D P(s)×J-Divergence(p ([y,xs]),p ([ ˆy,xs])).
+Computing the J-Divergence(p([y,xs]),p ([ ˆy,xs])).We estimatep ([y,xs]) andp ([ ˆy,xs]) by discretizing the
+empirical distribution defined by the available model and data samples, and fitting a histogram of different
+bin sizes to both [y,x] and [ ˆy,xs]. For such a discretized distribution, the J-Divergence has a closed-form
+solution (since KL-terms can be computed analytically), that can be computed easily:
+1
+2 (DKL (q∥p) +D KL (p∥q)),whereD KL (q∥p) =
+X
+qlogp,(78)
+where sum is carried out over the histogram bins.pandqrepresent each bin’s probability.
+We apply this same procedure for various, random bin sizes: we sample 20 bin sizes from U(10,200). We
+then take the average over divergences over all bin-size histograms, resulting in a single number estimator
+for the J-Divergence metric of interest.
+The error bars shown in Figure 7 were generated by applying the same procedure described above to 5
+different models trained of different train-test splits (i.e., 5 fold cross-validation).
+H Remark 3.3: empirical evidence of convergence
+We provide empirical evidence of Remark 3.3 in Figure 8: the empirical estimatesE x∼D{fd(x)} converge to
+zero as the model learns for both MENN and FFNN architectures —an effect most prominent forβ= 1.
+32
+<<PAGE 33>>
+0 5000 10000
+0.0
+0.5
+1.0
+1.5
+MENN
+synthetic1
+0 20000 40000□0.5
+0.0
+0.5
+synthetic2
+0 20000
+0.0
+0.5
+synthetic3
+0 10000 20000
+0.0
+0.5
+1.0
+synthetic4
+0 10000
+0
+1
+2
+3
+synthetic5
+0 20000 40000
+0.0
+0.5
+1.0
+1.5
+FFNN
+0 25000 50000
+0.0
+0.5
+0 25000 50000
+0.00
+0.25
+0.50
+0.75
+0 5000 10000
+0.0
+0.5
+1.0
+0 10000 20000
+0
+1
+2
+3
+β 0.001 β 0.01 β 0.1 β 1.0
+Figure 8: Average of thef d over the empirical dataset,E x∼D{fd(x)}, w.r.t. training epochs. Shaded regions
+are the error values from different cross-validation folds.
+33

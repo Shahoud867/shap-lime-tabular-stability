@@ -1,0 +1,120 @@
+U001 I SHAP vs LIME stability (Jaccard, Spearman) across RF/SVM/NN under repeated sampling
+U002 E1 Applied fraud-detection XAI; no explanation-stability outcome
+U003 E1 Applied SHAP analysis (AR/VR satisfaction)
+U004 E1 Applied churn XAI
+U005 U LIME stability improvement; experiments appear image-focused (super-pixels) - check modality
+U006 E1 Applied IDS XAI
+U007 E1 Benchmark of drug-sensitivity regression; no explanation-stability outcome
+U008 E3 Cross-model consensus of global SHAP importance only (agreement, not stability)
+U009 I SHAP explanation stability under adversarial attacks in tabular IDS
+U010 E1 Applied IDS XAI
+U011 E1 Per-category explanation audit; no stability outcome
+U012 I Credit scoring (5 tabular datasets); explanation stability assessed with SHAP/LIME
+U013 E5 Power-grid stability control (homonym)
+U014 E1 Applied malware XAI
+U015 E1 Applied loan-default XAI architecture
+U016 E1 Applied phishing XAI
+U017 I SHAP stability under noise types/intensities on four datasets
+U018 E2 Text classification; cross-method explanation consistency
+U019 I SHAP/LIME ranking stability under data anonymisation (tabular)
+U020 E1 Applied cyber-risk model
+U021 E1 Trust evaluation of augmentation proportions; no explanation-stability outcome
+U022 E1 Allergen prediction; "instability index" is a peptide feature
+U023 E1 Applied authentication model
+U024 E1 Performance study; explanation variability only secondary (radiomic features)
+U025 U Feature-importance ranking stability vs performance degradation; explainer not stated - check
+U026 E3 Rule-based (ranked selector) explanations
+U027 E3 Gradient-based attributions of FT-Transformer (not SHAP/LIME family)
+U028 U New Naive-Bayes explainer compared with LIME/SHAP robustness - check scope
+U029 I SHAP/LIME stability audit (Spearman, Jaccard) under resampling, tabular cardiovascular data
+U030 I SHAP ranking stability of LR under noisy training data (tabular)
+U031 I SHAP/LIME inconsistency across perturbations/seeds; regularisation; tabular Adult/COMPAS
+U032 I SHAP attribution change vs distribution shift for XGBoost (tabular clinical)
+U033 E1 Applied employee-performance model
+U034 E3 Regional explanations (not local attribution stability)
+U035 E3 Rule-based local explainer (EXPLAN)
+U036 E1 Applied diabetes risk model
+U037 E2 Text (fake news) transformers
+U038 E1 Applied knowledge-graph forecasting
+U039 E1 Applied preparedness model
+U040 E1 Position/framework on explainable, energy-efficient AI
+U041 I Improves LIME/SHAP explanation stability (Jaccard) on credit-card fraud data
+U042 U Bayesian AIME attribution; bootstrap stability vs existing methods (tabular) - check scope
+U043 E1 Federated learning framework
+U044 E2 Source-code vulnerability detection
+U045 U Synthetic tabular benchmark with an explainability-stability dimension - check
+U046 E1 Applied concrete-strength model
+U047 E3 Rule-based explanations
+U048 E1 ICU model; explanation stability is a secondary check
+U049 E1 SHAP-based feature reduction
+U050 E3 Survey of intrinsically interpretable deep models
+U051 E1 Applied DeFi liquidity model
+U052 E1 Applied clinical model
+U053 U MeLIME (LIME generalisation) claims more robust explanations; tabular included - check stability outcome
+U054 E1 Applied quantum ML pipeline
+U055 U GMM-LIME stability (Jaccard) on gait sensor features with RF - check modality
+U056 E1 Applied IDS comparison
+U057 E1 Applied drone IDS
+U058 E1 Applied airport satisfaction
+U059 E1 Systematic review of mHealth prediction
+U060 E1 Applied cybersecurity XAI
+U061 E1 Applied clinical model
+U062 E1 Applied clinical model
+U063 E1 Applied forecasting with LIME
+U064 E1 Trustworthy-AI framework; no stability outcome
+U065 E1 Applied wastewater model
+U066 E1 Applied IoT anomaly model
+U067 E1 Applied sound-quality model
+U068 E1 Applied materials model
+U069 E1 Applied clinical model (no abstract; title)
+U070 E5 Transient power-system stability (homonym)
+U071 E1 Applied smart-computing XAI
+U072 E1 Applied heart-disease model
+U073 E1 Applied fraud-model comparison with SHAP
+U074 E1 Applied hydraulics model
+U075 E1 Applied clinical model
+U076 E1 Applied clinical model
+U077 I Multicollinearity-induced SHAP/LIME instability in tabular IDS (preprint)
+U078 E1 Applied phenotype model
+U079 E1 Applied pharmacokinetic model
+U080 E1 Benchmark of feature-importance methods; no stability focus
+U081 I CSTreeSHAP; stability of explanations analysed for cost-sensitive credit models
+U082 E1 Adversarial robustness of detectors (explanations used as attack guide)
+U083 E1 Applied clinical imaging model
+U084 E1 Applied structural model
+U085 E1 Applied clinical model
+U086 E1 Applied forecasting model
+U087 E1 Applied concrete model
+U088 E1 Applied flood model
+U089 E1 Applied depression model
+U090 E1 Applied stroke model
+U091 E2 Fake-news (text) explanation consistency
+U092 E1 Applied peptide model
+U093 E1 Spam/phishing adversarial robustness; no explanation-stability outcome
+U094 E1 Applied injury model
+U095 E1 Review of disease surveillance
+U096 E1 Applied heart-disease model
+U097 E1 Classifier robustness; LIME/SHAP used for biomarker interpretation
+U098 U Applied PCI model whose stated objective includes SHAP stability (SSI, Kendall) - borderline
+U099 E1 Applied education model
+U100 E1 Applied clinical model
+U101 E2 Deepfake video detection
+U102 E1 Applied depression model
+U103 E1 Applied fraud XAI
+U104 E1 Applied crop model
+U105 I CIES: SHAP/LIME stability index under business noise (credit, churn, HR) (preprint)
+U106 E1 Applied biofuel model
+U107 E1 Applied mining model
+U108 E1 Applied plant model
+U109 E1 Applied radiomics model
+U110 E1 Applied environmental model
+U111 E1 Applied multimodal clinical model
+U112 E1 Applied insurance-fraud model
+U113 E1 Applied obesity model
+U114 E1 Applied Parkinson model
+U115 E1 Applied DVT model
+U116 E1 Applied eating-behaviour model
+U117 E1 Applied soil-salinity model
+U118 E1 Applied property-valuation comparison
+U119 E1 Applied inflation forecasting
+U120 E3 Cross-method agreement of LIME/SHAP only

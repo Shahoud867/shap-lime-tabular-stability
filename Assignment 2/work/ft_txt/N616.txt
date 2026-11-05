@@ -1,0 +1,1162 @@
+<<PAGE 1>>
+How Understanding Forecast Uncertainty Resolves the
+Explainability Problem in Machine Learning Models
+Joseph L. Breeden
+Deep Future Analytics LLC
+breeden@deepfutureanalytics.com
+March 25, 2026
+Abstract
+When a machine learning model cannot produce a reliable forecast at a given point
+in the feature space, no explanation of that forecast is meaningful. This paper ar-
+gues that forecast uncertainty is a necessary condition for explanation validity: high
+explanatory instability and high forecast uncertainty share a common cause, so the
+appropriate response is not to seek more stable explanation methods but to recognise
+that no usable forecast exists.
+This paper formalises this as the primacy of forecast uncertainty over explanatory
+stability and derives the tools needed to test it out-of-sample (OOS). For locally lin-
+ear models (decision trees, gradient boosted trees, and piecewise linear regression) a
+log-linear relationship is established between OOS Hessian instability and OOS local
+linear RMSE, demonstrating that explanatory instability and forecast uncertainty are
+two measurements of the same underlying generalisation failure. For smooth nonlinear
+models such as sigmoid neural networks, out-of-sample Shapley values (ϕOOS) are intro-
+duced, replacing the standard model-prediction-based coalition values with empirical
+conditional expectations of outcomes from a held-out calibration set. It is shown that
+ϕOOS −ϕ IS partitions the conformal prediction error across input features: conformal
+prediction gives a single scalar uncertainty bound at each point, and the OOS–IS Shap-
+ley difference vector decomposes that same error by dimension, showing how much each
+feature contributes to the model’s local failure. A controlled convergence experiment
+establishes the local linear framework as a special case of the conformal framework in
+the limit of a globally linear model.
+Simulation results across three data-generating functions and three model types
+confirm that forecast uncertainty subsumes explanatory instability: in every well-
+1
+arXiv:2602.00179v3  [cs.LG]  24 Mar 2026
+<<PAGE 2>>
+specified experiment, regions of high uncertainty are regions of high instability, and
+a reliable forecast is a precondition for a stable explanation.
+Keywords: Decision analysis; machine learning; explainability; forecast uncertainty;
+Shapley values; conformal prediction
+Practitioner Summary
+Machine learning models are increasingly used for high-stakes decisions such as loan ap-
+provals, yet their adoption in regulated industries is slowed by concerns that their predictions
+cannot be adequately explained. This paper shows that the explanation problem is actually
+a forecast reliability problem. When a model cannot produce a trustworthy prediction at a
+given point, no explanation of that prediction is meaningful, regardless of which explanation
+method is used.
+The practical recommendation is straightforward: before reporting any explanation, first
+check whether the model’s forecast is reliable at that point. Conformal prediction, a well-
+established statistical technique, provides a pointwise uncertainty score that can serve as
+the gatekeeper. If uncertainty is below a business-defined threshold, issue the forecast and
+report standard feature attributions. If uncertainty is too high, withhold the forecast and
+invoke a simpler fallback model instead.
+This paper also introduces out-of-sample Shapley values, which decompose the model’s
+local error by input feature. These identify which variables are responsible for unreliability
+in a given region, guiding data collection and model improvement. Importantly, piecewise
+linear models such as gradient boosted trees, often adopted for their supposed transparency,
+exhibit the same instability near their segment boundaries as explicitly nonlinear models.
+The common assumption that tree-based models are inherently more explainable is not
+supported.
+For compliance teams, model validators, and risk managers, the paper provides a deci-
+sion framework that prioritises forecast reliability over explanation stability, aligning model
+governance with statistical rigour.
+1 Introduction
+The explainability problem in machine learning has become increasingly important as com-
+plex algorithms are deployed in critical decision-making applications. In loan underwriting,
+regulatory concerns about explainability have been a direct drag on adoption of nonlinear
+2
+<<PAGE 3>>
+models. Even though the academic literature on credit risk modelling is extensive [1], deploy-
+ments of machine learning models continue to be debated. Traditional approaches to model
+interpretability rely on local linear models built from nearby data points [2]. This approach
+becomes unstable near high-curvature regions and discontinuities, leading to a general crit-
+icism that machine learning models are inherently unexplainable [3], or that interpretable
+models should be used in their place [4, 5, 6].
+In the quest for explainability to meet regulatory requirements, machine learning deploy-
+ments rarely consider forecast uncertainty. Unlike the linear models with which business
+teams are accustomed, nonlinear models can have dramatically varying forecast uncertainty
+across the feature space. The power of machine learning is in finding pockets of predictability,
+which implies that regions of low predictability also exist.
+This paper shows that machine learning models do not have an explainability problem.
+They have a user problem. A general correspondence exists between explanatory stability
+and forecast uncertainty. Weak forecasts have unreliable explanations. When a forecast is
+generated, the first test should be of the forecast uncertainty, not of the explanation. If the
+uncertainty is too high, no explanation is needed, because the forecast cannot be used.
+Both forecast uncertainty and explanatory instability are caused in part by high-curvature
+regions of the objective function. Looking at the forecast uncertainty in a local linear approx-
+imation explains why tools such as LIME [2] can produce unstable explanations in certain
+regions. This does not reflect a deficiency in LIME, but rather a region where no reliable
+forecast is available.
+Nonlinear models are not as unexplainable as was thought. Conversely, piecewise linear
+models are not as explainable as commonly assumed. ReLU networks and regression trees
+are often presented as globally interpretable because each segment has an unambiguous
+local linear model [7]. However, this explainability is illusory. At segment boundaries,
+natural input perturbations cause boundary crossings that exhibit the same explanatory
+instability and forecast uncertainty as more nonlinear models. Moving from the center to
+the boundary of a segment sees increasing uncertainty and degrading explainability, just as
+with an explicitly nonlinear model. In fact, a well-tuned piecewise linear model will place
+the segment boundaries precisely in high curvature, high uncertainty regions.
+This paper makes several contributions. First, and most significantly, the primacy of
+forecast uncertainty is formalised and tested using distributional tests on conditional in-
+stability. Second, this paper introduces out-of-sample Shapley values for smooth nonlinear
+models: by replacing the standard model-based coalition values with empirical conditional
+expectations of outcomes from a held-out calibration set, the OOS–IS Shapley difference
+vector partitions the conformal prediction error across input features. Conformal prediction
+3
+<<PAGE 4>>
+gives a single scalar uncertainty bound; OOS Shapley decomposes that same error by dimen-
+sion, identifying which features are responsible for the model’s local failure. This is a model
+development and monitoring tool, not a replacement for IS Shapley in production reporting.
+Third, all primary metrics are computed out-of-sample (OOS), using held-out calibration
+observations that were not used to fit the model; a theoretical derivation establishes that
+OOS Hessian instability is log-linearly related to OOS local linear RMSE, proving that the
+two are measurements of the same underlying uncertainty rather than independent quanti-
+ties. Fourth, a controlled convergence experiment establishes the precise conditions under
+which the local linear and conformal frameworks agree, providing a quantitative criterion for
+framework selection.
+2 Background
+Forecast uncertainty and explanatory instability have separately been studied extensively.
+The present work brings these concepts together with a consistent framework rather than
+reinventing the underlying methods.
+2.1 Forecast Uncertainty Estimation Methods
+Quantifying the forecast uncertainty of machine learning models is crucial for safe deploy-
+ment in risk-sensitive fields. The uncertainty literature distinguishes two sources.Aleatoric
+uncertaintyarises from irreducible noise in the data-generating process: even with a perfect
+model, outcomes vary stochastically.Epistemic uncertaintyarises from insufficient knowl-
+edge, whether due to limited training data, model misspecification, or extrapolation beyond
+the support of the training distribution [8, 9, 10]. The distinction matters for model im-
+provement: epistemic uncertainty can in principle be reduced with more data or better spec-
+ification, while aleatoric uncertainty sets a floor on achievable precision. Both contribute to
+forecast error.
+With nonlinear models, forecast uncertainty can vary across the feature space. Unlike
+linear models, where forecast uncertainty increases smoothly toward model boundaries, a
+nonlinear model can have abrupt transitions between regions of high and low uncertainty.
+The power of machine learning lies in finding pockets of predictability, which necessarily
+implies that regions of low predictability also exist. This spatial heterogeneity means that a
+single global uncertainty estimate is insufficient; pointwise or local uncertainty quantification
+is required [11, 12].
+Several families of methods have been developed to address this problem. Bayesian
+4
+<<PAGE 5>>
+approaches place probabilistic priors on model weights and produce a distribution over pre-
+dictions rather than a point estimate [13, 14, 15]; Monte Carlo dropout approximates this
+Bayesian model averaging by retaining dropout at inference time [16]. Where full Bayesian
+treatment is impractical, deep ensembles estimate predictive uncertainty from the spread
+of independently trained models [11]. Quantile regression models specified quantiles of the
+response directly without distributional assumptions [17]. Each of these methods produces
+a pointwise uncertainty estimate, but they differ in computational cost, calibration quality,
+and the degree to which they separate epistemic from aleatoric components.
+A second approach fits a weighted local linear model to the model’s prediction surface
+in a neighbourhood of the query point and measures uncertainty by the weighted RMSE of
+that fit. When this RMSE is high, the model is operating in a region of high curvature or
+discontinuity where a linear approximation is inaccurate. This local linear RMSE is an IS
+metric by construction: the surrogate is fitted and evaluated on training data. Section 3
+derives an OOS variant that evaluates the surrogate against held-out calibration outcomes
+instead, separating approximation error from generalisation error.
+Conformal prediction is a fundamentally different approach: rather than approximating
+the prediction surface, it calibrates uncertainty directly against held-out residuals, making
+it OOS by construction and applicable to any base predictor without modification. For a
+fitted model ˆfand a calibration set, the conformal score for each calibration point is the
+residuals i =|y i − ˆf(x i)|. In its standard form, conformal prediction guarantees marginal
+coverage: averaged over all test points, the true outcome falls within the interval at the
+nominal rate. However, marginal coverage can mask poor performance in specific regions
+of the feature space, which is precisely the failure mode relevant to explainability. Local
+or conditional conformal methods address this by constructing intervals from calibration
+points near the query pointx 0, weighted by proximity [18]. The result is a spatially varying
+uncertainty estimateq(x 0) that is OOS by construction: calibration residuals are computed
+on observations not used to fit ˆf. This conditional approach is the preferred uncertainty
+measure for smooth nonlinear models in this paper, because it is faithful at each point in
+the feature space rather than merely correct on average, and does not depend on the quality
+of any local linear approximation.
+2.2 Measures of Explanatory Stability
+Explanatory stability refers to the degree to which an explanation of a model’s prediction
+changes under small perturbations of the input or the model itself. In regulated settings
+such as credit underwriting, unstable explanations undermine both compliance and trust.
+5
+<<PAGE 6>>
+If two nearly identical applicants receive materially different reason codes, the explanation
+mechanism cannot support consistent decision-making. Two sources of instability can be
+distinguished. Perturbation instability arises when small changes to the input at a fixed
+model produce large changes in the explanation. Model-class instability, formalised as the
+Rashomon effect [19], arises when multiple models with similar predictive accuracy pro-
+duce divergent explanations for the same input. The present paper focuses on perturbation
+instability, since it is most applicable to the single-model contexts common in business.
+Three families of post-hoc explanation methods dominate current practice. Local linear
+surrogates, exemplified by LIME [2], fit a weighted linear model to the prediction surface
+in a neighbourhood of the query point and use the surrogate coefficients as feature attribu-
+tions. Shapley-based methods, particularly SHAP [20], attribute the prediction to features
+by computing the average marginal contribution of each feature across all possible subsets
+of features, where the contribution of a subsetSis measured by the model’s expected pre-
+diction with those features fixed versus marginalised. This coalition value function is the
+object this paper replaces in Section 3 to obtain OOS Shapley values: empirical conditional
+expectations of outcomes from held-out data substitute for model predictions, making the
+attribution answerable to actual observations rather than to ˆfalone. Shapley and LIME are
+complementary rather than hierarchical: LIME approximates ˆflocally with a linear surro-
+gate and uses the surrogate coefficients as attributions; Shapley uses ˆfdirectly without linear
+approximation, averaging over all feature subsets rather than fitting a surrogate. Neither is
+a special case of the other.Gradient-based methods, including saliency maps and integrated
+gradients [21], use the model’s input gradients or path integrals as attribution signals.
+LIME and SHAP are the most widely adopted in regulated financial services, where their
+model-agnostic nature and relatively intuitive outputs have made them the default tools
+for regulatory explanation. This paper accordingly focuses its analysis on local linear and
+Shapley-based frameworks, developing OOS variants of each in Section 3.
+A substantial body of work has documented instability across all three families. Alvarez-
+Melis and Jaakkola [22] showed that LIME explanations can vary significantly under small
+input perturbations, without requiring any specific structural property of the model or input
+space. Adebayo et al. [23] demonstrated that several gradient-based saliency methods are
+insensitive to both the model’s learned parameters and the training labels, producing attribu-
+tions indistinguishable from random baselines. Slack et al. [24] showed that LIME and SHAP
+can be systematically manipulated to hide biased behaviour from auditors. These findings
+have motivated two broad responses: developing more stable explanation algorithms, and
+regularising models to produce smoother prediction surfaces that admit more stable local
+approximations [25, 26].
+6
+<<PAGE 7>>
+The standard formalisation of perturbation stability is Lipschitz continuity of the expla-
+nation mapping: an explanation functionEis locally stable atxif the ratio of explanation
+change to input change is bounded for all perturbations in a neighbourhood [22]. This worst-
+case measure captures the maximum sensitivity of the explanation to small input changes.
+Complementary approaches include fidelity and infidelity measures, which test whether fea-
+ture attributions co-vary appropriately with model output under perturbation [27]. Section 3
+builds on these foundations, deriving OOS variants of both a worst-case Lipschitz measure
+and an average-case Hessian instability measure for the local linear framework, and intro-
+ducing OOS Shapley instability most suitable for smooth nonlinear models.
+3 Quantifying Forecast Uncertainty and Explanatory
+Instability
+These two literatures, forecast uncertainty and explanatory stability, have developed largely
+in parallel. Uncertainty estimation focuses on whether a prediction is reliable. Explainabil-
+ity research focuses on whether a prediction can be decomposed into interpretable feature
+contributions. Prior work has noted empirical connections between the two, but has not es-
+tablished formal priority. Slack et al. [28] showed that uncertainty estimates can be used to
+filter unreliable SHAP explanations, demonstrating a practical correlation without claiming
+a logical relationship. Thuy and Benoit [29] found that explanation instability and forecast
+uncertainty tend to co-occur in high-curvature regions, treating the two as parallel symp-
+toms of the same underlying model behaviour rather than one as a precondition of the other.
+None of these contributions establishes that forecast uncertainty is a necessary condition for
+explanation validity, or demonstrates that high IS instability in a region of low OOS uncer-
+tainty is a property of the model’s learned geometry rather than a signal of generalisation
+failure. The simulation results in Section 5 provide direct evidence of this: for the Wave-like
+generator fitted by a sigmoid neural network, IS instability is highest precisely where OOS
+uncertainty is lowest, because the model has correctly learned the oscillatory structure and
+its prediction surface is genuinely curved there. OOS metrics correctly identify these regions
+as reliable; IS metrics do not.
+The present paper argues that forecast uncertainty is logically prior to explanatory stabil-
+ity. If the forecast is unreliable, the explanation is moot regardless of its internal consistency.
+The next subsection reviews the explanatory stability side of this divide.
+For the purposes of studying the relationships between uncertainty and instability, this
+paper will examine in depth a specific subset of the developed measures. Local linear approx-
+7
+<<PAGE 8>>
+imation is a natural framework for quantifying both forecast uncertainty and explanatory
+stability at a query point. Local linear approximation can provide both a forecast error di-
+agnostic and a stability measure. Conformal prediction and Shapley values can be employed
+as nonlinear generalisations. This section derives the primary metrics in both local linear
+and conformal frameworks and demonstrates the in-sample bias that arises when evaluation
+is restricted to training data.
+3.1 The In-Sample / Out-of-Sample Distinction
+An in-sample (IS) metric at query pointx 0 is a function of the fitted model ˆfand the
+training dataX train only. An OOS metric additionally requires a calibration set of held-out
+observations{(x i, yi)}not used to fit ˆf.
+This distinction is not merely a matter of implementation. An IS metric measures prop-
+erties of ˆf’s prediction surface: how it bends, how steeply it slopes, how rapidly its local
+linear approximation rotates. An OOS metric measures whether ˆf’s predictions are accurate
+on new observations. The distinction is consequential for the comparison between IS and
+OOS local linear RMSE. The IS variant measures how well a local linear model approximates
+ˆfnearx 0:
+LLIS(x0) =
+sP
+k wk
+ ˆf(x k)− ˆβ(x0)⊤xk2P
+k wk
+(1)
+where the sum is over training neighboursx k ofx 0 weighted by proximity. In plain terms,
+this is the average prediction error of the local linear surrogate relative to the model’s own
+outputs at nearby training points; it measures how curved or complex the prediction surface
+is, not how accurate the model is.
+The OOS variant fits the same surrogate to training neighbours but evaluates it against
+actual outcomes at calibration neighbours:
+LLOOS(x0) =
+s P
+i wi
+
+yi − ˆβ(x0)⊤xi2P
+i wi
+(2)
+where ˆβ(x0) is estimated from training neighbours and the sum is over calibration neighbours
+ofx 0. In plain terms, this is the average prediction error of the local linear surrogate relative
+to held-out observed outcomes; it measures how well the model actually generalises to new
+data nearx 0. When the model is well-specified, both agree. When the model overfits or
+is misspecified, they diverge: LL IS may be low where the model has memorised training
+structure, while LL OOS is high because that structure does not generalise.
+In-sample measures of uncertainty and explainability can decouple substantially. A well-
+8
+<<PAGE 9>>
+specified nonlinear model may exhibit high IS sensitivity to perturbations in a high-curvature
+region precisely because it has correctly learned a nonlinear relationship there, while its OOS
+error in that region is low. Common IS metrics would flag such a model as unstable, whereas
+an OOS metric can demostrate that it has low instability. An accurate nonlinear model that
+is sensitive to perturbations fails only in its alignment to user expectations of how rapidly
+the underlying system behavior changes.
+3.2 Local Linear Uncertainty and Stability Metrics
+The local linear approximation atx 0 is obtained by fitting a weighted linear regression to ˆf
+evaluated at theknearest training neighbours, with Gaussian kernel weights:
+ˆβ(x0) = arg minβ
+kX
+i=1
+wi
+ ˆf(z (i))−β ⊤z(i)2 (3)
+In plain terms, this finds the straight-line (linear) description of the model’s behaviour near
+x0 that best fits the model’s own predictions at nearby points, with closer points given more
+weight. The resulting coefficient vector ˆβis the local explanation: each entry is the rate at
+which the prediction changes with the corresponding input feature, locally.
+The solution is ˆβ= (Z ⊤WZ)−1Z⊤Wˆf, whereZis the matrix of neighbour coordinates,
+Wthe diagonal weight matrix, and ˆfthe vector of model predictions at those neighbours
+[30].
+OOS Lipschitz Stability.This paper defines an OOS variant of the Alvarez-Melis and
+Jaakkola [22] Lipschitz measure that restricts all neighbour lookups to the training pool and
+computes the maximum rate of explanation change acrossMrandom perturbations:
+LOOS(x0) = maxm=1,...,M
+∥ ˆβ(x0)− ˆβ(x0 +δ m)∥
+∥δm∥ (4)
+where each ˆβusesktraining-pool neighbours only. In plain terms, this is the largest ratio
+of explanation change to input change observed across all tested perturbations: it answers
+the question “if I move this applicant’s inputs slightly, how much can the explanation vector
+change, in the worst case?” A high value signals that the explanation is sensitive to small
+input changes in that region.
+OOS Hessian Instability.A Hessian instability measure can be defined as the average-
+case complement to the worst-case Lipschitz. LetB∈R M×N be the matrix of local linear
+9
+<<PAGE 10>>
+coefficients atMperturbed points, with mean row ¯βand centered matrixB c =B−1 ¯β⊤.
+The slope covariance matrix is
+Σβ = 1M−1 B⊤c Bc (5)
+and the Hessian instability isH OOS(x0) = log(tr(Σ β) +ε), where all neighbour lookups
+use the training pool only. In plain terms, the trace of the covariance matrix sums the
+variance of each coefficient across perturbations, giving a single number that reflects how
+much the local linear explanation rotates or stretches when the query point is nudged in
+any direction. The logarithm compresses the scale to make the relationship with forecast
+uncertainty approximately linear.
+3.3 Shapley Values, OOS Shapley, and the Nonlinear Framework
+For smooth nonlinear models, local linear instability is elevated in high-curvature regions not
+because the model is unreliable but because the local linear approximation becomes a poor
+representation of ˆf. The appropriate attribution method for these models uses ˆfdirectly,
+without linear approximation.
+In-Sample Shapley Values.Shapley values [20] attribute ˆf(x 0) to input features by
+averaging marginal contributions across all feature subsets. For featurejwithNfeatures
+total:
+ϕISj (x0) = X
+S̸∋j
+|S|! (N− |S| −1)!
+N!
+
+vIS(S∪ {j})−vIS(S) (6)
+where the IS coalition valuev IS(S) is the expected model prediction with features inSfixed
+tox 0,S and complement features marginalised over a background distribution:
+vIS(S,x 0) =E x ¯S  ˆf(x S =x 0,S,x ¯S) (7)
+Intuitively, the Shapley value for featurejanswers the question: how much does knowing
+featurej’s value change the model’s prediction, on average across all possible contexts formed
+by the other features? The coalition valuev IS(S) represents the model’s expected output
+when only the features inSare available and held fixed atx 0,S; the remaining features are
+integrated out over a background distribution. Adding featurejto coalitionSproduces
+an incrementv IS(S∪ {j})−v IS(S). The weighting factor|S|!(N− |S| −1)!/N! counts the
+proportion of orderings in whichjwould be added to a coalition of size|S|, ensuring that the
+sum over all subsets gives a fair attribution. The result is the unique attribution satisfying
+the four Shapley axioms: efficiency (attributions sum to the total prediction), symmetry
+10
+<<PAGE 11>>
+(features with equal contributions receive equal attribution), linearity (additive models are
+attributed additively), and dummy (a feature that never changes the prediction receives zero
+attribution).
+By the efficiency axiom, IS Shapley values sum exactly to the prediction: Pj ϕISj (x0) =
+ˆf(x 0)−E[ ˆf]. No observed outcomesyappear in this computation. IS Shapley values
+therefore constitute a precise, internally consistent decomposition of ˆf(x 0), regardless of
+whether that prediction is accurate.
+Out-of-Sample Shapley Values.OOS Shapley values are defined by replacing the model-
+prediction-based coalition valuev IS with an empirical conditional expectation of outcomes
+from the held-out calibration set. For a subsetSof features, the OOS coalition value is the
+weighted mean of calibration outcomes among thekcalibration points nearest tox 0 in the
+S-feature subspace:
+vOOS(S,x 0) =
+P
+i∈NS (x0) wS,i yiP
+i∈NS (x0) wS,i
+(8)
+whereN S(x0) denotes thekcalibration points nearest tox 0 in the subspace of featuresS
+only, andw S,i are Gaussian kernel weights based on theS-subspace distance. The resulting
+OOS Shapley valuesϕ OOS(x0) decompose the locally estimated conditional expectation of
+the outcome, ˆE[y|x 0]−E[y], estimated entirely from held-out data.
+The OOS–IS Shapley Difference as Model Error Attribution.Since both IS and
+OOS Shapley values are computed by the same weighted averaging of marginal coalition
+contributions applied to different coalition value functions, their difference is linear in the
+difference of those functions. By the linearity axiom of Shapley values:
+ϕOOSj (x0)−ϕ ISj (x0) =ϕ jvOOS −v IS(x0) (9)
+In the full-feature case, this difference coalition function evaluates to the local model error
+ˆE[y|x 0]− ˆf(x 0), so the OOS–IS Shapley differences sum to:
+NX
+j=1
+
+ϕOOSj (x0)−ϕ ISj (x0) = ˆE[y|x 0]− ˆf(x 0) (10)
+The individual differencesϕ OOSj −ϕ ISj therefore partition the total local model error across
+input features. Conformal prediction gives the same error as a single scalar boundq(x 0);
+the OOS–IS Shapley difference vector decomposes that same quantity by dimension, with
+each component indicating how much featurejcontributes to the gap between the model’s
+11
+<<PAGE 12>>
+prediction and the data. The sign is informative: a positive difference means featurejpulls
+the data above the model’s prediction; a negative difference means it pulls below. The scalar
+norm∥ϕ OOS(x0)−ϕ IS(x0)∥summarises the total magnitude of the decomposition and should
+correlate withq(x 0) since both measure the same local model error. This correspondence is
+tested empirically in Section 5.
+When ˆfis well-specified and generalises accurately atx 0, the two Shapley vectors agree
+and the error norm is near zero. When the model is misspecified or overfit locally, they
+diverge, and the divergence is simultaneously a reliability warning and a diagnostic of which
+features are driving the model failure.
+OOS Shapley Instability.The OOS Shapley instability is the conformal-weighted vari-
+ance ofϕ OOS vectors acrossMperturbations ofx 0:
+Σw =
+P
+m sm(ϕOOSm − ¯ϕ)(ϕOOSm − ¯ϕ)⊤P
+m sm
+(11)
+wheres m =q(x 0 +δ m) is the conformal score at the perturbed point,ϕ OOSm is the OOS
+Shapley vector at the perturbed point, and ¯ϕis the weighted mean. The OOS Shapley
+instability isS(x 0) = log(tr(Σ w) +ε). In plain terms, this measures how much the feature
+attributions produced by OOS Shapley change when the query point is slightly perturbed,
+with perturbations in higher-uncertainty regions given more weight. A high value indicates
+that the OOS attribution is itself sensitive to small input changes, reinforcing the case for
+not reporting an explanation at that point.
+Table 1 summarises the paired metrics for each framework.
+Table 1: Paired metrics for the local linear and nonlinear frameworks.ϕ IS andϕ OOS denote
+in-sample and out-of-sample Shapley vectors respectively.
+Framework Attribution Forecast Uncertainty Instability / Error
+Local linear ˆβ(x0) LL OOS RMSE OOS Lipschitz; OOS Hessian
+Nonlinearϕ IS(x0) Local conformal errorq(x 0) OOS Shapley instability
+3.4 Framework Convergence
+The local linear and conformal frameworks are two parameterisations of the same family of
+OOS uncertainty estimates. LL OOS is conformal prediction with a local linear surrogate as
+the base predictor. Standard local conformal uses ˆfas the base predictor. Both evaluate
+12
+<<PAGE 13>>
+against the same calibration residuals. Their difference decomposes as:
+|LLOOS(x0)−q(x 0)| ≤[linearisation error]| {z }
+base predictor
++ [aggregation difference]| {z }
+RMSE vs. quantile
+(12)
+The linearisation error is controlled by the ratior/L, whereris the characteristic neigh-
+bourhood radius andLis the characteristic size of a leaf (a terminal node of a piecewise
+linear or tree-based model, within which the model is exactly linear). Models of this type
+are described in Section 5; the present analysis applies whenever the base predictor is piece-
+wise linear. Whenr≪L, the surrogate fits and evaluates within a single leaf where ˆfis
+exactly linear, so linearisation error vanishes. Asr/Lincreases, the surrogate straddles leaf
+boundaries, accumulating error uncorrelated with generalisation quality.
+In the limitr/L→0 (or equivalently, a single-leaf globally linear model), the two meth-
+ods differ only in aggregation. The correlation between them then approaches a ceiling
+determined by the difference between weighted RMSE and weighted quantile as aggregation
+functions over the same residuals.
+3.5 The Primacy of Forecast Uncertainty
+LetU(x 0) denote the OOS forecast uncertainty at query pointx 0,I(x 0) any explanatory in-
+stability measure, andτan application-specific threshold determined by regulatory tolerance
+or decision stakes.
+WhenU(x 0)≥τ, the forecast ˆf(x 0) should not be used in the decision, andI(x 0) is
+irrelevant regardless of its value. WhenU(x 0)< τ, the forecast is reliable andI(x 0) is
+informative.
+This is not a claim thatUandIare always correlated. It is a claim of logical precedence:
+U(x 0)< τis a necessary condition for any explanation of ˆf(x 0) to be meaningful. This
+implies a testable empirical claim: in the region whereU(x 0)< τ, instability measures should
+be stochastically lower than in the region whereU(x 0)≥τ. This is tested in Section 5 using a
+one-sided Mann-Whitney test on the conditional distributions of instability given uncertainty
+region.
+4 Empirical Support
+To evaluate the behaviour of uncertainty and explanatory instability, the methodology is
+applied to several synthetic examples chosen to exhibit regions of high curvature or discon-
+tinuity. A machine learning model is simply a nonlinear mapping of inputs to output, so the
+13
+<<PAGE 14>>
+concepts of uncertainty and explainability can be explored without requiring specific applied
+data sets.
+4.1 Nonlinear Functions for Testing
+Three synthetic functions are used, chosen to represent qualitatively different prediction
+surfaces.
+Wave-like Function.
+y=w 1 tanh(5x1) +w 2e−x22 sin(10x2) +w 3 sin(3x3) cos(2x3) +w 4x4e−0.5x24 +ε(13)
+This function exhibits a steep transition in thex 1 direction and band-limited oscillation in
+x3, presenting a challenging fitting problem for all model types.
+Radial Function.
+y= sin(5∥x∥)1 + 0.5∥x∥2 +ε,∥x∥= qx21 +· · ·+x2N (14)
+Radially symmetric with high curvature near the origin and smooth decay at large radii.
+Tests the ability of models to capture smoothly varying nonlinearity.
+Sigmoid Function.
+y=
+NX
+j=1
+wj
+h
+aj ·σ(b jxj +c j)
+i
++ε, σ(t) = 11 +e −t (15)
+A sum of independent sigmoid transformations producing a separable smooth function that
+all model types can fit accurately with appropriate hyperparameters.
+All features are sampled fromN(0,1). Noise has standard deviation equal to 2% of
+the signal standard deviation and is generated once per function, shared across all model
+types. Train/calibration splits (70%/30%) are fixed once per function. All three model types
+therefore see identical training and calibration observations, making cross-model comparisons
+valid.
+14
+<<PAGE 15>>
+4.2 Piecewise Linear Models
+With any segmented modelling approach the local in-segment structure becomes inaccurate
+at segment boundaries. These transitions create regions where the assumption of local
+linearity fails.
+These concerns apply equally to gradient boosted regression trees [31], ReLU neural net-
+works, and piecewise linear regression trees. A well-trained piecewise linear model places its
+boundaries exactly at the high-curvature regions of the underlying function. Both the non-
+linear model and the piecewise linear model fitted to the same data will exhibit uncertainty
+and instability in the same feature space regions. The purported global explainability of
+piecewise linear models is illusory near those boundaries.
+4.3 Model Types
+Three model types are fitted for each generator.Gradient boosted trees (XGBoost)[32]: a
+piecewise ensemble fitted by stochastic gradient boosting [31], subject to the same boundary
+effects as other tree-based methods and appropriately evaluated in the local linear framework.
+Sigmoid neural network (nnet)[33]: a single hidden layer network with sigmoid activation,
+producing a smooth everywhere-differentiable surface and the appropriate test case for the
+nonlinear framework.Piecewise linear regression tree (lmtree from partykit)[34]: each leaf
+fits a local linear regression, the purest test of the local linear framework. All models are
+tuned by cross-validation. All primary metrics are computed on the held-out calibration set
+using the final tuned model.
+5 Results
+Table 2 summarises the nine experiments with cross-validated RMSE.
+The IS/OOS distinction.IS and OOS local linear RMSE are poorly correlated for
+most experiments (Table 3), withR 2 ranging from 0.001 (Radial/Sigmoid NN) to 0.224
+(Wave/Piecewise Linear). The Hessian IS versus OOS agreement is substantially higher (R 2
+0.56 to 0.90), because both use training data for neighbour search and differ only in pool
+scope. The near-zeroR 2 for Radial/Sigmoid NN is the clearest empirical demonstration that
+IS metrics measure model geometry, not generalisation reliability. The conformal-weighted
+and unweighted OOS Hessian are nearly identical (R 2 0.95 to 0.997), confirming that the
+conformal weighting is theoretically motivated but practically negligible at perturbation scale
+σ= 0.05; the weighted formulation is retained throughout.
+15
+<<PAGE 16>>
+Table 2: Simulation experiments and model fit.
+Generator Model CV RMSE Character
+Wave-like XGBoost 0.085 Oscillatory, moderate curvature
+Wave-like Sigmoid NN 0.042 Well-fit, smooth nonlinear
+Wave-like Piecewise Lin. 0.359 Poorly fit, high boundary count
+Radial XGBoost 0.269 High curvature near origin
+Radial Sigmoid NN 0.302 Smooth, captures curvature
+Radial Piecewise Lin. 0.292 Boundary-heavy, moderate fit
+Sigmoid XGBoost 0.021 Near-perfect fit
+Sigmoid Sigmoid NN 0.009 Near-perfect fit
+Sigmoid Piecewise Lin. 0.021 Near-perfect fit
+Table 3:R 2 for IS versus OOS metric agreement across all nine experiments. Low values
+indicate IS and OOS metrics measure different quantities; high values indicate agreement.
+LL: local linear RMSE. Hessian (unw/wtd): unweighted and conformal-weighted OOS Hes-
+sian.
+Generator Model LL IS/OOS Hessian IS/OOS Hessian unw/wtd
+Wave-like XGBoost 0.189 0.738 0.980
+Wave-like Sigmoid NN 0.187 0.731 0.979
+Wave-like Piecewise Lin. 0.224 0.895 0.993
+Radial XGBoost 0.075 0.775 0.977
+Radial Sigmoid NN 0.001 0.753 0.974
+Radial Piecewise Lin. 0.051 0.893 0.990
+Sigmoid XGBoost 0.020 0.556 0.954
+Sigmoid Sigmoid NN 0.066 0.567 0.950
+Sigmoid Piecewise Lin. 0.050 0.629 0.960
+16
+<<PAGE 17>>
+Radial Sigmoid Wave−like
+Piecewise LinearSigmoid NNXGBoost
+0.0 0.4 0.8 1.2 0.000 0.025 0.050 0.075 0.0 0.4 0.8 1.2
+0.0
+0.3
+0.6
+0.9
+1.2
+0.0
+0.4
+0.8
+0.0
+0.4
+0.8
+1.2
+Local Conformal Error
+||phi^OOS − phi^IS|| (Model Error Norm)
+Model Piecewise Linear Sigmoid NN XGBoost
+Shapley Error Norm vs Conformal Error
+Figure 1: OOS–IS Shapley error norm∥ϕ OOS −ϕ IS∥versus local conformal error for all
+nine experiments (3 generators×3 model types). Each panel plots one experiment; point
+colour indicates model type. The error norm tracks conformal error positively for Radial
+and Wave-like generators, where conformal error spans a wide range, and collapses near zero
+for the Sigmoid generator where all models achieve near-perfect fit.
+17
+<<PAGE 18>>
+Radial Sigmoid Wave−like
+Piecewise LinearSigmoid NNXGBoost
+Low High Low High Low High
+0.0
+0.3
+0.6
+0.9
+1.2
+0.0
+0.3
+0.6
+0.9
+0.0
+0.3
+0.6
+0.9
+1.2
+Uncertainty Region
+Shapley Error Norm ||phi^OOS − phi^IS||
+Region Low High
+Green=low uncertainty (<33th pctile)  Red=high uncertainty (>67th pctile)
+Dominance Analysis: Shapley Error Norm ||phi^OOS − phi^IS||
+Figure 2: Uncertainty primacy test for the OOS–IS Shapley error norm. Green boxes:
+low-uncertainty region (below 33rd percentile of conformal scores). Red boxes: high-
+uncertainty region (above 67th percentile). The error norm is stochastically higher in the
+high-uncertainty region for Radial and Wave-like generators across all three model types,
+including Wave-like/Sigmoid NN where IS instability metrics fail. The Sigmoid generator
+shows negligible separation, consistent with near-perfect model fit throughout the feature
+space.
+18
+<<PAGE 19>>
+Radial Sigmoid Wave−like
+Piecewise LinearSigmoid NNXGBoost
+−20 −15 −10 −5 0 −15 −10 −5 −20 −15 −10 −5 0
+−7
+−5
+−3
+−8
+−6
+−4
+−2
+−8
+−6
+−4
+−2
+Hessian Instability (Weighted)
+OOS Shapley Instability (Weighted)
+Model Piecewise Linear Sigmoid NN XGBoost
+Hessian vs OOS Shapley Instability
+Figure 3: OOS Hessian instability versus OOS Shapley instability for all nine experiments.
+The weak correlation confirms that these are non-redundant measures: Hessian instability
+characterises variability in the local linear approximation to ˆf, while OOS Shapley instability
+characterises variability in empirical conditional expectations ofyfrom the calibration set.
+19
+<<PAGE 20>>
+Primacy of forecast uncertainty: local linear framework.For the Radial generator
+the primacy of forecast uncertainty holds across all model types and instability metrics. Low-
+uncertainty regions have stochastically lower instability than high-uncertainty regions, with
+Mann-Whitney one-sidedp-values at or near zero in all cases. For Radial/Piecewise Linear,
+the median LL OOS RMSE is 0.172 in the low-uncertainty region versus 0.375 in the high-
+uncertainty region; the median Lipschitz OOS is 0.325 versus 1.886; the weighted Hessian
+median is−8.26 versus−4.92 (log scale, so smaller is less unstable). For the Sigmoid
+generator the primacy of forecast uncertainty holds weakly but in the correct direction, as
+all models fit the Sigmoid function well and the conformal uncertainty range is narrow.
+OOS Shapley in the nonlinear framework.The OOS Shapley error norm∥ϕ OOS−ϕIS∥
+shows a strong positive relationship with local conformal error across all nine experiments
+(Figure 1). The relationship is tightest for the Radial and Wave-like generators, where
+conformal error spans a wide range; the Sigmoid generator collapses to a narrow cluster
+near zero as expected, since all model types fit that function accurately andϕ OOS ≈ϕ IS
+throughout. This confirms the theoretical relationship: conformal uncertaintyq(x 0) is the
+scalar bound on local model error, and the OOS–IS Shapley difference vector is the per-
+feature decomposition of that same error.
+The uncertainty primacy test for the error norm (Figure 2) shows clearly separated low-
+uncertainty (green) and high-uncertainty (red) distributions for the Radial and Wave-like
+generators across all three model types, with the high-uncertainty region carrying substan-
+tially larger error norms. This holds even for Wave-like/Sigmoid NN, where IS instability
+metrics fail completely (Mann-Whitneyp≈1.0). The OOS Shapley error norm there-
+fore correctly identifies the high-uncertainty regions of a well-fit smooth nonlinear model as
+genuinely unreliable, a distinction that IS instability measures cannot make, because they
+respond to model curvature rather than generalisation failure.
+The Hessian and Lipschitz instability are strongly correlated across all nine experiments
+(r= 0.60–0.84), as expected since both are linear measures of the same local geometry. The
+Lipschitz measure estimates the worst-case rate of explanation change across perturbations,
+while the Hessian captures the average-case covariance. Within the local linear framework,
+the Lipschitz measure shows stronger correlation with LL OOS RMSE than the Hessian for
+piecewise linear models specifically (Wave/Piecewise, Radial/Piecewise, all three Sigmoid
+experiments), whereas the Hessian correlates more strongly for smooth and ensemble models.
+For piecewise linear models, the dominant instability event is a boundary crossing, which is
+a worst-case rather than an average-case phenomenon, consistent with the Lipschitz measure
+being the more sensitive indicator in that setting.
+20
+<<PAGE 21>>
+The OOS Shapley instability shows a similar but weaker separation between uncertainty
+regions than the error norm. The Hessian and OOS Shapley instability are weakly correlated
+(Figure 3), which is the expected result. Hessian instability is a linear measure, character-
+ising the covariance of local linear coefficient vectors across perturbations of ˆf, while OOS
+Shapley instability is a nonlinear measure, characterising variability in empirical conditional
+expectations ofyfrom the calibration set. The consistently high Hessian-Lipschitz correla-
+tion, combined with the consistently low Hessian-Shapley and Lipschitz-Shapley correlations,
+confirms that the two frameworks characterise different aspects of model behaviour and are
+not interchangeable. In practice, the choice of framework is determined by the model type:
+the local linear framework (OOS Lipschitz, OOS Hessian) is appropriate for piecewise linear
+and tree-based models; the nonlinear framework (conformal uncertainty, OOS Shapley) is
+appropriate for smooth nonlinear models such as sigmoid neural networks. A single deploy-
+ment requires only the framework matching its model type. The convergence experiment
+shows that when a piecewise linear model approaches global linearity, the two frameworks
+agree, so the choice becomes immaterial.
+When IS instability inverts: the Wave-like generator.For the Wave-like generator
+with Sigmoid NN and Piecewise Linear models, IS instability metrics have Mann-Whitney
+p-values at or near 1.0: IS instability is higher in the low-uncertainty region than in the
+high-uncertainty region. The wave-like function has regions of high local curvature (peaks
+and troughs) where a well-fit sigmoid NN bends steeply. The local linear approximation is
+poor there, producing high local linear instability, but the model is accurate. It has learned
+the oscillatory structure correctly and conformal uncertainty is low. In near-zero-curvature
+regions the model is locally linear and IS instability is low, but the noise floor dominates and
+conformal uncertainty is relatively higher. This is the expected behaviour of a well-specified
+smooth nonlinear model, and it is precisely why the OOS Shapley framework is needed.
+Framework convergence.The convergence experiment uses the Radial generator with
+lmtree (maxdepth= 8,alpha.split= 0.2), varying minsize to produce a tree complexity
+grid of 18, 17, 17, 13, 9, 5, and 2 leaves.k conf =k local throughout, so that the only difference
+between the two methods is the base predictor: a local linear surrogate for LL OOS versus
+ˆffor conformal.
+The heatmap (Figure 4) shows a clear monotone increase in the Pearson correlation
+between LL OOS and conformal error as the tree moves from many small leaves toward a
+single globally linear leaf. At 18 leaves (the all-boundaries limit, where nearly every local
+neighbourhood straddles a leaf boundary) the correlation isr= 0.57 (R 2 = 0.33) atk= 10.
+21
+<<PAGE 22>>
+r=0.57
+R2=0.33
+r=0.63
+R2=0.40
+r=0.66
+R2=0.43
+r=0.67
+R2=0.45
+r=0.69
+R2=0.48
+r=0.57
+R2=0.33
+r=0.63
+R2=0.39
+r=0.66
+R2=0.43
+r=0.67
+R2=0.45
+r=0.70
+R2=0.48
+r=0.58
+R2=0.33
+r=0.63
+R2=0.40
+r=0.66
+R2=0.44
+r=0.68
+R2=0.46
+r=0.70
+R2=0.49
+r=0.61
+R2=0.37
+r=0.66
+R2=0.44
+r=0.68
+R2=0.47
+r=0.70
+R2=0.49
+r=0.73
+R2=0.53
+r=0.65
+R2=0.43
+r=0.71
+R2=0.51
+r=0.72
+R2=0.52
+r=0.73
+R2=0.53
+r=0.74
+R2=0.55
+r=0.83
+R2=0.68
+r=0.83
+R2=0.69
+r=0.83
+R2=0.69
+r=0.83
+R2=0.69
+r=0.84
+R2=0.70
+r=0.90
+R2=0.82
+r=0.90
+R2=0.81
+r=0.89
+R2=0.79
+r=0.89
+R2=0.78
+r=0.89
+R2=0.79
+r=0.91
+R2=0.84
+r=0.91
+R2=0.82
+r=0.90
+R2=0.80
+r=0.89
+R2=0.79
+r=0.89
+R2=0.80
+18 leaves
+(ms=5)
+17 leaves
+(ms=20)
+17 leaves
+(ms=10)
+13 leaves
+(ms=50)
+9 leaves
+(ms=100)
+5 leaves
+(ms=200)
+2 leaves
+(ms=600)
+2 leaves
+(ms=400)
+k=10 k=20 k=35 k=50 k=75
+Neighborhood size k  (k.conf = k.local − sensitivity check)
+Tree complexity  (top: many small leaves  −>  bottom: 1 leaf)
+Pearson r
+0.00
+0.25
+0.50
+0.75
+1.00
+Radial generator / lmtree (maxdepth=8, alpha.split=0.2)
+Base predictor is the only difference: local linear surrogate (LL OOS) vs f_hat (conformal)
+Top: many small leaves − nearly all neighborhoods straddle boundaries (r should be LOW)
+Bottom: 1 leaf − f_hat is globally linear (r should be HIGH)
+cor(LL OOS, Conformal Error): k.conf = k.local throughout
+Figure 4: Pearson correlation between LL OOS RMSE and local conformal error as a function
+of tree complexity (rows, top: many small leaves; bottom: 1 leaf) and neighbourhood sizek
+(columns), withk conf =k local throughout. The correlation rises monotonically fromr= 0.57
+at 18 leaves tor= 0.91 at 2 leaves, confirming that the local linear and conformal frameworks
+converge as the model approaches global linearity. The structural break between 9 and 5
+leaves marks the threshold at which local neighbourhoods begin fitting consistently within
+single leaves.
+22
+<<PAGE 23>>
+0.0
+0.5
+1.0
+1.5
+2.0
+0.0 0.4 0.8 1.2
+Conformal Error
+LL OOS RMSE
+minsize=5  leaves=18  k=10  r=0.5744
+Many leaves (18), small k
+Maximum boundary interference (r should be LOW)
+0.0
+0.3
+0.6
+0.9
+0.0 0.4 0.8 1.2
+Conformal Error
+LL OOS RMSE
+minsize=5  leaves=18  k=75  r=0.6924
+Many leaves (18), large k
+0.00
+0.25
+0.50
+0.75
+1.00
+0.00 0.25 0.50 0.75 1.00
+Conformal Error
+LL OOS RMSE
+minsize=600  leaves=2  k=10  r=0.9147
+1 leaf (global linear model), small k
+f_hat IS linear − base predictors identical (r should be HIGH)
+0.0
+0.2
+0.4
+0.6
+0.8
+0.00 0.25 0.50 0.75 1.00
+Conformal Error
+LL OOS RMSE
+minsize=600  leaves=2  k=75  r=0.893
+1 leaf (global linear model), large k
+LL OOS vs Conformal: Extreme Cases (k.conf=k.local, Radial/lmtree, maxdepth=8 alpha.split=0.2)
+Figure 5: LL OOS RMSE versus local conformal error at the four extreme corners of the
+convergence experiment. Top left: many leaves (= 18), smallk= 10 (r= 0.57), maximum
+boundary interference. Top right: many leaves, largek= 75 (r= 0.69), where noise
+reduction partially offsets boundary straddling. Bottom left: 1 leaf, smallk= 10 (r= 0.91),
+globally linear model with base predictors identical. Bottom right: 1 leaf, largek= 75
+(r= 0.89), where aggregation noise from a larger neighbourhood slightly reduces correlation.
+23
+<<PAGE 24>>
+At 2 leaves the correlation reachesr= 0.91 (R 2 = 0.84) atk= 10, falling only slightly to
+r= 0.89 (R 2 = 0.80) atk= 75. The residual gap fromr= 1.0 reflects the difference between
+weighted RMSE and weighted quantile as aggregation functions over the same calibration
+residuals, not any base-predictor disagreement.
+Thekaxis exhibits two distinct behaviours. At the many-leaves end, largerkimproves
+the correlation modestly (0.57 to 0.69 for 18 leaves), because averaging over more calibration
+points reduces estimation noise and outweighs the additional boundary straddling that comes
+with a larger neighbourhood. At the 2-leaf end, increasingkhas almost no effect and
+produces a slight decline (0.91 to 0.89 for minsize = 600), because at that point the base-
+predictor difference is the sole driver and both methods are averaging over essentially the
+same linear region regardless ofk. The most important finding is the structural break
+between 9 leaves (r= 0.65–0.74) and 5 leaves (r= 0.83–0.84): this is the threshold at which
+neighbourhoods begin consistently fitting within single leaves, and the local linear surrogate
+becomes an accurate proxy for ˆf.
+6 Theoretical Results
+The preceding empirical results revealed some dominant patterns. This section derives these
+approximate relationships from first principles.
+6.1 OOS Hessian Instability and OOS Local Linear RMSE
+The log-linear relationship between Hessian instability and local linear forecast uncertainty,
+observed in Section 5, can be derived from first principles when both quantities are evaluated
+out-of-sample.
+The OOS local linear RMSE LL OOS(x0) is defined above. Its squareσ 2OOS ≈LL 2OOS
+captures genuine generalisation error. It is large where the model fails to predict held-out
+outcomes and small where it succeeds.
+At each of theMperturbed pointsx 0 +δ m, treating the calibration residuals as the error
+process with varianceσ 2OOS, the sampling covariance of the local coefficient vector ˆβm is:
+Cov(ˆβm) =σ 2OOS (Z⊤mWmZm)−1 (16)
+whereZ m andW m are the neighbour coordinate and weight matrices at the perturbed point.
+Taking the trace and averaging across perturbations:
+tr(Σβ)∝σ 2OOS tr(Z⊤WZ)−1 = LL2OOS ·C(x 0) (17)
+24
+<<PAGE 25>>
+whereC(x 0) = tr[(Z⊤WZ)−1] is a local geometry factor that varies slowly when the neigh-
+bourhood is approximately isotropic. Therefore:
+HOOS(x0) = log
+ 
+tr(Σβ)
+
+≈2 log
+ 
+LLOOS(x0)
+
++ logC(x 0) (18)
+predicting a log-linear relationship between OOS Hessian instability and OOS local linear
+RMSE, with slope approximately 2 and an additive geometry term. This is exactly the
+functional formy=α+βlog(x) observed in the simulation results, here derived from the
+OOS error process. The derivation holds whenever the local linear surrogate is a reasonable
+approximation to ˆfin the neighbourhood, which is the defining condition of the local linear
+framework.
+In plain terms, the derivation shows that explanation instability and forecast uncertainty
+are not two separate things that happen to correlate: they are both consequences of the same
+quantity, the error variance of the local linear surrogate on held-out data. When the model
+generalises well nearx 0, that variance is small, the local linear coefficients are stable, and the
+explanation is trustworthy. When generalisation fails, the variance is large, the coefficients
+are unstable, and the explanation is not. The log-linear relationship between the two is not
+an empirical coincidence but a mathematical identity.
+The OOS Lipschitz measure, as a worst-case rather than average-case quantity, does
+not admit this precise derivation: it is determined by a single extremal perturbation rather
+than by the covariance of the full distribution. Nevertheless, because it characterises the
+same local geometry as the Hessian from a worst-case perspective, it shows an approximate
+empirical relationship to OOS local linear RMSE across the simulation experiments. The
+relationship is strongest for piecewise linear models, where boundary crossings are the domi-
+nant perturbation event and the worst-case Lipschitz measure captures those crossings more
+directly than the average-case Hessian.
+6.2 The Necessity of Out-of-Sample Shapley Values
+Standard IS Shapley values satisfy the efficiency axiom: Pj ϕISj (x0) = ˆf(x 0)−E[ ˆf]. If ˆf(x 0)
+is a poor estimate ofE[y|x 0], then IS Shapley values are a precise and internally consistent
+decomposition of an unreliable number. No property of Shapley values prevents a model
+from being stably and coherently wrong. Low IS Shapley instability and high conformal
+error can coexist, and in such cases the IS attribution is misleading regardless of its stability.
+OOS Shapley values resolve this by replacing ˆfwith empirical conditional expectations
+ofyfrom the calibration set, as defined in Section 3.3. The key theoretical result, proved
+using the linearity axiom of Shapley values, is that the OOS–IS difference vectorϕ OOS −
+25
+<<PAGE 26>>
+ϕIS constitutes a feature-level attribution of the local model error ˆE[y|x 0]− ˆf(x 0), with
+individual components identifying which features are responsible for the discrepancy between
+prediction and data.
+Conformal uncertaintyq(x 0) and the OOS–IS Shapley difference vector are therefore two
+views of the same quantity:q(x 0) is the scalar bound on local model error, andϕ OOS −
+ϕIS is its per-feature decomposition, partitioning that error across input dimensions with
+the signs indicating the direction of each feature’s contribution. In production, conformal
+uncertainty alone is sufficient to determine whether a forecast should be issued: whenq(x0)<
+τ, the forecast is reliable and IS Shapley attributions are trustworthy; whenq(x 0)≥τ, no
+forecast is issued and no explanation is needed. OOS Shapley values are not required in this
+decision loop. Their value is as a model development and monitoring tool: the feature-level
+decomposition of model error identifies which inputs are responsible for unreliability in a
+given region, guiding data collection, feature engineering, or model respecification.
+7 Fallback and Safe Decision-Making at High-Uncertainty
+Regions
+Rather than focusing on explanatory stability, deployment systems must incorporate forecast
+uncertainty into the decision logic. When forecast uncertainty is too high, the primary
+concern should be obtaining a usable decision, not explaining a weak decision.
+Nonlinear machine learning models cannot be expected to provide usable forecasts through-
+out the feature space. When uncertainty crosses a predefined acceptance thresholdτ, a fall-
+back model should be employed. This necessarily means that all machine learning models
+should be evaluated systematically across the feature space to identify unpredictable regions.
+The fallback will most often be a simpler linear model, such as logistic regression. Such
+models are unlikely to have predictability gaps, though they will tend to be less predictive
+than a machine learning model in regions where the machine learning model performs well.
+The thresholdτshould be set according to acceptable business risk and may be a function of
+the forecast value: a large uncertainty at low credit default risk may be irrelevant, whereas
+the same uncertainty at high default risk could be consequential.
+In practice,τwill often need to be asymmetric with respect to the decision outcome. In
+lending, for example, regulatory frameworks impose stricter requirements on adverse actions
+than on approvals. Denying credit requires a defensible explanation, which in turn requires
+a reliable forecast. A deployment system might therefore apply a tighter threshold when the
+forecast would trigger a denial than when it would support an approval. The production
+26
+<<PAGE 27>>
+decision workflow is therefore: compute OOS forecast uncertainty at the query point; if
+q(x0)< τ, issue the forecast and report IS Shapley attributions; ifq(x 0)≥τ, do not issue
+the forecast, invoke the fallback model, and verify that the fallback model’s own uncertainty
+at that point is acceptable. OOS Shapley values play no role in this loop. They are a model
+development and monitoring tool: by identifying which features account for the gap between
+prediction and data in high-uncertainty regions, the OOS–IS Shapley error norm informs
+whether additional data collection, feature engineering, or model respecification could extend
+the model’s reliable operating region. The fallback model should be maintained in active
+operation, not as a dormant backup, since a model that has not been monitored against
+current data cannot be trusted when it is suddenly needed.
+8 Conclusions
+Realizing that machine learning models are powerful because they can identify pockets of
+predictability, logically implies many of the findings in this paper. A model with high pre-
+dictability regions consequently has regions of low predictability, and a low certainty forecast
+should not be used, regardless of whether it can be explained. The observed instability of
+explanations in some regions is shown to be a symptom of the forecast failure there, not
+an independent problem to be solved. Previous work has connected uncertainty and ex-
+plainability empirically but has not made this logical priority explicit, nor the implication
+for decision-making. Making the forecast uncertainty primacy explicit changes the correct
+sequence of operations: compute OOS forecast uncertainty first, treat it as a necessary condi-
+tion for issuing any forecast, and interrogate explanatory stability only where that condition
+is satisfied.
+This paper provides the theoretical and empirical machinery to act on that principle.
+For locally linear models it is shown, via weighted least squares covariance propagation,
+that OOS Hessian instability is log-linearly related to OOS local linear RMSE, representing
+two measurements of the same underlying generalisation failure rather than two indepen-
+dent quantities. For smooth nonlinear models, out-of-sample Shapley values are introduced,
+replacing the model-prediction-based coalition values of standard SHAP with empirical con-
+ditional expectations of outcomes from a held-out calibration set. The differenceϕ OOS −ϕ IS
+is a feature-level attribution of local model error, identifying not only that the model is
+wrong at a given point but which features are responsible, with conformal uncertainty as the
+scalar summary of that divergence. A controlled convergence experiment established that
+the local linear framework is a special case of the conformal framework, with the ratio of
+neighbourhood radius to leaf size as the governing parameter.
+27
+<<PAGE 28>>
+The simulation results confirm that in every well-specified case, forecast uncertainty sub-
+sumes explanatory instability. The one apparent failure mode (a well-fit smooth nonlinear
+model that has genuinely learned high-curvature structure) resolves on inspection. In-sample
+instability metrics flag model complexity rather than generalisation failure, while OOS met-
+rics correctly identify those regions as reliable. That distinction is a clear illustration of the
+principle in action.
+For practitioners in regulated industries, the recommendation is direct: before reporting
+any explanation, verify that the model produces a reliable forecast at that point. Conformal
+uncertainty is the production gatekeeper: where it is below the acceptance threshold, issue
+the forecast and report IS Shapley attributions; where it exceeds the threshold, do not
+issue the forecast and no explanation is needed. OOS Shapley values are a development and
+monitoring tool, not a production requirement: they identify which features drive model error
+in unreliable regions, supporting ongoing model improvement. Piecewise linear models, often
+deployed for their purported transparency, offer no exemption. Near segment boundaries they
+exhibit the same forecast uncertainty and explanatory instability as any nonlinear model,
+and for the same reason.
+Disclosure of Interest
+The author reports no competing interests.
+Declaration of Funding
+No funding was received for this research.
+References
+[1] J. L. Breeden, A survey of machine learning in credit risk, Journal of Credit Risk 17 (3)
+(2021).doi:10.21314/JCR.2021.008.
+[2] M. T. Ribeiro, S. Singh, C. Guestrin, Why should i trust you?” explaining the pre-
+dictions of any classifier, in: Proceedings of the 22nd ACM SIGKDD international
+conference on knowledge discovery and data mining, 2016, pp. 1135–1144.doi:
+10.1145/2939672.2939778.
+[3] Z. C. Lipton, The mythos of model interpretability, Queue 16 (3) (2018) 31–57.doi:
+10.1145/3236386.3241340.
+28
+<<PAGE 29>>
+[4] R. Caruana, Y. Lou, J. Gehrke, P. Koch, M. Sturm, N. Elhadad, Intelligible models for
+healthcare: Predicting pneumonia risk and hospital 30-day readmission, in: Proceedings
+of the 21th ACM SIGKDD international conference on knowledge discovery and data
+mining, 2015, pp. 1721–1730.doi:10.1145/2783258.2788613.
+[5] H. Nori, S. Jenkins, P. Koch, R. Caruana, Interpretml: A unified framework for ma-
+chine learning interpretability, arXiv preprint arXiv:1909.09223 (2019).doi:10.48550/
+arXiv.1909.09223.
+[6] C. Rudin, Stop explaining black box machine learning models for high stakes decisions
+and use interpretable models instead, Nature Machine Intelligence 1 (5) (2019) 206–215.
+doi:10.1038/s42256-019-0048-x.
+[7] A. Sudjianto, W. Knauth, R. Singh, Z. Yang, A. Zhang, Unwrapping the black box of
+deep ReLU networks: Interpretability, diagnostics, and simplification, arXiv preprint
+arXiv:2011.04041Includes case study in home lending credit risk assessment (2020).
+doi:10.48550/arXiv.2011.04041.
+[8] J. Gawlikowski, C. R. N. Tassi, M. Ali, J. Lee, M. Humt, J. Feng, A. Kruspe, R. Triebel,
+P. Jung, R. Roscher, et al., A survey of uncertainty in deep neural networks, Artificial In-
+telligence Review 56 (Suppl 1) (2023) 1513–1589.doi:10.1007/s10462-023-10562-9.
+[9] P. Pernot, Calibration in machine learning uncertainty quantification: beyond con-
+sistency to target adaptivity, APL Machine Learning 1 (4) (2023).doi:10.1063/5.
+0174943.
+[10] E. H¨ ullermeier, W. Waegeman, Aleatoric and epistemic uncertainty in machine learning:
+an introduction to concepts and methods, Machine Learning 110 (3) (2021) 457–506.
+doi:10.1007/s10994-021-05946-3.
+[11] B. Lakshminarayanan, A. Pritzel, C. Blundell, Simple and scalable predictive uncer-
+tainty estimation using deep ensembles, in: Advances in Neural Information Processing
+Systems (NeurIPS 2017), 2017, pp. 6402–6413.doi:10.48550/arXiv.1612.01474.
+[12] V. Vovk, A. Gammerman, G. Shafer, Algorithmic Learning in a Random World,
+Springer, 2022, iSBN: 978-3-031-06651-1.
+[13] C. M. Bishop, Bayesian neural networks, Journal of the Brazilian Computer Society
+4 (1) (1997) 61–68.doi:10.1590/S0104-65001997000200006.
+29
+<<PAGE 30>>
+[14] R. M. Neal, Bayesian Learning for Neural Networks, Springer Science & Business Media,
+2012, iSBN: 978-1-4612-0745-0.
+[15] E. Goan, C. Fookes, Bayesian neural networks: An introduction and survey, in:
+K. Mengersen, P. Pudlo, C. P. Robert (Eds.), Case Studies in Applied Bayesian Data
+Science, Vol. 2259 of Lecture Notes in Mathematics, Springer, Cham, 2020, pp. 45–87.
+doi:10.1007/978-3-030-42553-1_3.
+[16] Y. Gal, Z. Ghahramani, Dropout as a bayesian approximation: Representing model
+uncertainty in deep learning, in: Proceedings of the 33rd International Conference on
+Machine Learning, PMLR, 2016, pp. 1050–1059.doi:10.48550/arXiv.1506.02142.
+[17] R. Koenker, G. Bassett Jr, Regression quantiles, Econometrica 46 (1) (1978) 33–50.
+doi:10.2307/1913643.
+[18] L. Guan, Localized conformal prediction: A generalized inference framework for confor-
+mal prediction, Biometrika 110 (1) (2023) 33–50.doi:10.1093/biomet/asac040.
+[19] A. Fisher, C. Rudin, F. Dominici, All models are wrong, but many are useful: Learning
+a variable’s importance by studying an entire class of prediction models simultaneously,
+Journal of Machine Learning Research 20 (177) (2019) 1–81.doi:10.48550/arXiv.
+1801.01489.
+[20] S. M. Lundberg, S.-I. Lee, A unified approach to interpreting model predic-
+tions, Advances in Neural Information Processing Systems (NeurIPS) (2017).
+doi:10.48550/arXiv.1705.07874.
+URLhttps://proceedings.neurips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.
+pdf
+[21] M. Sundararajan, A. Taly, Q. Yan, Axiomatic attribution for deep networks, in: Pro-
+ceedings of the 34th International Conference on Machine Learning (ICML), 2017, pp.
+3319–3328.doi:10.48550/arXiv.1703.01365.
+[22] D. Alvarez-Melis, T. S. Jaakkola, On the robustness of interpretability methods, arXiv
+preprint arXiv:1806.08049 (2018).doi:10.48550/arXiv.1806.08049.
+[23] J. Adebayo, J. Gilmer, M. Muelly, I. Goodfellow, M. Hardt, B. Kim, Sanity checks
+for saliency maps, in: Advances in Neural Information Processing Systems (NeurIPS),
+2018.doi:10.48550/arXiv.1810.03292.
+30
+<<PAGE 31>>
+[24] D. Slack, S. Hilgard, E. Jia, S. Singh, H. Lakkaraju, Fooling LIME and SHAP: Adversar-
+ial attacks on post hoc explanation methods, in: Proceedings of the AAAI/ACM Con-
+ference on AI, Ethics, and Society (AIES), 2020, pp. 180–186.doi:10.1145/3375627.
+3375830.
+[25] A. S. Ross, F. Doshi-Velez, Improving the adversarial robustness and interpretability
+of deep neural networks by regularizing their input gradients, in: AAAI, 2018.doi:
+10.48550/arXiv.1711.09404.
+[26] M. Cisse, P. Bojanowski, E. Grave, Y. Dauphin, N. Usunier, Parseval networks: Im-
+proving robustness to adversarial examples, in: ICML, 2017.doi:10.48550/arXiv.
+1704.08847.
+[27] C.-K. Yeh, C.-Y. Hsieh, A. S. Suggala, D. I. Inouye, P. Ravikumar, On the (In)fidelity
+and sensitivity of explanations, in: Advances in Neural Information Processing Systems
+(NeurIPS), Vol. 32, 2019, pp. 10965–10976.doi:10.48550/arXiv.1901.09392.
+[28] D. Slack, S. Hilgard, S. Singh, H. Lakkaraju, Reliable post hoc explanations: Modeling
+uncertainty in explainability, in: Advances in Neural Information Processing Systems
+(NeurIPS), 2021.doi:10.48550/arXiv.2008.05030.
+[29] A. Thuy, D. F. Benoit, Explainability through uncertainty: Trustworthy decision-
+making with neural networks, European Journal of Operational Research 317 (2) (2024)
+330–340.doi:10.1016/j.ejor.2023.09.009.
+[30] T. Hastie, R. Tibshirani, J. Friedman, The Elements of Statistical Learning: Data
+Mining, Inference, and Prediction, 2nd Edition, Springer Series in Statistics, Springer,
+New York, 2009, iSBN: 978-0-387-84857-7.
+[31] J. H. Friedman, Stochastic gradient boosting, Computational statistics & data analysis
+38 (4) (2002) 367–378.doi:10.1016/S0167-9473(01)00065-2.
+[32] T. Chen, C. Guestrin, Xgboost: A scalable tree boosting system, in: Proceedings of
+the 22nd acm sigkdd international conference on knowledge discovery and data mining,
+2016, pp. 785–794.doi:10.1145/2939672.2939785.
+[33] B. D. Ripley, Pattern Recognition and Neural Networks, Cambridge University Press,
+Cambridge, 1996, iSBN: 978-0-521-46086-6.
+[34] A. Zeileis, T. Hothorn, K. Hornik, Model-based recursive partitioning, Journal of
+Computational and Graphical Statistics 17 (2) (2008) 492–514.doi:10.1198/
+106186008X319331.
+31

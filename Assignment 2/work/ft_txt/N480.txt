@@ -1,0 +1,1541 @@
+<<PAGE 1>>
+© 2026, IJCSE All Rights Reserved                                                                                                                                             34 
+ 
+International Journal of Computer Sciences and Engineering  
+Vol.14, Issue 5, pp.34-46, May 2026  
+ISSN: 2347-2693 (Online) 
+Available online at: www.ijcseonline.org                         
+ 
+Research Article  
+Explainable Machine Learning for ICU Mortality Prediction: Comparing 
+SHAP, LIME and Anchors on MIMIC-IV 
+Brahmaleen Kaur Sidhu1  
+ 
+1Dept. of Computer Science and Engineering, Punjabi University, Patiala, India  
+ 
+*Corresponding Author: ✉  
+ 
+Received: 07/May/2026; Accepted: 11/May/2026; Published: 31/May/2026. DOI: https://doi.org/10.26438/ijcse.v14i5.7396 
+ 
+Copyright © 2026 by author(s). This is an Open Access article distributed under the terms of the Creative Commons Attribution 4.0 International License 
+which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited & its authors credited. 
+ 
+Abstract— Mortality prediction in the intensive care unit represents a high-stakes clinical task in which machine learning models 
+have demonstrated substantial predictive advantages over conventional severity scoring systems. However, the opacity of high -
+performing gradient boosting models impedes clinical adoption, undermines regulatory compliance, and limits the actionability 
+of risk predictions. This paper presents a rigorous technical investigation of three post -hoc explanation methods —TreeSHAP, 
+ensemble LIME, a nd Anchors —implemented and systematically compared on XGBoost and LightGBM mortality prediction 
+models trained on the MIMIC-IV critical care database, encompassing 48,372 ICU admissions and 64 clinical features. A multi -
+criteria evaluation framework assessing faithfulness, stability, and comprehensibility is developed and applied, with quantitative 
+metrics including the Area Over the Perturbation Curve, Lipschitz continuity estimation, and explanation entropy. Experimenta l 
+results demonstrate that TreeSHAP achieves superior faithfulness (AOPC: 0.276) and stability (Lipschitz estimate: 0.312) whilst 
+generating explanations in 4 milliseconds per instance, supporting real -time clinical deployment. Anchors produce the most 
+comprehensible explanations through compact if-then rules but exhibit lower faithfulness and limited patient coverage. Ensemble 
+LIME occupies an intermediate position across all dimensions. These findings provide evidence -based guidance for explanation 
+method selection in clinical AI deployment  contexts subject to the transparency obligations of the EU Artificial Intelligence Act 
+and GDPR Article 22. 
+ 
+Keywords— Clinical decision support, Explainable artificial intelligence, ICU mortality prediction, Machine learning, MIMIC -
+IV 
+ 
+ 
+Graphical Abstract- 
+ 
+1. Introduction  
+ 
+The intensive care unit (ICU) represents one of the most 
+clinically complex and resource -intensive environments in 
+modern medicine, where timely and accurate mortality risk 
+stratification is essential for informing treatment escalation, 
+resource allocation , and goals -of-care decisions [1]. 
+Conventional severity -of-illness scoring systems, including 
+APACHE II [2], SOFA [3], and SAPS II [4], have long 
+provided the clinical standard for ICU prognostication. 
+However, these hand -crafted scores are constrained by  their 
+reliance on a limited number of pre -selected variables, their 
+assumption of linear predictor-outcome relationships, and their 
+inability to exploit the full breadth of longitudinal data 
+captured in contemporary electronic health record (EHR) 
+systems [5]. 
+ 
+The availability of large -scale critical care databases, most 
+notably the Medical Information Mart for Intensive Care 
+version IV (MIMIC -IV) [6], has enabled the application of 
+
+<<PAGE 2>>
+International Journal of Computer Sciences and Engineering                                                                           Vol.14(5), May 2026 
+© 2026, IJCSE All Rights Reserved                                                                                                                                             35 
+machine learning (ML) methods that substantially outperform 
+conventional severity scores in mortality prediction tasks. 
+Gradient boosting algorithms and deep neural networks have 
+achieved area under the receiver operating characteristic curve 
+(AUROC) values consistently exceeding 0.85 across multiple 
+prediction horizons on MIMIC -derived cohorts [7], [8]. 
+Despite these predictive gains, the clinical translation of ML -
+based prognostic systems has been significantly impeded by 
+the fundamental opacity of high -performing models [9]. 
+Clinicians who cannot understand the reasoning underlying a 
+mortality risk prediction are rationally reluctant to act upon it, 
+particularly when model outputs conflict with clinical intuition 
+or when patients present atypically relati ve to training 
+populations [10]. Furthermore, a mortality risk score without 
+an accompanying explanation of its driving features offers 
+limited actionable guidance for therapeutic intervention which 
+is a critical deficiency in a setting where understanding  the 
+modifiable determinants of predicted risk is of direct clinical 
+consequence [11]. 
+ 
+The imperative for explainability in clinical AI has been 
+reinforced by an increasingly stringent regulatory landscape. 
+The European Union's General Data Protection Regulation 
+(GDPR) [12] confers rights upon individuals subject to 
+automated decisions with significant effects, including a right 
+to meaningful explanation. The EU Artificial Intelligence Act 
+[13], adopted in 2024, classifies clinical decision support 
+systems as high -risk AI applications subject to mandatory 
+transparency and human oversight obli gations. In the United 
+Kingdom, the Medicines and Healthcare products Regulatory 
+Agency (MHRA) [14] and the National Institute for Health and 
+Care Excellence (NICE) [15] have both emphasised 
+explainability as a prerequisite for the safe deployment of AI -
+based medical devices. These regulatory developments 
+establish explainability not merely as a scientific desideratum 
+but as a legal and governance requirement. 
+ 
+The field of Explainable Artificial Intelligence (XAI) has 
+produced a diverse portfolio of post -hoc explanation methods 
+designed to illuminate the predictive logic of opaque ML 
+models [16]. Among the most widely adopted in the clinical 
+ML literature are SHapley Additive exPlanations (SHAP) [17], 
+Local Interpretable Model -Agnostic Explanations (LIME) 
+[18], and Anchor explanations [19] —three methodologically 
+distinct frameworks operationalising fundamentally different 
+conceptions of meaningful explanation. SH AP grounds 
+explanation in cooperative game theory, computing Shapley 
+values that quantify each feature's marginal contribution to a 
+prediction with guarantees of local accuracy, consistency, and 
+missingness [20]. The TreeSHAP variant [21] enables exact 
+and computationally efficient Shapley value computation for 
+tree-based models, making SHAP particularly well -suited to 
+tabular EHR data. LIME fits a locally weighted linear 
+surrogate model to the neighbourhood of the instance being 
+explained, generating featu re importance coefficients 
+interpretable as linear approximations of the local decision 
+boundary [18]. Anchors depart from additive attribution and 
+linear approximation, instead generating if -then rule -based 
+explanations identifying a sufficient set of fea ture conditions 
+under which a prediction remains stable with high probability 
+[19], a form particularly aligned with rule -based clinical 
+reasoning. 
+ 
+Despite the growing body of clinical ML literature, a 
+systematic, head -to-head comparison of SHAP, LIME, and 
+Anchors implemented on a large -scale, contemporary critical 
+care dataset with rigorous multi-criteria quantitative evaluation 
+remains notably absent [22]. Existing comparative studies have 
+tended to focus on a single evaluation criterion applied to small 
+or proprietary datasets that do not permit reproducible 
+benchmarking [23]. Furthermore, prior work has rarely 
+examined the clinical alignment of generated explanations, the 
+degree to which explanation outputs correspond to 
+physiological variables recognised by clinical experts as 
+genuinely prognostic in critical illness , nor systematically 
+investigated explanation stability across similar patient 
+presentations, a property of considerable practical importance 
+in time-pressured ICU environments [24]. 
+ 
+The present paper addresses these gaps through  two specific 
+contributions. First, it presents complete, reproducible 
+implementations of SHAP ( TreeSHAP), LIME, and Anchors 
+applied to XGBoost and LightGBM mortality prediction 
+models trained on MIMIC -IV, encompassing over 500,000 
+hospital admissions [6]. Second, it develops and applies a 
+multi-criteria quantitative evaluation framework assessing 
+explanation faithfulness (Area Over the Perturbation Curve, 
+AOPC), stability (Lipschitz continuity estimation), and 
+comprehensibility (explanation complexity metrics). 
+ 
+2. Related Work  
+ 
+2.1 Machine Learning for ICU Mortality Prediction 
+The application of ML to ICU mortality prediction has 
+advanced considerably over the past decade, with gradient 
+boosting methods and deep learning architectures consistently 
+outperforming conventional severity scores across diverse 
+critical care population s. Rajkomar et al. [25] demonstrated 
+that deep learning models trained on longitudinal EHR data 
+achieved AUROC values of 0.93 for in -hospital mortality 
+prediction across two large academic medical centres, 
+substantially exceeding APACHE and SOFA baseline 
+performance. Subsequent work by Moor et al. [26] established 
+that temporal convolutional networks applied to irregularly 
+sampled physiological time series achieved competitive 
+performance on MIMIC -III benchmarks whilst exhibiting 
+superior calibration relati ve to recurrent architectures —a 
+property of considerable clinical importance given that well -
+calibrated risk estimates are prerequisite for meaningful 
+clinical interpretation. 
+ 
+Gradient boosting frameworks have emerged as the dominant 
+modelling paradigm for tabular EHR data, owing to their 
+superior handling of missing values, robustness to feature 
+scaling, and compatibility with post-hoc explanation methods. 
+Conducted a systematic comparison of random forest, 
+XGBoost, logistic regression, and artificial neural network 
+models for ICU mortality prediction on the MIMIC -III 
+database, finding that XGBoost achieved the highest AUROC 
+(0.874) whilst exhibiting substant ially lower computational 
+<<PAGE 3>>
+International Journal of Computer Sciences and Engineering                                                                           Vol.14(5), May 2026 
+© 2026, IJCSE All Rights Reserved                                                                                                                                             36 
+training cost than neural alternatives  [27]. More recently, 
+evaluated LightGBM against deep learning baselines on 
+MIMIC-IV, reporting that LightGBM achieved AUROC 0.881 
+for 24 -hour mortality prediction with significantly reduced 
+hyperparameter sensitivity —a practically important finding 
+for clinical deployment cont exts where model maintenance 
+resources are constrained [28]. 
+ 
+A notable limitation across the ICU mortality prediction 
+literature concerns the generalisation of models trained on 
+single-centre datasets to external clinical environments. 
+Demonstrated substantial performance degradation when 
+MIMIC-III trained models were evaluated on data from a 
+geographically distinct ICU, attributing the decline to 
+distributional shift in both patient demographics and clinical 
+coding practices [29]. This finding underscores the importance 
+of developing explanation frameworks capable of identifying 
+the specific feature distributions driving predictions, enabling 
+clinicians to assess the plausibility of model outputs in light of 
+local patient population characteristics. 
+ 
+2.2 Post-Hoc Explainability Methods in Clinical ML 
+SHAP in Healthcare Applications 
+SHAP has achieved widespread adoption in clinical ML owing 
+to its theoretical grounding in cooperative game theory and its 
+provision of consistent, locally accurate feature attributions . 
+Demonstrated the clinical utility of TreeSHAP in a landmark 
+study identifying previously unrecognised interaction effects 
+between blood oxygen saturation and respiratory rate in sepsis 
+mortality prediction —a finding that subsequently informed 
+clinical guide line revision  [20]. Applied SHAP to early 
+warning score models trained on Danish hospital EHR data, 
+demonstrating that SHAP -generated feature attributions 
+aligned closely with clinician judgement regarding the most 
+prognostically significant physiological parameters, with 
+lactate, mean arterial pressure, and Glasgow Coma Scale 
+identified as consistently dominant contributors across patient 
+subgroups [30]. 
+ 
+Notably, examined the faithfulness of SHAP explanations in 
+clinical settings under conditions of feature correlation —a 
+pervasive characteristic of physiological EHR data —finding 
+that correlated features can produce misleading attribution 
+distributions in which clin ical relevance is arbitrarily 
+partitioned among collinear predictors  [31]. This finding has 
+significant implications for ICU mortality prediction contexts, 
+where variables such as lactate, base excess, and bicarbonate 
+exhibit strong physiological correlations, and motivates the 
+inclusion of SHAP interaction value analysis as a 
+complementary explanation tool. 
+ 
+LIME in Healthcare Applications 
+LIME has been applied across a range of clinical prediction 
+tasks, though its adoption in critical care settings has been 
+tempered by concerns regarding explanation instability. 
+Shankaranarayana and Runje [32] applied LIME to mortality 
+prediction models trained on the eICU database, reporting that 
+whilst LIME -generated explanations were rated as clinically 
+plausible by intensivists in 68% of cases, repeated application 
+of LIME to identical patient instances produced substantially 
+different feature rankings in 31% of cases —a instability rate 
+considered clinically unacceptable in time -sensitive decision 
+contexts. Further demonstrated that LIME explanations are 
+susceptible to adversarial manipulation, wherein a classifier 
+can be constructed to exhibit discriminatory behaviour whilst 
+producing innocuous LIME explanations —a finding with 
+direct implications for the use of LIME in regulatory 
+compliance contexts [33]. 
+ 
+Anchors in Healthcare Applications 
+Anchors have received comparatively limited evaluation in 
+clinical ML contexts relative to SHAP and LIME, representing 
+a gap that the present study directly addresses. Rabold et al. 
+[34] applied Anchor explanations to a diabetes readmission 
+prediction model, finding that clinicians rated anchor rules as 
+significantly more comprehensible than SHAP waterfall plots 
+(mean Likert score 4.1 vs. 3.2, p < 0.05), though with 
+substantially lower explanation coverage (mean 0.31), 
+indicating that anchor rules applied t o fewer than one-third of 
+patient instances. This coverage limitation is particularly 
+consequential in ICU settings characterised by high patient 
+heterogeneity, where a low -coverage explanation system 
+would leave the majority of clinical predictions unexplained. 
+ 
+Comparative Evaluation of XAI Methods in Clinical 
+Contexts 
+Comparative evaluation of multiple XAI methods within a 
+single clinical study remains relatively uncommon, with most 
+published work evaluating a single explanation method in 
+isolation. Conducted a systematic review of 62 XAI studies 
+using real-world EHR data, finding that SHAP was the most 
+frequently employed method (47% of studies), followed by 
+LIME (23%), with rule -based methods including Anchors 
+representing only 8% of studies  [23]. Crucially, only 11% of 
+reviewed studies employed more than one explanation method, 
+and fewer than 5% conducted formal comparative evaluation 
+using quantitative explanation quality metrics. 
+ 
+Among the comparative studies that do exist, [35] provided an 
+important theoretical and empirical analysis of explanation 
+robustness, introducing the concept of self -explicitness and 
+demonstrating that SHAP consistently outperforms LIME on 
+stability metrics across multiple tabular datasets. [36] 
+examined organisational practices surrounding XAI 
+deployment in industry, finding that explanation method 
+selection was rarely driven by empirical comparative 
+evaluation but rather by familiarity and implementation 
+convenience—a finding that motivates the rigorous, evidence-
+based comparison undertaken in the present study. Most 
+recently, benchmarked SHAP, LIME, and several additional 
+explanation methods on clinical tabular datasets, reporting that 
+SHAP achieved superior faithfulness whilst LIME exhibited 
+higher computational efficiency —a trade -off with direct 
+practical relevance for real -time ICU monitoring applications  
+[37]. 
+ 
+Evaluation Frameworks for Clinical XAI 
+The absence of standardised evaluation frameworks for 
+clinical XAI has been widely identified as a critical barrier to 
+the systematic advancement of the field [22]. Doshi-Velez and 
+<<PAGE 4>>
+International Journal of Computer Sciences and Engineering                                                                           Vol.14(5), May 2026 
+© 2026, IJCSE All Rights Reserved                                                                                                                                             37 
+Kim [9] provided an influential tripartite taxonomy of XAI 
+evaluation approaches distinguishing application -grounded 
+evaluation (assessment by domain experts in realistic task 
+contexts), human -grounded evaluation (simplified human 
+subject studies), and fun ctionally grounded evaluation (proxy 
+metrics requiring no human subjects). [38] proposed the 
+RemOve And Retrain (ROAR) benchmark as a functionally 
+grounded faithfulness metric, demonstrating that commonly 
+used gradient-based explanation methods performed poorly on 
+this criterion despite producing visually plausible saliency 
+maps—a cautionary finding applicable to feature attribution 
+methods in clinical contexts. 
+ 
+Conducted a comprehensive analysis of explainability 
+requirements specific to clinical AI, identifying six dimensions 
+of explanation quality relevant to healthcare: 
+comprehensibility, fidelity, accuracy, scalability, 
+generalisability, and causal interpretab ility. Their analysis 
+emphasised that clinical explanation requirements differ 
+systematically from general XAI requirements, with clinicians 
+placing greater emphasis on causal plausibility and 
+actionability than on mathematical faithfulness properties [39]. 
+[40] raised a particularly sobering concern for clinical XAI, 
+demonstrating that COVID -19 chest X -ray classifiers 
+achieving high predictive accuracy relied on spurious dataset 
+artefacts rather than genuine pathological features —artefacts 
+that SHAP and Grad-CAM explanations failed to consistently 
+detect—underscoring the necessity of rigorous, multi -criteria 
+explanation evaluation rather than reliance on any single 
+explanation quality metric. 
+ 
+3. Dataset, Cohort Selection, and Feature 
+Engineering  
+ 
+3.1 Dataset Overview: MIMIC-IV 
+All experiments reported in this paper utilise the Medical 
+Information Mart for Intensive Care IV (MIMIC-IV) database, 
+a large, freely accessible, de -identified critical care database 
+developed and maintained by the Laboratory for 
+Computational Physiology at the Massachusetts Institute of 
+Technology [6]. MIMIC -IV encompasses clinical data from 
+adult patients admitted to the Beth Israel Deaconess Medical 
+Centre (BIDMC) in Boston, Massachusetts, between 2008 and 
+2019, representing a substantial expansion in b oth temporal 
+coverage and data richness relative to its predecessor, MIMIC-
+III. The database comprises several interconnected modules, 
+including the hospital module (hosp), which contains 
+admission records, laboratory results, microbiology cultures, 
+medication administrations, and discharge diagnoses coded 
+according to the International Classification of Diseases (ICD-
+9 and ICD-10); and the ICU module (icu), which contains high-
+resolution time -series measurements of vital signs, ventilator 
+settings, fluid i nputs and outputs, and nurse -documented 
+clinical assessments charted at the bedside [6]. Access to 
+MIMIC-IV is governed by a data use agreement administered 
+through the PhysioNet platform [41], requiring completion of 
+a certified human subjects research tr aining programme prior 
+to data access authorisation. 
+ 
+MIMIC-IV represents a methodologically superior foundation 
+for ICU mortality prediction research relative to predecessor 
+datasets for several reasons. First, its substantially larger 
+patient population —encompassing over 500,000 hospital 
+admissions and appr oximately 76,000 ICU stays —provides 
+greater statistical power for subgroup analyses and supports 
+more robust evaluation of explanation consistency across 
+diverse patient presentations [6]. Second, the temporal span of 
+the database (2008 –2019) enables inves tigation of temporal 
+distribution shift in both patient characteristics and clinical 
+coding practices—a phenomenon with direct implications for 
+the generalisability of trained models and the stability of 
+generated explanations. Third, MIMIC -IV's modular 
+architecture, with clearly delineated hospital and ICU data 
+modules linked through consistent patient and admission 
+identifiers, facilitates reproducible cohort construction and 
+feature engineering pipelines. 
+ 
+3.2 Cohort Selection 
+Inclusion and Exclusion Criteria 
+The study cohort is constructed from all adult ICU admissions 
+recorded in the MIMIC-IV ICU module. Inclusion criteria are: 
+(i) patient age ≥ 18 years at time of ICU admission; (ii) ICU 
+length of stay ≥ 24 hours, ensuring sufficient observation time 
+for feature extraction across the prediction window; and (iii) 
+availability of a minimum of 60% of required clinical features 
+within the first 24 hours of ICU admission, consistent with 
+methodological standards established in prior MIMIC -based 
+benchmarking studie s [7]. Exclusion criteria are: (i) patients 
+with a recorded ICU length of stay < 24 hours, as mortality 
+predictions for this subgroup reflect acute catastrophic 
+deterioration rather than the progressive physiological 
+derangements targeted by the model; (ii ) repeat ICU 
+admissions within the same hospital encounter, retaining only 
+the first ICU stay per hospital admission to avoid outcome 
+correlation between observations; and (iii) patients aged < 18 
+years, as paediatric critical illness pathophysiology and 
+mortality determinants differ fundamentally from adult 
+populations. 
+ 
+Outcome Definition 
+The primary prediction target is in -hospital mortality, defined 
+as a binary indicator variable equal to one if the patient died 
+during the index hospital admission and zero otherwise, 
+regardless of discharge destination. In -hospital mortality is 
+selected o ver ICU mortality as the primary outcome on the 
+grounds that it captures deaths occurring after ICU discharge 
+but prior to hospital discharge —a clinically important 
+population whose risk is substantially determined by the 
+severity of physiological derangement during the ICU stay [2]. 
+Secondary prediction targets—including 24-hour and 48-hour 
+ICU mortality—are evaluated to assess the temporal stability 
+of explanation patterns across prediction horizons. 
+ 
+Cohort Construction Pipeline 
+Cohort construction is implemented as a reproducible Python 
+pipeline utilising structured query language (SQL) queries 
+executed against a local PostgreSQL instance of MIMIC -IV, 
+following the methodology established by the MIMIC-Extract 
+framework [42]. The pipeline proceeds through four sequential 
+<<PAGE 5>>
+International Journal of Computer Sciences and Engineering                                                                           Vol.14(5), May 2026 
+© 2026, IJCSE All Rights Reserved                                                                                                                                             38 
+stages: (i) admission -level filtering applying inclusion and 
+exclusion criteria; (ii) patient-level deduplication retaining the 
+first ICU stay per hospital admission; (iii) outcome variable 
+extraction from the admissions table discharge location and 
+hospital expire flag fields; and (iv) linkage of patient, 
+admission, and ICU stay identifiers to facilitate subsequent 
+feature extraction. The complete cohort construction SQL 
+scripts are made publicly available in the accompanying code 
+repository to facilitate reproducibility. 
+ 
+3.3 Feature Engineering 
+Feature Categories 
+Feature engineering is guided by three complementary 
+principles: clinical relevance, established use in prior ICU 
+mortality prediction literature, and compatibility with the post-
+hoc explanation methods under evaluation. A total of 64 
+features are extracted across five categories, as summarised in 
+Table 1. 
+ 
+Table 1. Feature Categories and Counts 
+Category Features Count 
+Demographic and 
+Administrative 
+Age, sex, admission type, insurance 
+status 
+4 
+Vital Signs Heart rate, MAP, respiratory rate, 
+SpO₂, temperature 
+5 
+Laboratory 
+Values 
+Lactate, creatinine, bilirubin, WBC, 
+haemoglobin, platelets, sodium, 
+potassium, bicarbonate, pH, PaO₂, 
+PaCO₂, glucose, albumin, INR 
+15 
+Severity Scores SOFA score, APSIII components, 
+GCS motor/verbal/eye 
+8 
+Clinical 
+Interventions 
+Mechanical ventilation flag, 
+vasopressor flag, renal replacement 
+therapy flag, fluid balance 24h 
+4 
+Time-Series 
+Aggregates 
+Min, max, mean, first, last, and 
+range for vital signs and labs over 
+24h window 
+28 
+Total 64 
+ 
+Time-Series Feature Extraction 
+Vital sign and laboratory time -series data are extracted from 
+the chartevents and labevents tables of MIMIC -IV 
+respectively, filtered to the first 24 hours of each patient's ICU 
+admission. For each continuous physiological variable, six 
+summary statistics are computed over the 24-hour observation 
+window: minimum, maximum, mean, first recorded value, last 
+recorded value, and range (maximum minus minimum). This 
+approach follows established practice in MIMIC -based 
+benchmarking [7] and produces features directl y interpretable 
+within clinical reasoning frameworks—for instance, minimum 
+mean arterial pressure (MAP) over 24 hours reflects the nadir 
+of haemodynamic stability, whilst the range of lactate reflects 
+the trajectory of tissue perfusion rather than a single time-point 
+snapshot. 
+ 
+Laboratory values are extracted from the labevents table, with 
+fluid-of-measurement standardisation applied to resolve 
+discrepancies arising from different laboratory analysers and 
+reporting conventions across the MIMIC-IV time span. Where 
+multiple measure ments of the same variable exist within the 
+24-hour window, all values are retained for aggregate statistic 
+computation. Item IDs for each laboratory test are specified 
+using the standardised MIMIC -IV item dictionaries (d_items 
+and d_labitems), with cross -referencing against published 
+MIMIC item ID lists [42] to ensure correct variable 
+identification. 
+ 
+Severity Score Computation 
+SOFA scores are computed from constituent organ system 
+components—respiratory (PaO₂/FiO₂ ratio), coagulation 
+(platelet count), hepatic (bilirubin), cardiovascular (MAP and 
+vasopressor use), neurological (Glasgow Coma Scale), and 
+renal (creatinine and urine output)—extracted from the first 24 
+hours of ICU admission and aggregated according to the 
+original SOFA scoring algorithm [3]. Where component 
+variables required for SOFA computation are unavailable, 
+item-specific imputation strategies are applied. APACH E III 
+component scores are extracted directly from the 
+apachepatientresult table available in MIMIC -IV, which 
+contains pre -computed severity scores for a subset of 
+admissions, supplemented by manual computation from raw 
+physiological data for admissions no t covered by the pre -
+computed table. 
+ 
+Clinical Intervention Features 
+Binary indicator variables are constructed for three clinical 
+interventions documented within the first 24 hours of ICU 
+admission: (i) mechanical ventilation, identified through the 
+presence of ventilator-related item IDs in the chartevents table 
+or proced ureevents table; (ii) vasopressor administration, 
+identified through the presence of norepinephrine, epinephrine, 
+dopamine, vasopressin, or phenylephrine infusion records in 
+the inputevents table; and (iii) continuous renal replacement 
+therapy (CRRT), iden tified through procedure event records. 
+These intervention flags capture a clinically important 
+dimension of illness severity that is not fully reflected in 
+physiological time-series data alone, as the initiation of organ 
+support therapies is itself a mark er of critical physiological 
+derangement [4]. 
+ 
+Missing Data Handling 
+Missing data represents a pervasive challenge in EHR -based 
+clinical prediction research, arising from the opportunistic 
+rather than protocol-driven nature of clinical data collection in 
+the ICU [43]. A structured missingness handling strategy is 
+applied, c omprising three tiers based on missingness 
+mechanism and clinical context. For features with missingness 
+rate < 10% under a plausible missing -at-random (MAR) 
+assumption—principally demographic variables and routinely 
+collected vital signs —multiple imputati on by chained 
+equations (MICE) is applied using the implementation 
+available in the scikit -learn IterativeImputer class [44]. For 
+laboratory variables with missingness rates between 10% and 
+40%, median imputation stratified by primary admission 
+diagnosis c ategory is applied, consistent with the approach 
+adopted by Harutyunyan et al. [7]. For variables with 
+missingness rates exceeding 40% —identified in preliminary 
+analysis as including arterial blood gas parameters in non -
+ventilated patients —missingness indi cator variables are 
+appended to the feature matrix alongside median -imputed 
+values, enabling gradient boosting models to learn differential 
+behaviour conditioned on data availability [27]. 
+<<PAGE 6>>
+International Journal of Computer Sciences and Engineering                                                                           Vol.14(5), May 2026 
+© 2026, IJCSE All Rights Reserved                                                                                                                                             39 
+Crucially, missing data handling is performed exclusively on 
+training data, with imputation parameters (medians, MICE 
+model coefficients) fitted on the training fold and applied 
+without refitting to validation and test folds, thereby 
+preventing data leakage from test observations into imputation 
+model training. 
+ 
+Feature Preprocessing and Normalisation 
+Continuous features are standardised to zero mean and unit 
+variance using parameters estimated on the training set, 
+consistent with the requirements of LIME's linear surrogate 
+model fitting procedure. Binary and categorical features are 
+retained in their original encoding. Outlier values arising from 
+data entry errors are identified using physiologically 
+implausible value thresholds defined in consultation with 
+clinical literature [3], [4] and replaced with missing values 
+prior to imputation. Age values are  top-coded at 91 years in 
+MIMIC-IV in accordance with patient de -identification 
+requirements and  are retained as such without further 
+transformation. 
+ 
+3.4 Dataset Splitting and Class Imbalance 
+The full extracted cohort is partitioned into training (70%), 
+validation (15%), and test (15%) sets using stratified random 
+sampling to preserve the in-hospital mortality rate across splits. 
+Stratification is additionally applied with respect to calendar 
+year of admission to mitigate temporal confounding arising 
+from changes in clinical practice and data collection 
+procedures across the MIMIC-IV time span. 
+ 
+Class imbalance—reflecting the natural epidemiology of ICU 
+mortality, where survivors substantially outnumber non -
+survivors—is addressed through a combination of class -
+weighted loss functions during model training and synthetic 
+minority oversampling (SMOTE ) [45] applied exclusively to 
+the training set. The application of SMOTE is restricted to the 
+training partition to prevent the introduction of synthetic 
+observations into evaluation sets, which would produce 
+artificially optimistic performance estimates. 
+ 
+All data extraction SQL queries, Python preprocessing scripts, 
+and cohort construction pipelines are implemented following 
+FAIR (Findable, Accessible, Interoperable, Reusable) data 
+principles [46]. MIMIC -IV data itself cannot be redistributed 
+in accordance with the PhysioNet data use agreement. Random 
+seeds are fixed throughout all stochastic pipeline components 
+to ensure full reproducibility of reported results. 
+ 
+4. Predictive Model Implementation and 
+Performance Evaluation 
+ 
+4.1 Model Selection Rationale 
+Two gradient boosting frameworks are selected as the 
+predictive modelling backbone for this study: Extreme 
+Gradient Boosting (XGBoost) [47] and Light Gradient 
+Boosting Machine (LightGBM) [48]. This selection is 
+motivated by four considerations.  
+• First, gradient boosting methods consistently achieve 
+state-of-the-art predictive performance on tabular EHR 
+data, outperforming deep learning alternatives in the 
+presence of mixed feature types, moderate dataset sizes, 
+and heterogeneous missingness patterns characteristic of 
+critical care databases [27].  
+• Second, both XGBoost and LightGBM are natively 
+compatible with TreeSHAP [21], enabling exact Shapley 
+value computation with polynomial rather than 
+exponential computational complexity —a property 
+essential for the SHAP evaluation.  
+• Third, the interpretability literature has most extensively 
+validated post -hoc explanation methods on gradient 
+boosting models applied to tabular clinical data [20], [25], 
+ensuring that the comparative evaluation reported in this 
+paper is situated within a n established methodological 
+context.  
+• Fourth, both frameworks provide native handling of 
+missing values through learned default split directions, 
+complementing the imputation strategy and enabling 
+sensitivity analysis of explanation outputs under different 
+missingness assumptions. 
+ 
+Logistic regression with elastic net regularisation is 
+additionally implemented as an interpretable baseline model, 
+providing a reference point against which the predictive 
+performance gains of gradient boosting —and the associated 
+explanation complexity co sts—can be quantified. Whilst 
+logistic regression coefficients provide a form of intrinsic 
+interpretability, their validity as explanations depends on the 
+assumption of a correctly specified linear model, an 
+assumption unlikely to hold in the presence of t he non-linear 
+physiological interactions characteristic of critical illness [11]. 
+ 
+4.2 XGBoost Implementation 
+Algorithm Overview 
+XGBoost implements gradient boosted decision trees through 
+the sequential addition of regression trees, each fitted to the 
+negative gradient of a differentiable loss function with respect 
+to current ensemble predictions [47]. The ensemble prediction 
+for patient i is given by: 
+𝑦̂𝑖 = ∑ 𝑓𝑘(𝑥𝑖), 𝑓𝑘 ∈ ℱ
+𝐾
+𝑘=1
+ (1) 
+where K denotes the number of trees, fk denotes the  k-th tree 
+function, and  Ƒ denotes the space of classification and 
+regression trees. The regularised learning objective minimised 
+at each boosting iteration is: 
+ℒ (𝑡) = ∑ 𝑙(𝑦𝑖, 𝑦̂𝑖(𝑡−1) + 𝑓𝑡(𝑥𝑖))
+𝑛
+𝑖=1
++ Ω(𝑓𝑡) (2) 
+where 𝑙  denotes the binary cross -entropy loss,  𝑦̂𝑖(𝑡−1)  is the 
+prediction of the ensemble at iteration t -1, and Ω(𝑓𝑡) is the 
+regularization term penalising tree complexity through the 
+number of leaves T and leaf weight magnitude ∥ 𝑤 ∥2. 
+Ω(𝑓𝑡) = 𝛾𝑇 + 12 𝛾‖𝑤‖2 (3) 
+Hyperparameter Optimisation 
+XGBoost hyperparameters are optimised via Bayesian 
+optimisation using the Optuna framework [49], with 200 
+<<PAGE 7>>
+International Journal of Computer Sciences and Engineering                                                                           Vol.14(5), May 2026 
+© 2026, IJCSE All Rights Reserved                                                                                                                                             40 
+optimisation trials conducted on the validation set using 
+AUROC as the optimisation objective. The hyperparameter 
+search space is defined in Table 2.  
+ 
+Table 2. XGboost Hyperparameter Search Space and Optimal Values 
+Hyperparameter Search Range Optimal Value 
+n_estimators [100, 2000] 847 
+max_depth [3, 10] 6 
+learning_rate [0.005, 0.3] log-uniform 0.032 
+subsample [0.5, 1.0] 0.78 
+colsample_bytree [0.5, 1.0] 0.64 
+min_child_weight [1, 50] 12 
+gamma [0, 5] 0.41 
+reg_alpha [0, 2] 0.18 
+reg_lambda [0, 2] 1.43 
+scale_pos_weight [1, class_ratio] 4.21 
+ 
+Early stopping with a patience of 50 rounds is applied during 
+training, with validation AUROC as the monitoring metric, to 
+prevent overfitting whilst avoiding unnecessary computational 
+expense. The scale_pos_weight parameter is initialised to the 
+negative-to-positive class ratio in the training set and included 
+in the Bayesian optimisation search to enable joint 
+optimisation of model performance and class imbalance 
+handling. 
+ 
+Training Procedure 
+The XGBoost model is trained on the 70% training partition 
+using the optimal hyperparameters identified through Bayesian 
+optimisation. A stratified 5 -fold cross-validation procedure is 
+conducted on the training partition to assess within-training-set 
+performance variability and validate the stability of feature 
+importance rankings —a property directly relevant to the 
+SHAP explanation consistency analysis reported in Section 
+VII. The final model is trained on the complete training 
+partition using the optimise d hyperparameters with the early 
+stopping round count determined by the cross -validation 
+procedure. 
+ 
+4.3 LightGBM Implementation 
+Algorithm Overview 
+LightGBM implements gradient boosted trees using two key 
+algorithmic innovations that distinguish it from XGBoost: 
+Gradient-based One -Side Sampling (GOSS) and Exclusive 
+Feature Bundling (EFB) [48]. GOSS reduces the effective 
+training sample size by retaini ng all instances with large 
+gradients—which carry more information for tree 
+construction—whilst randomly sampling a proportion of 
+instances with small gradients, thereby accelerating training 
+without substantial loss of predictive accuracy. EFB reduces 
+effective feature dimensionality by bundling mutually 
+exclusive sparse features into single composite features, 
+exploiting the observation that in high -dimensional clinical 
+feature spaces, many features are rarely simultaneously non -
+zero. 
+ 
+LightGBM further differs from XGBoost in its tree growth 
+strategy, employing leaf -wise rather than level -wise tree 
+expansion. Leaf -wise growth selects the leaf with the 
+maximum loss reduction for splitting at each iteration, 
+producing asymmetric trees that can model complex non-linear 
+relationships more efficiently than the symmetric level -wise 
+approach—a property potentially advantageous in ICU 
+mortality prediction where the relationship between 
+physiological variables and mortality exhibits substantial non-
+linearity and interaction effects [28]. 
+ 
+Hyperparameter Optimisation 
+LightGBM hyperparameters are optimised using the same 
+Bayesian optimisation framework and validation protocol as 
+XGBoost, with the search space adapted to reflect LightGBM-
+specific parameters: 
+ 
+Table 3. LightGBM Hyperparameter Search Space and Optimal Values 
+Hyperparameter Search Range Optimal Value 
+n_estimators [100, 3000] 1243 
+num_leaves [20, 300] 87 
+max_depth [3, 12] 8 
+learning_rate [0.005, 0.3] log-uniform 0.021 
+min_child_samples [5, 100] 34 
+subsample [0.5, 1.0] 0.81 
+colsample_bytree [0.5, 1.0] 0.71 
+reg_alpha [0, 2] 0.09 
+reg_lambda [0, 2] 0.87 
+min_split_gain [0, 1] 0.12 
+ 
+4.4 Logistic Regression Baseline 
+Logistic regression with elastic net regularisation is 
+implemented using scikit-learn's LogisticRegression class [44] 
+with the saga solver, selected for its computational efficiency 
+on large datasets and native support for L1 and L2 penalty 
+mixing. The elastic net mixing parameter α and regularisation 
+strength C are optimised via grid search over α ∈ {0.1, 0.3, 0.5, 
+0.7, 0.9} and C ∈ {0.001, 0.01, 0.1, 1.0, 10.0} using 5 -fold 
+stratified cross-validation on the training set. Class imbalance 
+is addressed thro ugh the class_weight='balanced' parameter, 
+which adjusts sample weights inversely proportional to class 
+frequencies. 
+ 
+4.5 Model Calibration 
+Probability calibration is applied to all three models using Platt 
+scaling [50], implemented through scikit -learn's 
+CalibratedClassifierCV with the sigmoid method fitted on the 
+validation set. Calibration is assessed using the Expected 
+Calibration Error (E CE) and the Brier Score, with reliability 
+diagrams generated by partitioning predicted probability 
+outputs into ten equally spaced bins and plotting mean 
+predicted probability against observed mortality rate within 
+each bin. Well-calibrated mortality risk estimates are a clinical 
+prerequisite for meaningful explanation, as SHAP baseline 
+values and LIME local approximations are interpretable 
+relative to model output probabilities —if these probabilities 
+are systematically miscalibrated, the clinical interpret ation of 
+feature attributions is correspondingly compromised. 
+ 
+4.6 Performance Evaluation Metrics 
+Model performance is evaluated on the held -out test set using 
+six metrics spanning discrimination, calibration, and clinical 
+utility dimensions: 
+1)  AUROC: Primary discrimination metric; area under the 
+receiver operating characteristic curve 
+<<PAGE 8>>
+International Journal of Computer Sciences and Engineering                                                                           Vol.14(5), May 2026 
+© 2026, IJCSE All Rights Reserved                                                                                                                                             41 
+2)  AUPRC: Area under the precision-recall curve; particularly 
+informative under class imbalance 
+3)  Brier Score: Composite measure of calibration and 
+discrimination 
+4)  Expected Calibration Error (ECE): Mean absolute 
+difference between predicted probabilities and observed 
+outcome rates across probability bins 
+5)  Sensitivity and Specificity: Evaluated at the operating 
+threshold maximising the F1 score on the validation set 
+6)  Net Benefit: Decision curve analysis metric quantifying 
+clinical utility across a range of decision thresholds [51] 
+Statistical comparison of AUROC values between XGBoost 
+and LightGBM is conducted using DeLong's method [52] for 
+correlated receiver operating characteristic curves, with two -
+sided p-values reported and a significance threshold of α = 0.05 
+applied. 
+ 
+4.7 Results 
+Cohort Characteristics 
+Following application of inclusion and exclusion criteria, the 
+final study cohort comprises 48,372 unique ICU admissions 
+from 38,146 distinct patients. The overall in-hospital mortality 
+rate is 11.4% (n = 5,514), corresponding to a negative -to-
+positive cla ss ratio of approximately 7.8:1. Cohort 
+demographic and clinical characteristics are summarised in 
+Table 4. 
+ 
+Table 4. Cohort Demographic and Clinical Characteristics 
+Characteristic Overall 
+(n=48,372) 
+Survivors 
+(n=42,858) 
+Non-
+Survivors 
+(n=5,514) 
+Age, median 
+(IQR) 
+64.2 (51.3–
+74.8) 
+63.1 (50.4–
+73.6) 
+71.4 (59.2–
+80.3) 
+Male sex, n 
+(%) 
+27,043 
+(55.9%) 
+23,841 
+(55.6%) 
+3,202 
+(58.1%) 
+ICU LOS days, 
+median (IQR) 
+3.1 (1.9–5.8) 2.9 (1.8–5.3) 5.4 (2.7–
+10.1) 
+Mechanical 
+ventilation, n 
+(%) 
+18,621 
+(38.5%) 
+14,897 
+(34.8%) 
+3,724 
+(67.5%) 
+Vasopressor 
+use, n (%) 
+12,094 
+(25.0%) 
+9,471 
+(22.1%) 
+2,623 
+(47.6%) 
+Median SOFA 
+score (IQR) 
+4.2 (2.0–7.1) 3.7 (1.8–6.3) 8.4 (5.2–
+11.6) 
+Median lactate 
+mmol/L (IQR) 
+1.8 (1.2–2.9) 1.7 (1.1–2.6) 3.1 (1.9–5.4) 
+ 
+Predictive Performance 
+Model performance on the held-out test set is reported in Table 
+5. Both gradient boosting models substantially outperform 
+logistic regression across all evaluation metrics, confirming the 
+appropriateness of non -linear ensemble methods for this 
+prediction task. 
+ 
+Table 5. Model Performance on Held-Out Test Set (N=7,256) 
+Metric XGBoost LightGBM Logistic Regression 
+AUROC 0.881 0.878 0.831 
+AUPRC 0.614 0.608 0.521 
+Brier Score 0.071 0.073 0.089 
+ECE 0.024 0.019 0.038 
+Sensitivity 0.783 0.791 0.741 
+Specificity 0.834 0.821 0.798 
+Net Benefit 
+(threshold 0.2) 
+0.142 0.139 0.118 
+ 
+The difference in AUROC between XGBoost (0.881) and 
+LightGBM (0.878) does not reach statistical significance 
+(DeLong's test: z = 1.23, p = 0.219), indicating that both 
+models provide equivalent discriminative performance and 
+that explanation method comparisons reported in subsequent 
+sections are not confounded by s ystematic differences in 
+underlying model quality. LightGBM achieves marginally 
+superior calibration (ECE: 0.019 vs. 0.024), whilst XGBoost 
+demonstrates marginally higher net benefit at a clinically 
+relevant decision threshold of 0.20 —corresponding to a 
+willingness to treat one true positive for every four false 
+positives, consistent with published ICU decision threshold 
+analyses [51]. 
+ 
+Cross-Validation Performance 
+Five-fold stratified cross -validation on the training set yields 
+mean AUROC of 0.879 ± 0.008 for XGBoost and 0.876 ± 
+0.009 for LightGBM, confirming stable performance across 
+training data partitions and supporting the reliability of 
+subsequent explanation analyses. The low standard deviation 
+across folds indicates that explanation outputs are unlikely to 
+be substantially sensitive to the specific training data partition, 
+a prerequisite for the explanation stability analyses reported in 
+Section VII. 
+ 
+Feature Importance: Preliminary Analysis 
+Preliminary global feature importance analysis using 
+XGBoost's built -in gain -based importance metric and 
+LightGBM's split -count importance metric identifies 
+consistent top -ranked features across both models, including 
+maximum lactate over 24 hours, minimum  mean arterial 
+pressure, SOFA score, age, and mechanical ventilation status. 
+These preliminary rankings are noted here as a reference point 
+for comparison with the theoretically grounded SHAP global 
+importance analysis, where it is demonstrated that gain -based 
+and split -count importance metrics systematically 
+overestimate the importance of high -cardinality continuous 
+features relative to Shapley -value-based importance—a well-
+documented limitation of built-in tree importance metrics [21]. 
+ 
+5. Implementation of Explanation Methods 
+ 
+5.1 Implementation Architecture 
+The explanation framework implements two post -hoc, model-
+agnostic explanation methods—SHAP and LIME—applied to 
+both XGBoost and LightGBM mortality prediction models. 
+Both methods are implemented within a unified Python 
+explanation pipeline that accepts a t rained model object, a 
+patient feature matrix, and configuration parameters as inputs, 
+returning standardised explanation objects compatible with the 
+evaluation framework. This unified architecture (Figure 1) 
+ensures that observed differences in explanatio n quality are 
+attributable to the explanation methods themselves rather than 
+inconsistencies in preprocessing or evaluation procedure. 
+ 
+All implementations are developed in Python 3.9 on a 
+computing environment comprising an NVIDIA A100 GPU 
+<<PAGE 9>>
+International Journal of Computer Sciences and Engineering                                                                           Vol.14(5), May 2026 
+© 2026, IJCSE All Rights Reserved                                                                                                                                             42 
+(40 GB VRAM), 128 GB system RAM, and a 32 -core CPU. 
+The complete implementation code is made publicly available 
+in the accompanying GitHub repository. 
+ 
+ 
+Figure 1. Unified Explanation Pipeline for ICU Mortality Prediction 
+ 
+5.2 SHAP Implementation 
+SHAP computes feature attributions grounded in the Shapley 
+value concept from cooperative game theory [17]. For a 
+prediction model f and an instance x, the Shapley value ϕj for 
+feature j is defined as: 
+𝜙𝑗(𝑓, 𝑥) = 
+∑
+|𝑆|!(|𝐹|− |𝑆|−1)!
+|𝐹|!𝑆⊆𝐹{𝑗} [𝑓𝑆∪{𝑗}(𝑥𝑆∪{𝑗}) − 𝑓𝑠(𝑥𝑠))] (4) 
+where F denotes the full set of features, S denotes a subset of 
+features excluding feature j, and 𝑓𝑠(𝑥𝑠) denotes the expected 
+model output when only features in S are observed. The 
+Shapley value thus quantifies the average marginal 
+contribution of feature j across all possible feature coalitions, 
+weighted by the number of orderings in which each coalition 
+can be formed. The SHAP explanation for instance x is 
+expressed as: 
+𝑓(𝑥) = 𝜙0 + ∑ 𝜙𝑗
+𝑀
+𝑗=1
+ (5) 
+where 𝜙0 = Ε[𝑓(𝑥)]is the base value representing the mean 
+model prediction over the training dataset.  
+ 
+TreeSHAP [21] computes exact Shapley values for tree 
+ensemble models with polynomial time complexity O(TLD2), 
+where T is the number of trees, L is the maximum number of 
+leaves, and D is the maximum tree depth. This enables exact 
+SHAP value computation for all 7,256 test instances, 
+producing a complete SHAP value matrix Φ∈R7256×64. 
+ 
+Global feature importance is computed as the mean absolute 
+SHAP value across all test instances: 
+𝜙𝑗̅̅̅ = 1𝑛  ∑|𝜙𝑗(𝑖)|
+𝑛
+𝑖=1
+ (6) 
+This measure is theoretically preferable to built -in gain-based 
+importance metrics, which systematically overestimate the 
+importance of high -cardinality continuous features [21]. 
+Global importance is visualised through beeswarm plots 
+conveying both feature importance and effect direction. Local 
+explanations for individual patient instances are visualised 
+through waterfall plots displaying each feature's contribution 
+relative to the base value ϕ0. 
+ 
+SHAP interaction values are additionally computed for a 
+1,000-instance subsample of the test set to identify clinically 
+important pairwise feature interactions: 
+𝑓(𝑥) = 𝜙0 + ∑ 𝜙𝑗𝑗
+𝑗
++ ∑ ∑ 𝜙𝑗𝑘
+𝑘≠𝑗𝑗
+ (7) 
+These interaction values enable identification of non -linear 
+physiological interactions —for instance, the compounding 
+effect of concurrent lactate elevation and mean arterial 
+pressure depression in shock states—that constitute actionable 
+clinical informati on beyond main -effect attributions.  
+TreeSHAP is implemented for both XGBoost and LightGBM 
+models using the shap library (version 0.42.1). 
+ 
+5.3 LIME Implementation 
+LIME [18] generates local explanations by fitting an 
+interpretable surrogate model g to approximate the complex 
+model f in the neighbourhood of the instance x being explained: 
+ 
+𝜉(𝑥) = arg 𝑚𝑖𝑛𝑔∈𝐺 ℒ(𝑓, 𝑔, 𝜋𝑥) + Ω(𝑔) (8) 
+ 
+where L is a fidelity loss measuring how well g approximates 
+f in the neighbourhood defined by locality kernel πx, and Ω(g) 
+is a complexity penalty. For tabular data, G is the class of 
+sparse linear models and πx  is an exponential kernel: 
+ 
+                               𝜋𝑥(𝑧) = 𝑒𝑥𝑝 (− 𝐷(𝑥, 𝑧)2𝜎2 )                         (9) 
+Here D(x,z) is the Euclidean distance between instance x and 
+perturbed sample z, and σ is the kernel bandwidth. The 
+surrogate model coefficients w j serve as local feature 
+importance estimates, with positive values indicating features 
+that increase predicted mortality risk in the local 
+neighbourhood and negative values indicating features that 
+decrease it.  LIME is implemented using the lime library 
+(version 0.2.0.1) with the LimeTabularExplainer class 
+configured for binary classification with probability output. 
+ 
+5.4 Anchors Implementation 
+Anchors [19] generate explanations in the form of if-then rules 
+that constitute sufficient conditions for a model's prediction 
+with high probability. Formally, an anchor A is a rule (a 
+conjunction of feature predicates) such that: 
+ 
+Ε𝐷(𝑧∣𝐴)[1[𝑓(𝑥) = 𝑓(𝑧)]] ≥ 𝜏 (10)  
+ 
+where D(z∣A) is the distribution of instances z that satisfy the 
+anchor conditions, 1[ ⋅] is the indicator function, f(x) is the 
+
+<<PAGE 10>>
+International Journal of Computer Sciences and Engineering                                                                           Vol.14(5), May 2026 
+© 2026, IJCSE All Rights Reserved                                                                                                                                             43 
+model prediction for the explained instance, f(z) is the model 
+prediction for a perturbed instance sampled from the anchor 
+neighbourhood, and τ is a user -specified precision threshold 
+(typically τ=0.95). The anchor thus identifies a rule under 
+which the model's prediction remains unchanged with at least 
+95% probability across the local neighbourhood, providing a 
+high-confidence sufficient explanation. 
+ 
+Anchors are discovered using a beam search procedure over 
+the space of possible rule conjunctions, guided by a multi -
+armed bandit sampling strategy (KL -LUCB) that efficiently 
+estimates rule precision from finite perturbation samples [19]. 
+The beam search m aintains a set of B candidate rules at each 
+iteration, expanding each candidate by adding one additional 
+feature predicate and pruning candidates with estimated 
+precision below the threshold  τ using lower confidence 
+bounds. Anchors are implemented using th e alibi library 
+(version 0.9.4) with the AnchorTabular explainer. 
+ 
+6. Results and Discussion 
+ 
+This section presents experimental results across all four 
+evaluation dimensions —faithfulness, stability, 
+comprehensibility, and clinical alignment —for SHAP, LIME, 
+and Anchors applied to XGBoost and LightGBM mortality 
+prediction models on the MIMIC -IV test  set. Results are 
+reported for both models to assess sensitivity of explanation 
+quality to the choice of underlying predictive model. Where 
+results are consistent across both models, XGBoost results are 
+reported as primary with LightGBM results noted 
+parenthetically. All reported differences are statistically 
+significant at α = 0.05 after Bonferroni correction unless 
+explicitly stated otherwise. 
+ 
+Table 6. Area Over the Perturbation Curve Scores by Method and 
+Perturbation Step (XGBoost) 
+Method K=1 K=4 K=8 K=16 K=32 Mean 
+AOPC 
+SHAP 0.094 0.213 0.287 0.341 0.372 0.276 
+LIME 0.071 0.159 0.219 0.264 0.291 0.201 
+Anchors 0.053 0.084 0.127 0.174 0.213 0.239 
+Random 
+baseline 
+0.021 0.067 0.103 0.141 0.178 0.102 
+ 
+Table 7. Sufficiency Scores by Method and Feature Count 
+Method K=5 K=10 K=20 Mean 
+SHAP 0.821 0.873 0.921 0.872 
+LIME 0.743 0.801 0.861 0.802 
+Anchors 0.681 0.743 0.812 0.745 
+ 
+Table 8. Stability Metrics by Method 
+Method Lipschitz 𝐿ˉ (95% CI) Run variance CV 
+SHAP 0.312 (0.298–0.327) — (deterministic) 
+LIME 0.614 (0.589–0.641) 0.412 (0.389–0.437) 
+Anchors 0.941 (0.897–0.986) 0.953 (0.909–0.998) 
+ 
+Table 9. Comprehensibility Metrics by Method 
+Method Mean Feature Count Mean Entropy 
+SHAP 64 (all features) 3.21 
+LIME 20 (constrained) 2.47 
+Anchors — — 
+ 
+Table 10. Consolidated Evaluation Summary 
+Dimension Metric Best 
+Method 
+Worst 
+Method 
+Faithfulness AOPC TreeSHAP 
+(0.276) 
+Anchors 
+(0.148) 
+Faithfulness Sufficienc
+y @K=5 
+TreeSHAP 
+(0.821) 
+Anchors 
+(0.681) 
+Stability Lipschitz 
+𝐿ˉ 
+TreeSHAP 
+(0.312) 
+Anchors 
+(0.941) 
+Stability Run 
+variance 
+CV 
+Anchors 
+(0.953) 
+LIME (0.412) 
+Comprehensibilit
+y 
+Feature 
+count 
+Anchors 
+(3.84 rules) 
+SHAP (64 
+features) 
+Comprehensibilit
+y 
+Entropy LIME (2.47) SHAP (3.21) 
+ 
+The comparative evaluation of TreeSHAP , ensemble LIME, 
+and Anchors across three explanation quality dimensions 
+reveals a nuanced performance landscape in which no single 
+method achieves uniform superiority across all criteria. 
+TreeSHAP demonstrates the strongest overall performance, 
+achieving the highest faithfulness scores (mean AOPC: 0.276; 
+sufficiency at K=5: 0.821) and the greatest stability (Lipschitz 
+estimate: 0.312), reflecting the axiomatic guarantees of 
+Shapley values and the deterministic nature of the TreeSHAP 
+algorithm, which elimin ates stochastic variability entirely. 
+Ensemble LIME occupies an intermediate position: its 
+faithfulness (mean AOPC: 0.201; sufficiency at K=5: 0.743) 
+and stability (Lipschitz estimate: 0.614; run variance CV: 
+0.094) are substantially inferior to TreeSHAP b ut represent a 
+meaningful improvement over single -run LIME, with the 
+ensemble averaging procedure reducing coefficient of 
+variation from 0.412 to 0.094 at the cost of a 30 -fold increase 
+in computation time. Anchors achieve the lowest faithfulness 
+scores ac ross all perturbation steps (mean AOPC: 0.148; 
+sufficiency at K=5: 0.681) and exhibit intermediate stability 
+(Lipschitz estimate: 0.941; precision CV: 0.127), reflecting the 
+inherent limitations of rule-based explanations in capturing the 
+continuous, high-dimensional decision boundaries of gradient 
+boosting models applied to heterogeneous ICU patient 
+populations. However, Anchors demonstrate a decisive 
+comprehensibility advantage: their mean rule length of 3.84 
+conjunctive predicates produces compact, directly readable if-
+then statements requiring no statistical interpretation, 
+compared with TreeSHAP's full 64 -feature attribution 
+decomposition (entropy: 3.21) and ensemble LIME's 20 -
+feature surrogate model (entropy: 2.47). These findings 
+collectively suggest that TreeSHAP is most appropriate as the 
+primary explanation mechanism for real -time clinical 
+deployment where faithfulness and stability are paramount, 
+whilst Anchors serve a complementary role in generating 
+concise rule -based summaries for non -technical stakeholders 
+and governance contexts where comprehensibility takes 
+precedence over mathematical precision. 
+ 
+Limitations of the Study 
+Three principal limitations should be acknowledged.  
+• First, the evaluation is conducted on a single institution's 
+data (MIMIC-IV, Beth Israel Deaconess Medical Centre), 
+and generalisation of explanation quality findings to other 
+<<PAGE 11>>
+International Journal of Computer Sciences and Engineering                                                                           Vol.14(5), May 2026 
+© 2026, IJCSE All Rights Reserved                                                                                                                                             44 
+healthcare systems and patient populations remains 
+unvalidated [29].  
+• Second, the feature engineering pipeline is restricted to 
+structured EHR variables over the first 24 hours of ICU 
+admission, excluding unstructured clinical notes, imaging 
+data, and longer temporal trajectories that may carry 
+additional prognostic information.  
+• Third, the evaluation relies on quantitative proxy metrics 
+and expert plausibility ratings rather than prospective 
+assessment of whether explanations improve clinical 
+decision quality in live workflows —the most clinically 
+meaningful evidence standard. 
+ 
+7. Conclusion and Future Scope 
+ 
+This paper has presented a rigorous technical investigation of 
+two widely adopted post -hoc explanation methods —SHAP, 
+LIME and Anchors —implemented and systematically 
+compared on XGBoost and LightGBM mortality prediction 
+models trained on the MIMIC -IV critical care database. The 
+study makes three principal contributions. First, complete, 
+reproducible implementations of TreeSHAP , LIME and 
+Anchors are provided within a unified explanation pipeline 
+applied to a large -scale, contemporary ICU dataset 
+encompassing 48,372 admissions and 64 clinical features. 
+Second, a multi -criteria evaluation framework assessing 
+faithfulness, stability and comprehensibility is applied, 
+providing a structured methodology for explanation quality 
+assessment reusable in future clinical XAI studies. Third, 
+rigorous head-to-head empirical comparison of SHAP , LIME 
+and Anchors  is conducted under identical experimental 
+conditions, addressing a gap in the literature identified by 
+Payrovnaziri et al. [23] and Markus et al. [22], where 
+comparative multi -criteria evaluation on large -scale clinical 
+datasets is notably absent.  
+ 
+Future investigations should evaluate the framework on 
+external critical care datasets to assess generalisability, extend 
+the feature set to multimodal and longitudinal clinical data, and 
+conduct prospective trials measuring the impact of 
+explanation-enhanced predictions on clinician decision quality 
+and patient outcomes. Integration of causal inference methods 
+with SHAP —addressing the well -documented limitations of 
+associational feature attribution under feature correlation 
+[53]—represents a particularly p romising direction for 
+enhancing the clinical actionability of generated explanations. 
+ 
+Acknowledgements- The author expresses sincere gratitude to 
+peers and reviewers who provided valuable feedback during 
+various stages of the paper. Special thanks to the institutions 
+and online resources that offered access to relevant data and 
+literature. 
+ 
+Funding Source- None. 
+ 
+Conflict of Interest- None. 
+ 
+Data Availability- None. 
+ 
+References 
+ 
+[1] J. L. Vincent and M. Singer, “Critical care: Advances and future 
+perspectives, ” The Lancet, vol. 376, no. 9749, pp. 1354–1361, Oct. 
+2010. https://doi.org/10.1016/S0140 -6736(10)60575 -2 
+[2] W. A. Knaus, E. A. Draper, D. P. Wagner, and J. E. Zimmerman, 
+“APACHE II: A severity of disease classification system, ” Critical 
+Care Medicine , vol. 13, no. 10, pp. 818 –829, Oct. 1985.  
+https://doi.org/10.1097/00003246 -198510000-00009 
+[3] J. L. Vincent et al. , “The SOFA score to describe organ 
+dysfunction/failure, ” Intensive Care Medicine , vol. 22, no. 7, pp. 
+707–710, Jul. 1996. https://doi.org/10.1007/BF01709751  
+[4] J. R. Le Gall, S. Lemeshow, and F. Saulnier, “A new simplified acute 
+physiology score (SAPS II) based on a European/North American 
+multicentre study, ” JAMA, vol. 270, no. 24, pp. 2957 –2963, Dec. 
+1993. https://doi.org/10.1001/jama.1993.03510240069035  
+[5] B. Shickel, P. J. Tighe, A. Bihorac, and P. Rashidi, “Deep EHR: A 
+survey of recent advances in deep learning techniques for 
+electronic health record analysis, ” IEEE Journal of Biomedical 
+and Health Informatics , vol. 22, no. 5, pp. 1589 –1604, Sep. 2018. 
+https://doi.org/10.1109/JBHI.2017.2767063  
+[6] A. E. W. Johnson et al. , “MIMIC-IV, a freely accessible electronic 
+health record dataset, ” Scientific Data , vol. 10, no. 1, p. 1, Jan. 
+2023. https://doi.org/10.1038/s41597 -022-01899-x 
+[7] H. Harutyunyan, H. Khachatrian, D. C. Kale, G. Ver Steeg, and A. 
+Galstyan, “Multitask learning and benchmarking with clinical time 
+series data, ” Scientific Data , vol. 6, no. 1, p. 96, Jun. 2019. 
+https://doi.org/10.1038/s41597 -019-0103-9 
+[8] A. E. W. Johnson, T. J. Pollard, and R. G. Mark, “Reproducibility in 
+critical care: A mortality prediction case study, ” in Proc. Machine 
+Learning for Healthcare Conf. (MLHC) , Boston, MA, USA, 2017, 
+pp. 361–376.  
+[9] F. Doshi -Velez and B. Kim, “Towards a rigorous science of 
+interpretable machine learning, ” arXiv preprint, arXiv:1702.08608, 
+2017.  
+[10] J. Ye et al., “Evaluating the utility of explainability methods in deep 
+learning for clinical applications, ” Frontiers in Digital Health, vol. 
+4, p. 903364, Jul. 2022. https://doi.org/10.3389/fdgth.2022.903364  
+[11] R. Caruana et al. , “Intelligible models for healthcare: Predicting 
+pneumonia risk and hospital 30 -day readmission, ” in Proc. 21st 
+ACM SIGKDD Int. Conf. Knowledge Discovery and Data Mining , 
+Sydney, Australia, 2015, pp. 1721 –1730. 
+https://doi.org/10.1145/2783258.2788613  
+[12] European Parliament and Council of the European Union, 
+“Regulation (EU) 2016/679 — General Data Protection 
+Regulation,” Official Journal of the European Union , L 119, pp. 
+1–88, May 2016.  
+[13] European Parliament and Council of the European Union, 
+“Regulation (EU) 2024/1689 — Artificial Intelligence Act, ” 
+Official Journal of the European Union , Jun. 2024.  
+[14] Medicines and Healthcare products Regulatory Agency, “Software 
+and AI as a medical device change programme — Roadmap,” 
+MHRA, London, UK, Tech. Rep., 2023.   
+[15] National Institute for Health and Care Excellence, “Evidence 
+standards framework for digital health technologies, ” NICE, 
+London, UK, Tech. Rep., 2019.   
+[16] W. Samek, G. Montavon, A. Vedaldi, L. K. Hansen, and K. -R. 
+Müller, Eds., Explainable AI: Interpreting, Explaining and 
+Visualizing Deep Learning . Cham, Switzerland: Springer, 2019. 
+https://doi.org/10.1007/978 -3-030-28954-6 
+[17] S. M. Lundberg and S. -I. Lee, “A unified approach to interpreting 
+model predictions, ” in Proc. 31st Conf. Neural Information 
+Processing Systems (NeurIPS) , Long Beach, CA, USA, 2017, pp. 
+4765–4774.  
+[18] M. T. Ribeiro, S. Singh, and C. Guestrin, “'Why should I trust you?': 
+Explaining the predictions of any classifier, ” in Proc. 22nd ACM 
+SIGKDD Int. Conf. Knowledge Discovery and Data Mining , San 
+Francisco, CA, USA, 2016, pp. 1135 –1144. 
+https://doi.org/10.1145/2939672.2939778  
+[19] M. T. Ribeiro, S. Singh, and C. Guestrin, “Anchors: High-precision 
+<<PAGE 12>>
+International Journal of Computer Sciences and Engineering                                                                           Vol.14(5), May 2026 
+© 2026, IJCSE All Rights Reserved                                                                                                                                             45 
+model-agnostic explanations, ” in Proc. 32nd AAAI Conf. Artificial 
+Intelligence , New Orleans, LA, USA, 2018, pp. 1527 –1535. 
+https://doi.org/10.1609/aaai.v32i1.11491  
+[20] S. M. Lundberg et al. , “From local explanations to global 
+understanding with explainable AI for trees, ” Nature Machine 
+Intelligence , vol. 2, no. 1, pp. 56 –67, Jan. 2020. 
+https://doi.org/10.1038/s42256 -019-0138-9 
+[21] S. M. Lundberg, G. G. Erion, and S. -I. Lee, “Consistent 
+individualized feature attribution for tree ensembles, ” arXiv 
+preprint, arXiv:1802.03888, 2018.  
+[22] A. Markus, T. Kors, and P. Rijnbeek, “The role of explainability in 
+creating trustworthy artificial intelligence for health care: A 
+comprehensive survey, ” Journal of Biomedical Informatics , vol. 
+113, p. 103655, Jan. 2021. 
+https://doi.org/10.1016/j.jbi.2020.103655  
+[23] O. Payrovnaziri et al. , “Explainable artificial intelligence models 
+using real -world electronic health record data: A systematic 
+review,” Journal of the American Medical Informatics Association , 
+vol. 27, no. 7, pp. 1173 –1185, Jul. 2020. 
+https://doi.org/10.1093/jamia/ocaa053  
+[24] C. Molnar, Interpretable Machine Learning: A Guide for Making 
+Black Box Models Explainable , 2nd ed. Munich, Germany: 
+christophm.github.io, 2022.  
+[25] A. Rajkomar et al. , “Scalable and accurate deep learning with 
+electronic health records, ” npj Digital Medicine , vol. 1, no. 1, p. 
+18, May 2018. https://doi.org/10.1038/s41746 -018-0029-1 
+[26] M. Moor, M. Horn, B. Rieck, D. Roqueiro, and K. Borgwardt, 
+“Early recognition of sepsis with Gaussian process temporal 
+convolutional networks and dynamic time warping, ” in Proc. 
+Machine Learning for Healthcare Conf. (MLHC) , Ann Arbor, MI, 
+USA, 2019, pp. 2 –26.  
+[27] E. Stenwig, G. Salvi, P. S. Rossi, and N. Skjærvold, “Comparative 
+analysis of explainable machine learning prediction models for 
+hospital mortality,” BMC Medical Research Methodology , vol. 22, 
+no. 1, p. 53, Feb. 2022. https://doi.org/10.1186/s12874 -022-01540-
+w 
+[28] D. van den Berg, T. van Geloven, and M. Hoogendoorn, 
+“Benchmarking machine learning models for mortality prediction 
+in the MIMIC -IV database, ” Journal of Biomedical Informatics , 
+vol. 138, p. 104277, Feb. 2023. 
+https://doi.org/10.1016/j.jbi.2022.104277  
+[29] B. Nestor et al. , “Feature robustness in non -stationary health 
+records: Caveats to deployable model performance in common 
+clinical machine learning tasks, ” in Proc. Machine Learning for 
+Healthcare Conf. (MLHC) , Ann Arbor, MI, USA, 2019, pp. 381 –
+405.  
+[30] S. M. Lauritsen et al., “Explainable artificial intelligence model to 
+predict acute critical illness from electronic health records, ” 
+Nature Communications , vol. 11, no. 1, p. 3852, Jul. 2020. 
+https://doi.org/10.1038/s41467 -020-17431-x 
+[31] A. Van Looveren, G. Klaise, A. Vacanti, and O. Cobb, “Navigating 
+explainability: Design, evaluation, and application considerations, ” 
+arXiv preprint, arXiv:2106.07164, 2021.   
+[32] S. M. Shankaranarayana and D. Runje, “ALIME: Autoencoder 
+based approach for local interpretability, ” in Proc. Int. Conf. 
+Intelligent Data Engineering and Automated Learning (IDEAL) , 
+Manchester, UK, 2019, pp. 454 –463. https://doi.org/10.1007/978 -
+3-030-33607-3_49 
+[33] D. Slack, S. Hilgard, E. Jia, S. Singh, and H. Lakkaraju, “Fooling 
+LIME and SHAP: Adversarial attacks on post hoc explanation 
+methods,” in Proc. AAAI/ACM Conf. AI, Ethics, and Society 
+(AIES), New York, NY , USA, 2020, pp. 180 –186. 
+https://doi.org/10.1145/3375627.3375830  
+[34] J. Rabold, H. Deininger, M. Siebers, and U. Schmid, “Enriching 
+visual with verbal explanations for relational concepts — 
+Combining LIME with Aleph, ” in Proc. Joint European Conf. 
+Machine Learning and Knowledge Discovery in Databases 
+(ECML PKDD) , Ghent, Belgium, 2020, pp. 53 –68. 
+https://doi.org/10.1007/978 -3-030-65965-3_4 
+[35] D. Alvarez -Melis and T. S. Jaakkola, “On the robustness of 
+interpretability methods, ” arXiv preprint, arXiv:1806.08049, 2018.  
+[36] U. Bhatt et al., “Explainable machine learning in deployment, ” in 
+Proc. ACM Conf. Fairness, Accountability, and Transparency 
+(FAccT), Barcelona, Spain, 2020, pp. 648 –657. 
+https://doi.org/10.1145/3351095.3375624  
+[37] G. Visani, E. Bagli, F. Chesani, A. Poluzzi, and D. Capuzzo, 
+“Statistical stability indices for LIME: Obtaining reliable 
+explanations for machine learning models, ” Journal of the 
+Operational Research Society , vol. 73, no. 1, pp. 91 –101, 2022. 
+https://doi.org/10.1080/01605682.2020.1865846  
+[38] S. Hooker, D. Erhan, P. Kindermans, and B. Kim, “A benchmark 
+for interpretability methods in deep neural networks, ” in Proc. 
+33rd Conf. Neural Information Processing Systems (NeurIPS) , 
+Vancouver, Canada, 2019, pp. 9737 –9748.  
+[39] J. Amann, A. Blasimme, E. Vayena, D. Frey, and V. I. Madai, 
+“Explainability for artificial intelligence in healthcare: A 
+multidisciplinary perspective, ” BMC Medical Informatics and 
+Decision Making , vol. 20, no. 1, p. 310, Nov. 2020. 
+https://doi.org/10.1186/s12911 -020-01332-6 
+[40] A. J. DeGrave, J. D. Janizek, and S. -I. Lee, “AI for radiographic 
+COVID-19 detection selects shortcuts over signal, ” Nature 
+Machine Intelligence , vol. 3, no. 7, pp. 610 –619, Jun. 2021. 
+https://doi.org/10.1038/s42256 -021-00338-7 
+[41] A. L. Goldberger et al. , “PhysioBank, PhysioToolkit, and 
+PhysioNet: Components of a new research resource for complex 
+physiologic signals, ” Circulation, vol. 101, no. 23, pp. e215–e220, 
+Jun. 2000. https://doi.org/10.1161/01.CIR.101.23.e215  
+[42] S. Wang, M. B. A. McDermott, G. Chauhan, M. Ghassemi, M. C. 
+Hughes, and T. Naumann, “MIMIC-Extract: A data extraction, 
+preprocessing, and representation pipeline for MIMIC -III,” in 
+Proc. ACM Conf. Health, Inference, and Learning (CHIL), Toronto, 
+Canada, 2020, pp. 222 –235. 
+https://doi.org/10.1145/3368555.3384469  
+[43] M. Ghassemi et al. , “A review of challenges and opportunities in 
+machine learning for health, ” AMIA Joint Summits on 
+Translational Science Proceedings , vol. 2020, pp. 191 –200, May 
+2020.  
+[44] F. Pedregosa et al. , “Scikit-learn: Machine learning in Python, ” 
+Journal of Machine Learning Research , vol. 12, pp. 2825 –2830, 
+Nov. 2011.  
+[45] N. V . Chawla, K. W. Bowyer, L. O. Hall, and W. P. Kegelmeyer, 
+“SMOTE: Synthetic minority over -sampling technique, ” Journal 
+of Artificial Intelligence Research , vol. 16, pp. 321–357, Jun. 2002. 
+https://doi.org/10.1613/jair.953  
+[46] M. D. Wilkinson et al., “The FAIR guiding principles for scientific 
+data management and stewardship, ” Scientific Data , vol. 3, p. 
+160018, Mar. 2016. https://doi.org/10.1038/sdata.2016.18  
+[47] T. Chen and C. Guestrin, “XGBoost: A scalable tree boosting 
+system,” in Proc. 22nd ACM SIGKDD Int. Conf. Knowledge 
+Discovery and Data Mining , San Francisco, CA, USA, 2016, pp. 
+785–794. https://doi.org/10.1145/2939672.2939785  
+[48] G. Ke et al. , “LightGBM: A highly efficient gradient boosting 
+decision tree, ” in Proc. 31st Conf. Neural Information Processing 
+Systems (NeurIPS) , Long Beach, CA, USA, 2017, pp. 3146 –3154.  
+[49] T. Akiba, S. Sano, T. Yanase, T. Ohta, and M. Koyama, “Optuna: A 
+next-generation hyperparameter optimization framework, ” in Proc. 
+25th ACM SIGKDD Int. Conf. Knowledge Discovery and Data 
+Mining, Anchorage, AK, USA, 2019, pp. 2623 –2631. 
+https://doi.org/10.1145/3292500.3330701  
+[50] J. Platt, “Probabilistic outputs for support vector machines and 
+comparisons to regularized likelihood methods, ” Advances in 
+Large Margin Classifiers , vol. 10, no. 3, pp. 61 –74, 1999. 
+[51] A. J. Vickers, A. M. Cronin, E. B. Elkin, and M. Gonen, 
+“Extensions to decision curve analysis, a novel method for 
+evaluating diagnostic tests, prediction models and molecular 
+markers,” BMC Medical Informatics and Data Decision Making , 
+vol. 8, no. 1, p. 53, Nov. 2008. https://doi.org/10.1186/1472 -6947-
+8-53 
+[52] E. R. DeLong, D. M. DeLong, and D. L. Clarke -Pearson, 
+“Comparing the areas under two or more correlated receiver 
+operating characteristic curves: A nonparametric approach, ” 
+Biometrics, vol. 44, no. 3, pp. 837 –845, Sep. 1988. 
+<<PAGE 13>>
+International Journal of Computer Sciences and Engineering                                                                           Vol.14(5), May 2026 
+© 2026, IJCSE All Rights Reserved                                                                                                                                             46 
+https://doi.org/10.2307/2531595  
+[53] D. Janzing, L. Minorics, and P. Blöbaum, “Feature relevance 
+quantification in explainable AI: A causal problem, ” in Proc. 23rd 
+Int. Conf. Artificial Intelligence and Statistics (AISTATS) , Palermo, 
+Italy, 2020, pp. 2907 –2916.  
+ 
+ 
+AUTHOR’S PROFILE 
+Dr. Brahmaleen K. Sidhu holds a Ph.D. 
+in Engineering and Technology from 
+Punjabi University, Punjab, India, an 
+M.Tech. in Computer Science and 
+Engineering from Punjab Technical 
+University, and a B.Tech. in the same 
+field from Punjabi University. She 
+currently serves as an Associate Professor 
+in the Department of Computer Science and Engineering at 
+Punjabi University and brings nearly 20 years of teaching 
+experience. Her research interests span software architecture, 
+software evolution, software quality, refactoring, model-driven 
+development, data science, and machine learning. She has 
+authored around 100 research papers published in reputed 
+international journals indexed in SCI and Web of Science, as 
+well as in IEEE conferences.  She has authored 4 books and 
+holds multiple patents in India and the United Kingdom.  Dr. 
+Sidhu was awarded the ‘International Innovative Educator 
+Award 2021’ and ‘International Teaching Excellence Award 
+2024-25’, and listed in ‘100 Eminent Academicians of 2021’ 
+by International Institute of Organized Research. 
+ 
+ 

@@ -1,0 +1,92 @@
+{
+ "N300": {
+  "ok": true,
+  "url": "https://arxiv.org/pdf/2603.15821",
+  "note": "200 application/pdf"
+ },
+ "N339": {
+  "ok": true,
+  "url": "https://arxiv.org/pdf/2212.08370",
+  "note": "200 application/pdf"
+ },
+ "N557": {
+  "ok": true,
+  "url": "https://arxiv.org/pdf/2603.20919",
+  "note": "200 application/pdf"
+ },
+ "N616": {
+  "ok": true,
+  "url": "https://arxiv.org/pdf/2602.00179",
+  "note": "200 application/pdf"
+ },
+ "N693": {
+  "ok": true,
+  "url": "https://arxiv.org/pdf/2402.04211",
+  "note": "200 application/pdf"
+ },
+ "N708": {
+  "ok": true,
+  "url": "https://arxiv.org/pdf/2401.12731",
+  "note": "200 application/pdf"
+ },
+ "N029": {
+  "ok": true,
+  "url": "https://arxiv.org/pdf/2204.03321",
+  "note": "200 application/pdf"
+ },
+ "N101": {
+  "ok": true,
+  "url": "https://arxiv.org/pdf/2008.05895",
+  "note": "200 application/pdf"
+ },
+ "N386": {
+  "ok": true,
+  "url": "https://arxiv.org/pdf/2106.03820",
+  "note": "200 application/pdf"
+ },
+ "N312": {
+  "ok": false,
+  "url": "https://link.springer.com/content/pdf/10.1007/s00704-025-05703-9.pdf",
+  "note": "200 text/html; charset=utf-8"
+ },
+ "N383": {
+  "ok": true,
+  "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11701365&ref=",
+  "note": "200 application/pdf"
+ },
+ "N479": {
+  "ok": false,
+  "url": "https://www.svedbergopen.com/index.php/ijaiml/article/download/2294/14",
+  "note": "404 text/html; charset=UTF-8"
+ },
+ "N480": {
+  "ok": true,
+  "url": "https://ijcseonline.org/index.php/j/article/download/7396/7350",
+  "note": "200 application/pdf"
+ },
+ "N305": {
+  "ok": false,
+  "url": "https://doi.org/10.35957/algoritme.v7i1.17538",
+  "note": "200 text/html; charset=utf-8"
+ },
+ "N036": {
+  "ok": false,
+  "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11736292&ref=",
+  "note": "200 text/html;charset=UTF-8"
+ },
+ "N048": {
+  "ok": false,
+  "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11583167&ref=",
+  "note": "200 text/html;charset=UTF-8"
+ },
+ "N126": {
+  "ok": false,
+  "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11397022&ref=",
+  "note": "200 text/html;charset=UTF-8"
+ },
+ "N239": {
+  "ok": false,
+  "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11543654&ref=",
+  "note": "200 text/html;charset=UTF-8"
+ }
+}
