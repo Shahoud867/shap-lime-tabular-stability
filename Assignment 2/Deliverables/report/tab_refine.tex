@@ -1,0 +1,19 @@
+\begin{longtable}{@{}P{0.4cm}P{1.9cm}P{6.2cm}P{1.3cm}P{1.2cm}P{4.6cm}@{}}
+\caption{Search refinement log (pilot strings tested before the final searches).}\label{tab:refine}\\
+\toprule Step & Source & Variant & Results & Known found & Decision \\ \midrule \endfirsthead
+\toprule Step & Source & Variant & Results & Known found & Decision \\ \midrule \endhead
+\bottomrule \endfoot
+1 & OpenAlex & SHAP/\allowbreak{}LIME terms AND stability phrases AND perturbation terms AND tabular terms (V1) & 40 & 2 & Too narrow: the perturbation concept removed most benchmark papers. \\
+2 & OpenAlex & SHAP/\allowbreak{}LIME terms AND single-word stability terms AND perturbation terms AND tabular terms (V2) & 892 & 3 & Single words such as stable/\allowbreak{}robust add noise; recall still low. \\
+3 & OpenAlex & SHAP/\allowbreak{}LIME terms AND single-word stability terms AND tabular terms, no perturbation concept (V5) & 3589 & 5 & Too broad to screen: stability words often describe model performance, not explanations. \\
+4 & OpenAlex & Stability words in title AND (SHAP/\allowbreak{}LIME terms AND tabular terms) in title/\allowbreak{}abstract (V6) & 1177 & 6 & Better recall (the only variant that found Hwang et al. 2025) but still broad; the free OpenAlex API budget then ran out, so OpenAlex was used for piloting only. \\
+5 & Semantic Scholar & SHAP/\allowbreak{}LIME terms + 19 stability phrases + perturbation terms + tabular terms (T2) & 49 & 3 & Dropped the perturbation concept: it lost benchmark papers. \\
+6 & Semantic Scholar & SHAP/\allowbreak{}LIME terms + 19 stability phrases + tabular terms (T1) & 364 & 6 & Adopted. The phrase-level stability concept was then used in every database. \\
+7 & ScienceDirect & Stability phrases in double quotes & 257-344 & - & ScienceDirect matched quoted phrases loosely; switched to braces for exact phrases and split into SD1-SD3 because of the 8-connector limit. \\
+8 & DBLP & Prefix matching on shap/\allowbreak{}lime & - & - & Prefix matching added noise (e.g., \textquotedbl{}shap\textquotedbl{} matched \textquotedbl{}shape\textquotedbl{}); switched to exact words with \$. \\
+9 & Semantic Scholar (suppl.) & Explainer + word-level stability + 20 mechanism/\allowbreak{}diagnostic terms + tabular/\allowbreak{}tree terms (v1) & 388 & 4 of 8 (RQ3 set) & Missed papers framed by smoothness/\allowbreak{}Lipschitz, weak learners or credible intervals; added those terms. \\
+10 & Semantic Scholar (suppl.) & v1 + weak learner, smoothness, Lipschitz, credible/\allowbreak{}uncertainty intervals, sampling variance/\allowbreak{}noise/\allowbreak{}randomness (v2) & 494 & 5 of 8 & Adopted for IEEE, arXiv and Semantic Scholar. The 3 papers still missed have no tabular term in their abstracts and were already included through citation searching. \\
+11 & Semantic Scholar (suppl.) & v2 without the tabular/\allowbreak{}tree concept & 1089 & - & Not used: doubles the set with mostly non-tabular work; kept the tabular concept for consistency with the main search. \\
+12 & ScienceDirect (suppl.) & Five variants (explainer in full text, title or title-abstract field; phrase or word-level mechanism terms) & 343-4,928 & - & Dropped: braces did not enforce exact phrases, so results were dominated by applied studies. \\
+13 & DBLP (suppl.) & Generic explanation/\allowbreak{}attribution words AND mechanism words in titles & 247 & - & Mostly uncertainty-explanation and decision-theory titles; narrowed to SHAP/\allowbreak{}LIME/\allowbreak{}Shapley in the title (41 records). \\
+\end{longtable}
