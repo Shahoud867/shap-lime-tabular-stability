@@ -1,0 +1,290 @@
+[
+  {
+    "id": "N031",
+    "title": "A Novel Stacking Ensemble Framework for Predicting Workability of Cement-Superplasticizer Systems With SHAP and LIME Interpretability",
+    "year": 2026,
+    "doi": "10.1109/access.2026.3719449",
+    "arxiv": null,
+    "abstract": "The fresh-state behavior of cementitious systems is governed by complex interactions between cement mineralogy and the molecular architecture of polycarboxylate ether-based superplasticizers (PCEs). Predicting workability indicators such as mini-slump and flow time across varying cement C3A contents and PCE types remains challenging, and existing machine learning approaches rarely combine structur..."
+  },
+  {
+    "id": "N046",
+    "title": "Smart Crop Recommendation System Using Machine Learning and Explainable AI",
+    "year": 2024,
+    "doi": "10.1109/iccit64611.2024.11021774",
+    "arxiv": null,
+    "abstract": "In many countries of the world, especially in South Asian countries, most of the people&#39;s livelihood and food habits are based on agriculture, so it is very important to produce different types of crops profitably and in large quantities. However many farmers are still using primitive methods of cropping and do not understand exactly which crop is best for which land at which time due to climate v..."
+  },
+  {
+    "id": "N052",
+    "title": "Balancing Accuracy and Interpretability: Machine Learning Approaches to Predict Heart Failure Readmissions",
+    "year": 2025,
+    "doi": "10.1109/spicscon69221.2025.11504054",
+    "arxiv": null,
+    "abstract": "Heart failure (HF) readmissions remain a major clinical and economic challenge, underscoring the need for reliable early prediction frameworks. This study develops a machine learning-based approach to identify patients at risk of 1 -year all-cause readmission. A dataset of $1,118 \\mathrm{HF}$ cases was preprocessed and analyzed using five classifiers-Random Forest, XGBoost, Decision Tree, Support ..."
+  },
+  {
+    "id": "N071",
+    "title": "Enhancing photovoltaic system performance using advanced gradient boosting methods",
+    "year": 2024,
+    "doi": "10.1109/iccad60883.2024.10553919",
+    "arxiv": null,
+    "abstract": "Photovoltaic (PV) systems are indispensable elements in clean energy production. Predicting PV power is crucial for optimizing system performance and ensuring grid stability. This paper investigates the performance of gradient boosting approaches, XGBoost and Catboost, in predicting PV power. Datasets recorded each minute, including weather data and power output from two distinct PV systems in Bri..."
+  },
+  {
+    "id": "N083",
+    "title": "Noise-Tolerant Multi-Model Ensemble for Robust Hypothyroid Classification",
+    "year": 2026,
+    "doi": "10.1109/assic70037.2026.11717313",
+    "arxiv": null,
+    "abstract": "The most common endocrine disorder found throughout the globe occurs due to thyroid abnormalities which include hypothyroidism. The medical condition leads to both metabolic disruptions and excessive sleepiness when doctors fail to identify it correctly. The traditional models of diagnostic methods are facing challenges which emerge from three issues that include noisy data and class imbalance tog..."
+  },
+  {
+    "id": "N091",
+    "title": "A Metaheuristic Optimized XGBoost Model and SHAP Analysis for Heart Disease Prediction",
+    "year": 2026,
+    "doi": "10.1109/peccii70991.2026.11661830",
+    "arxiv": null,
+    "abstract": "This study proposes a heart disease prediction model based on the XGBoost classifier, where seven clinically significant features were selected using an Equilibrium optimization algorithm (EVO)-based approach, while the model hyperparameters were simultaneously optimized, achieving an overall accuracy of 95.38%. As a baseline evaluation, the XGBoost model was trained using all 11 features without ..."
+  },
+  {
+    "id": "N108",
+    "title": "Binary Pass-Fail Prediction of Student Performance Using XGBoost and SHAP: A Case Study on the UCI Dataset",
+    "year": 2026,
+    "doi": "10.1109/iciba68339.2026.11651877",
+    "arxiv": null,
+    "abstract": "To tackle class imbalance and model interpretability issues in student performance prediction, this paper builds a binary pass/fail prediction model using XGBoost. The model strictly excludes the midterm grade features G1 and G2. It uses the mathematics subset of the UCI Student Performance Dataset. The study compares five oversampling strategies: SMOTE, Borderline-SMOTE, ADASYN, SMOTE-ENN, and SM..."
+  },
+  {
+    "id": "N114",
+    "title": "XAI-RiskNet: Explainable Ensemble Learning for Robust Firm Default Prediction Under Economic Stress",
+    "year": 2025,
+    "doi": "10.1109/etecom66111.2025.11319052",
+    "arxiv": null,
+    "abstract": "Economic crises often trigger sudden firm defaults, making reliable and transparent forecasting essential for banks, investors, and regulators. This paper introduces XAI-RiskNet, a modular machine learning framework that unifies predictive strength with audit-ready explainability for firm-level default risk under macroeconomic stress. The design integrates unsupervised clustering to capture struct..."
+  },
+  {
+    "id": "N121",
+    "title": "Takeover Time Prediction for Conditionally Automated Driving Vehicles: Considering Mixed Traffic Flow Environment",
+    "year": 2025,
+    "doi": "10.1109/tits.2025.3557772",
+    "arxiv": null,
+    "abstract": "The length of time for drivers to take over conditionally automated driving vehicles (CADV) is often influenced by numerous factors, especially the mixed traffic flow environment. To analyze the influencing factors of driver’s takeover time in the mixed traffic flow environment, we study a real-vehicle takeover experiment with the CADV and radar video integrated machine provided by Jiangsu Univers..."
+  },
+  {
+    "id": "N127",
+    "title": "Data Leakage Detection in Cloud Computing Environment",
+    "year": 2024,
+    "doi": "10.1109/cybercomp60759.2024.10913619",
+    "arxiv": null,
+    "abstract": "Insider threats pose critical security threats through the possession of privileged and access to valuable information and resources. Data leakage is one of the significant challenges faced in cloud computing environments, emphasising the criticality of data protection across various sectors such as education, finance, healthcare, and more. Cloud computing offers numerous advantages, including rel..."
+  },
+  {
+    "id": "N142",
+    "title": "SIFT: Scene-Imagination-Based Feature Reweighting",
+    "year": 2025,
+    "doi": "10.1109/icdmw69685.2025.00298",
+    "arxiv": null,
+    "abstract": "Feature selection for fraud detection in tabular domains presents two major challenges: the input space is high-dimensional and semantically structured, while positive (fraudulent) cases are extremely scarce. In such settings, traditional feature attribution methods, e.g., information gain or SHAP, often fail to provide reliable guidance, as redundant features dilute meaningful patterns and statis..."
+  },
+  {
+    "id": "N163",
+    "title": "Explanation-Based Runtime Verification for Trustworthy ML-Driven Optical Networks",
+    "year": 2026,
+    "doi": "10.23919/ondm68511.2026.11618783",
+    "arxiv": null,
+    "abstract": "Machine learning (ML) models are increasingly integrated into optical network automation frameworks to support tasks such as failure management, performance monitoring and resource allocation. In these environments, ML-driven predictions may be directly coupled with control-plane actions where incorrect decisions can immediately impact service quality, resource efficiency, and network stability. A..."
+  },
+  {
+    "id": "N178",
+    "title": "Interpretable Multi-Source Remote Sensing for Forest Aboveground Biomass Estimation: Revealing Feature Interactions and Prediction Uncertainty",
+    "year": 2026,
+    "doi": "10.1109/jstars.2026.3741617",
+    "arxiv": null,
+    "abstract": "Accurate estimation of forest aboveground biomass (AGB) from remote sensing observations is essential for large-scale forest monitoring and carbon assessment. However, nonlinear relationships among heterogeneous remote sensing variables and associated prediction uncertainty remain major challenges for reliable biomass mapping. This study develops an explainable and uncertainty-aware multi-source r..."
+  },
+  {
+    "id": "N195",
+    "title": "Ano2Rule: Rule-Based Global Interpretation for Unsupervised Anomaly Detection in Security",
+    "year": 2026,
+    "doi": "10.1109/tdsc.2026.3667688",
+    "arxiv": null,
+    "abstract": "In the realm of cybersecurity, unsupervised anomaly detection models have emerged as pivotal tools for identifying novel threats in dynamic and evolving environments. However, the opaque nature of these black-box models presents a significant barrier to their adoption in high-stakes applications, where modelinterpretability is essential for trust and deployment. This paper presents a rule-based ap..."
+  },
+  {
+    "id": "N230",
+    "title": "Cardiovascular Disease Detection Using Deep Learning with Imbalanced Dataset Handling: Focal Loss and Ensemble Approach",
+    "year": 2026,
+    "doi": "10.1109/ic2pct68894.2026.11584441",
+    "arxiv": null,
+    "abstract": "Cardiovascular disease (CVD) remains the leading global cause of mortality, with class imbalance in medical datasets posing a critical challenge for predictive modeling. This paper presents a comprehensive deep learning framework that integrates imbalance mitigation strategies across multiple levels: data, loss, batch, and ensemble. A multi-layered neural network with batch normalization, dropout,..."
+  },
+  {
+    "id": "N235",
+    "title": "Enhancing Anomaly Detection in Blockchain Transactions with Transformer-Based Models",
+    "year": 2024,
+    "doi": "10.1109/bcca62388.2024.10844493",
+    "arxiv": null,
+    "abstract": "Anomaly Detection (AD) in Bitcoin Transactions (BTXs) is critical for maintaining the integrity and security of blockchain systems. This study proposes a Transformer-based framework to address challenges such as class imbalance, complex feature interactions, and temporal dependencies inherent in Bitcoin Transaction (BTX) data. The model leverages self-attention mechanisms, feature embeddings, and ..."
+  },
+  {
+    "id": "N240",
+    "title": "Machine Unlearning in Smart Grids: A Cautionary Tale of Infrastructure Vulnerability",
+    "year": 2026,
+    "doi": "10.1109/lsmc.2026.3701875",
+    "arxiv": null,
+    "abstract": "The rapid growth of sensor-generated data in Smart Grids (SGs) has been accompanied by a parallel surge in cyberattacks. This letter aims to uncover how machine learning (ML) models deployed in SGs are vulnerable to stealthy attack vectors, leading them to intentionally forget learned information—an emerging threat known as malicious machine unlearning (MU). We explore the increasing risks to ML-d..."
+  },
+  {
+    "id": "N254",
+    "title": "AI-Driven Predictive Analytics for Monthly Per Capita Expenditure using Macroeconomic Indicators",
+    "year": 2025,
+    "doi": "10.1109/icacrs67045.2025.11324119",
+    "arxiv": null,
+    "abstract": "Understanding household consumption patterns remains fundamental to formulating effective economic policies in developing economies. India&#39;s reliance on periodic Household Consumption Expenditure Surveys (HCES) creates temporal gaps that limit policymakers&#39; ability to respond swiftly to emerging economic challenges. We address this limitation by developing a predictive framework utilizing multivar..."
+  },
+  {
+    "id": "N359",
+    "title": "Neural Emulators vs. Machine Learning Regressors: District‑Scale Pre‑Monsoon Temperature Prediction in Telangana",
+    "year": 2026,
+    "doi": "10.1007/s41748-026-01220-5",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "N387",
+    "title": "Prediction and Multi-Objective Optimization of Resistance Coil-Assisted Friction Stir Welding of AISI 316L Using Ensemble Machine Learning",
+    "year": 2026,
+    "doi": "10.1007/s12666-026-04003-8",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "N477",
+    "title": "Physics-Guided Bi-LSTM Networks for Seismic Magnitude Forecasting: Performance and Limitations in the Zagros-Makran Transition Zone",
+    "year": 2026,
+    "doi": "10.1007/s00024-026-04077-x",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "N556",
+    "title": "Desiccation Cracking and Direct Tensile Strength of Compacted Expansive Bentonite Clay: Experimental Investigation and Predictive Modeling",
+    "year": 2026,
+    "doi": "10.1007/s10706-026-03833-z",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "N680",
+    "title": "Sustainable concrete incorporating banana leaf ash: strength prediction and optimisation using advanced machine learning algorithms",
+    "year": 2025,
+    "doi": "10.1007/s42107-025-01527-0",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "U004",
+    "title": "Explainable AI/ML Models for Customer Retention Optimization in the Telecom Sector",
+    "year": 2025,
+    "doi": "10.1109/rcsm67767.2025.11506710",
+    "arxiv": null,
+    "abstract": "Customer churn remains one of the costliest operational problems for telecommunications providers. Predictive models that detect at-risk customers can materially reduce churn, but black-box algorithms hinder operational adoption because product teams, regulators and customer-facing staff need understandable reasons for automated recommendations. This paper presents an end-to-end, explainable machine learning pipeline for customer retention optimization that combines tabular usage/billing features with short support-call text, evaluates interpretable and high-performance learners (logistic regression, Random Forest, XGBoost), and applies both local (LIME) and global (SHAP/feature importance) explainers. We propose reproducible preprocessing, stratified cross-validation, and stability measures for explanations, and we show how explanations feed a policy simulator that converts predictions into intervention decisions (discounts, proactive calls, tailored bundles). Using a mixed tabular + text telecom dataset, the pipeline demonstrates strong discrimination (AUC) for ensemble models while retaining actionable local explanations for top-risk cases. We report mock quantitative results and human evaluation metrics (actionability, trust, explanation consistency) to illustrate typical outcomes and trade-offs. Finally, we discuss operational integration, ethical safeguards, and deployment recommendations for a hybrid scoring+ explainability architecture. Implementation details and methodology choices follow established enterprise XAI practices and the uploaded methodological reference."
+  },
+  {
+    "id": "U038",
+    "title": "Explainable Consumer Behavior Forecasting Using Dynamic Knowledge Graphs",
+    "year": 2026,
+    "doi": "10.1109/iccvbic71195.2026.11688577",
+    "arxiv": null,
+    "abstract": "The need to precisely anticipate consumer behaviour has become a prerequisite for contemporary retail, e-commerce, and customer relationship management systems, empowering companies to enhance customised advertising and marketing, demand forecasting, stock management, and customer retention. Despite the success of recent attempts to use artificial intelligence (AI) and deep learning models to improve forecast accuracy, these models remain black boxes, making them difficult to interpret, understand, and trust, and impeding their use in business decision-making. To overcome these challenges, this paper suggests a novel Dynamic Behavioural Knowledge Graph-Adaptive Causal Attention Network (DBKG-ACAN) framework for explainable consumer behaviour forecasting. In this framework, we propose fusing heterogeneous consumer data, dynamically constructing a consumer behavioural knowledge graph, applying adaptive causal attention learning, and incorporating a multi-level explainability engine and a Decision Confidence Index (DCI) into a unified framework. The Dynamic Behavioural Knowledge Graph performs continuous modelling of evolving relationships among consumers, products, transactions, and contextual factors, while the Adaptive Causal Attention Network detects behaviourally relevant interactions that directly affect the purchasing decision. The proposed framework provides global, local, causal, confidence, and recommendation-level explanations for each forecasting result and incorporates explainability into the forecasting process itself, unlike traditional explainable AI techniques that provide post hoc explanations. The proposed DBKG-ACAN approach has been successfully tested against the conventional logistic regression, random forest, support vector machine, LSTM and GNN models, yielding a forecasting accuracy of 98.14%, precision of 97.81%, recall of 97.46%, F1-score of 97.63% and AUC of 0.992, with a forecasting error of 0.041, 0.079 and 3.27% in terms of MAE, RMSE, and MAPE, respectively. Additionally, it has an Explanation Fidelity of 97.42%, Explanation Stability of 96.73%, Causal Consistency of 96.25%, Business Interpretability of 97.86%, and a Decision Confidence Index of 0.98, which shows its ability to accurately predict consumer behaviour whilst remaining transparent and trustworthy. The proposed framework can be effectively and easily implemented for intelligent retail analytics, personalised marketing, recommendation systems, and AI-supported business decision-making."
+  },
+  {
+    "id": "U048",
+    "title": "Explainability and Verifiability of Artificial Intelligence in ICU Mortality Prediction",
+    "year": 2026,
+    "doi": "10.1109/citds70571.2026.11706859",
+    "arxiv": null,
+    "abstract": "High area under the receiver operating characteristic curve (AUROC) alone is insufficient for assessing intensive care unit (ICU) mortality models, because calibration, feature behavior, explanation stability, and external generalizability also affect trustworthiness. We present a verification and explainability framework combining an XGBoost-multilayer perceptron (MLP) soft-voting ensemble trained on the MIMIC-IV dataset, five verification experiments, and a Streamlit-based decisionsupport prototype. The framework identifies monotonicity and calibration problems and evaluates segmented-risk A/B/C monotonicity diagnosis, component-level Platt scaling, and external validation on the eICU-CRD dataset. The ensemble achieved AUROC 0.888 on MIMIC-IV and 0.856 on eICU-CRD, while Platt scaling reduced the expected calibration error (ECE) from 0.090 to 0.006 internally and from 0.167 to 0.045 externally."
+  },
+  {
+    "id": "U255",
+    "title": "Stable local interpretable model-agnostic explanations based on a variational autoencoder",
+    "year": 2023,
+    "doi": "10.1007/s10489-023-04942-5",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "U407",
+    "title": "Decision support for sustainable maritime transportation under multiple objectives",
+    "year": 2026,
+    "doi": "10.1016/j.rtbm.2026.101798",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "U410",
+    "title": "Soil fertility prediction using SoilGRU-XNet: An explainable GRU-based framework for precision agriculture",
+    "year": 2026,
+    "doi": "10.1016/j.compag.2026.112294",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "U415",
+    "title": "Explainable Machine Learning for Binary Casualty Prediction: Evidence from New South Wales",
+    "year": 2026,
+    "doi": "10.1016/j.rineng.2026.112401",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "U430",
+    "title": "A machine learning framework for coal gasification process simulation and operation optimization",
+    "year": 2025,
+    "doi": "10.1016/j.fuel.2025.135934",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "U449",
+    "title": "Density-based reliable and robust explainer for counterfactual explanation",
+    "year": 2023,
+    "doi": "10.1016/j.eswa.2023.120214",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "U460",
+    "title": "Mechanism-guided gated attention network with uncertainty quantification for robust soft sensing in complex industrial processes",
+    "year": 2026,
+    "doi": "10.1016/j.asoc.2026.115819",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "U465",
+    "title": "Advancing Structure–Emulsifying Property Relationships of Corn Fiber Gum–Soy Protein Isolate Conjugates through Machine Learning",
+    "year": 2026,
+    "doi": "10.1016/j.foodhyd.2026.112664",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "U500",
+    "title": "A stable feature selection method based on majority voting and SHAP for high-dimensional metabolomics data",
+    "year": 2026,
+    "doi": "10.1016/j.cmpb.2025.109170",
+    "arxiv": null,
+    "abstract": "BACKGROUND AND OBJECTIVE\nMetabolomics technology facilitates the simultaneous measurement of tens of thousands of metabolites, providing a crucial tool for disease mechanism research and biomarker screening. However, due to the high-dimensional and small-sample nature of the data, feature selection emerges as a critical step in data analysis. Existing feature selection methods still exhibit shortcomings in terms of stability, making it difficult to ensure consistency of selected features under sample perturbations or repeated experiments.\n\n\nMETHODS\nTherefore, this study proposes a feature selection framework based on majority voting and SHAP integration (MVFS-SHAP), aimed at enhancing the stability and predictive performance of selected features. Specifically, five-fold cross-validation and bootstrap sampling techniques are used to generate multiple sampled datasets. The same base feature selection method is then applied to each dataset to generate corresponding feature subsets. Subsequently, a majority voting strategy is used to integrate these subsets. Based on Ridge regression and Linear SHAP, feature importance scores are computed, and features are re-ranked according to their average SHAP values. The top-ranked features are selected to form the final representative feature subset. Finally, a predictive model is constructed using partial least squares regression, and stability is evaluated through an extended Kuncheva index.\n\n\nRESULTS\nExtensive experiments on four high-dimensional, small-sample datasets demonstrate that the proposed MVFS-SHAP framework consistently outperforms existing feature aggregation strategies in terms of both feature selection stability and predictive accuracy. MVFS-SHAP shows high stability on most datasets. Among them, the stability of the Exo and Endo datasets exceeds 0.90, and about 80 % of the results are higher than 0.80. Even on challenging datasets, the stability remains within the range of 0.50 to 0.75. Furthermore, delivers lower RMSE values across models such as Lasso, Random Forest, and XGBoost. These results confirm the method's robustness in handling noisy and complex data while ensuring reliable biomarker selection.\n\n\nCONCLUSIONS\nThe proposed MVFS-SHAP framework provides a stable and effective solution for feature selection in high-dimensional, small-sample metabolomics studies. Future work will aim to enhance the framework's adaptability through optimized aggregation strategies and hyperparameter tuning, while extending its application to real-world biomedical research, including traditional Chinese medicine and precision medicine."
+  },
+  {
+    "id": "U564",
+    "title": "Core stability of the Shapley value for cooperative games",
+    "year": 2023,
+    "doi": "10.1007/s00355-022-01432-4",
+    "arxiv": null,
+    "abstract": ""
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "C062": {
+    "study": "S04",
+    "source_url": "https://arxiv.org/html/1911.02508",
+    "location": "Section3, Building Adversarial Classifiers",
+    "status": "Supported: ethical/fairwashing risk explicitly addressed."
+  },
+  "U466": {
+    "study": "S16",
+    "source_url": "https://arxiv.org/html/2306.06123",
+    "location": "Section3:Membership inference; Section5:Adversarial attacks on fairness metrics",
+    "status": "Supported: privacy and fairness threats explicitly addressed."
+  },
+  "U124": {
+    "study": "S36",
+    "source_url": "https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2025.1682919/full",
+    "location": "Statements:Data availability;Ethics statement",
+    "status": "Supported: ethics approval/consent-waiver/data-access restrictions explicitly reported."
+  },
+  "U248": {
+    "study": "S63",
+    "source_url": "https://arxiv.org/pdf/2605.10796",
+    "location": "Printedp17(PDFpage17),Data availability statement",
+    "status": "Supported: privacy and institutional restrictions explicitly stated. Do not infer approval/consent safeguards beyond this statement."
+  },
+  "U133": {
+    "study": "S69",
+    "source_url": "https://scipublication.com/index.php/AIMLR/article/download/331/300/722",
+    "location": "Printedp93:Fairness metrics;printedp104:Limitations",
+    "status": "Supported: fairness assessed with clear protected-attribute limitation. Metrics do not establish legal compliance."
+  }
+}

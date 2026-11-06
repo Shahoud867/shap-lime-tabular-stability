@@ -1,0 +1,35 @@
+[
+  {
+    "sid": "S10",
+    "uid": "U155",
+    "field": "data",
+    "proposed": "Credit-scoring data from CRIF S.p.A.; 56,311 observations (39,418 training and 16,893 test), about 100 initial variables with top 20 retained (Sec.6 dataset-composition table).",
+    "evidence_url": "https://arxiv.org/html/2001.11757",
+    "evidence": "Section 6 dataset-composition table",
+    "confidence": "confirmed source correction",
+    "source_file": "Assignment 2/work/extract/ft_001.jsonl",
+    "source_line": 2
+  },
+  {
+    "sid": "S08",
+    "uid": "U483",
+    "field": "limitations",
+    "proposed": "Authors: controls sampling variance rather than sensitivity to kernel parameters or model variability; temporal-data explanations remain challenging (Sec.6). Main-text examples focus on selected instances, while Appendix B.2 evaluates 50 test instances per breast-cancer/sepsis application with 20 repeats each. No input-perturbation analysis.",
+    "evidence_url": "https://arxiv.org/html/2106.07875",
+    "evidence": "Appendix B.2/Table 5",
+    "confidence": "confirmed source correction",
+    "source_file": "Assignment 2/work/extract/ft_001.jsonl",
+    "source_line": 3
+  },
+  {
+    "sid": "S05",
+    "uid": "C058",
+    "field": "repro",
+    "proposed": "Paper first-page footnote links author project page dylanslacks.website/reliable/index.html, which links code at github.com/dylan-slack/Modeling-Uncertainty-Local-Explainability; public benchmark datasets used.",
+    "evidence_url": "https://dylanslacks.website/reliable/index.html",
+    "evidence": "Project-page GitHub link and paper footnote",
+    "confidence": "confirmed source correction",
+    "source_file": "Assignment 2/work/extract/ft_003.jsonl",
+    "source_line": 8
+  }
+]

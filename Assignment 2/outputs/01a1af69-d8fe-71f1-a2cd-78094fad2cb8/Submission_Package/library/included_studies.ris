@@ -1,0 +1,1277 @@
+TY  - CPAPER
+AU  - David Alvarez-Melis
+AU  - Tommi S. Jaakkola
+TI  - On the Robustness of Interpretability Methods
+PY  - 2018
+T2  - ICML 2018 Workshop on Human Interpretability in Machine Learning (WHI); arXiv:1806.08049
+UR  - https://arxiv.org/abs/1806.08049
+ID  - S01
+N1  - S01 (C069); Workshop paper (arXiv comment); QA 72.2%
+ER  - 
+
+TY  - CPAPER
+AU  - Yujia Zhang
+AU  - Kuangyan Song
+AU  - Yiming Sun
+AU  - Sarah Tan
+AU  - Madeleine Udell
+TI  - "Why Should You Trust My Explanation?" Understanding Uncertainty in LIME Explanations
+PY  - 2019
+T2  - ICML 2019 Workshop on AI for Social Good; arXiv:1904.12991
+UR  - https://arxiv.org/abs/1904.12991
+ID  - S02
+N1  - S02 (C068); Workshop paper (PDF header); QA 61.1%
+ER  - 
+
+TY  - CPAPER
+AU  - Sean Saito
+AU  - Eugene Chua
+AU  - Nicholas Capel
+AU  - Rocco Hu
+TI  - Improving LIME Robustness with Smarter Locality Sampling
+PY  - 2020
+T2  - AdvML '20: Workshop on Adversarial Learning Methods for Machine Learning and Data Mining (KDD 2020); arXiv:2006.12302
+UR  - https://arxiv.org/abs/2006.12302
+ID  - S03
+N1  - S03 (C061); Workshop paper (PDF header); QA 66.7%
+ER  - 
+
+TY  - CPAPER
+AU  - Dylan Slack
+AU  - Sophie Hilgard
+AU  - Emily Jia
+AU  - Sameer Singh
+AU  - Himabindu Lakkaraju
+TI  - Fooling LIME and SHAP: Adversarial Attacks on Post hoc Explanation Methods
+PY  - 2020
+T2  - Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society
+SP  - 180
+EP  - 186
+DO  - 10.1145/3375627.3375830
+UR  - https://doi.org/10.1145/3375627.3375830
+ID  - S04
+N1  - S04 (C062); Conference proceedings (Crossref); QA 85.0%
+ER  - 
+
+TY  - CPAPER
+AU  - Dylan Slack
+AU  - Sophie Hilgard
+AU  - Sameer Singh
+AU  - Himabindu Lakkaraju
+TI  - Reliable Post hoc Explanations: Modeling Uncertainty in Explainability
+PY  - 2021
+T2  - Advances in Neural Information Processing Systems 34 (NeurIPS 2021)
+SP  - 9391
+EP  - 9404
+UR  - https://arxiv.org/abs/2008.05030
+ID  - S05
+N1  - S05 (C058); Conference paper (Semantic Scholar); QA 100.0%
+ER  - 
+
+TY  - CPAPER
+AU  - Angeline Yasodhara
+AU  - Azin Asgarian
+AU  - Diego Huang
+AU  - Parinaz Sobhani
+TI  - On the Trustworthiness of Tree Ensemble Explainability Methods
+PY  - 2021
+T2  - Machine Learning and Knowledge Extraction (CD-MAKE 2021), Lecture Notes in Computer Science, Springer
+SP  - 293
+EP  - 308
+DO  - 10.1007/978-3-030-84060-0_19
+UR  - https://doi.org/10.1007/978-3-030-84060-0_19
+ID  - S06
+N1  - S06 (U373); Conference proceedings (Crossref); QA 83.3%
+ER  - 
+
+TY  - JOUR
+AU  - Muhammad Rehman Zafar
+AU  - Naimul Khan
+TI  - Deterministic Local Interpretable Model-Agnostic Explanations for Stable Explainability
+PY  - 2021
+JO  - Machine Learning and Knowledge Extraction
+VL  - 3
+IS  - 3
+SP  - 525
+EP  - 541
+DO  - 10.3390/make3030027
+UR  - https://doi.org/10.3390/make3030027
+ID  - S07
+N1  - S07 (U577); Journal article (Crossref); QA 94.4%
+ER  - 
+
+TY  - CPAPER
+AU  - Zhengze Zhou
+AU  - Giles Hooker
+AU  - Fei Wang
+TI  - S-LIME: Stabilized-LIME for Model Explanation
+PY  - 2021
+T2  - Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery & Data Mining
+SP  - 2429
+EP  - 2438
+DO  - 10.1145/3447548.3467274
+UR  - https://doi.org/10.1145/3447548.3467274
+ID  - S08
+N1  - S08 (U483); Conference proceedings (Crossref); QA 88.9%
+ER  - 
+
+TY  - CPAPER
+AU  - Chirag Agarwal
+AU  - Nari Johnson
+AU  - Martin Pawelczyk
+AU  - Satyapriya Krishna
+AU  - Eshika Saxena
+AU  - Marinka Zitnik
+AU  - Himabindu Lakkaraju
+TI  - Rethinking Stability for Attribution-based Explanations
+PY  - 2022
+T2  - ICLR 2022 Workshop (non-archival); arXiv:2203.06877
+UR  - https://arxiv.org/abs/2203.06877
+ID  - S09
+N1  - S09 (U498); Workshop paper (non-archival); arXiv version; QA 66.7%
+ER  - 
+
+TY  - JOUR
+AU  - Giorgio Visani
+AU  - Enrico Bagli
+AU  - Federico Chesani
+AU  - Alessandro Poluzzi
+AU  - Davide Capuzzo
+TI  - Statistical stability indices for LIME: Obtaining reliable explanations for machine learning models
+PY  - 2022
+JO  - Journal of the Operational Research Society
+VL  - 73
+IS  - 1
+SP  - 91
+EP  - 101
+DO  - 10.1080/01605682.2020.1865846
+UR  - https://doi.org/10.1080/01605682.2020.1865846
+ID  - S10
+N1  - S10 (U155); Journal article (Crossref); QA 75.0%
+ER  - 
+
+TY  - UNPB
+AU  - Surin Ahn
+AU  - Justin Grana
+AU  - Yafet Tamene
+AU  - Kristian Holsheimer
+TI  - Uncertainty Quantification for Local Model Explanations Without Model Access
+PY  - 2023
+T2  - arXiv:2301.05761
+UR  - https://arxiv.org/abs/2301.05761
+ID  - S11
+N1  - S11 (C040); Preprint (not peer reviewed); QA 88.9%
+ER  - 
+
+TY  - CPAPER
+AU  - Amit Dhurandhar
+AU  - Karthikeyan Natesan Ramamurthy
+AU  - Kartik Ahuja
+AU  - Vijay Arya
+TI  - Locally Invariant Explanations: Towards Stable and Unidirectional Explanations through Local Invariant Learning
+PY  - 2023
+T2  - Advances in Neural Information Processing Systems 36
+SP  - 19410
+EP  - 19445
+DO  - 10.52202/075280-0853
+UR  - https://doi.org/10.52202/075280-0853
+ID  - S12
+N1  - S12 (U493); Conference proceedings (Crossref); QA 88.9%
+ER  - 
+
+TY  - CPAPER
+AU  - Marek Pawlicki
+TI  - Towards Quality Measures for xAI algorithms: Explanation Stability
+PY  - 2023
+T2  - 2023 IEEE 10th International Conference on Data Science and Advanced Analytics (DSAA)
+SP  - 1
+EP  - 10
+DO  - 10.1109/dsaa60987.2023.10302535
+UR  - https://doi.org/10.1109/dsaa60987.2023.10302535
+ID  - S13
+N1  - S13 (U017); Conference proceedings (Crossref); Zenodo pre-publication version read; QA 83.3%
+ER  - 
+
+TY  - CPAPER
+AU  - Han Yuan
+AU  - Mingxuan Liu
+AU  - Lican Kang
+AU  - Chenkui Miao
+AU  - Ying Wu
+TI  - An empirical study of the effect of background data size on the stability of SHapley Additive exPlanations (SHAP) for deep learning models
+PY  - 2023
+T2  - ICLR 2023 Tiny Papers track; arXiv:2204.11351
+UR  - https://arxiv.org/abs/2204.11351
+ID  - S14
+N1  - S14 (U481); Workshop track (per DBLP and Semantic Scholar); QA 85.0%
+ER  - 
+
+TY  - CPAPER
+AU  - Bodrunnessa Badhon
+AU  - Ripon K. Chakrabortty
+AU  - Sreenatha G. Anavatti
+TI  - Enhancing Model Explainability with CTGAN-LIME: A Novel Approach for Interpretable Machine Learning
+PY  - 2024
+T2  - World Congress on Electrical Engineering and Computer Systems and Science
+DO  - 10.11159/cist24.158
+UR  - https://doi.org/10.11159/cist24.158
+ID  - S15
+N1  - S15 (U258); Conference proceedings (Crossref); QA 55.6%
+ER  - 
+
+TY  - JOUR
+AU  - Hubert Baniecki
+AU  - Przemyslaw Biecek
+TI  - Adversarial attacks and defenses in explainable artificial intelligence: A survey
+PY  - 2024
+JO  - Information Fusion
+VL  - 107
+SP  - 102303
+DO  - 10.1016/j.inffus.2024.102303
+UR  - https://doi.org/10.1016/j.inffus.2024.102303
+ID  - S16
+N1  - S16 (U466); Journal article (Crossref); QA 100.0%
+ER  - 
+
+TY  - JOUR
+AU  - Asmaa Elgezawy
+AU  - Hatem Abdul-kader
+AU  - Asmaa Elsaid
+TI  - Improving Local Interpretable Model-agnostic Explanations Stability
+PY  - 2024
+JO  - International Journal of Intelligent Engineering and Systems
+VL  - 17
+IS  - 6
+SP  - 1099
+EP  - 1108
+DO  - 10.22266/ijies2024.1231.81
+UR  - https://doi.org/10.22266/ijies2024.1231.81
+ID  - S17
+N1  - S17 (U362); Journal article (Crossref); QA 72.2%
+ER  - 
+
+TY  - CPAPER
+AU  - Jeremy Goldwasser
+AU  - Giles Hooker
+TI  - Stabilizing Estimates of Shapley Values with Control Variates
+PY  - 2024
+T2  - Explainable Artificial Intelligence (xAI 2024), Part II, Communications in Computer and Information Science, Springer
+SP  - 416
+EP  - 439
+DO  - 10.1007/978-3-031-63797-1_21
+UR  - https://doi.org/10.1007/978-3-031-63797-1_21
+ID  - S18
+N1  - S18 (U556); Conference proceedings (Crossref); QA 94.4%
+ER  - 
+
+TY  - CPAPER
+AU  - Davin Hill
+AU  - Aria Masoomi
+AU  - Max Torop
+AU  - Sandesh Ghimire
+AU  - Jennifer Dy
+TI  - Boundary-Aware Uncertainty for Feature Attribution Explainers
+PY  - 2024
+T2  - Proc. 27th International Conference on Artificial Intelligence and Statistics (AISTATS 2024), PMLR 238
+SP  - 55
+EP  - 63
+UR  - https://arxiv.org/abs/2210.02419
+ID  - S19
+N1  - S19 (C049); Conference paper (PDF footer; arXiv comment); QA 83.3%
+ER  - 
+
+TY  - CPAPER
+AU  - Anusha Ihalapathirana
+AU  - Gunjan Chandra
+AU  - Piia Lavikainen
+AU  - Pekka Siirtola
+AU  - Satu Tamminen
+AU  - Nirzor Talukder
+AU  - Janne Martikainen
+AU  - Juha Röning
+TI  - Influence of Data Characteristics on Machine Learning Classification Performance and Stability of SHapley Additive exPlanations
+PY  - 2024
+T2  - ESANN 2024 proceedings
+SP  - 297
+EP  - 302
+DO  - 10.14428/esann/2024.es2024-107
+UR  - https://doi.org/10.14428/esann/2024.es2024-107
+ID  - S20
+N1  - S20 (U490); Conference proceedings (Crossref); QA 80.0%
+ER  - 
+
+TY  - CPAPER
+AU  - Gwladys Kelodjou
+AU  - Laurence Rozé
+AU  - Véronique Masson
+AU  - Luis Galárraga
+AU  - Romaric Gaudel
+AU  - Maurice Tchuente
+AU  - Alexandre Termier
+TI  - Shaping Up SHAP: Enhancing Stability through Layer-Wise Neighbor Selection
+PY  - 2024
+T2  - Proceedings of the AAAI Conference on Artificial Intelligence
+VL  - 38
+IS  - 12
+SP  - 13094
+EP  - 13103
+DO  - 10.1609/aaai.v38i12.29208
+UR  - https://doi.org/10.1609/aaai.v38i12.29208
+ID  - S21
+N1  - S21 (U546); Conference proceedings (Crossref); QA 94.4%
+ER  - 
+
+TY  - JOUR
+AU  - Firas Ketata
+AU  - Zeina Al Masry
+AU  - Slim Yacoub
+AU  - Noureddine Zerhouni
+TI  - A Methodology for Reliability Analysis of Explainable Machine Learning: Application to Endocrinology Diseases
+PY  - 2024
+JO  - IEEE Access
+VL  - 12
+SP  - 101921
+EP  - 101935
+DO  - 10.1109/access.2024.3431691
+UR  - https://doi.org/10.1109/access.2024.3431691
+ID  - S22
+N1  - S22 (C033); Journal article (Crossref); QA 75.0%
+ER  - 
+
+TY  - CPAPER
+AU  - Zulqarnain Khan
+AU  - Davin Hill
+AU  - Aria Masoomi
+AU  - Joshua Bone
+AU  - Jennifer Dy
+TI  - Analyzing Explainer Robustness via Probabilistic Lipschitzness of Prediction Functions
+PY  - 2024
+T2  - Proc. 27th International Conference on Artificial Intelligence and Statistics (AISTATS 2024), PMLR 238
+SP  - 1378
+EP  - 1386
+UR  - https://arxiv.org/abs/2206.12481
+ID  - S23
+N1  - S23 (C048); Conference paper (PDF footer; Semantic Scholar); QA 94.4%
+ER  - 
+
+TY  - JOUR
+AU  - Helena Lofstrom
+AU  - Tuwe Lofstrom
+AU  - Ulf Johansson
+AU  - Cecilia Sonstrod
+TI  - Calibrated Explanations: with Uncertainty Information and Counterfactuals
+PY  - 2024
+JO  - Expert Systems with Applications
+VL  - 246
+SP  - 123154
+DO  - 10.1016/j.eswa.2024.123154
+UR  - https://doi.org/10.1016/j.eswa.2024.123154
+ID  - S24
+N1  - S24 (C045); Journal article (Crossref); QA 83.3%
+ER  - 
+
+TY  - UNPB
+AU  - Riccardo Pala
+AU  - Esteban García-Cuesta
+TI  - Combination of Weak Learners eXplanations to Improve Random Forest eXplicability Robustness
+PY  - 2024
+T2  - arXiv:2402.19025
+UR  - https://arxiv.org/abs/2402.19025
+ID  - S25
+N1  - S25 (U159); Preprint (not peer reviewed); QA 72.2%
+ER  - 
+
+TY  - UNPB
+AU  - José Ribeiro
+AU  - Lucas Cardoso
+AU  - Vitor Santos
+AU  - Eduardo Carvalho
+AU  - Níkolas Carneiro
+AU  - Ronnie Alves
+TI  - How Reliable and Stable are Explanations of XAI Methods?
+PY  - 2024
+T2  - arXiv:2407.03108
+UR  - https://arxiv.org/abs/2407.03108
+ID  - S26
+N1  - S26 (U560); Preprint (not peer reviewed); QA 72.2%
+ER  - 
+
+TY  - UNPB
+AU  - Lachlan Simpson
+AU  - Kyle Millar
+AU  - Adriel Cheng
+AU  - Cheng-Chew Lim
+AU  - Hong Gunn Chew
+TI  - Probabilistic Lipschitzness and the Stable Rank for Comparing Explanation Models
+PY  - 2024
+T2  - arXiv:2402.18863
+UR  - https://arxiv.org/abs/2402.18863
+ID  - S27
+N1  - S27 (U557); Preprint (not peer reviewed); QA 72.2%
+ER  - 
+
+TY  - JOUR
+AU  - Mantas Bacevicius
+AU  - Agne Paulauskaite-Taraseviciene
+AU  - Gintare Zokaityte
+AU  - Lukas Kersys
+AU  - Agne Moleikaityte
+TI  - Comparative Analysis of Perturbation Techniques in LIME for Intrusion Detection Enhancement
+PY  - 2025
+JO  - Machine Learning and Knowledge Extraction
+VL  - 7
+IS  - 1
+SP  - 21
+DO  - 10.3390/make7010021
+UR  - https://doi.org/10.3390/make7010021
+ID  - S28
+N1  - S28 (U176); Journal article (Crossref); QA 88.9%
+ER  - 
+
+TY  - JOUR
+AU  - Matteo Ballegeer
+AU  - Matthias Bogaert
+AU  - Dries F. Benoit
+TI  - Evaluating the stability of model explanations in instance-dependent cost-sensitive credit scoring
+PY  - 2025
+JO  - European Journal of Operational Research
+VL  - 326
+IS  - 3
+SP  - 630
+EP  - 640
+DO  - 10.1016/j.ejor.2025.05.039
+UR  - https://doi.org/10.1016/j.ejor.2025.05.039
+ID  - S29
+N1  - S29 (U291); Journal article (Crossref); QA 80.0%
+ER  - 
+
+TY  - UNPB
+AU  - Wangxuan Fan
+AU  - Siqi Li
+AU  - Doudou Zhou
+AU  - Yohei Okada
+AU  - Chuan Hong
+AU  - Molei Liu
+AU  - Nan Liu
+TI  - SIM-Shapley: A Stable and Computationally Efficient Approach to Shapley Value Approximation
+PY  - 2025
+T2  - arXiv:2505.08198
+UR  - https://arxiv.org/abs/2505.08198
+ID  - S30
+N1  - S30 (U487); Preprint (not peer reviewed); QA 94.4%
+ER  - 
+
+TY  - CPAPER
+AU  - Jeremy Goldwasser
+AU  - Giles Hooker
+TI  - Statistical Significance of Feature Importance Rankings
+PY  - 2025
+T2  - Proc. 41st Conference on Uncertainty in Artificial Intelligence (UAI 2025), PMLR 286
+SP  - 1476
+EP  - 1496
+UR  - https://arxiv.org/abs/2401.15800
+ID  - S31
+N1  - S31 (U491); Conference paper (per Semantic Scholar); arXiv v5 read; QA 88.9%
+ER  - 
+
+TY  - JOUR
+AU  - Pamela Hermosilla
+AU  - Sebastián Berríos
+AU  - Héctor Allende-Cid
+TI  - Explainable AI for Forensic Analysis: A Comparative Study of SHAP and LIME in Intrusion Detection Models
+PY  - 2025
+JO  - Applied Sciences
+VL  - 15
+IS  - 13
+SP  - 7329
+DO  - 10.3390/app15137329
+UR  - https://doi.org/10.3390/app15137329
+ID  - S32
+N1  - S32 (U311); Journal article (Crossref); QA 65.0%
+ER  - 
+
+TY  - CPAPER
+AU  - Patrick Knab
+AU  - Sascha Marton
+AU  - Udo Schlegel
+AU  - Christian Bartelt
+TI  - Which LIME should I trust? Concepts, Challenges, and Solutions
+PY  - 2025
+T2  - Explainable Artificial Intelligence (xAI 2025), Part II, Communications in Computer and Information Science, Springer
+SP  - 28
+EP  - 52
+DO  - 10.1007/978-3-032-08324-1_2
+UR  - https://doi.org/10.1007/978-3-032-08324-1_2
+ID  - S33
+N1  - S33 (C024); Conference paper (Crossref title match); QA 90.0%
+ER  - 
+
+TY  - JOUR
+AU  - Luyun Lin
+AU  - Yiqing Wang
+TI  - SHAP Stability in Credit Risk Management: A Case Study in Credit Card Default Model
+PY  - 2025
+JO  - Risks
+VL  - 13
+IS  - 12
+SP  - 238
+DO  - 10.3390/risks13120238
+UR  - https://doi.org/10.3390/risks13120238
+ID  - S34
+N1  - S34 (U126); Journal article (Crossref); QA 85.0%
+ER  - 
+
+TY  - JOUR
+AU  - Takafumi Nakanishi
+TI  - Bayesian-AIME: Quantifying Uncertainty and Enhancing Stability in Approximate Inverse Model Explanations
+PY  - 2025
+JO  - IEEE Access
+VL  - 13
+SP  - 175547
+EP  - 175564
+DO  - 10.1109/access.2025.3617984
+UR  - https://doi.org/10.1109/access.2025.3617984
+ID  - S35
+N1  - S35 (U042); Journal article (Crossref); QA 88.9%
+ER  - 
+
+TY  - JOUR
+AU  - Teena Rai
+AU  - Jun He
+AU  - Jaspreet Kaur
+AU  - Yuan Shen
+AU  - Mufti Mahmud
+AU  - David J. Brown
+AU  - Emma O'Dowd
+AU  - David Baldwin
+TI  - Evaluating XAI techniques under class imbalance using CPRD data
+PY  - 2025
+JO  - Frontiers in Artificial Intelligence
+VL  - 8
+SP  - 1682919
+DO  - 10.3389/frai.2025.1682919
+UR  - https://doi.org/10.3389/frai.2025.1682919
+ID  - S36
+N1  - S36 (U124); Journal article (Crossref); QA 95.0%
+ER  - 
+
+TY  - JOUR
+AU  - Xinyu Wang
+AU  - Tris Kee
+TI  - Integrating Shapley Value and Least Core Attribution for Robust Explainable AI in Rent Prediction
+PY  - 2025
+JO  - Buildings
+VL  - 15
+IS  - 17
+SP  - 3133
+DO  - 10.3390/buildings15173133
+UR  - https://doi.org/10.3390/buildings15173133
+ID  - S37
+N1  - S37 (U340); Journal article (Crossref); QA 66.7%
+ER  - 
+
+TY  - JOUR
+AU  - Xiao Yan
+AU  - Dongshui Zhang
+AU  - Yongshun Han
+AU  - Tongsheng Li
+AU  - Pin Zhong
+AU  - Zhe Ning
+AU  - Shirou Tan
+TI  - Developing a Hybrid Model to Enhance the Robustness of Interpretability for Landslide Susceptibility Assessment
+PY  - 2025
+JO  - ISPRS International Journal of Geo-Information
+VL  - 14
+IS  - 7
+SP  - 277
+DO  - 10.3390/ijgi14070277
+UR  - https://doi.org/10.3390/ijgi14070277
+ID  - S38
+N1  - S38 (U148); Journal article (Crossref); QA 77.8%
+ER  - 
+
+TY  - JOUR
+AU  - Giovanni Acampora
+AU  - Autilia Vitiello
+TI  - On the Stability of Local Interpretable Model-Agnostic Explanations for Quantum Classifiers
+PY  - 2026
+JO  - Machine Learning
+VL  - 115
+IS  - 6
+SP  - 141
+DO  - 10.1007/s10994-026-07071-5
+UR  - https://doi.org/10.1007/s10994-026-07071-5
+ID  - S39
+N1  - S39 (U502); Journal article (Crossref); QA 88.9%
+ER  - 
+
+TY  - JOUR
+AU  - Mohammad Alhawarat
+AU  - Ahmad Alkhatib
+AU  - Qasem Nijem
+TI  - Calibrated and Explainable Gradient Boosting for Road Traffic Crash Severity Prediction: SHAP Audit and Cross-Jurisdiction Transfer Evaluation
+PY  - 2026
+JO  - Applied Sciences
+VL  - 16
+IS  - 12
+SP  - 5876
+DO  - 10.3390/app16125876
+UR  - https://doi.org/10.3390/app16125876
+ID  - S40
+N1  - S40 (U183); Journal article (Crossref); QA 100.0%
+ER  - 
+
+TY  - JOUR
+AU  - Abdulkerim Oğuzhan Alkan
+TI  - Class Imbalance Strategies, Calibration, and Explanation Stability in Tree-Based Intrusion Detection for IoT Networks
+PY  - 2026
+JO  - Journal of Expert Systems and Sustainable Development
+VL  - 2
+IS  - 1
+SP  - 247
+EP  - 268
+DO  - 10.65069/jessd21202623
+UR  - https://doi.org/10.65069/jessd21202623
+ID  - S41
+N1  - S41 (U356); Journal article (Crossref); QA 94.4%
+ER  - 
+
+TY  - JOUR
+AU  - Istiaque Bhuiyan
+AU  - Rahma Mirza
+AU  - Ariful Hoque
+AU  - Tanvir Bhuiyan
+TI  - The Explainability–Reliability Gap in Fraud Detection: Evidence from SHAP and Permutation Importance Under Distribution Shift
+PY  - 2026
+JO  - FinTech
+VL  - 5
+IS  - 3
+SP  - 77
+DO  - 10.3390/fintech5030077
+UR  - https://doi.org/10.3390/fintech5030077
+ID  - S42
+N1  - S42 (U123); Journal article (Crossref); QA 85.0%
+ER  - 
+
+TY  - UNPB
+AU  - Drake Caraker
+AU  - Bryan Arnold
+AU  - David Rhoads
+TI  - The Attribution Impossibility: No Feature Ranking Is Faithful, Stable, and Complete Under Collinearity
+PY  - 2026
+T2  - arXiv:2605.21492 (also Zenodo, doi 10.5281/zenodo.19468379)
+UR  - https://arxiv.org/abs/2605.21492
+ID  - S43
+N1  - S43 (U521); Preprint (not peer reviewed); QA 100.0%
+ER  - 
+
+TY  - JOUR
+AU  - Shengyuan Chi
+AU  - Yanqin Zhao
+AU  - Lu Gao
+AU  - Xiaojie Zhang
+AU  - Juan Zhang
+TI  - TreeSHAP-Importance-Weighted Feature-Group Fusion for Tabular Regression: Centered Additive Decomposition, Rade-Macher Complexity Control, and Attribution Stability
+PY  - 2026
+JO  - Mathematics
+VL  - 14
+IS  - 13
+SP  - 2419
+DO  - 10.3390/math14132419
+UR  - https://doi.org/10.3390/math14132419
+ID  - S44
+N1  - S44 (U327); Journal article (Crossref); QA 83.3%
+ER  - 
+
+TY  - UNPB
+AU  - Eddie Conti
+AU  - Claudio Daka
+AU  - Álvaro Parafita
+AU  - Antonio L. Alfeo
+AU  - Axel Brando
+AU  - Mario G. C. A. Cimino
+TI  - Assessing Alignment and Stability of Feature Importance Explanations via Weight of Evidence
+PY  - 2026
+T2  - arXiv:2609.00090 (accepted at XKDD 2026 workshop, ECML-PKDD, per arXiv comment)
+UR  - https://arxiv.org/abs/2609.00090
+ID  - S45
+N1  - S45 (U528); Accepted, not yet published (authors' statement); preprint read; QA 66.7%
+ER  - 
+
+TY  - UNPB
+AU  - Eddie Conti
+AU  - Álvaro Parafita
+AU  - Axel Brando
+TI  - Measuring Explainer Stability via Attribution Separability
+PY  - 2026
+T2  - arXiv:2608.02697 (accepted at EXPLAINS 2026 per arXiv comment)
+UR  - https://arxiv.org/abs/2608.02697
+ID  - S46
+N1  - S46 (U524); Accepted, not yet published (authors' statement); preprint read; QA 88.9%
+ER  - 
+
+TY  - JOUR
+AU  - Akshat Dubey
+AU  - Aleksandar Anžel
+AU  - Bahar İlgen
+AU  - Georges Hattab
+TI  - UbiQTree: Uncertainty quantification in XAI with tree ensembles
+PY  - 2026
+JO  - Patterns
+VL  - 7
+IS  - 4
+SP  - 101454
+DO  - 10.1016/j.patter.2025.101454
+UR  - https://doi.org/10.1016/j.patter.2025.101454
+ID  - S47
+N1  - S47 (U409); Journal article (Crossref); QA 85.0%
+ER  - 
+
+TY  - JOUR
+AU  - Chibuike Chiedozie Ibebuchi
+TI  - Reliability-calibrated explainable machine learning for scientific interpretation under spatial, resampling, and predictor-correlation uncertainty
+PY  - 2026
+JO  - Machine Learning: Science and Technology
+VL  - 7
+IS  - 4
+SP  - 045033
+DO  - 10.1088/2632-2153/ae8a13
+UR  - https://doi.org/10.1088/2632-2153/ae8a13
+ID  - S48
+N1  - S48 (U288); Journal article (Crossref); QA 94.4%
+ER  - 
+
+TY  - CPAPER
+AU  - Marika Kaden
+AU  - Mahrokh Karimi
+AU  - Subhashree Panda
+AU  - Thomas Pfaff
+AU  - Thomas Villmann
+TI  - Evaluation of Rashomon Sets for the Determination of Stable and Plausible Model Explanations
+PY  - 2026
+T2  - ESANN 2026 proceedings
+SP  - 145
+EP  - 150
+DO  - 10.14428/esann/2026.es2026-250
+UR  - https://doi.org/10.14428/esann/2026.es2026-250
+ID  - S49
+N1  - S49 (U510); Conference proceedings (Crossref); QA 72.2%
+ER  - 
+
+TY  - JOUR
+AU  - Mahendra
+AU  - Aparna Khare
+TI  - An Empirical Evaluation of Explainability Drift Under Post-Training Quantization of Machine Learning Models
+PY  - 2026
+JO  - Cureus Journal of Computer Science
+DO  - 10.7759/s44389-026-00100-3
+UR  - https://doi.org/10.7759/s44389-026-00100-3
+ID  - S50
+N1  - S50 (U221); Journal article (Crossref); QA 88.9%
+ER  - 
+
+TY  - JOUR
+AU  - Elijah M. Maseno
+AU  - Yanxia Sun
+AU  - Zenghui Wang
+TI  - Reliability auditing of explanations for machine-learning-based intrusion detection systems
+PY  - 2026
+JO  - Journal of Computer Virology and Hacking Techniques
+VL  - 22
+IS  - 1
+SP  - 80
+DO  - 10.1007/s11416-026-00664-7
+UR  - https://doi.org/10.1007/s11416-026-00664-7
+ID  - S51
+N1  - S51 (U236); Journal article (Crossref); QA 83.3%
+ER  - 
+
+TY  - UNPB
+AU  - Georgii Mikriukov
+AU  - Grégoire Montavon
+AU  - Marina M. -C. Höhne
+TI  - Uncertainty Gating for Cost-Aware Explainable Artificial Intelligence
+PY  - 2026
+T2  - arXiv:2603.29915
+UR  - https://arxiv.org/abs/2603.29915
+ID  - S52
+N1  - S52 (U195); Preprint (not peer reviewed); QA 100.0%
+ER  - 
+
+TY  - JOUR
+AU  - Amri Luthfi Najih
+AU  - Bagus Sartono
+AU  - Septian Rahardiantoro
+TI  - Stability of SHAP-Based Feature Importance Ranking under Class Imbalance, Feature Correlation, and Feature Dimensionality
+PY  - 2026
+JO  - Jurnal Statistika dan Komputasi
+VL  - 5
+IS  - 1
+SP  - 113
+EP  - 128
+DO  - 10.32665/statkom.v5i1.6455
+UR  - https://doi.org/10.32665/statkom.v5i1.6455
+ID  - S53
+N1  - S53 (U226); Journal article (Crossref); QA 80.0%
+ER  - 
+
+TY  - JOUR
+AU  - Leonard Chukwualuka Nnadi
+AU  - Chukwuemeka Paul Isiwu
+AU  - Md. Mostafizer Rahman
+AU  - Adetokunbo Macgregor John-Otumu
+AU  - Yutaka Watanobe
+TI  - The Stability Collapse in Local Explainability: Benchmarking H-LIME on High-Dimensional Data
+PY  - 2026
+JO  - IEEE Access
+VL  - 14
+SP  - 101708
+EP  - 101725
+DO  - 10.1109/access.2026.3709805
+UR  - https://doi.org/10.1109/access.2026.3709805
+ID  - S54
+N1  - S54 (U499); Journal article (Crossref); QA 80.0%
+ER  - 
+
+TY  - JOUR
+AU  - Sri Nurhayati
+AU  - Hidayat Hidayat
+AU  - Siti Ar-Rachmi Ningrum
+AU  - Zainal Arifin Hasibuan
+AU  - Sri Supatmi
+TI  - The Effect of Data Imbalance on the Interpretation Stability of LIME-Based Explainable AI on Nutritional Status Prediction Models
+PY  - 2026
+JO  - Indonesian Journal of Infomatics
+VL  - 1
+IS  - 2
+SP  - 13
+EP  - 20
+DO  - 10.66472/iji.v1i2.438
+UR  - https://doi.org/10.66472/iji.v1i2.438
+ID  - S55
+N1  - S55 (U224); Journal article (Crossref); QA 35.0%
+ER  - 
+
+TY  - UNPB
+AU  - Praveena Padi
+AU  - Arun Morampudi
+AU  - Ujval Sai Gopal Irrinki
+AU  - Pradeep Kumar Dolabehera Kakitapelli
+TI  - Stable and Faithful Explanations for Knowledge Tracing
+PY  - 2026
+T2  - arXiv:2609.28502
+UR  - https://arxiv.org/abs/2609.28502
+ID  - S56
+N1  - S56 (U326); Preprint (not peer reviewed); QA 95.0%
+ER  - 
+
+TY  - JOUR
+AU  - Nattakitti Piyavechvirat
+AU  - Yi-Jheng Huang
+AU  - Qazi Mazhar Ul Haq
+TI  - A Multi-World Synthetic Benchmark for Evaluating RSCE in Clinical Machine Learning
+PY  - 2026
+JO  - IEEE Access
+VL  - 14
+SP  - 45571
+EP  - 45599
+DO  - 10.1109/access.2026.3666756
+UR  - https://doi.org/10.1109/access.2026.3666756
+ID  - S57
+N1  - S57 (U045); Journal article (Crossref); QA 95.0%
+ER  - 
+
+TY  - JOUR
+AU  - Zihe Qi
+AU  - Ziwei Chen
+AU  - Fan Si
+TI  - Multi-Algorithm Optimization of Explanation Stability in Ensemble Learning for Human Capital Attrition Risk Prediction
+PY  - 2026
+JO  - Mathematics
+VL  - 14
+IS  - 18
+SP  - 3283
+DO  - 10.3390/math14183283
+UR  - https://doi.org/10.3390/math14183283
+ID  - S58
+N1  - S58 (U355); Journal article (Crossref); QA 90.0%
+ER  - 
+
+TY  - UNPB
+AU  - Mona Rajhans
+AU  - Vishal Khawarey
+TI  - Beyond Gradient-Based Attacks: Adversarial Robustness and Explainability Stability in Cybersecurity Classifiers
+PY  - 2026
+T2  - arXiv:2607.01679
+UR  - https://arxiv.org/abs/2607.01679
+ID  - S59
+N1  - S59 (U163); Preprint (not peer reviewed); QA 88.9%
+ER  - 
+
+TY  - CPAPER
+AU  - Mona Rajhans
+AU  - Vishal Khawarey
+TI  - Empirical Analysis of Adversarial Robustness and Explainability Drift in Cybersecurity Classifiers
+PY  - 2026
+T2  - Proceedings of the 18th International Conference on Agents and Artificial Intelligence
+SP  - 3101
+EP  - 3108
+DO  - 10.5220/0014360100004052
+UR  - https://doi.org/10.5220/0014360100004052
+ID  - S60
+N1  - S60 (C013); Conference proceedings (Crossref); QA 66.7%
+ER  - 
+
+TY  - JOUR
+AU  - Imran Hossain Rasel
+AU  - Md Nurul Huda Razib
+AU  - Muhaimin Ul Zadid
+TI  - Explainable AI for Institutional Fraud Decisions: A Cross-Sector Empirical Study Using Public Healthcare and Financial Transaction Data
+PY  - 2026
+JO  - Journal of Computer Science and Technology Studies
+VL  - 8
+IS  - 1
+SP  - 97
+EP  - 106
+DO  - 10.32996/jcsts.2025.8.1.7
+UR  - https://doi.org/10.32996/jcsts.2025.8.1.7
+ID  - S61
+N1  - S61 (U233); Journal article (Crossref); QA 65.0%
+ER  - 
+
+TY  - UNPB
+AU  - Abdurrahman Tolay
+TI  - Beyond Detection Accuracy: Measuring Explanation Cost, Stability, and Utility for Resource-Aware IoT Intrusion Detection
+PY  - 2026
+T2  - arXiv:2608.10349
+UR  - https://arxiv.org/abs/2608.10349
+ID  - S62
+N1  - S62 (U336); Preprint (not peer reviewed); QA 94.4%
+ER  - 
+
+TY  - UNPB
+AU  - Yu-Fang Tsai
+AU  - Yu-Jen Chen
+AU  - Kok-Hua Tan
+AU  - Sheng-Chieh Huang
+AU  - You-Ying Ji
+AU  - Yu-Lun Chen
+AU  - Chun-Yi Wang
+AU  - Chien-Ming Hsu
+TI  - Interpretable Machine Learning for Football Performance Analysis: Evidence of Limited Transferability from Elite Leagues to University Competition
+PY  - 2026
+T2  - arXiv:2605.10796
+UR  - https://arxiv.org/abs/2605.10796
+ID  - S63
+N1  - S63 (U248); Preprint (not peer reviewed); QA 85.0%
+ER  - 
+
+TY  - JOUR
+AU  - Grigorios Tzionis
+AU  - Georgia Kougka
+AU  - Ilias Gialampoukidis
+AU  - Stefanos Vrochidis
+AU  - Ioannis Kompatsiaris
+AU  - Maro Vlachopoulou
+TI  - Improving LIME Stability via Density-Awareness: Evaluation and Comparison of AKDE-LIME
+PY  - 2026
+JO  - Applied Artificial Intelligence
+VL  - 40
+IS  - 1
+SP  - 2640686
+DO  - 10.1080/08839514.2026.2640686
+UR  - https://doi.org/10.1080/08839514.2026.2640686
+ID  - S64
+N1  - S64 (U141); Journal article (Crossref); QA 83.3%
+ER  - 
+
+TY  - UNPB
+AU  - Alin-Gabriel Vaduva
+AU  - Simona-Vasilica Oprea
+AU  - Adela Bara
+TI  - Measuring the Fragility of Trust: Devising Credibility Index via Explanation Stability (CIES) for Business Decision Support Systems
+PY  - 2026
+T2  - arXiv:2603.05024
+UR  - https://arxiv.org/abs/2603.05024
+ID  - S65
+N1  - S65 (U105); Preprint (not peer reviewed); QA 80.0%
+ER  - 
+
+TY  - UNPB
+AU  - Ioannis J. Vourganas
+AU  - Anna Lito Michala
+TI  - Stabilising Explainability Fragility in Cybersecurity AI: The Impact and Mitigation of Multicollinearity in Public Benchmark Datasets
+PY  - 2026
+T2  - arXiv:2605.22529
+UR  - https://arxiv.org/abs/2605.22529
+ID  - S66
+N1  - S66 (U077); Preprint (not peer reviewed); QA 83.3%
+ER  - 
+
+TY  - JOUR
+AU  - Hoda Waguih
+TI  - A multidimensional trustworthiness evaluation framework for AI-enabled clinical decision support: a HER2 breast cancer case study
+PY  - 2026
+JO  - Future Business Journal
+VL  - 12
+IS  - 1
+SP  - 305
+DO  - 10.1186/s43093-026-01017-y
+UR  - https://doi.org/10.1186/s43093-026-01017-y
+ID  - S67
+N1  - S67 (U210); Journal article (Crossref); QA 80.0%
+ER  - 
+
+TY  - UNPB
+AU  - Lanxin Xiang
+AU  - Liang Shi
+AU  - Youhui Ye
+AU  - Boyu Jiang
+AU  - Dawei Zhou
+AU  - Feng Guo
+TI  - RoSHAP: A Distributional Framework and Robust Metric for Stable Feature Attribution
+PY  - 2026
+T2  - arXiv:2605.15154
+UR  - https://arxiv.org/abs/2605.15154
+ID  - S68
+N1  - S68 (U519); Preprint (not peer reviewed); QA 83.3%
+ER  - 
+
+TY  - JOUR
+AU  - Annie Zhao
+TI  - Explainable Credit Underwriting on FICO HELOC: A Framework for Counterfactual Recourse under Profit, Fairness, and Stability Constraints
+PY  - 2026
+JO  - Artificial Intelligence and Machine Learning Review
+VL  - 7
+IS  - 1
+SP  - 90
+EP  - 107
+DO  - 10.69987/aimlr.2026.70107
+UR  - https://doi.org/10.69987/aimlr.2026.70107
+ID  - S69
+N1  - S69 (U133); Journal article (Crossref); peer-review process not stated in the PDF; QA 85.0%
+ER  - 
+
+TY  - JOUR
+AU  - Ming Fan
+AU  - Wenying Wei
+AU  - Xiaofei Xie
+AU  - Yang Liu
+AU  - Xiaohong Guan
+AU  - Ting Liu
+TI  - Can We Trust Your Explanations? Sanity Checks for Interpreters in Android Malware Analysis
+PY  - 2021
+JO  - IEEE Transactions on Information Forensics and Security
+VL  - 16
+SP  - 838
+EP  - 853
+DO  - 10.1109/tifs.2020.3021924
+UR  - https://doi.org/10.1109/tifs.2020.3021924
+ID  - S70
+N1  - S70 (N101); Journal article (Crossref); QA 88.9%
+ER  - 
+
+TY  - UNPB
+AU  - Yilin Ning
+AU  - Mingxuan Liu
+AU  - Nan Liu
+TI  - Shapley variable importance cloud for machine learning models
+PY  - 2022
+T2  - arXiv:2212.08370
+UR  - https://arxiv.org/abs/2212.08370
+ID  - S71
+N1  - S71 (N339); Preprint (not peer reviewed); QA 65.0%
+ER  - 
+
+TY  - CPAPER
+AU  - Niloofar Ranjbar
+AU  - Reza Safabakhsh
+TI  - Using Decision Tree as Local Interpretable Model in Autoencoder-based LIME
+PY  - 2022
+T2  - 2022 27th International Computer Conference, Computer Society of Iran (CSICC)
+SP  - 1
+EP  - 7
+DO  - 10.1109/csicc55295.2022.9780503
+UR  - https://doi.org/10.1109/csicc55295.2022.9780503
+ID  - S72
+N1  - S72 (N029); Conference proceedings (Crossref); QA 72.2%
+ER  - 
+
+TY  - CPAPER
+AU  - Santiago Cifuentes
+AU  - Leopoldo Bertossi
+AU  - Nina Pardal
+AU  - Sergio Abriola
+AU  - Maria Vanina Martinez
+AU  - Miguel Romero
+TI  - The Distributional Uncertainty of the SHAP Score in Explainable Machine Learning
+PY  - 2024
+T2  - ECAI 2024 (27th European Conference on Artificial Intelligence), Frontiers in Artificial Intelligence and Applications, IOS Press
+DO  - 10.3233/faia240586
+UR  - https://doi.org/10.3233/faia240586
+ID  - S73
+N1  - S73 (N708); Conference proceedings (Crossref); QA 77.8%
+ER  - 
+
+TY  - UNPB
+AU  - Mert Ketenci
+AU  - Iñigo Urteaga
+AU  - Victor Alfonso Rodriguez
+AU  - Noémie Elhadad
+AU  - Adler Perotte
+TI  - Probabilistic Shapley Value Modeling and Inference
+PY  - 2024
+T2  - arXiv:2402.04211
+UR  - https://arxiv.org/abs/2402.04211
+ID  - S74
+N1  - S74 (N693); Preprint (not peer reviewed); QA 88.9%
+ER  - 
+
+TY  - UNPB
+AU  - Thackshanaramana B
+TI  - Hypothesis Class Determines Explanation: Why Accurate Models Disagree on Feature Attribution
+PY  - 2026
+T2  - arXiv:2603.15821
+UR  - https://arxiv.org/abs/2603.15821
+ID  - S75
+N1  - S75 (N300); Preprint (not peer reviewed); QA 94.4%
+ER  - 
+
+TY  - UNPB
+AU  - Mohamed Aymen Bouyahia
+AU  - Argyris Kalogeratos
+TI  - Enhancing LIME using Neural Decision Trees
+PY  - 2026
+T2  - arXiv:2603.20919
+UR  - https://arxiv.org/abs/2603.20919
+ID  - S76
+N1  - S76 (N557); Preprint (not peer reviewed); QA 88.9%
+ER  - 
+
+TY  - UNPB
+AU  - Joseph L. Breeden
+TI  - How Understanding Forecast Uncertainty Resolves the Explainability Problem in Machine Learning Models
+PY  - 2026
+T2  - arXiv:2602.00179
+UR  - https://arxiv.org/abs/2602.00179
+ID  - S77
+N1  - S77 (N616); Preprint (not peer reviewed); QA 77.8%
+ER  - 
+
+TY  - JOUR
+AU  - Brahmaleen Kaur Sidhu
+TI  - Explainable Machine Learning for ICU Mortality Prediction: Comparing SHAP, LIME and Anchors on MIMIC-IV
+PY  - 2026
+JO  - International Journal of Computer Sciences and Engineering
+VL  - 14
+IS  - 5
+SP  - 34
+EP  - 46
+DO  - 10.26438/ijcse.v14i5.7396
+UR  - https://doi.org/10.26438/ijcse.v14i5.7396
+ID  - S78
+N1  - S78 (N480); Journal article (Crossref); QA 65.0%
+ER  - 
+
+TY  - JOUR
+AU  - Yi Xia
+AU  - Haoyi Yao
+AU  - Chao Ma
+AU  - Feixiang Chen
+AU  - Yuanyuan Liu
+TI  - DEM Resolution Drives AI Variability: Tradeoffs Between Performance and Explainability in Landslide Susceptibility Prediction
+PY  - 2026
+JO  - IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing
+VL  - 19
+SP  - 33746
+EP  - 33786
+DO  - 10.1109/jstars.2026.3736041
+UR  - https://doi.org/10.1109/jstars.2026.3736041
+ID  - S79
+N1  - S79 (N383); Journal article (Crossref); QA 94.4%
+ER  - 
+
+TY  - JOUR
+AU  - George Paphitis
+AU  - Angelos K. Marnerides
+AU  - Mathaios Panteli
+TI  - Machine Unlearning in Smart Grids: A Cautionary Tale of Infrastructure Vulnerability
+PY  - 2026
+JO  - IEEE Systems, Man, and Cybernetics Letters
+VL  - 1
+SP  - 27
+EP  - 32
+DO  - 10.1109/LSMC.2026.3701875
+UR  - https://doi.org/10.1109/LSMC.2026.3701875
+ID  - S80
+N1  - S80 (N240); Journal/series article; bibliographic identity checked; peer-review procedure not independently audited; QA 72.2%
+ER  - 
+
+TY  - JOUR
+AU  - Ling Zhai
+AU  - Zhuoxi Chu
+TI  - Research on Interpretable Machine Learning with Uncertainty Quantification for Ecological Risk Prediction
+PY  - 2026
+JO  - Applied and Computational Engineering
+VL  - 245
+IS  - 1
+SP  - 136
+EP  - 142
+DO  - 10.54254/2755-2721/2026.34717
+UR  - https://doi.org/10.54254/2755-2721/2026.34717
+ID  - S81
+N1  - S81 (N421); Journal/series article; bibliographic identity checked; peer-review procedure not independently audited; QA 44.4%
+ER  - 
+
+TY  - JOUR
+AU  - Tse-Pu Huang
+AU  - Hsin-Hui Huang
+AU  - Bing-Tsiong Li
+AU  - Pei-Hung Shen
+AU  - Gracy Thomas
+AU  - Juin-Yi Han
+AU  - Chi-Ming Chu
+AU  - Kun-Yi Lin
+TI  - Identifying key bioprocess variables using explainable machine learning to enhance culture efficiency and viability of umbilical cord-derived mesenchymal stem cells
+PY  - 2026
+JO  - International Journal of Medical Sciences
+VL  - 23
+IS  - 5
+SP  - 1808
+EP  - 1821
+DO  - 10.7150/ijms.127764
+UR  - https://doi.org/10.7150/ijms.127764
+ID  - S82
+N1  - S82 (N594); Journal/series article; bibliographic identity checked; peer-review procedure not independently audited; QA 75.0%
+ER  - 
+
+TY  - CPAPER
+AU  - Abhineet Agarwal
+AU  - Yan Shuo Tan
+AU  - Omer Ronen
+AU  - Chandan Singh
+AU  - Bin Yu
+TI  - Hierarchical Shrinkage: Improving the accuracy and interpretability of tree-based models
+PY  - 2022
+T2  - Proceedings of the39th International Conference on Machine Learning
+VL  - 162
+SP  - 111–135
+UR  - https://arxiv.org/abs/2202.00858
+ID  - S83
+N1  - S83 (N687); ICML proceedings paper (official PMLR record); QA 85.0%
+ER  - 
+
+TY  - JOUR
+AU  - Muhammad Fathur Riziq
+AU  - Ichwan Nul Ichsan
+TI  - Explainable Machine Learning Framework for Distributed Denial-of-Service (DDoS) Attack Detection using Comparative Evaluation and SHAP Analysis
+PY  - 2026
+JO  - Aviation Electronics, Information Technology, Telecommunications, Electricals, and Controls (AVITEC)
+VL  - 8
+IS  - 1
+SP  - 91–110
+DO  - 10.28989/avitec.v8i1.3594
+UR  - https://doi.org/10.28989/avitec.v8i1.3594
+ID  - S84
+N1  - S84 (U302); Journal/series article; bibliographic identity checked; peer-review procedure not independently audited; QA 72.2%
+ER  - 

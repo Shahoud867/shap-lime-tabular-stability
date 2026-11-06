@@ -1,0 +1,397 @@
+{
+ "why": {
+  "Q0541": "doi",
+  "Q0800": "doi",
+  "Q0485": "doi",
+  "Q0372": "doi",
+  "Q0638": "doi",
+  "Q0411": "doi",
+  "Q0354": "doi",
+  "Q0473": "doi",
+  "Q0677": "doi",
+  "Q0506": "doi",
+  "Q0614": "doi",
+  "Q0594": "doi",
+  "Q0713": "doi",
+  "Q0507": "doi",
+  "Q0716": "doi",
+  "Q0538": "doi",
+  "Q0712": "doi",
+  "Q0629": "doi",
+  "Q0698": "doi",
+  "Q0710": "doi",
+  "Q0440": "doi",
+  "Q0341": "doi",
+  "Q0479": "doi",
+  "Q0481": "doi",
+  "Q0431": "doi",
+  "Q0596": "doi",
+  "Q0705": "doi",
+  "Q0438": "doi",
+  "Q0515": "doi",
+  "Q0562": "doi",
+  "Q0478": "doi",
+  "Q0624": "doi",
+  "Q0376": "doi",
+  "Q0731": "doi",
+  "Q0328": "doi",
+  "Q0392": "doi",
+  "Q0345": "doi",
+  "Q0449": "doi",
+  "Q0425": "doi",
+  "Q0675": "doi",
+  "Q0608": "doi",
+  "Q0316": "doi",
+  "Q0744": "doi",
+  "Q0519": "doi",
+  "Q0498": "doi",
+  "Q0546": "doi",
+  "Q0307": "doi",
+  "Q0530": "doi",
+  "Q0627": "doi",
+  "Q0532": "doi",
+  "Q0589": "doi",
+  "Q0457": "doi",
+  "Q0433": "doi",
+  "Q0540": "doi",
+  "Q0319": "doi",
+  "Q0620": "doi",
+  "Q0762": "doi",
+  "Q0489": "doi",
+  "Q0673": "doi",
+  "Q0475": "doi",
+  "Q0819": "arx",
+  "Q0792": "arx",
+  "Q0806": "arx",
+  "Q0814": "doi",
+  "Q0805": "arx",
+  "Q0795": "arx",
+  "Q0816": "arx",
+  "Q0804": "arx",
+  "Q0787": "doi",
+  "Q0809": "arx",
+  "Q0810": "arx",
+  "Q0793": "arx",
+  "Q0786": "arx",
+  "Q0799": "doi",
+  "Q0784": "arx",
+  "Q0817": "arx",
+  "Q0812": "arx",
+  "Q0807": "arx",
+  "Q0788": "arx",
+  "Q0808": "arx",
+  "Q0801": "arx",
+  "Q0797": "doi",
+  "Q0803": "arx",
+  "Q0828": "doi",
+  "Q0794": "arx",
+  "Q0785": "arx",
+  "Q0818": "arx",
+  "Q0791": "arx",
+  "Q0813": "arx",
+  "Q0798": "arx",
+  "Q0802": "arx",
+  "Q0811": "arx",
+  "Q0839": "arx",
+  "Q0832": "t",
+  "Q0842": "arx",
+  "Q0848": "t"
+ },
+ "overlap": [
+  {
+   "rec_ids": [
+    "Q0003"
+   ],
+   "matches": "U001",
+   "title": "Stability and Consistency Analysis of SHAP and LIME Explanations Across Machine Learning Models"
+  },
+  {
+   "rec_ids": [
+    "Q0009"
+   ],
+   "matches": "C018",
+   "title": "Achieving Robust and Faithful Explanations via Conditional Pairwise Contrast"
+  },
+  {
+   "rec_ids": [
+    "Q0033",
+    "Q0677"
+   ],
+   "matches": "U314",
+   "title": "Interpretable Ensemble Learning Framework for Cardiac Arrest Prediction Using Explainable AI Techniques"
+  },
+  {
+   "rec_ids": [
+    "Q0042"
+   ],
+   "matches": "U499",
+   "title": "The Stability Collapse in Local Explainability: Benchmarking H-LIME on High-Dimensional Data"
+  },
+  {
+   "rec_ids": [
+    "Q0044"
+   ],
+   "matches": "U008",
+   "title": "From Symptoms to Clinical Insight: An Explainable Machine Learning Framework for Early Diabetes Screening"
+  },
+  {
+   "rec_ids": [
+    "Q0081"
+   ],
+   "matches": "U256",
+   "title": "Explainable Machine Learning for Millet Crop Type Classification Using Production and Yield Indicators"
+  },
+  {
+   "rec_ids": [
+    "Q0099",
+    "Q0596"
+   ],
+   "matches": "U259",
+   "title": "Early Diabetes Risk Prediction via SHAP-Stable Feature Refinement and Multi-Objective Evolutionary Ensemble Learning"
+  },
+  {
+   "rec_ids": [
+    "Q0126",
+    "Q0624"
+   ],
+   "matches": "U275",
+   "title": "Interpretable Deep Forest for High-Dimensional DNA Methylation Analysis in Prostate Cancer Staging"
+  },
+  {
+   "rec_ids": [
+    "Q0130"
+   ],
+   "matches": "U042",
+   "title": "Bayesian-AIME: Quantifying Uncertainty and Enhancing Stability in Approximate Inverse Model Explanations"
+  },
+  {
+   "rec_ids": [
+    "Q0132"
+   ],
+   "matches": "U026",
+   "title": "Exploring Ranked Local Selectors for Stable Explanations of ML Models"
+  },
+  {
+   "rec_ids": [
+    "Q0139"
+   ],
+   "matches": "U207",
+   "title": "Battle of the Algorithms: ML vs DL for Explainable Emotion Recognition from EEG Brainwaves"
+  },
+  {
+   "rec_ids": [
+    "Q0196",
+    "Q0316"
+   ],
+   "matches": "U072",
+   "title": "A Cost-Aware Stacking Ensemble Framework for Early Heart Disease Detection"
+  },
+  {
+   "rec_ids": [
+    "Q0223"
+   ],
+   "matches": "U031",
+   "title": "Explanation Consistency as a Trust Signal in Human–AI Teaming"
+  },
+  {
+   "rec_ids": [
+    "Q0240",
+    "Q0433"
+   ],
+   "matches": "U157",
+   "title": "KGEDO: A Knowledge-Guided Explainable Decision Optimisation Framework for Intelligent Accounting Information Systems"
+  },
+  {
+   "rec_ids": [
+    "Q0259"
+   ],
+   "matches": "U044",
+   "title": "When Accuracy Is Not Enough: Evaluating Explainable Vulnerability Detection Beyond Accuracy"
+  },
+  {
+   "rec_ids": [
+    "Q0321",
+    "Q0792"
+   ],
+   "matches": "U077",
+   "title": "Stabilising Explainability Fragility in Cybersecurity AI: The Impact and Mitigation of Multicollinearity in Public Benchmark Datasets"
+  },
+  {
+   "rec_ids": [
+    "Q0348"
+   ],
+   "matches": "U097",
+   "title": "Robust and Interpretable AI for Acute Appendicitis: A Simulation-to-Clinical Validation Pipeline"
+  },
+  {
+   "rec_ids": [
+    "Q0397",
+    "Q0787"
+   ],
+   "matches": "U409",
+   "title": "UbiQTree: Uncertainty quantification in XAI with tree ensembles"
+  },
+  {
+   "rec_ids": [
+    "Q0435",
+    "Q0793"
+   ],
+   "matches": "U159",
+   "title": "Combination of Weak Learners eXplanations to Improve Random Forest eXplicability Robustness"
+  },
+  {
+   "rec_ids": [
+    "Q0444",
+    "Q0786"
+   ],
+   "matches": "U163",
+   "title": "Beyond Gradient-Based Attacks: Adversarial Robustness and Explainability Stability in Cybersecurity Classifiers"
+  },
+  {
+   "rec_ids": [
+    "Q0451",
+    "Q0784"
+   ],
+   "matches": "C049",
+   "title": "Boundary-Aware Uncertainty for Feature Attribution Explainers"
+  },
+  {
+   "rec_ids": [
+    "Q0465",
+    "Q0817"
+   ],
+   "matches": "U174",
+   "title": "Kolmogorov--Arnold Networks as Implicit Regularizers: Noise Robustness and Interpretability for Stellar Classification"
+  },
+  {
+   "rec_ids": [
+    "Q0501",
+    "Q0788"
+   ],
+   "matches": "U195",
+   "title": "Uncertainty Gating for Cost-Aware Explainable Artificial Intelligence"
+  },
+  {
+   "rec_ids": [
+    "Q0542"
+   ],
+   "matches": "U224",
+   "title": "The Effect of Data Imbalance on the Interpretation Stability of LIME-Based Explainable AI on Nutritional Status Prediction Models"
+  },
+  {
+   "rec_ids": [
+    "Q0573"
+   ],
+   "matches": "U244",
+   "title": "AutoML and explainable AI-based approach to enhance the efficiency and interpretability of IDS"
+  },
+  {
+   "rec_ids": [
+    "Q0613"
+   ],
+   "matches": "U273",
+   "title": "Condition diagnosis method for hydraulic-system based on random forest-XGBoost stacking model"
+  },
+  {
+   "rec_ids": [
+    "Q0625",
+    "Q0794"
+   ],
+   "matches": "U276",
+   "title": "SX-GeoTree: Self-eXplaining Geospatial Regression Tree Incorporating the Spatial Similarity of Feature Attributions"
+  },
+  {
+   "rec_ids": [
+    "Q0646"
+   ],
+   "matches": "U288",
+   "title": "Reliability-calibrated explainable machine learning for scientific interpretation under spatial, resampling, and predictor-correlation uncertainty"
+  },
+  {
+   "rec_ids": [
+    "Q0662"
+   ],
+   "matches": "U302",
+   "title": "Explainable Machine Learning Framework for Distributed Denial-of-Service (DDoS) Attack Detection using Comparative Evaluation and SHAP Analysis"
+  },
+  {
+   "rec_ids": [
+    "Q0666"
+   ],
+   "matches": "U303",
+   "title": "Robust and Interpretable Crop Recommendation: A Case Study on a Balanced Multi-crop Agronomic Dataset"
+  },
+  {
+   "rec_ids": [
+    "Q0667"
+   ],
+   "matches": "U305",
+   "title": "An explainable survival aware intelligence framework for customer retention decision support beyond static churn prediction"
+  },
+  {
+   "rec_ids": [
+    "Q0693"
+   ],
+   "matches": "U319",
+   "title": "Development and Validation of an Explainable AI–Bayesian Framework for Global Food Safety Risk Prediction and Supply Chain Resilience"
+  },
+  {
+   "rec_ids": [
+    "Q0706"
+   ],
+   "matches": "U327",
+   "title": "TreeSHAP-Importance-Weighted Feature-Group Fusion for Tabular Regression: Centered Additive Decomposition, Rade-Macher Complexity Control, and Attribution Stability"
+  },
+  {
+   "rec_ids": [
+    "Q0708"
+   ],
+   "matches": "U331",
+   "title": "XOR-EW: AN EXPLAINABLE AND COST-AWARE ARTIFICIAL INTELLIGENCE FRAMEWORK FOR OPERATIONAL RISK EARLY WARNING IN FINANCIAL INSTITUTIONS"
+  },
+  {
+   "rec_ids": [
+    "Q0709",
+    "Q0813"
+   ],
+   "matches": "U335",
+   "title": "Beyond Soft Masks: Hard-Perturbation Mixup Explainer for Robust GNN Explainability"
+  },
+  {
+   "rec_ids": [
+    "Q0757"
+   ],
+   "matches": "U360",
+   "title": "A Robust and Interpretable Ensemble Learning Framework for Early Mortality Risk Stratification in Heart Failure"
+  },
+  {
+   "rec_ids": [
+    "Q0770",
+    "Q0802"
+   ],
+   "matches": "C005",
+   "title": "No Single Metric Tells the Whole Story: A Multi-Dimensional Evaluation Framework for Uncertainty Attributions"
+  },
+  {
+   "rec_ids": [
+    "Q0779"
+   ],
+   "matches": "U381",
+   "title": "A Hybrid Explainable AI (XAI) Framework for Disentangling Non-linear and Heterogeneous Drivers in Complex Ecological Systems"
+  },
+  {
+   "rec_ids": [
+    "Q0821"
+   ],
+   "matches": "C037",
+   "title": "US-LIME: Increasing fidelity in LIME using uncertainty sampling on tabular data"
+  },
+  {
+   "rec_ids": [
+    "Q0854"
+   ],
+   "matches": "C068",
+   "title": "Why should you trust my interpretation? Understanding uncertainty in LIME predictions"
+  }
+ ]
+}

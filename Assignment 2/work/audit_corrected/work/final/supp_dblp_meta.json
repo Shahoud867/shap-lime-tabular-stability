@@ -1,0 +1,1981 @@
+{
+ "DOI:10.1016/j.neucom.2024.127969": {
+  "paperId": "14a2cde0194b969926c80aa8777295143c7c516c",
+  "externalIds": {
+   "DBLP": "journals/ijon/SaadatfarZG24",
+   "DOI": "10.1016/j.neucom.2024.127969",
+   "CorpusId": 270305215
+  },
+  "publicationVenue": {
+   "id": "df12d289-f447-47d3-8846-75e39de3ab57",
+   "name": "Neurocomputing",
+   "type": "journal",
+   "issn": "0925-2312",
+   "url": "http://www.elsevier.com/locate/neucom",
+   "alternate_urls": [
+    "http://www.sciencedirect.com/science/journal/09252312"
+   ]
+  },
+  "url": "https://www.semanticscholar.org/paper/14a2cde0194b969926c80aa8777295143c7c516c",
+  "title": "US-LIME: Increasing fidelity in LIME using uncertainty sampling on tabular data",
+  "venue": "Neurocomputing",
+  "year": 2024,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": "CLOSED",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1016/j.neucom.2024.127969?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/j.neucom.2024.127969, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2024-06-01",
+  "journal": {
+   "name": "Neurocomputing",
+   "pages": "127969",
+   "volume": "597"
+  },
+  "authors": [
+   {
+    "authorId": "2621216",
+    "name": "Hamid Saadatfar"
+   },
+   {
+    "authorId": null,
+    "name": "Zeynab Kiani Zadegan"
+   },
+   {
+    "authorId": "2305082233",
+    "name": "Benyamin Ghahremani-Nezhad"
+   }
+  ],
+  "abstract": null
+ },
+ "DOI:10.1016/j.knosys.2024.111732": {
+  "paperId": "2bcbbd5ac203d4a6f7996265a2d6ff56044b3de5",
+  "externalIds": {
+   "DBLP": "journals/kbs/HungL24",
+   "DOI": "10.1016/j.knosys.2024.111732",
+   "CorpusId": 269182337
+  },
+  "publicationVenue": {
+   "id": "12fff95b-d469-49a0-84a5-4fd4696c3f28",
+   "name": "Knowledge-Based Systems",
+   "type": "journal",
+   "alternate_names": [
+    "Knowl Based Syst",
+    "Knowledge Based Systems",
+    "Knowledge-based Syst"
+   ],
+   "issn": "0950-7051",
+   "url": "http://www.elsevier.com/wps/find/journaldescription.cws_home/525448/description#description",
+   "alternate_urls": [
+    "https://www.journals.elsevier.com/knowledge-based-systems",
+    "http://www.sciencedirect.com/science/journal/09507051"
+   ]
+  },
+  "url": "https://www.semanticscholar.org/paper/2bcbbd5ac203d4a6f7996265a2d6ff56044b3de5",
+  "title": "BMB-LIME: LIME with modeling local nonlinearity and uncertainty in explainability",
+  "venue": "Knowledge-Based Systems",
+  "year": 2024,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": "CLOSED",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1016/j.knosys.2024.111732?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/j.knosys.2024.111732, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2024-04-01",
+  "journal": {
+   "name": "Knowl. Based Syst.",
+   "pages": "111732",
+   "volume": "294"
+  },
+  "authors": [
+   {
+    "authorId": "2296875445",
+    "name": "Yu-Hsin Hung"
+   },
+   {
+    "authorId": "2155116820",
+    "name": "Chia-Yen Lee"
+   }
+  ],
+  "abstract": null
+ },
+ "ARXIV:2402.04211": {
+  "paperId": "cf55ce1e88f27cc650b53a643efd28f294ad5c97",
+  "externalIds": {
+   "ArXiv": "2402.04211",
+   "CorpusId": 267500203
+  },
+  "publicationVenue": null,
+  "url": "https://www.semanticscholar.org/paper/cf55ce1e88f27cc650b53a643efd28f294ad5c97",
+  "title": "Probabilistic Shapley Value Modeling and Inference",
+  "venue": "",
+  "year": 2024,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2402.04211, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": null,
+  "publicationDate": "2024-02-06",
+  "journal": null,
+  "authors": [
+   {
+    "authorId": "151119910",
+    "name": "Mert Ketenci"
+   },
+   {
+    "authorId": "2264961795",
+    "name": "Iñigo Urteaga"
+   },
+   {
+    "authorId": "139094318",
+    "name": "V. Rodriguez"
+   },
+   {
+    "authorId": "134509639",
+    "name": "Noémie Elhadad"
+   },
+   {
+    "authorId": "3237761",
+    "name": "A. Perotte"
+   }
+  ],
+  "abstract": "We propose probabilistic Shapley inference (PSI), a novel probabilistic framework to model and infer sufficient statistics of feature attributions in flexible predictive models, via latent random variables whose mean recovers Shapley values. PSI enables efficient, scalable inference over input-to-output attributions, and their uncertainty, via a variational objective that jointly trains a predictive (regression or classification) model and its attribution distributions. To address the challenge of marginalizing over variable-length input feature subsets in Shapley value calculation, we introduce a masking-based neural network architecture, with a modular training and inference procedure. We evaluate PSI on synthetic and real-world datasets, showing that it achieves competitive predictive performance compared to strong baselines, while learning feature attribution distributions -- centered at Shapley values -- that reveal meaningful attribution uncertainty across data modalities."
+ },
+ "DOI:10.1016/j.bspc.2026.110479": {
+  "paperId": "4ae6f5bfbc1c3a849ebb8b7ba163b2c7384fc5ab",
+  "externalIds": {
+   "DBLP": "journals/bspc/SouzaMVB26",
+   "DOI": "10.1016/j.bspc.2026.110479",
+   "CorpusId": 290091877
+  },
+  "publicationVenue": {
+   "id": "1bac31b4-014a-4981-ae41-af2a40acc162",
+   "name": "Biomedical Signal Processing and Control",
+   "type": "journal",
+   "alternate_names": [
+    "Biomed Signal Process Control"
+   ],
+   "issn": "1746-8094",
+   "url": "https://www.journals.elsevier.com/biomedical-signal-processing-and-control",
+   "alternate_urls": [
+    "http://www.sciencedirect.com/science/journal/17468094"
+   ]
+  },
+  "url": "https://www.semanticscholar.org/paper/4ae6f5bfbc1c3a849ebb8b7ba163b2c7384fc5ab",
+  "title": "A five-layer clinical-AI engineering framework for severity risk stratification from hematological signals: Ensemble learning, uncertainty quantification, and SHAP explainability with application to COVID-19",
+  "venue": "Biomedical Signal Processing and Control",
+  "year": 2026,
+  "isOpenAccess": true,
+  "openAccessPdf": {
+   "url": "https://doi.org/10.1016/j.bspc.2026.110479",
+   "status": "HYBRID",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1016/j.bspc.2026.110479?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/j.bspc.2026.110479, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": null,
+  "journal": {
+   "name": "Biomed. Signal Process. Control.",
+   "pages": "110479",
+   "volume": "122"
+  },
+  "authors": [
+   {
+    "authorId": "12989824",
+    "name": "A. D. de Souza"
+   },
+   {
+    "authorId": "2209160312",
+    "name": "Natália Vilas Boas Pappi Maciel"
+   },
+   {
+    "authorId": "2675232",
+    "name": "F. Verri"
+   },
+   {
+    "authorId": "2343102301",
+    "name": "P. P. Balestrassi"
+   }
+  ],
+  "abstract": null
+ },
+ "DOI:10.1016/j.compag.2026.111694": {
+  "paperId": "3ff819636464c39e5db10f9296e5b2a043b017ea",
+  "externalIds": {
+   "DBLP": "journals/cea/WuZCZYM26",
+   "DOI": "10.1016/j.compag.2026.111694",
+   "CorpusId": 287265190
+  },
+  "publicationVenue": {
+   "id": "80fdf70e-8520-4bb7-b387-3abebc9970b7",
+   "name": "Computers and Electronics in Agriculture",
+   "type": "journal",
+   "alternate_names": [
+    "Comput Electron Agric"
+   ],
+   "issn": "0168-1699",
+   "url": "http://www.elsevier.com/wps/find/journaldescription.cws_home/503304/description#description",
+   "alternate_urls": [
+    "http://www.sciencedirect.com/science/journal/01681699"
+   ]
+  },
+  "url": "https://www.semanticscholar.org/paper/3ff819636464c39e5db10f9296e5b2a043b017ea",
+  "title": "A shapley additive exPlanations-informed, threshold-based environmental variable optimization strategy for enhancing soil organic carbon content",
+  "venue": "Computers and Electronics in Agriculture",
+  "year": 2026,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1016/j.compag.2026.111694?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/j.compag.2026.111694, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2026-06-01",
+  "journal": {
+   "name": "Comput. Electron. Agric.",
+   "pages": "111694",
+   "volume": "247"
+  },
+  "authors": [
+   {
+    "authorId": "2292903180",
+    "name": "Zihao Wu"
+   },
+   {
+    "authorId": "2276200349",
+    "name": "Xin-Ying Zou"
+   },
+   {
+    "authorId": "2266360248",
+    "name": "Yiyun Chen"
+   },
+   {
+    "authorId": "2292888803",
+    "name": "Yuanli Zhu"
+   },
+   {
+    "authorId": "2297742663",
+    "name": "Qing-Wu Yan"
+   },
+   {
+    "authorId": "2332707494",
+    "name": "Weibo Ma"
+   }
+  ],
+  "abstract": null
+ },
+ "DOI:10.1016/j.ecoinf.2026.103900": {
+  "paperId": "c824df97d5a107173ed9b6337dfc5d0459ae6967",
+  "externalIds": {
+   "DBLP": "journals/ecoi/SunZXZGCXPZ26",
+   "DOI": "10.1016/j.ecoinf.2026.103900",
+   "CorpusId": 289640268
+  },
+  "publicationVenue": {
+   "id": "056730f6-4895-44e9-8331-fe244d7efaf3",
+   "name": "Ecological Informatics",
+   "type": "journal",
+   "alternate_names": [
+    "Ecol Informatics"
+   ],
+   "issn": "1574-9541",
+   "url": "http://www.elsevier.com/wps/find/journaldescription.cws_home/705192/description#description",
+   "alternate_urls": [
+    "https://www.journals.elsevier.com/ecological-informatics"
+   ]
+  },
+  "url": "https://www.semanticscholar.org/paper/c824df97d5a107173ed9b6337dfc5d0459ae6967",
+  "title": "Quantitative assessment of vegetation drought response thresholds by integrating copula-based and XGBoost-SHAP",
+  "venue": "Ecological Informatics",
+  "year": 2026,
+  "isOpenAccess": true,
+  "openAccessPdf": {
+   "url": "https://doi.org/10.1016/j.ecoinf.2026.103900",
+   "status": "GOLD",
+   "license": "CCBYNCND",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1016/j.ecoinf.2026.103900?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/j.ecoinf.2026.103900, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2026-08-01",
+  "journal": {
+   "name": "Ecol. Informatics",
+   "pages": "103900",
+   "volume": "97"
+  },
+  "authors": [
+   {
+    "authorId": "93091377",
+    "name": "Natl Sun"
+   },
+   {
+    "authorId": "2296574407",
+    "name": "Yuan Zhang"
+   },
+   {
+    "authorId": "88894781",
+    "name": "Ya-Yong Xue"
+   },
+   {
+    "authorId": "143644345",
+    "name": "Zheng Zhang"
+   },
+   {
+    "authorId": "2279519760",
+    "name": "Jiawei Guo"
+   },
+   {
+    "authorId": "2280683313",
+    "name": "Mei-Zhu Chen"
+   },
+   {
+    "authorId": "2281681467",
+    "name": "Yi-Bo Xue"
+   },
+   {
+    "authorId": "104843618",
+    "name": "N. Pan"
+   },
+   {
+    "authorId": "2115710394",
+    "name": "Fei Zhang"
+   }
+  ],
+  "abstract": null
+ },
+ "DOI:10.1016/j.knosys.2026.115437": {
+  "paperId": "b0f8e74e0f3a6e9ec9f3ec9c6597991de096d07a",
+  "externalIds": {
+   "DBLP": "journals/kbs/ChengWZM26",
+   "DOI": "10.1016/j.knosys.2026.115437",
+   "CorpusId": 285256286
+  },
+  "publicationVenue": {
+   "id": "12fff95b-d469-49a0-84a5-4fd4696c3f28",
+   "name": "Knowledge-Based Systems",
+   "type": "journal",
+   "alternate_names": [
+    "Knowl Based Syst",
+    "Knowledge Based Systems",
+    "Knowledge-based Syst"
+   ],
+   "issn": "0950-7051",
+   "url": "http://www.elsevier.com/wps/find/journaldescription.cws_home/525448/description#description",
+   "alternate_urls": [
+    "https://www.journals.elsevier.com/knowledge-based-systems",
+    "http://www.sciencedirect.com/science/journal/09507051"
+   ]
+  },
+  "url": "https://www.semanticscholar.org/paper/b0f8e74e0f3a6e9ec9f3ec9c6597991de096d07a",
+  "title": "Uncertainty explanation of artificial intelligence models by SHAP",
+  "venue": "Knowledge-Based Systems",
+  "year": 2026,
+  "isOpenAccess": true,
+  "openAccessPdf": {
+   "url": "https://doi.org/10.1016/j.knosys.2026.115437",
+   "status": "HYBRID",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1016/j.knosys.2026.115437?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/j.knosys.2026.115437, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2026-01-01",
+  "journal": {
+   "name": "Knowl. Based Syst.",
+   "pages": "115437",
+   "volume": "337"
+  },
+  "authors": [
+   {
+    "authorId": "51494418",
+    "name": "Xi-Meng Cheng"
+   },
+   {
+    "authorId": "2469139450",
+    "name": "Tianqi Wang"
+   },
+   {
+    "authorId": "2361646678",
+    "name": "Di Zhu"
+   },
+   {
+    "authorId": "2350303634",
+    "name": "Jackie Ma"
+   }
+  ],
+  "abstract": null
+ },
+ "DOI:10.3390/make8050129": {
+  "paperId": "88cef73a7d35c92f1e38eb6a09622e6b84e9ee28",
+  "externalIds": {
+   "DBLP": "journals/make/NairBBKMZ26",
+   "DOI": "10.3390/make8050129",
+   "CorpusId": 288230105
+  },
+  "publicationVenue": {
+   "id": "472fe64a-ea91-4506-8d2d-4c9a9374e1ea",
+   "name": "Machine Learning and Knowledge Extraction",
+   "alternate_names": [
+    "Mach Learn Knowl Extr"
+   ],
+   "issn": "2504-4990",
+   "url": "http://www.e-helvetica.nb.admin.ch/directAccess?callnumber=bel-1327032",
+   "alternate_urls": [
+    "https://nbn-resolving.org/urn/resolver.pl?urn=urn:nbn:ch:bel-1327032",
+    "https://www.mdpi.com/journal/make"
+   ]
+  },
+  "url": "https://www.semanticscholar.org/paper/88cef73a7d35c92f1e38eb6a09622e6b84e9ee28",
+  "title": "An Interpretable and Uncertainty-Aware Deep Learning Framework for Early Sepsis Prediction Using SHAP-Enhanced Attention and Continuous-Time Neural Networks",
+  "venue": "Machine Learning and Knowledge Extraction",
+  "year": 2026,
+  "isOpenAccess": true,
+  "openAccessPdf": {
+   "url": "https://doi.org/10.3390/make8050129",
+   "status": "GOLD",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.3390/make8050129?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.3390/make8050129, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2026-05-13",
+  "journal": {
+   "name": "Mach. Learn. Knowl. Extr.",
+   "volume": "8"
+  },
+  "authors": [
+   {
+    "authorId": "2375921899",
+    "name": "Rekha R. Nair"
+   },
+   {
+    "authorId": "2067209674",
+    "name": "T. Babu"
+   },
+   {
+    "authorId": "2456784",
+    "name": "B. Balusamy"
+   },
+   {
+    "authorId": "122106919",
+    "name": "W. Khoh"
+   },
+   {
+    "authorId": "2330914041",
+    "name": "Alaa M. Momani"
+   },
+   {
+    "authorId": "3412018",
+    "name": "B. A. Zneid"
+   }
+  ],
+  "abstract": "Sepsis is a prominent cause of death in intensive care units, and delayed diagnosis greatly worsens fatal outcomes due to the complex, irregular, and uneven character of clinical time-series data. Hence we proposed an interpretable and uncertainty-aware deep learning architecture that solves data quality, temporal irregularity, and clinical explainability restrictions, which are frequently addressed separately by existing models. The suggested method combines Bidirectional Recurrent Imputation for Time Series (BRITS)-based imputation, hybrid Conditional Tabular Generative Adversarial Network-Synthetic Minority Over-sampling Technique (CTGAN-SMOTE) data augmentation, a Temporal Convolutional Networks (TCN)-Attention architecture, and continuous-time neural Ordinary Differential Equations (ODEs), along with SHapley Additive exPlanations (SHAP)-based feature attribution and uncertainty quantification. The experimental evaluation on a large ICU dataset reveals greater predictive accuracy, with an AUROC of 0.926 and accurate early warnings up to six hours before clinical onset, all while maintaining strong interpretability and calibration. The proposed framework demonstrates strong predictive performance and provides early warnings up to six hours before clinical onset, while maintaining interpretability and calibration. While the results are promising, further validation across multiple clinical settings is required to confirm its generalisability and real-world applicability."
+ },
+ "DOI:10.1109/isbi61048.2026.11515808": {
+  "paperId": "e1a021a22123df4e64dcfb5c9fda5b9e2b76fe0c",
+  "externalIds": {
+   "DBLP": "journals/corr/abs-2512-07224",
+   "ArXiv": "2512.07224",
+   "DOI": "10.1109/ISBI61048.2026.11515808",
+   "CorpusId": 283693495
+  },
+  "publicationVenue": {
+   "id": "a38e0d3d-6929-4868-b4e4-af8bbacf711e",
+   "name": "IEEE International Symposium on Biomedical Imaging",
+   "type": "conference",
+   "alternate_names": [
+    "ISBI",
+    "International Symposium on Biomedical Imaging",
+    "Int Symp Biomed Imaging",
+    "IEEE Int Symp Biomed Imaging"
+   ],
+   "issn": "1945-7928",
+   "alternate_issns": [
+    "1945-8452"
+   ],
+   "url": "http://www.biomedicalimaging.org/",
+   "alternate_urls": [
+    "https://ieeexplore.ieee.org/xpl/conferences.jsp"
+   ]
+  },
+  "url": "https://www.semanticscholar.org/paper/e1a021a22123df4e64dcfb5c9fda5b9e2b76fe0c",
+  "title": "Clinical Interpretability of Deep Learning Segmentation Through Shapley-Derived Agreement and Uncertainty Metrics",
+  "venue": "IEEE International Symposium on Biomedical Imaging",
+  "year": 2025,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": "CLOSED",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2512.07224, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2025-12-08",
+  "journal": {
+   "name": "2026 IEEE 23rd International Symposium on Biomedical Imaging (ISBI)",
+   "pages": "1-5"
+  },
+  "authors": [
+   {
+    "authorId": "2283841224",
+    "name": "Tian-Yi Ren"
+   },
+   {
+    "authorId": "2397376702",
+    "name": "Daniel Low"
+   },
+   {
+    "authorId": "2397376656",
+    "name": "P. Jaengprajak"
+   },
+   {
+    "authorId": "2283850405",
+    "name": "Juampablo Heras Rivera"
+   },
+   {
+    "authorId": "2284063370",
+    "name": "Jacob Ruzevick"
+   },
+   {
+    "authorId": "2283840493",
+    "name": "Mehmet Kurt"
+   }
+  ],
+  "abstract": "Segmentation is the identification of anatomical regions of interest, such as organs, tissue, and lesions, serving as a fundamental task in computer-aided diagnosis in medical imaging. Although deep learning models have achieved remarkable performance in medical image segmentation, the need for explainability remains critical for ensuring their acceptance and integration in clinical practice, despite the growing research attention in this area. Our approach explored the use of contrast-level Shapley values, a systematic perturbation of model inputs to assess feature importance. While other studies have investigated gradient-based techniques through identifying influential regions in imaging inputs, Shapley values offer a broader, clinically aligned approach, explaining how model performance is fairly attributed to certain imaging contrasts over others. Using the BraTS 2024 dataset, we generated rankings for Shapley values for four MRI contrasts across four model architectures. Two metrics were proposed from the Shapley ranking: agreement between model and “clinician” imaging ranking, and uncertainty quantified through Shapley ranking variance across cross-validation folds. Higher-performing cases (Dice > 0.6) showed significantly greater agreement with clinical rankings. Increased Shapley ranking variance correlated with decreased performance (U-Net: $r=-0.581$). These metrics provide clinically interpretable proxies for model reliability, helping clinicians better understand state-of-the-art segmentation models."
+ },
+ "DOI:10.2312/evs.20261004": null,
+ "ARXIV:2602.00171": {
+  "paperId": "2ad0542577aa6c05b159478105b76b1965befb06",
+  "externalIds": {
+   "DBLP": "journals/corr/abs-2602-00171",
+   "ArXiv": "2602.00171",
+   "DOI": "10.48550/arXiv.2602.00171",
+   "CorpusId": 285269692
+  },
+  "publicationVenue": {
+   "id": "1901e811-ee72-4b20-8f7e-de08cd395a10",
+   "name": "arXiv.org",
+   "alternate_names": [
+    "ArXiv"
+   ],
+   "issn": "2331-8422",
+   "url": "https://arxiv.org"
+  },
+  "url": "https://www.semanticscholar.org/paper/2ad0542577aa6c05b159478105b76b1965befb06",
+  "title": "Uncertainty-Aware Multimodal Learning via Conformal Shapley Intervals",
+  "venue": "arXiv.org",
+  "year": 2026,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2602.00171, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2026-01-30",
+  "journal": {
+   "name": "ArXiv",
+   "volume": "abs/2602.00171"
+  },
+  "authors": [
+   {
+    "authorId": "2294421099",
+    "name": "Mathew Chandy"
+   },
+   {
+    "authorId": "2357863334",
+    "name": "Michaela Johnson"
+   },
+   {
+    "authorId": "2389378290",
+    "name": "Judong Shen"
+   },
+   {
+    "authorId": "2163143",
+    "name": "D. Mehrotra"
+   },
+   {
+    "authorId": "2350359247",
+    "name": "Hua Zhou"
+   },
+   {
+    "authorId": "2469357333",
+    "name": "Jin Zhou"
+   },
+   {
+    "authorId": "2350529919",
+    "name": "Xiao-Wu Dai"
+   }
+  ],
+  "abstract": "Multimodal learning combines information from multiple data modalities to improve predictive performance. However, modalities often contribute unequally and in a data dependent way, making it unclear which data modalities are genuinely informative and to what extent their contributions can be trusted. Quantifying modality level importance together with uncertainty is therefore central to interpretable and reliable multimodal learning. We introduce conformal Shapley intervals, a framework that combines Shapley values with conformal inference to construct uncertainty-aware importance intervals for each modality. Building on these intervals, we propose a modality selection procedure with a provable optimality guarantee: conditional on the observed features, the selected subset of modalities achieves performance close to that of the optimal subset. We demonstrate the effectiveness of our approach on multiple datasets, showing that it provides meaningful uncertainty quantification and strong predictive performance while relying on only a small number of informative modalities."
+ },
+ "ARXIV:2603.22235": {
+  "paperId": "4bfb927006c09eb8d74b2639d93ff2808e0151d4",
+  "externalIds": {
+   "DBLP": "conf/vissym/WatkinAT26",
+   "ArXiv": "2603.22235",
+   "DOI": "10.48550/arXiv.2603.22235",
+   "CorpusId": 286766090
+  },
+  "publicationVenue": {
+   "id": "fec1e1ad-3ba6-4f6f-96e5-c262ada5b009",
+   "name": "Eurographics Conference on Visualization",
+   "type": "conference",
+   "alternate_names": [
+    "EuroVis",
+    "Gr Conf Vis"
+   ],
+   "url": "https://diglib.eg.org/handle/10.2312/392"
+  },
+  "url": "https://www.semanticscholar.org/paper/4bfb927006c09eb8d74b2639d93ff2808e0151d4",
+  "title": "ShapDBM: Exploring Decision Boundary Maps in Shapley Space",
+  "venue": "Eurographics Conference on Visualization",
+  "year": 2026,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2603.22235, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2026-03-23",
+  "journal": {
+   "name": "ArXiv",
+   "volume": "abs/2603.22235"
+  },
+  "authors": [
+   {
+    "authorId": "2425368139",
+    "name": "Luke Watkin"
+   },
+   {
+    "authorId": "2268398553",
+    "name": "Daniel Archambault"
+   },
+   {
+    "authorId": "2250241772",
+    "name": "A. Telea"
+   }
+  ],
+  "abstract": "Decision Boundary Maps (DBMs) are an effective tool for visualising machine learning classification boundaries. Yet, DBM quality strongly depends on the dimensionality reduction (DR) technique and high dimensional space used for the data points. For complex ML data, DR can create many mixed classes which yield DBMs that are hard to use or even misleading. We propose a new technique to compute DBMs by transforming data space into Shapley space and computing DR on it. Compared to DBMs computed directly from data, our maps have similar or higher quality metric values and visibly more compact, easier to explore, decision zones that better agree with measured model performance."
+ },
+ "ARXIV:2605.28170": {
+  "paperId": "ec2a603b559109807ef7e68ef1dde7430cab5b71",
+  "externalIds": {
+   "ArXiv": "2605.28170",
+   "DBLP": "journals/corr/abs-2605-28170",
+   "DOI": "10.48550/arXiv.2605.28170",
+   "CorpusId": 288702225
+  },
+  "publicationVenue": {
+   "id": "1901e811-ee72-4b20-8f7e-de08cd395a10",
+   "name": "arXiv.org",
+   "alternate_names": [
+    "ArXiv"
+   ],
+   "issn": "2331-8422",
+   "url": "https://arxiv.org"
+  },
+  "url": "https://www.semanticscholar.org/paper/ec2a603b559109807ef7e68ef1dde7430cab5b71",
+  "title": "Localizing Input Uncertainty Quantification for Large Language Models via Shapley Values",
+  "venue": "arXiv.org",
+  "year": 2026,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2605.28170, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2026-05-27",
+  "journal": {
+   "name": "ArXiv",
+   "volume": "abs/2605.28170"
+  },
+  "authors": [
+   {
+    "authorId": "2339467966",
+    "name": "Seong-Whan Lee"
+   },
+   {
+    "authorId": "2362754706",
+    "name": "Suwan Yoon"
+   },
+   {
+    "authorId": "2340470996",
+    "name": "Changhee Lee"
+   }
+  ],
+  "abstract": "As large language models (LLMs) are increasingly integrated into high-stakes decision-making, the ability to reliably quantify uncertainty has become a critical requirement for safety and trust. However, current uncertainty quantification methods primarily operate at the output level, often failing to distinguish whether uncertainty arises from the model's lack of knowledge or from ambiguity in the user's input. While input-centric uncertainty quantification has recently emerged as a promising direction, it remains relatively underexplored and typically relies on coarse, input-level information. Consequently, users are provided with scalar uncertainty scores that offer little actionable guidance on which parts of the input should be clarified to improve reliability. To address this limitation, we propose Shapley-based input uncertainty Quantification (ShaQ), a framework for span-level attribution of input-induced uncertainty. Our approach models ambiguous spans in the input as players in a cooperative game and quantifies their contributions using Shapley values, defined via the weighted average of marginal reductions in conditional entropy obtained by clarifying each span coalition. Unlike existing input-level approaches, our formulation captures complex interactions among spans and provides a principled decomposition in which individual attributions sum exactly to the total input-induced uncertainty. We evaluate ShaQ on the AmbigQA and AmbiEnt benchmarks, where it achieves state-of-the-art performance in ambiguity detection. We further demonstrate its utility on MediTOD, showing that ShaQ can localize under-specified clinical utterances and facilitate human-AI collaboration in high-stakes settings. Overall, ShaQ improves uncertainty estimation and provides actionable insights for targeted input clarification."
+ },
+ "ARXIV:2608.13173": {
+  "paperId": "f3bb0250060435bf5fabd09b357c5ca05d6a9807",
+  "externalIds": {
+   "ArXiv": "2608.13173",
+   "CorpusId": 291084779
+  },
+  "publicationVenue": null,
+  "url": "https://www.semanticscholar.org/paper/f3bb0250060435bf5fabd09b357c5ca05d6a9807",
+  "title": "SkillShapley: Boundary-Adaptive Shapley Valuation for Skill Step Attribution in LLM Agents",
+  "venue": "",
+  "year": 2026,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2608.13173, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": null,
+  "publicationDate": "2026-08-13",
+  "journal": null,
+  "authors": [
+   {
+    "authorId": "2312096447",
+    "name": "Chang Liu"
+   },
+   {
+    "authorId": "2454149823",
+    "name": "Yu-Quan Zhang"
+   },
+   {
+    "authorId": "2454087467",
+    "name": "Yiman Zhong"
+   },
+   {
+    "authorId": "2324106041",
+    "name": "Boyi Liu"
+   },
+   {
+    "authorId": "2456846121",
+    "name": "Heng Wang"
+   },
+   {
+    "authorId": "1504978358",
+    "name": "Shu-Yue Wei"
+   }
+  ],
+  "abstract": "Agent skills are crucial external instructions that enable language agents to execute long procedural tasks such as coding or document processing. Existing agent skills are primarily created through human manual crafting or agent execution traces, with limited understanding of how each step contributes to overall skill performance on specific tasks; i.e., there remains an open problem in quantifying the contribution of individual steps within an agent skill. To address this issue, we first model skill-step attribution as a Shapley value-based contribution estimation problem, and then propose SkillShapley, a step-level attribution framework for agent skills. Notably, SkillShapley operates in two phases, motivated by key empirical insights, i.e., discretized benchmark rewards that create sharp performance cliffs, and step interactions that are largely additive rather than synergistic. Specifically, it first identifies informative coalitional regions, and then adaptively samples new coalitions that can yield reusable marginal evidence. Experiments on skills from the widely adopted SkillsBench demonstrate that our SkillShapley can effectively and efficiently identify high- or low-value skill steps, providing several key takeaways for agent skill creation."
+ },
+ "ARXIV:2609.35217": {
+  "paperId": "0392039d33c8154089407ce2f6e28aaf271a6814",
+  "externalIds": {
+   "ArXiv": "2609.35217",
+   "CorpusId": 292434321
+  },
+  "publicationVenue": null,
+  "url": "https://www.semanticscholar.org/paper/0392039d33c8154089407ce2f6e28aaf271a6814",
+  "title": "A Hierarchy of Entropy-Shapley Games for Multivariate Predictive Uncertainty",
+  "venue": "",
+  "year": 2026,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2609.35217, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": null,
+  "publicationDate": "2026-09-28",
+  "journal": null,
+  "authors": [
+   {
+    "authorId": "2118842728",
+    "name": "Niklas Koenen"
+   },
+   {
+    "authorId": "8286737",
+    "name": "Claudia Battistin"
+   },
+   {
+    "authorId": "2496309674",
+    "name": "Jeriek Van den Abeele"
+   },
+   {
+    "authorId": "51313788",
+    "name": "Martin Jullum"
+   }
+  ],
+  "abstract": "Modern probabilistic machine learning models increasingly produce multivariate outputs with complex dependence structure, from multi-step time-series forecasts to sample path predictions. Understanding which input features drive the predictive uncertainty is important for risk-aware decisions, model diagnostics, and deciding whether the uncertainty should be mitigated or hedged against. This attribution problem requires a choice of how dependencies between output components are treated. Existing approaches reduce the output to a scalar through aggregation or projection before attribution, thereby obscuring whether features affect marginal uncertainty, dependence structure, or both, while component-wise analyses can miss dependence effects entirely. We close this gap by introducing a hierarchy of three entropy-based Shapley games that make this output-side choice explicit for any ordered multivariate outcome, ranging from per-component marginal entropy to fully joint entropy. The hierarchy isolates a cross-component attribution term that captures how each feature shifts the dependence between output components, a quantity invisible to component-wise methods. We establish a chain-rule decomposition of the joint attribution and characterize the cross-component term through conditional total correlation, providing both closed-form and sample-based estimators. Finally, we demonstrate how the framework captures differences in learned joint structure across probabilistic models from distributional regression to a zero-shot time series foundation model."
+ },
+ "DOI:10.1016/j.aei.2025.103730": {
+  "paperId": "81d7ca709a10411d54f226ae3bb31218568b2d2d",
+  "externalIds": {
+   "DBLP": "journals/aei/WuSSLGQ25",
+   "DOI": "10.1016/j.aei.2025.103730",
+   "CorpusId": 280554779
+  },
+  "publicationVenue": {
+   "id": "ec497fa8-833a-4d68-873a-539c20989c22",
+   "name": "Advanced Engineering Informatics",
+   "type": "journal",
+   "alternate_names": [
+    "Adv Eng Informatics"
+   ],
+   "issn": "1474-0346",
+   "url": "http://www.elsevier.com/wps/find/journaldescription.cws_home/622240/description#description",
+   "alternate_urls": [
+    "http://www.sciencedirect.com/science/journal/14740346"
+   ]
+  },
+  "url": "https://www.semanticscholar.org/paper/81d7ca709a10411d54f226ae3bb31218568b2d2d",
+  "title": "Uncertainty-aware Bayesian neural network with SHAP interpretability for data-driven assembly quality prediction in complex manufacturing systems",
+  "venue": "Advanced Engineering Informatics",
+  "year": 2025,
+  "isOpenAccess": true,
+  "openAccessPdf": {
+   "url": "https://doi.org/10.2139/ssrn.5218723",
+   "status": "GREEN",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1016/j.aei.2025.103730?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/j.aei.2025.103730, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2025-11-01",
+  "journal": {
+   "name": "Adv. Eng. Informatics",
+   "pages": "103730",
+   "volume": "68"
+  },
+  "authors": [
+   {
+    "authorId": "2376292138",
+    "name": "Jie Wu"
+   },
+   {
+    "authorId": "2000311121",
+    "name": "Yan-Ning Sun"
+   },
+   {
+    "authorId": "2351251895",
+    "name": "Yi-Tian Song"
+   },
+   {
+    "authorId": "2326876891",
+    "name": "Li-Lan Liu"
+   },
+   {
+    "authorId": "2326915870",
+    "name": "Zeng-Gui Gao"
+   },
+   {
+    "authorId": "2099810075",
+    "name": "Wei Qin"
+   }
+  ],
+  "abstract": null
+ },
+ "DOI:10.3390/ijgi14100371": {
+  "paperId": "f61338ae86653492e3f929ceb8110a3dc0bbf839",
+  "externalIds": {
+   "DBLP": "journals/ijgi/LiuLDTG25",
+   "DOI": "10.3390/ijgi14100371",
+   "CorpusId": 281582905
+  },
+  "publicationVenue": null,
+  "url": "https://www.semanticscholar.org/paper/f61338ae86653492e3f929ceb8110a3dc0bbf839",
+  "title": "Data-Driven Spatial Optimization of Elderly Care Facilities: A Study on Nonlinear Threshold Effects Based on XGBoost and SHAP - A Case Study of Xi'an, China",
+  "venue": "ISPRS Int. J. Geo Inf.",
+  "year": 2025,
+  "isOpenAccess": true,
+  "openAccessPdf": {
+   "url": "https://www.mdpi.com/2220-9964/14/10/371/pdf?version=1758718552",
+   "status": "GOLD",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.3390/ijgi14100371?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.3390/ijgi14100371, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2025-09-24",
+  "journal": {
+   "name": "ISPRS Int. J. Geo Inf.",
+   "pages": "371",
+   "volume": "14"
+  },
+  "authors": [
+   {
+    "authorId": "2184878786",
+    "name": "Ling-Gui Liu"
+   },
+   {
+    "authorId": "2184869063",
+    "name": "Han Lyu"
+   },
+   {
+    "authorId": "2376051503",
+    "name": "Jinghua Dai"
+   },
+   {
+    "authorId": "2208879296",
+    "name": "Yu-Heng Tu"
+   },
+   {
+    "authorId": "1999468356",
+    "name": "Tao-Tao Gao"
+   }
+  ],
+  "abstract": "Under the accelerating demographic aging trend, the rational allocation of elderly care facilities has emerged as a critical challenge. Although existing studies have investigated elderly care facilities planning using conventional methods, they frequently overlook the nonlinear interactions between built environment factors and heterogeneous demands across different elderly care facility types. This study addresses these gaps by proposing a data-driven framework that integrates machine learning with spatial analysis to optimize elderly care facility distribution in Xi’an City central area, Shaanxi Province, China. Leveraging multi-source datasets encompassing points of interest (POIs), road networks, and demographic statistics, we classify facilities into three categories (service-oriented, activity-oriented, and care-oriented) and employ an XGBoost model with SHAP interpretability to evaluate spatial distributions and influencing factors. The results demonstrate that the XGBoost model outperforms comparative algorithms (Random Forest, CatBoost, LightGBM) with superior performance metrics (accuracy rate of 97%, precision of 95%, and F1-score of 90%), effectively capturing nonlinear thresholds effects. Key findings reveal the following: (1) Accessibility and road density exert threshold effects on care-oriented facilities, with facility attractiveness saturating when these values exceed 6; (2) Land use intensity and medical resources positively correlate with activity-oriented facilities, while excessive retail density inhibits their distribution; (3) Service-oriented facilities thrive in areas with balanced accessibility and moderate commercial diversity. Spatial analysis identifies clustered distribution patterns in urban core areas contrasted with peripheral deficiencies, indicating need for targeted interventions. This research contributes a scalable methodology for equitable facility planning, emphasizing the integration of dynamic built environment variations with model interpretability. The framework provides significant implications for formulating age-friendly urban policies applicable to global cities undergoing rapid urbanization and population aging."
+ },
+ "ARXIV:2507.21406": {
+  "paperId": "3c10a46c7854bfefa5642e9768f7042a3fa53a92",
+  "externalIds": {
+   "DBLP": "journals/corr/abs-2507-21406",
+   "ArXiv": "2507.21406",
+   "DOI": "10.48550/arXiv.2507.21406",
+   "CorpusId": 280338075
+  },
+  "publicationVenue": {
+   "id": "1901e811-ee72-4b20-8f7e-de08cd395a10",
+   "name": "arXiv.org",
+   "alternate_names": [
+    "ArXiv"
+   ],
+   "issn": "2331-8422",
+   "url": "https://arxiv.org"
+  },
+  "url": "https://www.semanticscholar.org/paper/3c10a46c7854bfefa5642e9768f7042a3fa53a92",
+  "title": "Shapley Uncertainty in Natural Language Generation",
+  "venue": "arXiv.org",
+  "year": 2025,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2507.21406, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2025-07-29",
+  "journal": {
+   "name": "ArXiv",
+   "volume": "abs/2507.21406"
+  },
+  "authors": [
+   {
+    "authorId": "2375126896",
+    "name": "Mei-Lin Zhu"
+   },
+   {
+    "authorId": "2071131446",
+    "name": "Gao Jin"
+   },
+   {
+    "authorId": "2291077595",
+    "name": "Xiaowei Huang"
+   },
+   {
+    "authorId": "2309299369",
+    "name": "Li-Jun Zhang"
+   }
+  ],
+  "abstract": "In question-answering tasks, determining when to trust the outputs is crucial to the alignment of large language models (LLMs). Kuhn et al. (2023) introduces semantic entropy as a measure of uncertainty, by incorporating linguistic invariances from the same meaning. It primarily relies on setting threshold to measure the level of semantic equivalence relation. We propose a more nuanced framework that extends beyond such thresholding by developing a Shapley-based uncertainty metric that captures the continuous nature of semantic relationships. We establish three fundamental properties that characterize valid uncertainty metrics and prove that our Shapley uncertainty satisfies these criteria. Through extensive experiments, we demonstrate that our Shapley uncertainty more accurately predicts LLM performance in question-answering and other datasets, compared to similar baseline measures."
+ },
+ "ARXIV:2512.07224": {
+  "paperId": "e1a021a22123df4e64dcfb5c9fda5b9e2b76fe0c",
+  "externalIds": {
+   "DBLP": "journals/corr/abs-2512-07224",
+   "ArXiv": "2512.07224",
+   "DOI": "10.1109/ISBI61048.2026.11515808",
+   "CorpusId": 283693495
+  },
+  "publicationVenue": {
+   "id": "a38e0d3d-6929-4868-b4e4-af8bbacf711e",
+   "name": "IEEE International Symposium on Biomedical Imaging",
+   "type": "conference",
+   "alternate_names": [
+    "ISBI",
+    "International Symposium on Biomedical Imaging",
+    "Int Symp Biomed Imaging",
+    "IEEE Int Symp Biomed Imaging"
+   ],
+   "issn": "1945-7928",
+   "alternate_issns": [
+    "1945-8452"
+   ],
+   "url": "http://www.biomedicalimaging.org/",
+   "alternate_urls": [
+    "https://ieeexplore.ieee.org/xpl/conferences.jsp"
+   ]
+  },
+  "url": "https://www.semanticscholar.org/paper/e1a021a22123df4e64dcfb5c9fda5b9e2b76fe0c",
+  "title": "Clinical Interpretability of Deep Learning Segmentation Through Shapley-Derived Agreement and Uncertainty Metrics",
+  "venue": "IEEE International Symposium on Biomedical Imaging",
+  "year": 2025,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": "CLOSED",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2512.07224, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2025-12-08",
+  "journal": {
+   "name": "2026 IEEE 23rd International Symposium on Biomedical Imaging (ISBI)",
+   "pages": "1-5"
+  },
+  "authors": [
+   {
+    "authorId": "2283841224",
+    "name": "Tian-Yi Ren"
+   },
+   {
+    "authorId": "2397376702",
+    "name": "Daniel Low"
+   },
+   {
+    "authorId": "2397376656",
+    "name": "P. Jaengprajak"
+   },
+   {
+    "authorId": "2283850405",
+    "name": "Juampablo Heras Rivera"
+   },
+   {
+    "authorId": "2284063370",
+    "name": "Jacob Ruzevick"
+   },
+   {
+    "authorId": "2283840493",
+    "name": "Mehmet Kurt"
+   }
+  ],
+  "abstract": "Segmentation is the identification of anatomical regions of interest, such as organs, tissue, and lesions, serving as a fundamental task in computer-aided diagnosis in medical imaging. Although deep learning models have achieved remarkable performance in medical image segmentation, the need for explainability remains critical for ensuring their acceptance and integration in clinical practice, despite the growing research attention in this area. Our approach explored the use of contrast-level Shapley values, a systematic perturbation of model inputs to assess feature importance. While other studies have investigated gradient-based techniques through identifying influential regions in imaging inputs, Shapley values offer a broader, clinically aligned approach, explaining how model performance is fairly attributed to certain imaging contrasts over others. Using the BraTS 2024 dataset, we generated rankings for Shapley values for four MRI contrasts across four model architectures. Two metrics were proposed from the Shapley ranking: agreement between model and “clinician” imaging ranking, and uncertainty quantified through Shapley ranking variance across cross-validation folds. Higher-performing cases (Dice > 0.6) showed significantly greater agreement with clinical rankings. Increased Shapley ranking variance correlated with decreased performance (U-Net: $r=-0.581$). These metrics provide clinically interpretable proxies for model reliability, helping clinicians better understand state-of-the-art segmentation models."
+ },
+ "DOI:10.1016/j.engappai.2024.109427": {
+  "paperId": "caab47319ddf92d11023fbe9d35b79e2c3c0ba1d",
+  "externalIds": {
+   "DBLP": "journals/eaai/PelegrinaSDG24",
+   "DOI": "10.1016/j.engappai.2024.109427",
+   "CorpusId": 273170260
+  },
+  "publicationVenue": {
+   "id": "1a24ea21-4c37-41d8-9e76-ab802d4afb3e",
+   "name": "Engineering applications of artificial intelligence",
+   "type": "journal",
+   "alternate_names": [
+    "Eng appl artif intell",
+    "Eng Appl Artif Intell",
+    "Engineering Applications of Artificial Intelligence"
+   ],
+   "issn": "0952-1976",
+   "url": "http://www.sciencedirect.com/science/journal/09521976"
+  },
+  "url": "https://www.semanticscholar.org/paper/caab47319ddf92d11023fbe9d35b79e2c3c0ba1d",
+  "title": "Explaining contributions of features towards unfairness in classifiers: A novel threshold-dependent Shapley value-based approach",
+  "venue": "Engineering applications of artificial intelligence",
+  "year": 2024,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": "CLOSED",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1016/j.engappai.2024.109427?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/j.engappai.2024.109427, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2024-12-01",
+  "journal": {
+   "name": "Eng. Appl. Artif. Intell.",
+   "pages": "109427",
+   "volume": "138"
+  },
+  "authors": [
+   {
+    "authorId": "2038138",
+    "name": "G. Pelegrina"
+   },
+   {
+    "authorId": "3226788",
+    "name": "S. Siraj"
+   },
+   {
+    "authorId": "2261230301",
+    "name": "L. T. Duarte"
+   },
+   {
+    "authorId": "2274510319",
+    "name": "Michel Grabisch"
+   }
+  ],
+  "abstract": null
+ },
+ "DOI:10.3233/faia240586": null,
+ "ARXIV:2401.12731": {
+  "paperId": "5a055cb79df75b8e36c128d4872848901c19afaf",
+  "externalIds": {
+   "ArXiv": "2401.12731",
+   "DBLP": "journals/corr/abs-2401-12731",
+   "DOI": "10.48550/arXiv.2401.12731",
+   "CorpusId": 267095080
+  },
+  "publicationVenue": {
+   "id": "5aca6456-76d5-4208-84d8-a6b60228b52b",
+   "name": "European Conference on Artificial Intelligence",
+   "type": "conference",
+   "alternate_names": [
+    "ECAI",
+    "Eur Conf Artif Intell",
+    "International Conference on Electronics, Computers and Artificial Intelligence",
+    "Int Conf Electron Comput Artif Intell",
+    "International Electronics, Computers and Artificial Intelligence",
+    "Int Electron Comput Artif Intell"
+   ],
+   "url": "http://www.eccai.org/",
+   "alternate_urls": [
+    "https://ieeexplore.ieee.org/xpl/conhome/1802942/all-proceedings"
+   ]
+  },
+  "url": "https://www.semanticscholar.org/paper/5a055cb79df75b8e36c128d4872848901c19afaf",
+  "title": "The Distributional Uncertainty of the SHAP score in Explainable Machine Learning",
+  "venue": "European Conference on Artificial Intelligence",
+  "year": 2024,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2401.12731, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle",
+   "Conference"
+  ],
+  "publicationDate": "2024-01-23",
+  "journal": {
+   "pages": "971-978"
+  },
+  "authors": [
+   {
+    "authorId": "2072680148",
+    "name": "S. Cifuentes"
+   },
+   {
+    "authorId": "1699123",
+    "name": "L. Bertossi"
+   },
+   {
+    "authorId": "150248291",
+    "name": "Nina Pardal"
+   },
+   {
+    "authorId": "2417494",
+    "name": "S. Abriola"
+   },
+   {
+    "authorId": "2280370719",
+    "name": "Maria Vanina Martinez"
+   },
+   {
+    "authorId": "2256991894",
+    "name": "Miguel Romero"
+   }
+  ],
+  "abstract": "Attribution scores reflect how important the feature values in an input entity are for the output of a machine learning model. One of the most popular attribution scores is the SHAP score, which is an instantiation of the general Shapley value used in coalition game theory. The definition of this score relies on a probability distribution on the entity population. Since the exact distribution is generally unknown, it needs to be assigned subjectively or be estimated from data, which may lead to misleading feature scores. In this paper, we propose a principled framework for reasoning on SHAP scores under unknown entity population distributions. In our framework, we consider an uncertainty region that contains the potential distributions, and the SHAP score of a feature becomes a function defined over this region. We study the basic problems of finding maxima and minima of this function, which allows us to determine tight ranges for the SHAP scores of all features. In particular, we pinpoint the complexity of these problems, and other related ones, showing them to be NP-complete. Finally, we present experiments on a real-world dataset, showing that our framework may contribute to a more robust feature scoring."
+ },
+ "ARXIV:2407.19373": {
+  "paperId": "9ed0b1afc31b9a57d5404a1b2f08b83404f5bc34",
+  "externalIds": {
+   "ArXiv": "2407.19373",
+   "DBLP": "journals/corr/abs-2407-19373",
+   "DOI": "10.48550/arXiv.2407.19373",
+   "CorpusId": 271533692
+  },
+  "publicationVenue": {
+   "id": "1901e811-ee72-4b20-8f7e-de08cd395a10",
+   "name": "arXiv.org",
+   "alternate_names": [
+    "ArXiv"
+   ],
+   "issn": "2331-8422",
+   "url": "https://arxiv.org"
+  },
+  "url": "https://www.semanticscholar.org/paper/9ed0b1afc31b9a57d5404a1b2f08b83404f5bc34",
+  "title": "Uncertainty Quantification of Data Shapley via Statistical Inference",
+  "venue": "arXiv.org",
+  "year": 2024,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2407.19373, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2024-07-28",
+  "journal": {
+   "name": "ArXiv",
+   "volume": "abs/2407.19373"
+  },
+  "authors": [
+   {
+    "authorId": "2189419868",
+    "name": "Mengmeng Wu"
+   },
+   {
+    "authorId": "2313697675",
+    "name": "Zhi-Hong Liu"
+   },
+   {
+    "authorId": "2314234757",
+    "name": "Xiang Li"
+   },
+   {
+    "authorId": "2313632653",
+    "name": "Ruoxi Jia"
+   },
+   {
+    "authorId": "2208992121",
+    "name": "Xiangyu Chang"
+   }
+  ],
+  "abstract": "As data plays an increasingly pivotal role in decision-making, the emergence of data markets underscores the growing importance of data valuation. Within the machine learning landscape, Data Shapley stands out as a widely embraced method for data valuation. However, a limitation of Data Shapley is its assumption of a fixed dataset, contrasting with the dynamic nature of real-world applications where data constantly evolves and expands. This paper establishes the relationship between Data Shapley and infinite-order U-statistics and addresses this limitation by quantifying the uncertainty of Data Shapley with changes in data distribution from the perspective of U-statistics. We make statistical inferences on data valuation to obtain confidence intervals for the estimations. We construct two different algorithms to estimate this uncertainty and provide recommendations for their applicable situations. We also conduct a series of experiments on various datasets to verify asymptotic normality and propose a practical trading scenario enabled by this method."
+ },
+ "ARXIV:2412.13866": {
+  "paperId": "762626d1003ad9ecf447c4a6bb34cf62109db94d",
+  "externalIds": {
+   "ArXiv": "2412.13866",
+   "DBLP": "journals/corr/abs-2412-13866",
+   "DOI": "10.48550/arXiv.2412.13866",
+   "CorpusId": 274822536
+  },
+  "publicationVenue": {
+   "id": "1901e811-ee72-4b20-8f7e-de08cd395a10",
+   "name": "arXiv.org",
+   "alternate_names": [
+    "ArXiv"
+   ],
+   "issn": "2331-8422",
+   "url": "https://arxiv.org"
+  },
+  "url": "https://www.semanticscholar.org/paper/762626d1003ad9ecf447c4a6bb34cf62109db94d",
+  "title": "SHAP scores fail pervasively even when Lipschitz succeeds",
+  "venue": "arXiv.org",
+  "year": 2024,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2412.13866, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2024-12-18",
+  "journal": {
+   "name": "ArXiv",
+   "volume": "abs/2412.13866"
+  },
+  "authors": [
+   {
+    "authorId": "2299158745",
+    "name": "Olivier Letoffe"
+   },
+   {
+    "authorId": "82038527",
+    "name": "Xuanxiang Huang"
+   },
+   {
+    "authorId": "2249763503",
+    "name": "João Marques-Silva"
+   }
+  ],
+  "abstract": "The ubiquitous use of Shapley values in eXplainable AI (XAI) has been triggered by the tool SHAP, and as a result are commonly referred to as SHAP scores. Recent work devised examples of machine learning (ML) classifiers for which the computed SHAP scores are thoroughly unsatisfactory, by allowing human decision-makers to be misled. Nevertheless, such examples could be perceived as somewhat artificial, since the selected classes must be interpreted as numeric. Furthermore, it was unclear how general were the issues identified with SHAP scores. This paper answers these criticisms. First, the paper shows that for Boolean classifiers there are arbitrarily many examples for which the SHAP scores must be deemed unsatisfactory. Second, the paper shows that the issues with SHAP scores are also observed in the case of regression models. In addition, the paper studies the class of regression models that respect Lipschitz continuity, a measure of a function's rate of change that finds important recent uses in ML, including model robustness. Concretely, the paper shows that the issues with SHAP scores occur even for regression models that respect Lipschitz continuity. Finally, the paper shows that the same issues are guaranteed to exist for arbitrarily differentiable regression models."
+ },
+ "DOI:10.1609/aaai.v37i9.26322": {
+  "paperId": "1ea60f94e6bea09a60b92351b72dec40bf2948f9",
+  "externalIds": {
+   "DBLP": "conf/aaai/ZernBK23",
+   "DOI": "10.1609/aaai.v37i9.26322",
+   "CorpusId": 259746710
+  },
+  "publicationVenue": {
+   "id": "bdc2e585-4e48-4e36-8af1-6d859763d405",
+   "name": "AAAI Conference on Artificial Intelligence",
+   "type": "conference",
+   "alternate_names": [
+    "National Conference on Artificial Intelligence",
+    "National Conf Artif Intell",
+    "AAAI Conf Artif Intell",
+    "AAAI"
+   ],
+   "url": "http://www.aaai.org/"
+  },
+  "url": "https://www.semanticscholar.org/paper/1ea60f94e6bea09a60b92351b72dec40bf2948f9",
+  "title": "Interventional SHAP Values and Interaction Values for Piecewise Linear Regression Trees",
+  "venue": "AAAI Conference on Artificial Intelligence",
+  "year": 2023,
+  "isOpenAccess": true,
+  "openAccessPdf": {
+   "url": "https://ojs.aaai.org/index.php/AAAI/article/download/26322/26094",
+   "status": "GOLD",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1609/aaai.v37i9.26322?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1609/aaai.v37i9.26322, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle",
+   "Conference"
+  ],
+  "publicationDate": "2023-06-26",
+  "journal": {
+   "pages": "11164-11173"
+  },
+  "authors": [
+   {
+    "authorId": "40755193",
+    "name": "Artjom Zern"
+   },
+   {
+    "authorId": "2102011",
+    "name": "Klaus Broelemann"
+   },
+   {
+    "authorId": "1686448",
+    "name": "Gjergji Kasneci"
+   }
+  ],
+  "abstract": "In recent years, game-theoretic Shapley values have gained increasing attention with respect to local model explanation by feature attributions. While the approach using Shapley values is model-independent, their (exact) computation is usually intractable, so efficient model-specific algorithms have been devised including approaches for decision trees or their ensembles in general. Our work goes further in this direction by extending the interventional TreeSHAP algorithm to piecewise linear regression trees, which gained more attention in the past few years. To this end, we introduce a decomposition of the contribution function based on decision paths, which allows a more comprehensible formulation of SHAP algorithms for tree-based models. Our algorithm can also be readily applied to computing SHAP interaction values of these models. In particular, as the main contribution of this paper, we provide a more efficient approach of interventional SHAP for tree-based models by precomputing statistics of the background data based on the tree structure."
+ },
+ "DOI:10.1109/icdmw60847.2023.00124": {
+  "paperId": "1467bb6fa02ea35f51ea5c26f96c7d07a370abcd",
+  "externalIds": {
+   "DBLP": "conf/icdm/GanLMZQ23",
+   "DOI": "10.1109/ICDMW60847.2023.00124",
+   "CorpusId": 267524338
+  },
+  "publicationVenue": null,
+  "url": "https://www.semanticscholar.org/paper/1467bb6fa02ea35f51ea5c26f96c7d07a370abcd",
+  "title": "SATTree: A SHAP-Augmented Threshold Tree for Clustering Explanation",
+  "venue": "2023 IEEE International Conference on Data Mining Workshops (ICDMW)",
+  "year": 2023,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": "CLOSED",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1109/ICDMW60847.2023.00124?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1109/ICDMW60847.2023.00124, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle",
+   "Conference"
+  ],
+  "publicationDate": "2023-12-04",
+  "journal": {
+   "name": "2023 IEEE International Conference on Data Mining Workshops (ICDMW)",
+   "pages": "931-938"
+  },
+  "authors": [
+   {
+    "authorId": "2283154440",
+    "name": "Li-Ge Gan"
+   },
+   {
+    "authorId": "2212198343",
+    "name": "Bo Liu"
+   },
+   {
+    "authorId": "2285938178",
+    "name": "A. Meng"
+   },
+   {
+    "authorId": "2283156504",
+    "name": "Feng Zhang"
+   },
+   {
+    "authorId": "2072587590",
+    "name": "Guang-Zhi Qu"
+   }
+  ],
+  "abstract": "With the blooming of Artificial Intelligence (AI), Machine Learning (ML) and Neural Networks are widely applied in various areas. Nevertheless, industrial applications take advantage of AI-based systems, and the users are more curious about how and why the decisions are being made by these approaches. Explainable AI (XAI), on the other hand, provides a transparent view, aiming at delivering interpretations according to the obtained information. In order to apply these methods in real-world applications, domain experts need to understand the reasoning behind the applications to support their decision-making. A majority of Explainable AI (XAI) models focus on supervised machine learning, yet the need for unsupervised machine learning explainability is still strong. Since the outcome of conventional unsupervised learning methods lacks the details of domain knowledge, it is difficult to be applied by industries. Moreover, the popular and classic explanation techniques, such as LIME and SHAP, cannot be directly utilized for unsupervised learning interpretation due to the absence of explicit labels or guidance in the datasets. In this work, we introduce an innovative clustering method, SATTree (SHAP-Augmented Threshold Tree), which leverages SHAP to gain a comprehensive understanding of global feature contributions, enhancing our knowledge in the clustering process, then builds up a hierarchical decision tree based on the knowledge of contribution ranking. The proposed approach can depict the properties of clusters with certain decision rule sets collected from the threshold tree. The outcomes of this method are anticipated to surpass expectations in facilitating improvements in real-world applications."
+ },
+ "ARXIV:2306.05724": {
+  "paperId": "31aaa0dc9dd433e9e33f799b143cb8d3ee53b27e",
+  "externalIds": {
+   "DBLP": "journals/corr/abs-2306-05724",
+   "ArXiv": "2306.05724",
+   "DOI": "10.48550/arXiv.2306.05724",
+   "CorpusId": 259129826
+  },
+  "publicationVenue": {
+   "id": "d9720b90-d60b-48bc-9df8-87a30b9a60dd",
+   "name": "Neural Information Processing Systems",
+   "type": "conference",
+   "alternate_names": [
+    "Neural Inf Process Syst",
+    "NeurIPS",
+    "NIPS"
+   ],
+   "url": "http://neurips.cc/"
+  },
+  "url": "https://www.semanticscholar.org/paper/31aaa0dc9dd433e9e33f799b143cb8d3ee53b27e",
+  "title": "Explaining Predictive Uncertainty with Information Theoretic Shapley Values",
+  "venue": "Neural Information Processing Systems",
+  "year": 2023,
+  "isOpenAccess": true,
+  "openAccessPdf": {
+   "url": "http://arxiv.org/pdf/2306.05724",
+   "status": "CLOSED",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2306.05724, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2023-06-09",
+  "journal": {
+   "name": "ArXiv",
+   "volume": "abs/2306.05724"
+  },
+  "authors": [
+   {
+    "authorId": "2065079791",
+    "name": "David Watson"
+   },
+   {
+    "authorId": "2395660372",
+    "name": "Joshua O’Hara"
+   },
+   {
+    "authorId": "1836097",
+    "name": "Niek Tax"
+   },
+   {
+    "authorId": "2387211078",
+    "name": "R. Mudd"
+   },
+   {
+    "authorId": "1830456932",
+    "name": "Ido Guy"
+   }
+  ],
+  "abstract": "Researchers in explainable artificial intelligence have developed numerous methods for helping users understand the predictions of complex supervised learning models. By contrast, explaining the $\\textit{uncertainty}$ of model outputs has received relatively little attention. We adapt the popular Shapley value framework to explain various types of predictive uncertainty, quantifying each feature's contribution to the conditional entropy of individual model outputs. We consider games with modified characteristic functions and find deep connections between the resulting Shapley values and fundamental quantities from information theory and conditional independence testing. We outline inference procedures for finite sample error rate control with provable guarantees, and implement efficient algorithms that perform well in a range of experiments on real and simulated data. Our method has applications to covariate shift detection, active learning, feature selection, and active feature-value acquisition."
+ },
+ "ARXIV:2308.15709": {
+  "paperId": "96c827eea1a35a407616ee564d8c657b16399602",
+  "externalIds": {
+   "DBLP": "journals/corr/abs-2308-15709",
+   "ArXiv": "2308.15709",
+   "DOI": "10.48550/arXiv.2308.15709",
+   "CorpusId": 261338987
+  },
+  "publicationVenue": {
+   "id": "1901e811-ee72-4b20-8f7e-de08cd395a10",
+   "name": "arXiv.org",
+   "alternate_names": [
+    "ArXiv"
+   ],
+   "issn": "2331-8422",
+   "url": "https://arxiv.org"
+  },
+  "url": "https://www.semanticscholar.org/paper/96c827eea1a35a407616ee564d8c657b16399602",
+  "title": "Threshold KNN-Shapley: A Linear-Time and Privacy-Friendly Approach to Data Valuation",
+  "venue": "arXiv.org",
+  "year": 2023,
+  "isOpenAccess": true,
+  "openAccessPdf": {
+   "url": "https://arxiv.org/pdf/2308.15709",
+   "status": "CLOSED",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2308.15709, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2023-08-30",
+  "journal": {
+   "name": "ArXiv",
+   "volume": "abs/2308.15709"
+  },
+  "authors": [
+   {
+    "authorId": "2130518057",
+    "name": "Jia-Chen T. Wang"
+   },
+   {
+    "authorId": "2144322624",
+    "name": "Yuqing Zhu"
+   },
+   {
+    "authorId": "2040617",
+    "name": "Yu-Xiang Wang"
+   },
+   {
+    "authorId": "39823639",
+    "name": "R. Jia"
+   },
+   {
+    "authorId": "143615345",
+    "name": "Prateek Mittal"
+   }
+  ],
+  "abstract": "Data valuation aims to quantify the usefulness of individual data sources in training machine learning (ML) models, and is a critical aspect of data-centric ML research. However, data valuation faces significant yet frequently overlooked privacy challenges despite its importance. This paper studies these challenges with a focus on KNN-Shapley, one of the most practical data valuation methods nowadays. We first emphasize the inherent privacy risks of KNN-Shapley, and demonstrate the significant technical difficulties in adapting KNN-Shapley to accommodate differential privacy (DP). To overcome these challenges, we introduce TKNN-Shapley, a refined variant of KNN-Shapley that is privacy-friendly, allowing for straightforward modifications to incorporate DP guarantee (DP-TKNN-Shapley). We show that DP-TKNN-Shapley has several advantages and offers a superior privacy-utility tradeoff compared to naively privatized KNN-Shapley in discerning data quality. Moreover, even non-private TKNN-Shapley achieves comparable performance as KNN-Shapley. Overall, our findings suggest that TKNN-Shapley is a promising alternative to KNN-Shapley, particularly for real-world applications involving sensitive data."
+ },
+ "DOI:10.1109/access.2022.3147799": {
+  "paperId": "33bcea23d4385ed86f40b37980633a33f146d4fd",
+  "externalIds": {
+   "DBLP": "journals/access/TianDFL22",
+   "DOI": "10.1109/ACCESS.2022.3147799",
+   "CorpusId": 246450100
+  },
+  "publicationVenue": {
+   "id": "2633f5b2-c15c-49fe-80f5-07523e770c26",
+   "name": "IEEE Access",
+   "type": "journal",
+   "issn": "2169-3536",
+   "url": "http://www.ieee.org/publications_standards/publications/ieee_access.html",
+   "alternate_urls": [
+    "http://ieeexplore.ieee.org/servlet/opac?punumber=6287639"
+   ]
+  },
+  "url": "https://www.semanticscholar.org/paper/33bcea23d4385ed86f40b37980633a33f146d4fd",
+  "title": "Data Boundary and Data Pricing Based on the Shapley Value",
+  "venue": "IEEE Access",
+  "year": 2022,
+  "isOpenAccess": true,
+  "openAccessPdf": {
+   "url": "https://ieeexplore.ieee.org/ielx7/6287639/9668973/09698064.pdf",
+   "status": "GOLD",
+   "license": "CCBYNCND",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1109/ACCESS.2022.3147799?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1109/ACCESS.2022.3147799, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": null,
+  "journal": {
+   "name": "IEEE Access",
+   "pages": "14288-14300",
+   "volume": "10"
+  },
+  "authors": [
+   {
+    "authorId": "2143726085",
+    "name": "Yingjie Tian"
+   },
+   {
+    "authorId": "112982926",
+    "name": "Yurong Ding"
+   },
+   {
+    "authorId": "1397160951",
+    "name": "Sai-Ji Fu"
+   },
+   {
+    "authorId": "1750698",
+    "name": "Da-Lian Liu"
+   }
+  ],
+  "abstract": "Data pricing is to price data as asset to promote the healthy development of data share, exchange, and reuse. However, the uncertain value index and neglection of interactivity lead to information asymmetry in the transaction process. A perfect data pricing system and a well-designed data market can widely promote data transactions. We take a three-agent data market in this paper, the data owner who provides the data record, the model buyer who is interested in buying machine learning (ML) model instances, and the broker who interacts between the data owner and the model buyer. Two interaction scenarios are defined. In scenario 1, we introduce the Shapley value (SV) to measure values of data records fairly and construct a revenue optimization problem based on the sum of the SV for data boundary. The optimal solution is obtained by calculating their derivatives. In scenario 2, we utilize market research and construct a revenue maximization (RM) problem to price the ML models. Further, An Integer Linear Programming for the RM problem (RM-ILP) process is proposed to transform the RM problem into an equivalent integer linear programming (ILP) problem and solve it with the Gurobi solver. Finally, we conduct extensive experiments, which validate that the RM-ILP process can provide high revenue to the broker and high affordability to the model buyers compared to the benchmarks."
+ },
+ "DOI:10.1016/j.cie.2021.107281": {
+  "paperId": "f0ce3fcbaa10a536897f19ae564798ba33c13b14",
+  "externalIds": {
+   "DBLP": "journals/candie/JingZLPLGJ21",
+   "MAG": "3150730554",
+   "DOI": "10.1016/J.CIE.2021.107281",
+   "CorpusId": 233814334
+  },
+  "publicationVenue": {
+   "id": "8664a0b8-3299-4a1d-9df4-01cbfb1ed679",
+   "name": "Computers & industrial engineering",
+   "type": "journal",
+   "alternate_names": [
+    "Comput  ind eng",
+    "Computers & Industrial Engineering",
+    "Comput  Ind Eng"
+   ],
+   "issn": "0360-8352",
+   "url": "https://www.journals.elsevier.com/computers-and-industrial-engineering",
+   "alternate_urls": [
+    "http://www.sciencedirect.com/science/journal/03608352"
+   ]
+  },
+  "url": "https://www.semanticscholar.org/paper/f0ce3fcbaa10a536897f19ae564798ba33c13b14",
+  "title": "An integrated product conceptual scheme decision approach based on Shapley value method and fuzzy logic for economic-technical objectives trade-off under uncertainty",
+  "venue": "Computers & industrial engineering",
+  "year": 2021,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1016/J.CIE.2021.107281?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/J.CIE.2021.107281, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2021-03-01",
+  "journal": {
+   "name": "Comput. Ind. Eng.",
+   "pages": "107281",
+   "volume": "156"
+  },
+  "authors": [
+   {
+    "authorId": "27870523",
+    "name": "Li-Ting Jing"
+   },
+   {
+    "authorId": "2105556425",
+    "name": "Yunfei Zhan"
+   },
+   {
+    "authorId": "2417803937",
+    "name": "Qizhi Li"
+   },
+   {
+    "authorId": "145643058",
+    "name": "Xiang Peng"
+   },
+   {
+    "authorId": "2244267546",
+    "name": "Ji-Quan Li"
+   },
+   {
+    "authorId": "2153409145",
+    "name": "Fei Gao"
+   },
+   {
+    "authorId": "2142373822",
+    "name": "Shao-Fei Jiang"
+   }
+  ],
+  "abstract": null
+ },
+ "DOI:10.1007/978-3-030-79157-5_18": {
+  "paperId": "1014f7532c98e7089e921d9b68be6ca7119901af",
+  "externalIds": {
+   "DBLP": "conf/ifip12/DemertzisIK21",
+   "DOI": "10.1007/978-3-030-79157-5_18",
+   "CorpusId": 236443536
+  },
+  "publicationVenue": {
+   "id": "bc2cdfd0-5fc9-4aa5-9513-281e92c65f76",
+   "name": "Artificial Intelligence Applications and Innovations",
+   "type": "conference",
+   "alternate_names": [
+    "AIAI",
+    "Artif Intell Appl Innov"
+   ]
+  },
+  "url": "https://www.semanticscholar.org/paper/1014f7532c98e7089e921d9b68be6ca7119901af",
+  "title": "A Lipschitz - Shapley Explainable Defense Methodology Against Adversarial Attacks",
+  "venue": "Artificial Intelligence Applications and Innovations",
+  "year": 2021,
+  "isOpenAccess": true,
+  "openAccessPdf": {
+   "url": "https://inria.hal.science/hal-03788997",
+   "status": "GREEN",
+   "license": "CCBY",
+   "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1007/978-3-030-79157-5_18?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/978-3-030-79157-5_18, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": null,
+  "journal": {
+   "pages": "211-227"
+  },
+  "authors": [
+   {
+    "authorId": "2120726022",
+    "name": "K. Demertzis"
+   },
+   {
+    "authorId": "1809248",
+    "name": "L. Iliadis"
+   },
+   {
+    "authorId": "1930154",
+    "name": "Panayotis Kikiras"
+   }
+  ],
+  "abstract": ". Every learning algorithm, has a speciﬁc bias. This may be due to the choice of its hyperparameters, to the characteristics of its classiﬁcation methodology, or even to the representation approach of the considered information. As a result, Machine Learning modeling algorithms are vulnerable to specialized attacks. Moreover, the training datasets are not always an accurate image of the real world. Their selection process and the assumption that they have the same distribution as all the unknown cases, introduce another level of bias. Global and Local Interpretability (GLI) is a very important process that allows the determination of the right architectures to solve Adversarial Attacks (ADA). It contributes towards a holistic view of the Intelligent Model, through which we can determine the most important features, wecan understand the way the decisions are made and the interactions between the involved features. This research paper, introduces the innovative hybrid Lipschitz - Shapley approach for Explainable Defence Against Adversarial Attacks. Theintroduced methodology, employs the Lipschitzconstant and it determines its evolution during the training process of the intelligent model. The use of the Shapley Values, offers clear explanations for the speciﬁc decisions made by the model."
+ },
+ "DOI:10.1007/978-3-030-59710-8_77": {
+  "paperId": "c9534a645fc1e8f56dde431e7f510452d21c304c",
+  "externalIds": {
+   "PubMedCentral": "8299327",
+   "MAG": "3090277483",
+   "DBLP": "conf/miccai/LiZDGVD20",
+   "DOI": "10.1007/978-3-030-59710-8_77",
+   "CorpusId": 222137237,
+   "PubMed": "34308439"
+  },
+  "publicationVenue": {
+   "id": "61a709e3-2060-423c-8de5-ffd3885aa31c",
+   "name": "International Conference on Medical Image Computing and Computer-Assisted Intervention",
+   "type": "conference",
+   "alternate_names": [
+    "Medical Image Computing and Computer-Assisted Intervention",
+    "MICCAI",
+    "Med Image Comput Comput Interv",
+    "Int Conf Med Image Comput Comput Interv"
+   ],
+   "url": "http://www.miccai.org/"
+  },
+  "url": "https://www.semanticscholar.org/paper/c9534a645fc1e8f56dde431e7f510452d21c304c",
+  "title": "Efficient Shapley Explanation For Features Importance Estimation Under Uncertainty",
+  "venue": "International Conference on Medical Image Computing and Computer-Assisted Intervention",
+  "year": 2020,
+  "isOpenAccess": true,
+  "openAccessPdf": {
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8299327",
+   "status": "GREEN",
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC8299327, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2020-09-29",
+  "journal": {
+   "name": "Medical image computing and computer-assisted intervention : MICCAI ... International Conference on Medical Image Computing and Computer-Assisted Intervention",
+   "pages": "792 - 801",
+   "volume": "12261"
+  },
+  "authors": [
+   {
+    "authorId": "2108535977",
+    "name": "Xiaoxiao Li"
+   },
+   {
+    "authorId": "2116567344",
+    "name": "Yuan Zhou"
+   },
+   {
+    "authorId": "5507046",
+    "name": "N. Dvornek"
+   },
+   {
+    "authorId": "134887543",
+    "name": "Yufeng Gu"
+   },
+   {
+    "authorId": "2827899",
+    "name": "P. Ventola"
+   },
+   {
+    "authorId": "145947161",
+    "name": "J. Duncan"
+   }
+  ],
+  "abstract": "Complex deep learning models have shown their impressive power in analyzing high-dimensional medical image data. To increase the trust of applying deep learning models in medical field, it is essential to understand why a particular prediction was reached. Data feature importance estimation is an important approach to understand both the model and the underlying properties of data. Shapley value explanation (SHAP) is a technique to fairly evaluate input feature importance of a given model. However, the existing SHAP-based explanation works have limitations such as 1) computational complexity, which hinders their applications on high-dimensional medical image data; 2) being sensitive to noise, which can lead to serious errors. Therefore, we propose an uncertainty estimation method for the feature importance results calculated by SHAP. Then we theoretically justify the methods under a Shapley value framework. Finally we evaluate our methods on MNIST and a public neuroimaging dataset. We show the potential of our method to discover disease related biomarkers from neuroimaging data."
+ },
+ "ARXIV:1904.12991": {
+  "paperId": "c3fb1e19180fba14d6a0977b1cb2c139dd8a3738",
+  "externalIds": {
+   "DBLP": "journals/corr/abs-1904-12991",
+   "MAG": "2943117543",
+   "ArXiv": "1904.12991",
+   "CorpusId": 140269301
+  },
+  "publicationVenue": {
+   "id": "1901e811-ee72-4b20-8f7e-de08cd395a10",
+   "name": "arXiv.org",
+   "alternate_names": [
+    "ArXiv"
+   ],
+   "issn": "2331-8422",
+   "url": "https://arxiv.org"
+  },
+  "url": "https://www.semanticscholar.org/paper/c3fb1e19180fba14d6a0977b1cb2c139dd8a3738",
+  "title": "Why should you trust my interpretation? Understanding uncertainty in LIME predictions",
+  "venue": "arXiv.org",
+  "year": 2019,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/1904.12991, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2019-04-29",
+  "journal": {
+   "name": "ArXiv",
+   "volume": "abs/1904.12991"
+  },
+  "authors": [
+   {
+    "authorId": "2499286998",
+    "name": "Hui-Fen Tan"
+   },
+   {
+    "authorId": "31574689",
+    "name": "Kuangyan Song"
+   },
+   {
+    "authorId": "118406094",
+    "name": "Madeilene Udell"
+   },
+   {
+    "authorId": "2307318348",
+    "name": "Yiming Sun"
+   },
+   {
+    "authorId": "2115877860",
+    "name": "Yujia Zhang"
+   }
+  ],
+  "abstract": "Methods for interpreting machine learning black-box models increase the outcomes' transparency and in turn generates insight into the reliability and fairness of the algorithms. However, the interpretations themselves could contain significant uncertainty that undermines the trust in the outcomes and raises concern about the model's reliability. Focusing on the method\"Local Interpretable Model-agnostic Explanations\"(LIME), we demonstrate the presence of two sources of uncertainty, namely the randomness in its sampling procedure and the variation of interpretation quality across different input data points. Such uncertainty is present even in models with high training and test accuracy. We apply LIME to synthetic data and two public data sets, text classification in 20 Newsgroup and recidivism risk-scoring in COMPAS, to support our argument."
+ },
+ "DOI:10.1016/j.geb.2017.08.005": {
+  "paperId": "c49f67c437847679970098b939cbaad2bd5ff5bd",
+  "externalIds": {
+   "DBLP": "journals/geb/PongouT18",
+   "MAG": "2753931040",
+   "DOI": "10.1016/j.geb.2017.08.005",
+   "CorpusId": 26759055
+  },
+  "publicationVenue": null,
+  "url": "https://www.semanticscholar.org/paper/c49f67c437847679970098b939cbaad2bd5ff5bd",
+  "title": "Valuing inputs under supply uncertainty: The Bayesian Shapley value",
+  "venue": "Games Econ. Behav.",
+  "year": 2017,
+  "isOpenAccess": true,
+  "openAccessPdf": {
+   "url": "https://doi.org/10.2139/ssrn.2861631",
+   "status": "GREEN",
+   "license": null,
+   "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1016/j.geb.2017.08.005?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/j.geb.2017.08.005, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2017-08-31",
+  "journal": {
+   "name": "Games Econ. Behav.",
+   "pages": "206-224",
+   "volume": "108"
+  },
+  "authors": [
+   {
+    "authorId": "2782990",
+    "name": "Roland Pongou"
+   },
+   {
+    "authorId": "51031407",
+    "name": "Jean-Baptiste Tondji"
+   }
+  ],
+  "abstract": null
+ },
+ "T:ShapDBM: Exploring Decision Boundary Maps in Shapley Space": null,
+ "T:The Distributional Uncertainty of the SHAP Score in Explainable Machine Learning": {
+  "paperId": "5a055cb79df75b8e36c128d4872848901c19afaf",
+  "externalIds": {
+   "ArXiv": "2401.12731",
+   "DBLP": "journals/corr/abs-2401-12731",
+   "DOI": "10.48550/arXiv.2401.12731",
+   "CorpusId": 267095080
+  },
+  "publicationVenue": {
+   "id": "5aca6456-76d5-4208-84d8-a6b60228b52b",
+   "name": "European Conference on Artificial Intelligence",
+   "type": "conference",
+   "alternate_names": [
+    "ECAI",
+    "Eur Conf Artif Intell",
+    "International Conference on Electronics, Computers and Artificial Intelligence",
+    "Int Conf Electron Comput Artif Intell",
+    "International Electronics, Computers and Artificial Intelligence",
+    "Int Electron Comput Artif Intell"
+   ],
+   "url": "http://www.eccai.org/",
+   "alternate_urls": [
+    "https://ieeexplore.ieee.org/xpl/conhome/1802942/all-proceedings"
+   ]
+  },
+  "url": "https://www.semanticscholar.org/paper/5a055cb79df75b8e36c128d4872848901c19afaf",
+  "title": "The Distributional Uncertainty of the SHAP score in Explainable Machine Learning",
+  "venue": "European Conference on Artificial Intelligence",
+  "year": 2024,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2401.12731, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "publicationTypes": [
+   "JournalArticle",
+   "Conference"
+  ],
+  "publicationDate": "2024-01-23",
+  "journal": {
+   "pages": "971-978"
+  },
+  "authors": [
+   {
+    "authorId": "2072680148",
+    "name": "S. Cifuentes"
+   },
+   {
+    "authorId": "1699123",
+    "name": "L. Bertossi"
+   },
+   {
+    "authorId": "150248291",
+    "name": "Nina Pardal"
+   },
+   {
+    "authorId": "2417494",
+    "name": "S. Abriola"
+   },
+   {
+    "authorId": "2280370719",
+    "name": "Maria Vanina Martinez"
+   },
+   {
+    "authorId": "2256991894",
+    "name": "Miguel Romero"
+   }
+  ],
+  "abstract": "Attribution scores reflect how important the feature values in an input entity are for the output of a machine learning model. One of the most popular attribution scores is the SHAP score, which is an instantiation of the general Shapley value used in coalition game theory. The definition of this score relies on a probability distribution on the entity population. Since the exact distribution is generally unknown, it needs to be assigned subjectively or be estimated from data, which may lead to misleading feature scores. In this paper, we propose a principled framework for reasoning on SHAP scores under unknown entity population distributions. In our framework, we consider an uncertainty region that contains the potential distributions, and the SHAP score of a feature becomes a function defined over this region. We study the basic problems of finding maxima and minima of this function, which allows us to determine tight ranges for the SHAP scores of all features. In particular, we pinpoint the complexity of these problems, and other related ones, showing them to be NP-complete. Finally, we present experiments on a real-world dataset, showing that our framework may contribute to a more robust feature scoring.",
+  "matchScore": 234.25711
+ },
+ "T:Explaining Predictive Uncertainty with Information Theoretic Shapley Values": null
+}

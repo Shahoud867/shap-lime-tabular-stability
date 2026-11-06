@@ -1,0 +1,50 @@
+PASS workbook validation rows = nKnown | 16
+PASS workbook supplementary validation rows = suppKnown | 8
+PASS workbook (other methods) Reports sought for retrieval = csSought | (19, '19')
+PASS workbook (other methods) Reports not retrieved = csNotRetrieved | (5, '5')
+PASS workbook (other methods) Reports assessed for eligibility = csAssessed | (14, '14')
+PASS workbook (other methods) Studies included = csIncluded | (12, '12')
+PASS workbook Total identified (main search) = counts.tex idTotal | (694, '694')
+PASS workbook Total identified (supplementary search) = counts.tex spTotal | (855, '855')
+PASS workbook Total identified from databases = counts.tex dbAllId | (1549, '1549')
+PASS workbook Duplicates removed: main search = counts.tex dupRemoved | (102, '102')
+PASS workbook Duplicate records removed before screening (combined) = counts.tex dbAllDup | (238, '238')
+PASS workbook Records screened (title/abstract) = counts.tex dbAllScreened | (1311, '1311')
+PASS workbook Records excluded = counts.tex dbAllExcluded | (1136, '1136')
+PASS workbook Reports sought for retrieval = counts.tex dbAllSought | (175, '175')
+PASS workbook Reports not retrieved = counts.tex dbAllNotRetrieved | (84, '84')
+PASS workbook Reports assessed for eligibility = counts.tex dbAllAssessed | (91, '91')
+PASS workbook Studies included (main search 58, supplementary 14) = counts.tex dbAllIncluded | (72, '72')
+PASS workbook Studies included in the review = counts.tex totalIncluded | (84, '84')
+PASS workbook Records identified from citation searching (7 seeds, backward and forward) = counts.tex csHarvested | (723, '723')
+PASS workbook Records screened = counts.tex csScreened | (64, '64')
+PASS TA sheet rows = main + supplementary + citation candidates | 1381
+PASS FullText rows = reports sought | 194
+PASS FullText includes = included | {'Not': 89, 'Include': 84, 'Exclude': 21}
+PASS FullText not retrieved | 89
+PASS Included rows = totalIncluded | 84
+PASS Extraction rows = totalIncluded | 84
+PASS Quality rows = totalIncluded | 84
+PASS BibTeX entries = totalIncluded
+PASS RIS included = totalIncluded
+PASS RIS all records = TA sheet rows | 1381
+PASS PDF reference [29] is Ballegeer (S29) | M. Ballegeer, M. Bogaert, and D. F. Benoit, “Evaluating the stability of model e
+PASS PDF reference [62] is Tolay (S62) | A. Tolay, “Beyond Detection Accuracy: Measuring Explanation Cost, Stability, and
+PASS PDF reference [75] is Thackshanaramana (S75) | Thackshanaramana B, “Hypothesis Class Determines Explanation: Why Accurate Model
+PASS PDF reference [77] is Breeden (S77) | J. L. Breeden, “How Understanding Forecast Uncertainty Resolves the Explainabili
+PASS PDF reference [79] is Xia (S79) | Y. Xia, H. Yao, C. Ma, F. Chen, and Y. Liu, “DEM Resolution Drives AI Variabilit
+PASS main body ends by page 7 (references start on page <= 7) | 7
+PASS PRISMA figure shows n = 1549 (dbAllId) | 1549
+PASS PRISMA figure shows n = 238 (dbAllDup) | 238
+PASS PRISMA figure shows n = 1311 (dbAllScreened) | 1311
+PASS PRISMA figure shows n = 1136 (dbAllExcluded) | 1136
+PASS PRISMA figure shows n = 175 (dbAllSought) | 175
+PASS PRISMA figure shows n = 84 (dbAllNotRetrieved) | 84
+PASS PRISMA figure shows n = 91 (dbAllAssessed) | 91
+PASS PRISMA figure shows n = 19 (dbAllFtExcluded) | 19
+PASS PRISMA figure shows n = 84 (totalIncluded) | 84
+PASS PRISMA figure shows n = 723 (csHarvested) | 723
+PASS PRISMA figure shows n = 64 (csScreened) | 64
+PASS totalScreened = main + supplementary + citation screened | 1375
+PASS dbAllIncluded + csIncluded = totalIncluded
+ALL PASS

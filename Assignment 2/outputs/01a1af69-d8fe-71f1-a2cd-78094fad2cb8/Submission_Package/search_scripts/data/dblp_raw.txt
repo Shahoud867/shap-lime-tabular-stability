@@ -1,0 +1,158 @@
+#DBLP total=174; 2016-2026=157; query: stability$|stable$|unstable$|instability$|stabilized$|stabilizing$|stabilised$|fragility$|fragile$ shap$|lime$|shapley$|explanation$|explanations$|attribution$|attributions$
+2026~Informal~10.48550/ARXIV.2604.02532~CoRR~Feature Attribution Stability Suite: How Stable Are Post-Hoc Attributions?
+2023~Conf~~Tiny Papers @ ICLR~An Empirical Study of the Effect of Background Data Size on the Stability of SHapley Additive exPlanations (SHAP) for Deep Learning Models.
+2022~Conf~10.1007/978-3-031-18315-7_18~CCL~Can We Really Trust Explanations? Evaluating the Stability of Feature Attribution Explanation Methods via Adversarial Attack.
+2022~Informal~10.48550/ARXIV.2204.11351~CoRR~An empirical study of the effect of background data size on the stability of SHapley Additive exPlanations (SHAP) for deep learning models.
+2021~Conf~10.1145/3447548.3467274~KDD~S-LIME: Stabilized-LIME for Model Explanation.
+2021~Informal~10.48550/ARXIV.2106.07875~CoRR~S-LIME: Stabilized-LIME for Model Explanation.
+2026~Conf~10.1145/3748522.3780034~SAC~From Loss Landscapes to Explanation Robustness: Linking Parameter-Space Geometry to the Stability and Utility of Post-Hoc Explanations.
+2026~Informal~10.48550/ARXIV.2603.05024~CoRR~Measuring the Fragility of Trust: Devising Credibility Index via Explanation Stability (CIES) for Business Decision Support Systems.
+2026~Informal~10.48550/ARXIV.2606.14466~CoRR~The Perceived Fragility of Explanations in Audio Models: Manipulation of Attribution with Unchanged Predictions.
+2026~Informal~10.48550/ARXIV.2607.15421~CoRR~qZACH-ViT: Quantization-Aware Intrinsic Explanations with Recursive Attribution-Stabilized Optimization.
+2025~Jour~~Trans. Mach. Learn. Res.~Reproducibility Study of 'SLICE: Stabilized LIME for Consistent Explanations for Image Classification'.
+2025~Informal~10.48550/ARXIV.2505.08198~CoRR~SIM-Shapley: A Stable and Computationally Efficient Approach to Shapley Value Approximation.
+2024~Jour~10.1016/J.NEUNET.2024.106345~Neural Networks~SEGAL time series classification - Stable explanations using a generative model and an adaptive weighting method for LIME.
+2024~Conf~10.1109/CVPR52733.2024.01045~CVPR~SLICE: Stabilized LIME for Consistent Explanations for Image Classification.
+2024~Conf~10.1109/CVPRW63382.2024.00566~CVPR Workshops~Is Our Continual Learner Reliable? Investigating Its Decision Attribution Stability through SHAP Value Consistency.
+2024~Conf~10.14428/ESANN/2024.ES2024-107~ESANN~Influence of Data Characteristics on Machine Learning Classification Performance and Stability of SHapley Additive exPlanations.
+2024~Informal~10.48550/ARXIV.2401.15800~CoRR~Provably Stable Feature Rankings with SHAP and LIME.
+2023~Conf~10.18653/V1/2023.EMNLP-MAIN.792~EMNLP~"Are Your Explanations Reliable?" Investigating the Stability of LIME in Explaining Text Classifiers by Marrying XAI and Adversarial Attack.
+2023~Conf~10.1109/FUZZ52849.2023.10309814~FUZZ~An Initial Step Towards Stable Explanations for Multivariate Time Series Classifiers with LIME.
+2023~Conf~~NeurIPS~Locally Invariant Explanations: Towards Stable and Unidirectional Explanations through Local Invariant Learning.
+2023~Conf~~NeurIPS~GLIME: General, Stable and Local LIME Explanation.
+2023~Conf~10.1007/978-3-031-74633-8_1~PKDD/ECML Workshops~Introducing the Attribution Stability Indicator: A Measure for Time Series XAI Attributions.
+2023~Informal~10.48550/ARXIV.2305.12351~CoRR~Are Your Explanations Reliable? Investigating the Stability of LIME in Explaining Textual Classification Models via Adversarial Perturbation.
+2023~Informal~10.48550/ARXIV.2310.04178~CoRR~Introducing the Attribution Stability Indicator: a Measure for Time Series XAI Attributions.
+2023~Informal~10.48550/ARXIV.2311.15722~CoRR~GLIME: General, Stable and Local LIME Explanation.
+2022~Jour~10.1080/01605682.2020.1865846~J. Oper. Res. Soc.~Statistical stability indices for LIME: Obtaining reliable explanations for machine learning models.
+2022~Conf~10.1145/3548606.3559392~CCS~"Is your explanation stable?": A Robustness Evaluation Framework for Feature Attribution.
+2022~Conf~10.1109/WACV51458.2022.00163~WACV~How Good is your Explanation? Algorithmic Stability Measures to Assess the Quality of Explanations for Deep Neural Networks.
+2022~Informal~10.48550/ARXIV.2201.12143~CoRR~Locally Invariant Explanations: Towards Stable and Unidirectional Explanations through Local Invariant Learning.
+2022~Informal~10.48550/ARXIV.2203.06877~CoRR~Rethinking Stability for Attribution-based Explanations.
+2022~Informal~10.48550/ARXIV.2209.01782~CoRR~"Is your explanation stable?": A Robustness Evaluation Framework for Feature Attribution.
+2020~Informal~10.48550/ARXIV.2001.11757~CoRR~Statistical stability indices for LIME: obtaining reliable explanations for Machine Learning models.
+2026~Jour~10.1109/ACCESS.2026.3709805~IEEE Access~The Stability Collapse in Local Explainability: Benchmarking H-LIME on High-Dimensional Data.
+2026~Jour~10.1016/J.ASOC.2026.115091~Appl. Soft Comput.~Explainable and secure wind power forecasting: SHAP-enhanced framework with feature stability, anomaly detection, and adversarial robustness.
+2026~Jour~10.1016/J.CMPB.2025.109170~Comput. Methods Programs~A stable feature selection method based on majority voting and SHAP for high-dimensional metabolomics data.
+2026~Jour~10.1021/ACS.JCIM.6C00388~J. Chem. Inf. Model.~Per-MOF Mechanistic Attribution Reveals Context-Dependent Stability Mechanisms in Metal-Organic Frameworks.
+2026~Jour~10.1007/S10994-026-07071-5~Mach. Learn.~On the Stability of Local Interpretable Model-Agnostic Explanations for Quantum Classifiers.
+2026~Jour~10.1007/S13721-026-00816-1~Netw. Model. Anal. Health~Implementation-oriented machine learning for three-level maternal risk triage in primary antenatal care: stability, error profiles, and SHAP-based explainability.
+2026~Jour~10.1016/J.NEUNET.2026.108626~Neural Networks~RWP: a robust watermarking plugin for attribution and protection in stable diffusion models.
+2026~Jour~10.1145/3808188~Proc. ACM Softw. Eng.~Unveiling the Fragility of Binary Code Similarity Detection via Targeted Attacks with Model Explanations.
+2026~Jour~10.1109/TEM.2026.3687235~IEEE Trans. Engineering M~Managing Trust in AI Systems: Evidence From Controlled Evaluation of Explanation Stability Under Data Imbalance.
+2026~Jour~~Trans. Mach. Learn. Res.~PSAG: Projection-based Stabilized Attribution Guidance for Online Continual Learning.
+2026~Conf~10.1609/AAAI.V40I5.37396~AAAI~Stabilizing Cross-Modal Bidirectional Attribution: Few-Shot Adversarial Prompt Tuning for Robust Vision-Language Models.
+2026~Conf~10.1007/978-3-032-35387-0_1~AIiH~Resampling for Clinical Predictions: Balancing Subgroup Utility, Calibration, and Explanation Stability.
+2026~Conf~10.14428/ESANN/2026.ES2026-250~ESANN~Evaluation of Rashomon Sets for the Determination of Stable and Plausible Model Explanations.
+2026~Conf~10.23919/IFIPNETWORKING70592.2026.11579092~IFIP Networking~Intrinsic Explanation Stability under Adversarial Perturbations in Self-Explaining Neural Networks for IoT Firmware Malware Detection.
+2026~Conf~10.1007/978-3-032-37657-2_29~ECML PKDD~Stabilizing Graph Explanations Under Spurious Correlations via Self-reflection.
+2026~Conf~10.1145/3765611.3815508~Sustainability Week~Assessing Explanations of Graph Neural Networks for Dynamic Stability Assessment of Power Grids.
+2026~Conf~10.1145/3765611.3815370~Sustainability Week~Toward Explainable GNN-Based Dynamic Stability Assessment via Joint Feature Attribution.
+2026~Conf~10.1109/WACVW68408.2026.00142~WACVW~Stabilizing Intrinsic Explanations: A Geometric Perspective on Concept Leakage.
+2026~Informal~10.48550/ARXIV.2601.17952~CoRR~A Monosemantic Attribution Framework for Stable Interpretability in Clinical Neuroscience Large Language Models.
+2026~Informal~10.48550/ARXIV.2604.13279~CoRR~Explainable Fall Detection for Elderly Care via Temporally Stable SHAP in Skeleton-Based Human Activity Recognition.
+2026~Informal~10.48550/ARXIV.2605.05870~CoRR~QuadraSHAP: Stable and Scalable Shapley Values for Product Games via Gauss-Legendre Quadrature.
+2026~Informal~10.48550/ARXIV.2605.15154~CoRR~RoSHAP: A Distributional Framework and Robust Metric for Stable Feature Attribution.
+2026~Informal~10.48550/ARXIV.2605.15520~CoRR~On the Fragility of Data Attribution When Learning Is Distributed.
+2026~Informal~10.48550/ARXIV.2605.21492~CoRR~The Attribution Impossibility: No Feature Ranking Is Faithful, Stable, and Complete Under Collinearity.
+2026~Informal~10.48550/ARXIV.2605.28802~CoRR~Human Label Variation as Stable Signal: Learning Annotator-Specific Explanation Behavior via Cross-Annotator Preference Optimization.
+2026~Informal~10.48550/ARXIV.2607.16652~CoRR~Position: Explanation Stability Is a Property of the Model Method Pair, Not the Model.
+2026~Informal~10.48550/ARXIV.2608.02697~CoRR~Measuring Explainer Stability via Attribution Separability.
+2026~Informal~10.48550/ARXIV.2608.07062~CoRR~Explanation Stability of Test-Time Adaptation in Computational Pathology: A Large-Scale Benchmark.
+2026~Informal~10.48550/ARXIV.2608.08126~CoRR~Accurate Ensembles, Fragile Narratives: Multi-Scale Stacking and a Fidelity Audit of LLM-Generated Explanations for Credit Risk.
+2026~Informal~10.48550/ARXIV.2608.10349~CoRR~Beyond Detection Accuracy: Measuring Explanation Cost, Stability, and Utility for Resource-Aware IoT Intrusion Detection.
+2026~Informal~10.48550/ARXIV.2608.16038~CoRR~NICE: Scale-Stable Perturbations for Graph Neural Network Explanations via Noise Corruption.
+2026~Informal~10.48550/ARXIV.2609.00090~CoRR~Assessing Alignment and Stability of Feature Importance Explanations via Weight of Evidence.
+2026~Informal~10.48550/ARXIV.2609.17152~CoRR~ResLRP: The Role of Residual Cancellation in Attribution Instability in Vision Transformers.
+2026~Informal~10.48550/ARXIV.2609.24280~CoRR~Temporal Generalization and Explanation Stability of Control Flow Graph Neural Networks for Malware Detection.
+2026~Informal~10.48550/ARXIV.2609.28502~CoRR~Stable and Faithful Explanations for Knowledge Tracing.
+2026~Withdrawn~10.48550/ARXIV.2606.22886~CoRR~Explanation-Guided Medical Named Entity Recognition with Stability and Boundary Awareness for Atopic Dermatitis.
+2025~Jour~10.1109/ACCESS.2025.3617984~IEEE Access~Bayesian-AIME: Quantifying Uncertainty and Enhancing Stability in Approximate Inverse Model Explanations.
+2025~Jour~10.1007/S10618-025-01154-Y~Data Min. Knowl. Discov.~Stable graph based decision route explanation in siamese neural networks.
+2025~Jour~10.1016/J.EJOR.2025.05.039~Eur. J. Oper. Res.~Evaluating the stability of model explanations in instance-dependent cost-sensitive credit scoring.
+2025~Jour~10.1007/S00521-025-11583-X~Neural Comput. Appl.~MindfulLIME: a stable solution for explanations of machine learning models with enhanced localization precision - a medical image case study.
+2025~Conf~~AMCIS~Curvature-Informed Local Explanations (CILE): Improving Stability and Trustworthiness in Explainable AI.
+2025~Conf~10.5555/3709347.3743532~AAMAS~On the Gale-Shapley Algorithm for Stable Matchings with a Partial Honesty Nash Refinement.
+2025~Conf~~NeurIPS~Probabilistic Stability Guarantees for Feature Attributions.
+2025~Conf~~NeurIPS~The Fragile Truth of Saliency: Improving LLM Input Attribution via Attention Bias Optimization.
+2025~Conf~10.1007/978-3-032-08327-2_15~xAI~Consolidating Explanation Stability Metrics.
+2025~Informal~10.48550/ARXIV.2503.20758~CoRR~MindfulLIME: A Stable Solution for Explanations of Machine Learning Models with Enhanced Localization Precision - A Medical Image Case Study.
+2025~Informal~10.48550/ARXIV.2504.13787~CoRR~Probabilistic Stability Guarantees for Feature Attributions.
+2025~Informal~10.48550/ARXIV.2506.18290~CoRR~Instability in Diffusion ODEs: An Explanation for Inaccurate Image Reconstruction.
+2025~Informal~10.48550/ARXIV.2509.01409~CoRR~Evaluating the stability of model explanations in instance-dependent cost-sensitive credit scoring.
+2025~Informal~10.48550/ARXIV.2512.18092~CoRR~Faithful and Stable Neuron Explanations for Trustworthy Mechanistic Interpretability.
+2025~Informal~10.48550/ARXIV.2512.19557~CoRR~Augmenting Intelligence: A Hybrid Framework for Scalable and Stable Explanations.
+2024~Jour~10.1016/J.ASOC.2024.111388~Appl. Soft Comput.~Application of supervised random forest paradigms based on optimization and post-hoc explanation in underground stope stability prediction.
+2024~Jour~10.1007/S10618-022-00878-5~Data Min. Knowl. Discov.~Stable and actionable explanations of black-box models through factual and counterfactual rules.
+2024~Jour~~J. Mach. Learn. Res.~A PDE-based Explanation of Extreme Numerical Sensitivities and Edge of Stability in Training Neural Networks.
+2024~Jour~~Trans. Mach. Learn. Res.~When Stability meets Sufficiency: Informative Explanations that do not Overwhelm.
+2024~Conf~10.1609/AAAI.V38I12.29208~AAAI~Shaping Up SHAP: Enhancing Stability through Layer-Wise Neighbor Selection.
+2024~Conf~10.18653/V1/2024.FINDINGS-ACL.705~ACL~Investigating the Impact of Model Instability on Explanations and Uncertainty.
+2024~Conf~10.1109/BIGDATA62323.2024.10825762~IEEE Big Data~vNM Stable Sets and Aumann-Drèze-Shapley Value in Patent Licensing of Cost-Reducing Technologies: Asymptotic Results in General Cournot Markets.
+2024~Conf~10.3233/FAIA240922~ECAI~A Gale-Shapley View of Unique Stable Marriages.
+2024~Conf~10.14428/ESANN/2024.ES2024-194~ESANN~Does a Reduced Fine-Tuning Surface Impact the Stability of the Explanations of LLMs?
+2024~Conf~~ICML~Graph Neural Network Explanations are Fragile.
+2024~Conf~~NeurIPS~Training for Stable Explanation for Free.
+2024~Conf~~NeurIPS~Putting Gale & Shapley to Work: Guaranteeing Stability Through Learning.
+2024~Conf~~NeurIPS~Credit Attribution and Stable Compression.
+2024~Conf~10.1109/VIS55277.2024.00027~IEEE VIS~Diffusion Explainer: Visual Explanation for Text-to-image Stable Diffusion.
+2024~Conf~10.1007/978-3-031-63797-1_21~xAI~Stabilizing Estimates of Shapley Values with Control Variates.
+2024~Informal~10.48550/ARXIV.2402.13006~CoRR~Investigating the Impact of Model Instability on Explanations and Uncertainty.
+2024~Informal~10.48550/ARXIV.2402.18863~CoRR~Probabilistic Lipschitzness and the Stable Rank for Comparing Explanation Models.
+2024~Informal~10.48550/ARXIV.2403.06669~CoRR~Performance of Expansive Soil Stabilized with Bamboo Charcoal, Quarry Dust, and Lime for Use as Road Subgrade Material.
+2024~Informal~10.48550/ARXIV.2406.03193~CoRR~Graph Neural Network Explanations are Fragile.
+2024~Informal~10.48550/ARXIV.2406.03441~CoRR~Cycles of Thought: Measuring LLM Confidence through Stable Explanations.
+2024~Informal~10.48550/ARXIV.2406.15916~CoRR~Credit Attribution and Stable Compression.
+2024~Informal~10.48550/ARXIV.2407.03108~CoRR~How Reliable and Stable are Explanations of XAI Methods?
+2024~Informal~10.48550/ARXIV.2410.04376~CoRR~Putting Gale & Shapley to Work: Guaranteeing Stability Through Learning.
+2023~Jour~10.1007/S10489-023-04942-5~Appl. Intell.~Stable local interpretable model-agnostic explanations based on a variational autoencoder.
+2023~Jour~10.1016/J.ENGAPPAI.2023.106403~Eng. Appl. Artif. Intell.~Frequency stability prediction of renewable energy penetrated power systems using CoAtNet and SHAP values.
+2023~Jour~10.1016/J.ESWA.2023.120375~Expert Syst. Appl.~The measurement and early warning of daily financial stability index based on XGBoost and SHAP: Evidence from China.
+2023~Jour~10.3233/JIFS-222899~J. Intell. Fuzzy Syst.~Selection of single machine learning model for designing compressive strength of stabilized soil containing lime, cement and bitumen.
+2023~Jour~10.1007/S00355-022-01432-4~Soc. Choice Welf.~Core stability of the Shapley value for cooperative games.
+2023~Jour~10.1109/TKDE.2022.3201170~IEEE Trans. Knowl. Data E~Zorro: Valid, Sparse, and Stable Explanations in Graph Neural Networks.
+2023~Conf~10.1145/3617233.3617257~CBMI~On the stability, correctness and plausibility of visual explanation methods based on feature importance.
+2023~Conf~10.1109/DSAA60987.2023.10302535~DSAA~Towards Quality Measures for xAI algorithms: Explanation Stability.
+2023~Conf~~ICLP Workshops~Explanation Graphs for Stable Models of Labelled Logic Programs.
+2023~Conf~10.1007/978-3-031-43619-2_9~JELIA~Stable Normative Explanations: From Argumentation to Deontic Logic.
+2023~Conf~~NeurIPS~Stability Guarantees for Feature Attributions with Multiplicative Smoothing.
+2023~Informal~10.48550/ARXIV.2302.06274~CoRR~Using SHAP Values and Machine Learning to Understand Trends in the Transient Stability Limit.
+2023~Informal~10.48550/ARXIV.2305.03509~CoRR~Diffusion Explainer: Visual Explanation for Text-to-image Stable Diffusion.
+2023~Informal~10.48550/ARXIV.2307.05156~CoRR~Stable Normative Explanations: From Argumentation to Deontic Logic.
+2023~Informal~10.48550/ARXIV.2307.05902~CoRR~Stability Guarantees for Feature Attributions with Multiplicative Smoothing.
+2023~Informal~10.48550/ARXIV.2310.07672~CoRR~Stabilizing Estimates of Shapley Values with Control Variates.
+2023~Informal~10.48550/ARXIV.2310.18736~CoRR~A Gale-Shapley View of Unique Stable Marriages.
+2023~Informal~10.48550/ARXIV.2311.12860~CoRR~On the stability, correctness and plausibility of visual explanation methods based on feature importance.
+2023~Informal~10.48550/ARXIV.2312.12115~CoRR~Shaping Up SHAP: Enhancing Stability through Layer-Wise Neighbor Selection.
+2022~Jour~10.1016/J.ARTMED.2022.102283~Artif. Intell. Medicine~Early identification of ICU patients at risk of complications: Regularization based on robustness and stability of explanations.
+2022~Conf~10.18653/V1/2022.FINDINGS-ACL.85~ACL~Explaining Classes through Stable Word Attributions.
+2022~Conf~10.1109/ICOIN53446.2022.9687261~ICOIN~Stable Marriage Matching for Traffic-Aware Space-Air-Ground Integrated Networks: A Gale-Shapley Algorithmic Approach.
+2022~Conf~10.1109/ICRA46639.2022.9811626~ICRA~Stable and Efficient Shapley Value-Based Reward Reallocation for Multi-Agent Reinforcement Learning of Autonomous Vehicles.
+2022~Conf~10.1109/ISPACS57703.2022.10082810~ISPACS~Towards More Stable LIME For Explainable AI.
+2022~Conf~10.3233/FAIA220447~JURIX~Stable Normative Explanations.
+2022~Conf~10.1007/978-3-031-15707-3_19~LPNMR~Inference to the Stable Explanations.
+2022~Informal~10.48550/ARXIV.2203.06333~CoRR~Stable and Efficient Shapley Value-Based Reward Reallocation for Multi-Agent Reinforcement Learning of Autonomous Vehicles.
+2021~Jour~10.1186/S13321-021-00542-Y~J. Cheminformatics~How can SHAP values help to shape metabolic stability of chemical compounds?
+2021~Jour~10.3390/MAKE3030027~Mach. Learn. Knowl. Extr.~Deterministic Local Interpretable Model-Agnostic Explanations for Stable Explainability.
+2021~Conf~10.18653/V1/2021.ACL-LONG.415~ACL/IJCNLP~Learning to Explain: Generating Stable Explanations Fast.
+2021~Conf~10.1109/BIGDATA52589.2021.9671458~IEEE BigData~Addressing Stability in Classifier Explanations.
+2021~Conf~~ICLR~On the Stability of Fine-tuning BERT: Misconceptions, Explanations, and Strong Baselines.
+2021~Conf~10.1007/978-3-030-91431-8_4~ICSOC~Evaluating Stability of Post-hoc Explanations for Business Process Predictions.
+2021~Conf~10.1109/IDSTA53674.2021.9660809~IDSTA~Exploring Ranked Local Selectors for Stable Explanations of ML Models.
+2021~Informal~10.48550/ARXIV.2105.08621~CoRR~Zorro: Valid, Sparse, and Stable Explanations in Graph Neural Networks.
+2021~Informal~10.48550/ARXIV.2110.08796~CoRR~Stable Marriage Matching for Traffic-Aware Space-Air-Ground Integrated Networks: A Gale-Shapley Algorithmic Approach.
+2020~Jour~10.1016/J.JET.2020.104993~J. Econ. Theory~Asymptotic stability in the Lovász-Shapley replicator dynamic for cooperative games.
+2020~Jour~10.1109/TIFS.2019.2918644~IEEE Trans. Inf. Forensic~Facing Device Attribution Problem for Stabilized Video Sequences.
+2020~Conf~~ICML~Robust and Stable Black Box Explanations.
+2020~Conf~10.1007/978-3-030-64556-4_1~ISVC~Regularization and Sparsity for Adversarial Robustness and Stable Attribution.
+2020~Conf~~NeurIPS~Fourier-transform-based attribution priors improve the interpretability and stability of deep learning models for genomics.
+2020~Informal~10.48550/ARXIV.2006.04884~CoRR~On the Stability of Fine-tuning BERT: Misconceptions, Explanations, and Strong Baselines.
+2020~Informal~10.48550/ARXIV.2011.06169~CoRR~Robust and Stable Black Box Explanations.
+2019~Conf~~ICIS~Robust Local Explanations for Healthcare Predictive Analytics: An Application to Fragility Fracture Risk Modeling.
+2019~Conf~10.1109/ISIT.2019.8849757~ISIT~An Information-Theoretic Explanation for the Adversarial Fragility of AI Classifiers.
+2019~Informal~10.48550/ARXIV.1901.09413~CoRR~An Information-Theoretic Explanation for the Adversarial Fragility of AI Classifiers.
+2019~Informal~10.48550/ARXIV.1905.11381~CoRR~Trust but Verify: An Information-Theoretic Explanation for the Adversarial Fragility of Machine Learning Systems, and a General Defense against Adversarial Attacks.
+2019~Informal~10.48550/ARXIV.1912.05018~CoRR~Source Camera Attribution from Strongly Stabilized Videos.
+2018~Informal~10.48550/ARXIV.1811.01820~CoRR~Facing Device Attribution Problem for Stabilized Video Sequences.
+2017~Conf~10.24963/IJCAI.2017/62~IJCAI~Manipulating Gale-Shapley Algorithm: Preserving Stability and Remaining Inconspicuous.
+2016~Conf~10.1109/WIFS.2016.7823918~WIFS~Source camera attribution using stabilized video.

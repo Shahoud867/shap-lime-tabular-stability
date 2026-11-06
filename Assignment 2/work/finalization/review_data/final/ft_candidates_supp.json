@@ -1,0 +1,1115 @@
+[
+  {
+    "uid": "N029",
+    "ta": "U",
+    "title": "Using Decision Tree as Local Interpretable Model in Autoencoder-based LIME",
+    "year": 2022,
+    "venue": "2022 27th International Computer Conference, Computer Society of Iran (CSICC)",
+    "doi": "10.1109/csicc55295.2022.9780503",
+    "arxiv": null,
+    "oa_pdf": null,
+    "authors": [
+      "Niloofar Ranjbar",
+      "Reza Safabakhsh"
+    ]
+  },
+  {
+    "uid": "N036",
+    "ta": "U",
+    "title": "A SHAP-Guided Approach to Feature Stability for Robust Android Malware Detection",
+    "year": 2026,
+    "venue": "2026 International Conference on Networks Computers and Communications (ICNCCom)",
+    "doi": "10.1109/icnccom69117.2026.11736292",
+    "arxiv": null,
+    "oa_pdf": null,
+    "authors": [
+      "Albin Chacko",
+      "Vinayak VH",
+      "Mahesh A. S."
+    ]
+  },
+  {
+    "uid": "N048",
+    "ta": "U",
+    "title": "Empirical Validation of Explainable AI Models for High-Stakes Decision-Making Scenarios",
+    "year": 2026,
+    "venue": "2026 1st International Conference on AI, Data Science, Cyber Security and Smart Manufacturing for Sustainable Development (ICADCS)",
+    "doi": "10.1109/icadcs70036.2026.11583167",
+    "arxiv": null,
+    "oa_pdf": null,
+    "authors": [
+      "Nusrath Konnola",
+      "Julfar Thaliyil",
+      "Nafseera C."
+    ]
+  },
+  {
+    "uid": "N101",
+    "ta": "I",
+    "title": "Can We Trust Your Explanations? Sanity Checks for Interpreters in Android Malware Analysis",
+    "year": 2021,
+    "venue": "IEEE Transactions on Information Forensics and Security",
+    "doi": "10.1109/tifs.2020.3021924",
+    "arxiv": null,
+    "oa_pdf": null,
+    "authors": [
+      "Ming Fan",
+      "Wenying Wei",
+      "Xiaofei Xie",
+      "Yang Liu",
+      "Xiaohong Guan",
+      "Ting Liu"
+    ]
+  },
+  {
+    "uid": "N126",
+    "ta": "U",
+    "title": "Hierarchical Group-Based Shapley Explanation for Interpretable Financial Fraud Detection",
+    "year": 2026,
+    "venue": "2026 IEEE International Conference on Big Data and Smart Computing (BigComp)",
+    "doi": "10.1109/bigcomp68355.2026.00056",
+    "arxiv": null,
+    "oa_pdf": null,
+    "authors": [
+      "Seungho Choi",
+      "Seonkyu Lim",
+      "Kim Kwanggeun",
+      "Jinwook Seo"
+    ]
+  },
+  {
+    "uid": "N239",
+    "ta": "U",
+    "title": "LIME-Based Analysis of Adversarial Feature Manipulation in Cloud Intrusion Detection Systems",
+    "year": 2026,
+    "venue": "2026 2nd International Conference on Computational Intelligence Approaches and Applications (ICCIAA)",
+    "doi": "10.1109/icciaa68481.2026.11543654",
+    "arxiv": null,
+    "oa_pdf": null,
+    "authors": [
+      "Humberto Goncalves",
+      "Zakaria Alomari"
+    ]
+  },
+  {
+    "uid": "N300",
+    "ta": "I",
+    "title": "Hypothesis Class Determines Explanation: Why Accurate Models Disagree on Feature Attribution",
+    "year": 2026,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arxiv.2603.15821",
+    "arxiv": "2603.15821",
+    "oa_pdf": "https://arxiv.org/pdf/2603.15821",
+    "authors": [
+      "B. Thackshanaramana"
+    ]
+  },
+  {
+    "uid": "N303",
+    "ta": "U",
+    "title": "ELIME: Exact Local Interpretable Model-Agnostic Explanation",
+    "year": 2025,
+    "venue": "The European Journal on Artificial Intelligence",
+    "doi": "10.1177/30504554251325141",
+    "arxiv": null,
+    "oa_pdf": null,
+    "authors": [
+      "Jun-Yan Qian",
+      "Xiaofu Du",
+      "Rui Pan",
+      "Ming Ling",
+      "Hao Ding"
+    ]
+  },
+  {
+    "uid": "N305",
+    "ta": "U",
+    "title": "Stability-XAI: Analisis Stabilitas Fitur dan Interpretabilitas Model Machine Learning pada Prediksi Penyakit Jantung",
+    "year": 2026,
+    "venue": "Jurnal Algoritma",
+    "doi": "10.35957/algoritme.v7i1.17538",
+    "arxiv": null,
+    "oa_pdf": "https://doi.org/10.35957/algoritme.v7i1.17538",
+    "authors": [
+      "Ubaidillah Ubaidillah",
+      "Muhammad Taufik Roseno",
+      "Serly Oktarina"
+    ]
+  },
+  {
+    "uid": "N312",
+    "ta": "U",
+    "title": "Uncertainty in machine learning feature importance for climate science: a comparative analysis of SHAP, PDP, and gain-based methods",
+    "year": 2025,
+    "venue": "Theoretical and Applied Climatology",
+    "doi": "10.1007/s00704-025-05703-9",
+    "arxiv": null,
+    "oa_pdf": "https://link.springer.com/content/pdf/10.1007/s00704-025-05703-9.pdf",
+    "authors": [
+      "C. Ibebuchi"
+    ]
+  },
+  {
+    "uid": "N313",
+    "ta": "I",
+    "title": "Explanation Uncertainty in Tabular Data Models",
+    "year": 2026,
+    "venue": "International Conference on Pattern Recognition Applications and Methods",
+    "doi": "10.5220/0014435900004067",
+    "arxiv": null,
+    "oa_pdf": null,
+    "authors": [
+      "Yingsi Gao",
+      "Ö. Özyilmaz",
+      "M. Valdenegro-Toro"
+    ]
+  },
+  {
+    "uid": "N339",
+    "ta": "U",
+    "title": "Shapley variable importance cloud for machine learning models",
+    "year": 2022,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arxiv.2212.08370",
+    "arxiv": "2212.08370",
+    "oa_pdf": "http://arxiv.org/pdf/2212.08370",
+    "authors": [
+      "Yi-Lin Ning",
+      "Mingxuan Liu",
+      "Nan Liu"
+    ]
+  },
+  {
+    "uid": "N383",
+    "ta": "U",
+    "title": "DEM Resolution Drives AI Variability: Tradeoffs Between Performance and Explainability in Landslide Susceptibility Prediction",
+    "year": 2026,
+    "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+    "doi": "10.1109/jstars.2026.3736041",
+    "arxiv": null,
+    "oa_pdf": "https://doi.org/10.1109/jstars.2026.3736041",
+    "authors": [
+      "Yi Xia",
+      "Hao-Yi Yao",
+      "Chao Ma",
+      "Fei-Xiang Chen",
+      "Yuan-Yuan Liu"
+    ]
+  },
+  {
+    "uid": "N386",
+    "ta": "U",
+    "title": "Accurate and robust Shapley Values for explaining predictions and focusing on local important variables",
+    "year": 2021,
+    "venue": "arXiv.org",
+    "doi": null,
+    "arxiv": null,
+    "oa_pdf": null,
+    "authors": [
+      "Salim I. Amoukou",
+      "N. Brunel",
+      "Tangi Salaün"
+    ]
+  },
+  {
+    "uid": "N420",
+    "ta": "U",
+    "title": "DSExplainer: Enhancing Model Interpretability with Belief and Plausibility Intervals via Dempster–Shafer Theory",
+    "year": 2026,
+    "venue": "Journal of Intelligent &amp; Fuzzy Systems: Applications in Engineering and Technology",
+    "doi": "10.1177/18758967261442858",
+    "arxiv": null,
+    "oa_pdf": null,
+    "authors": [
+      "Jonathan Frez Zachary",
+      "Nelson Baloian",
+      "Marcelo E. Fuenzalida",
+      "Mauricio Hidalgo",
+      "Alex Aramyan"
+    ]
+  },
+  {
+    "uid": "N459",
+    "ta": "I",
+    "title": "Tilia: Enhancing LIME with Decision Tree Surrogates",
+    "year": 2025,
+    "venue": "International Conference on Information and Knowledge Management",
+    "doi": "10.1145/3746252.3761130",
+    "arxiv": null,
+    "oa_pdf": null,
+    "authors": [
+      "Jihang Li",
+      "Jiawei Qiu",
+      "Yin-Ping Zhao",
+      "Ze-Yi Wen"
+    ]
+  },
+  {
+    "uid": "N479",
+    "ta": "U",
+    "title": "A Hybrid Explainable Logistic Regression model with Bayesian Feature Selection, SHAP Explainability, Stability Analysis, and Uncertainty Quantification for Breast Cancer Diagnosis",
+    "year": 2026,
+    "venue": "International Journal of Artificial Intelligence and Machine Learning",
+    "doi": "10.51483/ijaiml.6.11s.2026.1284-1289",
+    "arxiv": null,
+    "oa_pdf": "https://www.svedbergopen.com/index.php/ijaiml/article/download/2294/1441",
+    "authors": [
+      "Khamrunissa Hussain Sheikh",
+      "*. sharma",
+      "Narendra Kumar"
+    ]
+  },
+  {
+    "uid": "N480",
+    "ta": "U",
+    "title": "Explainable Machine Learning for ICU Mortality Prediction: Comparing SHAP, LIME and Anchors on MIMIC-IV",
+    "year": 2026,
+    "venue": "International Journal of Computer Science and Engineering",
+    "doi": "10.26438/ijcse.v14i5.7396",
+    "arxiv": null,
+    "oa_pdf": "https://ijcseonline.org/index.php/j/article/download/7396/7350",
+    "authors": [
+      "B. Sidhu"
+    ]
+  },
+  {
+    "uid": "N557",
+    "ta": "U",
+    "title": "Enhancing LIME using Neural Decision Trees",
+    "year": 2026,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arxiv.2603.20919",
+    "arxiv": "2603.20919",
+    "oa_pdf": "https://arxiv.org/pdf/2603.20919",
+    "authors": [
+      "Mohamed Aymen Bouyahia",
+      "Argyris Kalogeratos"
+    ]
+  },
+  {
+    "uid": "N616",
+    "ta": "I",
+    "title": "How Understanding Forecast Uncertainty Resolves the Explainability Problem in Machine Learning Models",
+    "year": 2026,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arxiv.2602.00179",
+    "arxiv": "2602.00179",
+    "oa_pdf": "https://arxiv.org/pdf/2602.00179",
+    "authors": [
+      "Joseph L. Breeden"
+    ]
+  },
+  {
+    "uid": "N692",
+    "ta": "U",
+    "title": "BMB-LIME: LIME with modeling local nonlinearity and uncertainty in explainability",
+    "year": 2024,
+    "venue": "Knowl. Based Syst.",
+    "doi": "10.1016/j.knosys.2024.111732",
+    "arxiv": null,
+    "oa_pdf": null,
+    "authors": [
+      "Yu-Hsin Hung",
+      "Chia-Yen Lee"
+    ]
+  },
+  {
+    "uid": "N693",
+    "ta": "U",
+    "title": "Variational Shapley Network: A Probabilistic Approach to Self-Explaining Shapley values with Uncertainty Quantification",
+    "year": 2024,
+    "venue": "CoRR",
+    "doi": "10.48550/arxiv.2402.04211",
+    "arxiv": "2402.04211",
+    "oa_pdf": null,
+    "authors": [
+      "Mert Ketenci",
+      "Iñigo Urteaga",
+      "V. Rodriguez",
+      "Noémie Elhadad",
+      "A. Perotte"
+    ]
+  },
+  {
+    "uid": "N708",
+    "ta": "I",
+    "title": "The Distributional Uncertainty of the SHAP Score in Explainable Machine Learning",
+    "year": 2024,
+    "venue": "ECAI",
+    "doi": "10.3233/faia240586",
+    "arxiv": "2401.12731",
+    "oa_pdf": null,
+    "authors": [
+      "S. Cifuentes",
+      "L. Bertossi",
+      "Nina Pardal",
+      "S. Abriola",
+      "Maria Vanina Martinez",
+      "Miguel Romero"
+    ]
+  },
+  {
+    "uid": "N027",
+    "rec_ids": [
+      "Q0029"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "Robust Prediction of Ship Propulsion Power with Uncertainty Quantification using Quantile LightGBM",
+    "year": 2025,
+    "venue": "2025 2nd International Conference on Intelligent Ships and Electromechanical System (ICISES)",
+    "doi": "10.1109/icises68342.2025.11512813",
+    "arxiv": null,
+    "authors": [
+      "Xu Liu",
+      "Yunfan Yang",
+      "Yu Guo",
+      "Jiawei Bao",
+      "Wenhui Yin",
+      "Antong Zhang",
+      "Qiang Sun"
+    ],
+    "abstract": "Accurate prediction of ship propulsion power is fundamental for optimizing energy efficiency and reducing emissions. However, point predictions from models such as LightGBM lack calibrated uncertainty, limiting robustness under noisy and nonstationary in-service conditions. This paper proposes an uncertainty-aware LightGBM framework tailored to Very Large Crude Carriers (VLCCs). The method uses qu...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/11512813",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N049",
+    "rec_ids": [
+      "Q0054"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "A clinical diagnosis prediction model based on XGBoost-SHAP",
+    "year": 2024,
+    "venue": "2024 IEEE 2nd International Conference on Electrical, Automation and Computer Engineering (ICEACE)",
+    "doi": "10.1109/iceace63551.2024.10898650",
+    "arxiv": null,
+    "authors": [
+      "Hang Li",
+      "Kaikai Liu",
+      "Peize Lu"
+    ],
+    "abstract": "Clinical diagnosis is typically a binary classification problem influenced by multiple indicators. Accurately predicting whether a patient is diseased based on various test indicators, and identifying the main influencing factors for targeted treatment, is a highly challenging task. To address issues such as high complexity, low model interpretability, and sensitivity to noise in traditional model...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/10898650",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N064",
+    "rec_ids": [
+      "Q0069"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "Gearbox Fault Classification Method Based on Multi-Scale Feature Fusion and Explainable Analysis",
+    "year": 2025,
+    "venue": "2025 International Conference on Sensor-Cloud and Edge Computing System (SCECS)",
+    "doi": "10.1109/scecs65243.2025.11065664",
+    "arxiv": null,
+    "authors": [
+      "Jing An",
+      "Qingqing Liang"
+    ],
+    "abstract": "Gearbox fault classification poses significant challenges in industrial environments due to the complex interactions between multi-source signals and noise interference. This study proposes a novel multiscale feature fusion approach with interpretability analysis to overcome the limitations of conventional single-modality diagnostic methods. By systematically constructing a hybrid feature space in...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/11065664",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N083",
+    "rec_ids": [
+      "Q0089"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "Noise-Tolerant Multi-Model Ensemble for Robust Hypothyroid Classification",
+    "year": 2026,
+    "venue": "2026 International Conference on Advancements in Smart, Secure and Intelligent Computing (ASSIC)",
+    "doi": "10.1109/assic70037.2026.11717313",
+    "arxiv": null,
+    "authors": [
+      "Annie Jijo Zacharia",
+      "Yug Trivedi",
+      "Zuzer Chathiwala",
+      "Husen Lakdawala",
+      "Jaikee Kumar Singh",
+      "Sejal Shah"
+    ],
+    "abstract": "The most common endocrine disorder found throughout the globe occurs due to thyroid abnormalities which include hypothyroidism. The medical condition leads to both metabolic disruptions and excessive sleepiness when doctors fail to identify it correctly. The traditional models of diagnostic methods are facing challenges which emerge from three issues that include noisy data and class imbalance tog...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/11717313",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N091",
+    "rec_ids": [
+      "Q0097"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "A Metaheuristic Optimized XGBoost Model and SHAP Analysis for Heart Disease Prediction",
+    "year": 2026,
+    "venue": "2026 International Conference on Power, Electronics, Communications, Computing, and Intelligent Infrastructure (PECCII)",
+    "doi": "10.1109/peccii70991.2026.11661830",
+    "arxiv": null,
+    "authors": [
+      "Sumon Ray",
+      "Proloy Kumar Mondal",
+      "Md Kamran Hussin Chowdhury",
+      "Md. Shahrear Ahmed Shuvon",
+      "Nayebul Jannath Chowdhury",
+      "Probir Kumar Mondal",
+      "Md. Mahbub Hossain",
+      "Md. Shahjahan",
+      "Md. Amirul Islam"
+    ],
+    "abstract": "This study proposes a heart disease prediction model based on the XGBoost classifier, where seven clinically significant features were selected using an Equilibrium optimization algorithm (EVO)-based approach, while the model hyperparameters were simultaneously optimized, achieving an overall accuracy of 95.38%. As a baseline evaluation, the XGBoost model was trained using all 11 features without ...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/11661830",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N108",
+    "rec_ids": [
+      "Q0115"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "Binary Pass-Fail Prediction of Student Performance Using XGBoost and SHAP: A Case Study on the UCI Dataset",
+    "year": 2026,
+    "venue": "2026 IEEE 5th International Conference on Information Technology, Big Data and Artificial Intelligence (ICIBA)",
+    "doi": "10.1109/iciba68339.2026.11651877",
+    "arxiv": null,
+    "authors": [
+      "Yan Yan",
+      "Xinquan Wang"
+    ],
+    "abstract": "To tackle class imbalance and model interpretability issues in student performance prediction, this paper builds a binary pass/fail prediction model using XGBoost. The model strictly excludes the midterm grade features G1 and G2. It uses the mathematics subset of the UCI Student Performance Dataset. The study compares five oversampling strategies: SMOTE, Borderline-SMOTE, ADASYN, SMOTE-ENN, and SM...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/11651877",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N119",
+    "rec_ids": [
+      "Q0127"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "Hierarchical Uncertainty Aware Explainable Hybrid Deep Learning Framework for Credit Default Risk Prediction",
+    "year": 2026,
+    "venue": "2026 9th International Conference on Inventive Computation Technologies (ICICT)",
+    "doi": "10.1109/icict68280.2026.11510788",
+    "arxiv": null,
+    "authors": [
+      "Durga R",
+      "Vedala Naga Sailaja",
+      "Padmanaban K"
+    ],
+    "abstract": "Financial institutions need credit default risk prediction to reduce losses to loans and have a stable portfolio management. Standard statistical models usually do not yield complex nonlinear relationships and feature interdependencies of large scale and imbalanced credit datasets. To circumvent these shortcomings, this paper suggests a Hierarchy Uncertainty Aware Explainable Hybrid Deep Learning ...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/11510788",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N122",
+    "rec_ids": [
+      "Q0131"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "Safety Assessment: From Black-Box to White-Box",
+    "year": 2022,
+    "venue": "2022 IEEE International Symposium on Software Reliability Engineering Workshops (ISSREW)",
+    "doi": "10.1109/issrew55968.2022.00083",
+    "arxiv": null,
+    "authors": [
+      "Iwo Kurzidem",
+      "Adam Misik",
+      "Philipp Schleiss",
+      "Simon Burton"
+    ],
+    "abstract": "Safety assurance for Machine-Learning (ML) based applications such as object detection is a challenging task due to the black-box nature of many ML methods and the associated uncertainties of its output. To increase evidence in the safe behavior of such ML algorithms an explainable and/or interpretable introspective model can help to investigate the black-box prediction quality. For safety assessm...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/9985104",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N142",
+    "rec_ids": [
+      "Q0153"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "SIFT: Scene-Imagination-Based Feature Reweighting",
+    "year": 2025,
+    "venue": "2025 IEEE International Conference on Data Mining Workshops (ICDMW)",
+    "doi": "10.1109/icdmw69685.2025.00298",
+    "arxiv": null,
+    "authors": [
+      "Jiayi Qiu"
+    ],
+    "abstract": "Feature selection for fraud detection in tabular domains presents two major challenges: the input space is high-dimensional and semantically structured, while positive (fraudulent) cases are extremely scarce. In such settings, traditional feature attribution methods, e.g., information gain or SHAP, often fail to provide reliable guidance, as redundant features dilute meaningful patterns and statis...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/11416047",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N230",
+    "rec_ids": [
+      "Q0244"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "Cardiovascular Disease Detection Using Deep Learning with Imbalanced Dataset Handling: Focal Loss and Ensemble Approach",
+    "year": 2026,
+    "venue": "2026 IEEE 6th International Conference on Computing, Power, and Communication Technologies (IC2PCT)",
+    "doi": "10.1109/ic2pct68894.2026.11584441",
+    "arxiv": null,
+    "authors": [
+      "Jyoti Chaurasiya",
+      "Rajesh Prasad"
+    ],
+    "abstract": "Cardiovascular disease (CVD) remains the leading global cause of mortality, with class imbalance in medical datasets posing a critical challenge for predictive modeling. This paper presents a comprehensive deep learning framework that integrates imbalance mitigation strategies across multiple levels: data, loss, batch, and ensemble. A multi-layered neural network with batch normalization, dropout,...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/11584441",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N235",
+    "rec_ids": [
+      "Q0249"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "Enhancing Anomaly Detection in Blockchain Transactions with Transformer-Based Models",
+    "year": 2024,
+    "venue": "2024 6th International Conference on Blockchain Computing and Applications (BCCA)",
+    "doi": "10.1109/bcca62388.2024.10844493",
+    "arxiv": null,
+    "authors": [
+      "Ammar Kamal Abasi",
+      "Moayad Aloqaily",
+      "Mohsen Guizani",
+      "Zakariyya Alatoom"
+    ],
+    "abstract": "Anomaly Detection (AD) in Bitcoin Transactions (BTXs) is critical for maintaining the integrity and security of blockchain systems. This study proposes a Transformer-based framework to address challenges such as class imbalance, complex feature interactions, and temporal dependencies inherent in Bitcoin Transaction (BTX) data. The model leverages self-attention mechanisms, feature embeddings, and ...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/10844493",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N254",
+    "rec_ids": [
+      "Q0269"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "AI-Driven Predictive Analytics for Monthly Per Capita Expenditure using Macroeconomic Indicators",
+    "year": 2025,
+    "venue": "2025 4th International Conference on Automation, Computing and Renewable Systems (ICACRS)",
+    "doi": "10.1109/icacrs67045.2025.11324119",
+    "arxiv": null,
+    "authors": [
+      "A V. Karthick",
+      "Nagarani Muthukrishnan",
+      "S. Suganya",
+      "G. Parimalarani",
+      "H. Sudarsan",
+      "Arun Kumar Parthasarathy"
+    ],
+    "abstract": "Understanding household consumption patterns remains fundamental to formulating effective economic policies in developing economies. India&#39;s reliance on periodic Household Consumption Expenditure Surveys (HCES) creates temporal gaps that limit policymakers&#39; ability to respond swiftly to emerging economic challenges. We address this limitation by developing a predictive framework utilizing multivar...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/11324119",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N421",
+    "rec_ids": [
+      "Q0460"
+    ],
+    "sources": [
+      "Semantic Scholar"
+    ],
+    "title": "Research on Interpretable Machine Learning with Uncertainty Quantification for Ecological Risk Prediction",
+    "year": 2026,
+    "venue": "Applied and Computational Engineering",
+    "doi": "10.54254/2755-2721/2026.34717",
+    "arxiv": null,
+    "authors": [
+      "Lin Zhai",
+      "Zhuo-Xi Chu"
+    ],
+    "abstract": "This study develops an interpretable machine-learning framework with uncertainty quantification for regional ecological risk prediction. The dataset is organized as a county-month panel containing 2,400 observations and 48 predictors from land-use, landscape-pattern, climate, topographic, hydrological, and human-disturbance variables. The ecological risk target is constructed as a three-class label, including low, medium, and high risk, based on a composite ecological risk index. Python 3.11 is used for data cleaning, median imputation, z-score standardization, XGBoost classification, SHAP interpretation, and Bayesian bootstrap interval estimation. The XGBoost model is trained with fixed hyperparameters, while SHAP TreeExplainer produces global and local feature-attribution outputs. Bayesian bootstrap analysis was conducted for 500 iterations for calculating 95% confidence intervals for class probabilities and SHAP importance for features. The findings reveal that the accuracy of the model is 0.872 ± 0.021, the macro F1 score is 0.856 ± 0.026, and the macro AUC score is 0.931 ± 0.018. The average value of the 95% probability intervals width is 0.118 ± 0.027. Among others, the proportion of built-up areas, roads, patches, NDVI, rainfall, and run-off index have the highest SHAP",
+    "pubtypes": [
+      "JournalArticle"
+    ],
+    "url": "https://www.semanticscholar.org/paper/57eec397d88c7da0d8b04e515ded42b8aa646dac",
+    "oa_pdf": "https://ace.ewapub.com/article/view/34717.pdf",
+    "access": null
+  },
+  {
+    "uid": "N638",
+    "rec_ids": [
+      "Q0729"
+    ],
+    "sources": [
+      "Semantic Scholar"
+    ],
+    "title": "Potentials of Machine Learning in Predicting Key Features of Synthetic Antimicrobial Polymers (SAMPs)",
+    "year": 2025,
+    "venue": "bioRxiv",
+    "doi": "10.1101/2025.08.24.671690",
+    "arxiv": null,
+    "authors": [
+      "L. Dalal",
+      "Deborah Stolte Bezerra Lisbôa de Oliveira",
+      "N. J. Warren",
+      "Olivier J. Cayre",
+      "Sébastien Perrier"
+    ],
+    "abstract": "The widespread antimicrobial resistance urged the need for novel antimicrobial agents. Synthetic antimicrobial polymers (SAMPs) were proposed as promising antibiotics to overcome the drawbacks of host-defence peptides. A machine learning forecast can be beneficial to evaluate the influence of SAMPs features on their potency and toxicity. In this study, we utilised a library of 20 polyacrylamides varied in: 1) type of amine side chain, 2) chain length, 3) cationic amine ratio, and 4) polymer architecture. Their structure-activity relationship was evaluated by comparing experimental observations and machine learning models. While classification models showed good fit in the training set, regression models demonstrated better fit in the testing set. Regression random forest and gradient boosting methods demonstrated reliable reproducibility of feature importance and maintained the tree structure throughout multiple runs. Beeswarm and waterfall plots provided an overview of the joint SHapley Additive exPlanations (SHAP) values of features on a specific data point. Based on validation tests and the consistency of feature importance and SHAP values, we conclude that boosting-ensemble methods can be utilized in forecasting future SAMPs.",
+    "pubtypes": [
+      "Review"
+    ],
+    "url": "https://www.semanticscholar.org/paper/de68f2ebd684472d8ee924d14948c4feb7a1739f",
+    "oa_pdf": "https://www.biorxiv.org/content/biorxiv/early/2025/08/24/2025.08.24.671690.full.pdf",
+    "access": null
+  },
+  {
+    "uid": "N039",
+    "rec_ids": [
+      "Q0043"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "Explainable Ensemble Machine Learning Approach for severity prediction of Hemophilia A",
+    "year": 2025,
+    "venue": "2025 13th International Conference on Intelligent Systems and Embedded Design (ISED)",
+    "doi": "10.1109/ised67359.2025.11405080",
+    "arxiv": null,
+    "authors": [
+      "Vikalp Kumar Singh",
+      "Maheshwari Prasad Singh",
+      "Ashutosh Mani"
+    ],
+    "abstract": "With the increasing use of machine learning in healthcare, explainable AI (XAI) has become essential to ensure transparency and trust in model predictions. In this study, we experimented with various machine learning classifiers, including an ensemble model combining XG-Boost with Random Forest, which demonstrated superior performance in predicting hemophilia A (HA) severity. To ensure model trans...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/11405080",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N052",
+    "rec_ids": [
+      "Q0057"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "Balancing Accuracy and Interpretability: Machine Learning Approaches to Predict Heart Failure Readmissions",
+    "year": 2025,
+    "venue": "2025 IEEE International Conference on Signal Processing, Information, Communication and Systems (SPICSCON)",
+    "doi": "10.1109/spicscon69221.2025.11504054",
+    "arxiv": null,
+    "authors": [
+      "Abhishek Sushil",
+      "Shahad Bin Alamgir",
+      "Hafizur Rahman",
+      "Pritom Sen Gupta",
+      "Nilkantha Sushil Pranta",
+      "Zarin Rafah Chowdhury",
+      "Jannatul Mawa",
+      "Nurul Momin Resat",
+      "Arafat Uddin"
+    ],
+    "abstract": "Heart failure (HF) readmissions remain a major clinical and economic challenge, underscoring the need for reliable early prediction frameworks. This study develops a machine learning-based approach to identify patients at risk of 1 -year all-cause readmission. A dataset of $1,118 \\mathrm{HF}$ cases was preprocessed and analyzed using five classifiers-Random Forest, XGBoost, Decision Tree, Support ...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/11504054",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N074",
+    "rec_ids": [
+      "Q0079"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "Bus passenger flow prediction using BO-optimized XGBoost",
+    "year": 2023,
+    "venue": "2023 2nd International Conference on Big Data, Information and Computer Network (BDICN)",
+    "doi": "10.1109/bdicn58493.2023.00035",
+    "arxiv": null,
+    "authors": [
+      "Miaomiao Yan",
+      "Ke Zhou"
+    ],
+    "abstract": "Passenger flow prediction is essential for bus operation management. This study applies the extreme gradient boosting machine (XGBoost) to predict hourly bus passenger flow. Moreover, Bayesian optimization (BO) is adopted for parameter tuning to optimize the performance of the XGBoost. The relative importance and SHAP value are adopted to interpret the results. A comparative study with support vec...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/10109905",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N088",
+    "rec_ids": [
+      "Q0094",
+      "Q0481"
+    ],
+    "sources": [
+      "IEEE Xplore",
+      "Semantic Scholar"
+    ],
+    "title": "A SHAP-Guided Machine Learning Framework for Predicting Intravenous Immunoglobulin Resistance",
+    "year": 2026,
+    "venue": "2026 7th International Conference on Smart Electronics and Communication (ICOSEC)",
+    "doi": "10.1109/icosec70158.2026.11735905",
+    "arxiv": null,
+    "authors": [
+      "Puttamraju SrinivasaRao",
+      "Manne Archana",
+      "Yuva Krishna Aluri",
+      "Bezawada Jyosthna",
+      "Donkini Manasa Spandhana",
+      "Noolu Vijayakumar"
+    ],
+    "abstract": "Kawasaki disease is the leading cause of acquired pediatric heart disease, and resistance to first-line intravenous immunoglobulin (IVIG) therapy marks the subgroup at greatest risk of coronary artery aneurysms. Reliable pre-treatment prediction of IVIG resistance could enable timely adjunctive therapy, yet established clinical scores generalize poorly beyond the derivation populations. This study...",
+    "pubtypes": [
+      "Conference",
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/11735905",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N096",
+    "rec_ids": [
+      "Q0103"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "Intelligent Assessment of College Students' Mental Health based on Kendall’s Rank Correlation Coefficient Based J48 Decision Tree",
+    "year": 2025,
+    "venue": "2025 International Conference on Intelligent Systems and Computational Networks (ICISCN)",
+    "doi": "10.1109/iciscn64258.2025.10934250",
+    "arxiv": null,
+    "authors": [
+      "Guang Du"
+    ],
+    "abstract": "In recent days, preventing psychological crisis behavior and development growth among college students is a persistent concern which includes not only mental well-being but also includes talent development and societal stability. In existing, the traditional Decision Tree (DT) models are utilized but mostly suffered with empty, insignificant branches and overfitting issues. To overcome these issue...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/10934250",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N114",
+    "rec_ids": [
+      "Q0121"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "XAI-RiskNet: Explainable Ensemble Learning for Robust Firm Default Prediction Under Economic Stress",
+    "year": 2025,
+    "venue": "2025 IEEE International Conference on Emerging Trends in Engineering and Computing (ETECOM)",
+    "doi": "10.1109/etecom66111.2025.11319052",
+    "arxiv": null,
+    "authors": [
+      "Husain Al Mubarak"
+    ],
+    "abstract": "Economic crises often trigger sudden firm defaults, making reliable and transparent forecasting essential for banks, investors, and regulators. This paper introduces XAI-RiskNet, a modular machine learning framework that unifies predictive strength with audit-ready explainability for firm-level default risk under macroeconomic stress. The design integrates unsupervised clustering to capture struct...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/11319052",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N121",
+    "rec_ids": [
+      "Q0129"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "Takeover Time Prediction for Conditionally Automated Driving Vehicles: Considering Mixed Traffic Flow Environment",
+    "year": 2025,
+    "venue": "IEEE Transactions on Intelligent Transportation Systems",
+    "doi": "10.1109/tits.2025.3557772",
+    "arxiv": null,
+    "authors": [
+      "Qingchao Liu",
+      "Jiaqi Liu",
+      "Jingya Zhao",
+      "Yingfeng Cai",
+      "Hai Wang",
+      "Long Chen",
+      "Chen Lv"
+    ],
+    "abstract": "The length of time for drivers to take over conditionally automated driving vehicles (CADV) is often influenced by numerous factors, especially the mixed traffic flow environment. To analyze the influencing factors of driver’s takeover time in the mixed traffic flow environment, we study a real-vehicle takeover experiment with the CADV and radar video integrated machine provided by Jiangsu Univers...",
+    "pubtypes": [
+      "IEEE Journals"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/11005682",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N127",
+    "rec_ids": [
+      "Q0137"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "Data Leakage Detection in Cloud Computing Environment",
+    "year": 2024,
+    "venue": "2024 1st International Conference on Cyber Security and Computing (CyberComp)",
+    "doi": "10.1109/cybercomp60759.2024.10913619",
+    "arxiv": null,
+    "authors": [
+      "Hurin Haziq Bin Suhaimi",
+      "H.T. Zubair"
+    ],
+    "abstract": "Insider threats pose critical security threats through the possession of privileged and access to valuable information and resources. Data leakage is one of the significant challenges faced in cloud computing environments, emphasising the criticality of data protection across various sectors such as education, finance, healthcare, and more. Cloud computing offers numerous advantages, including rel...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/10913619",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N207",
+    "rec_ids": [
+      "Q0219"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "Bridging Predictive Performance and Explainability in Employee Attrition Through Imbalanced Learning and XAI",
+    "year": 2026,
+    "venue": "2026 International Biennial Conference on Advances in Artificial Intelligence and Data Science (IBAAIDS)",
+    "doi": "10.1109/ibaaids66771.2026.11567396",
+    "arxiv": null,
+    "authors": [
+      "Marziyeh Aghabalasafar",
+      "Khayyam Salehi"
+    ],
+    "abstract": "Employee attrition presents a significant challenge for organizational management, particularly due to the severe class imbalance inherent in human resource (HR) datasets where turnover events are rare. Standard machine learning classifiers often fail to capture these minority cases, leading to poor recall. While oversampling techniques are commonly employed to address the imbalanced data, they of...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/11567396",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N234",
+    "rec_ids": [
+      "Q0248"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "Machine Learning-Driven Models for Predictive Diagnosis of Depression and Anxiety in Clinical Settings",
+    "year": 2026,
+    "venue": "2026 IEEE 5th World Conference on Applied Intelligence and Computing (AIC)",
+    "doi": "10.1109/aic70896.2026.11717141",
+    "arxiv": null,
+    "authors": [
+      "Tharakesavulu Vangalapat",
+      "Vandana Roy",
+      "Preeti Dubey",
+      "A. Samatha",
+      "P Sai Kumar",
+      "Anshu Malhotra"
+    ],
+    "abstract": "Timely and accurate identification of depressive and anxiety disorders has been a perennial problem with clinical settings because of their nonspecific manifestation and dynamic patterns of symptoms. This paper presents a Multimodal Temporal Evidential Graph Transformer (MTEGT), a single deep learning platform that is proposed to predict the onset of increasing deterioration of mental health throu...",
+    "pubtypes": [
+      "IEEE Conferences"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/11717141",
+    "oa_pdf": null,
+    "access": "locked"
+  },
+  {
+    "uid": "N240",
+    "rec_ids": [
+      "Q0254"
+    ],
+    "sources": [
+      "IEEE Xplore"
+    ],
+    "title": "Machine Unlearning in Smart Grids: A Cautionary Tale of Infrastructure Vulnerability",
+    "year": 2026,
+    "venue": "IEEE Systems, Man, and Cybernetics Letters",
+    "doi": "10.1109/lsmc.2026.3701875",
+    "arxiv": null,
+    "authors": [
+      "George Paphitis",
+      "Angelos K. Marnerides",
+      "Mathaios Panteli"
+    ],
+    "abstract": "The rapid growth of sensor-generated data in Smart Grids (SGs) has been accompanied by a parallel surge in cyberattacks. This letter aims to uncover how machine learning (ML) models deployed in SGs are vulnerable to stealthy attack vectors, leading them to intentionally forget learned information—an emerging threat known as malicious machine unlearning (MU). We explore the increasing risks to ML-d...",
+    "pubtypes": [
+      "IEEE Journals"
+    ],
+    "url": "https://ieeexplore.ieee.org/document/11554979",
+    "oa_pdf": null,
+    "access": "open-access"
+  },
+  {
+    "uid": "N359",
+    "rec_ids": [
+      "Q0385"
+    ],
+    "sources": [
+      "Semantic Scholar"
+    ],
+    "title": "Neural Emulators vs. Machine Learning Regressors: District‑Scale Pre‑Monsoon Temperature Prediction in Telangana",
+    "year": 2026,
+    "venue": "Earth Systems and Environment",
+    "doi": "10.1007/s41748-026-01220-5",
+    "arxiv": null,
+    "authors": [
+      "Guhan Velusamy",
+      "Dharma Raju Akasapu",
+      "N. Kopparthi",
+      "G. Satyanarayana",
+      "S. Goroshi",
+      "G. El Afandi"
+    ],
+    "abstract": "",
+    "pubtypes": [
+      "JournalArticle"
+    ],
+    "url": "https://www.semanticscholar.org/paper/37d6fc512d5a52eb5edbe61afc1fb288c91f0431",
+    "oa_pdf": null,
+    "access": null
+  },
+  {
+    "uid": "N594",
+    "rec_ids": [
+      "Q0672"
+    ],
+    "sources": [
+      "Semantic Scholar"
+    ],
+    "title": "Identifying key bioprocess variables using explainable machine learning to enhance culture efficiency and viability of umbilical cord-derived mesenchymal stem cells",
+    "year": 2026,
+    "venue": "International Journal of Medical Sciences",
+    "doi": "10.7150/ijms.127764",
+    "arxiv": null,
+    "authors": [
+      "Tse-Pu Huang",
+      "Hsin-Hui Huang",
+      "Bing-Tsiong Li",
+      "Pei-Hung Shen",
+      "G. Thomas",
+      "Ju Han",
+      "Chi-Ming Chu",
+      "Kun-Yi Lin"
+    ],
+    "abstract": "Background Human umbilical cord-derived mesenchymal stromal/stem cells (UC-MSCs) are promising for regenerative medicine, but consistent manufacturing quality is critical. Objective To develop and interpret machine-learning models (Extreme gradient boosting (XGBoost), with Shapley Additive Explanations, SHAP) that identify facilitatory and inhibitory factors affecting UC-MSC culture duration and post-processing viability. Methods We analyzed data from 203 UC-MSC manufacturing cases. Candidate predictors included neonatal characteristics (e.g., sex, delivery mode), processing timelines, medium composition, cell features, and operator-related factors. Performance was evaluated using accuracy, the area under the receiver operating characteristic curve (AUROC), the area under the precision-recall curve (AUPRC), log loss, and Brier score, with calibration assessed in cross-validation. Results For predicting shorter culture duration (defined as a time interval between UC collection and the completion of cryopreservation of <600 h), the model achieved accuracy = 0.80, AUROC = 0.72, and log loss = 0.55; cross-validation yielded AUROC = 0.68, AUPRC = 0.81, and Brier score = 0.20 with good calibration. For predicting higher cell viability, the model achieved accuracy = 0.71, AUROC = 0.72, and log loss = 0.62; cross-validation yielded AUROC = 0.54, AUPRC = 0.58, and Brier score = 0.26. SHAP analysis indicated that shorter culture duration was most associated with medium composition, processing time, and delivery mode, whereas higher viability was linked to neonatal sex, operator identity, and processing time. Sensitivity analyses showed stable top-ranked features across decision-threshold shifts and after removing operator identity. Conclusions An interpretable XGBoost+SHAP pipeline is effective for identifying process-critical drivers of UC-MSC culture duration. While current predictive precision for cell viability remains limited, the framework functions as a robust diagnostic tool for elucidating qualitative trends. By exploiting these insights, the model facilitates targeted optimization of media selection, timeline control, and standard operating procedures (SOPs), ultimately enhancing manufacturing quality.",
+    "pubtypes": [
+      "JournalArticle"
+    ],
+    "url": "https://www.semanticscholar.org/paper/c6ab4523af0ef03eced5c87240813a311fcac31e",
+    "oa_pdf": "https://www.medsci.org/v23p1808.pdf",
+    "access": null
+  },
+  {
+    "uid": "N687",
+    "rec_ids": [
+      "Q0789"
+    ],
+    "sources": [
+      "arXiv"
+    ],
+    "title": "Hierarchical Shrinkage: improving the accuracy and interpretability of tree-based methods",
+    "year": 2022,
+    "venue": "arXiv preprint",
+    "doi": null,
+    "arxiv": "2202.00858",
+    "authors": [
+      "Abhineet Agarwal",
+      "Yan Shuo Tan",
+      "Omer Ronen",
+      "Chandan Singh",
+      "Bin Yu"
+    ],
+    "abstract": "Tree-based models such as decision trees and random forests (RF) are a cornerstone of modern machine-learning practice. To mitigate overfitting, trees are typically regularized by a variety of techniques that modify their structure (e.g. pruning). We introduce Hierarchical Shrinkage (HS), a post-hoc algorithm that does not modify the tree structure, and instead regularizes the tree by shrinking the prediction over each node towards the sample means of its ancestors. The amount of shrinkage is controlled by a single regularization parameter and the number of data points in each ancestor. Since HS is a post-hoc method, it is extremely fast, compatible with any tree growing algorithm, and can be used synergistically with other regularization techniques. Extensive experiments over a wide variety of real-world datasets show that HS substantially increases the predictive performance of decision trees, even when used in conjunction with other regularization techniques. Moreover, we find that applying HS to each tree in an RF often improves accuracy, as well as its interpretability by simplifying and stabilizing its decision boundaries and SHAP values. We further explain the success of HS in improving prediction performance by showing its equivalence to ridge regression on a (supervised) basis constructed of decision stumps associated with the internal nodes of a tree. All code and models are released in a full-fledged package available on Github (github.com/csinva/imodels)",
+    "pubtypes": [
+      "Preprint"
+    ],
+    "url": "https://arxiv.org/abs/2202.00858",
+    "oa_pdf": "https://arxiv.org/pdf/2202.00858",
+    "access": null
+  }
+]

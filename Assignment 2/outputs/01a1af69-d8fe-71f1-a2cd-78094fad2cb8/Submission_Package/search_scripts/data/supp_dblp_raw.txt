@@ -1,0 +1,36 @@
+#DBLP supplementary total=41; 2016-2026=35; run 2026-10-24 in browser; query: shap$|lime$|shapley$ threshold$|thresholds$|boundary$|boundaries$|discretization$|discretisation$|fragility$|uncertainty$|lipschitz$|smoothness$|piecewise$
+2024~Jour~10.1016/j.neucom.2024.127969~Neurocomputing~US-LIME: Increasing fidelity in LIME using uncertainty sampling on tabular data.
+2024~Jour~10.1016/j.knosys.2024.111732~Knowl. Based Syst.~BMB-LIME: LIME with modeling local nonlinearity and uncertainty in explainability.
+2024~Informal~10.48550/arxiv.2402.04211~CoRR~Variational Shapley Network: A Probabilistic Approach to Self-Explaining Shapley values with Uncertainty Quantification.
+2026~Jour~10.1016/j.bspc.2026.110479~Biomed. Signal Process. Control.~A five-layer clinical-AI engineering framework for severity risk stratification from hematological signals: Ensemble learning, uncertainty quantification, and SHAP explainability with application to COVID-19.
+2026~Jour~10.1016/j.compag.2026.111694~Comput. Electron. Agric.~A shapley additive exPlanations-informed, threshold-based environmental variable optimization strategy for enhancing soil organic carbon content.
+2026~Jour~10.1016/j.ecoinf.2026.103900~Ecol. Informatics~Quantitative assessment of vegetation drought response thresholds by integrating copula-based and XGBoost-SHAP.
+2026~Jour~10.1016/j.knosys.2026.115437~Knowl. Based Syst.~Uncertainty explanation of artificial intelligence models by SHAP.
+2026~Jour~10.3390/make8050129~Mach. Learn. Knowl. Extr.~An Interpretable and Uncertainty-Aware Deep Learning Framework for Early Sepsis Prediction Using SHAP-Enhanced Attention and Continuous-Time Neural Networks.
+2026~Conf~10.1109/isbi61048.2026.11515808~ISBI~Clinical Interpretability of Deep Learning Segmentation Through Shapley-Derived Agreement and Uncertainty Metrics.
+2026~Conf~10.2312/evs.20261004~EuroVis~ShapDBM: Exploring Decision Boundary Maps in Shapley Space.
+2026~Informal~10.48550/arxiv.2602.00171~CoRR~Uncertainty-Aware Multimodal Learning via Conformal Shapley Intervals.
+2026~Informal~10.48550/arxiv.2603.22235~CoRR~ShapDBM: Exploring Decision Boundary Maps in Shapley Space.
+2026~Informal~10.48550/arxiv.2605.28170~CoRR~Localizing Input Uncertainty Quantification for Large Language Models via Shapley Values.
+2026~Informal~10.48550/arxiv.2608.13173~CoRR~SkillShapley: Boundary-Adaptive Shapley Valuation for Skill Step Attribution in LLM Agents.
+2026~Informal~10.48550/arxiv.2609.35217~CoRR~A Hierarchy of Entropy-Shapley Games for Multivariate Predictive Uncertainty.
+2025~Jour~10.1016/j.aei.2025.103730~Adv. Eng. Informatics~Uncertainty-aware Bayesian neural network with SHAP interpretability for data-driven assembly quality prediction in complex manufacturing systems.
+2025~Jour~10.3390/ijgi14100371~ISPRS Int. J. Geo Inf.~Data-Driven Spatial Optimization of Elderly Care Facilities: A Study on Nonlinear Threshold Effects Based on XGBoost and SHAP - A Case Study of Xi'an, China.
+2025~Informal~10.48550/arxiv.2507.21406~CoRR~Shapley Uncertainty in Natural Language Generation.
+2025~Informal~10.48550/arxiv.2512.07224~CoRR~Clinical Interpretability of Deep Learning Segmentation Through Shapley-Derived Agreement and Uncertainty Metrics.
+2024~Jour~10.1016/j.engappai.2024.109427~Eng. Appl. Artif. Intell.~Explaining contributions of features towards unfairness in classifiers: A novel threshold-dependent Shapley value-based approach.
+2024~Conf~10.3233/faia240586~ECAI~The Distributional Uncertainty of the SHAP Score in Explainable Machine Learning.
+2024~Informal~10.48550/arxiv.2401.12731~CoRR~The Distributional Uncertainty of the SHAP score in Explainable Machine Learning.
+2024~Informal~10.48550/arxiv.2407.19373~CoRR~Uncertainty Quantification of Data Shapley via Statistical Inference.
+2024~Informal~10.48550/arxiv.2412.13866~CoRR~SHAP scores fail pervasively even when Lipschitz succeeds.
+2023~Conf~10.1609/aaai.v37i9.26322~AAAI~Interventional SHAP Values and Interaction Values for Piecewise Linear Regression Trees.
+2023~Conf~10.1109/icdmw60847.2023.00124~ICDM~SATTree: A SHAP-Augmented Threshold Tree for Clustering Explanation.
+2023~Conf~~NeurIPS~Explaining Predictive Uncertainty with Information Theoretic Shapley Values.
+2023~Informal~10.48550/arxiv.2306.05724~CoRR~Explaining Predictive Uncertainty with Information Theoretic Shapley Values.
+2023~Informal~10.48550/arxiv.2308.15709~CoRR~Threshold KNN-Shapley: A Linear-Time and Privacy-Friendly Approach to Data Valuation.
+2022~Jour~10.1109/access.2022.3147799~IEEE Access~Data Boundary and Data Pricing Based on the Shapley Value.
+2021~Jour~10.1016/j.cie.2021.107281~Comput. Ind. Eng.~An integrated product conceptual scheme decision approach based on Shapley value method and fuzzy logic for economic-technical objectives trade-off under uncertainty.
+2021~Conf~10.1007/978-3-030-79157-5_18~AIAI~A Lipschitz - Shapley Explainable Defense Methodology Against Adversarial Attacks.
+2020~Conf~10.1007/978-3-030-59710-8_77~MICCAI~Efficient Shapley Explanation for Features Importance Estimation Under Uncertainty.
+2019~Informal~10.48550/arxiv.1904.12991~CoRR~Why should you trust my interpretation? Understanding uncertainty in LIME predictions.
+2018~Jour~10.1016/j.geb.2017.08.005~Games Econ. Behav.~Valuing inputs under supply uncertainty: The Bayesian Shapley value.

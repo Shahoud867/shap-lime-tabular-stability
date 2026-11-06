@@ -1,0 +1,219 @@
+{
+  "indexed": {
+    "date-parts": [
+      [
+        2026,
+        4,
+        5
+      ]
+    ],
+    "date-time": "2026-04-05T07:03:51Z",
+    "timestamp": 1775372631535,
+    "version": "3.50.1"
+  },
+  "reference-count": 0,
+  "publisher": "Ivyspring International Publisher",
+  "issue": "5",
+  "content-domain": {
+    "domain": [],
+    "crossmark-restriction": false
+  },
+  "short-container-title": [
+    "Int. J. Med. Sci."
+  ],
+  "published-print": {
+    "date-parts": [
+      [
+        2026,
+        3,
+        30
+      ]
+    ]
+  },
+  "DOI": "10.7150/ijms.127764",
+  "type": "journal-article",
+  "created": {
+    "date-parts": [
+      [
+        2026,
+        4,
+        5
+      ]
+    ],
+    "date-time": "2026-04-05T06:21:28Z",
+    "timestamp": 1775370088000
+  },
+  "page": "1808-1821",
+  "source": "Crossref",
+  "is-referenced-by-count": 0,
+  "title": [
+    "Identifying key bioprocess variables using explainable machine learning to enhance culture efficiency and viability of umbilical cord-derived mesenchymal stem cells"
+  ],
+  "prefix": "10.7150",
+  "volume": "23",
+  "author": [
+    {
+      "given": "Tse-Pu",
+      "family": "Huang",
+      "sequence": "first",
+      "affiliation": [],
+      "role": [
+        {
+          "role": "author",
+          "vocabulary": "crossref"
+        }
+      ]
+    },
+    {
+      "given": "Hsin-Hui",
+      "family": "Huang",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "role": "author",
+          "vocabulary": "crossref"
+        }
+      ]
+    },
+    {
+      "given": "Bing-Tsiong",
+      "family": "Li",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "role": "author",
+          "vocabulary": "crossref"
+        }
+      ]
+    },
+    {
+      "given": "Pei-Hung",
+      "family": "Shen",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "role": "author",
+          "vocabulary": "crossref"
+        }
+      ]
+    },
+    {
+      "given": "Gracy",
+      "family": "Thomas",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "role": "author",
+          "vocabulary": "crossref"
+        }
+      ]
+    },
+    {
+      "given": "Juin-Yi",
+      "family": "Han",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "role": "author",
+          "vocabulary": "crossref"
+        }
+      ]
+    },
+    {
+      "given": "Chi-Ming",
+      "family": "Chu",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "role": "author",
+          "vocabulary": "crossref"
+        }
+      ]
+    },
+    {
+      "given": "Kun-Yi",
+      "family": "Lin",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "role": "author",
+          "vocabulary": "crossref"
+        }
+      ]
+    }
+  ],
+  "member": "4137",
+  "container-title": [
+    "International Journal of Medical Sciences"
+  ],
+  "original-title": [],
+  "language": "en",
+  "link": [
+    {
+      "URL": "https://www.medsci.org/v23p1808.htm",
+      "content-type": "unspecified",
+      "content-version": "vor",
+      "intended-application": "similarity-checking"
+    }
+  ],
+  "deposited": {
+    "date-parts": [
+      [
+        2026,
+        4,
+        5
+      ]
+    ],
+    "date-time": "2026-04-05T06:21:45Z",
+    "timestamp": 1775370105000
+  },
+  "score": 1,
+  "resource": {
+    "primary": {
+      "URL": "https://www.medsci.org/v23p1808.htm"
+    }
+  },
+  "subtitle": [],
+  "short-title": [],
+  "issued": {
+    "date-parts": [
+      [
+        2026,
+        3,
+        30
+      ]
+    ]
+  },
+  "references-count": 0,
+  "journal-issue": {
+    "issue": "5"
+  },
+  "URL": "https://doi.org/10.7150/ijms.127764",
+  "relation": {},
+  "ISSN": [
+    "1449-1907"
+  ],
+  "issn-type": [
+    {
+      "value": "1449-1907",
+      "type": "print"
+    }
+  ],
+  "subject": [],
+  "published": {
+    "date-parts": [
+      [
+        2026,
+        3,
+        30
+      ]
+    ]
+  }
+}

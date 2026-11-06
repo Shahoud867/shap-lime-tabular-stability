@@ -1,0 +1,120 @@
+U361 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U362 I ST-LIME improves LIME stability (FSSI) on tabular datasets
+U363 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U364 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U365 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U366 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U367 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U368 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U369 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U370 E5 Smart-grid (power) stability
+U371 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U372 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U373 I Accuracy and stability of global importance (gain, SHAP) for tree ensembles under input/model perturbation
+U374 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U375 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U376 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U377 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U378 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U379 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U380 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U381 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U382 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U383 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U384 E5 Grid-integration (power) stability
+U385 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U386 E1 Systematic review of ML vs scorecards in microfinance
+U387 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U388 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U389 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U390 E3 Inherently interpretable counterfactual model (images)
+U391 E3 Inherently interpretable counterfactual model (images)
+U392 E1 Human-centred audit of Shapley variants; no stability outcome
+U393 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U394 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U395 E5 Smart-grid (power) stability
+U396 U TransLIME (tabular); no abstract in indexes - check stability outcome
+U397 U Interpretable ML for imbalanced credit scoring; no abstract in indexes - check stability outcome
+U398 E2 LIME stability for time-series classifiers
+U399 E1 Review of XAI for water quality
+U400 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U401 E3 Cross-task/cross-model SHAP consistency (not perturbation stability)
+U402 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U403 E2 Histopathology images
+U404 U Explanation stability assessment for federated IDS; no abstract - check
+U405 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U406 U Stable, time-aware explanations for supply-chain forecasts; no abstract - check modality
+U407 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U408 U Framework for measuring explanation drift; no abstract - check
+U409 U Uncertainty decomposition of SHAP values for tree ensembles - check relevance to stability
+U410 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U411 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U412 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U413 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U414 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U415 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U416 U Surrogate-model accuracy/stability with SHAP; no abstract - check what 'stability' refers to
+U417 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U418 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U419 E2 Rumour detection (text)
+U420 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U421 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U422 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U423 E2 Image classification
+U424 E2 MRI images
+U425 E5 Aerodynamic stability
+U426 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U427 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U428 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U429 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U430 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U431 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U432 E2 Prostate MRI explanation stability
+U433 E5 Lime-treated soil (homonym)
+U434 E1 Counterfactual oversampling for imbalance
+U435 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U436 E5 Lime in mineral processing (homonym)
+U437 E5 Lime mud dispersion stability (homonym)
+U438 U Explainability of expert systems compared through similarity; no abstract - check
+U439 E2 Medical imaging XAI metrics
+U440 E5 Lime-modified asphalt (homonym)
+U441 E5 Lime essential oil (homonym)
+U442 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U443 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U444 I Robustness and stability of explanations used to regularise ICU risk models (tabular)
+U445 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U446 E5 Catalyst stability (chemistry)
+U447 E5 Soil remediation stability
+U448 E5 CaO catalyst storage stability
+U449 E3 Counterfactual explainer
+U450 E5 Soil remediation
+U451 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U452 E1 SHAP explanations of autoencoder anomalies; no stability outcome
+U453 I Cross-algorithm SHAP stability audit (composition features; tabular)
+U454 U Uncertainty-aware XAI for sensor metrology; no abstract - check
+U455 E2 Integrated gradients for images
+U456 E2 ECG scan images
+U457 E2 Image recognition XAI uncertainty
+U458 E3 Agreement (consistency index) across interpretation tools
+U459 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U460 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U461 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U462 E2 Text sentiment transformers
+U463 E2 EEG
+U464 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U465 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U466 I Survey of adversarial attacks/defences on explanations incl. SHAP/LIME robustness (review)
+U467 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U468 E2 Skin images
+U469 E2 Image segmentation
+U470 E2 Breast images
+U471 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U472 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U473 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U474 E2 Remote-sensing images
+U475 E2 CT images
+U476 E2 Vision-language models
+U477 E3 Counterfactual explanations
+U478 E3 Counterfactual explanations
+U479 E3 Counterfactual explanations
+U480 E2 Vision attribution stability benchmark

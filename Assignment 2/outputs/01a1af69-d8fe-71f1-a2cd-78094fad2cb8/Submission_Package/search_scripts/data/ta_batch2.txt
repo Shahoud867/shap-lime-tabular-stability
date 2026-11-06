@@ -1,0 +1,120 @@
+U121 I SHAP/LIME stability across seed-retrained Random Forests (tabular IoT IDS)
+U122 E1 Applied malnutrition XAI
+U123 I SHAP ranking stability under distribution-shift variants (Bank Account Fraud; LR/SVC/RF)
+U124 I Consistency of LIME/SHAP/PDP explanations under class imbalance (tabular EHR; XGB/RF/MLP)
+U125 E1 Applied disability model
+U126 I SHAP stability across 100 seed-varied XGBoost models (Taiwan credit default)
+U127 E1 Applied quantum ML with XAI
+U128 E1 Applied pyrolysis model
+U129 E1 Applied genetic-disorder model
+U130 E1 GNN academic-performance model
+U131 E1 Applied counterfactual risk analysis
+U132 E1 Applied energy feature selection
+U133 I HELOC underwriting study; bootstrap explanation stability is one of four components - borderline
+U134 E1 Biomarker feature selection
+U135 E1 Contrastive anomaly detector with attribution mask; no stability outcome
+U136 E1 Feature-selection method
+U137 E1 Applied depression model
+U138 E1 Applied concrete model
+U139 E1 Applied clinical model
+U140 E1 Applied multimodal GNN model
+U141 I AKDE-LIME improves LIME stability (tree ensembles, tabular)
+U142 E1 Applied landslide model
+U143 E1 Applied HIV model
+U144 E1 Applied remote-sensing model
+U145 I Specific-input LIME improves stability of LIME for tabular deep models
+U146 E1 Applied flood model
+U147 E1 Multi-omics ensemble; model (not explanation) robustness
+U148 I Hybrid ensemble to stabilise SHAP interpretations (CV of attributions across folds; tabular)
+U149 E5 Crystal-structure (thermodynamic) stability
+U150 E1 Applied imaging model
+U151 E1 Applied public-health XAI
+U152 E1 Applied IDS model
+U153 E1 Small-data education model; no explanation-stability outcome
+U154 E1 Applied agriculture model
+U155 I Statistical stability indices for LIME (credit risk)
+U156 I SHAP top-k stability under adversarial URL perturbations (LR/XGBoost)
+U157 E1 Accounting decision-optimisation framework
+U158 E1 Applied frailty model
+U159 I Combining weak-learner SHAP explanations to improve Random Forest explanation robustness (preprint)
+U160 E1 Applied P2P anomaly model
+U161 E1 Urban heat-island study
+U162 E3 Gradient-based explanations of Siamese networks
+U163 I TreeSHAP stability under adversarial attacks for RF/XGBoost (preprint)
+U164 E1 Applied HCV model
+U165 E5 G-quadruplex stabilisation chemistry
+U166 E1 Federated fraud model; consistency asserted, not evaluated
+U167 E1 Applied cardiovascular model
+U168 E1 Applied heart-disease model
+U169 E1 Applied remote-sensing model
+U170 E1 Applied radiomics model
+U171 E1
+U172 E5 Smart-grid (power) stability assessment
+U173 E1 Applied inactivity model
+U174 E1 Noise robustness of predictions (KAN vs MLP/XGBoost)
+U175 I Benchmark of explainers for symbolic regression with several explanation measures - check for stability
+U176 I Alternative LIME perturbation distributions improve explanation stability (tabular IDS)
+U177 E1 Applied coagulopathy model
+U178 E5 Marshall stability of asphalt
+U179 E1 Gene-signature study
+U180 E5 G-quadruplex affinity chemistry
+U181 E1 GNN monitoring model
+U182 E1
+U183 I SHAP stability under input perturbation (sigma) in crash-severity models
+U184 E1 SHAP-guided traffic ensemble
+U185 E1 Systematic review of XAI in auditing (not stability)
+U186 E1 Applied substance-use model
+U187 E2 Medical image classification
+U188 E3 Cross-method consensus of global rankings (time-series regression)
+U189 E1 Ensemble benchmark; explanation analysis secondary
+U190 E1 Applied drug-discovery model
+U191 E1
+U192 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+U193 E1 Federated thyroid model
+U194 E1 Applied thyroid model
+U195 I Epistemic uncertainty as a proxy for explanation stability (four tabular datasets; preprint)
+U196 E1 SHAP-based feature selection robustness
+U197 E1
+U198 E1 Applied landslide model
+U199 E1 Applied hotel-booking model
+U200 E1 Applied ultrasound model
+U201 E1 Applied traffic model
+U202 E1 Agentic-AI governance
+U203 E1 Applied EMS forecasting
+U204 E1
+U205 E2
+U206 E1 Applied groundwater model
+U207 E1 EEG emotion recognition
+U208 E1 Cross-dataset malware generalisation
+U209 E1 Applied concrete model
+U210 I Trustworthiness framework with an explanation-stability dimension (METABRIC) - borderline
+U211 E1 Applied heart-disease model
+U212 E3 SHAP-LIME disagreement (agreement focus)
+U213 E1 Applied breast-cancer model
+U214 E1 Applied clinical model
+U215 E1 Applied cementitious model
+U216 E1 Applied ozone model
+U217 E3
+U218 E3 Gradient attributions of DNNs via adversarial training
+U219 E1
+U220 E1 Flood forecasting with rules
+U221 I SHAP stability under post-training quantisation (LR/RF/XGBoost; IEEE-CIS fraud)
+U222 E1 Applied IoT IDS
+U223 E4 Conference abstract
+U224 I LIME interpretation stability under class imbalance (Random Forest, tabular)
+U225 E1 Crash-risk simulation
+U226 I SHAP ranking stability under imbalance, correlation and dimensionality (XGBoost/LightGBM)
+U227 E1 GNN-ML drug model
+U228 E3 GNN explainer
+U229 E1 Applied EMR model
+U230 E1 Predictive-maintenance ensemble
+U231 E1 Applied stroke model
+U232 E1 Multimodal Parkinson model
+U233 I SHAP explanation stability across fraud domains (LR/RF/GB)
+U234 E1 Plasma CO2 model
+U235 E1
+U236 I XAI reliability audit incl. SHAP retraining stability (IDS)
+U237 E1 Applied HPFRC model
+U238 E1 Applied network-defence ensemble
+U239 E5 Slope stability
+U240 E1 Price-index forecasting

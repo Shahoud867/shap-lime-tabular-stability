@@ -1,0 +1,21 @@
+{
+  "advanced": 45,
+  "new_outcomes": {
+    "Not retrieved": 37,
+    "Include": 5,
+    "Exclude": 3
+  },
+  "new_ids": {
+    "N240": "S80",
+    "N421": "S81",
+    "N594": "S82",
+    "N687": "S83",
+    "U302": "S84"
+  },
+  "user_confirmed_independent_screening": "2026-11-07",
+  "human_sample_n": 197,
+  "agreement_n": 171,
+  "disagreement_n": 26,
+  "observed_agreement": 0.868020304568528,
+  "kappa": 0.7264181177224657
+}

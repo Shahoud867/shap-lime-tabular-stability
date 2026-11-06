@@ -1,0 +1,365 @@
+{
+ "log": [
+  {
+   "db": "IEEE Xplore (REST search, web interface)",
+   "string": "(\"All Metadata\":SHAP OR \"All Metadata\":\"Shapley additive\" OR \"All Metadata\":\"Shapley values\" OR \"All Metadata\":TreeSHAP OR \"All Metadata\":KernelSHAP OR \"All Metadata\":LIME OR \"All Metadata\":\"local interpretable model-agnostic\" OR \"All Metadata\":\"feature attribution*\" OR \"All Metadata\":\"post-hoc explanation*\" OR \"All Metadata\":\"local explanation*\") AND (\"All Metadata\":\"explanation stability\" OR \"All Metadata\":\"stability of explanations\" OR \"All Metadata\":\"stability of model explanations\" OR \"All Metadata\":\"stability of LIME\" OR \"All Metadata\":\"LIME stability\" OR \"All Metadata\":\"stability of SHAP\" OR \"All Metadata\":\"SHAP stability\" OR \"All Metadata\":\"attribution stability\" OR \"All Metadata\":\"explanation instability\" OR \"All Metadata\":\"unstable explanations\" OR \"All Metadata\":\"stable explanations\" OR \"All Metadata\":\"explanation robustness\" OR \"All Metadata\":\"robustness of explanations\" OR \"All Metadata\":\"robust explanations\" OR \"All Metadata\":\"robustness of interpretability\" OR \"All Metadata\":\"attribution robustness\" OR \"All Metadata\":\"explanation consistency\" OR \"All Metadata\":\"explanation fragility\" OR \"All Metadata\":\"stability indices\") AND (\"All Metadata\":tabular OR \"All Metadata\":\"structured data\" OR \"All Metadata\":\"tree ensemble*\" OR \"All Metadata\":\"tree-based\" OR \"All Metadata\":\"random forest*\" OR \"All Metadata\":XGBoost OR \"All Metadata\":\"gradient boosting\" OR \"All Metadata\":LightGBM OR \"All Metadata\":\"logistic regression\" OR \"All Metadata\":\"credit scoring\" OR \"All Metadata\":\"credit risk\" OR \"All Metadata\":fraud)",
+   "fields": "All Metadata",
+   "filters": "Publication year 2016-2026",
+   "results": 48,
+   "kept": 48,
+   "notes": "Final string after piloting (see Refinement_Log). Trailing * used for truncation.",
+   "n": 1,
+   "date": "2026-10-24"
+  },
+  {
+   "db": "ScienceDirect (web search) SD1",
+   "string": "Find articles with these terms: (SHAP OR \"Shapley additive\" OR \"Shapley values\" OR LIME OR \"local interpretable model-agnostic\" OR \"feature attribution\" OR \"post-hoc explanation\" OR \"local explanation\" OR \"post hoc explanation\")  |  Title, abstract or author-specified keywords: ({explanation stability} OR {stability of explanations} OR {stability of model explanations} OR {stability of LIME} OR {LIME stability} OR {stability of SHAP} OR {SHAP stability})",
+   "fields": "qs: full record; tak: title-abstract-keywords",
+   "filters": "Years 2016-2026",
+   "results": 59,
+   "kept": 59,
+   "notes": "Braces force exact phrases. ScienceDirect allows at most 8 Boolean connectors per field, so the stability concept was split across SD1-SD3.",
+   "n": 2,
+   "date": "2026-10-24"
+  },
+  {
+   "db": "ScienceDirect (web search) SD2",
+   "string": "Find articles with these terms: (SHAP OR \"Shapley additive\" OR \"Shapley values\" OR LIME OR \"local interpretable model-agnostic\" OR \"feature attribution\" OR \"post-hoc explanation\" OR \"local explanation\" OR \"post hoc explanation\")  |  Title, abstract or author-specified keywords: ({attribution stability} OR {explanation instability} OR {unstable explanations} OR {stable explanations} OR {explanation robustness} OR {robustness of explanations})",
+   "fields": "qs: full record; tak: title-abstract-keywords",
+   "filters": "Years 2016-2026",
+   "results": 37,
+   "kept": 37,
+   "notes": "Second part of the stability concept.",
+   "n": 3,
+   "date": "2026-10-24"
+  },
+  {
+   "db": "ScienceDirect (web search) SD3",
+   "string": "Find articles with these terms: (SHAP OR \"Shapley additive\" OR \"Shapley values\" OR LIME OR \"local interpretable model-agnostic\" OR \"feature attribution\" OR \"post-hoc explanation\" OR \"local explanation\" OR \"post hoc explanation\")  |  Title, abstract or author-specified keywords: ({robust explanations} OR {robustness of interpretability} OR {attribution robustness} OR {explanation consistency} OR {explanation fragility} OR {stability indices})",
+   "fields": "qs: full record; tak: title-abstract-keywords",
+   "filters": "Years 2016-2026",
+   "results": 0,
+   "kept": 0,
+   "notes": "Third part of the stability concept; no records.",
+   "n": 4,
+   "date": "2026-10-24"
+  },
+  {
+   "db": "arXiv (export API)",
+   "string": "(abs:SHAP OR abs:\"Shapley additive\" OR abs:\"Shapley values\" OR abs:TreeSHAP OR abs:KernelSHAP OR abs:LIME OR abs:\"local interpretable model-agnostic\" OR abs:\"feature attribution\" OR abs:\"post-hoc explanation\" OR abs:\"local explanation\") AND (abs:\"explanation stability\" OR abs:\"stability of explanations\" OR abs:\"stability of model explanations\" OR abs:\"stability of LIME\" OR abs:\"LIME stability\" OR abs:\"stability of SHAP\" OR abs:\"SHAP stability\" OR abs:\"attribution stability\" OR abs:\"explanation instability\" OR abs:\"unstable explanations\" OR abs:\"stable explanations\" OR abs:\"explanation robustness\" OR abs:\"robustness of explanations\" OR abs:\"robust explanations\" OR abs:\"robustness of interpretability\" OR abs:\"attribution robustness\" OR abs:\"explanation consistency\" OR abs:\"explanation fragility\" OR abs:\"stability indices\") AND (abs:tabular OR abs:\"structured data\" OR abs:\"tree ensemble\" OR abs:\"tree-based\" OR abs:\"random forest\" OR abs:XGBoost OR abs:\"gradient boosting\" OR abs:LightGBM OR abs:\"logistic regression\" OR abs:\"credit scoring\" OR abs:\"credit risk\" OR abs:fraud) AND submittedDate:[201601010000 TO 202612312359]",
+   "fields": "abs (abstract)",
+   "filters": "submittedDate 2016-01-01 to 2026-12-31",
+   "results": 29,
+   "kept": 29,
+   "notes": "arXiv does not support truncation, so * was removed.",
+   "n": 5,
+   "date": "2026-10-24"
+  },
+  {
+   "db": "Semantic Scholar (Graph API, bulk search)",
+   "string": "(SHAP | \"Shapley additive\" | \"Shapley values\" | TreeSHAP | KernelSHAP | LIME | \"local interpretable model-agnostic\" | \"feature attribution\" | \"post-hoc explanation\" | \"local explanation\") + (\"explanation stability\" | \"stability of explanations\" | \"stability of model explanations\" | \"stability of LIME\" | \"LIME stability\" | \"stability of SHAP\" | \"SHAP stability\" | \"attribution stability\" | \"explanation instability\" | \"unstable explanations\" | \"stable explanations\" | \"explanation robustness\" | \"robustness of explanations\" | \"robust explanations\" | \"robustness of interpretability\" | \"attribution robustness\" | \"explanation consistency\" | \"explanation fragility\" | \"stability indices\") + (tabular | \"structured data\" | \"tree ensemble\" | \"tree-based\" | \"random forest\" | XGBoost | \"gradient boosting\" | LightGBM | \"logistic regression\" | \"credit scoring\" | \"credit risk\" | fraud)",
+   "fields": "Title and abstract (API default)",
+   "filters": "year 2016-2026",
+   "results": 364,
+   "kept": 364,
+   "notes": "Multidisciplinary source used in place of OpenAlex after the OpenAlex daily API budget ran out during piloting. | = OR, + = AND.",
+   "n": 6,
+   "date": "2026-10-24"
+  },
+  {
+   "db": "DBLP (web search)",
+   "string": "stability$|stable$|unstable$|instability$|stabilized$|stabilizing$|stabilised$|fragility$|fragile$ shap$|lime$|shapley$|explanation$|explanations$|attribution$|attributions$",
+   "fields": "Title (DBLP indexes titles only)",
+   "filters": "Year 2016-2026 applied after export",
+   "results": 174,
+   "kept": 157,
+   "notes": "$ = exact word, | = OR, space = AND. 17 records before 2016 removed.",
+   "n": 7,
+   "date": "2026-10-24"
+  },
+  {
+   "db": "Citation searching (Semantic Scholar citation graph)",
+   "string": "Backward (references) and forward (citations) of 7 seed studies: Ballegeer 2025, Agarwal 2022, Visani 2022, Zhou 2021, Tzionis 2026, Rajhans 2026, Pala 2024",
+   "fields": "Reference and citation lists",
+   "filters": "Year 2016-2026; title must contain a stability term AND an explanation term; not already identified",
+   "results": 723,
+   "kept": 70,
+   "notes": "Reported in the PRISMA \"other methods\" column.",
+   "n": 8,
+   "date": "2026-10-24"
+  },
+  {
+   "db": "ACM Digital Library",
+   "string": "Prepared (see acm_q.txt in search_scripts) but not executed",
+   "fields": "Title, Abstract, Keyword",
+   "filters": "-",
+   "results": "Not run",
+   "kept": 0,
+   "notes": "The site showed a Cloudflare bot check; it was not bypassed. ACM conference papers are partly covered through DBLP and Semantic Scholar.",
+   "n": 9,
+   "date": "2026-10-24"
+  },
+  {
+   "db": "SpringerLink",
+   "string": "Prepared (see springer_q.txt) but not used",
+   "fields": "-",
+   "filters": "-",
+   "results": "Not run",
+   "kept": 0,
+   "notes": "No title/abstract field restriction (searches full text), so results could not be made comparable.",
+   "n": 10,
+   "date": "2026-10-24"
+  }
+ ],
+ "refine": [
+  {
+   "src": "OpenAlex",
+   "variant": "SHAP/LIME terms AND stability phrases AND perturbation terms AND tabular terms (V1)",
+   "results": 40,
+   "known": "2",
+   "decision": "Too narrow: the perturbation concept removed most benchmark papers.",
+   "step": 1
+  },
+  {
+   "src": "OpenAlex",
+   "variant": "SHAP/LIME terms AND single-word stability terms AND perturbation terms AND tabular terms (V2)",
+   "results": 892,
+   "known": "3",
+   "decision": "Single words such as stable/robust add noise; recall still low.",
+   "step": 2
+  },
+  {
+   "src": "OpenAlex",
+   "variant": "SHAP/LIME terms AND single-word stability terms AND tabular terms, no perturbation concept (V5)",
+   "results": 3589,
+   "known": "5",
+   "decision": "Too broad to screen: stability words often describe model performance, not explanations.",
+   "step": 3
+  },
+  {
+   "src": "OpenAlex",
+   "variant": "Stability words in title AND (SHAP/LIME terms AND tabular terms) in title/abstract (V6)",
+   "results": 1177,
+   "known": "6",
+   "decision": "Better recall (the only variant that found Hwang et al. 2025) but still broad; the free OpenAlex API budget then ran out, so OpenAlex was used for piloting only.",
+   "step": 4
+  },
+  {
+   "src": "Semantic Scholar",
+   "variant": "SHAP/LIME terms + 19 stability phrases + perturbation terms + tabular terms (T2)",
+   "results": 49,
+   "known": "3",
+   "decision": "Dropped the perturbation concept: it lost benchmark papers.",
+   "step": 5
+  },
+  {
+   "src": "Semantic Scholar",
+   "variant": "SHAP/LIME terms + 19 stability phrases + tabular terms (T1)",
+   "results": 364,
+   "known": "6",
+   "decision": "Adopted. The phrase-level stability concept was then used in every database.",
+   "step": 6
+  },
+  {
+   "src": "ScienceDirect",
+   "variant": "Stability phrases in double quotes",
+   "results": "257-344",
+   "known": "-",
+   "decision": "ScienceDirect matched quoted phrases loosely; switched to braces for exact phrases and split into SD1-SD3 because of the 8-connector limit.",
+   "step": 7
+  },
+  {
+   "src": "DBLP",
+   "variant": "Prefix matching on shap/lime",
+   "results": "-",
+   "known": "-",
+   "decision": "Prefix matching added noise (e.g., \"shap\" matched \"shape\"); switched to exact words with $.",
+   "step": 8
+  }
+ ],
+ "val_cols": [
+  "IEEE Xplore",
+  "ScienceDirect",
+  "arXiv",
+  "Semantic Scholar",
+  "DBLP"
+ ],
+ "validation": [
+  [
+   "Ballegeer2025",
+   "evaluating the stability of model explanations in instance-dependent cost-sensitive credit scoring",
+   "No",
+   "Yes",
+   "Yes",
+   "Yes",
+   "Yes",
+   "Yes",
+   "No"
+  ],
+  [
+   "Visani2022",
+   "statistical stability indices for lime",
+   "No",
+   "No",
+   "Yes",
+   "Yes",
+   "Yes",
+   "Yes",
+   "No"
+  ],
+  [
+   "AlvarezMelis2018",
+   "on the robustness of interpretability methods",
+   "No",
+   "No",
+   "No",
+   "No",
+   "No",
+   "No",
+   "Yes"
+  ],
+  [
+   "Agarwal2022",
+   "rethinking stability for attribution-based explanations",
+   "No",
+   "No",
+   "No",
+   "No",
+   "Yes",
+   "Yes",
+   "No"
+  ],
+  [
+   "Zhou2021",
+   "s-lime",
+   "No",
+   "No",
+   "No",
+   "No",
+   "Yes",
+   "Yes",
+   "No"
+  ],
+  [
+   "Tzionis2026",
+   "improving lime stability via density",
+   "No",
+   "No",
+   "No",
+   "Yes",
+   "No",
+   "Yes",
+   "No"
+  ],
+  [
+   "Slack2020",
+   "fooling lime and shap",
+   "No",
+   "No",
+   "No",
+   "No",
+   "No",
+   "No",
+   "Yes"
+  ],
+  [
+   "Hwang2025",
+   "shap-based explanations are sensitive to feature representation",
+   "No",
+   "No",
+   "No",
+   "No",
+   "No",
+   "No",
+   "No"
+  ],
+  [
+   "Lin2023",
+   "on the robustness of removal-based feature attributions",
+   "No",
+   "No",
+   "No",
+   "No",
+   "No",
+   "No",
+   "No"
+  ],
+  [
+   "Rajhans2026",
+   "beyond gradient-based attacks",
+   "No",
+   "No",
+   "Yes",
+   "Yes",
+   "No",
+   "Yes",
+   "No"
+  ],
+  [
+   "Vaduva2026",
+   "measuring the fragility of trust",
+   "No",
+   "No",
+   "Yes",
+   "Yes",
+   "Yes",
+   "Yes",
+   "No"
+  ],
+  [
+   "Pala2024",
+   "combination of weak learners explanations",
+   "No",
+   "No",
+   "Yes",
+   "Yes",
+   "No",
+   "Yes",
+   "No"
+  ],
+  [
+   "Jin2025",
+   "probabilistic stability guarantees for feature attributions",
+   "No",
+   "No",
+   "No",
+   "No",
+   "Yes",
+   "Yes",
+   "No"
+  ],
+  [
+   "Decker2025",
+   "improving perturbation based explanations by understanding the role of uncertainty calibration",
+   "No",
+   "No",
+   "No",
+   "No",
+   "No",
+   "No",
+   "No"
+  ],
+  [
+   "Takefuji2025",
+   "the stability paradox why high prediction accuracy does not guarantee reliable feature importance",
+   "No",
+   "No",
+   "No",
+   "No",
+   "No",
+   "No",
+   "No"
+  ],
+  [
+   "Hasnain2026",
+   "cross method explanation stability under prediction preserving perturbations",
+   "No",
+   "No",
+   "No",
+   "No",
+   "No",
+   "No",
+   "No"
+  ]
+ ]
+}

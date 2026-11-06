@@ -1,0 +1,1655 @@
+[
+ {
+  "uid": "U001",
+  "ta": "I",
+  "title": "Stability and Consistency Analysis of SHAP and LIME Explanations Across Machine Learning Models",
+  "year": 2025,
+  "venue": "2025 5th International Conference on Emerging Research in Electronics, Computer Science and Technology (ICERECT)",
+  "doi": "10.1109/icerect65215.2025.11378102",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Samarth Satish Airani",
+   "Sumana Sinha",
+   "Shreya R Bhat",
+   "Deepthi K"
+  ]
+ },
+ {
+  "uid": "U005",
+  "ta": "U",
+  "title": "Towards More Stable LIME For Explainable AI",
+  "year": 2022,
+  "venue": "2022 International Symposium on Intelligent Signal Processing and Communication Systems (ISPACS)",
+  "doi": "10.1109/ispacs57703.2022.10082810",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Chung Hou Ng",
+   "Hussain Sadiq Abuwala",
+   "Chern Hong Lim"
+  ]
+ },
+ {
+  "uid": "U009",
+  "ta": "I",
+  "title": "Adversarial Robustness and Explainability in Intrusion Detection Systems: Maintaining XAI Integrity Under Adversarial Attacks",
+  "year": 2026,
+  "venue": "2026 International Conference on Air Defense and Security (ICADS)",
+  "doi": "10.1109/icads69450.2026.11545463",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Parthiv Gopa",
+   "T Grace Shalini"
+  ]
+ },
+ {
+  "uid": "U012",
+  "ta": "I",
+  "title": "Auditable Credit Scoring: Explainable Models with Stable Rationales on Tabular Data",
+  "year": 2026,
+  "venue": "2026 International Conference on AI-Driven Smart Systems and Ubiquitous Computing (ICAUC)",
+  "doi": "10.1109/icauc68182.2026.11441016",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Vinutna",
+   "Ashly Ann Jo",
+   "Ebin Deni Raj"
+  ]
+ },
+ {
+  "uid": "U017",
+  "ta": "I",
+  "title": "Towards Quality Measures for xAI algorithms: Explanation Stability",
+  "year": 2023,
+  "venue": "2023 IEEE 10th International Conference on Data Science and Advanced Analytics (DSAA)",
+  "doi": "10.1109/dsaa60987.2023.10302535",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.5281/zenodo.11192435",
+  "authors": [
+   "Marek Pawlicki"
+  ]
+ },
+ {
+  "uid": "U019",
+  "ta": "I",
+  "title": "Can We Explain What We Anonymize? On the Impact of Data Anonymization on Post-hoc Model Explanations",
+  "year": 2026,
+  "venue": "2026 IEEE European Symposium on Security and Privacy Workshops (EuroS&PW)",
+  "doi": "10.1109/eurospw72509.2026.00010",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Casper Lauge Nørup Koch",
+   "Mina Alishahi",
+   "Gaurav Choudhary"
+  ]
+ },
+ {
+  "uid": "U025",
+  "ta": "U",
+  "title": "Validity of Feature Importance in Low-Performing Machine Learning for Tabular Biomedical Data",
+  "year": 2025,
+  "venue": "IEEE Access",
+  "doi": "10.1109/access.2025.3618851",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Youngro Lee",
+   "Giacomo Baruzzo",
+   "Jeonghwan Kim",
+   "Jongmo Seo",
+   "Barbara Di Camillo"
+  ]
+ },
+ {
+  "uid": "U028",
+  "ta": "U",
+  "title": "Explainable Inverse NaïVe Bayes (EINB): A Fast and Trustworthy Approach to Explainability Based on Inverse Probability Inference",
+  "year": 2025,
+  "venue": "2025 IEEE/WIC International Conference on Web Intelligence and Intelligent Agent Technology (WI-IAT)",
+  "doi": "10.1109/wi-iat67162.2025.00094",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Takafumi Nakanishi"
+  ]
+ },
+ {
+  "uid": "U029",
+  "ta": "I",
+  "title": "Quantifying the Consistency of Explainable Cardiovascular Screening through Multi Metric Stability Auditing of Population Scale Models",
+  "year": 2026,
+  "venue": "2026 1st International Conference on Innovation & Growth in Next-Gen Intelligent Technology & Engineering (IGNITE)",
+  "doi": "10.1109/ignite69592.2026.11706565",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Arokia Nerling Rasoni G",
+   "R. Hariharan"
+  ]
+ },
+ {
+  "uid": "U030",
+  "ta": "I",
+  "title": "Interpretability vs Accuracy: Stability Using SHAP Explanations Under Noisy Training Data",
+  "year": 2026,
+  "venue": "2026 1st International Conference on AI, Data Science, Cyber Security and Smart Manufacturing for Sustainable Development (ICADCS)",
+  "doi": "10.1109/icadcs70036.2026.11583120",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Anurag Yadav",
+   "Gaurav Bathla",
+   "Vikas Wasoon"
+  ]
+ },
+ {
+  "uid": "U031",
+  "ta": "I",
+  "title": "Explanation Consistency as a Trust Signal in Human–AI Teaming",
+  "year": 2026,
+  "venue": "2026 IEEE International Conference on Omni Layer Intelligent Systems (COINS)",
+  "doi": "10.1109/coins69995.2026.11715606",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Christopher G. Harris"
+  ]
+ },
+ {
+  "uid": "U032",
+  "ta": "I",
+  "title": "The Rigidity Paradox: Decoupled Drift and Attribution in Cross-Domain Clinical ML Monitoring",
+  "year": 2026,
+  "venue": "2026 6th International Conference on Emerging Smart Technologies and Applications (eSmarTA)",
+  "doi": "10.1109/esmarta70636.2026.11652360",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Abdulbari M. A. Alameer",
+   "Nityananda Sarma"
+  ]
+ },
+ {
+  "uid": "U041",
+  "ta": "I",
+  "title": "Critical Analysis of Explainable AI Deficiencies and Proposal for a Causal and Adaptive Grounded Framework",
+  "year": 2026,
+  "venue": "2026 International Conference on Next Generation Electronics (NELEX)",
+  "doi": "10.1109/nelex69209.2026.11590055",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Tanuj Surendra Ghag",
+   "Vinod K. Pachghare",
+   "Charulata J. Patil"
+  ]
+ },
+ {
+  "uid": "U042",
+  "ta": "U",
+  "title": "Bayesian-AIME: Quantifying Uncertainty and Enhancing Stability in Approximate Inverse Model Explanations",
+  "year": 2025,
+  "venue": "IEEE Access",
+  "doi": "10.1109/access.2025.3617984",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.1109/access.2025.3617984",
+  "authors": [
+   "Takafumi Nakanishi"
+  ]
+ },
+ {
+  "uid": "U045",
+  "ta": "U",
+  "title": "A Multi-World Synthetic Benchmark for Evaluating RSCE in Clinical Machine Learning",
+  "year": 2026,
+  "venue": "IEEE Access",
+  "doi": "10.1109/access.2026.3666756",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Nattakitti Piyavechvirat",
+   "Yi-Jheng Huang",
+   "Qazi Mazhar Ul Haq"
+  ]
+ },
+ {
+  "uid": "U053",
+  "ta": "U",
+  "title": "MeLIME: Meaningful Local Explanation for Machine Learning Models",
+  "year": 2020,
+  "venue": "arXiv.org",
+  "doi": null,
+  "arxiv": "2009.05818",
+  "oa_pdf": "https://arxiv.org/pdf/2009.05818",
+  "authors": [
+   "T. Botari",
+   "Frederik Hvilshoj",
+   "Rafael Izbicki",
+   "André C. P. L. F. de Carvalho"
+  ]
+ },
+ {
+  "uid": "U055",
+  "ta": "U",
+  "title": "GMM‐LIME explainable machine learning model for interpreting sensor‐based human gait",
+  "year": 2024,
+  "venue": "Engineering Reports",
+  "doi": "10.1002/eng2.12864",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.1002/eng2.12864",
+  "authors": [
+   "M. Mulwa",
+   "R. Mwangi",
+   "A. Mindila"
+  ]
+ },
+ {
+  "uid": "U077",
+  "ta": "I",
+  "title": "Stabilising Explainability Fragility in Cybersecurity AI: The Impact and Mitigation of Multicollinearity in Public Benchmark Datasets",
+  "year": 2026,
+  "venue": "arXiv.org",
+  "doi": "10.48550/arxiv.2605.22529",
+  "arxiv": "2605.22529",
+  "oa_pdf": "https://arxiv.org/pdf/2605.22529",
+  "authors": [
+   "Ioannis Vourganas",
+   "A. Michala"
+  ]
+ },
+ {
+  "uid": "U081",
+  "ta": "I",
+  "title": "Cost‐sensitive tree SHAP for explaining cost‐sensitive tree‐based models",
+  "year": 2024,
+  "venue": "International Conference on Climate Informatics",
+  "doi": "10.1111/coin.12651",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Marija Kopanja",
+   "Stefan Hacko",
+   "Sanja Brdar",
+   "Miloš Savić"
+  ]
+ },
+ {
+  "uid": "U098",
+  "ta": "U",
+  "title": "From association to causation: Integrating stable, subgroup-aware SHAP explanations with causal inference for trustworthy AI in coronary bifurcation PCI",
+  "year": 2026,
+  "venue": "ARYA Atherosclerosis",
+  "doi": "10.48305/arya.2025.45815.3117",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Alireza Khosravi Farsani",
+   "Iman Zand",
+   "E. Shirvani",
+   "Bashir Najafabdian",
+   "M. Behjati"
+  ]
+ },
+ {
+  "uid": "U105",
+  "ta": "I",
+  "title": "Measuring the Fragility of Trust: Devising Credibility Index via Explanation Stability (CIES) for Business Decision Support Systems",
+  "year": 2026,
+  "venue": "CoRR",
+  "doi": "10.48550/arxiv.2603.05024",
+  "arxiv": "2603.05024",
+  "oa_pdf": "https://arxiv.org/pdf/2603.05024",
+  "authors": [
+   "A. Văduva",
+   "S. Oprea",
+   "A. Bâra"
+  ]
+ },
+ {
+  "uid": "U121",
+  "ta": "I",
+  "title": "Explanation Stability in IoT Intrusion Detection: A Comparative Study of SHAP and LIME Across Retrained Random Forest Models",
+  "year": 2026,
+  "venue": "Proceedings of the 2026 8th Joint Workshop on CPS&amp;IoT Security and Privacy",
+  "doi": "10.1145/3847353.3847506",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.1145/3847353.3847506",
+  "authors": [
+   "Joanne Safin Abdullah",
+   "Rana Alharbi",
+   "Chuadhry Mujeeb Ahmed",
+   "Tejal Shah",
+   "Rajiv Ranjan"
+  ]
+ },
+ {
+  "uid": "U123",
+  "ta": "I",
+  "title": "The Explainability–Reliability Gap in Fraud Detection: Evidence from SHAP and Permutation Importance Under Distribution Shift",
+  "year": 2026,
+  "venue": "FinTech",
+  "doi": "10.3390/fintech5030077",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.3390/fintech5030077",
+  "authors": [
+   "Istiaque Bhuiyan",
+   "Rahmad Mirza",
+   "A. Hoque",
+   "Tanvir Bhuiyan"
+  ]
+ },
+ {
+  "uid": "U124",
+  "ta": "I",
+  "title": "Evaluating XAI techniques under class imbalance using CPRD data",
+  "year": 2025,
+  "venue": "Frontiers Artif. Intell.",
+  "doi": "10.3389/frai.2025.1682919",
+  "arxiv": null,
+  "oa_pdf": "https://public-pages-files-2025.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2025.1682919/pdf",
+  "authors": [
+   "Teena Rai",
+   "Jun He",
+   "Jaspreet Kaur",
+   "Yuan Shen",
+   "Mufti Mahmud",
+   "David J. Brown",
+   "E. O'Dowd",
+   "David R. Baldwin"
+  ]
+ },
+ {
+  "uid": "U126",
+  "ta": "I",
+  "title": "SHAP Stability in Credit Risk Management: A Case Study in Credit Card Default Model",
+  "year": 2025,
+  "venue": "Risks",
+  "doi": "10.3390/risks13120238",
+  "arxiv": "2508.01851",
+  "oa_pdf": "https://www.mdpi.com/2227-9091/13/12/238/pdf?version=1764774059",
+  "authors": [
+   "Lu-Yun Lin",
+   "Yi-Qing Wang"
+  ]
+ },
+ {
+  "uid": "U133",
+  "ta": "U",
+  "title": "Explainable Credit Underwriting on FICO HELOC: A Framework for Counterfactual Recourse under Profit, Fairness, and Stability Constraints",
+  "year": 2026,
+  "venue": "Artificial Intelligence and Machine Learning Review",
+  "doi": "10.69987/aimlr.2026.70107",
+  "arxiv": null,
+  "oa_pdf": "https://scipublication.com/index.php/AIMLR/article/download/331/300",
+  "authors": [
+   "An-Nie Zhao"
+  ]
+ },
+ {
+  "uid": "U141",
+  "ta": "I",
+  "title": "Improving LIME Stability via Density-Awareness: Evaluation and Comparison of AKDE-LIME",
+  "year": 2026,
+  "venue": "Applied Artificial Intelligence",
+  "doi": "10.1080/08839514.2026.2640686",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.1080/08839514.2026.2640686",
+  "authors": [
+   "Grigorios Tzionis",
+   "Georgia Kougka",
+   "Ilias Gialampoukidis",
+   "S. Vrochidis",
+   "I. Kompatsiaris",
+   "M. Vlachopoulou"
+  ]
+ },
+ {
+  "uid": "U145",
+  "ta": "I",
+  "title": "Specific-Input LIME Explanations for Tabular Data Based on Deep Learning Models",
+  "year": 2023,
+  "venue": "Applied Sciences",
+  "doi": "10.3390/app13158782",
+  "arxiv": null,
+  "oa_pdf": "https://www.mdpi.com/2076-3417/13/15/8782/pdf?version=1690628056",
+  "authors": [
+   "Junkang An",
+   "Yiwan Zhang",
+   "Inwhee Joe"
+  ]
+ },
+ {
+  "uid": "U148",
+  "ta": "I",
+  "title": "Developing a Hybrid Model to Enhance the Robustness of Interpretability for Landslide Susceptibility Assessment",
+  "year": 2025,
+  "venue": "ISPRS Int. J. Geo Inf.",
+  "doi": "10.3390/ijgi14070277",
+  "arxiv": null,
+  "oa_pdf": "https://www.mdpi.com/2220-9964/14/7/277/pdf?version=1752669929",
+  "authors": [
+   "Xiao-lin Yan",
+   "Dongshui Zhang",
+   "Yongshun Han",
+   "Tongsheng Li",
+   "Pin Zhong",
+   "Zhe Ning",
+   "Shirou Tan"
+  ]
+ },
+ {
+  "uid": "U155",
+  "ta": "I",
+  "title": "Statistical stability indices for LIME: Obtaining reliable explanations for machine learning models",
+  "year": 2020,
+  "venue": "Journal of the Operational Research Society",
+  "doi": "10.1080/01605682.2020.1865846",
+  "arxiv": "2001.11757",
+  "oa_pdf": "https://arxiv.org/pdf/2001.11757",
+  "authors": [
+   "G. Visani",
+   "Enrico Bagli",
+   "F. Chesani",
+   "A. Poluzzi",
+   "D. Capuzzo"
+  ]
+ },
+ {
+  "uid": "U156",
+  "ta": "I",
+  "title": "An integrated evaluation protocol for adversarial robustness, generalization, and explanation stability in URL-based phishing detection",
+  "year": 2026,
+  "venue": "Frontiers of Computer Science",
+  "doi": "10.3389/fcomp.2026.1834407",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.3389/fcomp.2026.1834407",
+  "authors": [
+   "Tanvir Ahamed",
+   "Shawon Chakrabarty Kakon",
+   "Fahmid Al Farid",
+   "J. Uddin",
+   "Hezerul Bin Abdul Karim"
+  ]
+ },
+ {
+  "uid": "U159",
+  "ta": "I",
+  "title": "Combination of Weak Learners eXplanations to Improve Random Forest eXplicability Robustness",
+  "year": 2024,
+  "venue": "arXiv.org",
+  "doi": "10.48550/arxiv.2402.19025",
+  "arxiv": "2402.19025",
+  "oa_pdf": "https://arxiv.org/pdf/2402.19025",
+  "authors": [
+   "Riccardo Pala",
+   "Esteban Garc'ia-Cuesta"
+  ]
+ },
+ {
+  "uid": "U163",
+  "ta": "I",
+  "title": "Beyond Gradient-Based Attacks: Adversarial Robustness and Explainability Stability in Cybersecurity Classifiers",
+  "year": 2026,
+  "venue": "arXiv.org",
+  "doi": "10.48550/arxiv.2607.01679",
+  "arxiv": "2607.01679",
+  "oa_pdf": "https://arxiv.org/pdf/2607.01679",
+  "authors": [
+   "Mona Rajhans",
+   "Vishal Khawarey"
+  ]
+ },
+ {
+  "uid": "U175",
+  "ta": "U",
+  "title": "Interpretability in symbolic regression: a benchmark of explanatory methods using the Feynman data set",
+  "year": 2022,
+  "venue": "Genetic Programming and Evolvable Machines",
+  "doi": "10.1007/s10710-022-09435-x",
+  "arxiv": "2404.05908",
+  "oa_pdf": "https://arxiv.org/pdf/2404.05908",
+  "authors": [
+   "Guilherme Seidyo Imai Aldeia",
+   "F. D. de França"
+  ]
+ },
+ {
+  "uid": "U176",
+  "ta": "I",
+  "title": "Comparative Analysis of Perturbation Techniques in LIME for Intrusion Detection Enhancement",
+  "year": 2025,
+  "venue": "Machine Learning and Knowledge Extraction",
+  "doi": "10.3390/make7010021",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.3390/make7010021",
+  "authors": [
+   "Mantas Bacevicius",
+   "Agnė Paulauskaitė-Tarasevičienė",
+   "Gintare Zokaityte",
+   "Lukas Kersys",
+   "Agne Moleikaityte"
+  ]
+ },
+ {
+  "uid": "U183",
+  "ta": "I",
+  "title": "Calibrated and Explainable Gradient Boosting for Road Traffic Crash Severity Prediction: SHAP Audit and Cross-Jurisdiction Transfer Evaluation",
+  "year": 2026,
+  "venue": "Applied Sciences",
+  "doi": "10.3390/app16125876",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.3390/app16125876",
+  "authors": [
+   "M. Alhawarat",
+   "Ahmad A. A. Alkhatib",
+   "Qasem Nijem"
+  ]
+ },
+ {
+  "uid": "U195",
+  "ta": "I",
+  "title": "Uncertainty Gating for Cost-Aware Explainable Artificial Intelligence",
+  "year": 2026,
+  "venue": "arXiv.org",
+  "doi": "10.48550/arxiv.2603.29915",
+  "arxiv": "2603.29915",
+  "oa_pdf": "https://arxiv.org/pdf/2603.29915",
+  "authors": [
+   "G. Mikriukov",
+   "Grégoire Montavon",
+   "M. Höhne"
+  ]
+ },
+ {
+  "uid": "U210",
+  "ta": "U",
+  "title": "A multidimensional trustworthiness evaluation framework for AI-enabled clinical decision support: a HER2 breast cancer case study",
+  "year": 2026,
+  "venue": "Future Business Journal",
+  "doi": "10.1186/s43093-026-01017-y",
+  "arxiv": null,
+  "oa_pdf": "https://link.springer.com/content/pdf/10.1186/s43093-026-01017-y.pdf",
+  "authors": [
+   "Hoda Waguih"
+  ]
+ },
+ {
+  "uid": "U221",
+  "ta": "I",
+  "title": "An Empirical Evaluation of Explainability Drift Under Post-Training Quantization of Machine Learning Models",
+  "year": 2026,
+  "venue": "Cureus Journal of Computer Science",
+  "doi": "10.7759/s44389-026-00100-3",
+  "arxiv": null,
+  "oa_pdf": "https://assets.cureusjournals.com/artifacts/upload/original_article/pdf/15921/CureusJournals_1592120260605-426190-a8foaz.pdf",
+  "authors": [
+   "Mahendra",
+   "Aparna Khare"
+  ]
+ },
+ {
+  "uid": "U224",
+  "ta": "I",
+  "title": "The Effect of Data Imbalance on the Interpretation Stability of LIME-Based Explainable AI on Nutritional Status Prediction Models",
+  "year": 2026,
+  "venue": "Indonesian Journal of Infomatics",
+  "doi": "10.66472/iji.v1i2.438",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "S. Nurhayati",
+   "H. Hidayat",
+   "Siti Ar-rachmi Ningrum",
+   "Z. Hasibuan",
+   "Sri Supatmi"
+  ]
+ },
+ {
+  "uid": "U226",
+  "ta": "I",
+  "title": "Stability of SHAP-Based Feature Importance Ranking under Class Imbalance, Feature Correlation, and Feature Dimensionality",
+  "year": 2026,
+  "venue": "Jurnal Statistika dan Komputasi",
+  "doi": "10.32665/statkom.v5i1.6455",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.32665/statkom.v5i1.6455",
+  "authors": [
+   "Amri Luthfi Najih",
+   "B. Sartono",
+   "S. Rahardiantoro"
+  ]
+ },
+ {
+  "uid": "U233",
+  "ta": "I",
+  "title": "Explainable AI for Institutional Fraud Decisions: A Cross-Sector Empirical Study Using Public Healthcare and Financial Transaction Data",
+  "year": 2026,
+  "venue": "Journal of Computer Science and Technology Studies",
+  "doi": "10.32996/jcsts.2025.8.1.7",
+  "arxiv": null,
+  "oa_pdf": "https://al-kindipublisher.com/index.php/jcsts/article/download/12307/10989",
+  "authors": [
+   "Imran Hossain Rasel",
+   "Md Nurul Huda Razib",
+   "Muhaimin Ul Zadid"
+  ]
+ },
+ {
+  "uid": "U236",
+  "ta": "I",
+  "title": "Reliability auditing of explanations for machine-learning-based intrusion detection systems",
+  "year": 2026,
+  "venue": "Journal of Computer Virology and Hacking Techniques",
+  "doi": "10.1007/s11416-026-00664-7",
+  "arxiv": null,
+  "oa_pdf": "https://link.springer.com/content/pdf/10.1007/s11416-026-00664-7.pdf",
+  "authors": [
+   "Elijah M. Maseno",
+   "Yan-Xia Sun",
+   "Zeng-Hui Wang"
+  ]
+ },
+ {
+  "uid": "U248",
+  "ta": "I",
+  "title": "Interpretable Machine Learning for Football Performance Analysis: Evidence of Limited Transferability from Elite Leagues to University Competition",
+  "year": 2026,
+  "venue": "arXiv.org",
+  "doi": "10.48550/arxiv.2605.10796",
+  "arxiv": "2605.10796",
+  "oa_pdf": "https://arxiv.org/pdf/2605.10796",
+  "authors": [
+   "Yu-Fang Tsai",
+   "Yu-Jen Chen",
+   "Kok-Yang Tan",
+   "Sheng-Chieh Huang",
+   "You-Ying Ji",
+   "Yu-Lun Chen",
+   "Chunyi Wang",
+   "Chien-Ming Hsu"
+  ]
+ },
+ {
+  "uid": "U255",
+  "ta": "U",
+  "title": "Stable local interpretable model-agnostic explanations based on a variational autoencoder",
+  "year": 2023,
+  "venue": "Applied intelligence (Boston)",
+  "doi": "10.1007/s10489-023-04942-5",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Xu-Yu Xiang",
+   "Hong Yu",
+   "Ye Wang",
+   "Guoyin Wang"
+  ]
+ },
+ {
+  "uid": "U258",
+  "ta": "I",
+  "title": "Enhancing Model Explainability with CTGAN-LIME: A Novel Approach for Interpretable Machine Learning",
+  "year": 2024,
+  "venue": "World Congress on Electrical Engineering and Computer Systems and Science",
+  "doi": "10.11159/cist24.158",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Bodrunnessa Badhon",
+   "R. Chakrabortty",
+   "Sreenatha G. Anavatti"
+  ]
+ },
+ {
+  "uid": "U274",
+  "ta": "U",
+  "title": "Explainable Artificial Intelligence for Tabular Data in Healthcare: A Systematic Review of Methods, Evaluation, and Applications",
+  "year": 2026,
+  "venue": "Computers",
+  "doi": "10.3390/computers15080506",
+  "arxiv": null,
+  "oa_pdf": "https://www.mdpi.com/2073-431X/15/8/506/pdf?version=1785984765",
+  "authors": [
+   "Angelower Santana-Velásquez",
+   "M. B. Salazar-Sánchez"
+  ]
+ },
+ {
+  "uid": "U277",
+  "ta": "I",
+  "title": "From Loss Landscapes to Explanation Robustness: Linking Parameter-Space Geometry to the Stability and Utility of Post-Hoc Explanations",
+  "year": 2026,
+  "venue": "ACM Symposium on Applied Computing",
+  "doi": "10.1145/3748522.3780034",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.1145/3748522.3780034",
+  "authors": [
+   "Iván Rivero"
+  ]
+ },
+ {
+  "uid": "U288",
+  "ta": "I",
+  "title": "Reliability-calibrated explainable machine learning for scientific interpretation under spatial, resampling, and predictor-correlation uncertainty",
+  "year": 2026,
+  "venue": "Machine Learning: Science and Technology",
+  "doi": "10.1088/2632-2153/ae8a13",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.1088/2632-2153/ae8a13",
+  "authors": [
+   "C. Ibebuchi"
+  ]
+ },
+ {
+  "uid": "U291",
+  "ta": "I",
+  "title": "Evaluating the stability of model explanations in instance-dependent cost-sensitive credit scoring",
+  "year": 2025,
+  "venue": "European Journal of Operational Research",
+  "doi": "10.1016/j.ejor.2025.05.039",
+  "arxiv": "2509.01409",
+  "oa_pdf": "https://arxiv.org/pdf/2509.01409",
+  "authors": [
+   "Matteo Ballegeer",
+   "Matthias Bogaert",
+   "Dries F. Benoit"
+  ]
+ },
+ {
+  "uid": "U308",
+  "ta": "I",
+  "title": "TOWARD TRANSPARENT AI IN EPIDEMIOLOGY: IMPROVING LIME FOR INFECTIOUS DISEASE APPLICATIONS",
+  "year": 2025,
+  "venue": "Journal of Applied Bioanalysis",
+  "doi": "10.69980/jab.v11si15.3445",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.69980/jab.v11si15.3445",
+  "authors": [
+   "Seema Yadav",
+   "A. Rani"
+  ]
+ },
+ {
+  "uid": "U311",
+  "ta": "I",
+  "title": "Explainable AI for Forensic Analysis: A Comparative Study of SHAP and LIME in Intrusion Detection Models",
+  "year": 2025,
+  "venue": "Applied Sciences",
+  "doi": "10.3390/app15137329",
+  "arxiv": null,
+  "oa_pdf": "https://www.mdpi.com/2076-3417/15/13/7329/pdf?version=1751269850",
+  "authors": [
+   "Pamela Hermosilla",
+   "Sebastián Berríos",
+   "Héctor Allende-Cid"
+  ]
+ },
+ {
+  "uid": "U316",
+  "ta": "U",
+  "title": "X-GATE: Attribution-Aware Distillation and Hardening for Compressed Edge-IIoT Intrusion Detection",
+  "year": 2026,
+  "venue": "Electronics",
+  "doi": "10.3390/electronics15112284",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.3390/electronics15112284",
+  "authors": [
+   "Tran Duc Le",
+   "Yida Bao",
+   "Mohammad Arifuzzaman"
+  ]
+ },
+ {
+  "uid": "U324",
+  "ta": "U",
+  "title": "Explainable Predictive Maintenance is Not Enough: Quantifying Trust in Remaining Useful Life Estimation",
+  "year": 2023,
+  "venue": "Annual Conference of the PHM Society",
+  "doi": "10.36001/phmconf.2023.v15i1.3472",
+  "arxiv": null,
+  "oa_pdf": "https://papers.phmsociety.org/index.php/phmconf/article/download/3472/phmc_23_3472",
+  "authors": [
+   "Ripan Kumar Kundu",
+   "K. A. Hoque"
+  ]
+ },
+ {
+  "uid": "U325",
+  "ta": "U",
+  "title": "Unlocking the Black Box: A Five-Dimensional Framework for Evaluating Explainable AI in Credit Risk",
+  "year": 2025,
+  "venue": "2025 International Conference on Computer Science and Artificial Intelligence Applications (CSAIA)",
+  "doi": "10.1109/csaia65930.2025.11623800",
+  "arxiv": "2511.04980",
+  "oa_pdf": null,
+  "authors": [
+   "Rongbin Ye",
+   "Jiaqi Chen"
+  ]
+ },
+ {
+  "uid": "U326",
+  "ta": "I",
+  "title": "Stable and Faithful Explanations for Knowledge Tracing",
+  "year": 2026,
+  "venue": null,
+  "doi": null,
+  "arxiv": "2609.28502",
+  "oa_pdf": "https://arxiv.org/pdf/2609.28502",
+  "authors": [
+   "Praveena Padi",
+   "Arun Morampudi",
+   "Ujval Irrinki",
+   "Pradeep Kumar Dolabehera Kakitapelli"
+  ]
+ },
+ {
+  "uid": "U327",
+  "ta": "I",
+  "title": "TreeSHAP-Importance-Weighted Feature-Group Fusion for Tabular Regression: Centered Additive Decomposition, Rade-Macher Complexity Control, and Attribution Stability",
+  "year": 2026,
+  "venue": "Mathematics",
+  "doi": "10.3390/math14132419",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.3390/math14132419",
+  "authors": [
+   "Sheng-Yuan Chi",
+   "Yan-Qin Zhao",
+   "Lu Gao",
+   "Xiaojie Zhang",
+   "Juan Zhang"
+  ]
+ },
+ {
+  "uid": "U332",
+  "ta": "I",
+  "title": "Temporal and Behavioural Feature Attribution Analysis for E-commerce Transaction Fraud Detection: A Comparative Study of Explainability Methods",
+  "year": 2024,
+  "venue": "Journal of Global Engineering Review",
+  "doi": "10.66372/jger.v2i2.2",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.66372/jger.v2i2.2",
+  "authors": [
+   "Mu-Yu Liu",
+   "Jiatu Shi",
+   "Pengyuan Xiao"
+  ]
+ },
+ {
+  "uid": "U334",
+  "ta": "I",
+  "title": "Feature Importance Stability in Collaborative Learning: A Cross-Model Validation and Aggregation Approach Using Random Forest and XGBoost",
+  "year": 2026,
+  "venue": "2026 2nd International Conference on Advanced Machine Learning and Data Science (AMLDS)",
+  "doi": "10.1109/amlds69611.2026.11723425",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Luh Made Yulyantari",
+   "Sri Mulyana",
+   "Aina Musdholifah"
+  ]
+ },
+ {
+  "uid": "U336",
+  "ta": "I",
+  "title": "Beyond Detection Accuracy: Measuring Explanation Cost, Stability, and Utility for Resource-Aware IoT Intrusion Detection",
+  "year": 2026,
+  "venue": null,
+  "doi": null,
+  "arxiv": "2608.10349",
+  "oa_pdf": "https://arxiv.org/pdf/2608.10349",
+  "authors": [
+   "Abdurrahman Tolay"
+  ]
+ },
+ {
+  "uid": "U340",
+  "ta": "I",
+  "title": "Integrating Shapley Value and Least Core Attribution for Robust Explainable AI in Rent Prediction",
+  "year": 2025,
+  "venue": "Buildings",
+  "doi": "10.3390/buildings15173133",
+  "arxiv": null,
+  "oa_pdf": "https://www.mdpi.com/2075-5309/15/17/3133/pdf?version=1756734084",
+  "authors": [
+   "Xinyu Wang",
+   "T. Kee"
+  ]
+ },
+ {
+  "uid": "U346",
+  "ta": "I",
+  "title": "An Investigation of Feature-Grouping for Robust SHAP Explanations in IoT Intrusion Detection",
+  "year": 2025,
+  "venue": "International Telecommunication Networks and Applications Conference",
+  "doi": "10.1109/itnac66378.2025.11302604",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.25455/wgtn.31071808",
+  "authors": [
+   "Dedy Hendro",
+   "Yi Mei",
+   "Ian Welch"
+  ]
+ },
+ {
+  "uid": "U351",
+  "ta": "U",
+  "title": "Data Leakage Exploration on CICIDS2017 Dataset with SHAP-FSA and Ridge-XGBoost",
+  "year": 2026,
+  "venue": "International Conference Advancement Data Science, E-learning and Information Systems",
+  "doi": "10.1109/icadeis71120.2026.11644518",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Muhamad Rafdi Rostiadhi Pramana",
+   "A. G. Putrada",
+   "R. Wicaksono"
+  ]
+ },
+ {
+  "uid": "U355",
+  "ta": "I",
+  "title": "Multi-Algorithm Optimization of Explanation Stability in Ensemble Learning for Human Capital Attrition Risk Prediction",
+  "year": 2026,
+  "venue": "Mathematics",
+  "doi": "10.3390/math14183283",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.3390/math14183283",
+  "authors": [
+   "Zi-He Qi",
+   "Zi-Wei Chen",
+   "Fan Si"
+  ]
+ },
+ {
+  "uid": "U356",
+  "ta": "I",
+  "title": "Class Imbalance Strategies, Calibration, and Explanation Stability in Tree-Based Intrusion Detection for IoT Networks",
+  "year": 2026,
+  "venue": "Journal of Expert Systems and Sustainable Development",
+  "doi": "10.65069/jessd21202623",
+  "arxiv": null,
+  "oa_pdf": "https://essd-journal.org/index.php/essd/article/download/23/18",
+  "authors": [
+   "Abdulkerim Oğuzhan Alkan"
+  ]
+ },
+ {
+  "uid": "U359",
+  "ta": "U",
+  "title": "SHAP-Guided Regularization in Machine Learning Models",
+  "year": 2025,
+  "venue": "xAI",
+  "doi": "10.48550/arxiv.2507.23665",
+  "arxiv": "2507.23665",
+  "oa_pdf": "https://arxiv.org/pdf/2507.23665",
+  "authors": [
+   "Amal Saadallah"
+  ]
+ },
+ {
+  "uid": "U362",
+  "ta": "I",
+  "title": "Improving Local Interpretable Model-agnostic Explanations Stability",
+  "year": 2024,
+  "venue": "International Journal of Intelligent Engineering and Systems",
+  "doi": "10.22266/ijies2024.1231.81",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Asmaa M. Elgezawy",
+   "Hatem Abdul-kader",
+   "Asmaa H. Elsaid"
+  ]
+ },
+ {
+  "uid": "U373",
+  "ta": "I",
+  "title": "On the Trustworthiness of Tree Ensemble Explainability Methods",
+  "year": 2021,
+  "venue": "International Cross-Domain Conference on Machine Learning and Knowledge Extraction",
+  "doi": "10.1007/978-3-030-84060-0_19",
+  "arxiv": "2110.00086",
+  "oa_pdf": "https://arxiv.org/pdf/2110.00086",
+  "authors": [
+   "Angeline Yasodhara",
+   "Azin Asgarian",
+   "Diego Huang",
+   "Parinaz Sobhani"
+  ]
+ },
+ {
+  "uid": "U396",
+  "ta": "U",
+  "title": "TransLIME: Towards transfer explainability to explain black-box models on tabular datasets",
+  "year": 2026,
+  "venue": "Information Sciences",
+  "doi": "10.1016/j.ins.2025.122891",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.1016/j.ins.2025.122891",
+  "authors": [
+   "Rehan Raza",
+   "Guan-Jin Wang",
+   "Hamid Laga",
+   "K. Wong",
+   "Wolfgang Nejdl"
+  ]
+ },
+ {
+  "uid": "U397",
+  "ta": "U",
+  "title": "Interpretable machine learning for imbalanced credit scoring datasets",
+  "year": 2023,
+  "venue": "European Journal of Operational Research",
+  "doi": "10.1016/j.ejor.2023.06.036",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.1016/j.ejor.2023.06.036",
+  "authors": [
+   "Yu-Jia Chen",
+   "R. Calabrese",
+   "Belen Martin-Barragan"
+  ]
+ },
+ {
+  "uid": "U404",
+  "ta": "U",
+  "title": "Explanation stability assessment for federated explainable intrusion detection in wireless sensor networks",
+  "year": 2026,
+  "venue": "Array",
+  "doi": "10.1016/j.array.2026.101114",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.1016/j.array.2026.101114",
+  "authors": [
+   "H. A.",
+   "D. P."
+  ]
+ },
+ {
+  "uid": "U406",
+  "ta": "U",
+  "title": "Stable and time-aware explanations for supply-chain forecasts: A lean XAI framework",
+  "year": 2026,
+  "venue": "Heliyon",
+  "doi": "10.1016/j.heliyon.2026.e45586",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.1016/j.heliyon.2026.e45586",
+  "authors": [
+   "Ahmad N. Shawaqfeh",
+   "Juan F. De Paz"
+  ]
+ },
+ {
+  "uid": "U408",
+  "ta": "U",
+  "title": "Toward temporal stability in explainable AI: A framework for measuring explanation drift",
+  "year": 2026,
+  "venue": "Array",
+  "doi": "10.1016/j.array.2026.101359",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.1016/j.array.2026.101359",
+  "authors": [
+   "Redwane Nesmaoui",
+   "Mouad Louhichi",
+   "M. Lazaar"
+  ]
+ },
+ {
+  "uid": "U409",
+  "ta": "U",
+  "title": "UbiQTree: Uncertainty quantification in XAI with tree ensembles",
+  "year": 2025,
+  "venue": "Patterns",
+  "doi": "10.1016/j.patter.2025.101454",
+  "arxiv": "2508.09639",
+  "oa_pdf": "https://doi.org/10.1016/j.patter.2025.101454",
+  "authors": [
+   "Akshat Dubey",
+   "A. Anžel",
+   "Bahar Ilgen",
+   "Georges Hattab"
+  ]
+ },
+ {
+  "uid": "U416",
+  "ta": "U",
+  "title": "Ensemble-Learning Surrogate Models for the NORSOK M-506 CO₂ Corrosion-Rate Model: Accuracy, Stability, and SHAP-Based Interpretation",
+  "year": 2026,
+  "venue": "Computers &amp; Chemical Engineering",
+  "doi": "10.1016/j.compchemeng.2026.109857",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.1016/j.compchemeng.2026.109857",
+  "authors": [
+   "Daniel Egbuzie",
+   "N. Agbo",
+   "Kelechi Kenneth Anosike",
+   "D. Okolo"
+  ]
+ },
+ {
+  "uid": "U438",
+  "ta": "U",
+  "title": "Comparing expert systems and their explainability through similarity",
+  "year": 2024,
+  "venue": "Decision Support Systems",
+  "doi": "10.1016/j.dss.2024.114248",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.1016/j.dss.2024.114248",
+  "authors": [
+   "F. Gwinner",
+   "Christoph Tomitza",
+   "Axel Winkelmann"
+  ]
+ },
+ {
+  "uid": "U444",
+  "ta": "I",
+  "title": "Early identification of ICU patients at risk of complications: Regularization based on robustness and stability of explanations",
+  "year": 2022,
+  "venue": "Artif. Intell. Medicine",
+  "doi": "10.1016/j.artmed.2022.102283",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Tiago Amador",
+   "Saulo Saturnino",
+   "Adriano Veloso",
+   "N. Ziviani"
+  ]
+ },
+ {
+  "uid": "U453",
+  "ta": "I",
+  "title": "Stable rankings, unstable shortlists: A cross-algorithm stability audit of SHAP feature attributions in composition-based band gap prediction",
+  "year": 2026,
+  "venue": "Next Materials",
+  "doi": "10.1016/j.nxmate.2026.103038",
+  "arxiv": null,
+  "oa_pdf": "https://www.sciencedirect.com/science/article/pii/S2949822826014553/pdf",
+  "authors": [
+   "Wahidur Rahman"
+  ]
+ },
+ {
+  "uid": "U454",
+  "ta": "U",
+  "title": "Uncertainty-Awareness in Explainable Artificial Intelligence (xAI) for Sensor Network Metrology",
+  "year": 2026,
+  "venue": "Measurement: Digitalization",
+  "doi": "10.1016/j.meadig.2026.100042",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.1016/j.meadig.2026.100042",
+  "authors": [
+   "A. Vedurmudi",
+   "H. Sarwar",
+   "Anshuman Singh",
+   "M. Zaidan",
+   "Miloš D. Davidović",
+   "Mads Johansen",
+   "M. Iturrate-García",
+   "T. Petäja",
+   "Shahin Tabandeh"
+  ]
+ },
+ {
+  "uid": "U466",
+  "ta": "I",
+  "title": "Adversarial Attacks and Defenses in Explainable Artificial Intelligence: A Survey",
+  "year": 2023,
+  "venue": "Information Fusion",
+  "doi": "10.1016/j.inffus.2024.102303",
+  "arxiv": "2306.06123",
+  "oa_pdf": "https://arxiv.org/pdf/2306.06123",
+  "authors": [
+   "Hubert Baniecki",
+   "P. Biecek"
+  ]
+ },
+ {
+  "uid": "U481",
+  "ta": "I",
+  "title": "An Empirical Study of the Effect of Background Data Size on the Stability of SHapley Additive exPlanations (SHAP) for Deep Learning Models",
+  "year": 2023,
+  "venue": "Tiny Papers @ ICLR",
+  "doi": "10.48550/arxiv.2204.11351",
+  "arxiv": "2204.11351",
+  "oa_pdf": "http://arxiv.org/pdf/2204.11351",
+  "authors": [
+   "Han Yuan",
+   "Ming-Xuan Liu",
+   "Lican Kang",
+   "Chen-Kui Miao",
+   "Ying Wu"
+  ]
+ },
+ {
+  "uid": "U483",
+  "ta": "I",
+  "title": "S-LIME: Stabilized-LIME for Model Explanation",
+  "year": 2021,
+  "venue": "KDD",
+  "doi": "10.1145/3447548.3467274",
+  "arxiv": "2106.07875",
+  "oa_pdf": "https://arxiv.org/pdf/2106.07875",
+  "authors": [
+   "Zheng-Ze Zhou",
+   "G. Hooker",
+   "Fei Wang"
+  ]
+ },
+ {
+  "uid": "U487",
+  "ta": "U",
+  "title": "SIM-Shapley: A Stable and Computationally Efficient Approach to Shapley Value Approximation",
+  "year": 2025,
+  "venue": "CoRR",
+  "doi": "10.48550/arxiv.2505.08198",
+  "arxiv": "2505.08198",
+  "oa_pdf": null,
+  "authors": [
+   "Wang-Xuan Fan",
+   "Siqi Li",
+   "Dou-Dou Zhou",
+   "Y. Okada",
+   "Chuan Hong",
+   "Mo-Lei Liu",
+   "Nan Liu"
+  ]
+ },
+ {
+  "uid": "U490",
+  "ta": "U",
+  "title": "Influence of Data Characteristics on Machine Learning Classification Performance and Stability of SHapley Additive exPlanations",
+  "year": 2024,
+  "venue": "ESANN",
+  "doi": "10.14428/esann/2024.es2024-107",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.14428/esann/2024.es2024-107",
+  "authors": [
+   "Anusha Ihalapathirana",
+   "G. Chandra",
+   "P. Lavikainen",
+   "Pekka Siirtola",
+   "Satu Tamminen",
+   "Nirzor Talukder",
+   "J. Martikainen",
+   "J. Röning"
+  ]
+ },
+ {
+  "uid": "U491",
+  "ta": "I",
+  "title": "Statistical Significance of Feature Importance Rankings",
+  "year": 2024,
+  "venue": "arXiv preprint",
+  "doi": "10.48550/arxiv.2401.15800",
+  "arxiv": "2401.15800",
+  "oa_pdf": null,
+  "authors": [
+   "Jeremy Goldwasser",
+   "Giles Hooker"
+  ]
+ },
+ {
+  "uid": "U493",
+  "ta": "I",
+  "title": "Locally Invariant Explanations: Towards Stable and Unidirectional Explanations through Local Invariant Learning",
+  "year": 2023,
+  "venue": "NeurIPS",
+  "doi": "10.52202/075280-0853",
+  "arxiv": "2201.12143",
+  "oa_pdf": "https://arxiv.org/pdf/2201.12143",
+  "authors": [
+   "Amit Dhurandhar",
+   "K. Ramamurthy",
+   "Kartik Ahuja",
+   "V. Arya"
+  ]
+ },
+ {
+  "uid": "U494",
+  "ta": "U",
+  "title": "GLIME: General, Stable and Local LIME Explanation",
+  "year": 2023,
+  "venue": "NeurIPS",
+  "doi": "10.48550/arxiv.2311.15722",
+  "arxiv": "2311.15722",
+  "oa_pdf": null,
+  "authors": [
+   "Ze-Ren Tan",
+   "Yang Tian",
+   "Jian Li"
+  ]
+ },
+ {
+  "uid": "U498",
+  "ta": "I",
+  "title": "Rethinking Stability for Attribution-based Explanations",
+  "year": 2022,
+  "venue": "CoRR",
+  "doi": "10.48550/arxiv.2203.06877",
+  "arxiv": "2203.06877",
+  "oa_pdf": "http://arxiv.org/pdf/2203.06877",
+  "authors": [
+   "Chirag Agarwal",
+   "Nari Johnson",
+   "Martin Pawelczyk",
+   "Satyapriya Krishna",
+   "Eshika Saxena",
+   "M. Zitnik",
+   "H. Lakkaraju"
+  ]
+ },
+ {
+  "uid": "U499",
+  "ta": "I",
+  "title": "The Stability Collapse in Local Explainability: Benchmarking H-LIME on High-Dimensional Data",
+  "year": 2026,
+  "venue": "IEEE Access",
+  "doi": "10.1109/access.2026.3709805",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.1109/access.2026.3709805",
+  "authors": [
+   "Leonard Chukwualuka Nnadi",
+   "Chukwuemeka Paul Isiwu",
+   "Md. Mostafizer Rahman",
+   "A. John-Otumu",
+   "Yutaka Watanobe"
+  ]
+ },
+ {
+  "uid": "U502",
+  "ta": "I",
+  "title": "On the Stability of Local Interpretable Model-Agnostic Explanations for Quantum Classifiers",
+  "year": 2026,
+  "venue": "Mach. Learn.",
+  "doi": "10.1007/s10994-026-07071-5",
+  "arxiv": null,
+  "oa_pdf": "https://link.springer.com/content/pdf/10.1007/s10994-026-07071-5.pdf",
+  "authors": [
+   "Giovanni Acampora",
+   "A. Vitiello"
+  ]
+ },
+ {
+  "uid": "U506",
+  "ta": "I",
+  "title": "Managing Trust in AI Systems: Evidence From Controlled Evaluation of Explanation Stability Under Data Imbalance",
+  "year": 2026,
+  "venue": "IEEE Trans. Engineering M",
+  "doi": "10.1109/tem.2026.3687235",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Shamkhal Mammadov",
+   "Ismail Abdulrashid",
+   "Jiuh-Biing Sheu"
+  ]
+ },
+ {
+  "uid": "U509",
+  "ta": "U",
+  "title": "Resampling for Clinical Predictions: Balancing Subgroup Utility, Calibration, and Explanation Stability",
+  "year": 2026,
+  "venue": "AIiH",
+  "doi": "10.1007/978-3-032-35387-0_1",
+  "arxiv": null,
+  "oa_pdf": "https://orca.cardiff.ac.uk/id/eprint/189053/1/Targeted_Resampling_For_Clinical_Prediction.pdf",
+  "authors": [
+   "Paul Ellis",
+   "Sylwia Polberg-Riener"
+  ]
+ },
+ {
+  "uid": "U510",
+  "ta": "U",
+  "title": "Evaluation of Rashomon Sets for the Determination of Stable and Plausible Model Explanations",
+  "year": 2026,
+  "venue": "ESANN",
+  "doi": "10.14428/esann/2026.es2026-250",
+  "arxiv": null,
+  "oa_pdf": "https://doi.org/10.14428/esann/2026.es2026-250",
+  "authors": [
+   "M. Kaden",
+   "Mahrokh Karimi",
+   "Subhashree Panda",
+   "T. Pfaff",
+   "Thomas Villmann"
+  ]
+ },
+ {
+  "uid": "U518",
+  "ta": "U",
+  "title": "QuadraSHAP: Stable and Scalable Shapley Values for Product Games via Gauss-Legendre Quadrature",
+  "year": 2026,
+  "venue": "CoRR",
+  "doi": "10.48550/arxiv.2605.05870",
+  "arxiv": "2605.05870",
+  "oa_pdf": null,
+  "authors": [
+   "Majid Mohammadi",
+   "Grigory Reznikov",
+   "Pavel Sinitcyn",
+   "Krikamol Muandet",
+   "Siu Lun Chau"
+  ]
+ },
+ {
+  "uid": "U519",
+  "ta": "I",
+  "title": "RoSHAP: A Distributional Framework and Robust Metric for Stable Feature Attribution",
+  "year": 2026,
+  "venue": "CoRR",
+  "doi": "10.48550/arxiv.2605.15154",
+  "arxiv": "2605.15154",
+  "oa_pdf": null,
+  "authors": [
+   "Lan-Xin Xiang",
+   "Liang Shi",
+   "Youhui Ye",
+   "Bo-Yu Jiang",
+   "Da-Wei Zhou",
+   "Feng Guo"
+  ]
+ },
+ {
+  "uid": "U521",
+  "ta": "I",
+  "title": "The Attribution Impossibility: No Feature Ranking Is Faithful, Stable, and Complete Under Collinearity",
+  "year": 2026,
+  "venue": "CoRR",
+  "doi": "10.48550/arxiv.2605.21492",
+  "arxiv": "2605.21492",
+  "oa_pdf": null,
+  "authors": [
+   "D. Caraker",
+   "Bryan P. Arnold",
+   "David E. Rhoads"
+  ]
+ },
+ {
+  "uid": "U524",
+  "ta": "U",
+  "title": "Measuring Explainer Stability via Attribution Separability",
+  "year": 2026,
+  "venue": "CoRR",
+  "doi": "10.48550/arxiv.2608.02697",
+  "arxiv": "2608.02697",
+  "oa_pdf": null,
+  "authors": [
+   "Eddie Conti",
+   "Álvaro Parafita",
+   "Axel Brando"
+  ]
+ },
+ {
+  "uid": "U528",
+  "ta": "U",
+  "title": "Assessing Alignment and Stability of Feature Importance Explanations via Weight of Evidence",
+  "year": 2026,
+  "venue": "CoRR",
+  "doi": "10.48550/arxiv.2609.00090",
+  "arxiv": "2609.00090",
+  "oa_pdf": null,
+  "authors": [
+   "Eddie Conti",
+   "Claudio Daka",
+   "Álvaro Parafita",
+   "A. L. Alfeo",
+   "Axel Brando",
+   "M. C. Cimino"
+  ]
+ },
+ {
+  "uid": "U534",
+  "ta": "U",
+  "title": "Curvature-Informed Local Explanations (CILE): Improving Stability and Trustworthiness in Explainable AI",
+  "year": 2025,
+  "venue": "AMCIS",
+  "doi": null,
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Nolan M. Talaei",
+   "A. Oztekin",
+   "Hong-Wei Zhu",
+   "Luvai Motiwalla",
+   "A. Bhattacherjee",
+   "Salih Tutun"
+  ]
+ },
+ {
+  "uid": "U546",
+  "ta": "I",
+  "title": "Shaping Up SHAP: Enhancing Stability through Layer-Wise Neighbor Selection",
+  "year": 2024,
+  "venue": "AAAI",
+  "doi": "10.1609/aaai.v38i12.29208",
+  "arxiv": "2312.12115",
+  "oa_pdf": null,
+  "authors": [
+   "Gwladys Kelodjou",
+   "L. Rozé",
+   "V. Masson",
+   "Luis Galárraga",
+   "Romaric Gaudel",
+   "Maurice Tchuenté",
+   "Alexandre Termier"
+  ]
+ },
+ {
+  "uid": "U556",
+  "ta": "I",
+  "title": "Stabilizing Estimates of Shapley Values with Control Variates",
+  "year": 2024,
+  "venue": "xAI",
+  "doi": "10.1007/978-3-031-63797-1_21",
+  "arxiv": "2310.07672",
+  "oa_pdf": "https://arxiv.org/pdf/2310.07672",
+  "authors": [
+   "Jeremy Goldwasser",
+   "Giles Hooker"
+  ]
+ },
+ {
+  "uid": "U557",
+  "ta": "U",
+  "title": "Probabilistic Lipschitzness and the Stable Rank for Comparing Explanation Models",
+  "year": 2024,
+  "venue": "CoRR",
+  "doi": "10.48550/arxiv.2402.18863",
+  "arxiv": "2402.18863",
+  "oa_pdf": null,
+  "authors": [
+   "Lachlan Simpson",
+   "Kyle Millar",
+   "A. Cheng",
+   "Cheng-Chew Lim",
+   "Hong-Gunn Chew"
+  ]
+ },
+ {
+  "uid": "U560",
+  "ta": "I",
+  "title": "How Reliable and Stable are Explanations of XAI Methods?",
+  "year": 2024,
+  "venue": "CoRR",
+  "doi": "10.48550/arxiv.2407.03108",
+  "arxiv": "2407.03108",
+  "oa_pdf": null,
+  "authors": [
+   "José Ribeiro",
+   "Lucas F. F. Cardoso",
+   "Vitor Santos",
+   "Eduardo Carvalho",
+   "Nikolas Carneiro",
+   "Ronnie Alves"
+  ]
+ },
+ {
+  "uid": "U577",
+  "ta": "I",
+  "title": "Deterministic Local Interpretable Model-Agnostic Explanations for Stable Explainability",
+  "year": 2021,
+  "venue": "Mach. Learn. Knowl. Extr.",
+  "doi": "10.3390/make3030027",
+  "arxiv": null,
+  "oa_pdf": "https://www.mdpi.com/2504-4990/3/3/27/pdf?version=1625044194",
+  "authors": [
+   "Muhammad Rehman Zafar",
+   "N. Khan"
+  ]
+ },
+ {
+  "uid": "U579",
+  "ta": "I",
+  "title": "Addressing Stability in Classifier Explanations",
+  "year": 2021,
+  "venue": "IEEE BigData",
+  "doi": "10.1109/bigdata52589.2021.9671458",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Siavash Samiei",
+   "Nasrin Baratalipour",
+   "Pranjul Yadav",
+   "Amitabha Roy",
+   "Dake He"
+  ]
+ },
+ {
+  "uid": "U581",
+  "ta": "U",
+  "title": "Evaluating Stability of Post-hoc Explanations for Business Process Predictions",
+  "year": 2021,
+  "venue": "ICSOC",
+  "doi": "10.1007/978-3-030-91431-8_4",
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "M. Velmurugan",
+   "C. Ouyang",
+   "Catarina Moreira",
+   "R. Sindhgatta"
+  ]
+ },
+ {
+  "uid": "U587",
+  "ta": "U",
+  "title": "Robust Local Explanations for Healthcare Predictive Analytics: An Application to Fragility Fracture Risk Modeling",
+  "year": 2019,
+  "venue": "ICIS",
+  "doi": null,
+  "arxiv": null,
+  "oa_pdf": null,
+  "authors": [
+   "Buomsoo Kim",
+   "Karthik Srinivasan",
+   "S. Ram"
+  ]
+ }
+]

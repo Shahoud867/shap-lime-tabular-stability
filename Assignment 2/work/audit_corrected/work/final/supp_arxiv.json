@@ -1,0 +1,507 @@
+{
+ "query": "(abs:SHAP OR abs:\"Shapley additive\" OR abs:\"Shapley values\" OR abs:TreeSHAP OR abs:KernelSHAP OR abs:LIME OR abs:\"local interpretable model-agnostic\" OR abs:\"feature attribution\" OR abs:\"post-hoc explanation\" OR abs:\"local explanation\") AND (abs:stability OR abs:stable OR abs:unstable OR abs:instability OR abs:robustness OR abs:robust OR abs:fragility OR abs:fragile OR abs:consistency OR abs:uncertainty) AND (abs:\"split threshold\" OR abs:\"split thresholds\" OR abs:\"split point\" OR abs:\"split points\" OR abs:\"decision threshold\" OR abs:\"decision boundary\" OR abs:\"decision boundaries\" OR abs:discretization OR abs:discretisation OR abs:discretized OR abs:\"bin edges\" OR abs:binning OR abs:\"piecewise constant\" OR abs:\"tree structure\" OR abs:\"decision path\" OR abs:\"decision paths\" OR abs:\"fragility score\" OR abs:\"instability score\" OR abs:\"stability score\" OR abs:\"reliability score\" OR abs:\"uncertainty estimation\" OR abs:\"uncertainty estimates\" OR abs:\"uncertainty quantification\" OR abs:\"epistemic uncertainty\" OR abs:\"explanation uncertainty\" OR abs:\"predict instability\" OR abs:\"predicting instability\" OR abs:\"weak learner\" OR abs:\"weak learners\" OR abs:smoothness OR abs:Lipschitz OR abs:\"credible intervals\" OR abs:\"uncertainty intervals\" OR abs:\"sampling variance\" OR abs:\"sampling noise\" OR abs:\"sampling randomness\") AND (abs:tabular OR abs:\"structured data\" OR abs:\"tree ensemble\" OR abs:\"tree ensembles\" OR abs:\"tree-based\" OR abs:\"random forest\" OR abs:\"random forests\" OR abs:XGBoost OR abs:\"gradient boosting\" OR abs:\"gradient boosted\" OR abs:LightGBM OR abs:\"decision tree\" OR abs:\"decision trees\" OR abs:\"logistic regression\") AND submittedDate:[201601010000 TO 202612312359]",
+ "total": 37,
+ "records": [
+  {
+   "arxiv_id": "2210.02419v5",
+   "title": "Boundary-Aware Uncertainty for Feature Attribution Explainers",
+   "abstract": "Post-hoc explanation methods have become a critical tool for understanding black-box classifiers in high-stakes applications. However, high-performing classifiers are often highly nonlinear and can exhibit complex behavior around the decision boundary, leading to brittle or misleading local explanations. Therefore there is an impending need to quantify the uncertainty of such explanation methods in order to understand when explanations are trustworthy. In this work we propose the Gaussian Process Explanation UnCertainty (GPEC) framework, which generates a unified uncertainty estimate combining decision boundary-aware uncertainty with explanation function approximation uncertainty. We introduce a novel geodesic-based kernel, which captures the complexity of the target black-box decision boundary. We show theoretically that the proposed kernel similarity increases with decision boundary complexity. The proposed framework is highly flexible; it can be used with any black-box classifier and feature attribution method. Empirical results on multiple tabular and image datasets show that the GPEC uncertainty estimate improves understanding of explanations as compared to existing methods.",
+   "published": "2022-10-05",
+   "authors": [
+    "Davin Hill",
+    "Aria Masoomi",
+    "Max Torop",
+    "Sandesh Ghimire",
+    "Jennifer Dy"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2603.20919v1",
+   "title": "Enhancing LIME using Neural Decision Trees",
+   "abstract": "Interpreting complex machine learning models is a critical challenge, especially for tabular data where model transparency is paramount. Local Interpretable Model-Agnostic Explanations (LIME) has been a very popular framework for interpretable machine learning, also inspiring many extensions. While traditional surrogate models used in LIME variants (e.g. linear regression and decision trees) offer a degree of stability, they can struggle to faithfully capture the complex non-linear decision boundaries that are inherent in many sophisticated black-box models. This work contributes toward bridging the gap between high predictive performance and interpretable decision-making. Specifically, we propose the NDT-LIME variant that integrates Neural Decision Trees (NDTs) as surrogate models. By leveraging the structured, hierarchical nature of NDTs, our approach aims at providing more accurate and meaningful local explanations. We evaluate its effectiveness on several benchmark tabular datasets, showing consistent improvements in explanation fidelity over traditional LIME surrogates.",
+   "published": "2026-03-21",
+   "authors": [
+    "Mohamed Aymen Bouyahia",
+    "Argyris Kalogeratos"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2607.01679v1",
+   "title": "Beyond Gradient-Based Attacks: Adversarial Robustness and Explainability Stability in Cybersecurity Classifiers",
+   "abstract": "Adversarial attacks on cybersecurity classifiers pose a dual threat: degrading predictions and destabilising the SHAP-based explanations that security analysts rely on to understand and triage alerts. We extend our prior MLP conference study to Random Forest and XGBoost across four tabular security datasets (phishing URLs, UNSW-NB15, NF-ToN-IoT, HIKARI-2021), evaluating five attacks including three black-box methods applicable to non-differentiable tree models. We introduce the Explainability Stability Index (ESI), a scalar metric computed from TreeSHAP attribution drift under adversarial perturbation, reported on the same [0,1] scale as the Robustness Index (RI). A key finding is that gradient-based black-box attacks (ZOO) produce degenerate results against XGBoost (apparent RI ~0.98) due to piecewise-constant prediction surfaces, while score-based Square Attack reveals genuine vulnerability (RI ~0.36). These degenerate perturbations still drive substantial attribution drift: XGBoost ESI ~0.06-0.16 despite near-perfect ZOO robustness, versus 0.14-0.29 for RF, showing that prediction robustness and explanation stability are distinct axes requiring joint measurement. A two-axis framework (gradient dependence, query efficiency) explains the observed attack ranking and yields practical guidance for tree ensemble evaluation. A step-size ablation explains a counterintuitive PGD anomaly on z-score normalised tabular data.",
+   "published": "2026-07-02",
+   "authors": [
+    "Mona Rajhans",
+    "Vishal Khawarey"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2508.09639v2",
+   "title": "UbiQTree: Uncertainty Quantification in XAI with Tree Ensembles",
+   "abstract": "Explainable Artificial Intelligence (XAI) techniques, such as SHapley Additive exPlanations (SHAP), have become essential tools for interpreting complex ensemble tree-based models, especially in high-stakes domains such as healthcare analytics. However, SHAP values are usually treated as point estimates, which disregards the inherent and ubiquitous uncertainty in predictive models and data. This uncertainty has two primary sources: aleatoric and epistemic. The aleatoric uncertainty, which reflects the irreducible noise in the data. The epistemic uncertainty, which arises from a lack of data. In this work, we propose an approach for decomposing uncertainty in SHAP values into aleatoric, epistemic, and entanglement components. This approach integrates Dempster-Shafer evidence theory and hypothesis sampling via Dirichlet processes over tree ensembles. We validate the method across three real-world use cases with descriptive statistical analyses that provide insight into the nature of epistemic uncertainty embedded in SHAP explanations. The experimentations enable to provide more comprehensive understanding of the reliability and interpretability of SHAP-based attributions. This understanding can guide the development of robust decision-making processes and the refinement of models in high-stakes applications. Through our experiments with multiple datasets, we concluded that features with the highest SHAP values are not necessarily the most stable. This epistemic uncertainty can be reduced through better, more representative data and following appropriate or case-desired model development techniques. Tree-based models, especially bagging, facilitate the effective quantification of epistemic uncertainty.",
+   "published": "2025-08-13",
+   "authors": [
+    "Akshat Dubey",
+    "Aleksandar Anžel",
+    "Bahar İlgen",
+    "Georges Hattab"
+   ],
+   "doi": "10.1016/j.patter.2025.101454",
+   "journal_ref": "Cell Press Patterns 7, 101454 (2026)"
+  },
+  {
+   "arxiv_id": "2603.29915v1",
+   "title": "Uncertainty Gating for Cost-Aware Explainable Artificial Intelligence",
+   "abstract": "Post-hoc explanation methods are widely used to interpret black-box predictions, but their generation is often computationally expensive and their reliability is not guaranteed. We propose epistemic uncertainty as a low-cost proxy for explanation reliability: high epistemic uncertainty identifies regions where the decision boundary is poorly defined and where explanations become unstable and unfaithful. This insight enables two complementary use cases: `improving worst-case explanations' (routing samples to cheap or expensive XAI methods based on expected explanation reliability), and `recalling high-quality explanations' (deferring explanation generation for uncertain samples under constrained budget). Across four tabular datasets, five diverse architectures, and four XAI methods, we observe a strong negative correlation between epistemic uncertainty and explanation stability. Further analysis shows that epistemic uncertainty distinguishes not only stable from unstable explanations, but also faithful from unfaithful ones. Experiments on image classification confirm that our findings generalize beyond tabular data.",
+   "published": "2026-03-31",
+   "authors": [
+    "Georgii Mikriukov",
+    "Grégoire Montavon",
+    "Marina M. -C. Höhne"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2202.00858v1",
+   "title": "Hierarchical Shrinkage: improving the accuracy and interpretability of tree-based methods",
+   "abstract": "Tree-based models such as decision trees and random forests (RF) are a cornerstone of modern machine-learning practice. To mitigate overfitting, trees are typically regularized by a variety of techniques that modify their structure (e.g. pruning). We introduce Hierarchical Shrinkage (HS), a post-hoc algorithm that does not modify the tree structure, and instead regularizes the tree by shrinking the prediction over each node towards the sample means of its ancestors. The amount of shrinkage is controlled by a single regularization parameter and the number of data points in each ancestor. Since HS is a post-hoc method, it is extremely fast, compatible with any tree growing algorithm, and can be used synergistically with other regularization techniques. Extensive experiments over a wide variety of real-world datasets show that HS substantially increases the predictive performance of decision trees, even when used in conjunction with other regularization techniques. Moreover, we find that applying HS to each tree in an RF often improves accuracy, as well as its interpretability by simplifying and stabilizing its decision boundaries and SHAP values. We further explain the success of HS in improving prediction performance by showing its equivalence to ridge regression on a (supervised) basis constructed of decision stumps associated with the internal nodes of a tree. All code and models are released in a full-fledged package available on Github (github.com/csinva/imodels)",
+   "published": "2022-02-02",
+   "authors": [
+    "Abhineet Agarwal",
+    "Yan Shuo Tan",
+    "Omer Ronen",
+    "Chandan Singh",
+    "Bin Yu"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2606.15058v1",
+   "title": "Machine Learning and the Random Walk Puzzle: Forecasting the CAD/USD Exchange Rate with Expanding Window Evaluation and SHAP Interpretability",
+   "abstract": "This study examines whether machine learning (ML) models can outperform the naive random walk benchmark in forecasting the monthly USD/CAD exchange rate. Using daily data from the Bank of Canada spanning January 2017 to May 2026, resampled into 113 monthly observations, five ML models are evaluated: linear regression, random forest, gradient boosting, XGBoost, and AdaBoost. These models are benchmarked against the naive random walk model and exponential smoothing with Holt-Winters seasonality (ETS). All models are evaluated using an expanding-window framework to maintain strict out-of-sample integrity, and forecast-accuracy differences are assessed using the Diebold-Mariano (DM) test. Structural break detection identifies four significant breakpoints in the series, corresponding to the escalation of the US-China trade war in 2018, the COVID-19 economic recovery in 2020, the peak of the Bank of Canada rate-hiking cycle in 2022, and the start of the Bank of Canada rate-cutting cycle in 2024. SHAP, or Shapley Additive Explanations, analysis is applied to interpret the drivers of the best-performing ML model. The results show that the naive random walk model remains a formidable benchmark. Linear regression is the only model that statistically outperforms the naive random walk model, with a DM statistic of 3.0585 and a p value of 0.0071, whereas the ML ensemble models show only marginal differences. Random Forest with an expanding-window framework achieves the lowest MAPE of 1.17 percent among all models except the random walk. SHAP analysis confirms that short-term lags, particularly lag1 and lag2, and recent rolling means dominate predictions, consistent with the near-random-walk behavior of exchange rates.",
+   "published": "2026-06-13",
+   "authors": [
+    "Louis Agyekum",
+    "Edmund Fosu Agyemang",
+    "Obu-Amoah Ampomah",
+    "Kofi Acheampong",
+    "Emmanuel Boadi",
+    "Priscilla Yaa Amakye",
+    "Fafa Shalom Tchorly",
+    "Enock Adu Bonsu",
+    "Eric Nyarko"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2602.00179v3",
+   "title": "How Understanding Forecast Uncertainty Resolves the Explainability Problem in Machine Learning Models",
+   "abstract": "For applications of machine learning in critical decisions, explainability is a primary concern, and often a regulatory requirement. Local linear methods for generating explanations, such as LIME and SHAP, have been criticized for being unstable near decision boundaries. In this paper, we explain that such concerns reflect a misunderstanding of the problem. The forecast uncertainty is high at decision boundaries, so consequently, the explanatory instability is high. The correct approach is to change the sequence of events and questions being asked. Nonlinear models can be highly predictive in some regions while having little or no predictability in others. Therefore, the first question is whether a usable forecast exists. When there is a forecast with low enough uncertainty to be useful, an explanation can be sought via a local linear approximation. In such cases, the explanatory instability is correspondingly low. When no usable forecast exists, the decision must fall to a simpler overall model such as traditional logistic regression. Additionally, these results show that some methods that purport to be explainable everywhere, such as ReLU networks or any piecewise linear model, have only an illusory explainability, because the forecast uncertainty at the segment boundaries is too high to be useful. Explaining an unusable forecast is pointless.",
+   "published": "2026-01-30",
+   "authors": [
+    "Joseph L. Breeden"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2605.22529v1",
+   "title": "Stabilising Explainability Fragility in Cybersecurity AI: The Impact and Mitigation of Multicollinearity in Public Benchmark Datasets",
+   "abstract": "This paper investigates a unexplored yet impactful vulnerability in AI explainability used in intrusion detection (IDS): multicollinearity-induced instability. Despite extensive reliance on post-hoc explainability tools such as SHAP or LIME, the impact of correlated features on explanation robustness is not evaluated. We introduce a formal theorem stating that multicollinearity inflates attribution variance. This demonstrates that explanations and feature importances are non-identifiable under multicollinearity. A suite of comprehensive experiments validates the theorem on a representative benchmark dataset, UNSW-NB15. Four widely used families of models are evaluated, including linear, tree-based, kernel, and neural, across full and pruned feature sets based on VIF and correlation thresholding. We propose the novel metric of Explanability Fragility Score and two novel methods to mitigate it with variable integration complexity. CAA-Filtering focuses on stabilising explanations by grouping attributions of trained models. SHARP is a novel training-time regularisation framework that penalises attribution instability, enabling controllable and monotonic improvement of explainability stability. The findings support stable predictive performance, using Kendall's τ to quantify instability across bootstrapped explanations. This work has direct implications for the trustworthiness and reproducibility of XAI in security-critical contexts, and motivates incorporating multicollinearity mitigations into the IDS pipelines, providing a set of guidelines for practitioners.",
+   "published": "2026-05-21",
+   "authors": [
+    "Ioannis J. Vourganas",
+    "Anna Lito Michala"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2402.19025v1",
+   "title": "Combination of Weak Learners eXplanations to Improve Random Forest eXplicability Robustness",
+   "abstract": "The notion of robustness in XAI refers to the observed variations in the explanation of the prediction of a learned model with respect to changes in the input leading to that prediction. Intuitively, if the input being explained is modified slightly subtly enough so as to not change the prediction of the model too much, then we would expect that the explanation provided for that new input does not change much either. We argue that a combination through discriminative averaging of ensembles weak learners explanations can improve the robustness of explanations in ensemble methods.This approach has been implemented and tested with post-hoc SHAP method and Random Forest ensemble with successful results. The improvements obtained have been measured quantitatively and some insights into the explicability robustness in ensemble methods are presented.",
+   "published": "2024-02-29",
+   "authors": [
+    "Riccardo Pala",
+    "Esteban García-Cuesta"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2511.19845v1",
+   "title": "SX-GeoTree: Self-eXplaining Geospatial Regression Tree Incorporating the Spatial Similarity of Feature Attributions",
+   "abstract": "Decision trees remain central for tabular prediction but struggle with (i) capturing spatial dependence and (ii) producing locally stable (robust) explanations. We present SX-GeoTree, a self-explaining geospatial regression tree that integrates three coupled objectives during recursive splitting: impurity reduction (MSE), spatial residual control (global Moran's I), and explanation robustness via modularity maximization on a consensus similarity network formed from (a) geographically weighted regression (GWR) coefficient distances (stimulus-response similarity) and (b) SHAP attribution distances (explanatory similarity). We recast local Lipschitz continuity of feature attributions as a network community preservation problem, enabling scalable enforcement of spatially coherent explanations without per-sample neighborhood searches. Experiments on two exemplar tasks (county-level GDP in Fujian, n=83; point-wise housing prices in Seattle, n=21,613) show SX-GeoTree maintains competitive predictive accuracy (within 0.01 $R^{2}$ of decision trees) while improving residual spatial evenness and doubling attribution consensus (modularity: Fujian 0.19 vs 0.09; Seattle 0.10 vs 0.05). Ablation confirms Moran's I and modularity terms are complementary; removing either degrades both spatial residual structure and explanation stability. The framework demonstrates how spatial similarity - extended beyond geometric proximity through GWR-derived local relationships - can be embedded in interpretable models, advancing trustworthy geospatial machine learning and offering a transferable template for domain-aware explainability.",
+   "published": "2025-11-25",
+   "authors": [
+    "Chaogui Kang",
+    "Lijian Luo",
+    "Qingfeng Guan",
+    "Yu Liu"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2212.08370v1",
+   "title": "Shapley variable importance cloud for machine learning models",
+   "abstract": "Current practice in interpretable machine learning often focuses on explaining the final model trained from data, e.g., by using the Shapley additive explanations (SHAP) method. The recently developed Shapley variable importance cloud (ShapleyVIC) extends the current practice to a group of \"nearly optimal models\" to provide comprehensive and robust variable importance assessments, with estimated uncertainty intervals for a more complete understanding of variable contributions to predictions. ShapleyVIC was initially developed for applications with traditional regression models, and the benefits of ShapleyVIC inference have been demonstrated in real-life prediction tasks using the logistic regression model. However, as a model-agnostic approach, ShapleyVIC application is not limited to such scenarios. In this work, we extend ShapleyVIC implementation for machine learning models to enable wider applications, and propose it as a useful complement to the current SHAP analysis to enable more trustworthy applications of these black-box models.",
+   "published": "2022-12-16",
+   "authors": [
+    "Yilin Ning",
+    "Mingxuan Liu",
+    "Nan Liu"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2511.22185v2",
+   "title": "Textual semantics and machine learning methods for data product pricing",
+   "abstract": "Reasonable pricing of data products enables data trading platforms to maximize revenue and foster the growth of the data trading market. The textual semantics of data products are vital for pricing and contain significant value that remains largely underexplored. Therefore, to investigate how textual features influence data product pricing, we employ five prevalent text representation techniques to encode the descriptive text of data products. And then, we employ six machine learning methods to predict data product prices, including linear regression, neural networks, decision trees, support vector machines, random forests, and XGBoost. Our empirical design consists of two tasks: a regression task that predicts the continuous price of data products, and a classification task that discretizes price into ordered categories. Furthermore, we conduct feature importance analysis by the mRMR feature selection method and SHAP-based interpretability techniques. Based on empirical data from the AWA Data Exchange, we find that for predicting continuous prices, Word2Vec text representations capturing semantic similarity yield superior performance. In contrast, for price-tier classification tasks, simpler representations that do not rely on semantic similarity, such as Bag-of-Words and TF-IDF, perform better. SHAP analysis reveals that semantic features related to healthcare and demographics tend to increase prices, whereas those associated with weather and environmental topics are linked to lower prices. This analytical framework significantly enhances the interpretability of pricing models.",
+   "published": "2025-11-27",
+   "authors": [
+    "Ruize Gao",
+    "Feng Xiao",
+    "Jinpu Li",
+    "Shaoze Cui"
+   ],
+   "doi": "10.4310/RME.260221154937",
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2603.21033v3",
+   "title": "TabPFN Extensions for Interpretable Geotechnical Modelling",
+   "abstract": "Geotechnical site characterisation relies on sparse, heterogeneous borehole data, where uncertainty quantification and interpretability matter as much as predictive accuracy. We evaluate TabPFN~\\citep{Hollmann2025}, a tabular foundation model, and its \\texttt{tabpfn-extensions} library on two geotechnical tasks: (1) soil-type classification from N-value and shear-wave velocity data as a controlled illustrative case, and (2) iterative imputation of five mechanical parameters ($s_\\mathrm{u}$, $E_{\\mathrm{u}}$, ${σ'}_\\mathrm{p}$, $C_\\mathrm{c}$, $C_\\mathrm{v}$) in BM/AirportSoilProperties/2/2025. Without retraining, we apply cosine-similarity analysis to TabPFN embeddings, visualise predictive distributions, and compute SHAP attributions. On the regression benchmark we compare TabPFN with mean imputation, linear regression, random forests, XGBoost, and HBM; introduce a proxy decomposition of predictive uncertainty across context-perturbation classes; and propagate marginal $C_\\mathrm{c}$ and ${σ'}_\\mathrm{p}$ distributions through a one-dimensional consolidation model to obtain the reliability index $β$ and serviceability exceedance probability $P_\\mathrm{f}$. Embeddings exhibit label-consistent Clay/Sand grouping; iterative imputation reduces RMSE for all five targets, with TabPFN lowest on four; SHAP attributions are consistent with the Skempton compression-index correlation and the inverse preconsolidation-pressure-water-content dependence; the within-posterior component is largest in the proxy decomposition. We position the contribution as a worked evaluation workflow that may complement established methods for data-scarce geotechnics, not as algorithmic innovation.",
+   "published": "2026-03-22",
+   "authors": [
+    "Taiga Saito",
+    "Yu Otake",
+    "Daijiro Mizutani",
+    "Stephen Wu"
+   ],
+   "doi": "10.1080/17499518.2026.2707500",
+   "journal_ref": "Georisk: Assessment and Management of Risk for Engineered Systems and Geohazards (2026) 1-20"
+  },
+  {
+   "arxiv_id": "2602.19584v1",
+   "title": "Interpolation-Driven Machine Learning Approaches for Plume Shine Dose Estimation: A Comparison of XGBoost, Random Forest, and TabNet",
+   "abstract": "Despite the success of machine learning (ML) in surrogate modeling, its use in radiation dose assessment is limited by safety-critical constraints, scarce training-ready data, and challenges in selecting suitable architectures for physics-dominated systems. Within this context, rapid and accurate plume shine dose estimation serves as a practical test case, as it is critical for nuclear facility safety assessment and radiological emergency response, while conventional photon-transport-based calculations remain computationally expensive. In this work, an interpolation-assisted ML framework was developed using discrete dose datasets generated with the pyDOSEIA suite for 17 gamma-emitting radionuclides across varying downwind distances, release heights, and atmospheric stability categories. The datasets were augmented using shape-preserving interpolation to construct dense, high-resolution training data. Two tree-based ML models (Random Forest and XGBoost) and one deep learning (DL) model (TabNet) were evaluated to examine predictive performance and sensitivity to dataset resolution. All models showed higher prediction accuracy with the interpolated high-resolution dataset than with the discrete data; however, XGBoost consistently achieved the highest accuracy. Interpretability analysis using permutation importance (tree-based models) and attention-based feature attribution (TabNet) revealed that performance differences stem from how the models utilize input features. Tree-based models focus mainly on dominant geometry-dispersion features (release height, stability category, and downwind distance), treating radionuclide identity as a secondary input, whereas TabNet distributes attention more broadly across multiple variables. For practical deployment, a web-based GUI was developed for interactive scenario evaluation and transparent comparison with photon-transport reference calculations.",
+   "published": "2026-02-23",
+   "authors": [
+    "Biswajit Sadhu",
+    "Kalpak Gupte",
+    "Trijit Sadhu",
+    "S. Anand"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2003.01968v2",
+   "title": "Uncertainty Quantification for Data-driven Turbulence Modelling with Mondrian Forests",
+   "abstract": "Data-driven turbulence modelling approaches are gaining increasing interest from the CFD community. However, the introduction of a machine learning (ML) model introduces a new source of uncertainty, the ML model itself. Quantification of this uncertainty is essential since the predictive capability of a data-driven model diminishes when predicting physics not seen during training. In this work, we explore the suitability of Mondrian forests (MF's) for data-driven turbulence modelling. MF's are claimed to possess many of the advantages of the commonly used random forest (RF) machine learning algorithm, whilst offering principled uncertainty estimates. An example test case is constructed, with a turbulence anisotropy constant derived from high fidelity turbulence resolving simulations. Shapley values, borrowed from game theory, are used to interpret the MF predictions. Predictive uncertainty is found to be large in regions where the training data is not representative. Additionally, the MF predictive uncertainty is found to exhibit stronger correlation with predictive errors compared to an a priori statistical distance measure, which indicates it is a better measure of prediction confidence. The MF predictive uncertainty is also found to be better calibrated and less computationally costly than the uncertainty estimated from applying jackknifing to random forest predictions. Finally, Mondrian forests are used to predict the Reynolds discrepancies in a convergent-divergent channel, which are subsequently propagated through a modified CFD solver. The resulting flowfield predictions are in close agreement with the high fidelity data. A procedure for sampling the Mondrian forests' uncertainties is introduced. Propagating these samples enables quantification of the uncertainty in output quantities of interest.",
+   "published": "2020-03-04",
+   "authors": [
+    "Ashley Scillitoe",
+    "Pranay Seshadri",
+    "Mark Girolami"
+   ],
+   "doi": "10.1016/j.jcp.2021.110116",
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2504.06927v1",
+   "title": "RO-FIGS: Efficient and Expressive Tree-Based Ensembles for Tabular Data",
+   "abstract": "Tree-based models are often robust to uninformative features and can accurately capture non-smooth, complex decision boundaries. Consequently, they often outperform neural network-based models on tabular datasets at a significantly lower computational cost. Nevertheless, the capability of traditional tree-based ensembles to express complex relationships efficiently is limited by using a single feature to make splits. To improve the efficiency and expressiveness of tree-based methods, we propose Random Oblique Fast Interpretable Greedy-Tree Sums (RO-FIGS). RO-FIGS builds on Fast Interpretable Greedy-Tree Sums, and extends it by learning trees with oblique or multivariate splits, where each split consists of a linear combination learnt from random subsets of features. This helps uncover interactions between features and improves performance. The proposed method is suitable for tabular datasets with both numerical and categorical features. We evaluate RO-FIGS on 22 real-world tabular datasets, demonstrating superior performance and much smaller models over other tree- and neural network-based methods. Additionally, we analyse their splits to reveal valuable insights into feature interactions, enriching the information learnt from SHAP summary plots, and thereby demonstrating the enhanced interpretability of RO-FIGS models. The proposed method is well-suited for applications, where balance between accuracy and interpretability is essential.",
+   "published": "2025-04-09",
+   "authors": [
+    "Urška Matjašec",
+    "Nikola Simidjievski",
+    "Mateja Jamnik"
+   ],
+   "doi": "10.1109/CITREx64975.2025.10974939",
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2511.14049v1",
+   "title": "SmallML: Bayesian Transfer Learning for Small-Data Predictive Analytics",
+   "abstract": "Small and medium-sized enterprises (SMEs) represent 99.9% of U.S. businesses yet remain systematically excluded from AI due to a mismatch between their operational scale and modern machine learning's data requirements. This paper introduces SmallML, a Bayesian transfer learning framework achieving enterprise-level prediction accuracy with datasets as small as 50-200 observations. We develop a three-layer architecture integrating transfer learning, hierarchical Bayesian modeling, and conformal prediction. Layer 1 extracts informative priors from 22,673 public records using a SHAP-based procedure transferring knowledge from gradient boosting to logistic regression. Layer 2 implements hierarchical pooling across J=5-50 SMEs with adaptive shrinkage, balancing population patterns with entity-specific characteristics. Layer 3 provides conformal sets with finite-sample coverage guarantees P(y in C(x)) >= 1-alpha for distribution-free uncertainty quantification. Validation on customer churn data demonstrates 96.7% +/- 4.2% AUC with 100 observations per business -- a +24.2 point improvement over independent logistic regression (72.5% +/- 8.1%), with p < 0.000001. Conformal prediction achieves 92% empirical coverage at 90% target. Training completes in 33 minutes on standard CPU hardware. By enabling enterprise-grade predictions for 33 million U.S. SMEs previously excluded from machine learning, SmallML addresses a critical gap in AI democratization. Keywords: Bayesian transfer learning, hierarchical models, conformal prediction, small-data analytics, SME machine learning",
+   "published": "2025-11-18",
+   "authors": [
+    "Semen Leontev"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2603.24524v1",
+   "title": "No Single Metric Tells the Whole Story: A Multi-Dimensional Evaluation Framework for Uncertainty Attributions",
+   "abstract": "Research on explainable AI (XAI) has frequently focused on explaining model predictions. More recently, methods have been proposed to explain prediction uncertainty by attributing it to input features (uncertainty attributions). However, the evaluation of these methods remains inconsistent as studies rely on heterogeneous proxy tasks and metrics, hindering comparability. We address this by aligning uncertainty attributions with the well-established Co-12 framework for XAI evaluation. We propose concrete implementations for the correctness, consistency, continuity, and compactness properties. Additionally, we introduce conveyance, a property tailored to uncertainty attributions that evaluates whether controlled increases in epistemic uncertainty reliably propagate to feature-level attributions. We demonstrate our evaluation framework with eight metrics across combinations of uncertainty quantification and feature attribution methods on tabular and image data. Our experiments show that gradient-based methods consistently outperform perturbation-based approaches in consistency and conveyance, while Monte-Carlo dropconnect outperforms Monte-Carlo dropout in most metrics. Although most metrics rank the methods consistently across samples, inter-method agreement remains low. This suggests no single metric sufficiently evaluates uncertainty attribution quality. The proposed evaluation framework contributes to the body of knowledge by establishing a foundation for systematic comparison and development of uncertainty attribution methods.",
+   "published": "2026-03-25",
+   "authors": [
+    "Emily Schiller",
+    "Teodor Chiaburu",
+    "Marco Zullich",
+    "Luca Longo"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2606.07606v1",
+   "title": "QDSP: An Interpretable Structured Learning Framework for Predicting Death or Cerebral Palsy in Very Low Birth Weight Infants",
+   "abstract": "Very low birth weight infants (VLBWI) are at high risk of mortality and severe neurodevelopmental impairment, including cerebral palsy, yet reliable discharge-time prognostic stratification remains challenging in high-dimensional and data-limited clinical settings. To address this problem, we propose QDSP, an interpretable structured learning framework that integrates Quota-guided Subspace Sampling (QSS) and Differentiable-decision-guided Structure Perception (DSP). The QSS module constructs stability-aware and low-redundancy feature subspaces through bootstrap-based feature consistency estimation, whereas the DSP module employs differentiable soft oblique decision structures to model nonlinear clinical interactions while preserving traceable decision evidence. The proposed framework was evaluated on a real-world VLBWI cohort comprising 51 infants and further validated on three public medical tabular datasets. On the primary cohort, QDSP achieved an accuracy of 0.9200 and an AUC of 0.9714, outperforming representative machine learning and deep tabular learning baselines, including XGBoost, TabNet, and TabPFN. Across external datasets, QDSP maintained competitive discrimination and calibration under varying sample sizes and clinical distributions. In addition, SHAP-based analyses and differentiable decision-path tracing identified clinically relevant predictors, including cystic periventricular leukomalacia (cPVL) and birth weight, consistent with established neonatal pathophysiological evidence. These results suggest that QDSP provides an interpretable and robust framework for discharge-time risk stratification in VLBWI and may support early individualized clinical decision-making in neonatal intensive care settings.",
+   "published": "2026-05-29",
+   "authors": [
+    "Ling Wang",
+    "Xiaolong Li",
+    "Hui Zhou",
+    "Jing Shi",
+    "Fuhao Zhang",
+    "Dapeng Chen",
+    "Nan Mu"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2310.14894v3",
+   "title": "Local Universal Explainer (LUX) -- a rule-based explainer with factual, counterfactual and visual explanations",
+   "abstract": "Explainable artificial intelligence (XAI) is one of the most intensively developed area of AI in recent years. It is also one of the most fragmented with multiple methods that focus on different aspects of explanations. This makes difficult to obtain the full spectrum of explanation at once in a compact and consistent way. To address this issue, we present Local Universal Explainer (LUX), which is a rule-based explainer that can generate factual, counterfactual and visual explanations. It is based on a modified version of decision tree algorithms that allows for oblique splits and integration with feature importance XAI methods such as SHAP. It limits the use data generation in opposite to other algorithms, but is focused on selecting local concepts in a form of high-density clusters of real data that have the highest impact on forming the decision boundary of the explained model and generating artificial samples with novel SHAP-guided sampling algorithm. We tested our method on real and synthetic datasets and compared it with state-of-the-art rule-based explainers such as LORE, EXPLAN and Anchor. Our method outperforms the existing approaches in terms of simplicity, fidelity, representativeness, and consistency.",
+   "published": "2023-10-23",
+   "authors": [
+    "Szymon Bobek",
+    "Grzegorz J. Nalepa"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2603.17570v1",
+   "title": "FoMo X: Modular Explainability Signals for Outlier Detection Foundation Models",
+   "abstract": "Tabular foundation models, specifically Prior-Data Fitted Networks (PFNs), have revolutionized outlier detection (OD) by enabling unsupervised zero-shot adaptation to new datasets without training. However, despite their predictive power, these models typically function as opaque black boxes, outputting scalar outlier scores that lack the operational context required for safety-critical decision-making. Existing post-hoc explanation methods are often computationally prohibitive for real-time deployment or fail to capture the epistemic uncertainty inherent in zero-shot inference. In this work, we introduce FoMo-X, a modular framework that equips OD foundation models with intrinsic, lightweight diagnostic capabilities. We leverage the insight that the frozen embeddings of a pretrained PFN backbone already encode rich, context-conditioned relational information. FoMo-X attaches auxiliary diagnostic heads to these embeddings, trained offline using the same generative simulator prior as the backbone. This allows us to distill computationally expensive properties, such as Monte Carlo dropout based epistemic uncertainty, into a deterministic, single-pass inference. We instantiate FoMo-X with two novel heads: a Severity Head that discretizes deviations into interpretable risk tiers, and an Uncertainty Head that provides calibrated confidence measures. Extensive evaluation on synthetic and real-world benchmarks (ADBench) demonstrates that FoMo-X recovers ground-truth diagnostic signals with high fidelity and negligible inference overhead. By bridging the gap between foundation model performance and operational explainability, FoMo-X offers a scalable path toward trustworthy, zero-shot outlier detection.",
+   "published": "2026-03-18",
+   "authors": [
+    "Simon Klüttermann",
+    "Tim Katzke",
+    "Phuong Huong Nguyen",
+    "Emmanuel Müller"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2505.00571v3",
+   "title": "Discovery and inference beyond linearity for epidemiological data by integrating Bayesian regression, tree ensembles and Shapley values",
+   "abstract": "Machine Learning (ML) is gaining popularity in epidemiology and healthcare studies for hypothesis-free discovery of risk and protective factors. ML is strong at discovering nonlinearities and interactions, but this power is compromised by a lack of reliable inference. Although Shapley values provide local measures of features' effects, valid uncertainty quantification for these effects is typically lacking, thus precluding statistical inference. We propose RuleSHAP, a framework that addresses this limitation by combining a dedicated Bayesian sparse regression model with an improved tree-based rule generator and Shapley value attribution. RuleSHAP provides detection of nonlinear and interaction effects, with uncertainty quantification at the individual level as a key contribution. We derive an efficient formula for computing marginal Shapley values within this framework. We apply RuleSHAP to data from an epidemiological cohort to detect and infer several effects for high cholesterol and blood pressure, such as nonlinear interaction effects between features like age, sex, ethnicity, BMI and glucose level. To conclude, we demonstrate the validity of our framework on simulated data.",
+   "published": "2025-05-01",
+   "authors": [
+    "Giorgio Spadaccini",
+    "Marjolein Fokkema",
+    "Mark A. van de Wiel"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2511.15788v1",
+   "title": "Decoding the Radio Sky: Bayesian Ensemble Learning and SVD-Based Feature Extraction for Automated Radio Galaxy Classification",
+   "abstract": "The classification of radio galaxies is central to understanding galaxy evolution, active galactic nuclei dynamics, and the large-scale structure of the universe. However, traditional manual techniques are inadequate for processing the massive, heterogeneous datasets generated by modern radio surveys. In this study, we present a probabilistic machine learning framework that integrates Singular Value Decomposition (SVD) for feature extraction with Bayesian ensemble learning to achieve robust, scalable radio galaxy classification. The SVD approach effectively reduces dimensionality while preserving key morphological structures, enabling efficient representation of galaxy features. To mitigate class imbalance and avoid the introduction of artefacts, we incorporate a Local Neighbourhood Encoding strategy tailored to the astrophysical distribution of galaxy types. The resulting features are used to train and optimize several baseline classifiers: Logistic Regression, Support Vector Machines, LightGBM, and Multi-Layer Perceptrons within bagging, boosting, and stacking ensembles governed by a Bayesian weighting scheme. Our results demonstrate that Bayesian ensembles outperform their traditional counterparts across all metrics, with the Bayesian stacking model achieving a classification accuracy of 99.0% and an F1-score of 0.99 across Compact, Bent, Fanaroff-Riley Type I (FR-I), and Type II (FR-II) sources. Interpretability is enhanced through SHAP analysis, which highlights the principal components most associated with morphological distinctions. Beyond improving classification performance, our framework facilitates uncertainty quantification, paving the way for more reliable integration into next-generation survey pipelines. This work contributes a reproducible and interpretable methodology for automated galaxy classification in the era of data-intensive radio astronomy.",
+   "published": "2025-11-19",
+   "authors": [
+    "Theophilus Ansah-Narh",
+    "Jordan Lontsi Tedongmo",
+    "Joseph Bremang Tandoh",
+    "Nia Imara",
+    "Ezekiel Nii Noye Nortey"
+   ],
+   "doi": null,
+   "journal_ref": "Astronomy and Computing (Volume 54, January 2026, 101018)"
+  },
+  {
+   "arxiv_id": "2504.01692v1",
+   "title": "Segmentation variability and radiomics stability for predicting Triple-Negative Breast Cancer subtype using Magnetic Resonance Imaging",
+   "abstract": "Most papers caution against using predictive models for disease stratification based on unselected radiomic features, as these features are affected by contouring variability. Instead, they advocate for the use of the Intraclass Correlation Coefficient (ICC) as a measure of stability for feature selection. However, the direct effect of segmentation variability on the predictive models is rarely studied. This study investigates the impact of segmentation variability on feature stability and predictive performance in radiomics-based prediction of Triple-Negative Breast Cancer (TNBC) subtype using Magnetic Resonance Imaging. A total of 244 images from the Duke dataset were used, with segmentation variability introduced through modifications of manual segmentations. For each mask, explainable radiomic features were selected using the Shapley Additive exPlanations method and used to train logistic regression models. Feature stability across segmentations was assessed via ICC, Pearson's correlation, and reliability scores quantifying the relationship between feature stability and segmentation variability. Results indicate that segmentation accuracy does not significantly impact predictive performance. While incorporating peritumoral information may reduce feature reproducibility, it does not diminish feature predictive capability. Moreover, feature selection in predictive models is not inherently tied to feature stability with respect to segmentation, suggesting that an overreliance on ICC or reliability scores for feature selection might exclude valuable predictive features.",
+   "published": "2025-04-02",
+   "authors": [
+    "Isabella Cama",
+    "Alejandro Guzmán",
+    "Cristina Campi",
+    "Michele Piana",
+    "Karim Lekadir",
+    "Sara Garbarino",
+    "Oliver Díaz"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2606.19509v1",
+   "title": "LLM Doesn't Know What It Doesn't Know: Detecting Epistemic Blind Spots via Cross-Model Attribution Divergence on Clinical Tabular Data",
+   "abstract": "Large language models (LLMs) are increasingly applied to structured clinical data, yet whether they can recognize the limits of their own knowledge on such tasks remains unexplored. We study this question through the lens of cross-model attribution divergence with the goal of reducing epistemic uncertainty for structured tasks, comparing Qwen 2.5 7B and XGBoost on a prediction task via attribution divergence analysis. We report four findings. First, LLM verbalized confidence is epistemically vacuous, it outputs a near-constant (0.856-0.937) regardless of whether accuracy is 49% or 75.3%, tracking prompt format rather than prediction quality. Second, the LLM exhibits an inverse difficulty effect: accuracy drops to 64.8% when XGBoost is 99% correct, but matches XGBoost (73.8% vs. 73.1%) when it is moderately uncertain. Third, few-shot examples and SHAP-derived feature evidence are orthogonal, super-additive interventions: they reduce the Attribution Disagreement Score (ADS) from 1.54 to 0.38 and improve accuracy from 49% to 75.3% without training. Fourth, a cross-model calibrator that determined LLM reliability using attribution divergence signals reduces expected calibration error from 0.254 to 0.080, replacing uninformative verbalized confidence with patient-specific reliability estimates, without accessing model internals or requiring repeated inference. We frame these findings as a cold start problem for LLMs on structured data and outline a path toward genuine epistemic self-awareness.",
+   "published": "2026-06-17",
+   "authors": [
+    "Akshat Dasula",
+    "Prasanna Desikan",
+    "Jaideep Srivastava"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2506.04454v1",
+   "title": "Neurosymbolic Artificial Intelligence for Robust Network Intrusion Detection: From Scratch to Transfer Learning",
+   "abstract": "Network Intrusion Detection Systems (NIDS) play a vital role in protecting digital infrastructures against increasingly sophisticated cyber threats. In this paper, we extend ODXU, a Neurosymbolic AI (NSAI) framework that integrates deep embedded clustering for feature extraction, symbolic reasoning using XGBoost, and comprehensive uncertainty quantification (UQ) to enhance robustness, interpretability, and generalization in NIDS. The extended ODXU incorporates score-based methods (e.g., Confidence Scoring, Shannon Entropy) and metamodel-based techniques, including SHAP values and Information Gain, to assess the reliability of predictions. Experimental results on the CIC-IDS-2017 dataset show that ODXU outperforms traditional neural models across six evaluation metrics, including classification accuracy and false omission rate. While transfer learning has seen widespread adoption in fields such as computer vision and natural language processing, its potential in cybersecurity has not been thoroughly explored. To bridge this gap, we develop a transfer learning strategy that enables the reuse of a pre-trained ODXU model on a different dataset. Our ablation study on ACI-IoT-2023 demonstrates that the optimal transfer configuration involves reusing the pre-trained autoencoder, retraining the clustering module, and fine-tuning the XGBoost classifier, and outperforms traditional neural models when trained with as few as 16,000 samples (approximately 50% of the training data). Additionally, results show that metamodel-based UQ methods consistently outperform score-based approaches on both datasets.",
+   "published": "2025-06-04",
+   "authors": [
+    "Huynh T. T. Tran",
+    "Jacob Sander",
+    "Achraf Cohen",
+    "Brian Jalaian",
+    "Nathaniel D. Bastian"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2507.18866v1",
+   "title": "Early Mortality Prediction in ICU Patients with Hypertensive Kidney Disease Using Interpretable Machine Learning",
+   "abstract": "Background: Hypertensive kidney disease (HKD) patients in intensive care units (ICUs) face high short-term mortality, but tailored risk prediction tools are lacking. Early identification of high-risk individuals is crucial for clinical decision-making. Methods: We developed a machine learning framework to predict 30-day in-hospital mortality among ICU patients with HKD using early clinical data from the MIMIC-IV v2.2 database. A cohort of 1,366 adults was curated with strict criteria, excluding malignancy cases. Eighteen clinical features-including vital signs, labs, comorbidities, and therapies-were selected via random forest importance and mutual information filtering. Several models were trained and compared with stratified five-fold cross-validation; CatBoost demonstrated the best performance. Results: CatBoost achieved an AUROC of 0.88 on the independent test set, with sensitivity of 0.811 and specificity of 0.798. SHAP values and Accumulated Local Effects (ALE) plots showed the model relied on meaningful predictors such as altered consciousness, vasopressor use, and coagulation status. Additionally, the DREAM algorithm was integrated to estimate patient-specific posterior risk distributions, allowing clinicians to assess both predicted mortality and its uncertainty. Conclusions: We present an interpretable machine learning pipeline for early, real-time risk assessment in ICU patients with HKD. By combining high predictive performance with uncertainty quantification, our model supports individualized triage and transparent clinical decisions. This approach shows promise for clinical deployment and merits external validation in broader critical care populations.",
+   "published": "2025-07-25",
+   "authors": [
+    "Yong Si",
+    "Junyi Fan",
+    "Li Sun",
+    "Shuheng Chen",
+    "Minoo Ahmadi",
+    "Elham Pishgar",
+    "Kamiar Alaei",
+    "Greg Placencia",
+    "Maryam Pishgar"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2605.12904v2",
+   "title": "VIP-COP: Context Optimization for Tabular Foundation Models",
+   "abstract": "Tabular foundation models (TFMs) have emerged as a powerful paradigm for in-context learning on structured data, enabling direct prediction on new tabular tasks without task-specific training. However, their effectiveness is constrained by context length limits, restricting application to medium-scale data and degrading performance when inference-time data exceed pretraining size distributions. Our work introduces VIP-COP, estimating the Value of Importance for Prediction of training examples and features for hard Context OPtimization for TFMs. Its explicit selection mechanism suppresses noise and isolates influential data, enabling the model to also benefit from data augmentation by prioritizing high-value augmented samples and features. VIP-COP is (i) fast, boosting performance often within minutes of optimization, based on an online KernelSHAP-based regression with iterative refinement, value-guided context sampling, and multi-fidelity pruning; (ii) budget-aware and any-time, improving with additional test-time compute unlike heuristics that produce fixed contexts; (iii) model-aware yet fully black-box, requiring no access to model internals, making it compatible with both proprietary and open-source TFMs; (iv) interpretable, identifying discrete ``Very Important Predictors'' (samples and features) that maximize signal-to-noise, which makes it (v) robust, isolating high-value data from noise. In contrast, soft-prompt optimization requires model gradients, produces abstract latent tokens, and lacks explicit signal discrimination. Extensive experiments show that VIP-COP consistently outperforms heuristic and optimized baselines across large-scale high-dimensional testbeds, including data augmentation and data-noise settings, establishing a new state of the art in test-time context refinement for TFMs.",
+   "published": "2026-05-13",
+   "authors": [
+    "Yilong Chen",
+    "Xueying Ding",
+    "Leman Akoglu"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2606.05756v1",
+   "title": "Beyond Soft Masks: Hard-Perturbation Mixup Explainer for Robust GNN Explainability",
+   "abstract": "Graph Neural Networks (GNNs) have demonstrated remarkable performance across a range of applications involving graph-structured data, particularly in high-stakes domains. However, the opaque nature of their decision-making processes limits their trustworthiness and broader adoption. Existing post-hoc explanation methods aim to improve explainability by identifying subgraphs that influence GNN predictions and adopt mixup strategies to alleviate the out-of-distribution (OOD) issue caused by using subgraphs for prediction. Yet, these approaches typically rely on soft masks, which are inherently unable to fully eliminate label-irrelevant information, allowing redundant structures to leak into the mixup process and hindering the resolution of the OOD problem, thereby degrading explanation fidelity. In this work, we propose HPME, a Hard-Perturbation Mixup Explanation framework grounded in a generalized Graph Information Bottleneck, which leverages graph pooling to extract discrete explanatory subgraphs and to yield an information-capacity bound to thoroughly compress label-irrelevant components. Furthermore, we introduce a novel mixup strategy built upon structure-level replacement, generating in-distribution explanations to effectively mitigate the distribution shift. Extensive experiments on diverse tasks demonstrate that HPME achieves state-of-the-art performance in generating robust and interpretable explanations across both synthetic and real-world datasets.",
+   "published": "2026-06-04",
+   "authors": [
+    "Jialiang Yin",
+    "Zheng Zhao",
+    "Linsey Pang",
+    "Bo Dong",
+    "Bin Shi",
+    "Jiaxing Zhang"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2209.08418v2",
+   "title": "Sample-based Uncertainty Quantification with a Single Deterministic Neural Network",
+   "abstract": "Development of an accurate, flexible, and numerically efficient uncertainty quantification (UQ) method is one of fundamental challenges in machine learning. Previously, a UQ method called DISCO Nets has been proposed (Bouchacourt et al., 2016), which trains a neural network by minimizing the energy score. In this method, a random noise vector in $\\mathbb{R}^{10\\text{--}100}$ is concatenated with the original input vector in order to produce a diverse ensemble forecast despite using a single neural network. While this method has shown promising performance on a hand pose estimation task in computer vision, it remained unexplored whether this method works as nicely for regression on tabular data, and how it competes with more recent advanced UQ methods such as NGBoost. In this paper, we propose an improved neural architecture of DISCO Nets that admits faster and more stable training while only using a compact noise vector of dimension $\\sim \\mathcal{O}(1)$. We benchmark this approach on miscellaneous real-world tabular datasets and confirm that it is competitive with or even superior to standard UQ baselines. Moreover we observe that it exhibits better point forecast performance than a neural network of the same size trained with the conventional mean squared error. As another advantage of the proposed method, we show that local feature importance computation methods such as SHAP can be easily applied to any subregion of the predictive distribution. A new elementary proof for the validity of using the energy score to learn predictive distributions is also provided.",
+   "published": "2022-09-17",
+   "authors": [
+    "Takuya Kanazawa",
+    "Chetan Gupta"
+   ],
+   "doi": "10.5220/0011546800003332",
+   "journal_ref": "Proceedings of the 14th International Joint Conference on Computational Intelligence - Volume 1: NCTA, 292-304, 2022 , Valletta, Malta"
+  },
+  {
+   "arxiv_id": "2607.06734v1",
+   "title": "Machine Learning Closure Audits for LSST Photometric Supernova Cosmology",
+   "abstract": "Modern and next generation supernova cosmology analyses rely on end to end simulations to train photometric classifiers, characterise selection effects, validate light curve models, and calibrate distance bias corrections. Standard closure tests based on global Hubble diagram summaries can miss multivariate structure that remains in post correction residuals. We introduce a supervised machine learning closure audit that tests whether measured observables can predict the bias corrected Hubble residuals $Δμ$. We apply the audit to LSST Type Ia supernova simulations from two independent analyses: the M23 mock data sets of Mitra et al. (2023), with spectroscopic redshift and photometric redshift samples, and the predominantly photometric LSST like M25 simulation of Mitra et al. (2025). Standard one dimensional Redshift binned diagnostics explain <1% of the residual variance ($R^2 < 0.01$), suggesting apparent closure. In contrast, out of fold LightGBM models recover up to 98.2% of the variance in the simulated residuals ($R^2 = 0.982$), revealing structured residual predictability. Applying the same audit directly to the real Dark Energy Survey 5 Year (DES 5YR) spectroscopic sample yields a held out $R^2 = 0.725$. SHAP feature attribution rankings are highly consistent between independently trained M25 and DES models (Spearman $ρ= 0.802$), with apparent magnitudes, signal to noise ratios, and redshift dominating the shared predictive hierarchy. The resulting scorecard provides a diagnostic protocol for comparing mock ensembles and real observations, identifying residual non closure before cosmological parameters are unblinded.",
+   "published": "2026-07-07",
+   "authors": [
+    "Ayan Mitra"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2604.06123v1",
+   "title": "A Large-Scale Empirical Comparison of Meta-Learners and Causal Forests for Heterogeneous Treatment Effect Estimation in Marketing Uplift Modeling",
+   "abstract": "Estimating Conditional Average Treatment Effects (CATE) at the individual level is central to precision marketing, yet systematic benchmarking of uplift modeling methods at industrial scale remains limited. We present UpliftBench, an empirical evaluation of four CATE estimators: S-Learner, T-Learner, X-Learner (all with LightGBM base learners), and Causal Forest (EconML), applied to the Criteo Uplift v2.1 dataset comprising 13.98 million customer records. The near-random treatment assignment (propensity AUC = 0.509) provides strong internal validity for causal estimation. Evaluated via Qini coefficient and cumulative gain curves, the S-Learner achieves the highest Qini score of 0.376, with the top 20% of customers ranked by predicted CATE capturing 77.7% of all incremental conversions, a 3.9x improvement over random targeting. SHAP analysis identifies f8 as the dominant heterogeneous treatment effect (HTE) driver among the 12 anonymized covariates. Causal Forest uncertainty quantification reveals that 1.9% of customers are confident persuadables (lower 95% CI > 0) and 0.1% are confident sleeping dogs (upper 95% CI < 0). Our results provide practitioners with evidence-based guidance on method selection for large-scale uplift modeling pipelines.",
+   "published": "2026-04-07",
+   "authors": [
+    "Aman Singh"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2605.29039v1",
+   "title": "Kolmogorov--Arnold Networks as Implicit Regularizers: Noise Robustness and Interpretability for Stellar Classification",
+   "abstract": "This paper tests whether Kolmogorov--Arnold Networks (KAN 2.0) are genuinely more noise-robust than Multi-Layer Perceptrons (MLP) and XGBoost for stellar classification (star/galaxy/quasar, 100,000 SDSS DR17 objects). A naive comparison suggests so: KAN retains +9 percentage points over MLP at SNR=5. But equalizing baseline accuracy via weight decay eliminates the gap -- a properly regularized MLP matches KAN to within 1 p.p. at all SNR levels, both with and without spectroscopic redshift. The same holds on an independent DESI DR1 sample with different photometric bands. KAN's robustness thus traces to implicit regularization by C^2-smooth B-spline activations, not to architecture. Per-class analysis (20 trials) shows that stars degrade fastest (F1: 0.97 to 0.75 at SNR=5), while QSOs remain stable. KAN's native feature importance and SHAP on MLP produce different rankings (Spearman rho = -0.37), capturing complementary aspects of the classification. Colour-index features (u-g, g-r, r-i, i-z) widen KAN's relative advantage, and a hybrid pipeline routing uncertain MLP predictions to KAN improves low-SNR accuracy. KAN is best understood as a convenient auto-regularizer whose genuine advantage is built-in interpretability.",
+   "published": "2026-05-27",
+   "authors": [
+    "Kristian Sestak"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2510.19328v2",
+   "title": "Clustered Calibration: Representation-Aware Probability Calibration via Learned Subpopulations",
+   "abstract": "Ensuring that predicted probabilities align with observed frequencies is critical in high-stakes domains such as clinical decision support, autonomous driving and financial risk assessment. Existing calibration methods typically apply a single global transformation or rely on post-hoc binning over predicted confidences, limiting their ability to exploit heterogeneous reliability across sub-populations. We propose Clustered Calibration, a representation-aware framework that identifies sub-populations via clustering in learned feature spaces (e.g., coverage vectors, SHAP values, CNN activations, Transformer embeddings) and fits a soft mixture of cluster-specific parametric calibrators under hierarchical shrinkage toward a global mapping. This design yields context-specific calibration while maintaining global stability. Across six tabular datasets and additional image and text benchmarks, clustered calibration consistently improves or matches strong global calibrators in terms of negative log-likelihood and Brier score, while preserving AUC and accuracy. We further show, both analytically and empirically, that fixed-bin Expected Calibration Error (ECE) can mis-rank soft, region-aware calibrators even when proper scoring rules improve, and we advocate for log-loss and Brier as more reliable bases for model selection in such settings.",
+   "published": "2025-10-22",
+   "authors": [
+    "Tomer Lavi",
+    "Bracha Shapira",
+    "Nadav Rappoport"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2603.15821v1",
+   "title": "Hypothesis Class Determines Explanation: Why Accurate Models Disagree on Feature Attribution",
+   "abstract": "The assumption that prediction-equivalent models produce equivalent explanations underlies many practices in explainable AI, including model selection, auditing, and regulatory evaluation. In this work, we show that this assumption does not hold. Through a large-scale empirical study across 24 datasets and multiple model classes, we find that models with identical predictive behavior can produce substantially different feature attributions. This disagreement is highly structured: models within the same hypothesis class exhibit strong agreement, while cross-class pairs (e.g., tree-based vs. linear) trained on identical data splits show substantially reduced agreement, consistently near or below the lottery threshold. We identify hypothesis class as the structural driver of this phenomenon, which we term the Explanation Lottery. We theoretically show that the resulting Agreement Gap persists under interaction structure in the data-generating process. This structural finding motivates a post-hoc diagnostic, the Explanation Reliability Score R(x), which predicts when explanations are stable across architectures without additional training. Our results demonstrate that model selection is not explanation-neutral: the hypothesis class chosen for deployment can determine which features are attributed responsibility for a decision.",
+   "published": "2026-03-16",
+   "authors": [
+    "Thackshanaramana B"
+   ],
+   "doi": null,
+   "journal_ref": null
+  },
+  {
+   "arxiv_id": "2609.25355v1",
+   "title": "MolExplain: An Interactive Tool for Explainable Molecular Property Prediction",
+   "abstract": "The application of machine learning to molecular property prediction has become increasingly prevalent in drug discovery, yet most models operate as black boxes, returning a prediction without revealing which structural features drive it. MolExplain addresses this gap by combining property prediction with sub-structure level visual explainability in an interactive web interface. The system featurizes molecules as Morgan fingerprints, classifies them using a trained XGBoost model, and applies SHAP attribution to produce a smooth heatmap overlay indicating which regions of the molecule contribute for or against the predicted property. Applied to cyclic peptide membrane permeability, the tool's attribution independently recovers the known role of backbone N-methylation in improving passive membrane diffusion, consistent with established chemistry. While demonstrated on cyclic peptides, the framework is designed to generalize to other molecular properties, positioning MolExplain as a platform for interactive, explainability-driven molecular design.",
+   "published": "2026-09-21",
+   "authors": [
+    "Pirm Dhararag",
+    "Dylan Cashman"
+   ],
+   "doi": null,
+   "journal_ref": null
+  }
+ ],
+ "run": "2026-10-25T10:27"
+}

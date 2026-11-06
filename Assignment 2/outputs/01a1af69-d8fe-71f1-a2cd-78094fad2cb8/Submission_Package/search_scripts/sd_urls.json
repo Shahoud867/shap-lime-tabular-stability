@@ -1,0 +1,17 @@
+{
+ "SD1": {
+  "qs": "(SHAP OR \"Shapley additive\" OR \"Shapley values\" OR LIME OR \"local interpretable model-agnostic\" OR \"feature attribution\" OR \"post-hoc explanation\" OR \"local explanation\" OR \"post hoc explanation\")",
+  "tak": "({explanation stability} OR {stability of explanations} OR {stability of model explanations} OR {stability of LIME} OR {LIME stability} OR {stability of SHAP} OR {SHAP stability})",
+  "url": "https://www.sciencedirect.com/search?date=2016-2026&qs=%28SHAP%20OR%20%22Shapley%20additive%22%20OR%20%22Shapley%20values%22%20OR%20LIME%20OR%20%22local%20interpretable%20model-agnostic%22%20OR%20%22feature%20attribution%22%20OR%20%22post-hoc%20explanation%22%20OR%20%22local%20explanation%22%20OR%20%22post%20hoc%20explanation%22%29&tak=%28%7Bexplanation%20stability%7D%20OR%20%7Bstability%20of%20explanations%7D%20OR%20%7Bstability%20of%20model%20explanations%7D%20OR%20%7Bstability%20of%20LIME%7D%20OR%20%7BLIME%20stability%7D%20OR%20%7Bstability%20of%20SHAP%7D%20OR%20%7BSHAP%20stability%7D%29&show=100"
+ },
+ "SD2": {
+  "qs": "(SHAP OR \"Shapley additive\" OR \"Shapley values\" OR LIME OR \"local interpretable model-agnostic\" OR \"feature attribution\" OR \"post-hoc explanation\" OR \"local explanation\" OR \"post hoc explanation\")",
+  "tak": "({attribution stability} OR {explanation instability} OR {unstable explanations} OR {stable explanations} OR {explanation robustness} OR {robustness of explanations})",
+  "url": "https://www.sciencedirect.com/search?date=2016-2026&qs=%28SHAP%20OR%20%22Shapley%20additive%22%20OR%20%22Shapley%20values%22%20OR%20LIME%20OR%20%22local%20interpretable%20model-agnostic%22%20OR%20%22feature%20attribution%22%20OR%20%22post-hoc%20explanation%22%20OR%20%22local%20explanation%22%20OR%20%22post%20hoc%20explanation%22%29&tak=%28%7Battribution%20stability%7D%20OR%20%7Bexplanation%20instability%7D%20OR%20%7Bunstable%20explanations%7D%20OR%20%7Bstable%20explanations%7D%20OR%20%7Bexplanation%20robustness%7D%20OR%20%7Brobustness%20of%20explanations%7D%29&show=100"
+ },
+ "SD3": {
+  "qs": "(SHAP OR \"Shapley additive\" OR \"Shapley values\" OR LIME OR \"local interpretable model-agnostic\" OR \"feature attribution\" OR \"post-hoc explanation\" OR \"local explanation\" OR \"post hoc explanation\")",
+  "tak": "({robust explanations} OR {robustness of interpretability} OR {attribution robustness} OR {explanation consistency} OR {explanation fragility} OR {stability indices})",
+  "url": "https://www.sciencedirect.com/search?date=2016-2026&qs=%28SHAP%20OR%20%22Shapley%20additive%22%20OR%20%22Shapley%20values%22%20OR%20LIME%20OR%20%22local%20interpretable%20model-agnostic%22%20OR%20%22feature%20attribution%22%20OR%20%22post-hoc%20explanation%22%20OR%20%22local%20explanation%22%20OR%20%22post%20hoc%20explanation%22%29&tak=%28%7Brobust%20explanations%7D%20OR%20%7Brobustness%20of%20interpretability%7D%20OR%20%7Battribution%20robustness%7D%20OR%20%7Bexplanation%20consistency%7D%20OR%20%7Bexplanation%20fragility%7D%20OR%20%7Bstability%20indices%7D%29&show=100"
+ }
+}

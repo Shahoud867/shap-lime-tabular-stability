@@ -1,0 +1,120 @@
+U241 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U242 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U243 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U244 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U245 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U246 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U247 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U248 I SHAP explanation stability under domain shift (football event data; preprint)
+U249 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U250 E1 H-LIME aggregation; stability only a model-selection note
+U251 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U252 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U253 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U254 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U255 I Stable LIME via variational autoencoder; no abstract in index - check modality
+U256 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U257 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U258 I CTGAN-LIME improves LIME stability on tabular data
+U259 E1 Stability-driven SHAP feature elimination; no explanation-stability outcome
+U260 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U261 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U262 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U263 E1
+U264 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U265 E1
+U266 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U267 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U268 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U269 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U270 E3 SHAP-LIME agreement only
+U271 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U272 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U273 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U274 I Systematic review of XAI for tabular healthcare incl. explanation consistency - check scope
+U275 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U276 E3 Self-explaining geospatial tree
+U277 I SHAP attribution stability vs loss-landscape geometry under weight/input perturbation (tabular)
+U278 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U279 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U280 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U281 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U282 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U283 E1 Systematic review of teacher-depression ML
+U284 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U285 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U286 E1
+U287 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U288 I Reliability index separating SHAP importance from rank stability (bootstrap; tabular regression)
+U289 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U290 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U291 I Stability of SHAP/LIME explanations for cost-sensitive credit-scoring models
+U292 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U293 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U294 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U295 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U296 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U297 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U298 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U299 E1 News classification with XAI; no stability outcome
+U300 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U301 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U302 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+U303 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U304 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U305 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U306 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U307 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U308 I Enhanced LIME framework improving explanation stability (infectious-disease datasets)
+U309 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U310 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U311 I SHAP vs LIME comparison incl. explanation stability (XGBoost/TabNet, UNSW-NB15)
+U312 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U313 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U314 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U315 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U316 I Attribution-aware distillation; attribution change under compression - check explainer
+U317 E1
+U318 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U319 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U320 E1 Shapley-based feature selection
+U321 E1
+U322 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U323 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U324 I Disagreement-focused trust score; stability is one of four metrics - check
+U325 I Five-dimension XAI evaluation in credit risk incl. consistency - check
+U326 I TreeSHAP ranking stability across folds/seeds for knowledge tracing (preprint)
+U327 I TreeSHAP-weighted group fusion with attribution-stability guarantees (tabular regression)
+U328 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U329 E1
+U330 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U331 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U332 I SHAP/LIME/PFI attribution stability and consistency on ULB and IEEE-CIS fraud data
+U333 E2 MRI images
+U334 I SHAP feature-importance stability across models and bootstrap (education data)
+U335 E3 GNN explainer
+U336 I TreeSHAP local stability under prediction-preserving perturbations (LR/DT/RF/XGBoost; preprint)
+U337 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U338 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U339 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U340 I Shapley + Least-Core attribution for robustness under data perturbation (XGBoost, tabular)
+U341 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U342 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U343 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U344 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U345 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U346 I Feature grouping improves SHAP robustness (RF/XGBoost, 30 seeds, IoT IDS)
+U347 E1
+U348 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U349 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U350 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U351 I Effect of data leakage on SHAP explanations - check whether stability is measured
+U352 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U353 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U354 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U355 I Optimising SHAP ranking stability across bootstrap refits (5 tabular benchmarks)
+U356 I TreeSHAP ranking robustness to resampling in tree-based IoT IDS
+U357 E5
+U358 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome
+U359 I SHAP-guided regularisation promoting attribution stability - check outcome
+U360 E1 Applied predictive-modelling study using SHAP/LIME (or none); no explanation-stability outcome

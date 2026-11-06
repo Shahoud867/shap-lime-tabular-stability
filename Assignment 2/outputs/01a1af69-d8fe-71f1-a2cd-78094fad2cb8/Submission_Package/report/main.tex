@@ -1,0 +1,252 @@
+\input{preamble}
+
+\begin{document}
+\nocite{S01,S02,S03,S04,S05,S06,S07,S08,S09,S10,S11,S12,S13,S14,S15,S16,S17,S18,S19,S20,S21,S22,S23,S24,S25,S26,S27,S28,S29,S30,S31,S32,S33,S34,S35,S36,S37,S38,S39,S40,S41,S42,S43,S44,S45,S46,S47,S48,S49,S50,S51,S52,S53,S54,S55,S56,S57,S58,S59,S60,S61,S62,S63,S64,S65,S66,S67,S68,S69,S70,S71,S72,S73,S74,S75,S76,S77,S78,S79,S80,S81,S82,S83,S84}
+
+\begin{center}
+{\Large\bfseries\color{navy} Stability of SHAP and LIME Explanations for Tabular Models:\\[2pt] Systematic Literature Search and Evidence Review}\\[6pt]
+{\small MG 3010 Methods in Business Research \,|\, Assignment 2 \,|\, Updated 7 November 2026}\\[3pt]
+{\small Shahoud Shahid (23i-2515) \quad Saif Shahzad (23i-2634) \quad FAST-NUCES Islamabad}
+\end{center}
+\vspace{-4pt}
+{\small\noindent\textbf{Summary.} We searched five databases and ran citation searching (24 October 2026), then ran a supplementary search in four databases (24--25 October 2026), with screening reconciliation and retrieval follow-up on 7 November 2026 for the refined third question on mechanisms and predictors of instability. Together these map what is known about the stability of SHAP and LIME explanations for tabular models. From \dbAllId{} database records and \csHarvested{} citation records, \totalScreened{} were screened, \totalSought{} reports were sought, \totalAssessed{} were assessed in full text and \totalIncluded{} studies were included (\pctSinceTwentyTwo\% published 2022 or later). Study IDs S01--S84 equal reference numbers [1]--[84]. Workbook, libraries and scripts accompany this report (Appendix~E).}
+
+\section{Problem and research questions}
+\textbf{Problem (unchanged from Assignment 1 \cite{a1proposal}).} In tabular, high-stakes classification such as fraud detection and credit scoring, practitioners treat a prediction that barely changes under a small input change as a sign that its SHAP \cite{lundberg2017} or LIME \cite{ribeiro2016} explanation is also reliable. Whether this inference holds for linear and tree-ensemble classifiers has not been tested with a controlled design. This review establishes what the literature already shows before the empirical study is built. We use PICOC rather than PICO because the context, tabular data in high-stakes business settings, is part of the problem itself; the Context element is what limits the search to tabular models (Table~\ref{tab:picoc}).
+
+\begin{table}[H]
+\centering\small
+\caption{PICOC framework \cite{petticrew2006}.}\label{tab:picoc}
+\begin{tabularx}{\textwidth}{@{}P{2.3cm}L@{}}
+\toprule
+Population & Machine-learning models trained on tabular (structured) data, especially linear models and tree ensembles in business, finance, security and health settings \\
+Intervention & SHAP- and LIME-family post-hoc feature attributions (KernelSHAP, TreeSHAP, LIME and their variants) \\
+Comparison & Other explainers, model families, perturbation or resampling regimes, stabilised variants, or a repeated-call baseline \\
+Outcome & Stability, robustness, consistency or uncertainty of explanations (rank agreement, top-$k$ overlap, Lipschitz ratios, variance), its relation to prediction change, the mechanisms that cause it and scores that predict it \\
+Context & Empirical, methodological, theoretical or review studies in English, 2016--2026 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\vspace{-6pt}
+\textbf{RQ1 (Shahoud).} How do studies measure the stability of SHAP and LIME explanations for tabular models, and under which perturbation or resampling regimes? Key terms: stability metric, perturbation regime, prediction-preserving and noise floor. This question identifies defensible metrics and a perturbation protocol.
+
+\textbf{RQ2 (Saif).} What evidence shows whether stable or accurate predictions indicate stable SHAP and LIME explanations, and when does that link break? Key terms: prediction change, explanation drift and decoupling. This tests the assumption linking prediction reliability to explanation reliability.
+
+\textbf{RQ3 (joint).} Which mechanisms (split thresholds, bin edges, decision boundaries, collinearity, sampling) explain SHAP and LIME instability on tabular models, and can instability be predicted without running perturbations? Key terms: split threshold, bin edge, decision boundary, fragility score and uncertainty score. This explains why explanations change and assesses possible warning scores.
+
+\vspace{-4pt}
+{\small RQ1 and RQ2 are unchanged. RQ3 follows the refined questions agreed in the project strategy review: the earlier ``drivers and remedies'' question was replaced by the mechanism and fragility-score question, and a logged supplementary search was run for it (Sections~\ref{sec:sources}--\ref{sec:search}).
+\textbf{Key terms.} \textit{Split threshold}: the cut-point at which a tree node sends an instance left or right. \textit{Bin edge}: a boundary of LIME's discretisation of a continuous feature. \textit{Fragility score}: a per-instance score, computed from the model alone, that predicts how much an explanation will change. \textit{Stability}: how similar the explanations of the same instance stay across repeated runs, retraining or small input changes. \textit{Perturbation regime}: what is varied (explainer sampling, model refits or input values). \textit{Prediction-preserving}: a perturbation that leaves the predicted class, and nearly the predicted probability, unchanged. \textit{Noise floor}: the change between repeated explainer calls when nothing is perturbed. \textit{Explanation drift} or \textit{decoupling}: explanations change while predictions stay the same. \textit{Collinearity}: strong correlation between features. \textit{Manipulation}: deliberate attacks that change explanations.}
+
+\section{Review framework and information sources}\label{sec:sources}
+The review follows the systematic-review guidelines of Kitchenham and Charters \cite{kitchenham2007}, frames the question with PICOC \cite{petticrew2006} and reports with PRISMA 2020 \cite{page2021}. Five databases were searched (Table~\ref{tab:sources}): IEEE Xplore and DBLP cover computer-science journals and conferences; ScienceDirect covers Elsevier journals, including operational-research and business titles; arXiv captures fast-moving machine-learning preprints; Semantic Scholar provides multidisciplinary coverage. Backward and forward citation searching from seven seed studies was added as a second route (PRISMA ``other methods''). OpenAlex was used only to pilot strings because its free API budget ran out. ACM Digital Library showed a bot-verification page, which we did not bypass; Scopus and Web of Science were not available to us. The supplementary RQ3 search used IEEE Xplore, arXiv, Semantic Scholar and DBLP; ScienceDirect was tried but dropped because its phrase matching stayed loose (Appendix~A).
+
+\begin{table}[H]
+\centering\small
+\caption{Sources, syntax adaptation and results (full strings in Appendix~A, Table~\ref{tab:searchlog}).}\label{tab:sources}
+\begin{tabularx}{\textwidth}{@{}P{2.4cm}LP{3.2cm}P{1.4cm}@{}}
+\toprule
+Source & Adaptation of the generic string & Fields; filters & Records \\ \midrule
+IEEE Xplore & All three concepts as entered; \texttt{*} truncation & All Metadata; 2016--2026 & \idIEEE \\
+ScienceDirect & Exact phrases in braces; stability concept split into three queries because of the 8-connector limit & Title-abstract-keywords; 2016--2026 & \idSD{} (59+37+0) \\
+arXiv & \texttt{abs:} prefix on every term; no truncation & Abstract; submitted 2016--2026 & \idArxiv \\
+Semantic Scholar & \texttt{|} for OR, \texttt{+} for AND & Title and abstract; 2016--2026 & \idSS \\
+DBLP & Title words only; \texttt{\$} exact-word operator; stability $\times$ explanation words & Title; years filtered after export & \idDBLP{} (of 174) \\
+Citation search & References and citations of 7 seeds via the Semantic Scholar graph & 2016--2026; title filter & \csHarvested \\ \midrule
+Supplementary (RQ3) & Explainer AND word-level stability AND mechanism/diagnostic AND tabular/tree concepts, adapted as above; DBLP: SHAP/LIME/Shapley AND mechanism words in titles & As above & IEEE \spIEEE; arXiv \spArxiv; S2 \spSS; DBLP \spDBLP{} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Search terms, strings and validation}\label{sec:search}
+Table~\ref{tab:terms} lists the terms for each framework element. The generic string is \textit{(Intervention terms) AND (Outcome terms) AND (Population/Context terms)}: terms within a concept are joined with OR, exact phrases are quoted and \texttt{*} truncates where the database supports it. NOT was not used, so that no relevant record was removed by accident. No language, subject or publication-type filters were applied; only the 2016--2026 year range was used.
+\begin{table}[!htb]
+\centering\footnotesize
+\caption{Term lists by framework element (the 41 main-search terms are all used except the Comparison row; the mechanism row is used only in the supplementary search).}\label{tab:terms}
+\begin{tabularx}{\textwidth}{@{}P{2.2cm}P{2.6cm}LP{3.6cm}@{}}
+\toprule
+Element (RQs) & Primary terms & Synonyms and variants & Related (broader/narrower) \\ \midrule
+Intervention: explainer (RQ1--3) & SHAP; LIME & ``Shapley additive'', ``Shapley values'', TreeSHAP, KernelSHAP, ``local interpretable model-agnostic'' & ``feature attribution*'', ``post-hoc explanation*'', ``local explanation*'' \\
+Outcome: stability (RQ1--3) & ``explanation stability''; ``explanation robustness'' & ``stability of explanations'', ``stability of model explanations'', ``stability of LIME'', ``LIME stability'', ``stability of SHAP'', ``SHAP stability'', ``attribution stability'', ``robustness of explanations'', ``robust explanations'', ``explanation instability'', ``unstable explanations'', ``stable explanations'' & ``attribution robustness'', ``robustness of interpretability'', ``explanation consistency'', ``explanation fragility'', ``stability indices'' \\
+Population / Context: tabular (RQ1--3) & tabular; ``structured data'' & ``tree ensemble*'', ``tree-based'', ``random forest*'', XGBoost, ``gradient boosting'', LightGBM, ``logistic regression'' & ``credit scoring'', ``credit risk'', fraud \\
+Comparison (RQ2--3) & not searched as a concept & perturbation, noise, adversarial (piloted) & dropped: it removed benchmark papers (Table~\ref{tab:refine}) \\ \midrule
+Outcome: mechanism and predictor (RQ3, supplementary) & ``split threshold*'', ``decision boundar*'', discretiz* & ``split point*'', ``bin edge*'', binning, ``piecewise constant'', ``tree structure'', ``weak learner*'', smoothness, lipschitz* & ``fragility score'' and other score, uncertainty and interval terms (28 terms; Table~\ref{tab:searchlog}) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\textbf{Refinement (Appendix~A, Table~\ref{tab:refine}).} Single-word stability terms (\textit{stable, robust}) returned 892--3,589 OpenAlex records, mostly about model performance, so the outcome concept was rebuilt from phrases. Adding a perturbation concept cut recall (Semantic Scholar: 49 records, 3 of the 12 pilot benchmarks) and was dropped. ScienceDirect matched quoted phrases loosely, so braces were used; DBLP prefix matching (``shap'' matched ``shape'') was replaced by exact words. For the supplementary search the stability concept was widened to single words (stability, robust, fragility, uncertainty and similar), because the mechanism concept already narrows the set. Its first version found 4 of 8 RQ3 benchmarks, so smoothness, Lipschitz, weak-learner, interval and sampling terms were added (5 of 8 in Semantic Scholar).
+
+\textbf{Validation.} The final results were checked against \nKnown{} benchmark papers (Appendix~A, Table~\ref{tab:validation}): twelve known before piloting, plus the four remaining stability papers cited in Assignment 1 (marked \dag). The database searches retrieved \knownDb{}, and citation searching added \knownCs{}. One retrieved paper, Jin et al.\ \cite{jin2025}, was later excluded because it uses vision and language data (EC2). Five were missed. Hwang et al.\ \cite{hwang2025}, Decker et al.\ \cite{decker2025} and Lin et al.\ \cite{lin2023} frame their work as sensitivity to feature representation, uncertainty calibration and ``robustness of removal-based feature attributions'', so none matches a stability phrase. Takefuji's abstract \cite{takefuji2025} speaks of ``feature selection stability'' and names no SHAP or LIME term. The abstract of Hasnain et al.\ \cite{hasnain2026} contains no tabular term; its explanations are image maps, including Grad-CAM. These misses mark the limits of phrase-based recall (Section~\ref{sec:lim}).
+\textbf{Supplementary validation.} The supplementary results were checked against \suppKnown{} RQ3 benchmark papers that study thresholds, smoothness or uncertainty (Appendix~A, Table~\ref{tab:suppval}); the four searches together retrieved \suppKnownFound. Khan et al.\ \cite{S23} and Slack et al.\ \cite{S05} were missed because their abstracts contain no tabular or tree term; both were already included through citation searching.
+
+\section{Inclusion and exclusion criteria}
+\begin{table}[!htb]
+\centering\small
+\caption{Eligibility criteria with reasons. A study had to meet all inclusion criteria; any one exclusion criterion was enough to exclude it.}\label{tab:criteria}
+\begin{tabularx}{\textwidth}{@{}P{0.9cm}P{6.6cm}L@{}}
+\toprule
+Code & Criterion & Reason \\ \midrule
+IC1 & At least one tabular dataset (or a review covering tabular models) & The empirical study is tabular \\
+IC2 & SHAP- or LIME-family explainer studied or compared & These are the explainers under test \\
+IC3 & Explanation stability, robustness or uncertainty is a stated aim or a separately reported outcome & Core outcome of the review \\
+IC4 & Empirical, methodological, theoretical or review study & All can inform metrics and design \\
+IC5 & Published or posted 2016--2026, in English & LIME and SHAP date from 2016--2017 \\
+IC6 & Full text obtainable; version read is recorded & Decisions need full-text evidence \\ \midrule
+EC1 & Stability incidental: asserted without measurement, a regulariser or convergence term, or folded into a composite score without separate results & Not evidence about stability \\
+EC2 & Non-tabular data only (images, text, signals, graphs, code) & Instability mechanisms differ by modality \\
+EC3 & Explainer outside the SHAP/LIME family (gradient, rule, concept, Gini importance) or cross-method agreement instead of stability & Agreement $\neq$ stability \\
+EC4 & Not a full research report (abstract, poster, editorial) or not in English & Insufficient detail \\
+EC5 & Homonym: ``stability'' in a physical, chemical or engineering sense & Off topic \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\textbf{Worked examples.} \textit{Included:} Ballegeer et al.\ \cite{S29} measure SHAP and LIME stability (coefficient of variation, sequential rank agreement) for four model types on four credit datasets, so it meets IC1--IC6. \textit{Excluded:} An et al.\ (U145, Appendix~B) state that their method improves LIME stability but report no stability measure (EC1); Lee et al.\ (U025) rank features by Gini importance (EC3). \textit{Borderline:} where stability was one of several dimensions, we included the study only if stability had its own reported result. Zhao \cite{S69} and Piyavechvirat et al.\ \cite{S57} report a separate stability score and were included; Kundu and Hoque (U324) merge a Lipschitz term into a single trust score and were excluded (EC1).
+
+\section{Results and de-duplication}
+The searches returned \idTotal{} records (Table~\ref{tab:sources}). Records were merged on DOI (58 removals), arXiv identifier (42), normalised title (1) and one manual check of a paper split into two Semantic Scholar entries (1). This removed \dupRemoved{} duplicates and left \nUnique{} unique records. When versions differed, the peer-reviewed version was kept as the record of reference. Citation searching harvested \csHarvested{} records. Of these, \csYear{} fell outside 2016--2026, \csAlready{} were already identified, \the\numexpr\csDupWithin+\csDupManual\relax{} were duplicates within the citation set, and \csTitleFilter{} lacked both a stability term and an explanation term in the title. That left \csScreened{} records for manual screening. The supplementary search returned \spTotal{} records; \spDupWithin{} duplicates within the set and \spDupMain{} records already found by the main search were removed, leaving \spScreened{} new records (record IDs N001--N719). Combined, the database searches gave \dbAllId{} records, \dbAllDup{} duplicates and \dbAllScreened{} records to screen. Forty-five previously excluded records were advanced after the independent sample was reconciled on 7 November 2026. This changed screening and retrieval outcomes within the existing pool; it did not add newly identified records. The flow below uses the reconciled decisions.
+
+\section{Screening process and PRISMA flow}
+\textbf{Stage 1 (title and abstract).} Each record was screened against IC1--IC6 and EC1--EC5. Include means advance to full-text assessment; it does not mean final inclusion. Earlier possibly eligible entries were normalized to Include because they had already been advanced. The original reviewer decisions are preserved separately from final resolutions.
+\textbf{Independent dual screening.} Both team members independently screened a random \dualPct\% subset (\dualN{} of \dualPool{} database records, seed 2515), as confirmed by the team on 7 November. They agreed on 171 of 197 records (86.8\%); Cohen's kappa was 0.726 \cite{cohen1960}. All 26 differences have resolution notes. Forty-five records previously excluded in the main log were advanced for retrieval after reconciliation. The five notes originally marked for verification were checked against primary abstracts or relevant paper sections; these checks and sources are recorded in the workbook. The original independent columns were not changed to manufacture agreement.
+\textbf{Stage 2 (full text).} Across the original and reconciled sets, \totalSought{} reports were sought, \totalAssessed{} were assessed and \totalIncluded{} were included. The 45 follow-up records yielded five inclusions, three full-text exclusions and 37 reports without complete assessable text. Publisher, author and repository routes were checked; incomplete text and access failures were logged as not retrieved, never as substantive exclusions. The resulting \totalNotRetrieved{} unretrieved reports are listed with reasons. Newly included studies are S80--S84; S01--S79 retain their identifiers. Extraction records identify the version inspected and the page or section supporting each decision.
+\begin{figure}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[font=\scriptsize, box/.style={draw=boxline, rounded corners=1pt, align=left, text width=3.95cm, inner sep=3pt, minimum height=0.9cm}, ex/.style={box, fill=rowgray}, arr/.style={-{Stealth[length=4pt]}, thick, boxline}, stage/.style={fill=navy, text=white, font=\scriptsize\bfseries, rotate=90, minimum width=2.0cm, minimum height=0.45cm, align=center}]
+\node[box, fill=navy!8] (h1) at (0.9,0.95) {\textbf{Identification of studies via databases}};
+\node[box, fill=navy!8] (h2) at (9.9,0.95) {\textbf{Identification via other methods}};
+\node[box] (a1) at (0.9,-0.6) {Records identified (n~=~\dbAllId):\\ main search \idTotal; supplementary RQ3 search \spTotal{} (by source: Table~\ref{tab:sources})};
+\node[ex] (b1) at (5.2,-0.6) {Removed before screening:\\ duplicate records (n~=~\dbAllDup; main \dupRemoved, supplementary \spDupRemoved)};
+\node[box] (c1) at (9.9,-0.6) {Records identified from citation searching (n~=~\csHarvested)};
+\node[ex] (d1) at (14.2,-0.6) {Removed before screening:\\ duplicates (n~=~\csDupAll); outside 2016--2026 (n~=~\csYear); automated title filter (n~=~\csTitleFilter)};
+\node[box] (a2) at (0.9,-2.4) {Records screened (n~=~\dbAllScreened):\\ main \taScreened; supplementary \spScreened};
+\node[ex] (b2) at (5.2,-2.4) {Records excluded (n~=~\dbAllExcluded): EC1 \dbAllExOne; EC2 \dbAllExTwo; EC3 \dbAllExThree; EC4 \dbAllExFour; EC5 \dbAllExFive};
+\node[box] (c2) at (9.9,-2.4) {Records screened (n~=~\csScreened)};
+\node[ex] (d2) at (14.2,-2.4) {Records excluded (n~=~\csTaExcluded)};
+\node[box] (a3) at (0.9,-3.9) {Reports sought for retrieval (n~=~\dbAllSought)};
+\node[ex] (b3) at (5.2,-3.9) {Reports not retrieved (n~=~\dbAllNotRetrieved)};
+\node[box] (c3) at (9.9,-3.9) {Reports sought for retrieval (n~=~\csSought)};
+\node[ex] (d3) at (14.2,-3.9) {Reports not retrieved (n~=~\csNotRetrieved)};
+\node[box] (a4) at (0.9,-5.4) {Reports assessed for eligibility (n~=~\dbAllAssessed)};
+\node[ex] (b4) at (5.2,-5.4) {Reports excluded (n~=~\dbAllFtExcluded): EC1 \dbAllFtExOne; EC2 \dbAllFtExTwo; EC3 \dbAllFtExThree; EC4 \dbAllFtExFour};
+\node[box] (c4) at (9.9,-5.4) {Reports assessed for eligibility (n~=~\csAssessed)};
+\node[ex] (d4) at (14.2,-5.4) {Reports excluded (n~=~\csFtExcluded): EC1 \csFtExcluded};
+\node[box, fill=navy!8, text width=8.1cm] (inc) at (5.4,-7.1) {\textbf{Studies included in review (n~=~\totalIncluded)}: from databases \dbAllIncluded{} (main \dbIncluded, supplementary \spIncluded); from citation searching \csIncluded};
+\foreach \u/\v in {a1/b1,a2/b2,a3/b3,a4/b4,c1/d1,c2/d2,c3/d3,c4/d4} \draw[arr] (\u) -- (\v);
+\foreach \u/\v in {a1/a2,a2/a3,a3/a4,c1/c2,c2/c3,c3/c4} \draw[arr] (\u) -- (\v);
+\draw[arr] (a4.south) -- (a4.south |- inc.north);
+\draw[arr] (c4.south) |- (inc.east);
+\node[stage] at (-1.55,-0.6) {Identification};
+\node[stage] at (-1.55,-3.15) {Screening};
+\node[stage, minimum width=1.2cm] at (-1.55,-5.4) {Eligibility};
+\node[stage, minimum width=1.2cm] at (-1.55,-7.1) {Included};
+\end{tikzpicture}}
+\caption{PRISMA 2020 flow diagram \cite{page2021}. Counts are generated from the same decision data as the screening workbook (sheet \texttt{PRISMA\_Counts}), and every arithmetic step is checked by formula.}\label{fig:prisma}
+\end{figure}
+
+\section{Data extraction and quality appraisal}
+For each included study we extracted the Study ID, full citation, publication details and publication/review status with its metadata source, problem, RQs informed, method, datasets, evaluation, findings, limitations, reproducibility, quality scores with notes, and decision evidence. Metadata sources included Crossref, the arXiv record, the paper and Semantic Scholar; bibliographic registration alone was not treated as proof of peer review. Items a paper does not report are marked ``Not reported'' (Appendix~C; workbook sheets \texttt{Extraction}, \texttt{Quality} and \texttt{Quality\_Evidence}). Quality was appraised with ten items scored Yes = 1, Partial = 0.5, No = 0 or N/A: Q1 clear aims; Q2 replicable method; Q3 datasets described; Q4 appropriate comparison; Q5 well-defined stability measure; Q6 evidence sufficient (scale, repetitions, statistics); Q7 limitations discussed; Q8 code or data available; Q9 ethics, privacy or regulation addressed where relevant; Q10 randomness controlled and reported. The score is the share of applicable items; we rate 80\% or above as high, 60--79\% as moderate and below 60\% as low. Scores weight the synthesis but did not exclude any study; the Quality sheet summarizes concerns, and the supplied item-evidence table links every score to extracted evidence and its source locator. Appraisal was AI-assisted and source-linked; five ratings were corrected after dataset, code, seed or repetition evidence was checked. No independent duplicate quality re-extraction was performed. Quality scores are judgments, not a validation of the studies' claims. The mean score was \qaMean\%: \qaHigh{} studies were high, \qaMod{} moderate and \qaLow{} low \cite{S15,S55}. The weakest items were code or data availability (Q8, mean \qaQEight), ethics where applicable (Q9, \qaQNine{} over \qaQNineN{} applicable studies) and limitations (Q7, \qaQSeven). The included set meets the recency targets: \incSinceTwentyTwo{} of \totalIncluded{} studies are from 2022 or later and \incSinceTwentyFive{} from 2025 or later. It also contains \incBeforeTwentyTwo{} studies from before 2022, among them foundational work on explainer stability \cite{S01,S04,S08}, and \mapreview{} reviews \evreview. By type, there are \incJournal{} journal articles, \incConference{} conference papers, \incWorkshop{} workshop papers and \incPreprint{} preprints; the preprints are labelled as not peer reviewed. The set exceeds the minimum target because the topic is very active and RQ3 added a supplementary search. By question, \rqOne{} studies inform RQ1, \rqTwo{} RQ2 and \rqThree{} RQ3.
+
+\section{Thematic synthesis and research gap}\label{sec:synth}
+% SYNTHESIS-START
+\textbf{Theme 1: stability depends on what is varied (RQ1).} Studies measure top-$k$ overlap, attribution dispersion, rank agreement or local sensitivity, but these endpoints are not interchangeable. S-LIME uses repeated-call Jaccard overlap \cite{S08}; VSI/CSI distinguish selected-variable agreement from coefficient agreement \cite{S10}; and local Lipschitz estimates compare nearby-input explanations \cite{S01,S05}. Other studies compare model refits or data conditions rather than repeated calls to one explainer. Hierarchical shrinkage measures SHAP variance across resampled training sets \cite{S83}, while ecological-risk analysis gives bootstrap attribution intervals \cite{S81}. These protocols answer different questions and should be recorded separately before results are compared. Attribution uncertainty is also distinct from uncertainty in the prediction itself.
+
+\textbf{Theme 2: predictive performance is not a sufficient reliability check (RQ2).} The evidence concerns different prediction quantities and does not support one universal weak or strong relationship. In intrusion detection, the most accurate models did not necessarily give the most reproducible SHAP profiles \cite{S51}. Under the attacks evaluated by Rajhans and Khawarey, prediction robustness and attribution stability could diverge, although their estimates used separate held-out subsets \cite{S59}. Prediction-equivalent models from different hypothesis classes can also produce different attributions \cite{S75}; that is cross-model disagreement, not a local input-perturbation test. The newly included DDoS study relates fold-level SHAP consistency to model robustness, but conflicting correlation statements limit its numerical evidence \cite{S84}. Accuracy, calibration, prediction robustness and explanation stability therefore require separate operational definitions.
+
+\textbf{Theme 3: sampling, model fitting and target choices contribute differently (RQ3).} LIME's random neighbourhood and hyperparameters affect repeated-call variation \cite{S08,S10}; control variates reduce KernelSHAP sampling variance, with gains varying by setting \cite{S18}. Collinearity can make global feature rankings change across refits: one preprint reports 52 of 77 benchmark datasets above a 10\% ranking-flip threshold, rather than demonstrating that every explanation is unstable \cite{S43}. Tree regularisation can reduce resampling variance in SHAP even when predictive gains are small \cite{S83}. Label manipulation changes smart-grid attributions \cite{S80}, while a bioprocess study retains 70\% of its top-ten SHAP features after changing the outcome threshold \cite{S82}. Neither target alteration is a prediction-preserving perturbation of one fixed instance. These distinctions prevent superficially similar stability results from being pooled as one outcome.
+
+\textbf{Theme 4: warning scores have different targets and costs (RQ3).} Bayesian local explanations and bootstrap procedures attach intervals to attributions \cite{S05,S81}. Such uncertainty estimates may require additional samples or model fits. A single-model split-frequency screen flags feature pairs prone to global ranking reversals after retraining \cite{S43}; it is not a demonstrated per-instance detector of input-perturbation instability. The reliability score in S75 requires a reference ensemble and its explanations, so it is not computed from tree structure alone \cite{S75}. Forecast-uncertainty gating is associated with lower out-of-sample instability in synthetic experiments, but in-sample ordering can reverse and calibration needs held-out residuals \cite{S77}. Perturbation-free query evaluation therefore does not imply a cost-free or model-alone diagnostic.
+
+\textbf{Evidence strength and gap.} Protocol heterogeneity, \incPreprint{} preprints, incomplete retrieval and individual reporting weaknesses limit generalisation. The current extraction identifies no study jointly testing instance-level prediction-to-attribution changes for both SHAP and LIME across logistic regression, random forest and XGBoost against each explainer's repeated-call noise floor. Predicted-class-preserving filters already exist \cite{S09,S25,S62}; their existence narrows the proposed contribution. Existing retraining diagnostics \cite{S43} also rule out claiming that tree-based warnings are new in general. The Assignment 1 problem should instead test the prediction--explanation link under explicit prediction-preserving perturbations, record split-threshold or bin-edge crossings, and evaluate whether an instance-level tree-derived score discriminates the observed instability. This is a gap in the retrieved, extracted evidence, not proof that no relevant research exists.
+% SYNTHESIS-END
+
+\section{Limitations}\label{sec:lim}
+(1) ACM Digital Library, Scopus and Web of Science were not searched; access limitations and an ACM bot check restricted coverage. OpenAlex was used only during piloting. (2) Phrase-based searches missed five of the \nKnown{} benchmark papers \cite{hwang2025,decker2025,lin2023,takefuji2025,hasnain2026}; they were not silently added outside the logged process. (3) \totalNotRetrieved{} of \totalSought{} sought reports could not be assessed from complete text, despite legal publisher/repository searches, creating possible retrieval bias. (4) Independent screening was performed on a 197-record sample, not the entire pool; extraction and quality appraisal were AI-assisted and not independently duplicated. Targeted source checks do not establish full reproducibility of every study. (5) Citation searching used an automated title filter; the supplementary RQ3 search omitted ScienceDirect. (6) \incPreprint{} included reports are preprints; version changes, weak reporting and heterogeneous stability targets limit certainty. The review is a thematic evidence synthesis, not a meta-analysis, and its gaps are bounded by the documented search and extraction.
+
+\section{Contribution statement and AI-use disclosure}\label{sec:contrib}
+\textbf{Shahoud Shahid (23i-2515):} RQ1 lead and responsibility for the IEEE Xplore, ScienceDirect and DBLP source strands and S01--S35. \textbf{Saif Shahzad (23i-2634):} RQ2 lead and responsibility for arXiv, Semantic Scholar, citation searching, S36--S79 and workbook consolidation. \textbf{Joint responsibilities:} RQ3, supplementary-search interpretation, S80--S84, synthesis and final submission review. Both members independently screened the same 197-record sample and reconciled 26 differences, as confirmed by the team on 7 November 2026; their original decisions and resolution notes are preserved.
+\textbf{AI assistance:} Claude assisted with the original searches, deduplication, draft decisions, extraction, appraisal and report. Codex and its named AI agents subsequently searched for sources, checked selected passages, proposed corrections, assessed the 45 advanced records and assembled the revised outputs. Agent names are not human reviewers. Database-strand responsibilities identify team ownership, not a claim that every query or extraction was performed without AI. The report distinguishes independent human screening from AI-assisted full-text assessment and appraisal. The team remains responsible for the submission and for compliance with the course's permitted-AI policy.
+
+{\small
+\bibliographystyle{IEEEtran}
+\bibliography{included_studies,refs_methods}
+}
+
+\clearpage
+\appendix
+\counterwithin{table}{section}
+\renewcommand{\thetable}{\Alph{section}.\arabic{table}}
+\section{Search log and refinement log}
+{\footnotesize\setlength{\tabcolsep}{2pt}\input{tab_searchlog}}
+{\footnotesize\setlength{\tabcolsep}{2pt}\input{tab_refine}}
+\begin{table}[H]
+\centering\footnotesize
+\caption{Search validation against known benchmark papers (\checkmarkx{} = retrieved).}\label{tab:validation}
+\input{tab_validation}
+\end{table}
+\begin{table}[H]
+\centering\footnotesize
+\caption{Supplementary search validation against RQ3 benchmark papers (\checkmarkx{} = retrieved).}\label{tab:suppval}
+\input{tab_supp_validation}
+\end{table}
+
+\clearpage
+\section{Screening sheet}
+Title and abstract decisions for all \totalScreened{} screened records (\taScreened{} from the main database search, \spScreened{} from the supplementary search and \csScreened{} from citation searching) are in the workbook sheet \texttt{TA\_Screening}, with a reason for each exclusion. Exclusion counts at this stage were EC1 \dbAllExOne, EC2 \dbAllExTwo, EC3 \dbAllExThree, EC4 \dbAllExFour{} and EC5 \dbAllExFive{} for database records (supplementary: EC1 \spExOne, EC2 \spExTwo, EC3 \spExThree, EC4 \spExFour, EC5 \spExFive), and \csTaExcluded{} for citation-search records. Table~\ref{tab:ftsheet} lists every report sought for retrieval, with its decision and the evidence for it.
+{\scriptsize\setlength{\tabcolsep}{2pt}\input{tab_ftsheet}}
+
+\clearpage
+\begin{landscape}
+\section{Data extraction and quality appraisal tables}
+{\scriptsize\setlength{\tabcolsep}{3pt}\input{tab_ext1}}
+\clearpage
+{\scriptsize\setlength{\tabcolsep}{2.5pt}\input{tab_ext2}}
+\end{landscape}
+
+\clearpage
+\section{PRISMA 2020 checklist}
+{\footnotesize
+\begin{longtable}{@{}P{0.9cm}P{5.6cm}P{9.4cm}@{}}
+\caption{PRISMA 2020 checklist \cite{page2021}: where each item is reported, or why it does not apply. Items concern a systematic literature review without meta-analysis.}\label{tab:prismacheck}\\
+\toprule Item & Topic & Where reported / status \\ \midrule \endfirsthead
+\toprule Item & Topic & Where reported / status \\ \midrule \endhead
+\bottomrule \endfoot
+1 & Title & Title block identifies a systematic literature search and review \\
+2 & Abstract & Summary paragraph (structured abstract not required by the brief) \\
+3 & Rationale & Section 1 (problem from Assignment 1) \\
+4 & Objectives & Section 1, Tables~\ref{tab:picoc}--\ref{tab:rq} \\
+5 & Eligibility criteria & Section 4, Table~\ref{tab:criteria} \\
+6 & Information sources & Section 2, Table~\ref{tab:sources}; search dates 24--25 Oct 2026 \\
+7 & Search strategy & Section 3; full strings in Table~\ref{tab:searchlog}; supplementary search validated in Table~\ref{tab:suppval} \\
+8 & Selection process & Section 6 (two stages; 197-record independent sample, agreement and reconciliation; AI assistance disclosed) \\
+9 & Data collection process & Section 7; source-linked AI-assisted extraction; no duplicate independent re-extraction \\
+10a--b & Data items & Section 7; Appendix~C \\
+11 & Study risk of bias assessment & Section 7 (10-item quality checklist) \\
+12 & Effect measures & Not applicable: no meta-analysis \\
+13a--f & Synthesis methods & Section 8 (thematic synthesis with an evidence map; 13d--f not applicable) \\
+14 & Reporting bias assessment & Not assessed formally; Section 9 notes publication-type and recency effects \\
+15 & Certainty assessment & Not formally graded; strength of evidence discussed in Section 8 \\
+16a & Study selection results & Figure~\ref{fig:prisma}; Appendix~B \\
+16b & Excluded studies & Table~\ref{tab:ftsheet} (full-text exclusions with reasons) \\
+17 & Study characteristics & Appendix~C, Table~\ref{tab:ext1} \\
+18 & Risk of bias in studies & Appendix~C, Table~\ref{tab:ext2} \\
+19 & Results of individual studies & Appendix~C (findings column) \\
+20a--d & Results of syntheses & Section 8 \\
+21 & Reporting biases & Not assessed (no quantitative synthesis) \\
+22 & Certainty of evidence & Section 8, ``Strength of evidence'' \\
+23a--d & Discussion & Sections 8--9; RQ3 realignment noted in Section 1 \\
+24a--c & Registration and protocol & Not registered; search, criteria and changes documented in the report, workbook and archived decision data \\
+25 & Support & No funding \\
+26 & Competing interests & None declared \\
+27 & Availability of data, code and materials & Appendix~E: workbook, RIS/BibTeX, scripts, DOI links \\
+\end{longtable}}
+
+\section{Deliverables}
+\begin{itemize}
+\item \texttt{report/main.pdf}: this report (LaTeX source in \texttt{report/}); counts and tables are generated from the data by \texttt{search\_scripts/build\_tex.py}.
+\item \texttt{screening/MBR\_A2\_Screening\_Workbook.xlsx}: search log, refinement, validation, identification, de-duplication, title-abstract screening, dual-screening subset with kappa formulas, full text, included studies, extraction, quality and PRISMA counts.
+\item \texttt{library/}: \texttt{included\_studies.bib} and \texttt{.ris} (\totalIncluded{} studies); \texttt{all\_screened\_records.ris} (every screened record with its decision).
+\item \texttt{links/}: DOI and full-text links for included studies; reports not retrieved, with reasons.
+\item \texttt{search\_scripts/}: the scripts and query files used, plus the decision data (\texttt{data/}).
+\end{itemize}
+\end{document}

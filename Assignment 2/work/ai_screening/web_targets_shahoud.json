@@ -1,0 +1,298 @@
+[
+  {
+    "id": "N027",
+    "title": "Robust Prediction of Ship Propulsion Power with Uncertainty Quantification using Quantile LightGBM",
+    "year": 2025,
+    "doi": "10.1109/icises68342.2025.11512813",
+    "arxiv": null,
+    "abstract": "Accurate prediction of ship propulsion power is fundamental for optimizing energy efficiency and reducing emissions. However, point predictions from models such as LightGBM lack calibrated uncertainty, limiting robustness under noisy and nonstationary in-service conditions. This paper proposes an uncertainty-aware LightGBM framework tailored to Very Large Crude Carriers (VLCCs). The method uses qu..."
+  },
+  {
+    "id": "N039",
+    "title": "Explainable Ensemble Machine Learning Approach for severity prediction of Hemophilia A",
+    "year": 2025,
+    "doi": "10.1109/ised67359.2025.11405080",
+    "arxiv": null,
+    "abstract": "With the increasing use of machine learning in healthcare, explainable AI (XAI) has become essential to ensure transparency and trust in model predictions. In this study, we experimented with various machine learning classifiers, including an ensemble model combining XG-Boost with Random Forest, which demonstrated superior performance in predicting hemophilia A (HA) severity. To ensure model trans..."
+  },
+  {
+    "id": "N049",
+    "title": "A clinical diagnosis prediction model based on XGBoost-SHAP",
+    "year": 2024,
+    "doi": "10.1109/iceace63551.2024.10898650",
+    "arxiv": null,
+    "abstract": "Clinical diagnosis is typically a binary classification problem influenced by multiple indicators. Accurately predicting whether a patient is diseased based on various test indicators, and identifying the main influencing factors for targeted treatment, is a highly challenging task. To address issues such as high complexity, low model interpretability, and sensitivity to noise in traditional model..."
+  },
+  {
+    "id": "N064",
+    "title": "Gearbox Fault Classification Method Based on Multi-Scale Feature Fusion and Explainable Analysis",
+    "year": 2025,
+    "doi": "10.1109/scecs65243.2025.11065664",
+    "arxiv": null,
+    "abstract": "Gearbox fault classification poses significant challenges in industrial environments due to the complex interactions between multi-source signals and noise interference. This study proposes a novel multiscale feature fusion approach with interpretability analysis to overcome the limitations of conventional single-modality diagnostic methods. By systematically constructing a hybrid feature space in..."
+  },
+  {
+    "id": "N074",
+    "title": "Bus passenger flow prediction using BO-optimized XGBoost",
+    "year": 2023,
+    "doi": "10.1109/bdicn58493.2023.00035",
+    "arxiv": null,
+    "abstract": "Passenger flow prediction is essential for bus operation management. This study applies the extreme gradient boosting machine (XGBoost) to predict hourly bus passenger flow. Moreover, Bayesian optimization (BO) is adopted for parameter tuning to optimize the performance of the XGBoost. The relative importance and SHAP value are adopted to interpret the results. A comparative study with support vec..."
+  },
+  {
+    "id": "N088",
+    "title": "A SHAP-Guided Machine Learning Framework for Predicting Intravenous Immunoglobulin Resistance",
+    "year": 2026,
+    "doi": "10.1109/icosec70158.2026.11735905",
+    "arxiv": null,
+    "abstract": "Kawasaki disease is the leading cause of acquired pediatric heart disease, and resistance to first-line intravenous immunoglobulin (IVIG) therapy marks the subgroup at greatest risk of coronary artery aneurysms. Reliable pre-treatment prediction of IVIG resistance could enable timely adjunctive therapy, yet established clinical scores generalize poorly beyond the derivation populations. This study..."
+  },
+  {
+    "id": "N096",
+    "title": "Intelligent Assessment of College Students' Mental Health based on Kendall’s Rank Correlation Coefficient Based J48 Decision Tree",
+    "year": 2025,
+    "doi": "10.1109/iciscn64258.2025.10934250",
+    "arxiv": null,
+    "abstract": "In recent days, preventing psychological crisis behavior and development growth among college students is a persistent concern which includes not only mental well-being but also includes talent development and societal stability. In existing, the traditional Decision Tree (DT) models are utilized but mostly suffered with empty, insignificant branches and overfitting issues. To overcome these issue..."
+  },
+  {
+    "id": "N110",
+    "title": "Interpretable Machine Learning and Uncertainty Quantification for Groundwater Pollution Assessment in an Arid Aquifer",
+    "year": 2026,
+    "doi": "10.1109/access.2026.3684794",
+    "arxiv": null,
+    "abstract": "Assessing groundwater pollution in arid regions remains challenging due to complex hydrogeochemical processes and the limited interpretability and uncertainty awareness of some predictive models. Effective groundwater quality assessment, therefore, requires models that combine accurate prediction with interpretability. This study applied an integrated approach, combining Shapley Additive Explanati..."
+  },
+  {
+    "id": "N119",
+    "title": "Hierarchical Uncertainty Aware Explainable Hybrid Deep Learning Framework for Credit Default Risk Prediction",
+    "year": 2026,
+    "doi": "10.1109/icict68280.2026.11510788",
+    "arxiv": null,
+    "abstract": "Financial institutions need credit default risk prediction to reduce losses to loans and have a stable portfolio management. Standard statistical models usually do not yield complex nonlinear relationships and feature interdependencies of large scale and imbalanced credit datasets. To circumvent these shortcomings, this paper suggests a Hierarchy Uncertainty Aware Explainable Hybrid Deep Learning ..."
+  },
+  {
+    "id": "N122",
+    "title": "Safety Assessment: From Black-Box to White-Box",
+    "year": 2022,
+    "doi": "10.1109/issrew55968.2022.00083",
+    "arxiv": null,
+    "abstract": "Safety assurance for Machine-Learning (ML) based applications such as object detection is a challenging task due to the black-box nature of many ML methods and the associated uncertainties of its output. To increase evidence in the safe behavior of such ML algorithms an explainable and/or interpretable introspective model can help to investigate the black-box prediction quality. For safety assessm..."
+  },
+  {
+    "id": "N138",
+    "title": "Towards Better-Calibrated ML Models for Reliable Network Intrusion Detection via Calibration-Aware SHAP-Based Feature Selection",
+    "year": 2025,
+    "doi": "10.1109/wimob66857.2025.11257482",
+    "arxiv": null,
+    "abstract": "Model calibration and feature selection are two critical aspects in developing reliable and accurate machine learning models. Calibration ensures that the model&#39;s confidence scores accurately reflect the true likelihood of correctness, which is essential in security-critical applications, like Network Intrusion Detection Systems (NIDS). Feature selection (FS), meanwhile, enhances model efficiency,..."
+  },
+  {
+    "id": "N143",
+    "title": "ABO3 Perovskites’ Formability Prediction and Crystal Structure Classification using Machine Learning",
+    "year": 2022,
+    "doi": "10.1109/iciset54810.2022.9775906",
+    "arxiv": null,
+    "abstract": "Renewable energy sources are of great interest to combat global warming, yet promising sources like photovoltaic(PV)cells are not efficient and cheap enough to act as an alternative to traditional energy sources. Perovskite has high potential as a PV material but engineering the right material for a specific application is often a lengthy process. In this paper, ABO3 type perovskites’ formability ..."
+  },
+  {
+    "id": "N167",
+    "title": "A Context-Aware NLP Model for Automated Spam Message Identification",
+    "year": 2026,
+    "doi": "10.1109/icsist70215.2026.11705993",
+    "arxiv": null,
+    "abstract": "Spam communications remain a persistent cybersecurity threat, consuming network bandwidth, reducing productivity, and delivering malicious content such as phishing links and malware. Traditional rule-based and keyword-centric filtering methods struggle against modern spam that employs contextual manipulation and obfuscated text. This paper presents a context-aware Natural Language Processing (NLP)..."
+  },
+  {
+    "id": "N191",
+    "title": "Counterfactual and Prototypical Explanations for Tabular Data via Interpretable Latent Space",
+    "year": 2024,
+    "doi": "10.1109/access.2024.3496114",
+    "arxiv": null,
+    "abstract": "Artificial Intelligence decision-making systems have dramatically increased their predictive power in recent years, beating humans in many different specific tasks. However, with increased performance has come an increase in the complexity of the black-box models adopted by the AI systems, making them entirely obscure for the decision process adopted. Explainable AI is a field that seeks to make A..."
+  },
+  {
+    "id": "N207",
+    "title": "Bridging Predictive Performance and Explainability in Employee Attrition Through Imbalanced Learning and XAI",
+    "year": 2026,
+    "doi": "10.1109/ibaaids66771.2026.11567396",
+    "arxiv": null,
+    "abstract": "Employee attrition presents a significant challenge for organizational management, particularly due to the severe class imbalance inherent in human resource (HR) datasets where turnover events are rare. Standard machine learning classifiers often fail to capture these minority cases, leading to poor recall. While oversampling techniques are commonly employed to address the imbalanced data, they of..."
+  },
+  {
+    "id": "N234",
+    "title": "Machine Learning-Driven Models for Predictive Diagnosis of Depression and Anxiety in Clinical Settings",
+    "year": 2026,
+    "doi": "10.1109/aic70896.2026.11717141",
+    "arxiv": null,
+    "abstract": "Timely and accurate identification of depressive and anxiety disorders has been a perennial problem with clinical settings because of their nonspecific manifestation and dynamic patterns of symptoms. This paper presents a Multimodal Temporal Evidential Graph Transformer (MTEGT), a single deep learning platform that is proposed to predict the onset of increasing deterioration of mental health throu..."
+  },
+  {
+    "id": "N239",
+    "title": "LIME-Based Analysis of Adversarial Feature Manipulation in Cloud Intrusion Detection Systems",
+    "year": 2026,
+    "doi": "10.1109/icciaa68481.2026.11543654",
+    "arxiv": null,
+    "abstract": "Cloud-based intrusion detection systems face persistent threats from adversarial attacks that introduce imperceptible perturbations to malicious traffic, enabling evasion and compromising network security. While ML-based detection systems demonstrate strong performance under normal conditions, their vulnerability to adversarial manipulation and the mechanisms behind such evasion remain insufficien..."
+  },
+  {
+    "id": "N252",
+    "title": "A Robust Framework for Stock Price Prediction via BorutaSHAP-Based Feature Selection and Ensemble Deep Learning",
+    "year": 2026,
+    "doi": "10.1109/access.2026.3719338",
+    "arxiv": null,
+    "abstract": "Stock price prediction remains challenging due to market noise, non-stationarity, and complex temporal dependencies. This study proposes a robust hybrid framework to enhance predictive performance, stability, and interpretability in financial time series forecasting. The framework integrates BorutaSHAP-based feature selection with variance inflation factor (VIF) filtering to construct a relevant a..."
+  },
+  {
+    "id": "N272",
+    "title": "An AI-Driven Framework for Enhancing Resilience in Propagation Models to Enable Digital Twin",
+    "year": 2024,
+    "doi": "10.1109/pimrc59610.2024.10817403",
+    "arxiv": null,
+    "abstract": "The evolution of wireless cellular networks to support Digital Twins (DTs) requires robust propagation models. Traditional propagation modeling methods, though fundamental, lack the realism, completeness, and computational efficiency required for effective DT synchronization. This inadequacy underscores the need for models that can seamlessly integrate with real-world network dynamics. Therefore, ..."
+  },
+  {
+    "id": "N369",
+    "title": "A Unified Artificial Neural Network Model for Stability Prediction of Circular and Square Tunnels in Cohesive-frictional Soils with Monte Carlo Uncertainty Analysis",
+    "year": 2026,
+    "doi": "10.1007/s40515-026-00920-9",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "N461",
+    "title": "Investigating the efficacy of physics-based metaheuristic algorithms in combination with explainable ensemble machine-learning models for landslide susceptibility mapping",
+    "year": 2025,
+    "doi": "10.1007/s00477-025-02911-7",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "N479",
+    "title": "A Hybrid Explainable Logistic Regression model with Bayesian Feature Selection, SHAP Explainability, Stability Analysis, and Uncertainty Quantification for Breast Cancer Diagnosis",
+    "year": 2026,
+    "doi": "10.51483/ijaiml.6.11s.2026.1284-1289",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "N662",
+    "title": "Pseudo-static slope stability analysis using explainable machine learning techniques",
+    "year": 2024,
+    "doi": "10.1007/s11069-024-06839-z",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "N719",
+    "title": "Valuing inputs under supply uncertainty: The Bayesian Shapley value",
+    "year": 2018,
+    "doi": "10.1016/j.geb.2017.08.005",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "U033",
+    "title": "Self-Adaptive Genetic Boosted Explainable Framework for Employee Performance Classification",
+    "year": 2026,
+    "doi": "10.1109/ictmim68190.2026.11507650",
+    "arxiv": null,
+    "abstract": "Accurate and interpretable employee performance evaluation is essential for effective organizational decisionmaking. This work proposes a novel explainable classification framework, termed Self-Adaptive Genetic Boosted eXplainable Framework (SAGB-XSHAP), which integrates eXtreme Gradient Boosting (XGB) with a self-adaptive genetic optimization strategy and SHAP (SHapley Additive exPlanations) - based explanation stability analysis. The proposed approach jointly evolves feature interaction structures and model hyperparameters while explicitly penalizing unstable feature attributions during optimization. Unlike conventional methods that treat interpretability as a post-processing step, the proposed framework embeds explanation consistency directly into the learning process. Experimental evaluation on a structured employee performance dataset demonstrates that the SAGBXSHAP framework accomplishes a classification accuracy of 98%, outperforming traditional Machine Learning (ML) and standard boosting-based approaches. Furthermore, SHAP-based analysis reveals consistent and meaningful influence patterns for key employee attributes such as salary, overtime, and job involvement, enabling transparent and reliable performance assessment. The results confirm that the SAGB-XSHAP framework precisely balances predictive accuracy with explanation stability, making it acceptable for practical human resource analytics implementations."
+  },
+  {
+    "id": "U046",
+    "title": "PG-TabM: Domain-Informed Parameter-Efficient Ensemble Learning with Soft Physical Regularization for Concrete Compressive Strength Prediction",
+    "year": 2026,
+    "doi": "10.1109/access.2026.3744880",
+    "arxiv": null,
+    "abstract": "Accurate concrete compressive-strength prediction remains difficult when available tabular data are small, compositionally heterogeneous, and unevenly distributed across curing ages and binder systems. Recent studies have already established strong tree ensembles, optimized ensemble learners, creator-variable methods, explainable models, and physics-informed or physics-guided predictors; the remai..."
+  },
+  {
+    "id": "U054",
+    "title": "A Robustness-Oriented Quantum–Classical Hybrid Machine Learning Pipeline for Breast Cancer Diagnosis: External Validation, Explainability, and Rigorous Benchmarking in the NISQ Era",
+    "year": 2026,
+    "doi": "10.3390/diagnostics16131996",
+    "arxiv": null,
+    "abstract": "Background: Breast cancer remains a leading cause of cancer-related mortality, and reliable computational decision support is increasingly viewed as a complement to expert pathological assessment rather than a replacement for it. Variational quantum classifiers (VQCs) and Quantum Support Vector Machines (QSVMs) have recently been promoted as candidate models for medical classification, yet most published comparisons rely on internal hold-out validation alone and report only a single point estimate of discrimination, omitting calibration, decision-analytic value, and explainability—three ingredients that any clinically credible model must furnish. Methods: We assembled a complete quantum–classical machine learning pipeline and evaluated it under a deliberately stringent protocol designed to expose, rather than conceal, the limitations of current Noisy Intermediate-Scale Quantum (NISQ)-era models. The analytical hypothesis was conservative and stated in advance; in light of saturated classical baselines on this benchmark, we did not anticipate a quantum advantage in raw discrimination, and we framed the study as a methodological probe rather than as a competition. Using the Wisconsin Diagnostic Breast Cancer (WDBC) dataset (n = 569) for development and an independent Wisconsin Original (WBC) cohort (n = 683) for external validation, we benchmarked five classical learners (XGBoost, LightGBM, CatBoost, RandomForest, RBF-SVM), two quantum models (an eight-qubit VQC implemented in PennyLane and a ZZ-feature-map QSVM implemented in Qiskit), and a stacked hybrid ensemble. The evaluation framework combined Optuna-driven hyperparameter optimisation, internal–external cross-validation, and external validation on the independent WBC cohort. Robustness and interpretability were then probed through circuit depth and embedding rotation ablation, depolarising noise stress tests, learning curve and feature stability analysis, decision curve analysis, and dual SHAP-based explanations covering both a direct tree-based explanation and a quantum surrogate. Reporting followed the TRIPOD + AI guideline. Results: On the internal test partition, RBF-SVM achieved the highest discrimination (AUC = 0.998), with XGBoost, LightGBM, CatBoost, the hybrid ensemble, and the VQC clustering between 0.992 and 0.996; the QSVM with a ZZ-fidelity kernel underperformed substantially (AUC = 0.727). Pairwise tests for correlated ROC curves indicated that most differences among top models were not statistically significant. On the external WBC cohort, model rankings reorganised, as RBF-SVM (AUC = 0.986, 95% CI 0.946–0.997), RandomForest (0.985, 95% CI 0.945–0.996), VQC (0.983, 95% CI 0.942–0.995), and the hybrid ensemble (0.982, 95% CI 0.941–0.995) all retained near-ceiling discrimination with extensively overlapping confidence intervals. Ablation analysis demonstrated that the choice of embedding rotation is decisive—Z-rotation embeddings collapsed VQC performance to chance levels (AUC ≈ 0.50), whereas X- and Y-rotations preserved it. Depolarising noise up to p = 0.10 had a negligible effect on the VQC, and SHAP analyses converged on worst concave points, mean concave points, and worst area as the dominant predictors across both classical and quantum models. Decision curve analysis showed positive net benefit for both classical and hybrid models across the clinically meaningful threshold range, exceeding both the treat-all and treat-none reference strategies throughout. Conclusions: In the present regime, the principal contribution of QML is not raw discrimination—modern classical learners are already at the data ceiling—but the construction of a rigorous, reproducible, externally validated, and interpretable benchmarking framework in which quantum models can be fairly compared with their classical counterparts. Because evaluation was confined to curated benchmark datasets rather than real-world clinical populations, the interpretability and net benefit findings reported here should be read as benchmark-level evidence and not as a demonstration of readiness for clinical deployment."
+  },
+  {
+    "id": "U405",
+    "title": "LLM Enhanced Explainable Intrusion Detection System for Generating Actionable Security Insights",
+    "year": 2026,
+    "doi": "10.32604/cmc.2026.085403",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "U408",
+    "title": "Toward temporal stability in explainable AI: A framework for measuring explanation drift",
+    "year": 2026,
+    "doi": "10.1016/j.array.2026.101359",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "U411",
+    "title": "Enhancing Clinical Insight Of An Artificial Intelligence Test For Pulmonary Capillary Wedge Pressure Elevation By Unmasking Physiological Mechanisms",
+    "year": 2026,
+    "doi": "10.1016/j.cardfail.2025.11.131",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "U417",
+    "title": "Novel Spatiotemporal Nonlinear Regression Approach for Unveiling the Impact of Urban Spatial Morphology on Carbon Emissions",
+    "year": 2025,
+    "doi": "10.1016/j.scs.2025.106381",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "U444",
+    "title": "Early identification of ICU patients at risk of complications: Regularization based on robustness and stability of explanations",
+    "year": 2022,
+    "doi": "10.1016/j.artmed.2022.102283",
+    "arxiv": null,
+    "abstract": "The aim of this study is to build machine learning models to predict severe complications using administrative and clinical elements that are collected immediately after patient admission to the intensive care unit (ICU). Risk models are of increasing importance in the ICU setting. However, they generally present the black-box issue because they do not provide meaningful information about the logic involved in patient-specific predictions. Fortunately, effective algorithms exist for explaining black-box models, and in practice, they offer valuable explanations for model predictions. These explanations are becoming essential to engender trust and accreditation to the model. However, once the model is implemented, a major issue is whether it will continue to employ the same prediction logic as originally intended to. To build our models, features are obtained from patient administrative data, laboratory results and vital signs available within the first hour after ICU admission. This enables our models to provide great anticipation because complications can occur at any moment during ICU stay. To build models that continue to work as originally designed we first propose to measure (i) how the provided explanations vary for different inputs (that is, robustness), and (ii) how the provided explanations change with models built from different patient sub-populations (that is, stability). Second, we employ these measures as regularization terms that are coupled with a feature selection procedure such that the final model provides predictions with more robust and stable explanations. Experiments were conducted on a dataset containing 6000 ICU admissions of 5474 patients. Results obtained on an external validation cohort of 1069 patients with 1086 ICU admissions showed that selecting features based on robustness led to gains in terms of predictive power that varied from 6.8% to 9.4%, whereas selecting features based on stability led to gains that varied from 7.2% to 11.5%, depending on the target complication. Our results are of practical importance as our models predict complications with great anticipation, thus facilitating timely and protective interventions."
+  },
+  {
+    "id": "U454",
+    "title": "Uncertainty-Awareness in Explainable Artificial Intelligence (xAI) for Sensor Network Metrology",
+    "year": 2026,
+    "doi": "10.1016/j.meadig.2026.100042",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "U463",
+    "title": "An interpretable deep learning model for EEG emotion recognition using the Rashomon effect",
+    "year": 2026,
+    "doi": "10.1016/j.bspc.2026.110140",
+    "arxiv": null,
+    "abstract": ""
+  },
+  {
+    "id": "U498",
+    "title": "Rethinking Stability for Attribution-based Explanations",
+    "year": 2022,
+    "doi": "10.48550/arxiv.2203.06877",
+    "arxiv": "2203.06877",
+    "abstract": "As attribution-based explanation methods are increasingly used to establish model trustworthiness in high-stakes situations, it is critical to ensure that these explanations are stable, e.g., robust to infinitesimal perturbations to an input. However, previous works have shown that state-of-the-art explanation methods generate unstable explanations. Here, we introduce metrics to quantify the stability of an explanation and show that several popular explanation methods are unstable. In particular, we propose new Relative Stability metrics that measure the change in output explanation with respect to change in input, model representation, or output of the underlying predictor. Finally, our experimental evaluation with three real-world datasets demonstrates interesting insights for seven explanation methods and different stability metrics."
+  },
+  {
+    "id": "U552",
+    "title": "Training for Stable Explanation for Free",
+    "year": 2024,
+    "doi": "10.52202/079017-0113",
+    "arxiv": null,
+    "abstract": "To foster trust in machine learning models, explanations must be faithful and stable for consistent insights. Existing relevant works rely on the ℓ p distance for stability assessment, which diverges from human perception. Besides, existing adversarial training (AT) associated with intensive computations may lead to an arms race. To address these challenges, we introduce a novel metric to assess the stability of top-k salient features. We introduce R2ET which trains for stable explanation by efficient and effective regularizer, and analyze R2ET by multi-objective optimization to prove numerical and statistical stability of explanations. Moreover, theoretical connections between R2ET and certified robustness justify R2ET’s stability in all attacks. Extensive experiments across various data modalities and model architectures show that R2ET achieves superior stability against stealthy attacks, and generalizes effectively across different explanation methods. The code can be found at https://github.com/ccha005/R2ET ."
+  },
+  {
+    "id": "U575",
+    "title": "Inference to the Stable Explanations",
+    "year": 2022,
+    "doi": "10.1007/978-3-031-15707-3_19",
+    "arxiv": null,
+    "abstract": ""
+  }
+]

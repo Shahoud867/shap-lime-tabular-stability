@@ -1,5 +1,11 @@
 # Stability of SHAP and LIME Explanations for Tabular Models
 
+## Final Assignment 2 submission — 7 November 2026
+
+The final [submission package](<Assignment 2/outputs/01a1af69-d8fe-71f1-a2cd-78094fad2cb8/Submission_Package/README.md>) contains the reconciled report, workbook, reference library, full-text links and submission instructions. [Download the complete ZIP](<Assignment 2/outputs/01a1af69-d8fe-71f1-a2cd-78094fad2cb8/MG3010_Assignment2_23i2515_23i2634.zip>).
+
+This version includes 84 studies, preserves the 197-record independent human screening sample and its 26 resolved differences, and passes 23 consistency checks. Full-text access limitations and AI assistance are disclosed. Earlier `Deliverables/` and audit folders retain the working history; use the linked final package for submission.
+
 [![License](https://img.shields.io/badge/License-Academic-blue.svg)](LICENSE)
 [![PRISMA 2020](https://img.shields.io/badge/PRISMA-2020%20Compliant-brightgreen.svg)](#systematic-literature-review)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)

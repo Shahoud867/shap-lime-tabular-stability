@@ -1,0 +1,173 @@
+{
+  "date": "2026-11-06",
+  "review_type": "AI-assisted audit; not human independent screening",
+  "generated_tex_files_reproduced": 9,
+  "existing_crosscheck": "all checks passed before corrections",
+  "quality_note_label_flags": [
+    {
+      "study": "S01",
+      "missing_explicit_labels": [
+        "Q7"
+      ],
+      "notes": "Q3 dataset details brief; Q6 small-scale; Q8 libraries only; Q10 sampling described, no repeated seeds."
+    },
+    {
+      "study": "S02",
+      "missing_explicit_labels": [
+        "Q7"
+      ],
+      "notes": "Q3 data preprocessing brief; Q4 no baseline; Q5 selection probability only; Q6 descriptive; Q8 none; Q10 100 repeated runs."
+    },
+    {
+      "study": "S03",
+      "missing_explicit_labels": [
+        "Q7"
+      ],
+      "notes": "Q2/Q3 brief; Q5 detection accuracy only; Q6 small experiments; Q10 no repetitions."
+    },
+    {
+      "study": "S10",
+      "missing_explicit_labels": [
+        "Q7"
+      ],
+      "notes": "Q3 dataset size not reported; Q4 no competing stability measure; Q6 case-study evidence; Q8 code yes, data no; Q9 regulation discussed; Q10 repeated calls isolate sampling noise."
+    },
+    {
+      "study": "S15",
+      "missing_explicit_labels": [
+        "Q6",
+        "Q7"
+      ],
+      "notes": "Q2 brief; Q4 LIME only; Q5 brief; Q8 none; Q10 not detailed."
+    },
+    {
+      "study": "S17",
+      "missing_explicit_labels": [
+        "Q7"
+      ],
+      "notes": "Q3 dataset sizes brief; Q6 small; Q8 none; Q10 10 repeated explanations."
+    },
+    {
+      "study": "S22",
+      "missing_explicit_labels": [
+        "Q7"
+      ],
+      "notes": "Q3 dataset sizes not checked; Q6 two case studies; Q8 not verified; Q9 health data; Q10 multiple k values."
+    },
+    {
+      "study": "S25",
+      "missing_explicit_labels": [
+        "Q7"
+      ],
+      "notes": "Q5 Lipschitz units hard to compare; Q6 small-scale; Q8 no code; Q10 sampling of neighbourhoods described but no repeated seeds."
+    },
+    {
+      "study": "S32",
+      "missing_explicit_labels": [
+        "Q7",
+        "Q8"
+      ],
+      "notes": "Q2/Q5 stability procedure brief; Q6 descriptive; Q9 legal defensibility discussed; Q10 not reported."
+    },
+    {
+      "study": "S37",
+      "missing_explicit_labels": [
+        "Q7"
+      ],
+      "notes": "Q5 consistency metric brief; Q6 one dataset; Q8 none; Q10 repetitions unclear."
+    },
+    {
+      "study": "S47",
+      "missing_explicit_labels": [
+        "Q7"
+      ],
+      "notes": "Q4 no competing UQ baseline reported in sections read; Q9 public health data, ethics brief; Q10 sampling-based."
+    },
+    {
+      "study": "S49",
+      "missing_explicit_labels": [
+        "Q7"
+      ],
+      "notes": "Q2 brief (6-page format); Q4 no external baseline; Q6 small experiments; Q8 no code; Q10 repeated training runs."
+    },
+    {
+      "study": "S53",
+      "missing_explicit_labels": [
+        "Q7"
+      ],
+      "notes": "Q4 two models only; Q8 no code; Q9 anonymised health data; Q10 repeated fits with fixed seeds."
+    },
+    {
+      "study": "S54",
+      "missing_explicit_labels": [
+        "Q7"
+      ],
+      "notes": "Q6 inference from SD intervals; Q8 not verified; Q9 student data, ethics not seen; Q10 repeated runs."
+    },
+    {
+      "study": "S55",
+      "missing_explicit_labels": [
+        "Q2",
+        "Q3",
+        "Q5",
+        "Q7"
+      ],
+      "notes": "Q4 no baseline; Q6 weak; Q8 none; Q9 child health data, ethics not discussed; Q10 no repetitions."
+    },
+    {
+      "study": "S60",
+      "missing_explicit_labels": [
+        "Q7"
+      ],
+      "notes": "Q2 architecture details brief; Q4 no explainer comparison; Q6 descriptive plots; Q8 data public, no code; Q10 fixed seed, no repetitions."
+    },
+    {
+      "study": "S61",
+      "missing_explicit_labels": [
+        "Q8"
+      ],
+      "notes": "Q2 limited detail; Q4 no explainer comparison; Q5 single metric; Q6 descriptive; Q9 governance framing; Q10 fixed seed only."
+    },
+    {
+      "study": "S62",
+      "missing_explicit_labels": [
+        "Q7"
+      ],
+      "notes": "Q8 Zenodo archive; Q10 prediction-preserving filter and deterministic partitioning."
+    },
+    {
+      "study": "S67",
+      "missing_explicit_labels": [
+        "Q8"
+      ],
+      "notes": "Q5 composite stability score; Q6 single case study; Q9 clinical data, ethics brief; Q10 30 runs."
+    },
+    {
+      "study": "S68",
+      "missing_explicit_labels": [
+        "Q7"
+      ],
+      "notes": "Q3 dataset details partly in appendix; Q4 compared with standard SHAP only; Q10 bootstrap replicates."
+    },
+    {
+      "study": "S72",
+      "missing_explicit_labels": [
+        "Q7"
+      ],
+      "notes": "Q2/Q3 brief; Q5 stability score loosely defined; Q6 small experiments; Q10 repetitions not detailed."
+    },
+    {
+      "study": "S78",
+      "missing_explicit_labels": [
+        "Q7"
+      ],
+      "notes": "Q2 brief; Q6 single dataset; Q8 none; Q9 data-use agreement; Q10 fixed seeds only."
+    }
+  ],
+  "files": {
+    "Deliverables/screening/MBR_A2_Screening_Workbook.xlsx": "ff6dd3314486e4e3e9a4b87b58238de10349c50bfcf22ed7d60d579567a7dd6a",
+    "work/final/master_included.json": "71af994dcf1b29417ae82b70f090c067a2b650a05a6b6c11ba81d095488e8158",
+    "work/final/coding.json": "2ae6271f28c2337b89fee0b46eea4fc67b9bbb496ea6b1679509c87cb014b7ce",
+    "Deliverables/report/main.pdf": "8dd685b4760ea9c73a36a009c57cd0b8d0b4c4deee4ea8bae85c452cbbcab2da"
+  }
+}

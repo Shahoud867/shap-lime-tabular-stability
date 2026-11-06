@@ -1,0 +1,413 @@
+[
+  {
+    "id": "N027",
+    "title": "Robust Prediction of Ship Propulsion Power with Uncertainty Quantification using Quantile LightGBM",
+    "decision": "Not retrieved",
+    "reason": "Full paper or all relevant assessment sections could not be inspected. Access failure is not an eligibility exclusion.",
+    "evidence": "Exact-title/DOI search and stated source attempts did not yield assessable full-text methods and results.",
+    "source_url": "https://ieeexplore.ieee.org/document/11512813",
+    "source_version": "No full-text version inspected",
+    "search_queries": [
+      "\"Robust Prediction of Ship Propulsion Power with Uncertainty Quantification using Quantile LightGBM\" pdf"
+    ],
+    "access_note": "IEEE robot verification; matching ResearchGate page explicitly says no full text. Search located metadata/abstract only."
+  },
+  {
+    "id": "N049",
+    "title": "A clinical diagnosis prediction model based on XGBoost-SHAP",
+    "decision": "Not retrieved",
+    "reason": "Full paper or all relevant assessment sections could not be inspected. Access failure is not an eligibility exclusion.",
+    "evidence": "Exact-title/DOI search and stated source attempts did not yield assessable full-text methods and results.",
+    "source_url": "https://ieeexplore.ieee.org/document/10898650",
+    "source_version": "No full-text version inspected",
+    "search_queries": [
+      "\"A clinical diagnosis prediction model based on XGBoost-SHAP\" pdf"
+    ],
+    "access_note": "IEEE robot verification; proceedings contents and secondary abstract identify paper but supply no paper body."
+  },
+  {
+    "id": "N064",
+    "title": "Gearbox Fault Classification Method Based on Multi-Scale Feature Fusion and Explainable Analysis",
+    "decision": "Not retrieved",
+    "reason": "Full paper or all relevant assessment sections could not be inspected. Access failure is not an eligibility exclusion.",
+    "evidence": "Exact-title/DOI search and stated source attempts did not yield assessable full-text methods and results.",
+    "source_url": "https://ieeexplore.ieee.org/document/11065664",
+    "source_version": "No full-text version inspected",
+    "search_queries": [
+      "\"Gearbox Fault Classification Method Based on Multi-Scale Feature Fusion and Explainable Analysis\" pdf"
+    ],
+    "access_note": "IEEE robot verification; matching J-GLOBAL bibliographic record and secondary results supply no paper body."
+  },
+  {
+    "id": "N083",
+    "title": "Noise-Tolerant Multi-Model Ensemble for Robust Hypothyroid Classification",
+    "decision": "Not retrieved",
+    "reason": "Full paper or all relevant assessment sections could not be inspected. Access failure is not an eligibility exclusion.",
+    "evidence": "Exact-title/DOI search and stated source attempts did not yield assessable full-text methods and results.",
+    "source_url": "https://ieeexplore.ieee.org/document/11717313",
+    "source_version": "No full-text version inspected",
+    "search_queries": [
+      "\"Noise-Tolerant Multi-Model Ensemble for Robust Hypothyroid Classification\" pdf"
+    ],
+    "access_note": "IEEE inaccessible; exact-title search found author-associated presentation metadata, no legal paper copy."
+  },
+  {
+    "id": "N091",
+    "title": "A Metaheuristic Optimized XGBoost Model and SHAP Analysis for Heart Disease Prediction",
+    "decision": "Not retrieved",
+    "reason": "Full paper or all relevant assessment sections could not be inspected. Access failure is not an eligibility exclusion.",
+    "evidence": "Exact-title/DOI search and stated source attempts did not yield assessable full-text methods and results.",
+    "source_url": "https://ieeexplore.ieee.org/document/11661830",
+    "source_version": "No full-text version inspected",
+    "search_queries": [
+      "\"A Metaheuristic Optimized XGBoost Model and SHAP Analysis for Heart Disease Prediction\" pdf"
+    ],
+    "access_note": "IEEE inaccessible; exact-title results locate secondary abstract and coauthor presentation announcement, not paper."
+  },
+  {
+    "id": "N108",
+    "title": "Binary Pass-Fail Prediction of Student Performance Using XGBoost and SHAP: A Case Study on the UCI Dataset",
+    "decision": "Not retrieved",
+    "reason": "Full paper or all relevant assessment sections could not be inspected. Access failure is not an eligibility exclusion.",
+    "evidence": "Exact-title/DOI search and stated source attempts did not yield assessable full-text methods and results.",
+    "source_url": "https://ieeexplore.ieee.org/document/11651877",
+    "source_version": "No full-text version inspected",
+    "search_queries": [
+      "\"Binary Pass-Fail Prediction of Student Performance Using XGBoost and SHAP: A Case Study on the UCI Dataset\" pdf",
+      "\"10.1109/iciba68339.2026.11651877\"",
+      "\"10.1109/ICIBA68339.2026.11651877\""
+    ],
+    "access_note": "IEEE cache miss; exact-title and DOI retries found a matching secondary abstract/pay-to-request listing, no inspectable legal paper."
+  },
+  {
+    "id": "N119",
+    "title": "Hierarchical Uncertainty Aware Explainable Hybrid Deep Learning Framework for Credit Default Risk Prediction",
+    "decision": "Not retrieved",
+    "reason": "Full paper or all relevant assessment sections could not be inspected. Access failure is not an eligibility exclusion.",
+    "evidence": "Exact-title/DOI search and stated source attempts did not yield assessable full-text methods and results.",
+    "source_url": "https://ieeexplore.ieee.org/document/11510788",
+    "source_version": "No full-text version inspected",
+    "search_queries": [
+      "\"Hierarchical Uncertainty Aware Explainable Hybrid Deep Learning Framework for Credit Default Risk Prediction\" pdf"
+    ],
+    "access_note": "IEEE robot verification; exact-title search found secondary abstract and ResearchGate request page, no full paper."
+  },
+  {
+    "id": "N122",
+    "title": "Safety Assessment: From Black-Box to White-Box",
+    "decision": "Not retrieved",
+    "reason": "Full paper or all relevant assessment sections could not be inspected. Access failure is not an eligibility exclusion.",
+    "evidence": "Exact-title/DOI search and stated source attempts did not yield assessable full-text methods and results.",
+    "source_url": "https://doi.org/10.1109/ISSREW55968.2022.00083",
+    "source_version": "No full-text version inspected",
+    "search_queries": [
+      "\"Safety Assessment: From Black-Box to White-Box\" pdf"
+    ],
+    "access_note": "DOI inaccessible; workshop/proceedings metadata confirms exact paper. Fraunhofer/CEUR hits are a different 2023 follow-up (AI for Safety), not substituted for the 2022 paper."
+  },
+  {
+    "id": "N142",
+    "title": "SIFT: Scene-Imagination-Based Feature Reweighting",
+    "decision": "Not retrieved",
+    "reason": "Full paper or all relevant assessment sections could not be inspected. Access failure is not an eligibility exclusion.",
+    "evidence": "Exact-title/DOI search and stated source attempts did not yield assessable full-text methods and results.",
+    "source_url": "https://doi.org/10.1109/ICDMW69685.2025.00298",
+    "source_version": "No full-text version inspected",
+    "search_queries": [
+      "\"SIFT: Scene-Imagination-Based Feature Reweighting\" pdf"
+    ],
+    "access_note": "DOI inaccessible; workshop accepted-paper listing matches title; matching ResearchGate record explicitly has no full text."
+  },
+  {
+    "id": "N230",
+    "title": "Cardiovascular Disease Detection Using Deep Learning with Imbalanced Dataset Handling: Focal Loss and Ensemble Approach",
+    "decision": "Not retrieved",
+    "reason": "Full paper or all relevant assessment sections could not be inspected. Access failure is not an eligibility exclusion.",
+    "evidence": "Exact-title/DOI search and stated source attempts did not yield assessable full-text methods and results.",
+    "source_url": "https://ieeexplore.ieee.org/document/11584441",
+    "source_version": "No full-text version inspected",
+    "search_queries": [
+      "\"Cardiovascular Disease Detection Using Deep Learning with Imbalanced Dataset Handling: Focal Loss and Ensemble Approach\" pdf"
+    ],
+    "access_note": "IEEE inaccessible; exact-title search finds official presentation schedule, not article body."
+  },
+  {
+    "id": "N235",
+    "title": "Enhancing Anomaly Detection in Blockchain Transactions with Transformer-Based Models",
+    "decision": "Not retrieved",
+    "reason": "Full paper or all relevant assessment sections could not be inspected. Access failure is not an eligibility exclusion.",
+    "evidence": "Exact-title/DOI search and stated source attempts did not yield assessable full-text methods and results.",
+    "source_url": "https://openreview.net/forum?id=vIkyJd5Qid",
+    "source_version": "No full-text version inspected",
+    "search_queries": [
+      "\"Enhancing Anomaly Detection in Blockchain Transactions with Transformer-Based Models\" pdf",
+      "\"Enhancing Anomaly Detection in Blockchain Transactions with Transformer-Based Models\" pdf"
+    ],
+    "access_note": "Exact matching OpenReview bibliographic page supplies abstract; /pdf?id=vIkyJd5Qid inaccessible. The visible PDF icon link resolved to an SVG rather than a manuscript. No full paper inspected."
+  },
+  {
+    "id": "N254",
+    "title": "AI-Driven Predictive Analytics for Monthly Per Capita Expenditure using Macroeconomic Indicators",
+    "decision": "Not retrieved",
+    "reason": "Full paper or all relevant assessment sections could not be inspected. Access failure is not an eligibility exclusion.",
+    "evidence": "Exact-title/DOI search and stated source attempts did not yield assessable full-text methods and results.",
+    "source_url": "https://ieeexplore.ieee.org/document/11324119",
+    "source_version": "No full-text version inspected",
+    "search_queries": [
+      "\"AI-Driven Predictive Analytics for Monthly Per Capita Expenditure using Macroeconomic Indicators\" pdf",
+      "\"10.1109/icacrs67045.2025.11324119\"",
+      "\"10.1109/icacrs67045.2025.11324119\""
+    ],
+    "access_note": "IEEE inaccessible; exact-title and DOI searches found a matching citation on ResearchGate, no paper body."
+  },
+  {
+    "id": "N421",
+    "title": "Research on Interpretable Machine Learning with Uncertainty Quantification for Ecological Risk Prediction",
+    "decision": "Include",
+    "reason": "Tabular environmental data, TreeSHAP, and separately defined bootstrap SHAP uncertainty intervals in an English2026 research report.",
+    "evidence": "Sections3.2–3.3 pp138–139 and4.2–4.3 p139:500 Dirichlet-weighted XGBoost refits, SHAP recomputation, percentile attribution intervals; interpretation-interval width explicitly separated from predictive-interval width.",
+    "source_url": "https://www.researchgate.net/publication/407536235_Research_on_Interpretable_Machine_Learning_with_Uncertainty_Quantification_for_Ecological_Risk_Prediction",
+    "source_version": "Published proceedings paper transcription, Applied and Computational Engineering245(1),136–142(2026)",
+    "search_queries": [
+      "\"Research on Interpretable Machine Learning with Uncertainty Quantification for Ecological Risk Prediction\"",
+      "\"Research on Interpretable Machine Learning with Uncertainty Quantification for Ecological Risk Prediction\" \"author\"",
+      "\"10.54254/2755-2721/2026.34717\"",
+      "\"Ling Zhai\" \"Zhuoxi Chu\" \"Ecological\"",
+      "\"Research on Interpretable Machine Learning with Uncertainty Quantification for Ecological Risk Prediction\" publisher"
+    ],
+    "access_note": "Public CC-BY paper transcription obtained through indexed page content, including pp136–142 methodology/procedure/results/conclusion. Live page429 and DOI inaccessible; no local PDF. Some equation/figure extraction incomplete; no unavailable numerical SHAP interval widths asserted. Provenance: indexed original-page text displays title, authors Ling Zhai/Zhuoxi Chu, Trinity College Dublin, running proceedings header, matching DOI, CC-BY2026 copyright and page numbers136–142. Uploader identity and publisher linkage were not independently authenticated. Exact DOI search yielded only this ResearchGate record; EWA article34717 attempted and inaccessible. Bibliography is transcribed from document, not independently Crossref/publisher-verified. Final synthesis acceptance requires reviewer confirmation of this provenance limitation.",
+    "metadata": {
+      "authors": [
+        "Ling Zhai",
+        "Zhuoxi Chu"
+      ],
+      "title": "Research on Interpretable Machine Learning with Uncertainty Quantification for Ecological Risk Prediction",
+      "year": 2026,
+      "venue": "Applied and Computational Engineering",
+      "volume": "245",
+      "issue": "1",
+      "pages": "136–142",
+      "doi": "10.54254/2755-2721/2026.34717",
+      "verification_basis": "Matching original-paper first-page text and ResearchGate bibliographic record only; no independent publisher/Crossref confirmation."
+    },
+    "extraction": {
+      "problem": "Ecological-driver attributions may vary with resampling.",
+      "rq": "Estimate predictive and SHAP uncertainty.",
+      "method": "XGBoost2.0/TreeExplainer;500 Bayesian-bootstrap weighted refits.",
+      "data": "2400 county-month rows;48 predictors;70:15:15 split (§§3.1,4.1).",
+      "evaluation": "Attribution percentile intervals and interval widths (§§3.3,4.3).",
+      "findings": "SHAP driver rankings and intervals reported; numerical attribution interval widths not recoverable from inspected figures.",
+      "limitations": "Reviewer: geographic/raw-data provenance and label thresholds vague; no identified comparator or interval-coverage validation.",
+      "repro": "Python3.11,R4.4; model random_state42; no verified artifact link.",
+      "evidence": "§§3–5 pp137–141.",
+      "read_from": "Indexed public paper transcription, not abstract alone."
+    },
+    "quality": {
+      "Q1": {
+        "score": 1,
+        "note": "§1 aim explicit."
+      },
+      "Q2": {
+        "score": 0.5,
+        "note": "§§3–4 pipeline; incomplete provenance."
+      },
+      "Q3": {
+        "score": 0.5,
+        "note": "§3.1 dimensions; county/time/source identifiers vague."
+      },
+      "Q4": {
+        "score": 0,
+        "note": "§5 no baseline identified."
+      },
+      "Q5": {
+        "score": 1,
+        "note": "§§3.3,4.3 attribution intervals defined."
+      },
+      "Q6": {
+        "score": 0.5,
+        "note": "500 refits; coverage untested."
+      },
+      "Q7": {
+        "score": 0,
+        "note": "§6 lacks explicit study limitations."
+      },
+      "Q8": {
+        "score": 0,
+        "note": "No repository/data link found in inspected report."
+      },
+      "Q9": {
+        "score": "NA",
+        "note": "Environmental aggregate analysis; personal-data issue not evident."
+      },
+      "Q10": {
+        "score": 0.5,
+        "note": "§3.2 seed42; bootstrap seed not specified."
+      }
+    },
+    "qa_scores": {
+      "Q1": 1,
+      "Q2": 0.5,
+      "Q3": 0.5,
+      "Q4": 0,
+      "Q5": 1,
+      "Q6": 0.5,
+      "Q7": 0,
+      "Q8": 0,
+      "Q9": "NA",
+      "Q10": 0.5
+    },
+    "qa_notes": {
+      "Q1": "§1 aim explicit.",
+      "Q2": "§§3–4 pipeline; incomplete provenance.",
+      "Q3": "§3.1 dimensions; county/time/source identifiers vague.",
+      "Q4": "§5 no baseline identified.",
+      "Q5": "§§3.3,4.3 attribution intervals defined.",
+      "Q6": "500 refits; coverage untested.",
+      "Q7": "§6 lacks explicit study limitations.",
+      "Q8": "No repository/data link found in inspected report.",
+      "Q9": "Environmental aggregate analysis; personal-data issue not evident.",
+      "Q10": "§3.2 seed42; bootstrap seed not specified."
+    }
+  },
+  {
+    "id": "N638",
+    "title": "Potentials of Machine Learning in Predicting Key Features of Synthetic Antimicrobial Polymers (SAMPs)",
+    "decision": "Exclude",
+    "reason": "EC1: separately quantified five-run reproducibility concerns native tree feature importance, not SHAP explanation stability. Subsequent SHAP comparison/plots do not supply a distinct measured SHAP stability or uncertainty endpoint.",
+    "evidence": "Experimental Section/FI and SHAP Values; Results/Reproducibility and Consistency of the ML Models, Table5: five refits quantify FI mean/SD/error. Results/FI and Average SHAP Values selects RF/GB afterward for SHAP; following sections compare average SHAP and beeswarm/waterfall plots.",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13261730/",
+    "source_version": "Published journal version: ACS Polymers Au 6(3),821–838(2026), doi10.1021/acspolymersau.5c00140",
+    "search_queries": [
+      "\"Potentials of Machine Learning in Predicting Key Features of Synthetic Antimicrobial Polymers\""
+    ],
+    "access_note": "Published full article main text inspected via PMC; supplementary files not independently inspected. Matched title and polymer design, but this is the 2026 journal version, not the input2025 bioRxiv version."
+  },
+  {
+    "id": "U004",
+    "title": "Explainable AI/ML Models for Customer Retention Optimization in the Telecom Sector",
+    "decision": "Not retrieved",
+    "reason": "Full paper or all relevant assessment sections could not be inspected. Access failure is not an eligibility exclusion.",
+    "evidence": "Exact-title/DOI search and stated source attempts did not yield assessable full-text methods and results.",
+    "source_url": "https://ieeexplore.ieee.org/document/11506710",
+    "source_version": "No full-text version inspected",
+    "search_queries": [
+      "\"Explainable AI/ML Models for Customer Retention Optimization in the Telecom Sector\" pdf"
+    ],
+    "access_note": "IEEE robot verification. A matching secondary abstract calls results mock; this is a concern requiring the full report, not a full-text exclusion."
+  },
+  {
+    "id": "U010",
+    "title": "XAI for Generalizable Intrusion Detection: Cross-Dataset Feature Attribution with Real-Time Alert Integration",
+    "decision": "Not retrieved",
+    "reason": "Full paper or all relevant assessment sections could not be inspected. Access failure is not an eligibility exclusion.",
+    "evidence": "Exact-title/DOI search and stated source attempts did not yield assessable full-text methods and results.",
+    "source_url": "https://ieeexplore.ieee.org/abstract/document/11620106",
+    "source_version": "No full-text version inspected",
+    "search_queries": [
+      "\"XAI for Generalizable Intrusion Detection: Cross-Dataset Feature Attribution with Real-Time Alert Integration\" pdf",
+      "\"XAI for Generalizable Intrusion Detection\" filetype:pdf"
+    ],
+    "access_note": "Publisher-indexed full abstract obtained, stating RANK-ECI and input-perturbation SHAP assessment. Direct article gave418/cache miss and stamp PDF failed. Methods/results unavailable; no quality scores invented."
+  },
+  {
+    "id": "U046",
+    "title": "PG-TabM: Domain-Informed Parameter-Efficient Ensemble Learning with Soft Physical Regularization for Concrete Compressive Strength Prediction",
+    "decision": "Not retrieved",
+    "reason": "Full paper or all relevant assessment sections could not be inspected. Access failure is not an eligibility exclusion.",
+    "evidence": "Exact-title/DOI search and stated source attempts did not yield assessable full-text methods and results.",
+    "source_url": "https://doi.org/10.1109/ACCESS.2026.3744880",
+    "source_version": "No full-text version inspected",
+    "search_queries": [
+      "\"PG-TabM: Domain-Informed Parameter-Efficient Ensemble Learning with Soft Physical Regularization for Concrete Compressive Strength Prediction\" pdf",
+      "\"10.1109/access.2026.3744880\"",
+      "\"PG-TabM\"",
+      "\"10.1109/access.2026.3744880\""
+    ],
+    "access_note": "Exact-title, DOI and short PG-TabM searches did not locate matching inspectable paper; DOI inaccessible. No nonexistent-publication conclusion inferred."
+  },
+  {
+    "id": "U050",
+    "title": "A Two-Way Survey of Intrinsically Interpretable Deep Learning for Tabular Data: Bridging Methods and Systems",
+    "decision": "Exclude",
+    "reason": "EC3: own measured explanation-stability benchmark uses intrinsic/native feature importance outside SHAP/LIME. Background discussion of SHAP/LIME does not establish a separate SHAP/LIME stability experiment.",
+    "evidence": "SectionV, Feature Importance Extraction, p49178: NAM shape contributions, TabNet attention masks, XGBoost gain-based importance. SectionV.F pp49179–49180 tests NAM/ProtoNAM/TabNet/XGBoost explanation drift; SHAP/LIME are contextual baselines discussed in survey, not identified as the benchmark attribution mechanism.",
+    "source_url": "https://www.researchgate.net/publication/403111392_A_Two-Way_Survey_of_Intrinsically_Interpretable_Deep_Learning_for_Tabular_Data_Bridging_Methods_and_Systems",
+    "source_version": "Published IEEE Access14,49151–49191(2026), DOI10.1109/ACCESS.2026.3676942; public CC-BY paper transcription",
+    "search_queries": [
+      "\"A Two-Way Survey of Intrinsically Interpretable Deep Learning for Tabular Data: Bridging Methods and Systems\" pdf",
+      "\"A Two-Way Survey of Intrinsically Interpretable\" filetype:pdf"
+    ],
+    "access_note": "ResearchGate public CC-BY full-paper transcription inspected. University repository identifies final published version but PDF403; shell download also failed DNS. Article tables represented as images were not independently read."
+  },
+  {
+    "id": "U192",
+    "title": "Interpretable machine learning prioritizes transcriptomic features associated with ferroptosis-mitochondrial permeability transition net activity states in cervical cancer",
+    "decision": "Exclude",
+    "reason": "EC1: measured resampling outcome is native feature-selector recurrence; stability-weighted SHAP is a prioritization design, without a separate quantitative SHAP-score/rank/subset stability result.",
+    "evidence": "Full publisher Sections2.3–2.4 and3.2, Figure2/Table1: selection frequency across25 outer fits is combined with mean absolute SHAP for candidate ranking. Section2.4 expression-replacement experiment measures prediction-probability sensitivity. Neither is a measured change/distribution of SHAP scores/ranks/subsets under repeated resampling.",
+    "source_url": "https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2026.1930345/full",
+    "source_version": "Publisher full HTML, original research, Frontiers in Genetics17:1930345,5October2026",
+    "search_queries": [
+      "\"Interpretable machine learning prioritizes transcriptomic features associated with ferroptosis\""
+    ],
+    "access_note": "Main publisher HTML methods/results/discussion/statements inspected; supplementary raw data/code not downloaded. Native selector recurrence and stability-weighted SHAP candidate ranking are distinguished from measured attribution stability."
+  },
+  {
+    "id": "U405",
+    "title": "LLM Enhanced Explainable Intrusion Detection System for Generating Actionable Security Insights",
+    "decision": "Not retrieved",
+    "reason": "Relevant methods/results passages establish likely eligibility, but remaining implementation/equation and experimental-setup sections could not be inspected sufficiently for complete extraction and10-item quality appraisal. Retrieval incomplete, not an eligibility exclusion.",
+    "evidence": "Section3 separates prediction and explanation robustness; Section4.3.4 and conclusion report Kendall rank/sign agreement components, bootstrap intervals and permutation tests under attacks. Sections4.3.6/5 state LLM reporting lacks large-scale evaluation.",
+    "source_url": "https://www.techscience.com/cmc/v89n2/68791/html",
+    "source_version": "Published primary-paper body passages via publisher indexing; complete assessable full text not obtained",
+    "search_queries": [
+      "\"LLM Enhanced Explainable Intrusion Detection System for Generating Actionable Security Insights\"",
+      "\"LLM Enhanced Explainable Intrusion Detection\" \"4.1\" \"4.2\" \"seed\""
+    ],
+    "access_note": "Publisher landing page and indexed primary full-body sections3–5 inspected through the syndicated ScienceDirect article (https://www.sciencedirect.com/org/science/article/pii/S1546221826008751). Live HTML timed out; PDF/CDN attempts failed. Some mathematical symbols/tables unavailable; appraisal conservative on incomplete implementation details."
+  },
+  {
+    "id": "U410",
+    "title": "Soil fertility prediction using SoilGRU-XNet: An explainable GRU-based framework for precision agriculture",
+    "decision": "Not retrieved",
+    "reason": "Full paper or all relevant assessment sections could not be inspected. Access failure is not an eligibility exclusion.",
+    "evidence": "Exact-title/DOI search and stated source attempts did not yield assessable full-text methods and results.",
+    "source_url": "https://www.sciencedirect.com/science/article/pii/S0168169926008926",
+    "source_version": "No full-text version inspected",
+    "search_queries": [
+      "\"Soil fertility prediction using SoilGRU-XNet: An explainable GRU-based framework for precision agriculture\" pdf",
+      "\"10.1016/j.compag.2026.112294\"",
+      "\"10.1016/j.compag.2026.112294\""
+    ],
+    "access_note": "Publisher preview/abstract and author institutional metadata found. Full-article URL403; no legal repository paper located. December2026 issue date alone does not establish online-first cutoff eligibility."
+  },
+  {
+    "id": "U415",
+    "title": "Explainable Machine Learning for Binary Casualty Prediction: Evidence from New South Wales",
+    "decision": "Not retrieved",
+    "reason": "Full paper or all relevant assessment sections could not be inspected. Access failure is not an eligibility exclusion.",
+    "evidence": "Primary Section3.8.3: same2000 held-out observations, four models, six pairwise Spearman correlations of mean-absolute SHAP rankings. Abstract reports .874–.987; potentially eligible model-variation stability.",
+    "source_url": "https://www.sciencedirect.com/science/article/pii/S2590123026034195",
+    "source_version": "No full-text version inspected",
+    "search_queries": [
+      "\"Explainable Machine Learning for Binary Casualty Prediction: Evidence from New South Wales\" pdf",
+      "\"Explainable machine learning for binary casualty prediction\" \"SHAP\" \"Spearman\" \"4.5\"",
+      "\"Explainable machine learning for binary casualty prediction\" \"limitations\" \"Data availability\""
+    ],
+    "access_note": "Publisher-indexed methods3.7–3.9 inspected, but live full article403 and remaining relevant results/limitations/materials sections unavailable. No complete quality appraisal claimed. December2026 issue requires online-first-date confirmation."
+  },
+  {
+    "id": "U500",
+    "title": "A stable feature selection method based on majority voting and SHAP for high-dimensional metabolomics data",
+    "decision": "Not retrieved",
+    "reason": "Full paper or all relevant assessment sections could not be inspected. Access failure is not an eligibility exclusion.",
+    "evidence": "Primary abstract/introduction describes MVFS-SHAP, repeated sampling and extended Kuncheva selection stability. This remains a scope question until the full method/results can be inspected.",
+    "source_url": "https://www.sciencedirect.com/science/article/pii/S0169260725005863",
+    "source_version": "No full-text version inspected",
+    "search_queries": [
+      "\"A stable feature selection method based on majority voting and SHAP for high-dimensional metabolomics data\" pdf",
+      "\"A stable feature selection method\" \"2.4\" \"Kuncheva\""
+    ],
+    "access_note": "Publisher-indexed abstract/introduction inspected. Live403; methods/results sections required to distinguish selection-set recurrence from attribution stability were not fully accessible; ResearchGate explicitly no full text."
+  }
+]

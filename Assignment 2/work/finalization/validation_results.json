@@ -1,0 +1,137 @@
+{
+  "date": "2026-11-07",
+  "all_pass": true,
+  "checks": [
+    {
+      "check": "Final master has84 unique Study IDs and record IDs",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Original79 Study IDs retained",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Included and Extraction have84 records",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "194 full-text outcomes reconcile",
+      "pass": true,
+      "detail": {
+        "Not retrieved": 89,
+        "Include": 84,
+        "Exclude": 21
+      }
+    },
+    {
+      "check": "TA decisions are binary",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Original197 independent reviewer decisions preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Both reviewers complete with binary decisions",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "All26 disagreements have resolutions",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Cached agreement statistics match independent calculation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "No cached Excel formula errors",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Quality and linked extraction formulas agree with master",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "All840 quality item records populated and match scores",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Unrelated identification/search/dedup/validation values preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Original panes and reviewer validation preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Native filters cover final record ranges",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "PRISMA arithmetic checks all true",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "84 included-study link records",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "PDF contains all84 study references and no missing citations",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "PDF has no stale appraisal TODO",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Thematic synthesis within500\u2013700 words",
+      "pass": true,
+      "detail": 563
+    },
+    {
+      "check": "All cross-format count/reference/PRISMA checks pass",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Archived-data rebuild reproduces final master and counts",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Recency targets satisfied",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "included": 84,
+  "screened": 1375,
+  "sought": 194,
+  "not_retrieved": 89,
+  "assessed": 105,
+  "fulltext_excluded": 21,
+  "human_sample": 197,
+  "agreements": 171,
+  "disagreements_resolved": 26,
+  "kappa": 0.7264181177224657,
+  "pdf_pages": 72,
+  "synthesis_word_count": 563
+}

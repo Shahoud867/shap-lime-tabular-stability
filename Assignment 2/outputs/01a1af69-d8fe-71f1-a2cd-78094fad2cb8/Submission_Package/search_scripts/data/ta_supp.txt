@@ -1,0 +1,719 @@
+N001 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N002 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N003 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N004 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N005 E1
+N006 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N007 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N008 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N009 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N010 E1 Random-forest variant; no explanation-stability outcome
+N011 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N012 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N013 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N014 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N015 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N016 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N017 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N018 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N019 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N020 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N021 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N022 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N023 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N024 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N025 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N026 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N027 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N028 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N029 I ALIME with decision-tree surrogate - check stability outcome
+N030 E2 Synthetic signal (time-series) data
+N031 E1 SHAP and LIME are used descriptively on cement workability, and no explanation stability is measured. Fails IC3. Resolved: Exclude (EC1).
+N032 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N033 E1 Surrogate-explanation method; fidelity and efficiency, not stability
+N034 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N035 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N036 I SHAP-guided feature stability for malware detection - check whether explanation stability or cross-model agreement
+N037 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N038 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N039 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N040 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N041 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N042 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N043 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N044 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N045 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N046 E1 XAI is added to a crop recommender for transparency only. Stability is not a stated aim or a reported outcome. Resolved: Exclude (EC1).
+N047 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N048 I Empirical validation of SHAP and LIME - check for stability measures
+N049 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N050 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N051 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N052 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N053 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N054 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N055 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N056 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N057 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N058 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N059 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N060 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N061 E1
+N062 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N063 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N064 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N065 E5 'Stability'/'fragility' in a physical or engineering sense
+N066 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N067 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N068 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N069 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N070 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N071 E1 Gradient boosting for photovoltaic performance. The title shows no SHAP/LIME explainer or stability outcome, so it fails IC2 and IC3. Resolved: Exclude (EC1).
+N072 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N073 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N074 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N075 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N076 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N077 E3 Behavioural verification of random forests (no SHAP/LIME stability)
+N078 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N079 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N080 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N081 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N082 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N083 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N084 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N085 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N086 E3 Counterfactual explanations for classifier robustness
+N087 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N088 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N089 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N090 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N091 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N092 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N093 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N094 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N095 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N096 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N097 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N098 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N099 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N100 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N101 I Sanity checks (stability/robustness) of LIME/SHAP-type interpreters on tabular Android-malware features
+N102 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N103 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N104 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N105 E5 'Stability'/'fragility' in a physical or engineering sense
+N106 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N107 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N108 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N109 E1
+N110 E1 Complete publisher abstract: QRF intervals concern WPI predictions; SHAP identifies drivers, with no separate attribution-stability outcome. Resolved: Exclude (EC1). Source checked 7 Nov 2026: https://ieeexplore.ieee.org/abstract/document/11482437
+N111 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N112 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N113 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N114 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N115 E3 Decision-path surrogate explanations
+N116 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N117 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N118 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N119 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N120 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N121 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N122 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N123 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N124 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N125 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N126 I Hierarchical group SHAP addressing sampling variance - check stability outcome
+N127 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N128 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N129 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N130 E5 'Stability'/'fragility' in a physical or engineering sense
+N131 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N132 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N133 E5 'Stability'/'fragility' in a physical or engineering sense
+N134 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N135 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N136 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N137 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N138 E1 Complete publisher abstract: SHAP-RFE is evaluated through predictive accuracy, Brier score and ECE, rather than measured attribution stability. Resolved: Exclude (EC1). Source checked 7 Nov 2026: https://ieeexplore.ieee.org/abstract/document/11257482
+N139 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N140 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N141 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N142 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N143 E1 Perovskite formability prediction, a materials application with no explanation-stability outcome. Resolved: Exclude (EC1).
+N144 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N145 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N146 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N147 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N148 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N149 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N150 E3 Counterfactual explanations for abstention
+N151 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N152 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N153 E1
+N154 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N155 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N156 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N157 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N158 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N159 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N160 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N161 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N162 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N163 E1 Abstract and runtime-verification framework: explanation coherence and physics grounding filter decisions; no repeated/perturbed attribution-stability outcome is separately evaluated. Resolved: Exclude (EC1). Source checked 7 Nov 2026: https://arxiv.org/html/2607.20675v1
+N164 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N165 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N166 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N167 E2 A text-only NLP spam classifier, so it fails IC1, and no stability analysis is evident. Resolved: Exclude (EC2).
+N168 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N169 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N170 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N171 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N172 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N173 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N174 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N175 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N176 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N177 E3 Counterfactual explanations
+N178 E1 Complete publisher abstract: bootstrap variation concerns biomass predictions; SHAP reports contributions/interactions, without an attribution-stability outcome. Resolved: Exclude (EC1). Source checked 7 Nov 2026: https://ieeexplore.ieee.org/abstract/document/11727032
+N179 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N180 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N181 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N182 E5 'Stability'/'fragility' in a physical or engineering sense
+N183 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N184 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N185 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N186 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N187 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N188 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N189 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N190 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N191 E3 Counterfactual and prototype explanations are not in the SHAP/LIME family. Resolved: Exclude (EC3).
+N192 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N193 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N194 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N195 E3 Ano2Rule gives rule-based global interpretation of anomaly detectors, not SHAP/LIME, and does not study stability. Resolved: Exclude (EC3).
+N196 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N197 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N198 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N199 E1
+N200 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N201 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N202 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N203 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N204 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N205 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N206 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N207 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N208 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N209 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N210 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N211 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N212 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N213 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N214 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N215 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N216 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N217 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N218 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N219 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N220 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N221 E1
+N222 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N223 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N224 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N225 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N226 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N227 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N228 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N229 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N230 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N231 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N232 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N233 E1 Simulation input-uncertainty quantification
+N234 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N235 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N236 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N237 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N238 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N239 I LIME analysis of adversarial manipulation in tabular IDS - check explanation-change outcome
+N240 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N241 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N242 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N243 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N244 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N245 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N246 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N247 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N248 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N249 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N250 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N251 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N252 E1 BorutaSHAP is used for feature selection in stock prediction. SHAP reliability is not an outcome. Resolved: Exclude (EC1).
+N253 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N254 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N255 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N256 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N257 E1
+N258 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N259 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N260 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N261 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N262 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N263 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N264 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N265 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N266 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N267 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N268 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N269 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N270 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N271 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N272 E1 Resilience of propagation models for digital twins, a communications topic with no SHAP/LIME stability outcome. Resolved: Exclude (EC1).
+N273 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N274 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N275 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N276 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N277 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N278 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N279 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N280 E5 'Stability'/'fragility' in a physical or engineering sense
+N281 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N282 E1
+N283 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N284 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N285 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N286 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N287 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N288 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N289 E1
+N290 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N291 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N292 E1
+N293 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N294 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N295 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N296 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N297 E1
+N298 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N299 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N300 I Prediction-equivalent models give different SHAP attributions across 24 datasets
+N301 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N302 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N303 I ELIME exact LIME variant - check stability claim
+N304 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N305 I Stability-XAI on UCI heart data - check whether explanation stability is measured
+N306 E1
+N307 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N308 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N309 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N310 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N311 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N312 I Uncertainty and consistency of SHAP feature importance (climate indices) - check modality and outcome
+N313 I Explanation uncertainty for GBDT/transformer models on tabular data
+N314 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N315 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N316 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N317 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N318 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N319 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N320 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N321 E1
+N322 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N323 E1
+N324 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N325 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N326 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N327 E1
+N328 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N329 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N330 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N331 E1
+N332 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N333 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N334 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N335 E1
+N336 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N337 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N338 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N339 I ShapleyVIC: SHAP importance across near-optimal models with uncertainty intervals
+N340 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N341 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N342 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N343 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N344 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N345 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N346 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N347 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N348 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N349 E1
+N350 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N351 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N352 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N353 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N354 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N355 E1
+N356 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N357 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N358 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N359 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N360 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N361 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N362 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N363 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N364 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N365 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N366 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N367 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N368 E3 Rule-based explainer (LUX)
+N369 E5
+N370 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N371 E1 Model (prediction) stability, not explanation stability
+N372 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N373 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N374 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N375 E1
+N376 E1
+N377 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N378 E1
+N379 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N380 E5 'Stability'/'fragility' in a physical or engineering sense
+N381 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N382 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N383 I DEM resolution and explanation reliability in landslide models - check outcome
+N384 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N385 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N386 I Accurate and robust Shapley values - no abstract, check
+N387 E1 Friction stir welding prediction and optimisation with ensembles, an engineering application. Fails IC2 and IC3. Resolved: Exclude (EC1).
+N388 E1
+N389 E3 New global correlation-aware attribution score, not SHAP/LIME
+N390 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N391 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N392 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N393 E5 'Stability'/'fragility' in a physical or engineering sense
+N394 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N395 E1 Applied tunnelling control
+N396 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N397 E5 'Stability'/'fragility' in a physical or engineering sense
+N398 E5 'Stability'/'fragility' in a physical or engineering sense
+N399 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N400 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N401 E1
+N402 E1
+N403 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N404 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N405 E5 'Stability'/'fragility' in a physical or engineering sense
+N406 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N407 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N408 E1
+N409 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N410 E1
+N411 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N412 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N413 E1
+N414 E1
+N415 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N416 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N417 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N418 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N419 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N420 I DSExplainer: belief/plausibility intervals for SHAP - check
+N421 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N422 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N423 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N424 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N425 E1
+N426 E1
+N427 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N428 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N429 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N430 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N431 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N432 E1
+N433 E1
+N434 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N435 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N436 E1
+N437 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N438 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N439 E2 Neuroimaging data
+N440 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N441 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N442 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N443 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N444 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N445 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N446 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N447 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N448 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N449 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N450 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N451 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N452 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N453 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N454 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N455 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N456 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N457 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N458 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N459 I Tilia: decision-tree surrogates to fix LIME instability
+N460 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N461 E1 Landslide susceptibility mapping with explainable ensembles. It is an applied study, consistent with the exclusion of N005. Resolved: Exclude (EC1).
+N462 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N463 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N464 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N465 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N466 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N467 E2
+N468 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N469 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N470 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N471 E1
+N472 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N473 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N474 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N475 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N476 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N477 E2 Bi-LSTM forecasting of seismic magnitude. The “limitations” in the title are model performance limits, not explanation limits. It is also a time-series model, not tabular. Resolved: Exclude (EC2).
+N478 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N479 I Logistic regression with SHAP stability analysis - no abstract, check
+N480 I TreeSHAP vs ensemble LIME vs Anchors on MIMIC-IV - check stability measures
+N481 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N482 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N483 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N484 E1 Cross-target SHAP feature associations (QSAR), no stability outcome
+N485 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N486 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N487 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N488 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N489 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N490 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N491 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N492 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N493 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N494 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N495 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N496 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N497 E1
+N498 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N499 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N500 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N501 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N502 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N503 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N504 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N505 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N506 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N507 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N508 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N509 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N510 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N511 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N512 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N513 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N514 E1
+N515 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N516 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N517 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N518 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N519 E1
+N520 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N521 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N522 E1
+N523 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N524 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N525 E1
+N526 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N527 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N528 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N529 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N530 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N531 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N532 E1 Applied materials prediction
+N533 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N534 E1
+N535 E2 Image data (CNN explanations)
+N536 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N537 E1
+N538 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N539 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N540 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N541 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N542 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N543 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N544 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N545 E1
+N546 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N547 E1
+N548 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N549 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N550 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N551 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N552 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N553 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N554 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N555 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N556 E1 An experimental geotechnical study with predictive modelling and no SHAP/LIME explainer. Fails IC2 and IC3. Resolved: Exclude (EC1).
+N557 I LIME with neural decision trees; stability discussed - check
+N558 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N559 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N560 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N561 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N562 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N563 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N564 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N565 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N566 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N567 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N568 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N569 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N570 E5 'Stability'/'fragility' in a physical or engineering sense
+N571 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N572 E1
+N573 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N574 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N575 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N576 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N577 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N578 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N579 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N580 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N581 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N582 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N583 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N584 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N585 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N586 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N587 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N588 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N589 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N590 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N591 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N592 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N593 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N594 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N595 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N596 E5
+N597 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N598 E1
+N599 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N600 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N601 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N602 E2
+N603 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N604 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N605 E1
+N606 E1
+N607 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N608 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N609 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N610 E1
+N611 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N612 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N613 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N614 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N615 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N616 I Forecast uncertainty near decision boundaries explains LIME/SHAP instability
+N617 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N618 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N619 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N620 E1
+N621 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N622 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N623 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N624 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N625 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N626 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N627 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N628 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N629 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N630 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N631 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N632 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N633 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N634 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N635 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N636 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N637 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N638 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N639 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N640 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N641 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N642 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N643 E1
+N644 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N645 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N646 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N647 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N648 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N649 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N650 E2
+N651 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N652 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N653 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N654 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N655 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N656 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N657 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N658 E1
+N659 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N660 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N661 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N662 E5
+N663 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N664 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N665 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N666 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N667 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N668 E1
+N669 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N670 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N671 E4 Editorial
+N672 E1
+N673 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N674 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N675 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N676 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N677 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N678 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N679 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N680 E1 Concrete strength prediction with banana leaf ash, an application study with no stability outcome. Resolved: Exclude (EC1).
+N681 E1
+N682 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N683 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N684 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N685 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N686 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N687 I Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately.
+N688 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N689 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N690 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N691 E1
+N692 I BMB-LIME: uncertainty in LIME explanations - no abstract, check
+N693 I Probabilistic Shapley inference with attribution uncertainty - check explainer family and data
+N694 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N695 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N696 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N697 E3 SHAP used to explain predictive uncertainty (not uncertainty of explanations)
+N698 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N699 E1 Decision-boundary maps in Shapley space (visualisation)
+N700 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N701 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N702 E2 Non-tabular modality or sequence/deep-learning focus (title)
+N703 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N704 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N705 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N706 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N707 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N708 I Distributional uncertainty of the SHAP score (theory with examples)
+N709 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N710 E1 Adequacy of SHAP scores, not stability
+N711 E1 Exact TreeSHAP algorithm for piecewise linear trees; no stability outcome
+N712 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N713 E3 Shapley values explaining predictive uncertainty (not uncertainty of explanations)
+N714 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N715 E1
+N716 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N717 E1 Applied/predictive study; SHAP/LIME or uncertainty used only for interpretation or prediction, no explanation-stability aim or outcome
+N718 E2
+N719 E3 Bayesian Shapley valuation of economic inputs is outside SHAP/LIME feature attribution for ML. Resolved: Exclude (EC3). Source: https://mpra.ub.uni-muenchen.de/74747/1/MPRA_paper_74747.pdf

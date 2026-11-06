@@ -21,3 +21,9 @@ __pycache__/
 Thumbs.db
 Desktop.ini
 
+# Local authoring dependencies and generated inspection previews
+node_modules
+*.inspect.ndjson
+Assignment 2/work/*/previews/
+Assignment 2/work/*/pdf_previews/
+

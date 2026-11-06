@@ -1,0 +1,388 @@
+{
+  "indexed": {
+    "date-parts": [
+      [
+        2026,
+        8,
+        4
+      ]
+    ],
+    "date-time": "2026-08-04T17:02:17Z",
+    "timestamp": 1785862937416,
+    "version": "3.56.0"
+  },
+  "reference-count": 31,
+  "publisher": "Institut Teknologi Dirgantara Adisutjipto (ITDA)",
+  "issue": "1",
+  "content-domain": {
+    "domain": [
+      "ejournals.itda.ac.id"
+    ],
+    "crossmark-restriction": true
+  },
+  "short-container-title": [
+    "Jurnal Teknik Elektro AVITEC"
+  ],
+  "abstract": "<jats:p>The proliferation of Distributed Denial-of-Service (DDoS) attacks poses critical threats to network infrastructure, while conventional intrusion detection systems struggle to adapt to evolving attack patterns. Although ensemble learning methods achieve high accuracy on benchmark datasets, their opaque decision-making processes hinder deployment in Security Operations Centers (SOCs). To address this interpretability-performance gap, we propose an explainable machine learning framework integrating comparative benchmarking with quantitative interpretability analysis using the CIC-DDoS2019 dataset. Six supervised algorithms Decision Tree, Random Forest, XGBoost, LightGBM, Multilayer Perceptron, and Naïve Bayes were evaluated under standardized preprocessing protocols including random undersampling (50:50 class ratio), correlation-based feature selection (r &gt; 0.9 threshold), and three-tier validation combining hold-out testing, train-validation splits, and 5-fold stratified cross-validation. LightGBM achieved optimal performance with 99.96% accuracy and F1-score of 0.9996, outperforming simple baselines by 0.35 percentage points while demonstrating superior computational efficiency. Beyond conventional performance metrics, we introduce the Feature Stability Score (FSS), a novel quantitative measure of SHAP-based feature importance consistency across validation folds. Spearman correlation analysis reveals a strong positive relationship between FSS and model robustness measured by cross-validation variance (ρ = 0.857, p = 0.014), establishing that stable feature attributions predict superior generalization. SHAP analysis identifies Flow Duration, Bwd Packet Length Mean, Fwd Packet Length Max, and Flow IAT Mean as dominant attack indicators. This integrated framework demonstrates that combining explainable AI with ensemble learning enables accurate, robust, and interpretable DDoS detection suitable for operational cybersecurity deployments.</jats:p>",
+  "DOI": "10.28989/avitec.v8i1.3594",
+  "type": "journal-article",
+  "created": {
+    "date-parts": [
+      [
+        2026,
+        2,
+        24
+      ]
+    ],
+    "date-time": "2026-02-24T02:35:10Z",
+    "timestamp": 1771900510000
+  },
+  "page": "91",
+  "update-policy": "https://doi.org/10.28989/av-crossmark",
+  "source": "Crossref",
+  "is-referenced-by-count": 4,
+  "title": [
+    "Explainable Machine Learning Framework for Distributed Denial-of-Service (DDoS) Attack Detection using Comparative Evaluation and SHAP Analysis"
+  ],
+  "prefix": "10.28989",
+  "volume": "8",
+  "author": [
+    {
+      "given": "Muhammad Fathur",
+      "family": "Riziq",
+      "sequence": "first",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Ichwan Nul",
+      "family": "Ichsan",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    }
+  ],
+  "member": "11528",
+  "published-online": {
+    "date-parts": [
+      [
+        2025,
+        12,
+        22
+      ]
+    ]
+  },
+  "reference": [
+    {
+      "key": "ref0",
+      "doi-asserted-by": "publisher",
+      "unstructured": "R. M. A. Haseeb-ur-rehman et al., \"High-speed network DDoS attack detection: A survey,\" Sensors, vol. 23, no. 15, p. 6850, Aug. 2023. https://doi.org/10.3390/s23156850",
+      "DOI": "10.3390/s23156850"
+    },
+    {
+      "key": "ref1",
+      "doi-asserted-by": "publisher",
+      "unstructured": "S. Mehmood, R. Amin, J. Mustafa, M. Hussain, F. S. Alsubaei, and M. D. Zakaria, \"Distributed denial of service (DDoS) attack detection in SDN using optimizer-equipped CNN-MLP,\" PLOS ONE, vol. 20, no. 1, p. e0312425, Jan. 2025. https://doi.org/10.1371/journal.pone.0312425",
+      "DOI": "10.1371/journal.pone.0312425"
+    },
+    {
+      "key": "ref2",
+      "doi-asserted-by": "publisher",
+      "unstructured": "S. A. Khan, I. H. Syed, and J. I. Jawaid Iqbal, \"From signatures to AI: A comprehensive review of DDoS detection strategies in IoT and SDN,\" International Journal on Robotics, Automation and Sciences, vol. 7, no. 1, pp. 19-26, 2025. https://doi.org/10.33093/ijoras.2025.7.1.3",
+      "DOI": "10.33093/ijoras.2025.7.1.3"
+    },
+    {
+      "key": "ref3",
+      "doi-asserted-by": "publisher",
+      "unstructured": "S. Abiramasundari and V. Ramaswamy, \"Distributed denial-of-service (DDoS) attack detection using supervised machine learning algorithms,\" Scientific Reports, vol. 15, no. 1, p. 13098, Apr. 2025. https://doi.org/10.1038/s41598-024-84879-y",
+      "DOI": "10.1038/s41598-024-84879-y"
+    },
+    {
+      "key": "ref4",
+      "doi-asserted-by": "publisher",
+      "unstructured": "U. Ahmed et al., \"Hybrid bagging and boosting with SHAP-based feature selection for enhanced predictive modeling in intrusion detection systems,\" Scientific Reports, vol. 14, no. 1, p. 30532, Dec. 2024. https://doi.org/10.1038/s41598-024-81151-1",
+      "DOI": "10.1038/s41598-024-81151-1"
+    },
+    {
+      "key": "ref5",
+      "doi-asserted-by": "publisher",
+      "unstructured": "A. Alzu'bi, A. Albashayreh, A. Abuarqoub, and M. A. M. Alfawair, \"Explainable AI-based DDoS attacks classification using deep transfer learning,\" Computers, Materials and Continua, vol. 80, no. 3, pp. 3785-3802, 2024. https://doi.org/10.32604/cmc.2024.052599",
+      "DOI": "10.32604/cmc.2024.052599"
+    },
+    {
+      "key": "ref6",
+      "doi-asserted-by": "publisher",
+      "unstructured": "M. El-Geneedy, H. El-Din Moustafa, H. Khater, S. Abd-Elsamee, and S. A. Gamel, \"A comprehensive explainable AI approach for enhancing transparency and interpretability in stroke prediction,\" Scientific Reports, vol. 15, no. 1, p. 26048, Jul. 2025. https://doi.org/10.1038/s41598-025-11263-9",
+      "DOI": "10.1038/s41598-025-11263-9"
+    },
+    {
+      "key": "ref7",
+      "doi-asserted-by": "publisher",
+      "unstructured": "C. S. Kalutharage, X. Liu, C. Chrysoulas, N. Pitropakis, and P. Papadopoulos, \"Explainable AI-based DDoS attack identification method for IoT networks,\" Computers, vol. 12, no. 2, p. 32, Feb. 2023. https://doi.org/10.3390/computers12020032",
+      "DOI": "10.3390/computers12020032"
+    },
+    {
+      "key": "ref8",
+      "doi-asserted-by": "publisher",
+      "unstructured": "P. Hermosilla, S. Berríos, and H. Allende-Cid, \"Explainable AI for forensic analysis: A comparative study of SHAP and LIME in intrusion detection models,\" Applied Sciences, vol. 15, no. 13, p. 7329, Jun. 2025. https://doi.org/10.3390/app15137329",
+      "DOI": "10.3390/app15137329"
+    },
+    {
+      "key": "ref9",
+      "doi-asserted-by": "publisher",
+      "unstructured": "C. Cynthia, D. Ghosh, and G. K. Kamath, \"Detection of DDoS attacks using SHAP-based feature reduction,\" International Journal of Machine Learning, vol. 13, no. 4, pp. 173-180, 2023. https://doi.org/10.18178/ijml.2023.13.4.1147",
+      "DOI": "10.18178/ijml.2023.13.4.1147"
+    },
+    {
+      "key": "ref10",
+      "unstructured": "Y. Wei, J. Jang-Jaccard, A. Singh, F. Sabrina, and S. Camtepe, \"Classification and explanation of distributed denial-of-service (DDoS) attack detection using machine learning and Shapley additive explanation (SHAP) methods,\" arXiv:2306.17190, Jun. 2023. https://doi.org/10.48550/arXiv.2306.17190"
+    },
+    {
+      "key": "ref11",
+      "doi-asserted-by": "publisher",
+      "unstructured": "F. Charmet et al., \"Explainable artificial intelligence for cybersecurity: A literature survey,\" Annals of Telecommunications, vol. 77, no. 11-12, pp. 789-812, Dec. 2022. https://doi.org/10.1007/s12243-022-00926-7",
+      "DOI": "10.1007/s12243-022-00926-7"
+    },
+    {
+      "key": "ref12",
+      "doi-asserted-by": "publisher",
+      "unstructured": "I. H. Sarker, H. Janicke, A. Mohsin, A. Gill, and L. Maglaras, \"Explainable AI for cybersecurity automation, intelligence and trustworthiness in digital twin: Methods, taxonomy, challenges and prospects,\" ICT Express, vol. 10, no. 4, pp. 935-958, Aug. 2024. https://doi.org/10.1016/j.icte.2024.05.007",
+      "DOI": "10.1016/j.icte.2024.05.007"
+    },
+    {
+      "key": "ref13",
+      "doi-asserted-by": "publisher",
+      "unstructured": "S.-R. Chen, S.-J. Chen, and W.-B. Hsieh, \"Enhancing machine-learning-based DDoS detection through hyperparameter optimization,\" Electronics, vol. 14, no. 16, p. 3319, Aug. 2025. https://doi.org/10.3390/electronics14163319",
+      "DOI": "10.3390/electronics14163319"
+    },
+    {
+      "key": "ref14",
+      "doi-asserted-by": "publisher",
+      "unstructured": "S. Wali, Y. A. Farrukh, and I. Khan, \"Explainable AI and random forest-based reliable intrusion detection system,\" Computers & Security, vol. 157, p. 104542, Oct. 2025. https://doi.org/10.1016/j.cose.2025.104542",
+      "DOI": "10.1016/j.cose.2025.104542"
+    },
+    {
+      "key": "ref15",
+      "doi-asserted-by": "publisher",
+      "unstructured": "D. V. Hernandez, Y.-K. Lai, and H. T. N. Ignatius, \"Real-time DDoS detection in high-speed networks: A deep learning approach with multivariate time series,\" Electronics, vol. 14, no. 13, p. 2673, Jan. 2025. https://doi.org/10.3390/electronics14132673",
+      "DOI": "10.3390/electronics14132673"
+    },
+    {
+      "key": "ref16",
+      "doi-asserted-by": "publisher",
+      "unstructured": "F. L. Becerra-Suarez, I. Fernández-Roman, and M. G. Forero, \"Improvement of distributed denial of service attack detection through machine learning and data processing,\" Mathematics, vol. 12, no. 9, p. 1294, Jan. 2024. https://doi.org/10.3390/math12091294",
+      "DOI": "10.3390/math12091294"
+    },
+    {
+      "key": "ref17",
+      "doi-asserted-by": "publisher",
+      "unstructured": "N. Pandey and P. K. Mishra, \"Detection of DDoS attack in IoT traffic using ensemble machine learning techniques,\" Network and Heterogeneous Media, vol. 18, no. 4, pp. 1393-1409, 2023. https://doi.org/10.3934/nhm.2023061",
+      "DOI": "10.3934/nhm.2023061"
+    },
+    {
+      "key": "ref18",
+      "doi-asserted-by": "publisher",
+      "unstructured": "S. Satpathy, U. Tripathy, and P. K. Swain, \"Cloud-based DDoS detection using hybrid feature selection with deep reinforcement learning,\" Scientific Reports, vol. 15, no. 1, p. 36546, Oct. 2025. https://doi.org/10.1038/s41598-025-18857-3",
+      "DOI": "10.1038/s41598-025-18857-3"
+    },
+    {
+      "key": "ref19",
+      "doi-asserted-by": "publisher",
+      "unstructured": "H. Kim, D. Ham, and K.-S. Moon, \"Adaptive sampling framework for imbalanced DDoS traffic classification,\" Sensors, vol. 25, no. 13, p. 3932, Jun. 2025. https://doi.org/10.3390/s25133932",
+      "DOI": "10.3390/s25133932"
+    },
+    {
+      "key": "ref20",
+      "doi-asserted-by": "publisher",
+      "unstructured": "M. S. Raza, M. N. A. Sheikh, I.-S. Hwang, and M. S. Ab-Rahman, \"Feature-selection-based DDoS attack detection using AI algorithms,\" Telecom, vol. 5, no. 2, pp. 333-346, Jun. 2024. https://doi.org/10.3390/telecom5020017",
+      "DOI": "10.3390/telecom5020017"
+    },
+    {
+      "key": "ref21",
+      "doi-asserted-by": "publisher",
+      "unstructured": "M. S. Sawah, H. Elmannai, A. A. El-Bary, K. Lotfy, and O. E. Sheta, \"Distributed denial of service (DDoS) classification based on random forest model with backward elimination and grid search algorithms,\" Scientific Reports, vol. 15, no. 1, p. 19063, May 2025. https://doi.org/10.1038/s41598-025-03868-x",
+      "DOI": "10.1038/s41598-025-03868-x"
+    },
+    {
+      "key": "ref22",
+      "doi-asserted-by": "publisher",
+      "unstructured": "K. K. Napa, R. Govindarajan, S. Sathya, J. S. Murugan, and B. K. P. Vijayammal, \"Comparative analysis of explainable machine learning models for cardiovascular risk stratification using clinical data and Shapley additive explanations,\" Intelligent-Based Medicine, vol. 12, p. 100286, Jan. 2025. https://doi.org/10.1016/j.ibmed.2025.100286",
+      "DOI": "10.1016/j.ibmed.2025.100286"
+    },
+    {
+      "key": "ref23",
+      "doi-asserted-by": "publisher",
+      "unstructured": "L. C. Nnadi, Y. Watanobe, M. M. Rahman, and A. M. John-Otumu, \"Prediction of students' adaptability using explainable AI in educational machine learning models,\" Applied Sciences, vol. 14, no. 12, p. 5141, Jan. 2024. https://doi.org/10.3390/app14125141",
+      "DOI": "10.3390/app14125141"
+    },
+    {
+      "key": "ref24",
+      "doi-asserted-by": "publisher",
+      "unstructured": "T. E. Ali, Y.-W. Chong, S. Manickam, M. N. Yusoff, K.-L. A. Yau, and A. D. Zoltan, \"A stacking ensemble model with enhanced feature selection for distributed denial-of-service detection in software-defined networks,\" Engineering, Technology and Applied Science Research, vol. 15, no. 1, pp. 19232-19245, Feb. 2025. https://doi.org/10.48084/etasr.8976",
+      "DOI": "10.48084/etasr.8976"
+    },
+    {
+      "key": "ref25",
+      "doi-asserted-by": "publisher",
+      "unstructured": "S. Kapoor and A. Narayanan, \"Leakage and the reproducibility crisis in machine-learning-based science,\" Patterns, vol. 4, no. 9, p. 100804, Sep. 2023. https://doi.org/10.1016/j.patter.2023.100804",
+      "DOI": "10.1016/j.patter.2023.100804"
+    },
+    {
+      "key": "ref26",
+      "doi-asserted-by": "publisher",
+      "unstructured": "E. Lopez, G. Gorla, J. Etxebarria-Elezgarai, J. M. Amigo, and A. Seifert, \"The importance of choosing a proper validation strategy in predictive models. Part 2: Recipes for avoiding overfitting,\" Analytica Chimica Acta, p. 344838, Nov. 2025. https://doi.org/10.1016/j.aca.2025.344838",
+      "DOI": "10.1016/j.aca.2025.344838"
+    },
+    {
+      "key": "ref27",
+      "doi-asserted-by": "publisher",
+      "unstructured": "A. H. Adhab et al., \"Application of robust hybrid tree-based machine learning methods in accurate prediction of underground rock saturation exponent,\" Measurement, vol. 255, p. 117916, Nov. 2025. https://doi.org/10.1016/j.measurement.2025.117916",
+      "DOI": "10.1016/j.measurement.2025.117916"
+    },
+    {
+      "key": "ref28",
+      "doi-asserted-by": "publisher",
+      "unstructured": "Ismail et al., \"A machine learning-based classification and prediction technique for DDoS attacks,\" IEEE Access, vol. 10, pp. 21443-21454, 2022. https://doi.org/10.1109/ACCESS.2022.3152577",
+      "DOI": "10.1109/ACCESS.2022.3152577"
+    },
+    {
+      "key": "ref29",
+      "doi-asserted-by": "publisher",
+      "unstructured": "J. Y.-L. Chan et al., \"Mitigating the multicollinearity problem and its machine learning approach: A review,\" Mathematics, vol. 10, no. 8, p. 1283, Apr. 2022. https://doi.org/10.3390/math10081283",
+      "DOI": "10.3390/math10081283"
+    },
+    {
+      "key": "ref30",
+      "doi-asserted-by": "publisher",
+      "unstructured": "H. Lamane, L. Mouhir, R. Moussadek, B. Baghdad, O. Kisi, and A. El Bilali, \"Interpreting machine learning models based on SHAP values in predicting suspended sediment concentration,\" International Journal of Sediment Research, vol. 40, no. 1, pp. 91-107, Feb. 2025. https://doi.org/10.1016/j.ijsrc.2024.10.002",
+      "DOI": "10.1016/j.ijsrc.2024.10.002"
+    }
+  ],
+  "container-title": [
+    "Aviation Electronics, Information Technology, Telecommunications, Electricals, and Controls (AVITEC)"
+  ],
+  "original-title": [],
+  "link": [
+    {
+      "URL": "https://ejournals.itda.ac.id/index.php/avitec/article/viewFile/3594/pdf",
+      "content-type": "application/pdf",
+      "content-version": "vor",
+      "intended-application": "text-mining"
+    },
+    {
+      "URL": "https://ejournals.itda.ac.id/index.php/avitec/article/viewFile/3594/pdf",
+      "content-type": "unspecified",
+      "content-version": "vor",
+      "intended-application": "similarity-checking"
+    }
+  ],
+  "deposited": {
+    "date-parts": [
+      [
+        2026,
+        8,
+        3
+      ]
+    ],
+    "date-time": "2026-08-03T06:57:25Z",
+    "timestamp": 1785740245000
+  },
+  "score": 1,
+  "resource": {
+    "primary": {
+      "URL": "https://ejournals.itda.ac.id/index.php/avitec/article/view/3594"
+    }
+  },
+  "subtitle": [],
+  "short-title": [],
+  "issued": {
+    "date-parts": [
+      [
+        2025,
+        12,
+        22
+      ]
+    ]
+  },
+  "references-count": 31,
+  "journal-issue": {
+    "issue": "1",
+    "published-online": {
+      "date-parts": [
+        [
+          2025,
+          11,
+          17
+        ]
+      ]
+    }
+  },
+  "URL": "https://doi.org/10.28989/avitec.v8i1.3594",
+  "relation": {},
+  "ISSN": [
+    "2715-2626",
+    "2685-2381"
+  ],
+  "issn-type": [
+    {
+      "value": "2715-2626",
+      "type": "electronic"
+    },
+    {
+      "value": "2685-2381",
+      "type": "print"
+    }
+  ],
+  "subject": [],
+  "published": {
+    "date-parts": [
+      [
+        2025,
+        12,
+        22
+      ]
+    ]
+  },
+  "assertion": [
+    {
+      "value": "2025-11-07",
+      "order": 0,
+      "name": "received",
+      "label": "Received",
+      "group": {
+        "name": "publication_history",
+        "label": "Publication History"
+      }
+    },
+    {
+      "value": "2025-12-18",
+      "order": 1,
+      "name": "accepted",
+      "label": "Accepted",
+      "group": {
+        "name": "publication_history",
+        "label": "Publication History"
+      }
+    },
+    {
+      "value": "2025-12-22",
+      "order": 2,
+      "name": "published",
+      "label": "Published",
+      "group": {
+        "name": "publication_history",
+        "label": "Publication History"
+      }
+    }
+  ]
+}

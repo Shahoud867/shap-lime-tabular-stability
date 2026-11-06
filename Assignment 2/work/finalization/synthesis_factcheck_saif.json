@@ -1,0 +1,173 @@
+[
+  {
+    "study": "Cross-study",
+    "exactclaim": "The \\mappe{} studies relating prediction-side quantities to explanation change agree the link is weak.",
+    "verdict": "Unsupported",
+    "evidenceURL": "https://arxiv.org/abs/2602.00179",
+    "evidence_location": "N616 local primary PDF pp20–21; S52§5.2; S75§6",
+    "evidence_summary": "Studies concern different targets; S77 links OOS uncertainty and instability, and S52 reports a strong association.",
+    "safest_replacement": "Prediction accuracy or robustness alone does not guarantee explanation stability; the relationship depends on the measured prediction quantity, explanation target and perturbation regime."
+  },
+  {
+    "study": "S50",
+    "exactclaim": "quantised models kept their ROC-AUC while SHAP rankings changed",
+    "verdict": "Not verified",
+    "evidenceURL": "https://www.cureusjournals.com/articles/15921-an-empirical-evaluation-of-explainability-drift-under-post-training-quantization-of-machine-learning-models",
+    "evidence_location": "Publisher article shell; no substantive paper text retrieved",
+    "evidence_summary": "Exact DOI/title identified; primary abstract/results inaccessible in tool.",
+    "safest_replacement": "Drop this example until the primary results can be inspected; do not infer unchanged AUC from metadata."
+  },
+  {
+    "study": "S51",
+    "exactclaim": "better accuracy did not bring more reliable explanations",
+    "verdict": "Supported with qualification",
+    "evidenceURL": "https://link.springer.com/article/10.1007/s11416-026-00664-7",
+    "evidence_location": "§6.1.3.2;§6.2.3.2;§6.3",
+    "evidence_summary": "LR has most stable retraining explanations but weaker detection; reliability components differ.",
+    "safest_replacement": "Across two intrusion datasets, the most accurate models did not have the most reproducible SHAP profiles; reliability also depended on the diagnostic."
+  },
+  {
+    "study": "S79",
+    "exactclaim": "better accuracy did not bring more reliable explanations",
+    "verdict": "Supported with qualification",
+    "evidenceURL": "https://doi.org/10.1109/jstars.2026.3736041",
+    "evidence_location": "Primary local N383 abstract;Methods explanation metrics;Discussion",
+    "evidence_summary": "Finer DEM predictive gains do not synchronously improve stability/domain consistency.",
+    "safest_replacement": "In this landslide case study, finer DEMs improved prediction without consistently improving SHAP stability or geomorphic consistency."
+  },
+  {
+    "study": "S59",
+    "exactclaim": "Under attack, prediction robustness and explanation stability were distinct axes",
+    "verdict": "Supported",
+    "evidenceURL": "https://arxiv.org/html/2607.01679v1",
+    "evidence_location": "Abstract;§11.2",
+    "evidence_summary": "RI and ESI can decouple; estimates use distinct held-out subsets and fixed-seed single runs.",
+    "safest_replacement": "Under the evaluated attacks, prediction robustness and SHAP stability could diverge; these fixed-seed estimates were obtained on separate held-out subsets."
+  },
+  {
+    "study": "S59",
+    "exactclaim": "XGBoost's piecewise-constant surface defeats gradient-free attacks yet leaves explanations unstable",
+    "verdict": "Unsupported as written",
+    "evidenceURL": "https://arxiv.org/html/2607.01679v1",
+    "evidence_location": "Attack definitions§4;ZOOablation§7;Figure5;§11",
+    "evidence_summary": "ZOO approximates gradients; Square Attack reveals vulnerability.",
+    "safest_replacement": "XGBoost’s piecewise-constant surface made finite-difference ZOO ineffective within leaves, while Square Attack exposed prediction vulnerability and attribution drift remained measurable."
+  },
+  {
+    "study": "S62",
+    "exactclaim": "the closest, Tolay \\cite{S62}, uses TreeSHAP only and is a preprint",
+    "verdict": "Supported with qualification",
+    "evidenceURL": "https://arxiv.org/html/2608.10349v1",
+    "evidence_location": "Related-work Table1;§7.2–7.3",
+    "evidence_summary": "TreeSHAP stability tested for tree models; LR is a predictive baseline; no LIME stability experiment.",
+    "safest_replacement": "Tolay’s arXiv study evaluates TreeSHAP stability for tree models rather than a joint SHAP–LIME stability comparison."
+  },
+  {
+    "study": "S62",
+    "exactclaim": "prediction-preserving filters exist",
+    "verdict": "Supported",
+    "evidenceURL": "https://arxiv.org/html/2608.10349v1",
+    "evidence_location": "§2 paragraph beforeTable1;§7.3",
+    "evidence_summary": "Accepts same predicted class and confidence change no greater than0.05.",
+    "safest_replacement": "S62 retains bounded traffic-feature perturbations only when the predicted class is unchanged and attack-confidence change is at most0.05."
+  },
+  {
+    "study": "S75",
+    "exactclaim": "prediction-equivalent models from different hypothesis classes gave different attributions",
+    "verdict": "Supported",
+    "evidenceURL": "https://arxiv.org/html/2603.15821v1",
+    "evidence_location": "§3 definitions;§5 same-split comparisons",
+    "evidence_summary": "Same explanation method across different model classes; not a within-model local perturbation test.",
+    "safest_replacement": "Prediction-equivalent models from different hypothesis classes can assign different SHAP attributions; this is cross-model disagreement."
+  },
+  {
+    "study": "S75",
+    "exactclaim": "a tree-structure score tracked disagreement between prediction-equivalent models",
+    "verdict": "Unsupported",
+    "evidenceURL": "https://arxiv.org/html/2603.15821v1",
+    "evidence_location": "§6 Eq9;AppendixF;localN300 pp11–12",
+    "evidence_summary": "R(x) averages pairwise attribution-rank correlations over a reference ensemble; paper acknowledges single-model implementation gap.",
+    "safest_replacement": "A multi-model attribution-agreement score assessed cross-architecture explanation reliability; it requires an existing reference ensemble and is not computed from tree structure alone."
+  },
+  {
+    "study": "S75",
+    "exactclaim": "perturbation-free predictors with different targets",
+    "verdict": "Partially supported",
+    "evidenceURL": "https://arxiv.org/html/2603.15821v1",
+    "evidence_location": "§6 Definition and implementation paragraph",
+    "evidence_summary": "No input perturbation needed for R, but multiple models and their explanations required.",
+    "safest_replacement": "Classify S75 as a multi-model agreement diagnostic, not a cheap model-alone predictor; revise corresponding evidence-map counts."
+  },
+  {
+    "study": "S77",
+    "exactclaim": "instability was lower where forecast uncertainty was low",
+    "verdict": "Partially supported",
+    "evidenceURL": "https://arxiv.org/abs/2602.00179",
+    "evidence_location": "Primary localN616 pp20–21;§3.1;§5",
+    "evidence_summary": "Low-uncertainty separation holds for OOS metrics; IS instability can invert for Wave-like sigmoid/piecewise models.",
+    "safest_replacement": "In synthetic experiments, out-of-sample instability was lower in low-uncertainty regions; ordinary in-sample instability sometimes showed the opposite ordering."
+  },
+  {
+    "study": "S77",
+    "exactclaim": "gradient-boosted trees show the same instability near segment boundaries as smooth non-linear models",
+    "verdict": "Supported with qualification",
+    "evidenceURL": "https://arxiv.org/abs/2602.00179",
+    "evidence_location": "Primary localN616 Introduction;§4.2;Discussion",
+    "evidence_summary": "Boundary-crossing local linear instability and forecast uncertainty are studied using synthetic generators.",
+    "safest_replacement": "The study links segment-boundary crossings to local explanatory instability in simulated piecewise models, alongside instability in smooth nonlinear models; it distinguishes OOS and IS measures."
+  },
+  {
+    "study": "S43",
+    "exactclaim": "68\\% of77 datasets showed SHAP instability, with rankings of correlated pairs close to a coin flip",
+    "verdict": "Partially supported",
+    "evidenceURL": "https://arxiv.org/html/2605.21492v1",
+    "evidence_location": "§10.16 survey methodology and selection caveat; symmetry theory",
+    "evidence_summary": "52/77 benchmark datasets cross ranking-flip threshold across20XGBoost refits; coin-flip limit concerns symmetric/nearly symmetric pairs.",
+    "safest_replacement": "In one77-dataset benchmark survey,52 datasets exceeded a10%global SHAP ranking-flip threshold across20XGBoost refits; symmetric correlated pairs can approach chance ordering."
+  },
+  {
+    "study": "S43",
+    "exactclaim": "a split-count screen flagged ranking instability across retrained models",
+    "verdict": "Supported with qualification",
+    "evidenceURL": "https://arxiv.org/html/2605.21492v1",
+    "evidence_location": "§9.2;§10.16 Table8",
+    "evidence_summary": "Per-tree split-frequency screen proxies global feature-pair rank flips; assumptions/calibration constrain transfer.",
+    "safest_replacement": "A single-model split-frequency screen flagged feature pairs prone to global ranking reversals across refits, under stated assumptions and empirical calibration."
+  },
+  {
+    "study": "S43",
+    "exactclaim": "This narrower gap allows existing diagnostics of retraining instability",
+    "verdict": "Supported",
+    "evidenceURL": "https://arxiv.org/html/2605.21492v1",
+    "evidence_location": "§9.2 single-model screen",
+    "evidence_summary": "Global retraining diagnostic is not a local input-perturbation fragility detector.",
+    "safest_replacement": "Retain; explicitly distinguish global feature-pair retraining diagnostics from instance-level prediction-preserving input perturbation."
+  },
+  {
+    "study": "S52",
+    "exactclaim": "epistemic uncertainty correlated strongly and negatively with stability",
+    "verdict": "Supported with qualification",
+    "evidenceURL": "https://arxiv.org/html/2603.29915v1",
+    "evidence_location": "§5.2 Eqs7–9;Figure2;§5.3",
+    "evidence_summary": "XD is Kendall agreement despite degradation name; negative XEC means increasing uncertainty accompanies declining agreement.",
+    "safest_replacement": "Across perturbation strengths, epistemic growth was generally negatively associated with Kendall attribution agreement, with weaker settings; the direction is uncertainty up, stability down."
+  },
+  {
+    "study": "S52",
+    "exactclaim": "perturbation-free predictors with different targets",
+    "verdict": "Partially supported",
+    "evidenceURL": "https://arxiv.org/html/2603.29915v1",
+    "evidence_location": "§3;§4;§5.2–5.3",
+    "evidence_summary": "Gating avoids attribution perturbations at inference, but uncertainty uses ensemble/dropout/bootstrap or RF surrogate and validation perturbs inputs.",
+    "safest_replacement": "Uncertainty can guide explanation gating without generating perturbed explanations at inference; its estimation and validation still have model/ensemble and perturbation costs."
+  },
+  {
+    "study": "S77",
+    "exactclaim": "perturbation-free predictors with different targets",
+    "verdict": "Partially supported",
+    "evidenceURL": "https://arxiv.org/abs/2602.00179",
+    "evidence_location": "Primary local N616 §2.3 and§3.1–3.3, pp7–13",
+    "evidence_summary": "Conformal uncertainty uses held-out labeled residuals and neighborhood quantiles without query perturbations or refitting the base model. Local-linear uncertainty fits a local surrogate. Instability targets themselves require perturbations. Neither is tree structure alone.",
+    "safest_replacement": "Conformal uncertainty can serve as a gate using held-out calibration outcomes without perturbing the query; local-surrogate and instability calculations have additional costs. Distinguish this from a score computed only from one fitted tree model."
+  }
+]

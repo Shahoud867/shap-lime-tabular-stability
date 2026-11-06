@@ -1,0 +1,96 @@
+{
+  "seed": 20261106,
+  "population": 79,
+  "sample_size": 11,
+  "fraction": 0.13924050632911392,
+  "records": [
+    {
+      "study": "S01",
+      "uid": "C069",
+      "title": "On the Robustness of Interpretability Methods",
+      "year": 2018,
+      "doi": null,
+      "arxiv": "1806.08049"
+    },
+    {
+      "study": "S02",
+      "uid": "C068",
+      "title": "\"Why Should You Trust My Explanation?\" Understanding Uncertainty in LIME Explanations",
+      "year": 2019,
+      "doi": null,
+      "arxiv": "1904.12991"
+    },
+    {
+      "study": "S04",
+      "uid": "C062",
+      "title": "Fooling LIME and SHAP: Adversarial Attacks on Post hoc Explanation Methods",
+      "year": 2020,
+      "doi": "10.1145/3375627.3375830",
+      "arxiv": "1911.02508"
+    },
+    {
+      "study": "S07",
+      "uid": "U577",
+      "title": "Deterministic Local Interpretable Model-Agnostic Explanations for Stable Explainability",
+      "year": 2021,
+      "doi": "10.3390/make3030027",
+      "arxiv": null
+    },
+    {
+      "study": "S12",
+      "uid": "U493",
+      "title": "Locally Invariant Explanations: Towards Stable and Unidirectional Explanations through Local Invariant Learning",
+      "year": 2023,
+      "doi": "10.52202/075280-0853",
+      "arxiv": "2201.12143"
+    },
+    {
+      "study": "S15",
+      "uid": "U258",
+      "title": "Enhancing Model Explainability with CTGAN-LIME: A Novel Approach for Interpretable Machine Learning",
+      "year": 2024,
+      "doi": "10.11159/cist24.158",
+      "arxiv": null
+    },
+    {
+      "study": "S18",
+      "uid": "U556",
+      "title": "Stabilizing Estimates of Shapley Values with Control Variates",
+      "year": 2024,
+      "doi": "10.1007/978-3-031-63797-1_21",
+      "arxiv": "2310.07672"
+    },
+    {
+      "study": "S31",
+      "uid": "U491",
+      "title": "Statistical Significance of Feature Importance Rankings",
+      "year": 2025,
+      "doi": null,
+      "arxiv": "2401.15800"
+    },
+    {
+      "study": "S36",
+      "uid": "U124",
+      "title": "Evaluating XAI techniques under class imbalance using CPRD data",
+      "year": 2025,
+      "doi": "10.3389/frai.2025.1682919",
+      "arxiv": null
+    },
+    {
+      "study": "S42",
+      "uid": "U123",
+      "title": "The Explainability–Reliability Gap in Fraud Detection: Evidence from SHAP and Permutation Importance Under Distribution Shift",
+      "year": 2026,
+      "doi": "10.3390/fintech5030077",
+      "arxiv": null
+    },
+    {
+      "study": "S52",
+      "uid": "U195",
+      "title": "Uncertainty Gating for Cost-Aware Explainable Artificial Intelligence",
+      "year": 2026,
+      "doi": null,
+      "arxiv": "2603.29915"
+    }
+  ]
+}

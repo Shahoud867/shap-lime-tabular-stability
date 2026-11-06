@@ -1,0 +1,523 @@
+[
+  {
+    "id": "N039",
+    "title": "Explainable Ensemble Machine Learning Approach for severity prediction of Hemophilia A",
+    "decision": "Not retrieved",
+    "reason": "Full text/relevant complete methods and results not retrieved; eligibility remains pending. Access failure is not an exclusion criterion.",
+    "evidence": "No full-paper exclusion evidence available.",
+    "source_url": "https://ieeexplore.ieee.org/document/11405080",
+    "source_version": "Not established",
+    "search_queries": [
+      "\"10.1109/ised67359.2025.11405080\" pdf"
+    ],
+    "access_note": "IEEE cache miss. Secondary bibliographic/abstract reproduction only; no legal full text found.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending"
+  },
+  {
+    "id": "N052",
+    "title": "Balancing Accuracy and Interpretability: Machine Learning Approaches to Predict Heart Failure Readmissions",
+    "decision": "Not retrieved",
+    "reason": "Full text/relevant complete methods and results not retrieved; eligibility remains pending. Access failure is not an exclusion criterion.",
+    "evidence": "No full-paper exclusion evidence available.",
+    "source_url": "https://ieeexplore.ieee.org/document/11504054",
+    "source_version": "Not established",
+    "search_queries": [
+      "\"10.1109/spicscon69221.2025.11504054\" pdf"
+    ],
+    "access_note": "IEEE cache miss; matching ResearchGate record explicitly says no full text available.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending"
+  },
+  {
+    "id": "N074",
+    "title": "Bus passenger flow prediction using BO-optimized XGBoost",
+    "decision": "Not retrieved",
+    "reason": "Full text/relevant complete methods and results not retrieved; eligibility remains pending. Access failure is not an exclusion criterion.",
+    "evidence": "No full-paper exclusion evidence available.",
+    "source_url": "https://doi.org/10.1109/bdicn58493.2023.00035",
+    "source_version": "Not established",
+    "search_queries": [
+      "\"Bus passenger flow prediction using BO-optimized XGBoost\" pdf"
+    ],
+    "access_note": "DOI inaccessible; exact-title search found proceedings contents and secondary records, no article text.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending"
+  },
+  {
+    "id": "N088",
+    "title": "A SHAP-Guided Machine Learning Framework for Predicting Intravenous Immunoglobulin Resistance",
+    "decision": "Not retrieved",
+    "reason": "Full text/relevant complete methods and results not retrieved; eligibility remains pending. Access failure is not an exclusion criterion.",
+    "evidence": "No full-paper exclusion evidence available.",
+    "source_url": "https://ieeexplore.ieee.org/document/11735905",
+    "source_version": "Not established",
+    "search_queries": [
+      "\"A SHAP-Guided Machine Learning Framework for Predicting Intravenous Immunoglobulin Resistance\" pdf",
+      "\"10.1109/icosec70158.2026.11735905\""
+    ],
+    "access_note": "Exact-title/DOI search did not locate matching accessible primary content; IEEE route inaccessible.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending"
+  },
+  {
+    "id": "N096",
+    "title": "Intelligent Assessment of College Students' Mental Health based on Kendall’s Rank Correlation Coefficient Based J48 Decision Tree",
+    "decision": "Not retrieved",
+    "reason": "Full text/relevant complete methods and results not retrieved; eligibility remains pending. Access failure is not an exclusion criterion.",
+    "evidence": "No full-paper exclusion evidence available.",
+    "source_url": "https://ieeexplore.ieee.org/document/10934250",
+    "source_version": "Not established",
+    "search_queries": [
+      "\"Intelligent Assessment of College Students\" \"J48\" pdf"
+    ],
+    "access_note": "IEEE robot-verification page; matching ResearchGate record offers request-only full text.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending"
+  },
+  {
+    "id": "N114",
+    "title": "XAI-RiskNet: Explainable Ensemble Learning for Robust Firm Default Prediction Under Economic Stress",
+    "decision": "Not retrieved",
+    "reason": "Full text/relevant complete methods and results not retrieved; eligibility remains pending. Access failure is not an exclusion criterion.",
+    "evidence": "No full-paper exclusion evidence available.",
+    "source_url": "https://ieeexplore.ieee.org/document/11319052",
+    "source_version": "Not established",
+    "search_queries": [
+      "\"XAI-RiskNet\" pdf"
+    ],
+    "access_note": "IEEE robot verification; matching ResearchGate record offers request-only full text.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending"
+  },
+  {
+    "id": "N121",
+    "title": "Takeover Time Prediction for Conditionally Automated Driving Vehicles: Considering Mixed Traffic Flow Environment",
+    "decision": "Not retrieved",
+    "reason": "Full text/relevant complete methods and results not retrieved; eligibility remains pending. Access failure is not an exclusion criterion.",
+    "evidence": "No full-paper exclusion evidence available.",
+    "source_url": "https://doi.org/10.1109/tits.2025.3557772",
+    "source_version": "Not established",
+    "search_queries": [
+      "\"Takeover Time Prediction for Conditionally Automated Driving Vehicles\" pdf"
+    ],
+    "access_note": "DOI inaccessible. TRID reproduces abstract; author/repository search returned a different Delft paper citing this study, not the requested full text.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending"
+  },
+  {
+    "id": "N127",
+    "title": "Data Leakage Detection in Cloud Computing Environment",
+    "decision": "Not retrieved",
+    "reason": "Full text/relevant complete methods and results not retrieved; eligibility remains pending. Access failure is not an exclusion criterion.",
+    "evidence": "No full-paper exclusion evidence available.",
+    "source_url": "https://ieeexplore.ieee.org/document/10913619",
+    "source_version": "Not established",
+    "search_queries": [
+      "\"Data Leakage Detection in Cloud Computing Environment\" \"10913619\"",
+      "\"10.1109/cybercomp60759.2024.10913619\" pdf repository"
+    ],
+    "access_note": "IEEE robot verification. Search found a third-party licensed-use upload; not used as a verified legal author/repository copy.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending"
+  },
+  {
+    "id": "N207",
+    "title": "Bridging Predictive Performance and Explainability in Employee Attrition Through Imbalanced Learning and XAI",
+    "decision": "Not retrieved",
+    "reason": "Full text/relevant complete methods and results not retrieved; eligibility remains pending. Access failure is not an exclusion criterion.",
+    "evidence": "No full-paper exclusion evidence available.",
+    "source_url": "https://ieeexplore.ieee.org/document/11567396",
+    "source_version": "Not established",
+    "search_queries": [
+      "\"Bridging Predictive Performance and Explainability in Employee Attrition\" pdf"
+    ],
+    "access_note": "IEEE cache miss; J-GLOBAL bibliographic metadata only.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending"
+  },
+  {
+    "id": "N234",
+    "title": "Machine Learning-Driven Models for Predictive Diagnosis of Depression and Anxiety in Clinical Settings",
+    "decision": "Not retrieved",
+    "reason": "Full text/relevant complete methods and results not retrieved; eligibility remains pending. Access failure is not an exclusion criterion.",
+    "evidence": "No full-paper exclusion evidence available.",
+    "source_url": "https://ieeexplore.ieee.org/document/11717141",
+    "source_version": "Not established",
+    "search_queries": [
+      "\"Machine Learning-Driven Models for Predictive Diagnosis of Depression and Anxiety\" pdf",
+      "\"10.1109/aic70896.2026.11717141\""
+    ],
+    "access_note": "Exact-title/DOI search found no matching primary full text; IEEE inaccessible.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending"
+  },
+  {
+    "id": "N240",
+    "title": "Machine Unlearning in Smart Grids: A Cautionary Tale of Infrastructure Vulnerability",
+    "decision": "Include",
+    "reason": "English full research report within 2016–2026; tabular data, SHAP-family explanations, and a separately evaluated attribution-change/stability outcome.",
+    "evidence": "§IV p 3/Fig 5: mean absolute SHAP shifts at 0%,10%,90%label manipulation, separate from modelF 1.",
+    "source_url": "https://www.researchgate.net/publication/406709873_Machine_Unlearning_in_Smart_Grids_A_Cautionary_Tale_of_Infrastructure_Vulnerability",
+    "source_version": "CC-BY 4.0 accepted author manuscript; IEEE DOI stated in footer",
+    "search_queries": [
+      "\"Machine Unlearning in Smart Grids: A Cautionary Tale\" pdf"
+    ],
+    "access_note": "Primary full text inspected through web text extraction. Local PDF download attempted but DNS unavailable; source URL and locations retained. QA is an AI appraisal, not independent human verification.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending",
+    "metadata": {
+      "authors": [
+        "George Paphitis",
+        "Angelos K. Marnerides",
+        "Mathaios Panteli"
+      ],
+      "year": 2026,
+      "title": "Machine Unlearning in Smart Grids: A Cautionary Tale of Infrastructure Vulnerability",
+      "venue": "IEEE Systems, Man, and Cybernetics Letters",
+      "volume": "1",
+      "pages": "27–32",
+      "doi": "10.1109/LSMC.2026.3701875",
+      "metadata_note": "Volume/pages shown on author-hosting record; manuscript footer verifies accepted status/DOI."
+    },
+    "extraction": {
+      "problem": "Attribution drift from malicious retraining in smart grids.",
+      "rq": "RQ 1;RQ 2;RQ 3",
+      "method": "Label manipulation/retraining; XGBoost mean absolute SHAP comparison.",
+      "data": "Electricalfault tabular measurements; IEEE 24 bus simulated contingencies with 38 binary line features.",
+      "evaluation": "Three-repetition fivefoldCV; attribution comparisons 0/10/90%relabeling; Fig 5 top-10 shifts.",
+      "findings": "Line 7 mean absolute SHAP approximately 1.2→0.75→0.25 as attack increases.",
+      "limitations": "Simulation/selectedcases; no normalized stabilityindex or uncertainty interval for SHAP shifts.",
+      "repro": "Public/simulation sources cited; exact seeds/code not located.",
+      "evidence": "§III–IV/Fig 5;§V discusses defense tradeoffs.",
+      "read_from": "Author CC-BYfulltextHTML onResearchGate."
+    },
+    "qa": {
+      "Q1": 1,
+      "Q2": 0.5,
+      "Q3": 1,
+      "Q4": 1,
+      "Q5": 0.5,
+      "Q6": 0.5,
+      "Q7": 1,
+      "Q8": 0.5,
+      "Q9": "NA",
+      "Q10": 0.5
+    },
+    "qa_notes": {
+      "Q1": "Aim§I.",
+      "Q2": "Pipeline clear; SHAP settings incomplete.",
+      "Q3": "§III feature descriptions.",
+      "Q4": "Attack levels/baseline.",
+      "Q5": "MeanabsoluteSHAP shifts; no aggregate index.",
+      "Q6": "Repeated CV; SHAP uncertainty absent.",
+      "Q7": "§V defense drawbacks.",
+      "Q8": "Source datasets cited; no project code located.",
+      "Q9": "Grid simulation; clinical/privacy criterion inapplicable.",
+      "Q10": "Repeated CV; seeds not found."
+    }
+  },
+  {
+    "id": "N359",
+    "title": "Neural Emulators vs. Machine Learning Regressors: District‑Scale Pre‑Monsoon Temperature Prediction in Telangana",
+    "decision": "Not retrieved",
+    "reason": "Full text/relevant complete methods and results not retrieved; eligibility remains pending. Access failure is not an exclusion criterion.",
+    "evidence": "No full-paper exclusion evidence available.",
+    "source_url": "https://link.springer.com/article/10.1007/s41748-026-01220-5",
+    "source_version": "Not established",
+    "search_queries": [
+      "\"Neural Emulators vs. Machine Learning Regressors\" pdf",
+      "\"10.1007/s41748-026-01220-5\" pdf"
+    ],
+    "access_note": "Springer inaccessible; matching ResearchGate offers request-only text; secondary metadata does not establish eligibility.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending"
+  },
+  {
+    "id": "N594",
+    "title": "Identifying key bioprocess variables using explainable machine learning to enhance culture efficiency and viability of umbilical cord-derived mesenchymal stem cells",
+    "decision": "Include",
+    "reason": "English full research report within 2016–2026; tabular data, SHAP-family explanations, and a separately evaluated attribution-change/stability outcome.",
+    "evidence": "Results afterTable 4/Fig 5:70%retention of top 10 SHAP ranking when outcome threshold changes 600→564 h.",
+    "source_url": "https://www.medsci.org/v23p1808.htm",
+    "source_version": "Publisher version of record,30 March 2026",
+    "search_queries": [
+      "\"Identifying key bioprocess variables\" \"127764\""
+    ],
+    "access_note": "Primary full text inspected through web text extraction. Local PDF download attempted but DNS unavailable; source URL and locations retained. QA is an AI appraisal, not independent human verification.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending",
+    "metadata": {
+      "authors": [
+        "Tse-Pu Huang",
+        "Hsin-Hui Huang",
+        "Bing-Tsiong Li",
+        "Pei-Hung Shen",
+        "Gracy Thomas",
+        "Juin-Yi Han",
+        "Chi-Ming Chu",
+        "Kun-Yi Lin"
+      ],
+      "year": 2026,
+      "title": "Identifying key bioprocess variables using explainable machine learning to enhance culture efficiency and viability of umbilical cord-derived mesenchymal stem cells",
+      "venue": "International Journal of Medical Sciences",
+      "volume": "23",
+      "issue": "5",
+      "pages": "1808–1821",
+      "doi": "10.7150/ijms.127764"
+    },
+    "extraction": {
+      "problem": "Reliability of bioprocess drivers under outcome-threshold choice.",
+      "rq": "RQ 1;RQ 2",
+      "method": "XGBoost+SHAP; threshold sensitivity analysis.",
+      "data": "203 UC-MSC manufacturing cases, single facility; tabular neonatal/process variables.",
+      "evaluation": "80/20 split; four-fold CV; top 10 SHAP retention at 600 versus 564 h threshold.",
+      "findings": "70%top 10 retention; AUROC change 0.08. This is target-definition sensitivity, not repeated-call or local-input stability.",
+      "limitations": "Retrospective single facility; one threshold comparison; rank-retention formula incompletely specified.",
+      "repro": "Table 4 seed 42/hyperparameters; data on request; code not located.",
+      "evidence": "Results afterTable 4;Discussion;Dataavailability.",
+      "read_from": "Complete publisherHTML."
+    },
+    "qa": {
+      "Q1": 1,
+      "Q2": 0.5,
+      "Q3": 1,
+      "Q4": 0.5,
+      "Q5": 0.5,
+      "Q6": 0.5,
+      "Q7": 1,
+      "Q8": 0.5,
+      "Q9": 1,
+      "Q10": 1
+    },
+    "qa_notes": {
+      "Q1": "AimIntroduction.",
+      "Q2": "Model described; stability protocol limited.",
+      "Q3": "Methods/Table 1.",
+      "Q4": "Two thresholds, no explainer comparator.",
+      "Q5": "Top-10 retention, limited specification.",
+      "Q6": "Single contrast, no stability interval.",
+      "Q7": "Discussion explicit threats.",
+      "Q8": "Data on request; no code located.",
+      "Q9": "IRBA 202505142/consentwaiver.",
+      "Q10": "Table 4 seed 42."
+    }
+  },
+  {
+    "id": "N687",
+    "title": "Hierarchical Shrinkage: improving the accuracy and interpretability of tree-based methods",
+    "decision": "Include",
+    "reason": "English full research report within 2016–2026; tabular data, SHAP-family explanations, and a separately evaluated attribution-change/stability outcome.",
+    "evidence": "§5 p 8/Fig 6; AppendixS 5.3 pp 23–25: SHAP variance under training-data resampling.",
+    "source_url": "https://proceedings.mlr.press/v162/agarwal22b/agarwal22b.pdf",
+    "source_version": "ICML 2022 PMLR proceedings PDF,25 pages incl.appendix",
+    "search_queries": [
+      "\"Hierarchical Shrinkage: improving the accuracy and interpretability of tree-based methods\""
+    ],
+    "access_note": "Primary full text inspected through web text extraction. Local PDF download attempted but DNS unavailable; source URL and locations retained. QA is an AI appraisal, not independent human verification.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending",
+    "metadata": {
+      "authors": [
+        "Abhineet Agarwal",
+        "Yan Shuo Tan",
+        "Omer Ronen",
+        "Chandan Singh",
+        "Bin Yu"
+      ],
+      "year": 2022,
+      "title": "Hierarchical Shrinkage: Improving the accuracy and interpretability of tree-based models.",
+      "venue": "Proceedings of the39th International Conference on Machine Learning",
+      "volume": "162",
+      "pages": "111–135",
+      "doi": null,
+      "arxiv": "2202.00858",
+      "metadata_note": "PMLR landing-page title ends models; PDF title ends Methods."
+    },
+    "extraction": {
+      "problem": "Unstable tree explanations.",
+      "rq": "RQ 1;RQ 2;RQ 3",
+      "method": "Hierarchical shrinkage of node predictions; RF SHAP comparison.",
+      "data": "16 tabular benchmarks; SHAP experiments on 8 classification datasets (Table 1).",
+      "evaluation": "AppendixS 5.3:50 held-out samples;100 fits using random two-thirds training subsets; mean per-feature SHAP variance.",
+      "findings": "Shrinkage reduces SHAP variance, including datasets with little prediction improvement.",
+      "limitations": "Reviewer: no local input-noise/noise-floor assessment; §6 leaves broader robustness questions open.",
+      "repro": "imodels and Yu-Group/imodels-experiments repositories, p 1.",
+      "evidence": "Table 1;§5;AppendixS 5.3.",
+      "read_from": "Primary PMLR PDF and landing page."
+    },
+    "qa": {
+      "Q1": 1,
+      "Q2": 1,
+      "Q3": 1,
+      "Q4": 1,
+      "Q5": 1,
+      "Q6": 1,
+      "Q7": 0.5,
+      "Q8": 1,
+      "Q9": 0.5,
+      "Q10": 0.5
+    },
+    "qa_notes": {
+      "Q1": "Clear aim§1.",
+      "Q2": "Algorithm§2–3/appendix.",
+      "Q3": "Table 1.",
+      "Q4": "RF with/without HS.",
+      "Q5": "Variance definedS 5.3.",
+      "Q6": "100 fits/50 held-out samples.",
+      "Q7": "§6 futurework; limited critical threats.",
+      "Q8": "Repositories p 1.",
+      "Q9": "Sensitive benchmarks; limited application ethics discussion.",
+      "Q10": "Repetitions explicit; seed values not located."
+    }
+  },
+  {
+    "id": "U008",
+    "title": "From Symptoms to Clinical Insight: An Explainable Machine Learning Framework for Early Diabetes Screening",
+    "decision": "Not retrieved",
+    "reason": "Full text/relevant complete methods and results not retrieved; eligibility remains pending. Access failure is not an exclusion criterion.",
+    "evidence": "No full-paper exclusion evidence available.",
+    "source_url": "https://ieeexplore.ieee.org/document/11546646",
+    "source_version": "Not established",
+    "search_queries": [
+      "\"From Symptoms to Clinical Insight\" \"Diabetes\" pdf"
+    ],
+    "access_note": "IEEE inaccessible; matching ResearchGate offers request-only full text. Supplied abstract cannot substitute for reading methods/results.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending"
+  },
+  {
+    "id": "U033",
+    "title": "Self-Adaptive Genetic Boosted Explainable Framework for Employee Performance Classification",
+    "decision": "Not retrieved",
+    "reason": "Full text/relevant complete methods and results not retrieved; eligibility remains pending. Access failure is not an exclusion criterion.",
+    "evidence": "No full-paper exclusion evidence available.",
+    "source_url": "https://ieeexplore.ieee.org/document/11507650",
+    "source_version": "Not established",
+    "search_queries": [
+      "\"Self-Adaptive Genetic Boosted Explainable Framework\" pdf"
+    ],
+    "access_note": "IEEE inaccessible; J-GLOBAL metadata only. Separate stability assessment remains unverified.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending"
+  },
+  {
+    "id": "U048",
+    "title": "Explainability and Verifiability of Artificial Intelligence in ICU Mortality Prediction",
+    "decision": "Not retrieved",
+    "reason": "Full text/relevant complete methods and results not retrieved; eligibility remains pending. Access failure is not an exclusion criterion.",
+    "evidence": "No full-paper exclusion evidence available.",
+    "source_url": "https://ieeexplore.ieee.org/document/11706859",
+    "source_version": "Not established",
+    "search_queries": [
+      "\"Explainability and Verifiability of Artificial Intelligence in ICU Mortality Prediction\" pdf"
+    ],
+    "access_note": "IEEE inaccessible; official conference program confirms title but supplies no full report.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending"
+  },
+  {
+    "id": "U054",
+    "title": "A Robustness-Oriented Quantum–Classical Hybrid Machine Learning Pipeline for Breast Cancer Diagnosis: External Validation, Explainability, and Rigorous Benchmarking in the NISQ Era",
+    "decision": "Not retrieved",
+    "reason": "Full text/relevant complete methods and results not retrieved; eligibility remains pending. Access failure is not an exclusion criterion.",
+    "evidence": "No full-paper exclusion evidence available.",
+    "source_url": "https://www.mdpi.com/2075-4418/16/13/1996",
+    "source_version": "Not established",
+    "search_queries": [
+      "\"10.3390/diagnostics16131996\"",
+      "\"diagnostics16131996\" pdf"
+    ],
+    "access_note": "MDPI429; alternate /htm route inaccessible; PMC reCAPTCHA; EuropePMC unavailable. PubMed abstract cannot establish separate attribution-stability evaluation.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending"
+  },
+  {
+    "id": "U302",
+    "title": "Explainable Machine Learning Framework for Distributed Denial-of-Service (DDoS) Attack Detection using Comparative Evaluation and SHAP Analysis",
+    "decision": "Include",
+    "reason": "English full research report within 2016–2026; tabular data, SHAP-family explanations, and a separately evaluated attribution-change/stability outcome.",
+    "evidence": "§2.8 Eq 5 p 100;§3.1.3 Table 7 pp 106–107: separate SHAP fold-consistency score.",
+    "source_url": "https://ejournals.itda.ac.id/index.php/avitec/article/download/3594/pdf",
+    "source_version": "Publisher version of record; Vol 8 No 1 Feb 2026; online 22 Dec 2025",
+    "search_queries": [
+      "\"10.28989/avitec.v8i1.3594\""
+    ],
+    "access_note": "Primary full text inspected through web text extraction. Local PDF download attempted but DNS unavailable; source URL and locations retained. QA is an AI appraisal, not independent human verification.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending",
+    "metadata": {
+      "authors": [
+        "Muhammad Fathur Riziq",
+        "Ichwan Nul Ichsan"
+      ],
+      "year": 2026,
+      "online_date": "2025-12-22",
+      "title": "Explainable Machine Learning Framework for Distributed Denial-of-Service (DDoS) Attack Detection using Comparative Evaluation and SHAP Analysis",
+      "venue": "Aviation Electronics, Information Technology, Telecommunications, Electricals, and Controls (AVITEC)",
+      "volume": "8",
+      "issue": "1",
+      "pages": "91–110",
+      "doi": "10.28989/avitec.v8i1.3594"
+    },
+    "extraction": {
+      "problem": "DDoS attribution consistency versus predictive robustness.",
+      "rq": "RQ 1;RQ 2",
+      "method": "Six classifiers; tree-model SHAP; FSS=1−SD/mean importance across folds.",
+      "data": "CIC-DDoS 2019 flow features; Table 5.",
+      "evaluation": "Five-fold CV; four tree models; FSS versus F 1 variability.",
+      "findings": "Table 7 RF has highest FSS; prediction-variance ordering differs. Reported correlation sign/magnitude andp-value conflict with table/text; do not synthesize unverified rho.",
+      "limitations": "One benchmark; reviewer flags small model-level sample, correlation inconsistency and undefined zero-mean handling.",
+      "repro": "Seed 42; package versions Table 5; public benchmark; code link not located.",
+      "evidence": "Eq 5;Table 7;Figures 13–14.",
+      "read_from": "Publisher 20-pagePDF."
+    },
+    "qa": {
+      "Q1": 1,
+      "Q2": 0.5,
+      "Q3": 1,
+      "Q4": 1,
+      "Q5": 0.5,
+      "Q6": 0.5,
+      "Q7": 0.5,
+      "Q8": 0.5,
+      "Q9": "NA",
+      "Q10": 1
+    },
+    "qa_notes": {
+      "Q1": "Aim§1.",
+      "Q2": "Implementation settings; FSS aggregation unclear.",
+      "Q3": "§2/Table 5.",
+      "Q4": "Shared protocol/Table 7.",
+      "Q5": "Eq 5; zero-mean/aggregation incomplete.",
+      "Q6": "Fivefolds; contradictory statistics.",
+      "Q7": "Discussion needs diverse/adversarial validation.",
+      "Q8": "Public data; no code located.",
+      "Q9": "Public network benchmark; personal clinical data inapplicable.",
+      "Q10": "Table 5 seed 42."
+    }
+  },
+  {
+    "id": "U407",
+    "title": "Decision support for sustainable maritime transportation under multiple objectives",
+    "decision": "Not retrieved",
+    "reason": "Full text/relevant complete methods and results not retrieved; eligibility remains pending. Access failure is not an exclusion criterion.",
+    "evidence": "No full-paper exclusion evidence available.",
+    "source_url": "https://www.sciencedirect.com/science/article/pii/S221053952600204X",
+    "source_version": "Not established",
+    "search_queries": [
+      "\"Decision support for sustainable maritime transportation under multiple objectives\" pdf"
+    ],
+    "access_note": "Publisher403. Cached abstract/introduction and section snippets support likely eligibility, but complete methods/results and stability-score details unavailable; no complete extraction/QA justified.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending"
+  },
+  {
+    "id": "U411",
+    "title": "Enhancing Clinical Insight Of An Artificial Intelligence Test For Pulmonary Capillary Wedge Pressure Elevation By Unmasking Physiological Mechanisms",
+    "decision": "Not retrieved",
+    "reason": "Full text/relevant complete methods and results not retrieved; eligibility remains pending. Access failure is not an exclusion criterion.",
+    "evidence": "No full-paper exclusion evidence available.",
+    "source_url": "https://doi.org/10.1016/j.cardfail.2025.11.131",
+    "source_version": "Not established",
+    "search_queries": [
+      "\"10.1016/j.cardfail.2025.11.131\""
+    ],
+    "access_note": "DOI inaccessible. Secondary metadata gives one-page pagination226 but report type cannot be confirmed from primary full text. No exclusion inferred.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending"
+  },
+  {
+    "id": "U430",
+    "title": "A machine learning framework for coal gasification process simulation and operation optimization",
+    "decision": "Not retrieved",
+    "reason": "Full text/relevant complete methods and results not retrieved; eligibility remains pending. Access failure is not an exclusion criterion.",
+    "evidence": "No full-paper exclusion evidence available.",
+    "source_url": "https://www.sciencedirect.com/science/article/pii/S001623612501659X",
+    "source_version": "Not established",
+    "search_queries": [
+      "\"A machine learning framework for coal gasification process simulation and operation optimization\" pdf"
+    ],
+    "access_note": "Publisher403. Cached complete abstract/introduction and abbreviated method/results section snippets, but relevant complete explanation analysis unavailable; no exclusion inferred.",
+    "review_type": "AI-assisted full-text retrieval and eligibility assessment; human verification pending"
+  }
+]

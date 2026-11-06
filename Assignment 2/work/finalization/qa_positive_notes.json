@@ -1,0 +1,7 @@
+{
+  "C062": "Q9: Section 3 (Building Adversarial Classifiers) explicitly explains how discriminatory predictions can be hidden behind apparently fair LIME/SHAP explanations; this addresses fairwashing risk, not an ethics-approval claim.",
+  "U466": "Q9: Section 3, Membership inference, discusses privacy breaches through attribution-based training-membership inference; Section 5 analyses manipulation of fairness metrics.",
+  "U124": "Q9: Ethics statement reports CPRD ISAC approval, protocol20_014R, and the legally permitted consent waiver; Data availability states restricted CPRD access.",
+  "U248": "Q9: Data availability statement, p17, withholds the NTHU player dataset for privacy considerations and institutional sharing restrictions; this is privacy handling, not a claim of formal ethics approval.",
+  "U133": "Q9: Fairness metrics (p93) and Limitations (p104) analyse DP/EO across operational score segments and explicitly warn that missing protected attributes prevent a proper protected-group disparate-impact assessment."
+}

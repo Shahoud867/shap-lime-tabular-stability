@@ -1,0 +1,281 @@
+[
+ {
+  "cid": "C009",
+  "ta": "I",
+  "title": "EK-LIME: Balancing Local Fidelity and Stability in Imbalanced Classification",
+  "year": 2026,
+  "venue": "Signal Processing and Communications Applications Conference",
+  "doi": "10.1109/siu71813.2026.11636286",
+  "arxiv": null,
+  "authors": [
+   "Elif Kartal",
+   "Mustafa Cavus"
+  ]
+ },
+ {
+  "cid": "C013",
+  "ta": "I",
+  "title": "Empirical Analysis of Adversarial Robustness and Explainability Drift in Cybersecurity Classifiers",
+  "year": 2026,
+  "venue": "International Conference on Agents and Artificial Intelligence",
+  "doi": "10.5220/0014360100004052",
+  "arxiv": "2602.06395",
+  "authors": [
+   "Mona Rajhans",
+   "Vishal Khawarey"
+  ]
+ },
+ {
+  "cid": "C018",
+  "ta": "U",
+  "title": "Achieving Robust and Faithful Explanations via Conditional Pairwise Contrast",
+  "year": 2025,
+  "venue": "2025 IEEE International Conference on Data Mining Workshops (ICDMW)",
+  "doi": "10.1109/icdmw69685.2025.00443",
+  "arxiv": null,
+  "authors": [
+   "Li-Ge Gan",
+   "Jinzhao He",
+   "Xiao Yue",
+   "Guang-Zhi Qu"
+  ]
+ },
+ {
+  "cid": "C024",
+  "ta": "I",
+  "title": "Which LIME should I trust? Concepts, Challenges, and Solutions",
+  "year": 2025,
+  "venue": "xAI",
+  "doi": "10.48550/arxiv.2503.24365",
+  "arxiv": "2503.24365",
+  "authors": [
+   "Patrick Knab",
+   "Sascha Marton",
+   "Udo Schlegel",
+   "Christian Bartelt"
+  ]
+ },
+ {
+  "cid": "C033",
+  "ta": "U",
+  "title": "A Methodology for Reliability Analysis of Explainable Machine Learning: Application to Endocrinology Diseases",
+  "year": 2024,
+  "venue": "IEEE Access",
+  "doi": "10.1109/access.2024.3431691",
+  "arxiv": null,
+  "authors": [
+   "Firas Ketata",
+   "Z. Al Masry",
+   "S. Yacoub",
+   "N. Zerhouni"
+  ]
+ },
+ {
+  "cid": "C037",
+  "ta": "U",
+  "title": "US-LIME: Increasing fidelity in LIME using uncertainty sampling on tabular data",
+  "year": 2024,
+  "venue": "Neurocomputing",
+  "doi": "10.1016/j.neucom.2024.127969",
+  "arxiv": null,
+  "authors": [
+   "Hamid Saadatfar",
+   "Zeynab Kiani Zadegan",
+   "Benyamin Ghahremani-Nezhad"
+  ]
+ },
+ {
+  "cid": "C040",
+  "ta": "U",
+  "title": "Uncertainty Quantification for Local Model Explanations Without Model Access",
+  "year": 2023,
+  "venue": "",
+  "doi": null,
+  "arxiv": "2301.05761",
+  "authors": [
+   "Surin Ahn",
+   "J. Grana",
+   "Yafet Tamene",
+   "Kristian Holsheimer"
+  ]
+ },
+ {
+  "cid": "C045",
+  "ta": "U",
+  "title": "Calibrated Explanations: with Uncertainty Information and Counterfactuals",
+  "year": 2023,
+  "venue": "Expert systems with applications",
+  "doi": "10.48550/arxiv.2305.02305",
+  "arxiv": "2305.02305",
+  "authors": [
+   "Helena Lofstrom",
+   "Tuwe Löfström",
+   "U. Johansson",
+   "C. Sonstrod"
+  ]
+ },
+ {
+  "cid": "C048",
+  "ta": "U",
+  "title": "Analyzing Explainer Robustness via Probabilistic Lipschitzness of Prediction Functions",
+  "year": 2022,
+  "venue": "International Conference on Artificial Intelligence and Statistics",
+  "doi": null,
+  "arxiv": "2206.12481",
+  "authors": [
+   "Zulqarnain Khan",
+   "Davin Hill",
+   "A. Masoomi",
+   "Joshua T. Bone",
+   "J. Dy"
+  ]
+ },
+ {
+  "cid": "C049",
+  "ta": "U",
+  "title": "Boundary-Aware Uncertainty for Feature Attribution Explainers",
+  "year": 2022,
+  "venue": "International Conference on Artificial Intelligence and Statistics",
+  "doi": null,
+  "arxiv": "2210.02419",
+  "authors": [
+   "Davin Hill",
+   "A. Masoomi",
+   "Max Torop",
+   "S. Ghimire",
+   "J. Dy"
+  ]
+ },
+ {
+  "cid": "C054",
+  "ta": "U",
+  "title": "Want robust explanations? Get smoother predictions first",
+  "year": 2022,
+  "venue": "CIKM Workshops",
+  "doi": null,
+  "arxiv": null,
+  "authors": [
+   "Deddy Jobson"
+  ]
+ },
+ {
+  "cid": "C055",
+  "ta": "U",
+  "title": "TrustyAI Explainability Toolkit",
+  "year": 2021,
+  "venue": "arXiv.org",
+  "doi": null,
+  "arxiv": "2104.12717",
+  "authors": [
+   "Rob Geada",
+   "Tommaso Teofili",
+   "Rui Vieira",
+   "Rebecca Whitworth",
+   "D. Zonca"
+  ]
+ },
+ {
+  "cid": "C058",
+  "ta": "I",
+  "title": "Reliable Post hoc Explanations: Modeling Uncertainty in Explainability",
+  "year": 2020,
+  "venue": "Neural Information Processing Systems",
+  "doi": null,
+  "arxiv": "2008.05030",
+  "authors": [
+   "Dylan Slack",
+   "Anna Hilgard",
+   "Sameer Singh",
+   "H. Lakkaraju"
+  ]
+ },
+ {
+  "cid": "C061",
+  "ta": "I",
+  "title": "Improving LIME Robustness with Smarter Locality Sampling",
+  "year": 2020,
+  "venue": "arXiv.org",
+  "doi": null,
+  "arxiv": "2006.12302",
+  "authors": [
+   "Sean Saito",
+   "Eugene Y. S. Chua",
+   "Nicholas Capel",
+   "R. Hu"
+  ]
+ },
+ {
+  "cid": "C062",
+  "ta": "I",
+  "title": "Fooling LIME and SHAP: Adversarial Attacks on Post hoc Explanation Methods",
+  "year": 2019,
+  "venue": "AAAI/ACM Conference on AI, Ethics, and Society",
+  "doi": "10.1145/3375627.3375830",
+  "arxiv": "1911.02508",
+  "authors": [
+   "Dylan Slack",
+   "Sophie Hilgard",
+   "Emily Jia",
+   "Sameer Singh",
+   "H. Lakkaraju"
+  ]
+ },
+ {
+  "cid": "C065",
+  "ta": "U",
+  "title": "Do Not Trust Additive Explanations",
+  "year": 2019,
+  "venue": "",
+  "doi": null,
+  "arxiv": "1903.11420",
+  "authors": [
+   "Alicja Gosiewska",
+   "P. Biecek"
+  ]
+ },
+ {
+  "cid": "C067",
+  "ta": "U",
+  "title": "Developing the sensitivity of LIME for better machine learning explanation",
+  "year": 2019,
+  "venue": "Defense + Commercial Sensing",
+  "doi": "10.1117/12.2520149",
+  "arxiv": null,
+  "authors": [
+   "Eunji Lee",
+   "Dave Braines",
+   "Mitchell Stiffler",
+   "Adam Adam Hudler",
+   "Daniel Harborne"
+  ]
+ },
+ {
+  "cid": "C068",
+  "ta": "U",
+  "title": "\"Why Should You Trust My Explanation?\" Understanding Uncertainty in LIME Explanations",
+  "year": 2019,
+  "venue": "",
+  "doi": null,
+  "arxiv": null,
+  "authors": [
+   "Yujia Zhang",
+   "Kuangyan Song",
+   "Yiming Sun",
+   "Sarah Tan",
+   "Madeleine Udell"
+  ]
+ },
+ {
+  "cid": "C069",
+  "ta": "I",
+  "title": "On the Robustness of Interpretability Methods",
+  "year": 2018,
+  "venue": "arXiv.org",
+  "doi": null,
+  "arxiv": "1806.08049",
+  "authors": [
+   "David Alvarez-Melis",
+   "T. Jaakkola"
+  ]
+ }
+]

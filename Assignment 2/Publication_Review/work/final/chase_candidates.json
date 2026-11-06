@@ -1,0 +1,1406 @@
+[
+ {
+  "title": "Uncertainty-Gated SHAP-Dirichlet Refinement for MRI-Based Depression Classification",
+  "year": 2026,
+  "venue": "",
+  "doi": null,
+  "arxiv": "2610.25635",
+  "abstract": "Structural MRI-based classification of major depressive disorder (MDD) remains challenging due to subtle, heterogeneous anatomical changes. We propose uncertainty-gated SHAP-Dirichlet refinement, a post-hoc reliability layer that improves predictions without retraining the classifier. The method retrieves similar labeled SHAP explanations, constructs Dirichlet class evidence, and selectively refines uncertain predictions through probabilistic fusion, while allowing unreliable cases to be deferred for expert review. We evaluate five classifiers on 504 SRPBS subjects (252 controls and 252 MDD patients) using 159 anatomical features and repeated nested cross-validation. Refinement improved accuracy across all 8 repetitions for TabM and ResNet, yielding mean gains of 1.04 and 0.45 percentage points (sign test p=0.008), while modifying at most 8.3% of predictions. Gains were concentrated among low-confidence cases, with significant improvements in calibration. The method also benefited an RBF support vector machine but not logistic regression or random forests. Ablations confirmed the importance of uncertainty gating and soft fusion. Dirichlet evidence identified baseline errors (AUROC 0.62), while deferring 50% of cases increased retained-case accuracy to approximately 75%. These findings support selective explanation-guided refinement as a practical approach to improving prediction reliability and facilitating expert triage in MDD classification.",
+  "authors": [
+   "P. Nguyen",
+   "To Truong Toan Nguyen",
+   "T. H. A. Nguyen",
+   "Hoang-Loc Cao",
+   "Hung Cao"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": [
+   "Review"
+  ],
+  "s2id": "3765bdf8f9e5ec071ac328cc577d54dd247f4706",
+  "cid": "C001"
+ },
+ {
+  "title": "Explainable Artificial Intelligence for Strategic Decision-Making in Management Information Systems: A Critical Review of Transparency, Trust, and Governance Frameworks",
+  "year": 2026,
+  "venue": "Journal of Intelligent Decision Making and Information Science",
+  "doi": "10.59543/jidmis.v3.1972",
+  "arxiv": null,
+  "abstract": "Artificial intelligence is increasingly embedded in management information systems to support strategic decisions involving forecasting, resource allocation, market intelligence, risk assessment, supply-chain resilience, financial control, cybersecurity, human-resource analytics and organizational governance. Strategic decision-making differs from routine operational automation because it involves uncertainty, long-term consequences, value-laden trade-offs, reputational exposure, regulatory obligations and human accountability. In such settings, predictive accuracy alone is insufficient. Managers require explanations that clarify why an AI system recommends a course of action, what evidence and assumptions shaped the recommendation, how reliable the output is under changing conditions and who remains accountable when algorithmic advice influences organizational outcomes. Explainable artificial intelligence (XAI) has therefore become a critical capability for transforming black-box machine-learning outputs into decision-relevant, contestable and auditable knowledge. This review critically examines XAI for strategic decision-making in management information systems, focusing on transparency, trust calibration and governance frameworks. The paper synthesizes interpretable modelling, post-hoc local explanations, feature attribution, counterfactual explanations, surrogate models, causal explanation and human-centred explanation interfaces. It further evaluates how these approaches influence managerial trust, decision quality, accountability, compliance and organizational learning. The review argues that XAI should not be treated as a technical add-on to predictive modelling; it must be embedded across the complete decision lifecycle through data governance, model documentation, explanation quality controls, stakeholder participation, human oversight and continuous monitoring. A conceptual XAI-GovMIS framework is proposed to connect data governance, model transparency, explanation design, human-AI interaction, strategic decision accountability and responsible AI governance. The paper concludes by identifying unresolved research gaps, including explanation overload, performative transparency, overtrust, weak empirical validation, causal insufficiency, cross-functional accountability gaps and the need for sector-specific governance models for AI-enabled management information systems.",
+  "authors": [
+   "Sampath Kini K"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": [
+   "JournalArticle",
+   "Review"
+  ],
+  "s2id": "cdf9c564218ff6ea1cc9df2b305f87f81de93f66",
+  "cid": "C002"
+ },
+ {
+  "title": "Robustness evaluation of explainable AI methods under natural image corruptions",
+  "year": 2026,
+  "venue": "Applied intelligence (Boston)",
+  "doi": "10.1007/s10489-026-07414-8",
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "Gui-Lin Zhang",
+   "Wu-Lan Guo",
+   "Zi-Qi Tan",
+   "Peng-Cheng Wang",
+   "Hailong Jiang"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "6ee5a1f1ed6bc1c6b926a347cfa5c2939ef306d8",
+  "cid": "C003"
+ },
+ {
+  "title": "An explainable machine learning consensus framework for robust estimations of environmental effects on population dynamics",
+  "year": 2026,
+  "venue": "bioRxiv",
+  "doi": "10.64898/2026.05.10.724190",
+  "arxiv": null,
+  "abstract": "Explainable machine learning (ML) methods are gaining increasing attention in environmental and ecological research for their ability to reveal relationships between environmental drivers and population dynamics. However, there remain questions on the reliability of these tools, especially given recent research shows that these explanations can be highly sensitive to model architecture. In ecology, it is typical to use a single ML model, and a comparative evaluation of sensitivity of explainability for different ML approaches is overlooked. In this paper, we develop a novel framework that quantifies explanation consistency between multiple ML model architectures. This framework provides a discrepancy measure for each model prediction, with high discrepancy indicating substantive explanation disagreement across models and low discrepancy indicating strong consensus in explanations across models. We then demonstrate that low explanation discrepancy aligns well with ground truth mechanism. Furthermore, high explanation discrepancy provide a mechanism to identify areas for model refinement and further investigation by domain experts. We do this by using a simulation study based on synthetic coral cover data that incorporate spatio-temporal variability driven by known disturbance effects. Our method provides a quantitative approach to assess the sensitivity of explainable ML in the absence of ground truth. As a result, this enhances the utility of ML approaches in conservation and ecological management. While we focus primarily on ecological modelling for coral reefs, our methods are generally applicable to other ecological and environmental modelling settings.",
+  "authors": [
+   "Anuradha Dhananjanie",
+   "Helen Thompson",
+   "Julie Vercelloni",
+   "D. J. Warne"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": null,
+  "s2id": "ec81ab53809db2315e3c8d02dd4c051723a64960",
+  "cid": "C004"
+ },
+ {
+  "title": "No Single Metric Tells the Whole Story: A Multi-Dimensional Evaluation Framework for Uncertainty Attributions",
+  "year": 2026,
+  "venue": "arXiv.org",
+  "doi": "10.48550/arxiv.2603.24524",
+  "arxiv": "2603.24524",
+  "abstract": "Research on explainable AI (XAI) has frequently focused on explaining model predictions. More recently, methods have been proposed to explain prediction uncertainty by attributing it to input features (uncertainty attributions). However, the evaluation of these methods remains inconsistent as studies rely on heterogeneous proxy tasks and metrics, hindering comparability. We address this by aligning uncertainty attributions with the well-established Co-12 framework for XAI evaluation. We propose concrete implementations for the correctness, consistency, continuity, and compactness properties. Additionally, we introduce conveyance, a property tailored to uncertainty attributions that evaluates whether controlled increases in epistemic uncertainty reliably propagate to feature-level attributions. We demonstrate our evaluation framework with eight metrics across combinations of uncertainty quantification and feature attribution methods on tabular and image data. Our experiments show that gradient-based methods consistently outperform perturbation-based approaches in consistency and conveyance, while Monte-Carlo dropconnect outperforms Monte-Carlo dropout in most metrics. Although most metrics rank the methods consistently across samples, inter-method agreement remains low. This suggests no single metric sufficiently evaluates uncertainty attribution quality. The proposed evaluation framework contributes to the body of knowledge by establishing a foundation for systematic comparison and development of uncertainty attribution methods.",
+  "authors": [
+   "Emily R. Schiller",
+   "Teodor Chiaburu",
+   "Marco Zullich",
+   "Luca Longo"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "f2812fce816e4e934a90cc26e648403456d069e3",
+  "cid": "C005"
+ },
+ {
+  "title": "Training for Trustworthy Saliency Maps: Adversarial Training Meets Feature-Map Smoothing",
+  "year": 2026,
+  "venue": "arXiv.org",
+  "doi": "10.48550/arxiv.2603.07302",
+  "arxiv": "2603.07302",
+  "abstract": "Gradient-based saliency methods such as Vanilla Gradient (VG) and Integrated Gradients (IG) are widely used to explain image classifiers, yet the resulting maps are often noisy and unstable, limiting their usefulness in high-stakes settings. Most prior work improves explanations by modifying the attribution algorithm, leaving open how the training procedure shapes explanation quality. We take a training-centered view and first provide a curvature-based analysis linking attribution stability to how smoothly the input-gradient field varies locally. Guided by this connection, we study adversarial training and identify a consistent trade-off: it yields sparser and more input-stable saliency maps, but can degrade output-side stability, causing explanations to change even when predictions remain unchanged and logits vary only slightly. To mitigate this, we propose augmenting adversarial training with a lightweight feature-map smoothing block that applies a differentiable Gaussian filter in an intermediate layer. Across FMNIST, CIFAR-10, and ImageNette, our method preserves the sparsity benefits of adversarial training while improving both input-side stability and output-side stability. A human study with 65 participants further shows that smoothed adversarial saliency maps are perceived as more sufficient and trustworthy. Overall, our results demonstrate that explanation quality is critically shaped by training, and that simple smoothing with robust training provides a practical path toward saliency maps that are both sparse and stable.",
+  "authors": [
+   "Dipkamal Bhusal",
+   "Md Tanvirul Alam",
+   "Nidhi Rastogi"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "26226af75acaa0f17d1471b31ed82ed8fdd1cf63",
+  "cid": "C006"
+ },
+ {
+  "title": "Harnessing Stability‐Guided Interpretable Machine Learning for Understanding and Predicting Water Quality in Freshwater Ecosystems",
+  "year": 2026,
+  "venue": "Journal of Geophysical Research - Biogeosciences",
+  "doi": "10.1029/2025jg009545",
+  "arxiv": null,
+  "abstract": "Harmful phytoplankton blooms driven by climate warming and nutrient pollution are a growing threat to freshwater ecosystems worldwide. Predicting these blooms is critical for managing water resources. However, process‐based models often struggle to capture the complex nonlinear dynamics of phytoplankton. Although machine learning (ML) offers powerful predictive capabilities, its “black‐box” nature has limited its adoption for management. In this study, we applied four ensemble ML algorithms, Extreme Gradient Boosting (XGBoost), Random Forest (RF), Gradient Boosting Machine (GBM), and Categorical Boosting (CatBoost), to model phytoplankton dynamics in two adjacent drinking‐water reservoirs. All models performed similarly; however, the XGBoost algorithm achieved the best performance in both reservoirs, with a root mean square error (RMSE) of 2.4–6.6 μg/L chlorophyll a and a Pearson correlation coefficient (r) of 0.83–0.86. To enhance the interpretability of these ML models, we applied explainable artificial intelligence (XAI) techniques, including Shapley Additive Explanations (SHAP) and partial dependence analyses (PDPs). Our XAI analysis revealed reservoir‐specific dynamics, with deep dissolved oxygen and water temperature more influential in one reservoir, whereas seasonality and water column stability were more critical in the other. We also observed opposing effects of thermal stratification, with high water temperatures and strong stratification stimulating phytoplankton in one reservoir and suppressing it in the other. Stability analyses confirmed that the SHAP explanations were robust to perturbations, boosting confidence in their interpretability. This study demonstrates the application of a stability‐constrained XAI framework to provide transparent and trustworthy ecological insights, offering a robust approach for data‐driven water quality management and forecasting.",
+  "authors": [
+   "R. Shukla",
+   "Adrienne Breef-Pilz",
+   "Mary E. Lofton",
+   "Cayelan C. Carey",
+   "R. Q. Thomas"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "8a1d07cb56f2bdde56e667151ce02ba5b022e5d6",
+  "cid": "C007"
+ },
+ {
+  "title": "Explainable Artificial Intelligence in Financial Fraud Detection: A Systematic Review and FinTech-Oriented ADO–TCCM Meta-Framework for Trust, Governance, and Transparency",
+  "year": 2026,
+  "venue": "FinTech",
+  "doi": "10.3390/fintech5030060",
+  "arxiv": null,
+  "abstract": "Artificial intelligence (AI)-driven fraud detection systems in FinTech ecosystems increasingly face a governance tension between high predictive accuracy and limited regulatory transparency, a gap that existing reviews have not addressed through an integrated behavioural, technical, and institutional lens. This study synthesises 99 Scopus-indexed, ABDC-ranked journal articles (2015–2026) using PRISMA 2020 and the SPAR-4-SLR protocol, integrating the Theory of Planned Behaviour (TPB) within an Antecedents–Decisions–Outcomes (ADO) framework to examine organisational adoption of explainable AI (XAI) in financial fraud detection. Three antecedent clusters are identified: attitudinal (algorithmic complexity, model opacity, data imbalance), normative (regulatory compliance, ethical expectations), and control-based (technical self-efficacy, organisational readiness)—which drive decision mechanisms including post hoc interpretability tools (SHapley Additive exPlanations [SHAP], Local Interpretable Model-Agnostic Explanations [LIME]), ethical governance protocols, and human-in-the-loop oversight. These produce outcomes across precision (reduced false positives, improved decision accuracy), compliance (audit transparency, institutional legitimacy), and cognitive (user acceptance, procedural justice) dimensions. The study introduces the Stability–Transparency–Reliability (STR) model, which advances TPB, Socio-Technical Systems Theory, and the Dynamic Capabilities View by reframing XAI from a static interpretability output into a recursive governance capability, formalised through the concept of Interpretative Agility, with direct implications for financial institutions operating under the EU AI Act.",
+  "authors": [
+   "Devansh Gupta",
+   "Priyanka Chugh",
+   "Kiran Sood",
+   "Simon Grima"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "JournalArticle",
+   "Review"
+  ],
+  "s2id": "5ed01e08e6913ad6395384fbeca0bc2ccf94b4a2",
+  "cid": "C008"
+ },
+ {
+  "title": "EK-LIME: Balancing Local Fidelity and Stability in Imbalanced Classification",
+  "year": 2026,
+  "venue": "Signal Processing and Communications Applications Conference",
+  "doi": "10.1109/siu71813.2026.11636286",
+  "arxiv": null,
+  "abstract": "This study investigates the trade-off between local fidelity and stability in LIME explanations, particularly under imbalanced data conditions. To improve the balance between local fidelity and stability, the Ensemble Kernel LIME approach, which combines narrow and wide kernels, is proposed. The method is compared with LIME, DLIME, GLIME, and Opti-LIME across 20 datasets with varying imbalance ratios; performance is evaluated in terms of local fidelity, Variable Stability Index, and Coefficient Stability Index. The results show that EK-LIME improves the fidelity–stability balance in both classes, achieving 0.98 for the majority class and 0.99 for the minority class, with Variable Stability Index values of 0.82 and 0.80, respectively.",
+  "authors": [
+   "Elif Kartal",
+   "Mustafa Cavus"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "Conference"
+  ],
+  "s2id": "953918a66f08c2a3c589d017f2596b2875839c9d",
+  "cid": "C009"
+ },
+ {
+  "title": "Explainability and uncertainty for time-series classification in cryptocurrency data: a hybrid XAI methodology based on COMTE and LEFTIST",
+  "year": 2026,
+  "venue": "International Journal of Data Science and Analysis",
+  "doi": "10.1007/s41060-026-01098-6",
+  "arxiv": null,
+  "abstract": "\n The “Global Race For AI” has driven the pursuit of a strategy known as “AI for society”. One of the key outcomes of this strategy was the General Data Protection Regulation (GDPR), an European regulation enforced on May 28, 2018. This regulation significantly contributed to the rise of Explainable AI (XAI). Amidst this wave of technological innovation, AI systems often rely on black box models, making explainability crucial. However, when dealing with data involving time-series, which is often the case in financial contexts, time-series classification (TSC) algorithms can be applied. Therefore, XAI must also consider the temporal structure of data, highlighting the need for explainability techniques specifically tailored to TSC. In this context, this work applies Machine Learning (ML) models specifically designed for TSC and proposes a novel hybrid method that provides time-series-based explanations, while also addressing relevant topics in Responsible AI, such as uncertainty estimation and surrogate models. The results show that the MRSQM model achieved a strong performance, while ML tabular models did not differ significantly from time-series classification models, DL models performed poorly. Uncertainty analysis revealed notable differences in uncertainty estimation, and the COMTE-LEFTIST hybrid explainability model successfully provided hybrid explanations.",
+  "authors": [
+   "Lucas Rabelo de Araújo Morais",
+   "T. Ludermir"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "3e59aed61ef1e5c6e36559a880f4249722ff2f58",
+  "cid": "C010"
+ },
+ {
+  "title": "ConceptSMILE: Auditing the Trustworthiness of Concept-Based Explainable AI",
+  "year": 2026,
+  "venue": "arXiv.org",
+  "doi": "10.48550/arxiv.2607.09649",
+  "arxiv": "2607.09649",
+  "abstract": "Concept-based explainable artificial intelligence (AI) can make model reasoning more human-understandable, but concept-level outputs are not automatically trustworthy. We introduce ConceptSMILE, a model-agnostic perturbation-based auditing framework for evaluating the reliability of concept-based explanations. Rather than replacing SMILE, ConceptSMILE extends its perturbation-based logic from feature- or region-level attribution to the auditing of human-understandable concept explanations. The framework perturbs input regions, measures concept-response shifts, applies locality weighting, and fits an XGBoost surrogate to approximate local concept behaviour. Reliability is assessed through attribution accuracy, surrogate fidelity, faithfulness, stability, and consistency. We evaluate ConceptSMILE on retinal fundus images by comparing MedSAM-derived visual concepts with VLM-based semantic concepts. Results show that reliability varies across concepts and pathways: MedSAM achieves stronger spatial attribution and the highest surrogate fidelity ($R^2 = 0.8503$, $R_w^2 = 0.8465$), while the VLM pathway shows stronger vessel faithfulness and stronger stability under selected artefact conditions. ConceptSMILE provides an independent audit layer for evaluating the trustworthiness of concept-based XAI.",
+  "authors": [
+   "Mohadeseh Mollapour",
+   "K. Aslansefat",
+   "Zeinab Dehghani",
+   "Bhupesh Kumar Mishra",
+   "Tejal Shah",
+   "Zhibao Mian"
+  ],
+  "found_via": "U483 Zhou2021|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "4da56af97c95d67a1b101b2c110ec28a60c0e1d3",
+  "cid": "C011"
+ },
+ {
+  "title": "Regional Explanations: Bridging Local and Global Variable Importance",
+  "year": 2026,
+  "venue": "Neural Information Processing Systems",
+  "doi": "10.48550/arxiv.2604.11223",
+  "arxiv": "2604.11223",
+  "abstract": "We analyze two widely used local attribution methods, Local Shapley Values and LIME, which aim to quantify the contribution of a feature value $x_i$ to a specific prediction $f(x_1, \\dots, x_p)$. Despite their widespread use, we identify fundamental limitations in their ability to reliably detect locally important features, even under ideal conditions with exact computations and independent features. We argue that a sound local attribution method should not assign importance to features that neither influence the model output (e.g., features with zero coefficients in a linear model) nor exhibit statistical dependence with functionality-relevant features. We demonstrate that both Local SV and LIME violate this fundamental principle. To address this, we propose R-LOCO (Regional Leave Out COvariates), which bridges the gap between local and global explanations and provides more accurate attributions. R-LOCO segments the input space into regions with similar feature importance characteristics. It then applies global attribution methods within these regions, deriving an instance's feature contributions from its regional membership. This approach delivers more faithful local attributions while avoiding local explanation instability and preserving instance-specific detail often lost in global methods.",
+  "authors": [
+   "Salim I. Amoukou",
+   "N. Brunel"
+  ],
+  "found_via": "U483 Zhou2021|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "0f0a3be18f91854e8a6b91354d49491ffcad685c",
+  "cid": "C012"
+ },
+ {
+  "title": "Empirical Analysis of Adversarial Robustness and Explainability Drift in Cybersecurity Classifiers",
+  "year": 2026,
+  "venue": "International Conference on Agents and Artificial Intelligence",
+  "doi": "10.5220/0014360100004052",
+  "arxiv": "2602.06395",
+  "abstract": "Machine learning (ML) models are increasingly deployed in cybersecurity applications such as phishing detection and network intrusion prevention. However, these models remain vulnerable to adversarial perturbations small, deliberate input modifications that can degrade detection accuracy and compromise interpretability. This paper presents an empirical study of adversarial robustness and explainability drift across two cybersecurity domains phishing URL classification and network intrusion detection. We evaluate the impact of L (infinity) bounded Fast Gradient Sign Method (FGSM) and Projected Gradient Descent (PGD) perturbations on model accuracy and introduce a quantitative metric, the Robustness Index (RI), defined as the area under the accuracy perturbation curve. Gradient based feature sensitivity and SHAP based attribution drift analyses reveal which input features are most susceptible to adversarial manipulation. Experiments on the Phishing Websites and UNSW NB15 datasets show consistent robustness trends, with adversarial training improving RI by up to 9 percent while maintaining clean-data accuracy. These findings highlight the coupling between robustness and interpretability degradation and underscore the importance of quantitative evaluation in the design of trustworthy, AI-driven cybersecurity systems.",
+  "authors": [
+   "Mona Rajhans",
+   "Vishal Khawarey"
+  ],
+  "found_via": "U163 Rajhans2026|references",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "99ede6bd32bd3eec6a5646d4753050ff1e205be3",
+  "cid": "C013"
+ },
+ {
+  "title": "Rethinking Robustness: A New Approach to Evaluating Feature Attribution Methods",
+  "year": 2025,
+  "venue": "arXiv.org",
+  "doi": "10.48550/arxiv.2512.06665",
+  "arxiv": "2512.06665",
+  "abstract": "This paper studies the robustness of feature attribution methods for deep neural networks. It challenges the current notion of attributional robustness that largely ignores the difference in the model's outputs and introduces a new way of evaluating the robustness of attribution methods. Specifically, we propose a new definition of similar inputs, a new robustness metric, and a novel method based on generative adversarial networks to generate these inputs. In addition, we present a comprehensive evaluation with existing metrics and state-of-the-art attribution methods. Our findings highlight the need for a more objective metric that reveals the weaknesses of an attribution method rather than that of the neural network, thus providing a more accurate evaluation of the robustness of attribution methods.",
+  "authors": [
+   "Panagiota Kiourti",
+   "Anu Singh",
+   "Preeti Duraipandian",
+   "Wei-Chao Zhou",
+   "Wen-Chao Li"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "b43daa72e2b7b49e6b459c0942e8916815125221",
+  "cid": "C014"
+ },
+ {
+  "title": "Activation-Deactivation: A General Framework for Robust Post-hoc Explainable AI",
+  "year": 2025,
+  "venue": "arXiv.org",
+  "doi": "10.48550/arxiv.2510.01038",
+  "arxiv": "2510.01038",
+  "abstract": "Perturbation-based explainability methods face criticism due to their reliance on out-of-distribution mutants. This raises doubts about the quality of the explanations. In this paper, we introduce a novel forward pass paradigm, Activation-Deactivation (AD), which obviates the need for perturbation of the input. AD replaces perturbation of input features with switching off parts of the model corresponding to to the intended perturbations. We implement ConvAD, an AD approximation algorithm for CNNs. ConvAD is a drop-in mechanism that can be easily added to any trained CNN and, without any additional training, generates more robust and more transferable explanations. We provide evaluation results across multiple architectures, datasets, methods and perturbation strategies, demonstrating the superior quality of ConvAD compared to the SOTA.",
+  "authors": [
+   "Akchunya Chanchal",
+   "David A. Kelly",
+   "Hana Chockler"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "c743f55e4cdbd7d252b1f4daf37edd46ddf9d5e3",
+  "cid": "C015"
+ },
+ {
+  "title": "Bridging the Gap in XAI-Why Reliable Metrics Matter for Explainability and Compliance",
+  "year": 2025,
+  "venue": "arXiv.org",
+  "doi": "10.48550/arxiv.2502.04695",
+  "arxiv": "2502.04695",
+  "abstract": "Reliable explainability is not only a technical goal but also a cornerstone of private AI governance. As AI models enter high-stakes sectors, private actors such as auditors, insurers, certification bodies, and procurement agencies require standardized evaluation metrics to assess trustworthiness. However, current XAI evaluation metrics remain fragmented and prone to manipulation, which undermines accountability and compliance. We argue that standardized metrics can function as governance primitives, embedding auditability and accountability within AI systems for effective private oversight. Building upon prior work in XAI benchmarking, we identify key limitations in ensuring faithfulness, tamper resistance, and regulatory alignment. Furthermore, interpretability can directly support model alignment by providing a verifiable means of ensuring behavioral integrity in General Purpose AI (GPAI) systems. This connection between interpretability and alignment positions XAI metrics as both technical and regulatory instruments that help prevent alignment faking, a growing concern among oversight bodies. We propose a Governance by Metrics paradigm that treats explainability evaluation as a central mechanism of private AI governance. Our framework introduces a hierarchical model linking transparency, tamper resistance, scalability, and legal alignment, extending evaluation from model introspection toward systemic accountability. Through conceptual synthesis and alignment with governance standards, we outline a roadmap for integrating explainability metrics into continuous AI assurance pipelines that serve both private oversight and regulatory needs.",
+  "authors": [
+   "Pratinav Seth",
+   "Vinay Kumar Sankarapu"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "62db369a8339a0b62ad9350e32b9db550bc2fe5a",
+  "cid": "C016"
+ },
+ {
+  "title": "Validation Framework for Robust and Explainable Machine Learning Models in Autism Spectrum Disorder Triage",
+  "year": 2025,
+  "venue": "Mesopotamian Journal of Big Data",
+  "doi": "10.58496/mjbd/2025/027",
+  "arxiv": null,
+  "abstract": "The development of real-time triage applications for Autism Spectrum Disorder (ASD) is a critical challenge due to the rising prevalence of ASD and the urgent need for efficient resource allocation in healthcare systems. Previous studies have applied machine learning (ML) to ASD triage; however, most approaches overlook robustness against adversarial attacks, provide limited benchmarking across multiple evaluation criteria, and lack explainability to support clinical adoption. Building on our earlier work, which introduced a fuzzy evaluation and benchmarking framework using the 2-Tuple Linguistic Fermatean Fuzzy Decision by Opinion Score Method (2TLFFDOSM), this study proposes a comprehensive five-stage validation and evaluation framework. The framework systematically validates fuzzy-based rankings against raw performance metrics, conducts dual-perspective analysis under normal and adversarial conditions, performs sensitivity analysis across ten weighting scenarios, and integrates explainable AI (LIME, PFI, Integrated Gradients, and PDP) to interpret feature contributions before and after adversarial perturbations. Finally, a checklist benchmarking approach is used to position the framework against five recent studies.",
+  "authors": [
+   "Ghadeer Ghazi Shayea",
+   "Mohd Hazli Mohammed Zabil",
+   "A. Albahri",
+   "Rula A. Hamid",
+   "O. Albahri",
+   "A. Alamoodi",
+   "Iman Mohamad Sharaf"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "4bd0524b5027f3307cecca448f2d1eaeecfe1324",
+  "cid": "C017"
+ },
+ {
+  "title": "Achieving Robust and Faithful Explanations via Conditional Pairwise Contrast",
+  "year": 2025,
+  "venue": "2025 IEEE International Conference on Data Mining Workshops (ICDMW)",
+  "doi": "10.1109/icdmw69685.2025.00443",
+  "arxiv": null,
+  "abstract": "Explainable Artificial Intelligence (XAI) is crucial for understanding complex models like deep neural networks, thereby enabling trust, debugging, fairness assessment, and regulatory compliance, particularly in high-stakes domains such as healthcare and manufacturing. Local Interpretable Model-agnostic Explanations (LIME) stands out as one of the most widespread techniques in this category. In multi-class classification settings, standard LIME generates a single “one-vs-all” explanation that fails to capture the accurate decision logic between competing classes, making its explanations unstable and low fidelity. This paper introduces CondLIME, an extension framework that resolves these issues by fundamentally reframing the local explanation task. CondLIME generates a series of pairwise conditional explanations, with each linear model focusing on the distinction between the predicted class and a specific competing class. These conditional models are then innovatively used as candidate splitting rules to construct an oblique decision tree. This tree acts as a high-fidelity and complete explanation, defining a precise and robust classification region. Its hierarchy indicates that CondLIME provides explanations incrementally with a more precise scope. Our experiments demonstrate that CondLIME significantly outperforms standard LIME, delivering more stable explanations with substantially higher local fidelity. By providing a more reliable and multi-faceted insight into a model's behavior, CondLIME enhances the trustworthiness of local explanations for critical applications.",
+  "authors": [
+   "Li-Ge Gan",
+   "Jinzhao He",
+   "Xiao Yue",
+   "Guang-Zhi Qu"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "JournalArticle",
+   "Conference"
+  ],
+  "s2id": "4a06bfddcdb7cbb3ad0d2d752f6856eedf2e549e",
+  "cid": "C018"
+ },
+ {
+  "title": "Reliable generative interpretable framework for efficient predictive analysis of air quality index",
+  "year": 2025,
+  "venue": "Egyptian Informatics Journal",
+  "doi": "10.1016/j.eij.2025.100773",
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "M. K. Nallakaruppan",
+   "C. Varun",
+   "Rajesh Kumar Dhanaraj",
+   "Shashi Kant Tiwari",
+   "V. Malathi",
+   "D. Pamucar",
+   "D. Delen"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "a4d5b2970e3a0cf4d345677e6e7cc94b5cd92e09",
+  "cid": "C019"
+ },
+ {
+  "title": "Enhanced Prediction and Optimization of Oil–Water Emulsion Stability Through Application of Machine Learning and Explainable Artificial Intelligence on TFBG Sensor Data",
+  "year": 2025,
+  "venue": "IEEE Sensors Letters",
+  "doi": "10.1109/lsens.2024.3503752",
+  "arxiv": null,
+  "abstract": "In the petroleum industry, crude oil is extracted in the form of an oil–water emulsion (OWE). Understanding this emulsion is crucial for further processing and utilization. This research investigates the use of experimental data from a tilted fiber Bragg grating (TFBG) sensor to characterize and quantify the stability of OWE while focusing on the impact analysis of parameters using machine learning (ML) and explainable artificial intelligence (XAI) techniques. The dataset consisting of experimental TFBG spectra (wavelength range: 1250–1650 nm) included parameters such as revolutions per minute (RPM) of the rotator, surfactant concentration (Cs), and area measurements (indicating OWE stability). Applying interpolation techniques, the dataset was augmented for effective training and testing of ML models. The results indicated that the random forest model enabled the highest R2 value of 99.2% on the test data. Then, XAI techniques (namely, shapley additive explanations and local interpretable model-agnostic explanations) were applied (from both global and local interpretations viewpoints) to determine the contribution of each feature (i.e., RPM and Cs). It was found that Cs has a significantly greater impact on OWE stability than RPM. Wavelength (λ) was subsequently included in the ML and XAI analyses. The results again confirmed that Cs remained the most significant factor in determining OWE stability, with reasonably lesser impacts of λ and RPM. This study provides valuable insights into designing procedures and optimizing parameters for OWE stability during crude oil processing.",
+  "authors": [
+   "Y. S. Dwivedi",
+   "Rishav Singh",
+   "Anuj K. Sharma",
+   "A. Sharma",
+   "C. Marques"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "95082cc52bbe21b96f6b803558cb95f2f3939185",
+  "cid": "C020"
+ },
+ {
+  "title": "AutoLIME and PWA-LIME: towards robust explanations of deep dynamical models",
+  "year": 2025,
+  "venue": "IEEE Conference on Decision and Control",
+  "doi": "10.1109/cdc57313.2025.11311973",
+  "arxiv": null,
+  "abstract": "The increasing complexity of machine learning models highlights the need for interpretability, especially in critical domains requiring trust and transparency. Local Interpretable Model-agnostic Explanations (LIME) is a popular eXplainable AI (XAI) method that provides localized, instance-specific explanations using an interpretable surrogate model. However, its effectiveness is limited by the lack of systematic guidelines for tuning its hyperparameters. This paper addresses this limitation by proposing Automatic LIME (AutoLIME), a bi-level optimization framework to tune LIME’s kernel width. Additionally, we introduce PieceWise Affine LIME (PWA-LIME), a clustering-based extension of LIME for multi-instance explanations, particularly useful for interpreting black-box models of dynamical systems. Preliminary numerical results validate the potential of these methods in explaining opaque dynamical models.",
+  "authors": [
+   "Federico Porcari",
+   "Valentina Breschi",
+   "S. Formentin"
+  ],
+  "found_via": "U483 Zhou2021|citations",
+  "pubtypes": [
+   "JournalArticle",
+   "Conference"
+  ],
+  "s2id": "f41a680ba11e4d20fa547e5c80879db923f0f78b",
+  "cid": "C021"
+ },
+ {
+  "title": "Bay-CoFE: Bayesian consistency-driven feature elimination for eXplainable AI",
+  "year": 2025,
+  "venue": "Neurocomputing",
+  "doi": "10.1016/j.neucom.2025.132219",
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "R. P. Bora",
+   "Philipp Terhörst",
+   "Raymond N. J. Veldhuis",
+   "Raghavendra Ramachandra",
+   "K. Raja"
+  ],
+  "found_via": "U483 Zhou2021|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "dd63fdae7764e3c4e0a5fcf12399fd6e1478b9fc",
+  "cid": "C022"
+ },
+ {
+  "title": "MCMC-LIME: enhancing stability of LIME using Markov chain Monte Carlo approach",
+  "year": 2025,
+  "venue": "Optical Engineering + Applications",
+  "doi": "10.1117/12.3063619",
+  "arxiv": null,
+  "abstract": "This paper deeply investigates the stability issues of the visual explainability technique, called the local interpretable model-agnostic explanations (LIME)1 and presents an enhanced technique and our findings. Explainability is one of the important tasks in explainable artificial intelligence (XAI) systems where LIME tool has been widely used as an explainer model. However, LIME’s perturbation-based sampling introduces randomness, negatively affecting the stability of LIME’s explanations. In this paper, we utilize the unique sampling mechanism of the well-known Markov Chain Monte Carlo (MCMC) model to address this issue. However, a question arises: Will MCMC alone provide a semantically meaningful segmentation for visual explainability? To ensure this, we modify 40% of perturbation using MCMC while preserving 60% of the original perturbation of LIME and introduce additional stability-enhancing mechanisms. Adaptive Segment Merge (ASM) is employed to refine segmentation boundaries before applying MCMC, ensuring that segments align with meaningful visual structures. Additionally, Sign Entropy-Based Feature Elimination (SEFE) suppresses the effects of the remaining unstable segments by filtering them based on their sign entropy, further improving the robustness of the explanations. To evaluate the performance of the proposed technique, we adopt the average rank similarity (ARS), which quantifies the consistency of feature rankings across multiple runs. Our simulations, conducted on images of five dog breeds (Samoyed, Pomeranian, Newfoundland, Pug, and Cocker Spaniel) along with a Coyote, and a Robin image, demonstrate that MCMC-LIME achieves ARS scores of 0.893, 0.887, 0.851, 0.874, 0.906, 0.850, and 0.903 compared to 0.803, 0.862, 0.596, 0.676, 0.718, 0.771, and 0.846 for LIME. These results indicate that MCMC-LIME significantly enhances the stability and reliability of visual explanations, making it a more robust alternative to the original LIME.",
+  "authors": [
+   "Keerthi Devireddy",
+   "Shan Suthaharan"
+  ],
+  "found_via": "U483 Zhou2021|citations",
+  "pubtypes": null,
+  "s2id": "b512724fc00a6bf397de769ac8bbebd3708a90df",
+  "cid": "C023"
+ },
+ {
+  "title": "Which LIME should I trust? Concepts, Challenges, and Solutions",
+  "year": 2025,
+  "venue": "xAI",
+  "doi": "10.48550/arxiv.2503.24365",
+  "arxiv": "2503.24365",
+  "abstract": "As neural networks become dominant in essential systems, Explainable Artificial Intelligence (XAI) plays a crucial role in fostering trust and detecting potential misbehavior of opaque models. LIME (Local Interpretable Model-agnostic Explanations) is among the most prominent model-agnostic approaches, generating explanations by approximating the behavior of black-box models around specific instances. Despite its popularity, LIME faces challenges related to fidelity, stability, and applicability to domain-specific problems. Numerous adaptations and enhancements have been proposed to address these issues, but the growing number of developments can be overwhelming, complicating efforts to navigate LIME-related research. To the best of our knowledge, this is the first survey to comprehensively explore and collect LIME's foundational concepts and known limitations. We categorize and compare its various enhancements, offering a structured taxonomy based on intermediate steps and key issues. Our analysis provides a holistic overview of advancements in LIME, guiding future research and helping practitioners identify suitable approaches. Additionally, we provide a continuously updated interactive website (https://patrick-knab.github.io/which-lime-to-trust/), offering a concise and accessible overview of the survey.",
+  "authors": [
+   "Patrick Knab",
+   "Sascha Marton",
+   "Udo Schlegel",
+   "Christian Bartelt"
+  ],
+  "found_via": "U483 Zhou2021|citations",
+  "pubtypes": [
+   "JournalArticle",
+   "Review"
+  ],
+  "s2id": "cc907e9d2a44562cc76702f8ad61b1fc1dac0dc7",
+  "cid": "C024"
+ },
+ {
+  "title": "Profit-sensitive machine learning classification with explanations in credit risk: The case of small businesses in peer-to-peer lending",
+  "year": 2024,
+  "venue": "Electronic Commerce Research and Applications",
+  "doi": "10.1016/j.elerap.2024.101428",
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "Miller Janny Ariza-Garzón",
+   "Javier Arroyo",
+   "María Jesús Segovia-Vargas",
+   "Antonio Caparrini"
+  ],
+  "found_via": "U291 Ballegeer2025|references",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "d5fbe0e3950378940c196aa527592dbba7b242d4",
+  "cid": "C025"
+ },
+ {
+  "title": "Provably stable feature rankings with shap and lime",
+  "year": 2024,
+  "venue": "arXiv preprint",
+  "doi": null,
+  "arxiv": null,
+  "abstract": "",
+  "authors": [],
+  "found_via": "U291 Ballegeer2025|references",
+  "pubtypes": null,
+  "s2id": null,
+  "cid": "C026"
+ },
+ {
+  "title": "Revisiting the robustness of post-hoc interpretability methods",
+  "year": 2024,
+  "venue": "arXiv.org",
+  "doi": "10.48550/arxiv.2407.19683",
+  "arxiv": "2407.19683",
+  "abstract": "Post-hoc interpretability methods play a critical role in explainable artificial intelligence (XAI), as they pinpoint portions of data that a trained deep learning model deemed important to make a decision. However, different post-hoc interpretability methods often provide different results, casting doubts on their accuracy. For this reason, several evaluation strategies have been proposed to understand the accuracy of post-hoc interpretability. Many of these evaluation strategies provide a coarse-grained assessment -- i.e., they evaluate how the performance of the model degrades on average by corrupting different data points across multiple samples. While these strategies are effective in selecting the post-hoc interpretability method that is most reliable on average, they fail to provide a sample-level, also referred to as fine-grained, assessment. In other words, they do not measure the robustness of post-hoc interpretability methods. We propose an approach and two new metrics to provide a fine-grained assessment of post-hoc interpretability methods. We show that the robustness is generally linked to its coarse-grained performance.",
+  "authors": [
+   "Jiawen Wei",
+   "Hugues Turb'e",
+   "G. Mengaldo"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "727600288a9495474d6fa224f585c11cb371c191",
+  "cid": "C027"
+ },
+ {
+  "title": "Trustworthy and Explainable AI for Learning Analytics",
+  "year": 2024,
+  "venue": "LAK Workshops",
+  "doi": null,
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "Min-Jia Li",
+   "Shun-Ting Li",
+   "Albert C. M. Yang",
+   "Anna Y. Q. Huang",
+   "Stephen J. H. Yang"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "97ed8b8a9cd2be0f116c8ad8beef721a2ed1b86e",
+  "cid": "C028"
+ },
+ {
+  "title": "Explainable Artificial Intelligence Beyond Feature Attributions: The Validity and Reliability of Feature Selection Explanations",
+  "year": 2024,
+  "venue": "xAI",
+  "doi": null,
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "Raphael Wallsberger",
+   "Ricardo Knauer",
+   "Stephan Matzka"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "bf19e3c18fc18bb0ec7b2b0bee1c8603e37c91e2",
+  "cid": "C029"
+ },
+ {
+  "title": "The pre-trained explainable deep learning model with stacked denoising autoencoders for slope stability analysis",
+  "year": 2024,
+  "venue": "Engineering analysis with boundary elements",
+  "doi": "10.1016/j.enganabound.2024.03.019",
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "Shan Lin",
+   "Miao Dong",
+   "Xitailang Cao",
+   "Zenglong Liang",
+   "Hong-Wei Guo",
+   "Hong Zheng"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "0b195b00bb74efc8a0feb20eff61be7e2e705dcf",
+  "cid": "C030"
+ },
+ {
+  "title": "From the Perspective of Explainable Machine Learning: A Student Feature Selection Strategy Based on the Geometric Mean of Feature Importance and Robustness",
+  "year": 2024,
+  "venue": "Proceedings of the 2024 International Conference on Computer and Multimedia Technology",
+  "doi": "10.1145/3675249.3675335",
+  "arxiv": null,
+  "abstract": "Educational data mining is a growing field in education, but there is no consensus on the interpretability of data mining algorithms. We propose a student feature selection strategy based on the random forest algorithm that scales the gap between two features and adopts a geometric mean method to balance the contribution of performance importance and robustness, which is useful for educators and academics Researchers are vital. We collected a dataset of academic performance and characteristics of students from Guangdong Vocational College of Finance and Trade for experiments. Experiments show that our feature selection strategy is highly effective and produces relatively great results in both random forest and linear regression algorithms. Additionally, our student feature selection strategy provides valuable insights into the field of educational data mining by offering a clearer understanding of the factors influencing students ' academic performance.",
+  "authors": [
+   "Jiarui Zhou",
+   "Yanying Cheng",
+   "Chengxiao Dai"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "Book",
+   "Conference"
+  ],
+  "s2id": "d888b5e7c6137006c500a24fbe3fe903cfdb70c9",
+  "cid": "C031"
+ },
+ {
+  "title": "Fuzzy decision-making framework for explainable golden multi-machine learning models for real-time adversarial attack detection in Vehicular Ad-hoc Networks",
+  "year": 2024,
+  "venue": "Information Fusion",
+  "doi": "10.1016/j.inffus.2023.102208",
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "A. Albahri",
+   "Rula A. Hamid",
+   "A. Abdulnabi",
+   "O. Albahri",
+   "A. Alamoodi",
+   "Muhammet Deveci",
+   "W. Pedrycz",
+   "Laith Alzubaidi",
+   "José Santamaría",
+   "Yuan-Tong Gu"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "c3de3eab08daa5d379ceedd954e50376b5a45560",
+  "cid": "C032"
+ },
+ {
+  "title": "A Methodology for Reliability Analysis of Explainable Machine Learning: Application to Endocrinology Diseases",
+  "year": 2024,
+  "venue": "IEEE Access",
+  "doi": "10.1109/access.2024.3431691",
+  "arxiv": null,
+  "abstract": "Machine learning (ML) has transformed various sectors, including healthcare, by enabling the extraction of complex knowledge and predictions from vast datasets. However, the opacity of ML models, often referred to as “black boxes,” hinders their integration into medical practice. Explainable AI (XAI) has emerged as a crucial area for enhancing the transparency and understandability of ML model decisions, particularly in healthcare where reliability and accuracy are paramount. However, the reliability of the explanations provided by ML models remains a major challenge. This mainly concerns the difficulty of maintaining the validity and relevance of the new training and test data explanations. In this study, we propose a structured approach to enhance and evaluate the reliability of explanations provided by ML models in healthcare. We aim to improve the reliability of explainability by combining the XAI approaches with the k-fold technique. We then developed several metrics to assess the generalizability, concordance, and stability of the combined XAI and k-fold approach, which we applied to case studies on hypothyroidism and diabetes risk prediction using SHAP and LIME frameworks. Our findings reveal that the SHAP approach combined with k-fold exhibits superior generalizability, stability, and concordance compared to the combination of LIME with k-fold. SHAP and k-fold integration provide reliable explanations for hypothyroidism and diabetes predictions, providing strong concordance with the internal explainability of the random forest model, the best generalizability, and good stability. This structured approach can bolster practitioner’s confidence in ML models and facilitate their adoption in healthcare settings.",
+  "authors": [
+   "Firas Ketata",
+   "Z. Al Masry",
+   "S. Yacoub",
+   "N. Zerhouni"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "5ef67ac82cbdb8271398caf932fec2546281b787",
+  "cid": "C033"
+ },
+ {
+  "title": "A Framework for Counterfactual Explanation of Predictive Uncertainty in Multimodal Models",
+  "year": 2024,
+  "venue": "IEEE Transactions on Neural Networks and Learning Systems",
+  "doi": "10.1109/tnnls.2024.3476080",
+  "arxiv": null,
+  "abstract": "Both predictive uncertainty estimation and visual explanation are crucial elements in helping humans understand the artificial intelligence (AI) decision-making process and in building trustworthy AI. However, there has been comparatively limited investigation into the intersection of these two domains in multimodal scenarios. In this article, we propose a universal explanation framework to evaluate counterfactual samples of predictive uncertainty in multimodal models. Inspired by multimodal representation learning, our framework leverages a shared latent space of multimodal variational autoencoders (MVAEs) to generate counterfactual explanations (CEs) of predictive uncertainty, enabling us to identify the input features contributing to high predictive uncertainty. To further evaluate the quality of counterfactual samples, we propose a Bayesian local linear approximation (BLLA) method. This method models the overall linear space as an inverse chi-square distribution while representing feature importance and the error term as normal distributions. By doing so, it captures the uncertainty and feature importance of each modality. Through a comprehensive suite of experiments conducted on multimodal classification and regression tasks, we demonstrate that our framework successfully generates accurate CEs of predictive uncertainty, establishes the consistency of feature importance, and comprehensively facilitates users’ comprehension of multimodal model behavior.",
+  "authors": [
+   "Tianshuo Qiu",
+   "Qian-Mu Li"
+  ],
+  "found_via": "U483 Zhou2021|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "b1fc956bf4cf81a5be000b99b36919f8060e293d",
+  "cid": "C034"
+ },
+ {
+  "title": "NeuroXAI: Adaptive, robust, explainable surrogate framework for determination of channel importance in EEG application",
+  "year": 2024,
+  "venue": "Expert systems with applications",
+  "doi": "10.1016/j.eswa.2024.125364",
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "Choel-Hui Lee",
+   "Daesun Ahn",
+   "Hakseung Kim",
+   "Eun Jin Ha",
+   "Jung-Bin Kim",
+   "Dong-Joo Kim"
+  ],
+  "found_via": "U483 Zhou2021|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "233ee99955d119db27c81ebabcb1399a34656850",
+  "cid": "C035"
+ },
+ {
+  "title": "Towards consistency of rule-based explainer and black box model - fusion of rule induction and XAI-based feature importance",
+  "year": 2024,
+  "venue": "Knowledge-Based Systems",
+  "doi": "10.1016/j.knosys.2025.113092",
+  "arxiv": "2407.14543",
+  "abstract": "Rule-based models offer a human-understandable representation, i.e. they are interpretable. For this reason, they are used to explain the decisions of non-interpretable complex models, referred to as black box models. The generation of such explanations involves the approximation of a black box model by a rule-based model. To date, however, it has not been investigated whether the rule-based model makes decisions in the same way as the black box model it approximates. Decision making in the same way is understood in this work as the consistency of decisions and the consistency of the most important attributes used for decision making. This study proposes a novel approach ensuring that the rule-based surrogate model mimics the performance of the black box model. The proposed solution performs an explanation fusion involving rule generation and taking into account the feature importance determined by the selected XAI methods for the black box model being explained. The result of the method can be both global and local rule-based explanations. The quality of the proposed solution was verified by extensive analysis on 30 tabular benchmark datasets representing classification problems. Evaluation included comparison with the reference method and an illustrative case study. In addition, the paper discusses the possible pathways for the application of the rule-based approach in XAI and how rule-based explanations, including the proposed method, meet the user perspective and requirements for both content and presentation. The software created and a detailed report containing the full experimental results are available on the GitHub repository (https://github.com/ruleminer/FI-rules4XAI ).",
+  "authors": [
+   "Michał Kozielski",
+   "Marek Sikora",
+   "L. Wawrowski"
+  ],
+  "found_via": "U483 Zhou2021|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "dc89d7814e6ef101bf63cc49418dccd44e564e6e",
+  "cid": "C036"
+ },
+ {
+  "title": "US-LIME: Increasing fidelity in LIME using uncertainty sampling on tabular data",
+  "year": 2024,
+  "venue": "Neurocomputing",
+  "doi": "10.1016/j.neucom.2024.127969",
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "Hamid Saadatfar",
+   "Zeynab Kiani Zadegan",
+   "Benyamin Ghahremani-Nezhad"
+  ],
+  "found_via": "U483 Zhou2021|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "14a2cde0194b969926c80aa8777295143c7c516c",
+  "cid": "C037"
+ },
+ {
+  "title": "Stability of Explainable Recommendation",
+  "year": 2023,
+  "venue": "ACM Conference on Recommender Systems",
+  "doi": "10.1145/3604915.3608853",
+  "arxiv": "2405.01849",
+  "abstract": "Explainable Recommendation has been gaining attention over the last few years in industry and academia. Explanations provided along with recommendations in a recommender system framework have many uses: particularly reasoning why a suggestion is provided and how well an item aligns with a user’s personalized preferences. Hence, explanations can play a huge role in influencing users to purchase products. However, the reliability of the explanations under varying scenarios has not been strictly verified from an empirical perspective. Unreliable explanations can bear strong consequences such as attackers leveraging explanations for manipulating and tempting users to purchase target items that the attackers would want to promote. In this paper, we study the vulnerability of existent feature-oriented explainable recommenders, particularly analyzing their performance under different levels of external noises added into model parameters. We conducted experiments by analyzing three important state-of-the-art (SOTA) explainable recommenders when trained on two widely used e-commerce based recommendation datasets of different scales. We observe that all the explainable models are vulnerable to increased noise levels. Experimental results verify our hypothesis that the ability to explain recommendations does decrease along with increasing noise levels and particularly adversarial noise does contribute to a much stronger decrease. Our study presents an empirical verification on the topic of robust explanations in recommender systems which can be extended to different types of explainable recommenders in RS.",
+  "authors": [
+   "Sairamvinay Vijayaraghavan",
+   "Prasant Mohapatra"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": [
+   "Book",
+   "JournalArticle"
+  ],
+  "s2id": "81baf873eff5b4672499c920cf5e7d9979d31d51",
+  "cid": "C038"
+ },
+ {
+  "title": "The Meta-Evaluation Problem in Explainable AI: Identifying Reliable Estimators with MetaQuantus",
+  "year": 2023,
+  "venue": "Trans. Mach. Learn. Res.",
+  "doi": "10.48550/arxiv.2302.07265",
+  "arxiv": "2302.07265",
+  "abstract": "One of the unsolved challenges in the field of Explainable AI (XAI) is determining how to most reliably estimate the quality of an explanation method in the absence of ground truth explanation labels. Resolving this issue is of utmost importance as the evaluation outcomes generated by competing evaluation methods (or ''quality estimators''), which aim at measuring the same property of an explanation method, frequently present conflicting rankings. Such disagreements can be challenging for practitioners to interpret, thereby complicating their ability to select the best-performing explanation method. We address this problem through a meta-evaluation of different quality estimators in XAI, which we define as ''the process of evaluating the evaluation method''. Our novel framework, MetaQuantus, analyses two complementary performance characteristics of a quality estimator: its resilience to noise and reactivity to randomness, thus circumventing the need for ground truth labels. We demonstrate the effectiveness of our framework through a series of experiments, targeting various open questions in XAI such as the selection and hyperparameter optimisation of quality estimators. Our work is released under an open-source license (https://github.com/annahedstroem/MetaQuantus) to serve as a development tool for XAI- and Machine Learning (ML) practitioners to verify and benchmark newly constructed quality estimators in a given explainability context. With this work, we provide the community with clear and theoretically-grounded guidance for identifying reliable evaluation methods, thus facilitating reproducibility in the field.",
+  "authors": [
+   "Anna Hedström",
+   "P. Bommer",
+   "Kristoffer Wickstrøm",
+   "W. Samek",
+   "S. Lapuschkin",
+   "M. Höhne"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "498cc16f23413c66b17b4bffc8475a4079cb312c",
+  "cid": "C039"
+ },
+ {
+  "title": "Uncertainty Quantification for Local Model Explanations Without Model Access",
+  "year": 2023,
+  "venue": "",
+  "doi": null,
+  "arxiv": "2301.05761",
+  "abstract": "We present a model-agnostic algorithm for generating post-hoc explanations and uncertainty intervals for a machine learning model when only a static sample of inputs and outputs from the model is available, rather than direct access to the model itself. This situation may arise when model evaluations are expensive; when privacy, security and bandwidth constraints are imposed; or when there is a need for real-time, on-device explanations. Our algorithm uses a bootstrapping approach to quantify the uncertainty that inevitably arises when generating explanations from a finite sample of model queries. Through a simulation study, we show that the uncertainty intervals generated by our algorithm exhibit a favorable trade-off between interval width and coverage probability compared to the naive confidence intervals from classical regression analysis as well as current Bayesian approaches for quantifying explanation uncertainty. We further demonstrate the capabilities of our method by applying it to black-box models, including a deep neural network, trained on three real-world datasets.",
+  "authors": [
+   "Surin Ahn",
+   "J. Grana",
+   "Yafet Tamene",
+   "Kristian Holsheimer"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": null,
+  "s2id": "cafab09f5cc0633dda30a302616c64b5cf49086b",
+  "cid": "C040"
+ },
+ {
+  "title": "Local Model Explanations and Uncertainty Without Model Access",
+  "year": 2023,
+  "venue": "arXiv.org",
+  "doi": "10.48550/arxiv.2301.05761",
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "Surin Ahn",
+   "J. Grana",
+   "Yafet Tamene",
+   "Kristian Holsheimer"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "2b877bc9b585fe4017c578177e952cecde68885d",
+  "cid": "C041"
+ },
+ {
+  "title": "Unveiling Key Predictors for Early Heart Attack Detection using Machine Learning and Explainable AI Technique with LIME",
+  "year": 2023,
+  "venue": "International Conference on Network and System Security",
+  "doi": "10.1145/3629188.3629193",
+  "arxiv": null,
+  "abstract": "The prominence of cardiovascular diseases, particularly heart attacks, as a leading cause of global mortality is highlighted, with an increasing number of deaths attributed to cardiovascular diseases over the years. Amidst these challenges, artificial intelligence (AI) and machine learning (ML) technologies emerge as powerful tools in healthcare. This study conducts a comparative analysis of predictive features extracted from diverse classification algorithms, including AdaBoost Classifier (ABC), Random Forest (RF), Gradient Boosting Classifier(GBC) and Light Gradient-Boosting Machine (LGBM), aiming to identify common patterns in predictive outcomes. LGBM emerges as the standout performer among classification algorithms, boasting a remarkable average training accuracy of 99.33%. Results demonstrate comparable precision, recall, and F1 scores among RF, GB, and LGBM, while ABC lags behind. The study reveals from eXplainable AI technique that consistent attribution of importance to attributes like \"kcm\" and \"troponin\" across all methods for classifying \"Attack\" instances, indicating their pivotal role in prediction. The research underscores the potential clinical application of machine learning for heart attack diagnosis and suggests the adoption of various deep learning techniques to enhance predictive performance.",
+  "authors": [
+   "Prakash Paudel",
+   "S. K. Karna",
+   "Ruby Saud",
+   "L. Regmi",
+   "Tara Bahadur Thapa",
+   "Mohan Bhandari"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "JournalArticle",
+   "Book"
+  ],
+  "s2id": "c814a59aa067b41e3e31db0476fd51d827e6cf2c",
+  "cid": "C042"
+ },
+ {
+  "title": "An optimized Belief-Rule-Based (BRB) approach to ensure the trustworthiness of interpreted time-series decisions",
+  "year": 2023,
+  "venue": "Knowledge-Based Systems",
+  "doi": "10.1016/j.knosys.2023.110552",
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "S. Nimmy",
+   "O. Hussain",
+   "R. Chakrabortty",
+   "F. Hussain",
+   "Morteza Saberi"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "9271fdecfe7c8f5c6f033ae8b6b7bab541aab357",
+  "cid": "C043"
+ },
+ {
+  "title": "Robin: A Novel Method to Produce Robust Interpreters for Deep Learning-Based Code Classifiers",
+  "year": 2023,
+  "venue": "International Conference on Automated Software Engineering",
+  "doi": "10.1109/ase56229.2023.00164",
+  "arxiv": "2309.10644",
+  "abstract": "Deep learning has been widely used in source code classification tasks, such as code classification according to their functionalities, code authorship attribution, and vulnerability detection. Unfortunately, the black-box nature of deep learning makes it hard to interpret and understand why a classifier (i.e., classification model) makes a particular prediction on a given example. This lack of interpretability (or explainability) might have hindered their adoption by practitioners because it is not clear when they should or should not trust a classifier's prediction. The lack of interpretability has motivated a number of studies in recent years. However, existing methods are neither robust nor able to cope with out-of-distribution examples. In this paper, we propose a novel method to produce Robust interpreters for a given deep learning-based code classifier; the method is dubbed Robin. The key idea behind Robin is a novel hybrid structure combining an interpreter and two approximators, while leveraging the ideas of adversarial training and data augmentation. Experimental results show that on average the interpreter produced by Robin achieves a 6.11% higher fidelity (evaluated on the classifier), 67.22% higher fidelity (evaluated on the approximator), and 15.87x higher robustness than that of the three existing interpreters we evaluated. Moreover, the interpreter is 47.31% less affected by out-of-distribution examples than that of LEMNA.",
+  "authors": [
+   "Zhuguo Li",
+   "Ru-Qian Zhang",
+   "De-Qing Zou",
+   "Ning Wang",
+   "Yating Li",
+   "Shouhuai Xu",
+   "Cheng Chen",
+   "Hai Jin"
+  ],
+  "found_via": "U483 Zhou2021|citations",
+  "pubtypes": [
+   "JournalArticle",
+   "Conference"
+  ],
+  "s2id": "3f863db0ddefce3007dfb021a0d91385a480a451",
+  "cid": "C044"
+ },
+ {
+  "title": "Calibrated Explanations: with Uncertainty Information and Counterfactuals",
+  "year": 2023,
+  "venue": "Expert systems with applications",
+  "doi": "10.48550/arxiv.2305.02305",
+  "arxiv": "2305.02305",
+  "abstract": "While local explanations for AI models can offer insights into individual predictions, such as feature importance, they are plagued by issues like instability. The unreliability of feature weights, often skewed due to poorly calibrated ML models, deepens these challenges. Moreover, the critical aspect of feature importance uncertainty remains mostly unaddressed in Explainable AI (XAI). The novel feature importance explanation method presented in this paper, called Calibrated Explanations (CE), is designed to tackle these issues head-on. Built on the foundation of Venn-Abers, CE not only calibrates the underlying model but also delivers reliable feature importance explanations with an exact definition of the feature weights. CE goes beyond conventional solutions by addressing output uncertainty. It accomplishes this by providing uncertainty quantification for both feature weights and the model's probability estimates. Additionally, CE is model-agnostic, featuring easily comprehensible conditional rules and the ability to generate counterfactual explanations with embedded uncertainty quantification. Results from an evaluation with 25 benchmark datasets underscore the efficacy of CE, making it stand as a fast, reliable, stable, and robust solution.",
+  "authors": [
+   "Helena Lofstrom",
+   "Tuwe Löfström",
+   "U. Johansson",
+   "C. Sonstrod"
+  ],
+  "found_via": "U483 Zhou2021|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "20ce4facd2daaaa57b0eba2c71c49529e44ed8ac",
+  "cid": "C045"
+ },
+ {
+  "title": "On the Robustness of Explanations of Deep Neural Network Models: A Survey",
+  "year": 2022,
+  "venue": "arXiv.org",
+  "doi": "10.48550/arxiv.2211.04780",
+  "arxiv": "2211.04780",
+  "abstract": "Explainability has been widely stated as a cornerstone of the responsible and trustworthy use of machine learning models. With the ubiquitous use of Deep Neural Network (DNN) models expanding to risk-sensitive and safety-critical domains, many methods have been proposed to explain the decisions of these models. Recent years have also seen concerted efforts that have shown how such explanations can be distorted (attacked) by minor input perturbations. While there have been many surveys that review explainability methods themselves, there has been no effort hitherto to assimilate the different methods and metrics proposed to study the robustness of explanations of DNN models. In this work, we present a comprehensive survey of methods that study, understand, attack, and defend explanations of DNN models. We also present a detailed review of different metrics used to evaluate explanation methods, as well as describe attributional attack and defense methods. We conclude with lessons and take-aways for the community towards ensuring robust explanations of DNN model predictions.",
+  "authors": [
+   "Amlan Jyoti",
+   "K. Ganesh",
+   "Manoj Gayala",
+   "Nandita Lakshmi Tunuguntla",
+   "Sandesh Kamath",
+   "Vineeth N. Balasubramanian"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": [
+   "JournalArticle",
+   "Review"
+  ],
+  "s2id": "e30528d7be0d6895169e841acc3778fd219e54ea",
+  "cid": "C046"
+ },
+ {
+  "title": "SoK: Modeling Explainability in Security Analytics for Interpretability, Trustworthiness, and Usability",
+  "year": 2022,
+  "venue": "ARES",
+  "doi": "10.1145/3600160.3600193",
+  "arxiv": "2210.17376",
+  "abstract": "Interpretability, trustworthiness, and usability are key considerations in high-stake security applications, especially when utilizing deep learning models. While these models are known for their high accuracy, they behave as black boxes in which identifying important features and factors that led to a classification or a prediction is difficult. This can lead to uncertainty and distrust, especially when an incorrect prediction results in severe consequences. Thus, explanation methods aim to provide insights into the inner working of deep learning models. However, most explanation methods provide inconsistent explanations, have low fidelity, and are susceptible to adversarial manipulation, which can reduce model trustworthiness. This paper provides a comprehensive analysis of explainable methods and demonstrates their efficacy in three distinct security applications: anomaly detection using system logs, malware prediction, and detection of adversarial images. Our quantitative and qualitative analysis1 reveals serious limitations and concerns in state-of-the-art explanation methods in all three applications. We show that explanation methods for security applications necessitate distinct characteristics, such as stability, fidelity, robustness, and usability, among others, which we outline as the prerequisites for trustworthy explanation methods.",
+  "authors": [
+   "Dipkamal Bhusal",
+   "Rosalyn Shin",
+   "A. Shewale",
+   "M. K. Veerabhadran",
+   "Michael Clifford",
+   "Sara Rampazzi",
+   "Nidhi Rastogi"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": [
+   "Book",
+   "JournalArticle"
+  ],
+  "s2id": "7a742b46b617f758acce0ec573f71f260253975b",
+  "cid": "C047"
+ },
+ {
+  "title": "Analyzing Explainer Robustness via Probabilistic Lipschitzness of Prediction Functions",
+  "year": 2022,
+  "venue": "International Conference on Artificial Intelligence and Statistics",
+  "doi": null,
+  "arxiv": "2206.12481",
+  "abstract": "Machine learning methods have significantly improved in their predictive capabilities, but at the same time they are becoming more complex and less transparent. As a result, explainers are often relied on to provide interpretability to these black-box prediction models. As crucial diagnostics tools, it is important that these explainers themselves are robust. In this paper we focus on one particular aspect of robustness, namely that an explainer should give similar explanations for similar data inputs. We formalize this notion by introducing and defining explainer astuteness, analogous to astuteness of prediction functions. Our formalism allows us to connect explainer robustness to the predictor's probabilistic Lipschitzness, which captures the probability of local smoothness of a function. We provide lower bound guarantees on the astuteness of a variety of explainers (e.g., SHAP, RISE, CXPlain) given the Lipschitzness of the prediction function. These theoretical results imply that locally smooth prediction functions lend themselves to locally robust explanations. We evaluate these results empirically on simulated as well as real datasets.",
+  "authors": [
+   "Zulqarnain Khan",
+   "Davin Hill",
+   "A. Masoomi",
+   "Joshua T. Bone",
+   "J. Dy"
+  ],
+  "found_via": "U498 Agarwal2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "3e39f21182f9fb3fc2423639a30a05998ce06b46",
+  "cid": "C048"
+ },
+ {
+  "title": "Boundary-Aware Uncertainty for Feature Attribution Explainers",
+  "year": 2022,
+  "venue": "International Conference on Artificial Intelligence and Statistics",
+  "doi": null,
+  "arxiv": "2210.02419",
+  "abstract": "Post-hoc explanation methods have become a critical tool for understanding black-box classifiers in high-stakes applications. However, high-performing classifiers are often highly nonlinear and can exhibit complex behavior around the decision boundary, leading to brittle or misleading local explanations. Therefore there is an impending need to quantify the uncertainty of such explanation methods in order to understand when explanations are trustworthy. In this work we propose the Gaussian Process Explanation UnCertainty (GPEC) framework, which generates a unified uncertainty estimate combining decision boundary-aware uncertainty with explanation function approximation uncertainty. We introduce a novel geodesic-based kernel, which captures the complexity of the target black-box decision boundary. We show theoretically that the proposed kernel similarity increases with decision boundary complexity. The proposed framework is highly flexible; it can be used with any black-box classifier and feature attribution method. Empirical results on multiple tabular and image datasets show that the GPEC uncertainty estimate improves understanding of explanations as compared to existing methods.",
+  "authors": [
+   "Davin Hill",
+   "A. Masoomi",
+   "Max Torop",
+   "S. Ghimire",
+   "J. Dy"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "51cdedfb9850844e9f24235d5c79f624a93280a9",
+  "cid": "C049"
+ },
+ {
+  "title": "Exploring how independent variables influence parking occupancy prediction: toward a model results explanation with SHAP values",
+  "year": 2022,
+  "venue": "Progress in Artificial Intelligence",
+  "doi": "10.1007/s13748-022-00291-5",
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "Hanae Errousso",
+   "El Arbi Abdellaoui Alaoui",
+   "S. Benhadou",
+   "H. Medromi"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "958613c8b561fa5bce06127afe1facb3422ef317",
+  "cid": "C050"
+ },
+ {
+  "title": "Quantile-constrained Wasserstein projections for robust interpretability of numerical and machine learning models",
+  "year": 2022,
+  "venue": "Electronic Journal of Statistics",
+  "doi": "10.1214/24-ejs2268",
+  "arxiv": "2209.11539",
+  "abstract": "Robustness studies of black-box models is recognized as a necessary task for numerical models based on structural equations and predictive models learned from data. These studies must assess the model's robustness to possible misspecification of regarding its inputs (e.g., covariate shift). The study of black-box models, through the prism of uncertainty quantification (UQ), is often based on sensitivity analysis involving a probabilistic structure imposed on the inputs, while ML models are solely constructed from observed data. Our work aim at unifying the UQ and ML interpretability approaches, by providing relevant and easy-to-use tools for both paradigms. To provide a generic and understandable framework for robustness studies, we define perturbations of input information relying on quantile constraints and projections with respect to the Wasserstein distance between probability measures, while preserving their dependence structure. We show that this perturbation problem can be analytically solved. Ensuring regularity constraints by means of isotonic polynomial approximations leads to smoother perturbations, which can be more suitable in practice. Numerical experiments on real case studies, from the UQ and ML fields, highlight the computational feasibility of such studies and provide local and global insights on the robustness of black-box models to input perturbations.",
+  "authors": [
+   "Marouane Il Idrissi",
+   "N. Bousquet",
+   "F. Gamboa",
+   "B. Iooss",
+   "Jean-Michel Loubes"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "d613b33ce2d211c8ac1565d3a131b1a4c653032a",
+  "cid": "C051"
+ },
+ {
+  "title": "Inherent Inconsistencies of Feature Importance",
+  "year": 2022,
+  "venue": "",
+  "doi": null,
+  "arxiv": "2206.08204",
+  "abstract": "The rapid advancement and widespread adoption of machine learning-driven technologies have underscored the practical and ethical need for creating interpretable artificial intelligence systems. Feature importance, a method that assigns scores to the contribution of individual features on prediction outcomes, seeks to bridge this gap as a tool for enhancing human comprehension of these systems. Feature importance serves as an explanation of predictions in diverse contexts, whether by providing a global interpretation of a phenomenon across the entire dataset or by offering a localized explanation for the outcome of a specific data point. Furthermore, feature importance is being used both for explaining models and for identifying plausible causal relations in the data, independently from the model. However, it is worth noting that these various contexts have traditionally been explored in isolation, with limited theoretical foundations. This paper presents an axiomatic framework designed to establish coherent relationships among the different contexts of feature importance scores. Notably, our work unveils a surprising conclusion: when we combine the proposed properties with those previously outlined in the literature, we demonstrate the existence of an inconsistency. This inconsistency highlights that certain essential properties of feature importance scores cannot coexist harmoniously within a single framework.",
+  "authors": [
+   "Nimrod Harel",
+   "Uri Obolski",
+   "Ran Gilad-Bachrach"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": null,
+  "s2id": "df8dcd129cc083e4c5d1b4cfe21e0c57a3bad67c",
+  "cid": "C052"
+ },
+ {
+  "title": "Explanation Uncertainty with Decision Boundary Awareness",
+  "year": 2022,
+  "venue": "arXiv.org",
+  "doi": "10.48550/arxiv.2210.02419",
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "Davin Hill",
+   "A. Masoomi",
+   "S. Ghimire",
+   "Max Torop",
+   "J. Dy"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "46fccdd6e83607111eaaf36f9023f993b9d8b6f9",
+  "cid": "C053"
+ },
+ {
+  "title": "Want robust explanations? Get smoother predictions first",
+  "year": 2022,
+  "venue": "CIKM Workshops",
+  "doi": null,
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "Deddy Jobson"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "e31f6e49311158af38d31c0b63104cda52b4fab6",
+  "cid": "C054"
+ },
+ {
+  "title": "TrustyAI Explainability Toolkit",
+  "year": 2021,
+  "venue": "arXiv.org",
+  "doi": null,
+  "arxiv": "2104.12717",
+  "abstract": "Artificial intelligence (AI) is becoming increasingly more popular and can be found in workplaces and homes around the world. The decisions made by such\"black box\"systems are often opaque; that is, so complex as to be functionally impossible to understand. How do we ensure that these systems are behaving as desired? TrustyAI is an initiative which looks into explainable artificial intelligence (XAI) solutions to address this issue of explainability in the context of both AI models and decision services. This paper presents the TrustyAI Explainability Toolkit, a Java and Python library that provides XAI explanations of decision services and predictive models for both enterprise and data science use-cases. We describe the TrustyAI implementations and extensions to techniques such as LIME, SHAP and counterfactuals, which are benchmarked against existing implementations in a variety of experiments.",
+  "authors": [
+   "Rob Geada",
+   "Tommaso Teofili",
+   "Rui Vieira",
+   "Rebecca Whitworth",
+   "D. Zonca"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "09d2af0f5c5aa6d5f2972b2f33ad33fc1673141c",
+  "cid": "C055"
+ },
+ {
+  "title": "Partial order: Finding Consensus among Uncertain Feature Attributions",
+  "year": 2021,
+  "venue": "arXiv.org",
+  "doi": null,
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "Gabriel Laberge",
+   "Y. Pequignot",
+   "F. Khomh",
+   "Mario Marchand",
+   "Alexandre Mathieu"
+  ],
+  "found_via": "U155 Visani2022|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "da5bd9bbbf6f4445670b7888067e15d35d70d6b7",
+  "cid": "C056"
+ },
+ {
+  "title": "Uncertainty Quantification of Surrogate Explanations: an Ordinal Consensus Approach",
+  "year": 2021,
+  "venue": "NLDL",
+  "doi": "10.7557/18.6294",
+  "arxiv": "2111.09121",
+  "abstract": "Explainability of black-box machine learning models is crucial, in particular when deployed in critical applications such as medicine or autonomous cars. Existing approaches produce explanations for the predictions of models, however, how to assess the quality and reliability of such explanations remains an open question. In this paper we take a step further in order to provide the practitioner with tools to judge the trustworthiness of an explanation. To this end, we produce estimates of the uncertainty of a given explanation by measuring the ordinal consensus amongst a set of diverse bootstrapped surrogate explainers. While we encourage diversity by using ensemble techniques, we propose and analyse metrics to aggregate the information contained within the set of explainers through a rating scheme. We empirically illustrate the properties of this approach through experiments on state-of-the-art Convolutional Neural Network ensembles. Furthermore, through tailored visualisations, we show specific examples of situations where uncertainty estimates offer concrete actionable insights to the user beyond those arising from standard surrogate explainers.",
+  "authors": [
+   "Jonas Schulz",
+   "Rafael Poyiadzi",
+   "R. Santos-Rodríguez"
+  ],
+  "found_via": "U483 Zhou2021|citations",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "5e9de76fc8b244df82d04b122de48d18605d7db1",
+  "cid": "C057"
+ },
+ {
+  "title": "Reliable Post hoc Explanations: Modeling Uncertainty in Explainability",
+  "year": 2020,
+  "venue": "Neural Information Processing Systems",
+  "doi": null,
+  "arxiv": "2008.05030",
+  "abstract": "As black box explanations are increasingly being employed to establish model credibility in high-stakes settings, it is important to ensure that these explanations are accurate and reliable. However, prior work demonstrates that explanations generated by state-of-the-art techniques are inconsistent, unstable, and provide very little insight into their correctness and reliability. In addition, these methods are also computationally inefficient, and require significant hyper-parameter tuning. In this paper, we address the aforementioned challenges by developing a novel Bayesian framework for generating local explanations along with their associated uncertainty. We instantiate this framework to obtain Bayesian versions of LIME and KernelSHAP which output credible intervals for the feature importances, capturing the associated uncertainty. The resulting explanations not only enable us to make concrete inferences about their quality (e.g., there is a 95% chance that the feature importance lies within the given range), but are also highly consistent and stable. We carry out a detailed theoretical analysis that leverages the aforementioned uncertainty to estimate how many perturbations to sample, and how to sample for faster convergence. This work makes the first attempt at addressing several critical issues with popular explanation methods in one shot, thereby generating consistent, stable, and reliable explanations with guarantees in a computationally efficient manner. Experimental evaluation with multiple real world datasets and user studies demonstrate that the efficacy of the proposed framework.",
+  "authors": [
+   "Dylan Slack",
+   "Anna Hilgard",
+   "Sameer Singh",
+   "H. Lakkaraju"
+  ],
+  "found_via": "U498 Agarwal2022|references",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "097a125fea441e2973cee1a95b77cc8582a4ed8c",
+  "cid": "C058"
+ },
+ {
+  "title": "SAM: The Sensitivity of Attribution Methods to Hyperparameters",
+  "year": 2020,
+  "venue": "Computer Vision and Pattern Recognition",
+  "doi": "10.1109/cvpr42600.2020.00870",
+  "arxiv": null,
+  "abstract": "Attribution methods can provide powerful insights into the reasons for a classifier's decision. We argue that a key desideratum of an explanation is its robustness to input hyperparameter changes that are often randomly set or empirically tuned. High sensitivity to arbitrary hyperparameter choices does not only impede reproducibility but also questions the correctness of an explanation and impairs the trust by end-users. In this paper, we provide a thorough empirical study on the sensitivity of existing attribution methods. We found an alarming trend that many methods are highly sensitive to changes in their common hyperparameters e.g. even changing a random seed can yield a different explanation! In contrast, explanations generated for robust classifiers that are trained to be invariant to pixel-wise perturbations are surprisingly more robust. Interestingly, such sensitivity is not reflected in the average explanation correctness scores over the entire dataset as commonly reported in the literature.",
+  "authors": [
+   "Naman Bansal",
+   "Chirag Agarwal",
+   "Anh Totti Nguyen"
+  ],
+  "found_via": "U498 Agarwal2022|references",
+  "pubtypes": [
+   "JournalArticle",
+   "Conference"
+  ],
+  "s2id": "af3d9f0d5255f829d4eb92fdcfc43b423aa05311",
+  "cid": "C059"
+ },
+ {
+  "title": "How Much Should I Trust You? Modeling Uncertainty of Black Box Explanations",
+  "year": 2020,
+  "venue": "arXiv.org",
+  "doi": null,
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "Dylan Slack",
+   "Sophie Hilgard",
+   "Sameer Singh",
+   "H. Lakkaraju"
+  ],
+  "found_via": "U483 Zhou2021|references",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "46c2bf5289c39d13e1992962d4077b7d8f8b299b",
+  "cid": "C060"
+ },
+ {
+  "title": "Improving LIME Robustness with Smarter Locality Sampling",
+  "year": 2020,
+  "venue": "arXiv.org",
+  "doi": null,
+  "arxiv": "2006.12302",
+  "abstract": "Explainability algorithms such as LIME have enabled machine learning systems to adopt transparency and fairness, which are important qualities in commercial use cases. However, recent work has shown that LIME's naive sampling strategy can be exploited by an adversary to conceal biased, harmful behavior. We propose to make LIME more robust by training a generative adversarial network to sample more realistic synthetic data which the explainer uses to generate explanations. Our experiments demonstrate that our proposed method demonstrates an increase in accuracy across three real-world datasets in detecting biased, adversarial behavior compared to vanilla LIME. This is achieved while maintaining comparable explanation quality, with up to 99.94\\% in top-1 accuracy in some cases.",
+  "authors": [
+   "Sean Saito",
+   "Eugene Y. S. Chua",
+   "Nicholas Capel",
+   "R. Hu"
+  ],
+  "found_via": "U483 Zhou2021|references",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "59542d1578f8bb18543b5eea4469ea93ec9442b8",
+  "cid": "C061"
+ },
+ {
+  "title": "Fooling LIME and SHAP: Adversarial Attacks on Post hoc Explanation Methods",
+  "year": 2019,
+  "venue": "AAAI/ACM Conference on AI, Ethics, and Society",
+  "doi": "10.1145/3375627.3375830",
+  "arxiv": "1911.02508",
+  "abstract": "As machine learning black boxes are increasingly being deployed in domains such as healthcare and criminal justice, there is growing emphasis on building tools and techniques for explaining these black boxes in an interpretable manner. Such explanations are being leveraged by domain experts to diagnose systematic errors and underlying biases of black boxes. In this paper, we demonstrate that post hoc explanations techniques that rely on input perturbations, such as LIME and SHAP, are not reliable. Specifically, we propose a novel scaffolding technique that effectively hides the biases of any given classifier by allowing an adversarial entity to craft an arbitrary desired explanation. Our approach can be used to scaffold any biased classifier in such a way that its predictions on the input data distribution still remain biased, but the post hoc explanations of the scaffolded classifier look innocuous. Using extensive evaluation with multiple real world datasets (including COMPAS), we demonstrate how extremely biased (racist) classifiers crafted by our framework can easily fool popular explanation techniques such as LIME and SHAP into generating innocuous explanations which do not reflect the underlying biases.",
+  "authors": [
+   "Dylan Slack",
+   "Sophie Hilgard",
+   "Emily Jia",
+   "Sameer Singh",
+   "H. Lakkaraju"
+  ],
+  "found_via": "U291 Ballegeer2025|references",
+  "pubtypes": [
+   "Book",
+   "JournalArticle"
+  ],
+  "s2id": "653864b10564ab4712c07a3d4043a1d794b13c46",
+  "cid": "C062"
+ },
+ {
+  "title": "How can we fool LIME and SHAP? Adversarial Attacks on Post hoc Explanation Methods",
+  "year": 2019,
+  "venue": "arXiv.org",
+  "doi": null,
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "Dylan Slack",
+   "Sophie Hilgard",
+   "Emily Jia",
+   "Sameer Singh",
+   "H. Lakkaraju"
+  ],
+  "found_via": "U498 Agarwal2022|references",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "796625d27ff33cbe23d0c061551aedc00fca0f73",
+  "cid": "C063"
+ },
+ {
+  "title": "Explanations can be manipulated and geometry is to blame",
+  "year": 2019,
+  "venue": "Neural Information Processing Systems",
+  "doi": null,
+  "arxiv": "1906.07983",
+  "abstract": "Explanation methods aim to make neural networks more trustworthy and interpretable. In this paper, we demonstrate a property of explanation methods which is disconcerting for both of these purposes. Namely, we show that explanations can be manipulated arbitrarily by applying visually hardly perceptible perturbations to the input that keep the network's output approximately constant. We establish theoretically that this phenomenon can be related to certain geometrical properties of neural networks. This allows us to derive an upper bound on the susceptibility of explanations to manipulations. Based on this result, we propose effective mechanisms to enhance the robustness of explanations.",
+  "authors": [
+   "Ann-Kathrin Dombrowski",
+   "M. Alber",
+   "Christopher J. Anders",
+   "M. Ackermann",
+   "Klaus-Robert Müller",
+   "P. Kessel"
+  ],
+  "found_via": "U498 Agarwal2022|references",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "a0f0a94927c0013fa924ee43c8ddbace1d71e3fb",
+  "cid": "C064"
+ },
+ {
+  "title": "Do Not Trust Additive Explanations",
+  "year": 2019,
+  "venue": "",
+  "doi": null,
+  "arxiv": "1903.11420",
+  "abstract": "Explainable Artificial Intelligence (XAI)has received a great deal of attention recently. Explainability is being presented as a remedy for the distrust of complex and opaque models. Model agnostic methods such as LIME, SHAP, or Break Down promise instance-level interpretability for any complex machine learning model. But how faithful are these additive explanations? Can we rely on additive explanations for non-additive models? \nIn this paper, we (1) examine the behavior of the most popular instance-level explanations under the presence of interactions, (2) introduce a new method that detects interactions for instance-level explanations, (3) perform a large scale benchmark to see how frequently additive explanations may be misleading.",
+  "authors": [
+   "Alicja Gosiewska",
+   "P. Biecek"
+  ],
+  "found_via": "U155 Visani2022|references",
+  "pubtypes": null,
+  "s2id": "04de54ef65f3d2afae053d2401cd2ee10aed437b",
+  "cid": "C065"
+ },
+ {
+  "title": "iBreakDown: Uncertainty of Model Explanations for Non-additive Predictive Models",
+  "year": 2019,
+  "venue": "arXiv.org",
+  "doi": null,
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "Alicja Gosiewska",
+   "P. Biecek"
+  ],
+  "found_via": "U155 Visani2022|references",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "fa0adcd8663723054d5d12c865f1fe166fde387a",
+  "cid": "C066"
+ },
+ {
+  "title": "Developing the sensitivity of LIME for better machine learning explanation",
+  "year": 2019,
+  "venue": "Defense + Commercial Sensing",
+  "doi": "10.1117/12.2520149",
+  "arxiv": null,
+  "abstract": "Machine learning systems can provide outstanding results, but their black-box nature means that it’s hard to understand how the conclusion has been reached. Understanding how the results are determined is especially important in military and security contexts due to the importance of the decisions that may be made as a result. In this work, the reliability of LIME (Local Interpretable Model Agnostic Explanations), a method of interpretability, was analyzed and developed. A simple Convolutional Neural Network (CNN) model was trained using two classes of images of “gun-wielder” and “non-wielder\". The sensitivity of LIME improved when multiple output weights for individual images were averaged and visualized. The resultant averaged images were compared to the individual images to analyze the variability and reliability of the two LIME methods. Without techniques such as those explored in this paper, LIME appears to be unstable because of the simple binary coloring and the ease with which colored regions flip when comparing different analyses. A closer inspection reveals that the significantly weighted regions are consistent, and the lower weighted regions flip states due to inherent randomness of the method. This suggests that improving the weighting methods for explanation techniques, which can then be used in the visualization of the results, is important to improve perceived stability and therefore better enable human interpretation and trust.",
+  "authors": [
+   "Eunji Lee",
+   "Dave Braines",
+   "Mitchell Stiffler",
+   "Adam Adam Hudler",
+   "Daniel Harborne"
+  ],
+  "found_via": "U483 Zhou2021|references",
+  "pubtypes": null,
+  "s2id": "79cc92396051810228f8819b957881a4c8281d13",
+  "cid": "C067"
+ },
+ {
+  "title": "\"Why Should You Trust My Explanation?\" Understanding Uncertainty in LIME Explanations",
+  "year": 2019,
+  "venue": "",
+  "doi": null,
+  "arxiv": null,
+  "abstract": "",
+  "authors": [
+   "Yujia Zhang",
+   "Kuangyan Song",
+   "Yiming Sun",
+   "Sarah Tan",
+   "Madeleine Udell"
+  ],
+  "found_via": "U483 Zhou2021|references",
+  "pubtypes": null,
+  "s2id": "468d0b4bfcbdf0d9c14f49efda196945b3e28cef",
+  "cid": "C068"
+ },
+ {
+  "title": "On the Robustness of Interpretability Methods",
+  "year": 2018,
+  "venue": "arXiv.org",
+  "doi": null,
+  "arxiv": "1806.08049",
+  "abstract": "We argue that robustness of explanations---i.e., that similar inputs should give rise to similar explanations---is a key desideratum for interpretability. We introduce metrics to quantify robustness and demonstrate that current methods do not perform well according to these metrics. Finally, we propose ways that robustness can be enforced on existing interpretability approaches.",
+  "authors": [
+   "David Alvarez-Melis",
+   "T. Jaakkola"
+  ],
+  "found_via": "U291 Ballegeer2025|references",
+  "pubtypes": [
+   "JournalArticle"
+  ],
+  "s2id": "b7fcbb19c75ad65be522b64d5f4b23dbcb3b883b",
+  "cid": "C069"
+ },
+ {
+  "title": "Interpretation of Neural Networks is Fragile",
+  "year": 2017,
+  "venue": "AAAI Conference on Artificial Intelligence",
+  "doi": "10.1609/aaai.v33i01.33013681",
+  "arxiv": "1710.10547",
+  "abstract": "In order for machine learning to be trusted in many applications, it is critical to be able to reliably explain why the machine learning algorithm makes certain predictions. For this reason, a variety of methods have been developed recently to interpret neural network predictions by providing, for example, feature importance maps. For both scientific robustness and security reasons, it is important to know to what extent can the interpretations be altered by small systematic perturbations to the input data, which might be generated by adversaries or by measurement biases. In this paper, we demonstrate how to generate adversarial perturbations that produce perceptively indistinguishable inputs that are assigned the same predicted label, yet have very different interpretations. We systematically characterize the robustness of interpretations generated by several widely-used feature importance interpretation methods (feature importance maps, integrated gradients, and DeepLIFT) on ImageNet and CIFAR-10. In all cases, our experiments show that systematic perturbations can lead to dramatically different interpretations without changing the label. We extend these results to show that interpretations based on exemplars (e.g. influence functions) are similarly susceptible to adversarial attack. Our analysis of the geometry of the Hessian matrix gives insight on why robustness is a general challenge to current interpretation approaches.",
+  "authors": [
+   "Amirata Ghorbani",
+   "Abubakar Abid",
+   "James Y. Zou"
+  ],
+  "found_via": "U498 Agarwal2022|references",
+  "pubtypes": [
+   "JournalArticle",
+   "Conference"
+  ],
+  "s2id": "96cf326c91adc96aa59382bf71fbead29ea34c52",
+  "cid": "C070"
+ }
+]

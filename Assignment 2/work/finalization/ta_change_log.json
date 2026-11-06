@@ -1,0 +1,716 @@
+[
+  {
+    "id": "U004",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "U005",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "LIME stability improvement; experiments appear image-focused (super-pixels) - check modality"
+  },
+  {
+    "id": "U008",
+    "old_code": "E3",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "U010",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "U025",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Feature-importance ranking stability vs performance degradation; explainer not stated - check"
+  },
+  {
+    "id": "U028",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "New Naive-Bayes explainer compared with LIME/SHAP robustness - check scope"
+  },
+  {
+    "id": "U033",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "U038",
+    "old_code": "E1",
+    "new_code": "E3",
+    "reason": "Consumer behaviour forecasting where explanations come from the knowledge-graph model itself, not SHAP/LIME, and with no stability measurement. Resolved: Exclude (EC3)."
+  },
+  {
+    "id": "U042",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Bayesian AIME attribution; bootstrap stability vs existing methods (tabular) - check scope"
+  },
+  {
+    "id": "U045",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Synthetic tabular benchmark with an explainability-stability dimension - check"
+  },
+  {
+    "id": "U046",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "U048",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "U050",
+    "old_code": "E3",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "U053",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "MeLIME (LIME generalisation) claims more robust explanations; tabular included - check stability outcome"
+  },
+  {
+    "id": "U054",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "U055",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "GMM-LIME stability (Jaccard) on gait sensor features with RF - check modality"
+  },
+  {
+    "id": "U098",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Applied PCI model whose stated objective includes SHAP stability (SSI, Kendall) - borderline"
+  },
+  {
+    "id": "U255",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Stable LIME via variational autoencoder; no abstract in index - check modality"
+  },
+  {
+    "id": "U274",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Systematic review of XAI for tabular healthcare incl. explanation consistency - check scope"
+  },
+  {
+    "id": "U302",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "U316",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Attribution-aware distillation; attribution change under compression - check explainer"
+  },
+  {
+    "id": "U324",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Disagreement-focused trust score; stability is one of four metrics - check"
+  },
+  {
+    "id": "U325",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Five-dimension XAI evaluation in credit risk incl. consistency - check"
+  },
+  {
+    "id": "U351",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Effect of data leakage on SHAP explanations - check whether stability is measured"
+  },
+  {
+    "id": "U359",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "SHAP-guided regularisation promoting attribution stability - check outcome"
+  },
+  {
+    "id": "U133",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "HELOC underwriting study; bootstrap explanation stability is one of four components - borderline"
+  },
+  {
+    "id": "U175",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Benchmark of explainers for symbolic regression with several explanation measures - check for stability"
+  },
+  {
+    "id": "U192",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "U210",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Trustworthiness framework with an explanation-stability dimension (METABRIC) - borderline"
+  },
+  {
+    "id": "U487",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "SIM-Shapley stable Shapley approximation; datasets not stated - check"
+  },
+  {
+    "id": "U490",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "ESANN 2024 SHAP stability vs data characteristics; no abstract - check"
+  },
+  {
+    "id": "U494",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "GLIME stability of LIME; modality of experiments unclear - check"
+  },
+  {
+    "id": "U500",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "U509",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Resampling and explanation stability for clinical prediction; no abstract - check"
+  },
+  {
+    "id": "U510",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Rashomon sets for stable explanations (ESANN 2026); no abstract - check"
+  },
+  {
+    "id": "U518",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "QuadraSHAP stable Shapley estimation for product games; no abstract - check"
+  },
+  {
+    "id": "U524",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Explainer stability via attribution separability; modality not stated - check"
+  },
+  {
+    "id": "U528",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Weight-of-evidence variability of LIME/SHAP; modality not stated - check"
+  },
+  {
+    "id": "U534",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "CILE stability of local explanations (AMCIS); no abstract - check"
+  },
+  {
+    "id": "U552",
+    "old_code": "E2",
+    "new_code": "E3",
+    "reason": "The paper (R2ET, NeurIPS 2024) is about stable explanations, which is why Saif included it. But the explainers it targets are gradient-based saliency methods, not SHAP/LIME, and the abstract and paper show no SHAP/LIME analysis. Fails IC2. Resolved: Exclude (EC3)."
+  },
+  {
+    "id": "U557",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Lipschitz robustness of IG/LIME/SmoothGrad; modality unclear - check"
+  },
+  {
+    "id": "U581",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Stability of post-hoc explanations for business-process predictions; no abstract - check"
+  },
+  {
+    "id": "U587",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Robust local explanations for fracture-risk model (ICIS 2019); no abstract - check"
+  },
+  {
+    "id": "U396",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "TransLIME (tabular); no abstract in indexes - check stability outcome"
+  },
+  {
+    "id": "U397",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Interpretable ML for imbalanced credit scoring; no abstract in indexes - check stability outcome"
+  },
+  {
+    "id": "U404",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Explanation stability assessment for federated IDS; no abstract - check"
+  },
+  {
+    "id": "U405",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "U406",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Stable, time-aware explanations for supply-chain forecasts; no abstract - check modality"
+  },
+  {
+    "id": "U407",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "U408",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Framework for measuring explanation drift; no abstract - check"
+  },
+  {
+    "id": "U409",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Uncertainty decomposition of SHAP values for tree ensembles - check relevance to stability"
+  },
+  {
+    "id": "U410",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "U411",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "U415",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "U416",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Surrogate-model accuracy/stability with SHAP; no abstract - check what 'stability' refers to"
+  },
+  {
+    "id": "U430",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "U438",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Explainability of expert systems compared through similarity; no abstract - check"
+  },
+  {
+    "id": "U454",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Uncertainty-aware XAI for sensor metrology; no abstract - check"
+  },
+  {
+    "id": "N027",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N029",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "ALIME with decision-tree surrogate - check stability outcome"
+  },
+  {
+    "id": "N036",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "SHAP-guided feature stability for malware detection - check whether explanation stability or cross-model agreement"
+  },
+  {
+    "id": "N039",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N048",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Empirical validation of SHAP and LIME - check for stability measures"
+  },
+  {
+    "id": "N049",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N052",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N064",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N074",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N083",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N088",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N091",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N096",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N108",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N114",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N119",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N121",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N122",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N126",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Hierarchical group SHAP addressing sampling variance - check stability outcome"
+  },
+  {
+    "id": "N127",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N142",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N195",
+    "old_code": "E1",
+    "new_code": "E3",
+    "reason": "Ano2Rule gives rule-based global interpretation of anomaly detectors, not SHAP/LIME, and does not study stability. Resolved: Exclude (EC3)."
+  },
+  {
+    "id": "N207",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N230",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N234",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N235",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N239",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "LIME analysis of adversarial manipulation in tabular IDS - check explanation-change outcome"
+  },
+  {
+    "id": "N240",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N252",
+    "old_code": "E3",
+    "new_code": "E1",
+    "reason": "BorutaSHAP is used for feature selection in stock prediction. SHAP reliability is not an outcome. Resolved: Exclude (EC1)."
+  },
+  {
+    "id": "N254",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N303",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "ELIME exact LIME variant - check stability claim"
+  },
+  {
+    "id": "N305",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Stability-XAI on UCI heart data - check whether explanation stability is measured"
+  },
+  {
+    "id": "N312",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Uncertainty and consistency of SHAP feature importance (climate indices) - check modality and outcome"
+  },
+  {
+    "id": "N339",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "ShapleyVIC: SHAP importance across near-optimal models with uncertainty intervals"
+  },
+  {
+    "id": "N359",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N383",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "DEM resolution and explanation reliability in landslide models - check outcome"
+  },
+  {
+    "id": "N386",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Accurate and robust Shapley values - no abstract, check"
+  },
+  {
+    "id": "N420",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "DSExplainer: belief/plausibility intervals for SHAP - check"
+  },
+  {
+    "id": "N421",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N477",
+    "old_code": "E1",
+    "new_code": "E2",
+    "reason": "Bi-LSTM forecasting of seismic magnitude. The “limitations” in the title are model performance limits, not explanation limits. It is also a time-series model, not tabular. Resolved: Exclude (EC2)."
+  },
+  {
+    "id": "N479",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Logistic regression with SHAP stability analysis - no abstract, check"
+  },
+  {
+    "id": "N480",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "TreeSHAP vs ensemble LIME vs Anchors on MIMIC-IV - check stability measures"
+  },
+  {
+    "id": "N557",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "LIME with neural decision trees; stability discussed - check"
+  },
+  {
+    "id": "N594",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N638",
+    "old_code": "E1",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N687",
+    "old_code": "E3",
+    "new_code": "I",
+    "reason": "Independent dual-screening resolution: advance to full-text assessment; retrieval outcome logged separately."
+  },
+  {
+    "id": "N692",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "BMB-LIME: uncertainty in LIME explanations - no abstract, check"
+  },
+  {
+    "id": "N693",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Probabilistic Shapley inference with attribution uncertainty - check explainer family and data"
+  },
+  {
+    "id": "N719",
+    "old_code": "E1",
+    "new_code": "E3",
+    "reason": "Bayesian Shapley valuation of economic inputs is outside SHAP/LIME feature attribution for ML. Resolved: Exclude (EC3). Source: https://mpra.ub.uni-muenchen.de/74747/1/MPRA_paper_74747.pdf"
+  },
+  {
+    "id": "C018",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "LIME variant claiming robust explanations (conditional pairwise contrast) - check modality/stability"
+  },
+  {
+    "id": "C033",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Reliability analysis of explainable ML (endocrinology) - check stability outcome"
+  },
+  {
+    "id": "C037",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "US-LIME uncertainty sampling on tabular data - check stability outcome"
+  },
+  {
+    "id": "C040",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Uncertainty intervals for local explanations without model access - check"
+  },
+  {
+    "id": "C045",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Calibrated Explanations: instability of feature weights - check"
+  },
+  {
+    "id": "C048",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Explainer robustness via probabilistic Lipschitzness - check modality"
+  },
+  {
+    "id": "C049",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Boundary-aware uncertainty for feature-attribution explainers - check"
+  },
+  {
+    "id": "C054",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Smoother predictions and explanation robustness - check modality"
+  },
+  {
+    "id": "C055",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "TrustyAI toolkit incl. LIME stability evaluation - check"
+  },
+  {
+    "id": "C065",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Critique of additive explanations (tabular) - check stability content"
+  },
+  {
+    "id": "C067",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Developing the sensitivity of LIME - check"
+  },
+  {
+    "id": "C068",
+    "old_code": "U",
+    "new_code": "I",
+    "reason": "Uncertainty in LIME explanations - check"
+  }
+]

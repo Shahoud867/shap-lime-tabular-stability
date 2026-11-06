@@ -1,0 +1,112 @@
+U481 I SHAP stability vs background-data size (MIMIC-III tabular; neural model)
+U482 E2 Title/venue indicate NLP (CCL) attribution-stability attacks
+U483 I S-LIME: hypothesis-testing to stabilise LIME (simulated and real tabular data)
+U484 E2 Audio deepfake explanations
+U485 E2 Medical-image ViT
+U486 E2 Reproducibility of image LIME (SLICE)
+U487 U SIM-Shapley stable Shapley approximation; datasets not stated - check
+U488 E2 Image LIME (SLICE)
+U489 E2 Continual learning on image benchmarks
+U490 U ESANN 2024 SHAP stability vs data characteristics; no abstract - check
+U491 I Top-K ranking stability of SHAP/LIME under sampling (hypothesis tests)
+U492 E2 LIME for multivariate time series
+U493 I LINEX locally invariant explanations; stability on tabular/image/text
+U494 U GLIME stability of LIME; modality of experiments unclear - check
+U495 E2 Time-series attribution stability indicator
+U496 E2 Attribution stability for image classifiers (MeTFA)
+U497 E2 Stability measures for DNN image explanations
+U498 I Relative stability metrics (RIS/RRS/ROS) for seven explainers on real datasets (preprint)
+U499 I H-LIME stability-fidelity benchmark (tabular education data)
+U500 E1 Stable feature-selection method
+U501 E5 MOF water stability (chemistry)
+U502 I LIME stability for quantum classifiers (tabular)
+U503 E1 Model stability/error profiles in maternal triage; SHAP descriptive
+U504 E5 Stable Diffusion watermarking
+U505 E2 Binary code similarity models
+U506 I SHAP/LIME stability under class imbalance and sampling (design-science artefact)
+U507 E3 Attribution guidance as a continual-learning regulariser (title)
+U508 E2 Vision-language models
+U509 U Resampling and explanation stability for clinical prediction; no abstract - check
+U510 U Rashomon sets for stable explanations (ESANN 2026); no abstract - check
+U511 E2 Byte-image firmware with self-explaining networks
+U512 E3 Graph explanations
+U513 E3 GNN explanations
+U514 E3 GNN explanations
+U515 E3 Concept-based intrinsic explanations
+U516 E2 Large language models
+U517 E2 Skeleton-based activity recognition
+U518 U QuadraSHAP stable Shapley estimation for product games; no abstract - check
+U519 I RoSHAP bootstrap-distribution metric for stable SHAP rankings (preprint)
+U520 E3 Data attribution (not feature attribution)
+U521 I Impossibility of stable SHAP rankings under collinearity; 77 tabular datasets (preprint)
+U522 E2 LLM free-text explanations
+U523 E2 Position paper on chest-X-ray attribution stability
+U524 U Explainer stability via attribution separability; modality not stated - check
+U525 E2 Computational pathology
+U526 E1 Fidelity of LLM-generated credit narratives; no SHAP-stability outcome
+U527 E3 GNN explanations
+U528 U Weight-of-evidence variability of LIME/SHAP; modality not stated - check
+U529 E2 Vision transformers
+U530 E3 GNN malware explanations
+U531 E2 Clinical text NER
+U532 E3 Siamese graph route explanations
+U533 E2 Medical image LIME
+U534 U CILE stability of local explanations (AMCIS); no abstract - check
+U535 E5 Gale-Shapley matching
+U536 E2 Soft-stability certification on vision and language tasks
+U537 E2 LLM input saliency
+U538 E2 LLM explanation-stability metrics
+U539 E5 Diffusion ODE instability
+U540 E2 Neuron explanations in deep networks
+U541 E3 Rule-based (TED/GLRM) explanations
+U542 E5 Stope (mining) stability
+U543 E3 Factual/counterfactual rules
+U544 E5 Numerical stability of training
+U545 E3 Sufficiency-based (pertinent positive) explanations
+U546 I Kernel SHAP instability from neighbour selection; stabilised variant
+U547 E2 NLP model instability
+U548 E5 Cooperative-game Shapley (economics)
+U549 E5 Stable marriage
+U550 E2 LLM explanations
+U551 E3 GNN explainers
+U552 E2 Stable explanations for image models
+U553 E5 Stable matching
+U554 E5 Credit attribution in generative models
+U555 E2 Stable Diffusion visualisation
+U556 I ControlSHAP reduces Monte-Carlo variability of Shapley estimates
+U557 U Lipschitz robustness of IG/LIME/SmoothGrad; modality unclear - check
+U558 E5 Soil stabilised with lime
+U559 E2 LLM confidence
+U560 I Stability of SHAP and other XAI rankings under test-data perturbation (diabetes; preprint)
+U561 E5 Power-system frequency stability
+U562 E5 Financial stability index (homonym)
+U563 E5 Lime-stabilised soil
+U564 E5 Cooperative-game core stability
+U565 E3 GNN explanations
+U566 E2 Visual explanation methods
+U567 E5 Stable models in logic programming
+U568 E5 Normative logic explanations
+U569 E2 Multiplicative smoothing on vision and language models
+U570 E5 Transient stability (power)
+U571 E2 NLP word attributions
+U572 E5 Stable matching (networks)
+U573 E5 Shapley reward reallocation in MARL
+U574 E5 Normative logic explanations
+U575 E5 Logic-programming explanations
+U576 E5 Metabolic stability of compounds
+U577 I DLIME deterministic LIME for stable explanations (tabular medical data)
+U578 E2 NLP classification tasks
+U579 I Monte-Carlo sample size for stable Shapley explanations (ad-abuse classifiers)
+U580 E2 BERT fine-tuning stability
+U581 U Stability of post-hoc explanations for business-process predictions; no abstract - check
+U582 E5 Cooperative-game dynamics
+U583 E5 Video device attribution
+U584 E3 Global linear/decision-set explanations robust to shift
+U585 E2 Visual computing venue (ISVC); stable attribution for image models
+U586 E2 Genomic sequence models
+U587 U Robust local explanations for fracture-risk model (ICIS 2019); no abstract - check
+U588 E5 Adversarial fragility theory (not explanations)
+U589 E5 Adversarial fragility theory (not explanations)
+U590 E5 Video source attribution
+U591 E5 Gale-Shapley manipulation
+U592 E5 Video source attribution

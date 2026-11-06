@@ -1,0 +1,46 @@
+{
+ "fuzzy": [
+  [
+   "R0169",
+   "R0185",
+   0.804,
+   "AGAPE (Computational G‑Quadruplex Stabilization Prediction): The First Machine Learning Workflow for G‑Quadruplex Stabilization Prediction",
+   "AGAPE (computAtional G-quadruplex Affinitiy PrEdiction): The first Artificial Intelligence workflow for G-quadruplex binding affinity prediction"
+  ],
+  [
+   "R0227",
+   "R0260",
+   0.758,
+   "Concise and Stable Explanations using Adversarial Training",
+   "Concise Explanations of Neural Networks using Adversarial Training"
+  ],
+  [
+   "R0227",
+   "R0437",
+   0.758,
+   "Concise and Stable Explanations using Adversarial Training",
+   "Concise Explanations of Neural Networks using Adversarial Training"
+  ],
+  [
+   "R0385",
+   "R0672",
+   0.792,
+   "Improving Local Interpretable Model-agnostic Explanations Stability",
+   "Deterministic Local Interpretable Model-Agnostic Explanations for Stable Explainability"
+  ],
+  [
+   "R0548",
+   "R0551",
+   0.855,
+   "Reproducibility Study of 'SLICE: Stabilized LIME for Consistent Explanations for Image Classification'",
+   "SLICE: Stabilized LIME for Consistent Explanations for Image Classification"
+  ],
+  [
+   "R0691",
+   "R0694",
+   0.876,
+   "Source Camera Attribution from Strongly Stabilized Videos",
+   "Source camera attribution using stabilized video"
+  ]
+ ]
+}

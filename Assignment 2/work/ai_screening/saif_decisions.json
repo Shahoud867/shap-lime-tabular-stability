@@ -1,0 +1,1578 @@
+[
+  {
+    "id": "N005",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "The abstract evaluates classifier AUC and spatial prediction consistency; its three SHAP tiers report importance, dependence and interaction plots, with no separate attribution-stability assessment.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N027",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Robust Prediction of Ship Propulsion Power with Uncertainty Quantification using Quantile LightGBM but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N031",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces A Novel Stacking Ensemble Framework for Predicting Workability of Cement-Superplasticizer Systems With SHAP and LIME Interpretability but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N039",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Explainable Ensemble Machine Learning Approach for severity prediction of Hemophilia A but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N046",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Smart Crop Recommendation System Using Machine Learning and Explainable AI but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N049",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces A clinical diagnosis prediction model based on XGBoost-SHAP but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N052",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Balancing Accuracy and Interpretability: Machine Learning Approaches to Predict Heart Failure Readmissions but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N061",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Ten-fold cross-validation evaluates predictive performance; LIME/SHAP identify diabetes features, without a separate explanation-stability outcome.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N064",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Gearbox Fault Classification Method Based on Multi-Scale Feature Fusion and Explainable Analysis but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N071",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Enhancing photovoltaic system performance using advanced gradient boosting methods but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N074",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Bus passenger flow prediction using BO-optimized XGBoost but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N083",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Noise-Tolerant Multi-Model Ensemble for Robust Hypothyroid Classification but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N088",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces A SHAP-Guided Machine Learning Framework for Predicting Intravenous Immunoglobulin Resistance but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N091",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces A Metaheuristic Optimized XGBoost Model and SHAP Analysis for Heart Disease Prediction but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N096",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Intelligent Assessment of College Students' Mental Health based on Kendall’s Rank Correlation Coefficient Based J48 Decision Tree but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N108",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Binary Pass-Fail Prediction of Student Performance Using XGBoost and SHAP: A Case Study on the UCI Dataset but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N109",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Bootstrap intervals quantify thyroid prediction confidence and error rates; SHAP only reports leading predictors, without attribution uncertainty or stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N110",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Interpretable Machine Learning and Uncertainty Quantification for Groundwater Pollution Assessment in an Arid Aquifer but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N114",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces XAI-RiskNet: Explainable Ensemble Learning for Robust Firm Default Prediction Under Economic Stress but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N119",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Hierarchical Uncertainty Aware Explainable Hybrid Deep Learning Framework for Credit Default Risk Prediction but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N121",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Takeover Time Prediction for Conditionally Automated Driving Vehicles: Considering Mixed Traffic Flow Environment but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N122",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Safety Assessment: From Black-Box to White-Box but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N127",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Data Leakage Detection in Cloud Computing Environment but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N138",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Towards Better-Calibrated ML Models for Reliable Network Intrusion Detection via Calibration-Aware SHAP-Based Feature Selection but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N142",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces SIFT: Scene-Imagination-Based Feature Reweighting but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N143",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces ABO3 Perovskites’ Formability Prediction and Crystal Structure Classification using Machine Learning but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N153",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Class-overlap refinement improves classification accuracy/AUC; SHAP lists clinical predictors but explanation variation is not assessed.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N163",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Explanation-Based Runtime Verification for Trustworthy ML-Driven Optical Networks but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N167",
+    "decision": "Exclude",
+    "criterion": "EC2",
+    "rationale": "The title and stored abstract identify NLP spam-message classification using contextual/obfuscated text, with no tabular task stated.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "medium"
+  },
+  {
+    "id": "N178",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Interpretable Multi-Source Remote Sensing for Forest Aboveground Biomass Estimation: Revealing Feature Interactions and Prediction Uncertainty but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N191",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Counterfactual and Prototypical Explanations for Tabular Data via Interpretable Latent Space but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N195",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Ano2Rule: Rule-Based Global Interpretation for Unsupervised Anomaly Detection in Security but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N199",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Bayesian uncertainty is used for diagnostic confidence, while SHAP supplies clinical insights; no separate explanation-uncertainty or stability evaluation is reported.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N207",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Bridging Predictive Performance and Explainability in Employee Attrition Through Imbalanced Learning and XAI but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N221",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Robustness concerns posture classification accuracy and sensor limitations; SHAP identifies significant variables without explanation stability measurement.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N230",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Cardiovascular Disease Detection Using Deep Learning with Imbalanced Dataset Handling: Focal Loss and Ensemble Approach but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N234",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Machine Learning-Driven Models for Predictive Diagnosis of Depression and Anxiety in Clinical Settings but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N235",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Enhancing Anomaly Detection in Blockchain Transactions with Transformer-Based Models but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N239",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces LIME-Based Analysis of Adversarial Feature Manipulation in Cloud Intrusion Detection Systems but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N240",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces Machine Unlearning in Smart Grids: A Cautionary Tale of Infrastructure Vulnerability but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N252",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces A Robust Framework for Stock Price Prediction via BorutaSHAP-Based Feature Selection and Ensemble Deep Learning but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N254",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces AI-Driven Predictive Analytics for Monthly Per Capita Expenditure using Macroeconomic Indicators but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N257",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "The hybrid fraud detector is compared using accuracy, F1 and AUC; SHAP supplies transparency without separately assessing explanation stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N272",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces An AI-Driven Framework for Enhancing Resilience in Propagation Models to Enable Digital Twin but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "N282",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Conformal intervals quantify quality-prediction uncertainty; SHAP explains variable interactions, but no attribution variability outcome is reported.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N289",
+    "decision": "Exclude",
+    "criterion": "EC3",
+    "rationale": "Analyte importance is compared using SHAP, permutation and impurity decrease, with consistently top-ranked variables; no repeated-call, perturbation or refit stability analysis is described.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N292",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Calibrated uncertainty applies to crack-growth predictions; SHAP reveals effects on CGR but explanation stability/uncertainty is not an outcome.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N297",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Hyperparameter sensitivity is evaluated through predictive metrics; the worked SHAP example explains startup predictions rather than testing attribution stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N306",
+    "decision": "Exclude",
+    "criterion": "EC3",
+    "rationale": "Robustness concerns diagnostic discrimination and latent representations; adding SHAP interpretability is explicitly future work.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N321",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Uncertainty-aware assessment evaluates compressive-strength predictions; SHAP reports physically consistent factors with no explanation-stability evaluation.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N323",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "ISMOTE/ALO gains are assessed through fault-diagnosis accuracy and F1; SHAP supplies dependence plots rather than stability measurements.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N327",
+    "decision": "Exclude",
+    "criterion": "EC3",
+    "rationale": "The proposed diagnostic heads provide severity and prediction uncertainty for outlier detection; no SHAP/LIME explanation-stability method is studied.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N331",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Stable contributions and spatial consistency concern optical saturation/biomass prediction; SHAP quantifies factor effects without measuring attribution stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N335",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "District SAT classification and probability blending are evaluated; SHAP/gain plots explain predictors without assessing explanation variation.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N349",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "The stable baseline is dry-soil reflectance and generalization concerns reflectance prediction; SHAP analyzes covariates, without explanation stability measurement.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N355",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "The GAM/SHAP pipeline evaluates AUC, calibration and MCDA patient rankings; no separately measured SHAP/LIME stability outcome is described.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N359",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (Neural Emulators vs. Machine Learning Regressors: District‑Scale Pre‑Monsoon Temperature Prediction in Telangana) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "N369",
+    "decision": "Exclude",
+    "criterion": "EC5",
+    "rationale": "The title explicitly concerns tunnel/slope mechanical stability rather than stability of machine-learning explanations; no abstract was supplied.",
+    "evidence_basis": "Title only",
+    "confidence": "high"
+  },
+  {
+    "id": "N375",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "KDE intervals quantify lateral-pressure prediction uncertainty; SHAP identifies physical parameter influence without attribution stability evaluation.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N376",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Stability selection concerns microstructure features and predictive transfer; SHAP appears in the prediction pipeline without a separately assessed explanation-stability outcome.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N378",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Bootstrap uncertainty gives strength-prediction intervals; SHAP identifies dominant concrete factors and interactions without attribution stability assessment.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N387",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (Prediction and Multi-Objective Optimization of Resistance Coil-Assisted Friction Stir Welding of AISI 316L Using Ensemble Machine Learning) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "N388",
+    "decision": "Exclude",
+    "criterion": "EC3",
+    "rationale": "Attributions combine decoder Jacobians and latent traversal; their agreement is not SHAP/LIME-family explanation stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N401",
+    "decision": "Exclude",
+    "criterion": "EC3",
+    "rationale": "The interpretability analysis compares SHAP with Gini rankings; robustness analyses evaluate classifier performance rather than explanation stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N402",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Calibrated confidence estimates concern diabetes predictions; SHAP identifies clinical factors, without a separate explanation-stability outcome.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N408",
+    "decision": "Exclude",
+    "criterion": "EC5",
+    "rationale": "The numbered oncology abstract concerns HRD/chromosome instability and survival, not stability of SHAP explanations; full research-report status is also unclear.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N410",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Mondrian/jackknife uncertainty is compared with predictive errors; Shapley values interpret predictions but their stability is not assessed.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N413",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Twenty splits evaluate insurance prediction errors and conformal coverage; SHAP reports cost drivers without attribution-stability statistics.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N414",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Blind-well stable generalization and baseline alignment concern reservoir predictions; SHAP checks physical plausibility, without separate explanation-stability measurement.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N420",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "SHAP contributions are fused across bootstrap replicas into belief/plausibility intervals, explicitly evaluating explanation uncertainty on three tabular datasets.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N421",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "The county-month tabular study uses 500 Bayesian bootstrap iterations to estimate intervals for SHAP feature importance as well as predictions.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "medium"
+  },
+  {
+    "id": "N425",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Bayesian uncertainty and fairness apply to CVD prediction; SHAP/counterfactuals identify factors and actions without measuring attribution stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N426",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Seasonal variability, uncertainty and resilience concern water-turbidity forecasts; SHAP gives discharge importance, not explanation-stability results.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N432",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Routing errors and conformal coverage quantify BGL prediction reliability; SHAP provides feature interpretations without assessing explanation variation.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N433",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "The reported SHAP discontinuity is a substantive rank effect; robustness concerns social-state discretizations and dynamics, not attribution stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N436",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Conformal intervals evaluate life-expectancy prediction coverage; SHAP-guided expansions and attributions are not separately assessed for stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N461",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (Investigating the efficacy of physics-based metaheuristic algorithms in combination with explainable ensemble machine-learning models for landslide susceptibility mapping) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "N467",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Domain shift/TTA is evaluated via patient-classification metrics; feature attribution identifies descriptors without measuring explanation stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N471",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "NGBoost quantifies machining-prediction uncertainty and SHAP confirms factor relevance; no explanation-stability evaluation is stated.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N477",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (Physics-Guided Bi-LSTM Networks for Seismic Magnitude Forecasting: Performance and Limitations in the Zagros-Makran Transition Zone) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "N479",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (A Hybrid Explainable Logistic Regression model with Bayesian Feature Selection, SHAP Explainability, Stability Analysis, and Uncertainty Quantification for Breast Cancer Diagnosis) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "N497",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "MODWT robustness and predictor selection improve streamflow forecasting; XGBoost-SHAP explains predictors without an explanation-stability outcome.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N514",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Credit-fraud evaluation covers classification, latency and misclassification cost; SHAP ensures transparency without assessing its own stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N519",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Bootstrap intervals quantify L-DOPA yield/optimal-condition uncertainty; SHAP reports extraction-factor importance rather than attribution variability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N522",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "The bibliometric review covers RF/GEE remote-sensing publications and lists SHAP as an emerging front; it does not review SHAP/LIME stability as a stated outcome.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N525",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Monte Carlo analysis links data size to prediction precision; SHAP/permutation importance identify variables, without separate explanation-stability evaluation.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N534",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Stress tests and uncertainty calibration concern default predictions under sensing degradation; post-hoc attributions are mentioned without stability measurement.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N537",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Bootstrap ensembles improve chlorophyll forecast CRPS; global/local SHAP explains physical drivers but explanation variability is not separately assessed.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N545",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Manufacturing robustness CV quantifies structural force consistency; SHAP/PDP interpret joint design factors without assessing explanation stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N547",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Resampling and stratified validation evaluate diabetes performance/calibration; SHAP/LIME show explanatory features without attribution-stability measurement.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N556",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (Desiccation Cracking and Direct Tensile Strength of Compacted Expansive Bentonite Clay: Experimental Investigation and Predictive Modeling) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "N572",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "The reduced uncertainty intervals and error statistics concern concrete-strength predictions; SHAP identifies cement/age effects without a separate explanation-stability outcome.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N594",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "The tabular UC-MSC study reports stable top-ranked features under decision-threshold shifts and removing operator identity after SHAP analysis; verify the precise attribution-stability procedure in full text.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "medium"
+  },
+  {
+    "id": "N596",
+    "decision": "Exclude",
+    "criterion": "EC5",
+    "rationale": "Short-term stability is the manufacturing line flow-rate CV after replenishment/barrel events; SHAP only interprets process predictions.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N598",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Sobol/Monte Carlo convergence and uncertainty concern gasification surrogates/outputs; SHAP reports factor importance without explanation-stability assessment.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N602",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "HuntGPT evaluates technical accuracy/readability of conversational threat explanations; no separate SHAP/LIME stability assessment is described.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N605",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Bayesian credible intervals quantify shear-velocity prediction uncertainty; SHAP explains geotechnical parameters without attribution-uncertainty assessment.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N606",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "LOYO validation and conformal intervals assess yield forecasting uncertainty; SHAP lists climatic drivers without measuring explanation stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N610",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "FET models are evaluated by AUC, sensitivity, specificity and clinical utility; SHAP identifies predictors without a stability outcome.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N620",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Noise tests confirm QoS model stability; SHAP checks physical plausibility, not variation of attributions under that noise.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N638",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "The tabular polymer-descriptor study reports reproducibility of feature importance across runs and consistency of SHAP values; examine full-text stability measures.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "medium"
+  },
+  {
+    "id": "N643",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Sensitivity/subgroup analyses assess the diet–cognition association; SHAP identifies age/diabetes/diet features without explanation-stability evaluation.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N650",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "ICC filters stable radiomic inputs and SHAP compares LR/RF decision mechanisms; no separate repeated/perturbed explanation-stability outcome is described.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N658",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Stable entropy/fractal market dynamics and predictive generalization are assessed; SHAP/permutation diagnostics identify information content rather than explanation stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N662",
+    "decision": "Exclude",
+    "criterion": "EC5",
+    "rationale": "The title explicitly concerns tunnel/slope mechanical stability rather than stability of machine-learning explanations; no abstract was supplied.",
+    "evidence_basis": "Title only",
+    "confidence": "high"
+  },
+  {
+    "id": "N668",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Cross-validation/TPE improve music-popularity regression; SHAP dependence analysis identifies recency/loudness effects without assessing attribution stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N672",
+    "decision": "Exclude",
+    "criterion": "EC3",
+    "rationale": "Interpretability uses permutation importance and TabNet attention, not SHAP/LIME-family explanations; atmospheric stability is an input category.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N680",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (Sustainable concrete incorporating banana leaf ash: strength prediction and optimisation using advanced machine learning algorithms) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "N681",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Wind forecasting robustness is evaluated with predictive metrics across sites; SHAP explains heterogeneous drivers without stability measurement.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N687",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "Hierarchical shrinkage is claimed to simplify/stabilize RF decision boundaries and SHAP values across real-world datasets; directly relevant for full-text stability assessment.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "medium"
+  },
+  {
+    "id": "N691",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "MolExplain visualizes XGBoost/SHAP molecular fragments and validates chemical plausibility; it does not separately assess explanation stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N708",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "The study explicitly models SHAP-score ranges over uncertain feature distributions and validates on a real-world dataset; retain for tabular full-text confirmation.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "medium"
+  },
+  {
+    "id": "N715",
+    "decision": "Exclude",
+    "criterion": "EC3",
+    "rationale": "Shapley values price data records and allocate revenue in a data market, rather than explain features of tabular predictions.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N718",
+    "decision": "Exclude",
+    "criterion": "EC2",
+    "rationale": "SHAP uncertainty is evaluated exclusively on MNIST and neuroimaging data, with no tabular task stated.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "N719",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (Valuing inputs under supply uncertainty: The Bayesian Shapley value) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "U001",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "SHAP/LIME top-k stability is assessed with Jaccard and Spearman under repeated sampling across RF/SVM/neural models; dataset modality needs full-text confirmation.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "medium"
+  },
+  {
+    "id": "U004",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The abstract proposes tabular SHAP/LIME stability measures but explicitly labels quantitative results mock; full text is needed to establish actual measured evidence rather than illustration.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "U008",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "A tabular symptom dataset is used and a separately reported SHAP importance-consensus stability score compares model architectures; clarify cross-model stability scope in full text.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "medium"
+  },
+  {
+    "id": "U010",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "Tabular intrusion datasets are evaluated with SHAP/LIME and a Kendall-based RANK-ECI metric explicitly measures explanation consistency under input perturbations.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U019",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "The study quantifies SHAP/LIME ranking stability under multiple anonymization schemes with correlation and hypothesis tests on real-world classifier datasets; confirm tabular scope.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "medium"
+  },
+  {
+    "id": "U031",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "Adult Income and COMPAS tabular tasks evaluate SHAP/LIME consistency across repeated runs and perturbations using Jensen–Shannon distance.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U033",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "Structured employee data, SHAP attribution variability penalties and an explicit explanation-stability aim make this potentially eligible; verify that stability results are separately measured.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "medium"
+  },
+  {
+    "id": "U036",
+    "decision": "Exclude",
+    "criterion": "EC3",
+    "rationale": "The Spearman .70 result compares LIME against SHAP, which is cross-method agreement rather than within-method explanation stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U037",
+    "decision": "Exclude",
+    "criterion": "EC2",
+    "rationale": "The explanation-stability experiments concern token-level text attribution on CoAID/PHEME transformer models only.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U038",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The graph/causal attention framework reports explanation stability but names no SHAP/LIME-family method; full text must establish explainer and any tabular task.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "U046",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The stored abstract is truncated. It introduces PG-TabM: Domain-Informed Parameter-Efficient Ensemble Learning with Soft Physical Regularization for Concrete Compressive Strength Prediction but does not provide enough outcome/method evidence to judge separately assessed SHAP/LIME explanation stability; obtain the complete abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "U047",
+    "decision": "Exclude",
+    "criterion": "EC3",
+    "rationale": "The proposed metrics evaluate rule-based textual explanations using Levenshtein similarity, rather than SHAP/LIME-family attribution stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U048",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The abstract names explanation stability in its motivation but reports only calibration/monotonicity and no explainer family or separate stability result; insufficient to decide eligibility.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "U050",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "The tabular interpretability survey explicitly compares SHAP/LIME robustness tradeoffs and analyzes stability; assess the depth of relevant review coverage in full text.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "medium"
+  },
+  {
+    "id": "U052",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "The abstract reports predictive performance/stability of depression classifiers; SHAP supplies contributors, without a separate explanation-stability evaluation.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U054",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The tabular quantum/classical benchmark mentions feature stability and SHAP but does not identify whether stability applies to SHAP attributions rather than selected inputs or predictions.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "U062",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "The PD framework reports stage-prediction metrics and temporal feature attribution; explanation stability/uncertainty is not separately evaluated.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U080",
+    "decision": "Exclude",
+    "criterion": "EC3",
+    "rationale": "The consensus framework aggregates SHAP, permutation, mutual information and embedded rankings; the described stability is cross-method agreement, with no within-explainer perturbation test.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U087",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Stability concerns predictive errors across held-out concrete datasets; SHAP identifies material/meta-model contributions without attribution-stability results.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U104",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Cross-year validation measures climate/yield predictive robustness; SHAP supplies stress-factor interpretation without explanation-stability analysis.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U123",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "On tabular fraud variants, SHAP feature ranking stability under distribution shift is assessed separately from permutation-based reliance.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U126",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "One hundred XGBoost models with different seeds quantify SHAP ranking consistency on 30,000 credit accounts using Kendall W.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U163",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "Four tabular security datasets evaluate TreeSHAP attribution drift under adversarial perturbations using ESI, separately from predictive robustness.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U171",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "The radiomic classifier study evaluates AUC/accuracy and SHAP biomarker importance; no explanation stability or uncertainty measure is described.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U175",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "The regression benchmark evaluates multiple explanation measures and explicitly compares SHAP robustness across physics-equation/GP datasets; inspect exact stability metric and tabular setup.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "medium"
+  },
+  {
+    "id": "U182",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "External validation checks mortality-model AUC; SHAP identifies 15 prognostic factors but explanation stability is not a measured outcome.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U191",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Bagging/stacking and preprocessing improve log-anomaly predictive metrics; SHAP provides feature interpretation without assessing attribution stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U192",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "Repeated nested-CV outer-test SHAP, stability-weighted attributions and perturbation analysis assess feature-driver reliability on transcriptomic predictor tables.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "medium"
+  },
+  {
+    "id": "U197",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Multicenter evaluation assesses osteoporosis classification/calibration; SHAP lists contributors without explanation-stability analysis.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U204",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "The construction framework claims predictive accuracy/stability and uses SHAP for cost mechanisms, without a separate attribution-stability outcome.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U205",
+    "decision": "Exclude",
+    "criterion": "EC2",
+    "rationale": "The paper exclusively manipulates LIME explanations of text classifiers under semantic-preserving text perturbations.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U217",
+    "decision": "Exclude",
+    "criterion": "EC3",
+    "rationale": "The drift framework generates explanations with ExIFFI, outside the SHAP/LIME family.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U219",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "SHAP identifies player-value drivers and NLP volatility cues; robustness concerns prediction/shortlisting, not explanation stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U224",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "The tabular nutritional-status study compares imbalanced/SMOTE models and reports a separate LIME interpretation-stability score of .80.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U226",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "Tabular simulations and claims data measure SHAP ranking stability under imbalance/correlation/dimensionality using Sequential Rank Agreement over repeated fits.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U235",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "The PIMA study compares accuracy, interpretability and computational efficiency of SHAP/LIME without separately assessing stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U255",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (Stable local interpretable model-agnostic explanations based on a variational autoencoder) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "U263",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Stable predictors are selected using LASSO/Boruta/regression; SHAP illustrates Ortho-K risk thresholds rather than measuring explanation stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U265",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Statistical tests/bootstraps assess druggable-protein predictive performance; SHAP identifies sequence-descriptor importance without attribution-stability results.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U277",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "Standard tabular datasets compare SHAP stability under weight/input perturbations with curvature and geometry-aware training.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U286",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "The malware gate evaluates accepted accuracy, novelty and latency; SHAP-guided refinement is present but no separate attribution-stability outcome is reported.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U302",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "On CIC-DDoS2019 tabular features, an FSS quantifies SHAP importance consistency across folds and is correlated with prediction robustness.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U317",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Wine study reports classification robustness/transfer and SHAP chemical effects, without an explanation-stability metric.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U321",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Device configuration drift is the predicted operational risk; SHAP reports contributions/interactions without testing stability of the explanations.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U329",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Wildfire model robustness is assessed by predictive metrics; consistently influential SHAP variables are asserted without a separate attribution-stability analysis.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U347",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Rainfall classification uses AUC/accuracy/kappa and SHAP variable importance; no explanation-stability measurement is described.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U357",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Economic stability is a monetary-policy target and predictive performance is assessed by MAPE/R²; SHAP explanations are not assessed for stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U361",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Fragment Shapley values avoid sampling, but the stated evaluations concern chemical trends/actionability and model applicability; no separate stability outcome is reported.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U367",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "SMOTE/RF stroke prediction is evaluated by accuracy, sensitivity and AUC; LIME/SHAP identify clinical predictors without stability assessment.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U376",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "Student-dropout robustness concerns predictive ablations and external AUC; SHAP translates predictions into interventions without assessing explanation variation.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U385",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "The MOF study checks predictive robustness and physical/chemical plausibility of SHAP/PDP effects; no attribution-stability measurement is described.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U405",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (LLM Enhanced Explainable Intrusion Detection System for Generating Actionable Security Insights) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "U407",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (Decision support for sustainable maritime transportation under multiple objectives) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "U408",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (Toward temporal stability in explainable AI: A framework for measuring explanation drift) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "U410",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (Soil fertility prediction using SoilGRU-XNet: An explainable GRU-based framework for precision agriculture) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "U411",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (Enhancing Clinical Insight Of An Artificial Intelligence Test For Pulmonary Capillary Wedge Pressure Elevation By Unmasking Physiological Mechanisms) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "U415",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (Explainable Machine Learning for Binary Casualty Prediction: Evidence from New South Wales) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "U417",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (Novel Spatiotemporal Nonlinear Regression Approach for Unveiling the Impact of Urban Spatial Morphology on Carbon Emissions) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "U430",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (A machine learning framework for coal gasification process simulation and operation optimization) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "U431",
+    "decision": "Exclude",
+    "criterion": "EC1",
+    "rationale": "The evidence chain concerns environmental source attribution and unstable Pb predictions; SHAP bounds source domains but explanation stability is not measured.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U444",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The ICU study explicitly measures explanation robustness/stability across inputs/subpopulations, but the abstract does not name a SHAP/LIME-family explainer.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "U448",
+    "decision": "Exclude",
+    "criterion": "EC5",
+    "rationale": "Lime means CaO biodiesel catalyst and stability concerns storage/hydration/carbonation over 180 days, not ML explanations.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U449",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (Density-based reliable and robust explainer for counterfactual explanation) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "U454",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (Uncertainty-Awareness in Explainable Artificial Intelligence (xAI) for Sensor Network Metrology) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "U460",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (Mechanism-guided gated attention network with uncertainty quantification for robust soft sensing in complex industrial processes) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "U463",
+    "decision": "Exclude",
+    "criterion": "EC2",
+    "rationale": "The title explicitly limits the application to EEG emotion recognition, a signal modality; no tabular task or abstract is supplied.",
+    "evidence_basis": "Title only",
+    "confidence": "medium"
+  },
+  {
+    "id": "U465",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (Advancing Structure–Emulsifying Property Relationships of Corn Fiber Gum–Soy Protein Isolate Conjugates through Machine Learning) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "U481",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "MIMIC-III feature tables are used to quantify SHAP-value/ranking fluctuations with random background samples and background size.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U491",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "Hypothesis tests/sampling algorithms validate rank stability for SHAP and LIME; confirm tabular benchmark modality and report type in full text.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "medium"
+  },
+  {
+    "id": "U498",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "Relative explanation-stability metrics and three real datasets are reported, but neither the explanation families nor tabular modality are identified in the stored abstract.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "U500",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "Metabolomics feature tables use Linear SHAP and bootstrap/fold sampling; stability of final selected features is separately quantified by an extended Kuncheva index. Verify its attribution-versus-feature-selection scope.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "medium"
+  },
+  {
+    "id": "U520",
+    "decision": "Exclude",
+    "criterion": "EC3",
+    "rationale": "Attributions value distributed-training participants/data contributions rather than SHAP/LIME feature explanations.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U522",
+    "decision": "Exclude",
+    "criterion": "EC2",
+    "rationale": "The tasks concern natural-language sentence-pair/annotator free-text explanations and LLM preference optimization, not tabular feature attributions.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U529",
+    "decision": "Exclude",
+    "criterion": "EC2",
+    "rationale": "ResLRP explains vision transformers on image benchmarks and is outside SHAP/LIME; no tabular task is stated.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U535",
+    "decision": "Exclude",
+    "criterion": "EC3",
+    "rationale": "Gale–Shapley concerns strategic stable matchings, not feature-attribution explanations.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U549",
+    "decision": "Exclude",
+    "criterion": "EC3",
+    "rationale": "The paper proves conditions for unique stable marriages via deferred acceptance, unrelated to SHAP/LIME explanation stability.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U550",
+    "decision": "Exclude",
+    "criterion": "EC2",
+    "rationale": "The stated stability question concerns explanations of fine-tuned LLMs, with no tabular prediction task reported.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U552",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "The paper measures explanation stability across unspecified modalities/methods; the abstract does not identify tabular tasks or SHAP/LIME-family explainers.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "low"
+  },
+  {
+    "id": "U553",
+    "decision": "Exclude",
+    "criterion": "EC3",
+    "rationale": "The learning problem concerns stable matching markets and preference sample complexity, not SHAP/LIME feature-attribution explanations.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "high"
+  },
+  {
+    "id": "U564",
+    "decision": "Exclude",
+    "criterion": "EC3",
+    "rationale": "The title concerns core stability of Shapley values in cooperative games, not SHAP/LIME feature-attribution explanations; no abstract supplied.",
+    "evidence_basis": "Title only",
+    "confidence": "high"
+  },
+  {
+    "id": "U575",
+    "decision": "Uncertain",
+    "criterion": "Insufficient evidence",
+    "rationale": "No abstract supplied. The title (Inference to the Stable Explanations) does not establish all three requirements: tabular task, SHAP/LIME family, and separately assessed explanation stability/uncertainty.",
+    "evidence_basis": "Title only",
+    "confidence": "low"
+  },
+  {
+    "id": "U579",
+    "decision": "Include",
+    "criterion": "Potentially eligible",
+    "rationale": "Shapley explanations of ad-abuse classifiers vary under Monte Carlo sampling, and the paper studies sample sizes for stable estimates; confirm tabular inputs in full text.",
+    "evidence_basis": "Stored title and abstract",
+    "confidence": "medium"
+  }
+]

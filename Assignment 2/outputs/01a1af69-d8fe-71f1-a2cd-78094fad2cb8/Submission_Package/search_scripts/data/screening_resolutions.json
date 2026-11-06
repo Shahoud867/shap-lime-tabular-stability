@@ -1,0 +1,1381 @@
+[
+  {
+    "id": "N005",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N027",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N031",
+    "a": "Include",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": "SHAP and LIME are used descriptively on cement workability, and no explanation stability is measured. Fails IC3. Resolved: Exclude (EC1)."
+  },
+  {
+    "id": "N039",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N046",
+    "a": "Include",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": "XAI is added to a crop recommender for transparency only. Stability is not a stated aim or a reported outcome. Resolved: Exclude (EC1)."
+  },
+  {
+    "id": "N049",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N052",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N061",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N064",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N071",
+    "a": "Include",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": "Gradient boosting for photovoltaic performance. The title shows no SHAP/LIME explainer or stability outcome, so it fails IC2 and IC3. Resolved: Exclude (EC1)."
+  },
+  {
+    "id": "N074",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N083",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N088",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N091",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N096",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N108",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N109",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N110",
+    "a": "Exclude",
+    "b": "Include",
+    "resolution": "Exclude",
+    "note": "The uncertainty quantification is on groundwater pollution predictions, not on the explanations. The outcome criterion needs uncertainty of explanations. N282, N378 and N605, which follow the same pattern, were excluded by both reviewers. Resolved: Exclude (EC1). Verify the abstract for any separate analysis of SHAP uncertainty."
+  },
+  {
+    "id": "N114",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N119",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N121",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N122",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N127",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N138",
+    "a": "Exclude",
+    "b": "Include",
+    "resolution": "Exclude",
+    "note": "SHAP is used as a feature-selection tool, and the reliability target is the calibration of predictions, not explanation stability. Resolved: Exclude (EC1). Verify. I could not find the abstract in a quick search."
+  },
+  {
+    "id": "N142",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N143",
+    "a": "Exclude",
+    "b": "Include",
+    "resolution": "Exclude",
+    "note": "Perovskite formability prediction, a materials application with no explanation-stability outcome. Resolved: Exclude (EC1)."
+  },
+  {
+    "id": "N153",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N163",
+    "a": "Include",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": "Explanations are used downstream as a runtime-verification signal for optical networks. The study does not measure the stability of the explanations themselves. Resolved: Exclude (EC1). Verify."
+  },
+  {
+    "id": "N167",
+    "a": "Include",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": "A text-only NLP spam classifier, so it fails IC1, and no stability analysis is evident. Resolved: Exclude (EC2)."
+  },
+  {
+    "id": "N178",
+    "a": "Include",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": "Remote-sensing biomass estimation. The “uncertainty” is on predictions, and the explainability part is feature interactions. It is an applied study like N331, which was excluded. Resolved: Exclude (EC1). Verify."
+  },
+  {
+    "id": "N191",
+    "a": "Exclude",
+    "b": "Include",
+    "resolution": "Exclude",
+    "note": "Counterfactual and prototype explanations are not in the SHAP/LIME family. Resolved: Exclude (EC3)."
+  },
+  {
+    "id": "N195",
+    "a": "Include",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": "Ano2Rule gives rule-based global interpretation of anomaly detectors, not SHAP/LIME, and does not study stability. Resolved: Exclude (EC3)."
+  },
+  {
+    "id": "N199",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N207",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N221",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N230",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N234",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N235",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N239",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N240",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N252",
+    "a": "Exclude",
+    "b": "Include",
+    "resolution": "Exclude",
+    "note": "BorutaSHAP is used for feature selection in stock prediction. SHAP reliability is not an outcome. Resolved: Exclude (EC1)."
+  },
+  {
+    "id": "N254",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N257",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N272",
+    "a": "Exclude",
+    "b": "Include",
+    "resolution": "Exclude",
+    "note": "Resilience of propagation models for digital twins, a communications topic with no SHAP/LIME stability outcome. Resolved: Exclude (EC1)."
+  },
+  {
+    "id": "N282",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N289",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N292",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N297",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N306",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N321",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N323",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N327",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N331",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N335",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N349",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N355",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N359",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N369",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N375",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N376",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N378",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N387",
+    "a": "Include",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": "Friction stir welding prediction and optimisation with ensembles, an engineering application. Fails IC2 and IC3. Resolved: Exclude (EC1)."
+  },
+  {
+    "id": "N388",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N401",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N402",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N408",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N410",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N413",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N414",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N420",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N421",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N425",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N426",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N432",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N433",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N436",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N461",
+    "a": "Exclude",
+    "b": "Include",
+    "resolution": "Exclude",
+    "note": "Landslide susceptibility mapping with explainable ensembles. It is an applied study, consistent with the exclusion of N005. Resolved: Exclude (EC1)."
+  },
+  {
+    "id": "N467",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N471",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N477",
+    "a": "Include",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": "Bi-LSTM forecasting of seismic magnitude. The “limitations” in the title are model performance limits, not explanation limits. It is also a time-series model, not tabular. Resolved: Exclude (EC2)."
+  },
+  {
+    "id": "N479",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N497",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N514",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N519",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N522",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N525",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N534",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N537",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N545",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N547",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N556",
+    "a": "Include",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": "An experimental geotechnical study with predictive modelling and no SHAP/LIME explainer. Fails IC2 and IC3. Resolved: Exclude (EC1)."
+  },
+  {
+    "id": "N572",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N594",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N596",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N598",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N602",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N605",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N606",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N610",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N620",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N638",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N643",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N650",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N658",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N662",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N668",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N672",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N680",
+    "a": "Include",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": "Concrete strength prediction with banana leaf ash, an application study with no stability outcome. Resolved: Exclude (EC1)."
+  },
+  {
+    "id": "N681",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N687",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N691",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N708",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "N715",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N718",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "N719",
+    "a": "Exclude",
+    "b": "Include",
+    "resolution": "Exclude",
+    "note": "Bayesian Shapley value from cooperative game theory and economics (valuing inputs under supply uncertainty). It is not SHAP feature attribution for ML, so it fails IC2. N715 and U564 were excluded on the same ground. Resolved: Exclude (off-topic homonym, as EC5)."
+  },
+  {
+    "id": "U001",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U004",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U008",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U010",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U019",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U031",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U033",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U036",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U037",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U038",
+    "a": "Exclude",
+    "b": "Include",
+    "resolution": "Exclude",
+    "note": "Consumer behaviour forecasting where explanations come from the knowledge-graph model itself, not SHAP/LIME, and with no stability measurement. Resolved: Exclude (EC3)."
+  },
+  {
+    "id": "U046",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U047",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U048",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U050",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U052",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U054",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U062",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U080",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U087",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U104",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U123",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U126",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U163",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U171",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U175",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U182",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U191",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U192",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U197",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U204",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U205",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U217",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U219",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U224",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U226",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U235",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U255",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U263",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U265",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U277",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U286",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U302",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U317",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U321",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U329",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U347",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U357",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U361",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U367",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U376",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U385",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U405",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U407",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U408",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U410",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U411",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U415",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U417",
+    "a": "Exclude",
+    "b": "Include",
+    "resolution": "Exclude",
+    "note": "Spatiotemporal regression of urban morphology and carbon emissions, an urban-science application with no explanation-stability outcome. Resolved: Exclude (EC1)."
+  },
+  {
+    "id": "U430",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U431",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U444",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U448",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U449",
+    "a": "Include",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": "The paper proposes a “reliable and robust” counterfactual explainer. Counterfactual explanation is outside the SHAP/LIME family, so IC2 fails even though robustness is the aim. Resolved: Exclude (EC3). Verify that SHAP/LIME is not also tested."
+  },
+  {
+    "id": "U454",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U460",
+    "a": "Include",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": "Gated-attention soft sensor for industrial processes. The uncertainty quantification is on model outputs, not on SHAP/LIME explanations. Resolved: Exclude (EC1)."
+  },
+  {
+    "id": "U463",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U465",
+    "a": "Include",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": "Machine learning on corn fibre gum–soy protein emulsifying properties, a food-chemistry application with no stability outcome. Resolved: Exclude (EC1)."
+  },
+  {
+    "id": "U481",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U491",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U498",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U500",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  },
+  {
+    "id": "U520",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U522",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U529",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U535",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U549",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U550",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U552",
+    "a": "Exclude",
+    "b": "Include",
+    "resolution": "Exclude",
+    "note": "The paper (R2ET, NeurIPS 2024) is about stable explanations, which is why Saif included it. But the explainers it targets are gradient-based saliency methods, not SHAP/LIME, and the abstract and paper show no SHAP/LIME analysis. Fails IC2. Resolved: Exclude (EC3)."
+  },
+  {
+    "id": "U553",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U564",
+    "a": "Exclude",
+    "b": "Exclude",
+    "resolution": "Exclude",
+    "note": ""
+  },
+  {
+    "id": "U575",
+    "a": "Exclude",
+    "b": "Include",
+    "resolution": "Exclude",
+    "note": "“Inference to the Stable Explanations” is a philosophy-of-science paper on abductive reasoning. It has no ML, tabular data or SHAP/LIME. The word “stable” caused the title match. Resolved: Exclude (EC5)."
+  },
+  {
+    "id": "U579",
+    "a": "Include",
+    "b": "Include",
+    "resolution": "Include",
+    "note": ""
+  }
+]
