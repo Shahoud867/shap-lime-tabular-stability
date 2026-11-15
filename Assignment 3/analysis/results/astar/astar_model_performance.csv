@@ -1,0 +1,13 @@
+dataset,domain,model,n_train,n_test,n_features,n_perturbable,threshold_prior,auc,ap,brier,best_params
+hmeq,credit,rf,4172,1788,16,6,0.19942473633748803,0.9600150332669755,0.8743853293266539,0.06366901565995527,"{""max_depth"": null, ""n_estimators"": 100}"
+hmeq,credit,xgb,4172,1788,16,6,0.19942473633748803,0.9670520898785789,0.9088921470177336,0.057857373066394574,"{""learning_rate"": 0.3, ""n_estimators"": 100, ""min_child_weight"": 0.0, ""max_depth"": 7, ""colsample_bytree"": 0.8, ""gamma"": 0.0}"
+sgcs,credit,rf,700,300,45,3,0.3,0.7498941798941798,0.6076557588655438,0.17376735414681807,"{""max_depth"": 10, ""n_estimators"": 100}"
+sgcs,credit,xgb,700,300,45,3,0.3,0.7691534391534391,0.576004794548165,0.17153512687037098,"{""learning_rate"": 0.3, ""n_estimators"": 100, ""min_child_weight"": 0.0, ""max_depth"": 1, ""colsample_bytree"": 0.8, ""gamma"": 0.0}"
+taiwan,credit,rf,21000,9000,30,13,0.2211904761904762,0.7754455615256527,0.5523411774480875,0.13588523651443973,"{""max_depth"": 10, ""n_estimators"": 100}"
+taiwan,credit,xgb,21000,9000,30,13,0.2211904761904762,0.776610957039593,0.5477622749886035,0.13631551406117154,"{""learning_rate"": 0.3, ""n_estimators"": 100, ""min_child_weight"": 50.0, ""max_depth"": 7, ""colsample_bytree"": 1.0, ""gamma"": 5.0}"
+bank,non_credit,rf,31647,13564,42,6,0.11697791259835055,0.9238435840506949,0.6094124859340232,0.0641085078148039,"{""max_depth"": null, ""n_estimators"": 100}"
+bank,non_credit,xgb,31647,13564,42,6,0.11697791259835055,0.9299437027459531,0.6087107707697897,0.06391864635331215,"{""learning_rate"": 0.3, ""n_estimators"": 100, ""min_child_weight"": 0.0, ""max_depth"": 3, ""colsample_bytree"": 0.8, ""gamma"": 0.0}"
+adult,non_credit,rf,34189,14653,97,5,0.23928749012840386,0.9108811837820885,0.7941502723721994,0.10186174641856419,"{""max_depth"": 10, ""n_estimators"": 50}"
+adult,non_credit,xgb,34189,14653,97,5,0.23928749012840386,0.9292597687563864,0.8335504350865238,0.08693377243115791,"{""learning_rate"": 0.3, ""n_estimators"": 100, ""min_child_weight"": 0.0, ""max_depth"": 5, ""colsample_bytree"": 0.8, ""gamma"": 0.0}"
+heart,non_credit,rf,833,357,14,5,0.5282112845138055,0.966710758377425,0.9656304105232503,0.07308339906667838,"{""max_depth"": 10, ""n_estimators"": 100}"
+heart,non_credit,xgb,833,357,14,5,0.5282112845138055,0.9625850340136054,0.9562110933904624,0.07378190545532272,"{""learning_rate"": 0.3, ""n_estimators"": 100, ""min_child_weight"": 0.0, ""max_depth"": 7, ""colsample_bytree"": 0.8, ""gamma"": 0.0}"
