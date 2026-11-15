@@ -245,3 +245,32 @@ def test_measurement_quality_suite():
     assert mq["mean_abs_heterotrait"] < 0.25
     assert mq["htmt_ratio"] < 0.85
     assert mq["discriminant_passes_085"] is True
+
+
+def test_aurc_and_paired_aurc_diff_test():
+    rng = np.random.default_rng(515)
+    n = 300
+    y = rng.binomial(1, 0.35, size=n)
+    strong_risk = y * 2.0 + rng.normal(0, 0.6, size=n)
+    weak_risk = y * 0.4 + rng.normal(0, 1.0, size=n)
+    clusters = np.arange(n)
+
+    # Tie invariance: shuffling rows with constant scores gives identical AURC
+    tied = np.zeros(n)
+    a1 = st.compute_aurc(y, tied)
+    perm = rng.permutation(n)
+    a2 = st.compute_aurc(y[perm], tied[perm])
+    assert abs(a1["aurc"] - a2["aurc"]) < 1e-12
+
+    strong_res = st.cluster_bootstrap_aurc(y, strong_risk, clusters, n_boot=300, seed=42)
+    weak_res = st.cluster_bootstrap_aurc(y, weak_risk, clusters, n_boot=300, seed=42)
+    assert strong_res["aurc"] < weak_res["aurc"]
+    assert strong_res["e_aurc"] >= 0.0
+    assert strong_res["risk_at_cov_30"] <= strong_res["risk_at_cov_90"]
+
+    diff_res = st.paired_aurc_diff_test(
+        y, strong_risk, weak_risk, clusters, n_boot=400, seed=42, alternative="less"
+    )
+    assert diff_res["diff"] < -0.05
+    assert diff_res["pvalue"] < 0.01
+    assert diff_res["ci_high"] < 0.0

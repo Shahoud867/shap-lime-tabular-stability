@@ -109,11 +109,13 @@ def compute_data_screening(
     return pd.DataFrame(rows)
 
 
-def get_exposure_column(codebook: pd.DataFrame) -> str:
-    """Return the loan/exposure column name A_i from the codebook."""
+def get_exposure_column(codebook: pd.DataFrame, required: bool = True) -> str | None:
+    """Return the loan/exposure column name A_i from the codebook, if present."""
     matches = codebook.loc[codebook["cost_exposure_role"] == "exposure_A_i", "variable"]
     if matches.empty:
-        raise ValueError("No exposure_A_i column found in codebook.")
+        if required:
+            raise ValueError("No exposure_A_i column found in codebook.")
+        return None
     return str(matches.iloc[0])
 
 
@@ -135,7 +137,7 @@ class Preprocessor:
         self.perturbable_raw_cols: set[str] = set(
             feat_cb.loc[feat_cb["perturbable"].astype(bool), "variable"].tolist()
         )
-        self.exposure_col: str = get_exposure_column(self.codebook)
+        self.exposure_col: str | None = get_exposure_column(self.codebook, required=False)
 
         self.num_medians_: dict[str, float] = {}
         self.cat_modes_: dict[str, Any] = {}

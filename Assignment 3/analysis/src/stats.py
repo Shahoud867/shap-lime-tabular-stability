@@ -608,19 +608,40 @@ def proportion_nonzero_with_ci(
 
 
 def _fast_auroc(y_true: np.ndarray, y_score: np.ndarray, weights: np.ndarray | None = None) -> float:
-    """Fast AUROC supporting optional non-negative sample weights."""
+    """Fast vectorized AUROC supporting optional non-negative sample weights."""
     if weights is None:
         pos = y_true == 1
         n_pos = int(np.sum(pos))
         n_neg = len(y_true) - n_pos
         if n_pos == 0 or n_neg == 0:
             return np.nan
-        ranks = stats.rankdata(y_score, method="average")
-        sum_ranks_pos = float(np.sum(ranks[pos]))
+        order = np.argsort(y_score, kind="mergesort")
+        s_sorted = y_score[order]
+        if np.any(np.diff(s_sorted) == 0):
+            ranks = stats.rankdata(y_score, method="average")
+            sum_ranks_pos = float(np.sum(ranks[pos]))
+        else:
+            ranks = np.empty(len(y_true), dtype=float)
+            ranks[order] = np.arange(1, len(y_true) + 1, dtype=float)
+            sum_ranks_pos = float(np.sum(ranks[pos]))
         return float((sum_ranks_pos - n_pos * (n_pos + 1) / 2.0) / (n_pos * n_neg))
-    if len(np.unique(y_true)) < 2:
+
+    desc = np.argsort(y_score, kind="mergesort")[::-1]
+    s_s = y_score[desc]
+    y_s = y_true[desc]
+    w_s = weights[desc]
+    tps = np.cumsum(w_s * (y_s == 1))
+    fps = np.cumsum(w_s * (y_s != 1))
+    distinct = np.flatnonzero(np.diff(s_s))
+    thresh_idx = np.r_[distinct, len(y_s) - 1]
+    tps = tps[thresh_idx]
+    fps = fps[thresh_idx]
+    if tps[-1] <= 0.0 or fps[-1] <= 0.0:
         return np.nan
-    return float(roc_auc_score(y_true, y_score, sample_weight=weights))
+    tpr = np.r_[0.0, tps / tps[-1]]
+    fpr = np.r_[0.0, fps / fps[-1]]
+    trapz_fn = getattr(np, "trapezoid", None) or np.trapz
+    return float(trapz_fn(tpr, fpr))
 
 
 def _group_indices(cluster_ids: Sequence[Any]) -> tuple[np.ndarray, list[np.ndarray]]:
@@ -1092,27 +1113,42 @@ def paired_bootstrap_auroc_diff(
     seed: int = 42,
     alternative: str = "greater",
     alpha: float = 0.05,
+    cluster_ids: Sequence[Any] | None = None,
+    weights: Sequence[float] | None = None,
 ) -> dict[str, Any]:
-    """Paired bootstrap test for AUROC(score_1) - AUROC(score_2)."""
+    """Paired bootstrap (optionally clustered & weighted) test for AUROC(score_1) - AUROC(score_2)."""
     y_arr = np.asarray(y_true, dtype=int)
     s1 = np.asarray(score_1, dtype=float)
     s2 = np.asarray(score_2, dtype=float)
+    w_arr = None if weights is None else np.asarray(weights, dtype=float)
+    c_arr = np.arange(len(y_arr)) if cluster_ids is None else np.asarray(cluster_ids)
+
     mask = np.isfinite(y_arr) & np.isfinite(s1) & np.isfinite(s2)
-    y_arr, s1, s2 = y_arr[mask], s1[mask], s2[mask]
+    if w_arr is not None:
+        mask &= np.isfinite(w_arr)
+        w_arr = w_arr[mask]
+    y_arr, s1, s2, c_arr = y_arr[mask], s1[mask], s2[mask], c_arr[mask]
     n = len(y_arr)
 
-    auc_1 = _fast_auroc(y_arr, s1)
-    auc_2 = _fast_auroc(y_arr, s2)
+    auc_1 = _fast_auroc(y_arr, s1, w_arr)
+    auc_2 = _fast_auroc(y_arr, s2, w_arr)
     diff = float(auc_1 - auc_2)
 
+    _, groups = _group_indices(c_arr)
+    n_clusters = len(groups)
     rng = np.random.default_rng(seed)
     diffs = np.full(n_boot, np.nan, dtype=float)
     for b in range(n_boot):
-        idx = rng.integers(0, n, size=n)
+        if cluster_ids is None:
+            idx = rng.integers(0, n, size=n)
+        else:
+            chosen = rng.integers(0, n_clusters, size=n_clusters)
+            idx = np.concatenate([groups[c] for c in chosen])
         yb = y_arr[idx]
         if len(np.unique(yb)) < 2:
             continue
-        diffs[b] = _fast_auroc(yb, s1[idx]) - _fast_auroc(yb, s2[idx])
+        wb = None if w_arr is None else w_arr[idx]
+        diffs[b] = _fast_auroc(yb, s1[idx], wb) - _fast_auroc(yb, s2[idx], wb)
 
     valid = diffs[np.isfinite(diffs)]
     q_lo, q_hi = 100.0 * (alpha / 2.0), 100.0 * (1.0 - alpha / 2.0)
@@ -1134,6 +1170,7 @@ def paired_bootstrap_auroc_diff(
         "ci_low": float(np.percentile(valid, q_lo)) if len(valid) > 0 else np.nan,
         "ci_high": float(np.percentile(valid, q_hi)) if len(valid) > 0 else np.nan,
         "n": int(n),
+        "n_clusters": int(n_clusters),
         "n_valid_boot": int(len(valid)),
         "alternative": alternative,
         "seed": int(seed),
@@ -1408,6 +1445,195 @@ def measurement_quality_suite(
         "htmt_ci_high": float(np.percentile(valid_htmt, q_hi)) if len(valid_htmt) > 0 else np.nan,
         "discriminant_passes_085": bool(np.isfinite(htmt_ratio) and htmt_ratio < 0.85),
         "n_obs": int(len(dk)),
+        "n_clusters": int(n_clusters),
+        "n_boot": int(n_boot),
+        "seed": int(seed),
+    }
+
+
+# ---------------------------------------------------------------------------
+# Selective Gating Risk-Coverage Metrics (AURC / E-AURC, Geifman & El-Yaniv)
+# ---------------------------------------------------------------------------
+
+def _tie_averaged_sorted_risks(y_true: np.ndarray, risk_score: np.ndarray) -> np.ndarray:
+    """Sort observations by ascending risk_score with exact tie averaging inside equal-score blocks."""
+    order = np.argsort(risk_score, kind="mergesort")
+    s_sorted = risk_score[order]
+    y_sorted = y_true[order].astype(float)
+    n = len(y_sorted)
+    if n == 0:
+        return y_sorted
+    # Average y inside tied score blocks so AURC is strictly permutation-invariant
+    diff_idx = np.flatnonzero(np.diff(s_sorted) != 0)
+    if len(diff_idx) == n - 1:
+        return y_sorted
+    starts = np.empty(len(diff_idx) + 1, dtype=np.intp)
+    starts[0] = 0
+    starts[1:] = diff_idx + 1
+    ends = np.empty(len(starts), dtype=np.intp)
+    ends[:-1] = diff_idx + 1
+    ends[-1] = n
+    counts = ends - starts
+    block_means = np.add.reduceat(y_sorted, starts) / counts
+    return np.repeat(block_means, counts)
+
+
+def compute_aurc(
+    y_true: Sequence[int] | np.ndarray,
+    risk_score: Sequence[float] | np.ndarray,
+    coverages: Sequence[float] = (0.9, 0.7, 0.5, 0.3),
+) -> dict[str, Any]:
+    """Compute Area Under Risk-Coverage Curve (AURC) and Excess-AURC (E-AURC).
+
+    Lower `risk_score` means higher confidence (kept first as coverage increases
+    from 1/N to 1.0; highest-risk instances are deferred first).
+    """
+    y_arr = np.asarray(y_true, dtype=float)
+    s_arr = np.asarray(risk_score, dtype=float)
+    mask = np.isfinite(y_arr) & np.isfinite(s_arr)
+    y_arr, s_arr = y_arr[mask], s_arr[mask]
+    n = len(y_arr)
+    if n == 0:
+        return {"aurc": np.nan, "e_aurc": np.nan, "base_risk": np.nan, "oracle_aurc": np.nan, "n_obs": 0}
+
+    y_sorted = _tie_averaged_sorted_risks(y_arr, s_arr)
+    counts = np.arange(1, n + 1, dtype=float)
+    cum_risks = np.cumsum(y_sorted) / counts
+    aurc = float(np.mean(cum_risks))
+
+    # Empirical oracle sorts ascending by true error y (zeros before ones)
+    y_oracle = np.sort(y_arr)
+    oracle_aurc = float(np.mean(np.cumsum(y_oracle) / counts))
+    e_aurc = float(aurc - oracle_aurc)
+    base_risk = float(np.mean(y_arr))
+
+    cov_risks: dict[str, float] = {}
+    for c in coverages:
+        k = max(1, min(n, int(round(float(c) * n))))
+        cov_risks[f"risk_at_cov_{int(round(float(c) * 100))}"] = float(cum_risks[k - 1])
+
+    return {
+        "aurc": aurc,
+        "e_aurc": e_aurc,
+        "base_risk": base_risk,
+        "oracle_aurc": oracle_aurc,
+        "n_obs": int(n),
+        **cov_risks,
+    }
+
+
+def cluster_bootstrap_aurc(
+    y_true: Sequence[int],
+    risk_score: Sequence[float],
+    cluster_ids: Sequence[Any],
+    n_boot: int = 5000,
+    seed: int = 42,
+    alpha: float = 0.05,
+    coverages: Sequence[float] = (0.9, 0.7, 0.5, 0.3),
+) -> dict[str, Any]:
+    """Compute AURC, E-AURC, selective risks, and cluster-bootstrap 95% CIs."""
+    y_arr = np.asarray(y_true, dtype=float)
+    s_arr = np.asarray(risk_score, dtype=float)
+    c_arr = np.asarray(cluster_ids)
+    mask = np.isfinite(y_arr) & np.isfinite(s_arr)
+    y_arr, s_arr, c_arr = y_arr[mask], s_arr[mask], c_arr[mask]
+
+    pt = compute_aurc(y_arr, s_arr, coverages=coverages)
+    _, groups = _group_indices(c_arr)
+    n_clusters = len(groups)
+    boot_aurc = np.full(n_boot, np.nan, dtype=float)
+    boot_e_aurc = np.full(n_boot, np.nan, dtype=float)
+
+    if n_clusters >= 2 and n_boot > 0:
+        rng = np.random.default_rng(seed)
+        for b in range(n_boot):
+            chosen = rng.integers(0, n_clusters, size=n_clusters)
+            idx = np.concatenate([groups[c] for c in chosen])
+            res_b = compute_aurc(y_arr[idx], s_arr[idx], coverages=())
+            boot_aurc[b] = res_b["aurc"]
+            boot_e_aurc[b] = res_b["e_aurc"]
+
+    q_lo, q_hi = 100.0 * (alpha / 2.0), 100.0 * (1.0 - alpha / 2.0)
+    valid_a = boot_aurc[np.isfinite(boot_aurc)]
+    valid_e = boot_e_aurc[np.isfinite(boot_e_aurc)]
+    return {
+        **pt,
+        "aurc_se": float(np.std(valid_a, ddof=1)) if len(valid_a) > 1 else np.nan,
+        "aurc_ci_low": float(np.percentile(valid_a, q_lo)) if len(valid_a) > 0 else np.nan,
+        "aurc_ci_high": float(np.percentile(valid_a, q_hi)) if len(valid_a) > 0 else np.nan,
+        "e_aurc_ci_low": float(np.percentile(valid_e, q_lo)) if len(valid_e) > 0 else np.nan,
+        "e_aurc_ci_high": float(np.percentile(valid_e, q_hi)) if len(valid_e) > 0 else np.nan,
+        "n_clusters": int(n_clusters),
+        "n_boot": int(n_boot),
+        "seed": int(seed),
+    }
+
+
+def paired_aurc_diff_test(
+    y_true: Sequence[int],
+    score_a: Sequence[float],
+    score_b: Sequence[float],
+    cluster_ids: Sequence[Any] | None = None,
+    n_boot: int = 5000,
+    seed: int = 42,
+    alpha: float = 0.05,
+    alternative: str = "less",
+) -> dict[str, Any]:
+    """Paired cluster-bootstrap test for AURC(score_a) - AURC(score_b).
+
+    Since lower AURC is better selective gating, `alternative='less'` tests
+    whether score_a achieves significantly lower AURC than score_b.
+    """
+    y_arr = np.asarray(y_true, dtype=float)
+    a_arr = np.asarray(score_a, dtype=float)
+    b_arr = np.asarray(score_b, dtype=float)
+    c_arr = np.arange(len(y_arr)) if cluster_ids is None else np.asarray(cluster_ids)
+
+    mask = np.isfinite(y_arr) & np.isfinite(a_arr) & np.isfinite(b_arr)
+    y_arr, a_arr, b_arr, c_arr = y_arr[mask], a_arr[mask], b_arr[mask], c_arr[mask]
+
+    aurc_a = compute_aurc(y_arr, a_arr, coverages=())["aurc"]
+    aurc_b = compute_aurc(y_arr, b_arr, coverages=())["aurc"]
+    diff = float(aurc_a - aurc_b)
+
+    _, groups = _group_indices(c_arr)
+    n_clusters = len(groups)
+    boot_diffs = np.full(n_boot, np.nan, dtype=float)
+    if n_clusters >= 2 and n_boot > 0:
+        rng = np.random.default_rng(seed)
+        for b in range(n_boot):
+            chosen = rng.integers(0, n_clusters, size=n_clusters)
+            idx = np.concatenate([groups[c] for c in chosen])
+            da = compute_aurc(y_arr[idx], a_arr[idx], coverages=())["aurc"]
+            db = compute_aurc(y_arr[idx], b_arr[idx], coverages=())["aurc"]
+            boot_diffs[b] = da - db
+
+    valid = boot_diffs[np.isfinite(boot_diffs)]
+    se_diff = float(np.std(valid, ddof=1)) if len(valid) > 1 else np.nan
+    z_val = float(diff / se_diff) if (np.isfinite(se_diff) and se_diff > 0) else np.nan
+
+    if len(valid) == 0:
+        pval = np.nan
+    elif alternative == "less":
+        pval = float((np.sum(valid >= 0.0) + 1.0) / (len(valid) + 1.0))
+    elif alternative == "greater":
+        pval = float((np.sum(valid <= 0.0) + 1.0) / (len(valid) + 1.0))
+    else:
+        p_pos = (np.sum(valid >= 0.0) + 1.0) / (len(valid) + 1.0)
+        p_neg = (np.sum(valid <= 0.0) + 1.0) / (len(valid) + 1.0)
+        pval = float(min(1.0, 2.0 * min(p_pos, p_neg)))
+
+    q_lo, q_hi = 100.0 * (alpha / 2.0), 100.0 * (1.0 - alpha / 2.0)
+    return {
+        "aurc_a": aurc_a,
+        "aurc_b": aurc_b,
+        "diff": diff,
+        "se_diff": se_diff,
+        "z": z_val,
+        "pvalue": pval,
+        "ci_low": float(np.percentile(valid, q_lo)) if len(valid) > 0 else np.nan,
+        "ci_high": float(np.percentile(valid, q_hi)) if len(valid) > 0 else np.nan,
+        "n_obs": int(len(y_arr)),
         "n_clusters": int(n_clusters),
         "n_boot": int(n_boot),
         "seed": int(seed),
