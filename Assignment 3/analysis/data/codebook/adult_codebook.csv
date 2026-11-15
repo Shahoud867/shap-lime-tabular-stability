@@ -1,0 +1,16 @@
+variable,type,description,unit,transformation,perturbable,cost_exposure_role,missing_count,missing_pct
+age,continuous,Individual age,years,median_impute + standard_scale,True,none,0,0.0
+workclass,categorical,Employment sector,category,mode_impute + one_hot_encode,False,none,2799,5.7307
+fnlwgt,continuous,CPS sampling weight,weight,median_impute + standard_scale,True,none,0,0.0
+education,categorical,Highest education level,category,mode_impute + one_hot_encode,False,none,0,0.0
+education-num,ordinal,Years of education,years,median_impute + standard_scale,False,none,0,0.0
+marital-status,categorical,Marital status,category,mode_impute + one_hot_encode,False,none,0,0.0
+occupation,categorical,Occupation category,category,mode_impute + one_hot_encode,False,none,2809,5.7512
+relationship,categorical,Household relationship role,category,mode_impute + one_hot_encode,False,none,0,0.0
+race,categorical,Demographic race category,category,mode_impute + one_hot_encode,False,none,0,0.0
+sex,categorical,Sex,category,mode_impute + one_hot_encode,False,none,0,0.0
+capital-gain,continuous,Capital gains,USD,median_impute + standard_scale,True,none,0,0.0
+capital-loss,continuous,Capital losses,USD,median_impute + standard_scale,True,none,0,0.0
+hours-per-week,continuous,Hours worked per week,hours,median_impute + standard_scale,True,none,0,0.0
+native-country,categorical,Country of origin,category,mode_impute + one_hot_encode,False,none,857,1.7546
+target,binary_target,"Default / bad credit indicator (1=default, 0=non-default)",binary,standardized to 1=default,False,target,0,0.0

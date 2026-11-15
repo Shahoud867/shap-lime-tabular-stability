@@ -72,3 +72,20 @@ robustness:
   lime_num_samples_values: [1000, 5000]
   threshold_modes: ["prior", 0.5]
   j_sensitivity: 25
+
+astar:
+  datasets: ["hmeq", "sgcs", "taiwan", "bank", "adult", "heart"]
+  non_credit_datasets: ["bank", "adult", "heart"]
+  models: ["rf", "xgb"]
+  sample_n: 200
+  scales_s: [0.01, 0.05]
+  perturbation_r: 25
+  tau: 0.05
+  top_k: 4
+  instability_cutoff: 0.2
+  slime_n_init: 1000
+  slime_n_max: 5000
+  gpec_n_neighbors: 64
+  epistemic_n_sub: 5
+  axom_kappa: 1.0
+

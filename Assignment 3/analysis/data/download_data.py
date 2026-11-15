@@ -57,6 +57,36 @@ DATASET_SOURCES: dict[str, dict[str, Any]] = {
         "expected_features": 23,
         "expected_pos_rate_range": (0.21, 0.23),
     },
+    "bank": {
+        "name": "Bank Marketing (UCI / OpenML ID 1461)",
+        "urls": ["openml://1461"],
+        "filename": "bank_marketing.csv",
+        "license": "CC BY 4.0 (UCI ML Repository / OpenML ID 1461)",
+        "source_ref": "Moro, Cortez & Rita (2014), Decision Support Systems; OpenML ID 1461",
+        "expected_rows": 45211,
+        "expected_features": 16,
+        "expected_pos_rate_range": (0.11, 0.125),
+    },
+    "adult": {
+        "name": "Adult Census Income (UCI / OpenML ID 1590)",
+        "urls": ["openml://1590"],
+        "filename": "adult_income.csv",
+        "license": "CC BY 4.0 (UCI ML Repository / OpenML ID 1590)",
+        "source_ref": "Kohavi (1996), KDD; OpenML ID 1590",
+        "expected_rows": 48842,
+        "expected_features": 14,
+        "expected_pos_rate_range": (0.23, 0.25),
+    },
+    "heart": {
+        "name": "Heart Disease Comprehensive (OpenML ID 43682)",
+        "urls": ["openml://43682"],
+        "filename": "heart_disease.csv",
+        "license": "CC0: Public Domain (OpenML ID 43682)",
+        "source_ref": "Siddhartha (2020), Heart Disease Dataset Comprehensive; OpenML ID 43682",
+        "expected_rows": 1190,
+        "expected_features": 11,
+        "expected_pos_rate_range": (0.51, 0.55),
+    },
 }
 
 SGCS_COL_MAP = {
@@ -130,6 +160,53 @@ CODEBOOK_META: dict[str, dict[str, dict[str, Any]]] = {
         **{f"BILL_AMT{i}": {"type": "continuous", "desc": f"Bill statement amount month {i}", "unit": "NT_dollar", "perturbable": True, "cost_role": "none"} for i in range(1, 7)},
         **{f"PAY_AMT{i}": {"type": "continuous", "desc": f"Previous payment amount month {i}", "unit": "NT_dollar", "perturbable": True, "cost_role": "none"} for i in range(1, 7)},
     },
+    "bank": {
+        "age": {"type": "continuous", "desc": "Client age", "unit": "years", "perturbable": True, "cost_role": "none"},
+        "job": {"type": "categorical", "desc": "Type of job", "unit": "category", "perturbable": False, "cost_role": "none"},
+        "marital": {"type": "categorical", "desc": "Marital status", "unit": "category", "perturbable": False, "cost_role": "none"},
+        "education": {"type": "categorical", "desc": "Education level", "unit": "category", "perturbable": False, "cost_role": "none"},
+        "default": {"type": "categorical", "desc": "Has credit in default", "unit": "category", "perturbable": False, "cost_role": "none"},
+        "balance": {"type": "continuous", "desc": "Average yearly bank balance", "unit": "EUR", "perturbable": True, "cost_role": "none"},
+        "housing": {"type": "categorical", "desc": "Has housing loan", "unit": "category", "perturbable": False, "cost_role": "none"},
+        "loan": {"type": "categorical", "desc": "Has personal loan", "unit": "category", "perturbable": False, "cost_role": "none"},
+        "contact": {"type": "categorical", "desc": "Contact communication type", "unit": "category", "perturbable": False, "cost_role": "none"},
+        "day": {"type": "ordinal", "desc": "Last contact day of month", "unit": "day", "perturbable": False, "cost_role": "none"},
+        "month": {"type": "categorical", "desc": "Last contact month of year", "unit": "month", "perturbable": False, "cost_role": "none"},
+        "duration": {"type": "continuous", "desc": "Last contact duration", "unit": "seconds", "perturbable": True, "cost_role": "none"},
+        "campaign": {"type": "continuous", "desc": "Number of contacts during campaign", "unit": "count", "perturbable": True, "cost_role": "none"},
+        "pdays": {"type": "continuous", "desc": "Days since client last contacted (-1=uncontacted)", "unit": "days", "perturbable": True, "cost_role": "none"},
+        "previous": {"type": "continuous", "desc": "Number of contacts before campaign", "unit": "count", "perturbable": True, "cost_role": "none"},
+        "poutcome": {"type": "categorical", "desc": "Outcome of previous marketing campaign", "unit": "category", "perturbable": False, "cost_role": "none"},
+    },
+    "adult": {
+        "age": {"type": "continuous", "desc": "Individual age", "unit": "years", "perturbable": True, "cost_role": "none"},
+        "workclass": {"type": "categorical", "desc": "Employment sector", "unit": "category", "perturbable": False, "cost_role": "none"},
+        "fnlwgt": {"type": "continuous", "desc": "CPS sampling weight", "unit": "weight", "perturbable": True, "cost_role": "none"},
+        "education": {"type": "categorical", "desc": "Highest education level", "unit": "category", "perturbable": False, "cost_role": "none"},
+        "education-num": {"type": "ordinal", "desc": "Years of education", "unit": "years", "perturbable": False, "cost_role": "none"},
+        "marital-status": {"type": "categorical", "desc": "Marital status", "unit": "category", "perturbable": False, "cost_role": "none"},
+        "occupation": {"type": "categorical", "desc": "Occupation category", "unit": "category", "perturbable": False, "cost_role": "none"},
+        "relationship": {"type": "categorical", "desc": "Household relationship role", "unit": "category", "perturbable": False, "cost_role": "none"},
+        "race": {"type": "categorical", "desc": "Demographic race category", "unit": "category", "perturbable": False, "cost_role": "none"},
+        "sex": {"type": "categorical", "desc": "Sex", "unit": "category", "perturbable": False, "cost_role": "none"},
+        "capital-gain": {"type": "continuous", "desc": "Capital gains", "unit": "USD", "perturbable": True, "cost_role": "none"},
+        "capital-loss": {"type": "continuous", "desc": "Capital losses", "unit": "USD", "perturbable": True, "cost_role": "none"},
+        "hours-per-week": {"type": "continuous", "desc": "Hours worked per week", "unit": "hours", "perturbable": True, "cost_role": "none"},
+        "native-country": {"type": "categorical", "desc": "Country of origin", "unit": "category", "perturbable": False, "cost_role": "none"},
+    },
+    "heart": {
+        "age": {"type": "continuous", "desc": "Patient age", "unit": "years", "perturbable": True, "cost_role": "none"},
+        "sex": {"type": "categorical", "desc": "Patient sex (1=male, 0=female)", "unit": "code", "perturbable": False, "cost_role": "none"},
+        "chest_pain_type": {"type": "categorical", "desc": "Chest pain type (1-4)", "unit": "code", "perturbable": False, "cost_role": "none"},
+        "resting_bp_s": {"type": "continuous", "desc": "Resting blood pressure", "unit": "mmHg", "perturbable": True, "cost_role": "none"},
+        "cholesterol": {"type": "continuous", "desc": "Serum cholesterol", "unit": "mg/dl", "perturbable": True, "cost_role": "none"},
+        "fasting_blood_sugar": {"type": "categorical", "desc": "Fasting blood sugar > 120 mg/dl", "unit": "binary", "perturbable": False, "cost_role": "none"},
+        "resting_ecg": {"type": "categorical", "desc": "Resting ECG results (0-2)", "unit": "code", "perturbable": False, "cost_role": "none"},
+        "max_heart_rate": {"type": "continuous", "desc": "Maximum heart rate achieved", "unit": "bpm", "perturbable": True, "cost_role": "none"},
+        "exercise_angina": {"type": "categorical", "desc": "Exercise-induced angina (1=yes, 0=no)", "unit": "binary", "perturbable": False, "cost_role": "none"},
+        "oldpeak": {"type": "continuous", "desc": "ST depression induced by exercise relative to rest", "unit": "mm", "perturbable": True, "cost_role": "none"},
+        "ST_slope": {"type": "ordinal", "desc": "Slope of peak exercise ST segment (1-3)", "unit": "code", "perturbable": False, "cost_role": "none"},
+    },
 }
 
 
@@ -170,6 +247,27 @@ TAIWAN_OPENML_COL_MAP = {
 }
 
 
+BANK_OPENML_COL_MAP = {
+    "V1": "age",
+    "V2": "job",
+    "V3": "marital",
+    "V4": "education",
+    "V5": "default",
+    "V6": "balance",
+    "V7": "housing",
+    "V8": "loan",
+    "V9": "contact",
+    "V10": "day",
+    "V11": "month",
+    "V12": "duration",
+    "V13": "campaign",
+    "V14": "pdays",
+    "V15": "previous",
+    "V16": "poutcome",
+    "Class": "target",
+}
+
+
 def download_with_fallback(urls: list[str], dest: Path) -> str:
     """Download from the first working URL (or openml://id) and return the URL used."""
     dest.parent.mkdir(parents=True, exist_ok=True)
@@ -180,8 +278,10 @@ def download_with_fallback(urls: list[str], dest: Path) -> str:
                 data_id = int(url.split("openml://", 1)[1])
                 bunch = fetch_openml(data_id=data_id, as_frame=True, parser="auto")
                 df = bunch.frame.copy()
-                if "x1" in df.columns:
+                if data_id == 42477 and "x1" in df.columns:
                     df = df.rename(columns=TAIWAN_OPENML_COL_MAP)
+                elif data_id == 1461 and "V1" in df.columns:
+                    df = df.rename(columns=BANK_OPENML_COL_MAP)
                 df.to_csv(dest, index=False)
                 return f"https://www.openml.org/d/{data_id}"
             resp = requests.get(url, timeout=(15, 180))
@@ -254,6 +354,31 @@ def load_raw_taiwan(raw_path: Path) -> pd.DataFrame:
     return df
 
 
+def load_raw_bank(raw_path: Path) -> pd.DataFrame:
+    """Parse raw Bank Marketing CSV and map Class ('2'=subscribed, '1'=no) to target 1/0."""
+    df = pd.read_csv(raw_path)
+    if "Class" in df.columns:
+        df = df.rename(columns={"Class": "target"})
+    df["target"] = df["target"].astype(str).str.strip().map({"2": 1, "1": 0, "yes": 1, "no": 0}).astype(int)
+    return df
+
+
+def load_raw_adult(raw_path: Path) -> pd.DataFrame:
+    """Parse raw Adult Income CSV and map class ('>50K' -> 1, '<=50K' -> 0)."""
+    df = pd.read_csv(raw_path, na_values=["?"])
+    if "class" in df.columns:
+        df = df.rename(columns={"class": "target"})
+    df["target"] = df["target"].astype(str).str.strip().map({">50K": 1, "<=50K": 0, "1": 1, "0": 0}).astype(int)
+    return df
+
+
+def load_raw_heart(raw_path: Path) -> pd.DataFrame:
+    """Parse raw Heart Disease Comprehensive CSV with integer target (1/0)."""
+    df = pd.read_csv(raw_path)
+    df["target"] = df["target"].astype(float).astype(int)
+    return df
+
+
 def emit_codebook(dataset: str, df: pd.DataFrame, out_path: Path) -> pd.DataFrame:
     """Create codebook CSV for a dataset with types, perturbable flag, and missingness."""
     meta = CODEBOOK_META[dataset]
@@ -307,6 +432,9 @@ def main(force_download: bool = False) -> dict[str, Any]:
         "hmeq": load_raw_hmeq,
         "sgcs": load_raw_sgcs,
         "taiwan": load_raw_taiwan,
+        "bank": load_raw_bank,
+        "adult": load_raw_adult,
+        "heart": load_raw_heart,
     }
 
     manifest: dict[str, Any] = {}

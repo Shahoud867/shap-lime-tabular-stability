@@ -1,0 +1,18 @@
+variable,type,description,unit,transformation,perturbable,cost_exposure_role,missing_count,missing_pct
+age,continuous,Client age,years,median_impute + standard_scale,True,none,0,0.0
+job,categorical,Type of job,category,mode_impute + one_hot_encode,False,none,0,0.0
+marital,categorical,Marital status,category,mode_impute + one_hot_encode,False,none,0,0.0
+education,categorical,Education level,category,mode_impute + one_hot_encode,False,none,0,0.0
+default,categorical,Has credit in default,category,mode_impute + one_hot_encode,False,none,0,0.0
+balance,continuous,Average yearly bank balance,EUR,median_impute + standard_scale,True,none,0,0.0
+housing,categorical,Has housing loan,category,mode_impute + one_hot_encode,False,none,0,0.0
+loan,categorical,Has personal loan,category,mode_impute + one_hot_encode,False,none,0,0.0
+contact,categorical,Contact communication type,category,mode_impute + one_hot_encode,False,none,0,0.0
+day,ordinal,Last contact day of month,day,median_impute + standard_scale,False,none,0,0.0
+month,categorical,Last contact month of year,month,mode_impute + one_hot_encode,False,none,0,0.0
+duration,continuous,Last contact duration,seconds,median_impute + standard_scale,True,none,0,0.0
+campaign,continuous,Number of contacts during campaign,count,median_impute + standard_scale,True,none,0,0.0
+pdays,continuous,Days since client last contacted (-1=uncontacted),days,median_impute + standard_scale,True,none,0,0.0
+previous,continuous,Number of contacts before campaign,count,median_impute + standard_scale,True,none,0,0.0
+poutcome,categorical,Outcome of previous marketing campaign,category,mode_impute + one_hot_encode,False,none,0,0.0
+target,binary_target,"Default / bad credit indicator (1=default, 0=non-default)",binary,standardized to 1=default,False,target,0,0.0

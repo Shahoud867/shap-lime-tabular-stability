@@ -25,7 +25,7 @@
   },
   "taiwan": {
     "name": "Default of Credit Card Clients (Taiwan, UCI ID 350)",
-    "source_url": "https://www.openml.org/d/42477",
+    "source_url": "openml://42477",
     "raw_file": "data\\raw\\taiwan_default.csv",
     "sha256": "febb7438e64468a5fb175ace36bc4f718a1cc11c22555beced7bdedfc6d32a21",
     "license": "CC BY 4.0 (UCI Machine Learning Repository, DOI: 10.24432/C55S3H; OpenML ID 42477)",
@@ -33,6 +33,42 @@
     "rows": 30000,
     "features": 23,
     "positive_rate": 0.2212,
+    "total_missing_cells": 0
+  },
+  "bank": {
+    "name": "Bank Marketing (UCI / OpenML ID 1461)",
+    "source_url": "https://www.openml.org/d/1461",
+    "raw_file": "data\\raw\\bank_marketing.csv",
+    "sha256": "af53b8521e2e571402dcf7d91309b16de3b3179fe5bfe9909d9737992b118750",
+    "license": "CC BY 4.0 (UCI ML Repository / OpenML ID 1461)",
+    "source_ref": "Moro, Cortez & Rita (2014), Decision Support Systems; OpenML ID 1461",
+    "rows": 45211,
+    "features": 16,
+    "positive_rate": 0.116985,
+    "total_missing_cells": 0
+  },
+  "adult": {
+    "name": "Adult Census Income (UCI / OpenML ID 1590)",
+    "source_url": "https://www.openml.org/d/1590",
+    "raw_file": "data\\raw\\adult_income.csv",
+    "sha256": "d273d956c28eba72241f69dcbb78e37e93862248503a1873fb44b9fc2a6ae00b",
+    "license": "CC BY 4.0 (UCI ML Repository / OpenML ID 1590)",
+    "source_ref": "Kohavi (1996), KDD; OpenML ID 1590",
+    "rows": 48842,
+    "features": 14,
+    "positive_rate": 0.239282,
+    "total_missing_cells": 6465
+  },
+  "heart": {
+    "name": "Heart Disease Comprehensive (OpenML ID 43682)",
+    "source_url": "https://www.openml.org/d/43682",
+    "raw_file": "data\\raw\\heart_disease.csv",
+    "sha256": "55c17bcedcd0962cdd1c6e12ffb3791f91788b1b96f8717f0551ade11b2f942a",
+    "license": "CC0: Public Domain (OpenML ID 43682)",
+    "source_ref": "Siddhartha (2020), Heart Disease Dataset Comprehensive; OpenML ID 43682",
+    "rows": 1190,
+    "features": 11,
+    "positive_rate": 0.528571,
     "total_missing_cells": 0
   }
 }
