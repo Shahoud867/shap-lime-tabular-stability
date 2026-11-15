@@ -1,0 +1,566 @@
+Business Research Methods / Research Methods                                  Assignment 3: Research Paper
+
+
+
+                                               ASSIGNMENT 3
+                                 Research Paper: Guidelines & Deliverables
+
+  Total Marks              100                            Deadline           Saturday, 21 November
+                                                                             2026, 11:59 PM
+  Group Size               2–3 members                    Extension          Not allowed
+  Paper Format             IEEE LaTeX (Overleaf)          Similarity / AI    Below 15%
+                                                          Limit
+
+
+Overview
+Every group submits one publishable-quality research paper written in IEEE LaTeX format, by
+Saturday, 21 November 2026, 11:59 PM, together with its analysis files and a live presentation
+(demo). The assignment carries 100 marks and is the foundation of your semester project.
+You choose one of three paper types: a Systematic Literature Review (SLR), a Survey (review) paper,
+or an Empirical paper. The paper type changes how you build your argument, but every group still has
+to show a research gap, a novel contribution, its own analysis, results and a demo.
+Rules that apply to every group:
+    •    Base paper: a Q1/Q2 journal paper published in 2025 or 2026. Conference papers, arXiv/SSRN
+         and other preprints are not accepted as the base paper. Verify the quartile on SCImago (SJR) or
+         Web of Science JCR and keep a screenshot.
+    •    Other references: papers from the last 5 years (2021–2026) may be cited in the Introduction,
+         Literature Review and Discussion. Older works only if they are foundational (e.g., the original
+         paper of a theory you build on, such as the Technology Acceptance Model or the Theory of
+         Planned Behaviour).
+    •    Data: test your model on your own data plus at least one more relevant sample or dataset.
+         Where the base paper's data is publicly available, use it as well. SLR/Survey groups: your
+         literature corpus counts as your dataset (see Tracks A and B).
+    •    Analysis tools: any suitable statistical or qualitative tool (e.g., SPSS, SmartPLS, AMOS, R,
+         Python, Stata, NVivo). Script-based tools are preferred (see Section 6.3). The paper must be
+         written in LaTeX on Overleaf with the IEEE template; Word or other formats are not accepted.
+    •    Integrity: plagiarism or AI-generated content above 15% = zero marks. No deadline extension.
+The goal is to move beyond replication: read critically, find what is missing, and contribute something
+new that a journal or conference reviewer would accept.
+
+
+
+
+                                                 Page 1 of 11
+Business Research Methods / Research Methods                                     Assignment 3: Research Paper
+
+
+
+Choosing Your Paper Track
+Pick the track that matches what your base paper and your gap allow you to contribute.
+                                   Table 1: Comparison of paper tracks
+
+
+                       Track A: SLR                   Track B: Survey           Track C: Empirical
+                                                                                Study
+                                                                                 Does the base paper's
+                       What does the evidence         How is a whole area
+                                                                                 model hold, and can an
+ Core question         say about a focused            organised, and where is it
+                                                                                 extended model explain
+                       research question?             heading?
+                                                                                 more?
+                       Reproducible review            Original taxonomy +       Extended conceptual
+ Main
+                       protocol + synthesis +         comparative analysis +    model
+ contribution
+                       research agenda                open challenges           + hypothesis testing +
+                                                                                robustness checks
+                       Anchor study whose             Most recent review or key
+                                                                                Model you replicate and
+ Base paper role       scope/method your SLR          work your survey goes
+                                                                                extend
+                       extends                        beyond
+ Literature            40–80 primary studies
+                                                      60–100 references         25–40 references
+ volume                included after screening
+                       Bibliometric/meta-             Comparative analysis of   Full data collection and
+                       analysis pipeline + small      3+ competing models or    analysis of the base and
+ Analysis part
+                       pilot validation of the        approaches on common      extended models +
+                       proposed framework             data                      robustness checks
+ Typical length
+                       10–14 pages                    12–16 pages               8–10 pages
+ (IEEE 2-
+ column)
+                                                                               Base paper has a clear
+                       Your topic has many            Your topic is broad and
+                                                                               model, a validated
+ Good fit if           empirical studies with         existing reviews are
+                                                                               questionnaire and a
+                       mixed results                  outdated (pre-2024)
+                                                                               testable weakness
+Important: SLR and Survey groups are still bound by Part B of the original assignment. Your
+"analysis" is a bibliometric study, pilot study or comparative analysis that produces your own results, a
+robustness/sensitivity analysis and 400 DPI figures (details in Tracks A and B).
+
+Requirements Common to Every Paper
+
+Whatever the track, a reviewer looks for three things first: a clear contribution in the Introduction, a
+gap-based literature table, and professional figures. These are mandatory.
+
+(a) Novelty and contributions at the end of the Introduction
+The last part of the Introduction must state, in this order:
+    1. Research gap: 2–3 sentences on what the base paper and recent literature leave unsolved.
+    2. Novelty: one short paragraph on what is new in your work and how it differs from the base
+       paper.
+    3. Contributions: a numbered list of 3–5 specific, verifiable contributions. Each starts with a verb
+       and, where possible, a number.
+    4. Paper organisation: one paragraph: "The rest of this paper is organised as follows. Section II"
+                                                   Page 2 of 11
+Business Research Methods / Research Methods                                                 Assignment 3: Research Paper
+
+
+(b) Gap-based literature review table
+The Literature Review section must end with a comparison table built around limitations and gaps, not
+just summaries. Every row is one study; the last row is your work, showing which gaps it closes. A
+sample layout is given in Table 2.
+                            Table 2: Sample gap-based literature review table
+
+                        Theory /           Context /            Sample /     Key               Limitations / Research
+ Ref.           Year
+                        Method             Industry             Data         findings          gap
+                                                                312
+                        e.g., TAM +        Retail banking,                   R² = 0.61 for     Single country; cross-
+ [5]            2025                                            customers
+                        PLS-SEM            Pakistan                          intention         sectional design
+                                                                (survey)
+                                                                             Digital
+                        e.g., RBV +        Manufacturing        120 firms,                     No mediating mechanism
+ [8]            2024                                                         capability
+                        panel regression   SMEs                 2015–2022                      tested
+                                                                             raises ROA
+ …              …       …                  …                    …            …                 …
+ Proposed       2026    Your study         …                    …            …                 Gaps addressed: G1, G3
+
+
+
+Include 10–15 recent studies (2021–2026), with the base paper among them. SLR and Survey groups
+may split it into one table per theme or RQ. Follow the table with a short paragraph that names the gaps
+(G1, G2, …) your paper addresses.
+
+(c) Figures and diagrams
+       •   Required diagrams: a conceptual framework (research model) diagram and a methodology /
+           research-design flowchart in every paper; a case-study diagram where applicable. SLR papers
+           also need the PRISMA diagram; surveys need the taxonomy figure.
+       •   Results figures: graphs comparing base vs. proposed results, robustness checks and
+           (SLR/Survey) bibliometric trends, wherever results exist.
+       •   Draw them yourself with professional tools: draw.io / diagrams.net, Microsoft Visio,
+           Lucidchart, PowerPoint/Inkscape (vector), or TikZ in LaTeX. Plots must be generated from
+           your own analysis (e.g., R/ggplot2, Python/Matplotlib, Stata, VOSviewer, pgfplots).
+       •   No AI-generated images. Images produced by ChatGPT, DALL·E, Midjourney, Gemini or
+           similar tools are not accepted and count as AI-generated content. Images copied from papers or
+           the internet are not allowed either, unless redrawn and cited as "Adapted from [n]".
+       •   Resolution: export at 400 DPI or higher (PNG/TIFF), or as vector PDF/SVG/EPS, which stays
+           sharp at any size.
+       •   Readability: all text in the figure must be readable when printed at column width (minimum
+           ~8 pt font after scaling); no blurry screenshots, no tiny labels, no overlapping text. SPSS,
+           SmartPLS or AMOS output must be turned into proper tables and figures, not pasted as
+           screenshots.
+       •   Professional style: consistent fonts and colours across all figures, white background, labelled
+           axes with units, legends, no 3D charts or decorative clip-art. Keep the editable source
+           (.drawio,
+           .vsdx, .R, .py) for the demo.
+       •   Every figure has a numbered caption and is referred to in the text before it appears.
+
+
+
+
+                                                       Page 3 of 11
+Business Research Methods / Research Methods                                  Assignment 3: Research Paper
+
+
+
+Final Deliverables
+Everything is due by Saturday, 21 November 2026, 11:59 PM. The deadline will not be extended.
+    1. Paper (PDF) in IEEE LaTeX format, named i22-xxxx_REPORT_SECTION.pdf, with the
+       Overleaf source as a .zip.
+    2. Analysis files: complete scripts or project files (R/Python notebook, SPSS syntax,
+       SmartPLS/AMOS project, or a .zip) named i22-xxxx_SECTION.ipynb (or i22-
+       xxxx_SECTION.zip), with a dependency file, the anonymised dataset and codebook, the
+       questionnaire or interview guide, and the editable sources of your diagrams.
+    3. Plagiarism + AI report (must be below 15%).
+    4. Live demo and viva after submission (slots will be announced); all members participate.
+
+
+Marks: paper 70 + analysis files 15 + demo 15 = 100.
+File naming: use the roll number of the group leader, e.g., i22-1234_REPORT_A.pdf and i22-
+1234_A.ipynb. The README (or a notebook's first cell) and the first page of the paper must list all
+members' names and roll numbers.
+Overleaf access: share the Overleaf project (view link) with the instructor. The edit history is used to
+confirm that all members contributed.
+
+
+Track A: Systematic Literature Review (SLR)
+An SLR answers 3–5 focused research questions using a protocol that another researcher could repeat
+and get the same set of papers. Follow the Tranfield, Denyer and Smart (2003) guidelines for systematic
+reviews in management research and report screening with the PRISMA 2020 flow diagram and
+checklist.
+
+Required Method Steps
+
+    1. Research questions (RQs): 3–5 RQs, framed with PICOC (Population, Intervention,
+       Comparison, Outcome, Context). Example: RQ1: Which theories are used to explain fintech
+       adoption among SMEs (2021–2026)? RQ2: Which research designs, samples and measures are
+       used to test them?
+    2. Search strategy: at least 4 databases (e.g., Scopus, Web of Science, EBSCO Business Source
+       Complete, ScienceDirect, Emerald Insight, SpringerLink, JSTOR, ProQuest). Report the exact
+       Boolean search string per database, the date searched and hit counts.
+    3. Inclusion/Exclusion criteria (IC/EC): a table, e.g., IC1 peer-reviewed journal or conference,
+       IC2 published 2021–2026, EC1 non-English, EC2 no empirical evidence, EC3 short papers
+       under 4 pages.
+    4. Screening: title/abstract → full text → snowballing (backward and forward). At least two
+       members screen independently; report agreement with Cohen's kappa.
+    5. Quality assessment (QA): 5–8 QA questions scored 0 / 0.5 / 1; drop studies below a stated
+       threshold.
+    6. Data extraction: a form (spreadsheet) with fields such as year, journal, theory,
+       country/industry, research design, sample size, measures, key findings, limitations. Submit it
+       as a supplementary file.
+    7. Synthesis: quantitative (counts, trends, meta-analysis where effect sizes are comparable) and
+       qualitative (thematic analysis) answers to each RQ.
+
+                                               Page 4 of 11
+Business Research Methods / Research Methods                                   Assignment 3: Research Paper
+
+
+Analysis Component (counts as Part B)
+
+    •    Build a bibliometric analysis of your exported corpus (Scopus/WoS CSV or BibTeX), e.g.,
+         with VOSviewer, Bibliometrix (R) or Python: publication trend per year, top journals, keyword
+         co-occurrence network, author collaboration, and topic modelling (LDA or BERTopic).
+    •    Sensitivity analysis: show how findings change when you vary the protocol, e.g., removing
+         one database, tightening the QA threshold, or excluding snowballed papers. Report which
+         conclusions are robust.
+    •    Pilot validation: test the framework your SLR proposes with a small pilot study (e.g., 5–8
+         expert interviews or a pilot survey of at least 30 respondents), and compare the outcome with
+         the base paper's findings.
+
+Paper Outline (IEEE)
+
+    1. Title, Abstract (200–250 words), Index Terms (4–6 keywords)
+    2. Introduction: motivation, why an SLR is needed now, comparison table with existing reviews
+       (including the base paper), list of contributions, paper organisation
+    3. Theoretical Background: key concepts and theories relevant to the RQs (keep it to 1 page)
+    4. Research Methodology: RQs, search strategy, IC/EC table, PRISMA flow diagram, QA
+       criteria, extraction form, threats-to-validity plan
+    5. Bibliometric Results: trend plots, journal/keyword/topic analyses (400 DPI)
+    6. Results by Research Question: one subsection per RQ with tables and figures
+    7. Proposed Framework / Taxonomy: your synthesised conceptual framework with its diagram
+       and numbered propositions, plus pilot validation results vs. the base paper
+    8. Practical Implications and Case Study: where the framework applies; one detailed case study
+    9. Sensitivity Analysis: robustness of findings to protocol changes
+    10. Research Gaps and Future Directions: gap table: gap, evidence (which studies), proposed
+        direction
+    11. Threats to Validity: construct, internal, external, conclusion validity
+    12. Conclusion
+    13. References (IEEE style)
+
+
+Minimum figures/tables: PRISMA diagram, IC/EC table, QA table, extraction summary table, 3+
+bibliometric plots, gap table, framework diagram, propositions table.
+
+
+Track B: Survey Paper
+A survey (review) paper organises a whole area into an original taxonomy, compares approaches
+critically, and sets out open challenges. Unlike an SLR, the search need not be fully protocol-driven,
+but you must state your scope and how papers were selected. A survey that only summarises papers one
+by one will be marked as a literature review, not a survey.
+
+What Makes It Publishable
+
+    •    Novel taxonomy: your own classification of the area (e.g., by theory, level of analysis, research
+         design, industry or region), drawn as a hierarchical figure. It must differ from taxonomies in
+         existing reviews and you must say how.
+    •    Comparison with existing reviews: a table of 6–10 recent review papers (2021–2026) against
+                                               Page 5 of 11
+Business Research Methods / Research Methods                                 Assignment 3: Research Paper
+
+
+         criteria such as scope, years covered, taxonomy, empirical comparison, future directions. Your
+         survey must tick boxes the others miss.
+    •    Critical comparative tables: for each taxonomy branch, compare studies on theory, context,
+         research design, sample, measures, key findings and limitations.
+    •    Lessons learned at the end of each major section, and a consolidated open challenges and
+         future directions section.
+
+Analysis Component (counts as Part B)
+
+    •    Comparative analysis: test 3 or more competing models or approaches from different branches
+         of your taxonomy on the same dataset, using the same criteria. Examples: TAM vs. UTAUT
+         vs. TPB on one survey dataset (R², Q², model fit); three measures of firm performance on one
+         secondary dataset; pooled OLS vs. fixed-effects vs. random-effects on one panel dataset.
+    •    Proposed improvement: a small, clearly novel extension of the best-performing model (e.g.,
+         an added construct, mediator or moderator), with a robustness analysis of each added
+         component.
+    •    Bibliometric support: publication trend and keyword map of your corpus to justify the
+         taxonomy.
+
+Paper Outline (IEEE)
+
+    1. Title, Abstract, Index Terms
+    2. Introduction: motivation, scope, comparison table with existing reviews (base paper
+       included), contributions, organisation figure
+    3. Survey Methodology: databases, keywords, period, selection criteria, number of papers (a
+       short PRISMA-style figure is recommended)
+    4. Theoretical Background: concepts and theories needed for the taxonomy
+    5. Proposed Taxonomy: taxonomy figure and explanation of each dimension
+    6. Review by Taxonomy Category: one section per branch with comparison tables and lessons
+       learned
+    7. Comparative Analysis and Proposed Extension: setup, research-design diagram, model
+       equations, results vs. base paper (400 DPI)
+    8. Robustness / Sensitivity Analysis
+    9. Practical Implications and Case Study
+    10. Open Challenges and Future Research Directions
+    11. Conclusion
+    12. References (60–100, IEEE style)
+
+
+Minimum figures/tables: taxonomy figure, existing-review comparison table, 1 comparison table per
+taxonomy branch, comparative results tables + plots, robustness table, research-design diagram,
+challenges table.
+
+
+Track C: Empirical Study
+An empirical paper shows, with your own data, that an extended model improves on a 2025/2026 Q1/Q2
+base paper. Quantitative or mixed-methods designs are accepted. The paper must contain both Part A
+(research) and Part B (analysis) of the original assignment.
+
+                                               Page 6 of 11
+Business Research Methods / Research Methods                                   Assignment 3: Research Paper
+
+
+Required Work
+
+    1. Replicate the base paper's model: adapt its measurement instrument (with citations for every
+       scale), collect your own data and estimate the same model. Report your results next to the
+       published ones and explain any difference (context, sample, time period, estimation method).
+    2. Identify gaps in the base paper and in the literature review: a gap table (gap → evidence →
+       how you address it).
+    3. Propose an extended model that addresses at least one gap. Novelty must be real: a new
+       construct, mediator or moderator, a new theoretical combination, or a new method, not only re-
+       running the same model in a different country or sample.
+    4. Evaluate base vs. extended model on your main sample and at least one additional sample or
+       dataset (e.g., a second respondent group, a secondary dataset, or the base paper's public data),
+       using the same criteria (reliability, validity, path coefficients, R², model fit) plus any new ones
+       you justify.
+    5. Robustness analysis: remove or change each added component of your model one at a time
+       (nested model comparison) and report the effect in a table and a plot. Add at least one alternative
+       specification or subsample check.
+    6. Statistical rigour: justify the sample size (e.g., an a priori power analysis in G*Power); report
+       reliability (Cronbach's α, composite reliability), validity (AVE, HTMT) and a common method
+       bias check; use bootstrapped confidence intervals (e.g., 5,000 resamples) for indirect effects;
+       state the significance level used.
+    7. Research ethics: informed consent, anonymity and voluntary participation for all primary data;
+       keep the consent form for submission.
+    8. Practical implications and a detailed case study in a real business setting (an organisation,
+       sector or management decision).
+
+
+Paper Outline (IEEE)
+
+    1. Title, Abstract (150–250 words), Index Terms
+    2. Introduction: problem, motivation, base paper summary with citation, research gap, numbered
+       contributions, paper organisation
+    3. Literature Review and Hypotheses Development: grouped by theme, each hypothesis
+       justified, ending in a comparison table of 10–15 recent studies and the gaps they leave
+    4. Theoretical Background: underpinning theory and a construct definitions table
+    5. Conceptual Model and Research Design: conceptual model diagram, research-design
+       flowchart, numbered hypotheses (H1, H2, …), model equations, sampling, instrument (source
+       of each scale) and data collection procedure
+    6. Base vs. Extended Model Comparison: a side-by-side table of constructs, logic and research
+       design
+    7. Data and Analysis Setup: sample profile table, data screening (missing values, outliers,
+       normality), software and version, estimation settings, evaluation criteria with formulas and
+       thresholds
+    8. Results and Discussion: measurement model, structural model, and tables and 400 DPI plots
+       comparing base vs. extended model on every sample; explain why the results come out as they
+       do
+    9. Robustness Analysis: table + plot of each model variant
+
+                                               Page 7 of 11
+Business Research Methods / Research Methods                                   Assignment 3: Research Paper
+
+
+    10. Practical Implications and Case Study: scenario diagram and step-by-step walkthrough
+    11. Limitations and Threats to Validity
+    12. Conclusion and Future Work
+    13. References (IEEE style)
+
+
+Minimum figures/tables: conceptual model diagram, research-design flowchart, case-study diagram,
+numbered hypotheses, model equations, sample profile table, base-vs-extended comparison table,
+measurement and structural model tables, hypotheses results table, 3+ result plots, robustness table +
+plot.
+
+Analysis Tools and Files (All Tracks)
+
+    •    Tools: any that suit your design, e.g., SPSS, SmartPLS, AMOS, R (lavaan, seminr), Python
+         (statsmodels, semopy), Stata, NVivo or ATLAS.ti for qualitative data. Justify the choice in the
+         Data and Analysis Setup.
+    •    Script-based analysis is preferred (R, Python or SPSS syntax), so that results can be
+         reproduced. If you use a menu-driven tool such as SmartPLS or AMOS, submit the project file
+         and record every setting.
+    •    Report the analysis configuration in a table: sample size, response rate, estimation method,
+         missing-data treatment, number of bootstrap resamples, software and version, significance
+         level.
+    •    File structure mirrors the paper: data cleaning → base model → extended model →
+         robustness checks → plots.
+    •    Reproducibility: fixed random seed for bootstrapping and sampling; a dependency file
+         (requirements.txt, renv.lock, etc.); a README with run steps, group members' names and roll
+         numbers.
+    •    Data: submit the anonymised dataset with a codebook (variable names, items, scales). Never
+         include names, phone numbers or other identifying details of respondents.
+    •    Comments: every script section documented; non-obvious steps commented.
+    •    Plots exported at 400 DPI or higher (e.g., plt.savefig("fig.png", dpi=400, bbox_inches="tight")
+         or ggsave("fig.png", dpi=400)) and the same files used in the paper.
+    •    Whatever the tools, the report must be written in LaTeX (Overleaf, IEEEtran).
+
+
+IEEE LaTeX Format
+All papers use the official IEEEtran class on Overleaf: \documentclass[journal]{IEEEtran} for
+Survey/SLR papers aimed at journals, or \documentclass[conference]{IEEEtran} for Track C papers.
+On Overleaf, start from New Project →Templates → "IEEE Bare Demo Template for
+Journals/Conferences". Do not change margins, fonts or column layout.
+Formatting rules:
+    •    Figures: vector (PDF/EPS) or PNG at 400 DPI; axis labels and legends readable at column
+         width; caption below the figure. Use figure* for full-width figures.
+    •    Tables: caption above the table; use booktabs (\toprule, \midrule, \bottomrule), no vertical
+         lines; bold the best result.
+    •    Equations: numbered with equation/align; define every symbol once; keep a notation table if
+         there are more than 10 symbols.
+    •    Hypotheses and propositions: numbered (H1, H2, … or P1, P2, …), each stated once in the
+                                               Page 8 of 11
+Business Research Methods / Research Methods                                       Assignment 3: Research Paper
+
+
+         text and summarised in a results table (supported / not supported).
+    •    Cross-referencing: every figure, table and equation has a \label{} and is referred to in the
+         text with Fig.~\ref{}, Table~\ref{} or Eq.~\eqref{} before it appears.
+    •    References: BibTeX only (references.bib), IEEE numbered style [1]. Export BibTeX from the
+         publisher or Google Scholar and check every entry (authors, volume, pages, DOI). No
+         Wikipedia, blogs or Medium posts as citations.
+    •    Writing style: formal, third person or "we", past tense for what you did, present tense for what
+         the results show. Acronyms defined at first use.
+    •    Length: stay within the page range for your track (Section 2); appendices allowed for extra
+         tables and the questionnaire.
+
+
+Academic Integrity, Referencing and AI Use
+Any report with plagiarism or AI-generated content above 15% receives zero marks, for the whole
+group. Run your own check before submitting and attach the report.
+    •    Similarity check: Turnitin (or the tool the department provides). Exclude the bibliography
+         only; everything else counts.
+    •    Write in your own words. Paraphrasing a paper sentence by sentence is still plagiarism. Read,
+         close the paper, then write what you understood, and cite it.
+    •    Cite everything you use: ideas, figures, datasets, questionnaire scales, code and equations. A
+         figure adapted from a paper needs "Adapted from [n]" in the caption.
+    •    AI tools: may be used only for grammar checks, LaTeX debugging and code debugging. They
+         must not write sections of the paper, invent references or generate results. Declare any use in
+         an Acknowledgment line.
+    •    Fake or unverifiable references (a common AI error) are treated as fabrication: zero marks.
+         Every reference must have a working DOI or publisher link.
+    •    Results must come from your own data and analysis. Copying numbers from another paper
+         as your own results, or inventing or altering survey responses, is fabrication.
+    •    Contribution statement: add a short CRediT-style paragraph at the end of the paper stating
+         what each member did. Members unable to explain their part in the demo may be marked
+         individually.
+
+
+Grading Rubric and Submission Checklist
+The paper is worth 70 of the 100 marks and is graded on the criteria in Table 3; analysis files (15) and
+demo (15) make up the rest.
+                              Table 3: Grading rubric for the paper (70 marks)
+
+
+ Criterion (paper)                Marks Track A: SLR               Track B: Survey      Track C:
+                                                                                        Empirical
+ Introduction with gap,                        Need for the SLR,   Comparison           Base paper
+ novelty and numbered                8         comparison with
+                                                                   with existing        summary and clear
+ contributions at its end                      existing reviews    reviews              gap
+
+ Literature review with                        Protocol,           Coverage and        Hypotheses
+ gap-based comparison                10        PRISMA, QA,         critical comparison development and
+ table                                         extraction          tables              gap table
+
+                                                    Page 9 of 11
+Business Research Methods / Research Methods                                           Assignment 3: Research Paper
+
+
+
+ Novelty and
+ methodology                                   Synthesised          Original taxonomy Extended
+ (conceptual model,                  14        framework +          + proposed model model,
+ research-design                               pilot validation     extension         research
+ flowchart,                                                                           design,
+ hypotheses/propositions,                                                             instrument
+ equations)
+ Results, result graphs and          14        RQ answers +         Comparative             Base vs. extended
+ comparison with base paper                    bibliometric         analysis results        model on 2+
+                                               plots                                        samples
+
+ Robustness / sensitivity                                                                   Nested models and
+                                     7         Protocol sensitivity Extension               alternative
+ analysis
+                                                                    robustness              specifications
+ Practical implications and          6         Applied              Applied                 Applied
+ case study                                    business             business                business
+                                               scenario             scenario                scenario
+ Discussion,                         5         Threats to validity, Open challenges         Limitations,
+ limitations,                                  research agenda                              future work
+ conclusion
+ Figure quality and IEEE
+ formatting (self-drawn,             6         All tracks           All tracks              All tracks
+ readable, 400+ DPI;
+ BibTeX; cross-
+ references)
+ Total                               70
+
+
+Analysis files (15): run end to end (6), comments and structure (5), reproducibility: seeds, dependency
+file, anonymised data and codebook, saved figures (4).
+Demo (15): live run (6), individual viva answers (6), time management and clarity (3).
+
+Submission Checklist
+
+Tick each item before submitting.
+
+ No.      Item                                                                                           Done
+   1      Base paper is a Q1/Q2 journal paper from 2025 or 2026 (quartile proof attached)                   ☐
+   2      All members' names and roll numbers on page 1 of the paper and in the README                      ☐
+   3      Paper uses the IEEEtran template, unchanged                                                       ☐
+   4      Abstract states the problem, method and key numeric results                                       ☐
+   5      Introduction ends with gap, novelty, numbered contributions and paper                             ☐
+          organisation
+          Literature review ends with a gap-based comparison table, with the proposed work
+   6                                                                                                        ☐
+          as the last row
+          Conceptual model diagram, research-design flowchart and (where applicable)
+   7                                                                                                        ☐
+          case-study diagram included
+                                                    Page 10 of 11
+Business Research Methods / Research Methods                                 Assignment 3: Research Paper
+
+
+
+   8      Numbered hypotheses or propositions and model equations in the methodology              ☐
+   9      Base vs. proposed comparison table and result graphs included                           ☐
+   10     Robustness / sensitivity analysis with table and plot                                   ☐
+   11     At least one detailed case study                                                        ☐
+          All figures self-drawn (draw.io/Visio/TikZ/plotting code), not AI-generated,
+   12                                                                                             ☐
+          readable, 400 DPI or higher
+   13     Every figure, table and equation referenced in the text                                 ☐
+   14     Every reference has a DOI or working link; BibTeX in IEEE style                         ☐
+   15     Plagiarism + AI report below 15%, attached                                              ☐
+          Files named i22-xxxx_REPORT_SECTION.pdf and i22-xxxx_SECTION.ipynb
+   16     (or .zip), plus Overleaf source .zip, dependency file, anonymised data with             ☐
+          codebook, questionnaire and diagram sources
+   17     Analysis runs end to end on a fresh setup following the README                          ☐
+   18     Informed consent obtained and documented (primary data only)                            ☐
+   19     Contribution statement for each member included                                         ☐
+
+
+
+
+                                               Page 11 of 11
+
