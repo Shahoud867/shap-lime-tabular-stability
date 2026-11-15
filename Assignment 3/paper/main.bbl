@@ -114,6 +114,30 @@ G.~Mikriukov, G.~Montavon, and M.~M.-C. H{\"o}hne, ``Uncertainty gating for
   \url{https://arxiv.org/abs/2603.29915}
 \BIBentrySTDinterwordspacing
 
+\bibitem{vanschoren2014}
+J.~Vanschoren, J.~N. van Rijn, B.~Bischl, and L.~Torgo, ``{OpenML}: networked
+  science in machine learning,'' \emph{ACM SIGKDD Explorations Newsletter},
+  vol.~15, no.~2, pp. 49--60, 2014.
+
+\bibitem{zhou2021}
+Z.~Zhou, G.~Hooker, and F.~Wang, ``{S-LIME}: Stabilized-{LIME} for model
+  explanation,'' in \emph{Proceedings of the 27th ACM SIGKDD Conference on
+  Knowledge Discovery \& Data Mining}, 2021, pp. 2429--2438.
+
+\bibitem{kelodjou2024}
+G.~Kelodjou, L.~Roz{\'e}, V.~Masson, L.~Gal{\'a}rraga, R.~Gaudel, M.~Tchuente,
+  and A.~Termier, ``Shaping up {SHAP}: Enhancing stability through layer-wise
+  neighbor selection,'' in \emph{Proceedings of the AAAI Conference on
+  Artificial Intelligence}, vol.~38, no.~12, 2024, pp. 13\,094--13\,103.
+
+\bibitem{pala2024}
+\BIBentryALTinterwordspacing
+R.~Pala and E.~Garc{\'i}a-Cuesta, ``Combination of weak learners explanations
+  to improve random forest explicability robustness,'' arXiv preprint
+  arXiv:2402.19025, 2024, preprint. [Online]. Available:
+  \url{https://arxiv.org/abs/2402.19025}
+\BIBentrySTDinterwordspacing
+
 \bibitem{sgcs2019}
 \BIBentryALTinterwordspacing
 {UCI Machine Learning Repository}, ``{South German Credit},'' UCI Machine
@@ -148,22 +172,11 @@ A.~O. Alkan, ``Class imbalance strategies, calibration, and explanation
   \emph{Journal of Expert Systems and Sustainable Development}, vol.~2, no.~1,
   pp. 247--268, 2026.
 
-\bibitem{kelodjou2024}
-G.~Kelodjou, L.~Roz{\'e}, V.~Masson, L.~Gal{\'a}rraga, R.~Gaudel, M.~Tchuente,
-  and A.~Termier, ``Shaping up {SHAP}: Enhancing stability through layer-wise
-  neighbor selection,'' in \emph{Proceedings of the AAAI Conference on
-  Artificial Intelligence}, vol.~38, no.~12, 2024, pp. 13\,094--13\,103.
-
 \bibitem{nnadi2026}
 L.~C. Nnadi, C.~P. Isiwu, M.~M. Rahman, A.~M. John-Otumu, and Y.~Watanobe,
   ``The stability collapse in local explainability: Benchmarking {H-LIME} on
   high-dimensional data,'' \emph{IEEE Access}, vol.~14, pp. 101\,708--101\,725,
   2026.
-
-\bibitem{zhou2021}
-Z.~Zhou, G.~Hooker, and F.~Wang, ``{S-LIME}: Stabilized-{LIME} for model
-  explanation,'' in \emph{Proceedings of the 27th ACM SIGKDD Conference on
-  Knowledge Discovery \& Data Mining}, 2021, pp. 2429--2438.
 
 \bibitem{visani2022}
 G.~Visani, E.~Bagli, F.~Chesani, A.~Poluzzi, and D.~Capuzzo, ``Statistical
@@ -194,14 +207,6 @@ A.~Tolay, ``Beyond detection accuracy: Measuring explanation cost, stability,
   and utility for resource-aware {IoT} intrusion detection,'' arXiv preprint
   arXiv:2608.10349, 2026, preprint. [Online]. Available:
   \url{https://arxiv.org/abs/2608.10349}
-\BIBentrySTDinterwordspacing
-
-\bibitem{pala2024}
-\BIBentryALTinterwordspacing
-R.~Pala and E.~Garc{\'i}a-Cuesta, ``Combination of weak learners explanations
-  to improve random forest explicability robustness,'' arXiv preprint
-  arXiv:2402.19025, 2024, preprint. [Online]. Available:
-  \url{https://arxiv.org/abs/2402.19025}
 \BIBentrySTDinterwordspacing
 
 \bibitem{khan2024}

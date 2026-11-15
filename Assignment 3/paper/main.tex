@@ -39,7 +39,7 @@ i232634@nu.edu.pk}
 \maketitle
 
 \begin{abstract}
-Local explainers such as SHAP and LIME underpin adverse-action reason codes in consumer credit scoring, yet minor input measurement noise can alter top-ranked attributions even when predicted default risk barely shifts. Extending the retraining benchmark of Ballegeer et al.\ (2025) across logistic regression, random forests, XGBoost, and instance-dependent cost-sensitive (\texttt{cslogit}, \texttt{csboost}) models on HMEQ, South German Credit (SGCS), and Taiwan Default, we unify across-refit replication with a fixed-model, prediction-preserving ($|\Delta p| \le 0.05$) mechanism and ex-ante fragility framework. Part~1 confirms monotonic instability rises as default prevalence drops ($30\%{\to}1\%$) in $38/40$ ($95.0\%$) cells and higher cost-sensitive instability in $64/80$ ($80.0\%$) comparisons, while variance decomposition proves $95.8\%$--$96.2\%$ of balanced-data LIME refit variance stems from explainer Monte Carlo noise rather than model retraining (vs.\ $4.1\%$--$34.3\%$ for PermutationSHAP). Under fixed models and $5\%$ input noise, exact TreeSHAP flips top-4 reasons in $23.5\%$--$92.3\%$ of prediction-preserving draws whereas LIME is masked beneath its unperturbed $95$th-percentile noise floor ($\bar{q}_{95} \in [0.358, 0.722]$) in $18/18$ cells. Joint regression across $48{,}547$ tree draws proves double dissociation: LIME flips track quantile-bin crossings ($\mathrm{OR}=1.361, p<10^{-8}$) rather than tree splits ($p=0.168$), while disabling discretisation cuts LIME instability by $83.4\%$ (HMEQ) and $82.1\%$ (SGCS). Finally, closed-form, perturbation-free fragility $F(x)$ beats tree-variance baselines on all datasets ($\Delta\mathrm{AUROC}=+0.112$ to $+0.184$) and flags HMEQ rejection \texttt{\#369} ($100\%$ flip rate).
+Local explainers such as SHAP and LIME drive adverse-action notices in consumer credit and tabular AI, yet small input noise can overturn top-ranked attributions while predicted risk barely shifts. Extending Ballegeer et al.\ (2025) across logistic regression, random forests, XGBoost, and cost-sensitive (\texttt{cslogit}, \texttt{csboost}) models on three credit (HMEQ, SGCS, Taiwan) and three OpenML (Bank, Adult, Heart) domains, we unify across-refit replication with fixed-model, prediction-preserving ($|\Delta p|{\le}0.05$) threshold-crossing mechanics and ex-ante fragility prediction. Part~1 confirms monotonic instability growth as prevalence drops ($30\%{\to}1\%$) in $38/40$ ($95.0\%$) cells and higher IDCS instability in $64/80$ ($80.0\%$) tests, while decomposition proves $95.8\%$--$96.2\%$ of balanced-data LIME refit variance stems from Monte Carlo noise rather than retraining. Under frozen credit models and $5\%$ noise, exact TreeSHAP flips top-4 reasons in $23.5\%$--$92.3\%$ of draws, whereas LIME sits beneath its unperturbed noise floor ($\bar{q}_{95}\in[0.358,0.722]$) in $18/18$ cells. Across $48{,}547$ credit and $54{,}194$ non-credit draws, joint regression confirms double dissociation: LIME tracks quantile bins ($\mathrm{OR}{=}1.361$--$1.865$), and disabling discretisation cuts flips by $82.1\%$--$83.4\%$ (credit) and $8.0\,\text{pp}$ (non-credit). Proposition~P2 derives leaf-value-jump fragility $F_{\mathrm{jump}}^{\mathrm{ens}}(x)$, reaching $0.702$ pooled AUROC ($0.238$ AURC) at $2.42\,\text{ms}$ ($N{=}4{,}800$)---beating GPEC ($0.519$) and Epistemic UQ ($0.461$)---while quantile-calibrated $F_{\mathrm{cal}}^{\mathrm{quant}}$ eliminates degenerate LODO folds ($0/6$) with $23.5\%$ risk reduction and zero-fidelity-loss deferral.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -54,19 +54,19 @@ Financial institutions increasingly deploy tree ensembles alongside logistic reg
 
 Building on Ballegeer et al.~\cite{ballegeer2025}, who benchmarked instance-dependent cost-sensitive (IDCS) credit models~\cite{bahnsen2014,vanderschueren2022b} across imbalance rates via LIME and permutation SHAP under bootstrap retraining, we move beyond across-refit turnover. Specifically, Ballegeer et al.\ evaluated retraining rather than fixed-model borrower perturbations, omitted exact TreeSHAP~\cite{lundberg2020}, and left inherent explainer sampling noise unseparated from genuine attribution shifts.
 
-\textbf{Research Gap.} Despite recent XAI stability work~\cite{lin2025shap,bhuiyan2026,qi2026}, existing benchmarks neither isolate explainer Monte Carlo variance from prediction-preserving input instability under frozen credit models nor causally separate tree-split from discretisation-bin crossings, leaving lenders without a calibration-free ex-ante fragility score~\cite{hill2024,mikriukov2026}.
+\textbf{Research Gap.} Despite recent XAI stability work~\cite{lin2025shap,bhuiyan2026,qi2026}, prior studies neither separate explainer Monte Carlo variance from prediction-preserving input instability under frozen models nor causally distinguish tree-split from discretisation-bin crossings, leaving practitioners without a closed-form, zero-tuning fragility gate~\cite{hill2024,mikriukov2026}.
 
-\textbf{Novelty.} Beyond retraining benchmarks~\cite{ballegeer2025}, we contribute: (i) an empirical noise-floor filter ($q_i$) paired with fixed-model, $\tau$-preserving ($0.05$) perturbations; (ii) a double-dissociation and discretisation-ablation test isolating threshold crossings ($C_{\mathrm{tree}}, C_{\mathrm{bin}}$) as the shared mechanism; and (iii) closed-form Gaussian fragility $F(x; s)$ requiring zero perturbations or hold-out calibration. Standard IDCS training~\cite{ballegeer2025,bahnsen2014} and credit datasets~\cite{baesens2016,sgcs2019,yeh2009} are adopted directly.
+\textbf{Novelty.} Beyond retraining benchmarks~\cite{ballegeer2025}, we introduce: (i) an empirical noise-floor filter ($q_i$) with $\tau$-preserving ($0.05$) perturbations; (ii) a double-dissociation and discretisation-ablation test across six tabular domains~\cite{vanschoren2014}; and (iii) Proposition~P2, deriving leaf-value-jump fragility $F_{\mathrm{jump}}^{\mathrm{ens}}$ and quantile calibration $F_{\mathrm{cal}}^{\mathrm{quant}}$ benchmarked against five SOTA baselines (S-LIME~\cite{zhou2021}, GPEC~\cite{hill2024}, ST-SHAP~\cite{kelodjou2024}, Epistemic UQ~\cite{mikriukov2026}, AXOM~\cite{pala2024}). Standard IDCS~\cite{ballegeer2025,bahnsen2014} and public benchmarks~\cite{baesens2016,sgcs2019,yeh2009,vanschoren2014} are adopted directly.
 
 \textbf{Contributions.} This paper makes four contributions:
-\begin{enumerate}
-    \item \textit{Replicate and decompose retraining stability (H1a, H1b, E1):} Confirm monotonic instability increases as $\pi$ drops ($30\%{\to}1\%$) in $38/40$ ($95.0\%$) Holm-corrected cells and higher IDCS instability in $64/80$ ($80.0\%$) comparisons, while proving $95.8\%$--$96.2\%$ of balanced ($\pi{=}30\%$) LIME refit variance is explainer noise (vs.\ $4.1\%$--$34.3\%$ for PermSHAP).
-    \item \textit{Separate sampling noise from structural shifts (H2--H3):} Show across 36 dataset--model--explainer--scale cells that exact TreeSHAP flips top-4 reasons in $23.5\%$--$92.3\%$ of $|\Delta p|\le 0.05$ draws, whereas LIME's high noise floor ($\bar{q}_{95}\in[0.358,0.722]$) masks input noise in $18/18$ cells ($p_{\mathrm{Holm}}{=}1.0$).
-    \item \textit{Prove crossing double dissociation and causal mechanism (H4a--H4c):} Show across $48{,}547$ tree draws that LIME tracks bin crossings $C_{\mathrm{bin}}$ ($\mathrm{OR}{=}1.361, p_{\mathrm{Holm}}{=}2.0{\times}10^{-9}$, tree $p{=}0.168$) while TreeSHAP tracks $C_{\mathrm{tree}}$ ($\mathrm{OR}{=}1.091, p_{\mathrm{Holm}}{=}7.9{\times}10^{-21}$); disabling LIME discretisation cuts $\bar{U}_i$ by $83.4\%$ (HMEQ, $p{=}1.09{\times}10^{-13}$) and $82.1\%$ (SGCS, $p{=}2.62{\times}10^{-16}$).
-    \item \textit{Derive and validate ex-ante fragility (H5--H6, R1--R9):} Validate closed-form $F(x)$, beating tree-variance baselines across all datasets ($\Delta\mathrm{AUROC}{=}{+}0.112$ to $+0.184$, $p{\le}5.9{\times}10^{-5}$; unweighted $F_{\mathrm{tree}}$ reaches $0.824$) and flagging HMEQ rejection \texttt{\#369} ($F_{\mathrm{tree}}{=}1.096$, $100\%$ TreeSHAP flips despite $p{=}0.9999$).
+\begin{enumerate}\setlength{\itemsep}{0.5pt}\setlength{\parskip}{0pt}\setlength{\topsep}{1.5pt}
+    \item \textit{Replicate and decompose retraining stability (H1a, H1b, E1):} Confirm monotonic instability rise as $\pi$ drops ($30\%{\to}1\%$) in $38/40$ ($95.0\%$) cells and higher IDCS instability in $64/80$ ($80.0\%$) tests, while showing $95.8\%$--$96.2\%$ of balanced ($\pi{=}30\%$) LIME refit variance is explainer noise (vs.\ $4.1\%$--$34.3\%$ PermSHAP).
+    \item \textit{Separate sampling noise from structural shifts (H2--H3):} Show across 36 credit cells that exact TreeSHAP flips top-4 reasons in $23.5\%$--$92.3\%$ of $|\Delta p|\le 0.05$ draws, whereas LIME's noise floor ($\bar{q}_{95}\in[0.358,0.722]$) hides input shifts in $18/18$ cells ($p_{\mathrm{Holm}}{=}1.0$).
+    \item \textit{Prove crossing double dissociation (H4a--H4c, Exp.~A4):} Across $48{,}547$ credit tree draws, LIME tracks $C_{\mathrm{bin}}$ ($\mathrm{OR}{=}1.361, p_{\mathrm{Holm}}{=}2.0{\times}10^{-9}$, tree $p{=}0.168$) while TreeSHAP tracks $C_{\mathrm{tree}}$ ($\mathrm{OR}{=}1.091, p_{\mathrm{Holm}}{=}7.9{\times}10^{-21}$); disabling discretisation cuts $\bar{U}_i$ by $82.1\%$--$83.4\%$ (HMEQ/SGCS), replicating across $54{,}194$ non-credit draws (LIME $C_{\mathrm{bin}}$ $\mathrm{OR}{=}1.865$; TreeSHAP $C_{\mathrm{tree}}$ $\mathrm{OR}{=}1.019$; H4c $-8.0\,\text{pp}$).
+    \item \textit{Derive jump fragility, LODO gating, and SOTA parity (Prop.~P2, H5--H6, R1--R9, Exp.~A1--A3):} Prove Prop.~P2; beat baselines on credit ($\Delta\mathrm{AUROC}{=}{+}0.112$--$0.184$) and flag HMEQ \texttt{\#369}; reach $0.702$ AUROC / $0.238$ AURC at $2.42\,\text{ms}$ via $F_{\mathrm{jump}}^{\mathrm{ens}}$ ($N{=}4{,}800$) vs.\ GPEC ($0.519$) and Epistemic UQ ($0.461$); eliminate degenerate LODO folds ($0/6$, $+23.5\%$ risk red.) via $F_{\mathrm{cal}}^{\mathrm{quant}}$; and cut TreeSHAP $D_k$ ($0.135{\to}0.112$) with $0.000$ fidelity loss vs.\ AXOM/ST-SHAP.
 \end{enumerate}
 
-Sections~II--IV review literature, theory, and research design; Sections~V--VI detail base--extended comparison and setup; Sections~VII--VIII report empirical and robustness results; Sections~IX--XI present the case study, limitations, and conclusions.
+Sections~II--IV review literature, theory, and research design; Sections~V--VI detail base--extended comparison and setup; Sections~VII--VIII report empirical and robustness results; Sections~IX--XI present the case study, limitations, and conclusions; Appendices~\ref{app:tables}--\ref{app:p2_proof} house audit tables, the Proposition~P2 proof, and extended breakdowns.
 
 % ==============================================================================
 \section{Literature Review and Hypotheses Development}
@@ -74,13 +74,13 @@ Sections~II--IV review literature, theory, and research design; Sections~V--VI d
 % ==============================================================================
 
 \subsection{Retraining Instability and Cost-Sensitive Credit Scoring}
-Post-hoc explainers such as LIME~\cite{ribeiro2016} and SHAP~\cite{lundberg2017,lundberg2020} translate credit-risk scores into adverse-action reason codes. While standard classifiers minimize symmetric cross-entropy, operational lending requires instance-dependent cost-sensitive (IDCS) losses reflecting exposure $A_i$, loss given default ($\mathrm{LGD}$), and foregone interest $r_i$~\cite{bahnsen2014,hoppner2022,vanderschueren2022b}. Benchmarking IDCS across resampled training folds, Ballegeer et al.~\cite{ballegeer2025} show via Coefficient of Variation ($\mathrm{CoV}$) and Sequential Rank Agreement ($\mathrm{SRA}$)~\cite{ekstrom2019} that severe class imbalance and cost-sensitive learning degrade attribution stability. Related credit and tabular studies corroborate retraining instability across imbalance rates~\cite{chen2024}, random seeds~\cite{lin2025shap,alkan2026}, and hyperparameter tuning~\cite{qi2026}, yet vary training data or seeds rather than perturbing inputs under a frozen model (motivating H1a--H1b).
+Post-hoc explainers such as LIME~\cite{ribeiro2016} and SHAP~\cite{lundberg2017,lundberg2020} supply adverse-action reason codes, yet operational lending uses instance-dependent cost-sensitive (IDCS) losses reflecting exposure $A_i$, $\mathrm{LGD}$, and foregone interest $r_i$~\cite{bahnsen2014,hoppner2022,vanderschueren2022b}. Benchmarking IDCS across resampled folds, Ballegeer et al.~\cite{ballegeer2025} show via $\mathrm{CoV}$ and $\mathrm{SRA}$~\cite{ekstrom2019} that severe class imbalance and IDCS degrade stability. Related studies confirm instability across imbalance~\cite{chen2024}, random seeds~\cite{lin2025shap,alkan2026}, and hyperparameter tuning~\cite{qi2026}, yet vary training data rather than perturbing inputs under a frozen model (H1a--H1b).
 
 \subsection{Explainer Stochasticity vs.\ Prediction-Preserving Perturbations}
-Observed explanation turnover also confounds model sensitivity with explainer Monte Carlo variance. Sampling-based KernelSHAP~\cite{kelodjou2024} and tabular LIME~\cite{nnadi2026,zhou2021,visani2022,tzionis2026} produce different top-$k$ lists across repeated runs on the identical record. Notably, Ballegeer et al.~\cite{ballegeer2025} evaluate stochastic \texttt{PermutationExplainer}~\cite{strumbelj2014} and LIME without subtracting an empirical noise floor, conflating refit instability with sampling variance (motivating E1 and H2). Meanwhile, studies applying prediction-preserving input perturbations ($|\Delta p|\le\tau$) in software~\cite{hasnain2026}, fraud~\cite{bhuiyan2026}, and IoT~\cite{tolay2026} do not test noise-floor-controlled SHAP/LIME stability in credit scoring or assess whether $|\Delta p|$ reliably flags reason flips (motivating H3).
+Sampling-based KernelSHAP~\cite{kelodjou2024} and tabular LIME~\cite{nnadi2026,zhou2021,visani2022,tzionis2026} vary across repeated runs on the identical record, and Ballegeer et al.~\cite{ballegeer2025} evaluate stochastic \texttt{PermutationExplainer}~\cite{strumbelj2014} and LIME without subtracting an empirical noise floor (E1, H2). Meanwhile, prediction-preserving perturbation studies ($|\Delta p|\le\tau$) in software~\cite{hasnain2026}, fraud~\cite{bhuiyan2026}, and IoT~\cite{tolay2026} neither control LIME's noise floor in credit scoring nor test whether $|\Delta p|$ signals reason flips (H3).
 
 \subsection{Boundary Crossings and Ex-Ante Fragility Diagnostics}
-Piecewise-constant geometry explains why minimal noise alters attributions: Pala and Garc\'{i}a-Cuesta~\cite{pala2024} prove RF-SHAP Lipschitz divergence at split crossings, Khan et al.~\cite{khan2024} link stability to probabilistic Lipschitzness and note discretised LIME violations, and Breeden~\cite{breeden2026} links boundary crossings to ``illusory explainability.'' However, no credit study tests split-threshold and bin-edge crossings as an instance-level mediator or establishes double dissociation between TreeSHAP and LIME (motivating H4a--H4c). Furthermore, existing instability gates require GP surrogates~\cite{hill2024}, ensemble variance~\cite{mikriukov2026}, or conformal calibration~\cite{breeden2026}, rather than a structure-only closed-form fragility score (motivating H5--H6).
+Piecewise-constant geometry drives attribution shifts: Pala and Garc\'{i}a-Cuesta~\cite{pala2024} prove RF-SHAP Lipschitz divergence at split crossings (AXOM), Khan et al.~\cite{khan2024} link stability to probabilistic Lipschitzness under discretised LIME violations, and Breeden~\cite{breeden2026} links crossings to ``illusory explainability.'' Yet no study tests split- vs.\ bin-edge crossing mediation and double dissociation (H4a--H4c). Moreover, prior stabilization or gating baselines require higher sampling budgets (S-LIME~\cite{zhou2021}, ST-SHAP~\cite{kelodjou2024}), tree smoothing (AXOM~\cite{pala2024}), GP surrogates (GPEC~\cite{hill2024}), or ensemble variance (Epistemic UQ~\cite{mikriukov2026}), motivating closed-form jump fragility $F_{\mathrm{jump}}^{\mathrm{ens}}$ and quantile-calibrated $F_{\mathrm{cal}}^{\mathrm{quant}}$ (H5--H6, Exp.~A1--A3).
 
 \subsection{Gap-Based Literature Comparison and Research Gaps}
 Table~\ref{tab:lit_gap} synthesizes 13 recent studies (2024--2026), including the base paper~\cite{ballegeer2025} and explicitly labeled preprints, alongside our proposed 2026 extension.
@@ -90,7 +90,7 @@ Table~\ref{tab:lit_gap} synthesizes 13 recent studies (2024--2026), including th
 \caption{Gap-Based Literature Comparison Matrix (2024--2026)}
 \label{tab:lit_gap}
 \scriptsize
-\renewcommand{\arraystretch}{0.82}
+\renewcommand{\arraystretch}{0.77}
 \setlength{\tabcolsep}{2.4pt}
 \begin{tabular}{@{}p{1.9cm}cp{2.8cm}p{1.6cm}p{2.1cm}p{3.6cm}p{3.6cm}@{}}
 \toprule
@@ -110,7 +110,7 @@ Tolay~\cite{tolay2026} (\textit{Preprint}) & 2026 & Prediction-preserving TreeSH
 Breeden~\cite{breeden2026} (\textit{Preprint}) & 2026 & Conformal uncertainty vs.\ boundary crossings & Credit \& risk & Conceptual benchmarks & Crossings create ``illusory explainability'' & Needs calibration set; no closed-form $F(x)$ (\textbf{G1, G3, G4}) \\
 Pala \& Garc\'{i}a-Cuesta~\cite{pala2024} (\textit{Preprint}) & 2024 & Majority-tree SHAP averaging (AXOM) & Tabular XAI & Tabular RF benchmarks & Single split crossing causes Lipschitz divergence & RF+SHAP only; no XGB/LIME or mediation (\textbf{G1--G4}) \\
 \midrule
-\textbf{Proposed} & \textbf{2026} & \textbf{IDCS replication + noise-floor $\tau$-perturbations + crossing mediation + $F(x)$} & \textbf{Credit scoring} & \textbf{HMEQ, SGCS, Taiwan; LR, RF, XGB, IDCS} & \textbf{H1a 38/40, H1b 64/80; LIME 96\% noise; TreeSHAP 24--92\% flips; bin off $-82$--$83\%$; $F(x)$ $+\Delta$AUC 0.11--0.18} & \textbf{Gaps addressed: G1, G2, G3, G4} \\
+\textbf{Proposed} & \textbf{2026} & \textbf{IDCS repl.\ + noise-floor $\tau$-pert.\ + crossings + Prop.~P2 ($F_{\mathrm{jump}}^{\mathrm{ens}}, F_{\mathrm{cal}}^{\mathrm{quant}}$)} & \textbf{Credit + OpenML tabular} & \textbf{6 sets (HMEQ, SGCS, Taiwan, Bank, Adult, Heart); LR/RF/XGB/IDCS + 5 SOTA} & \textbf{H1a 38/40, H1b 64/80; LIME 96\% noise; TreeSHAP 24--92\% flips; $F_{\mathrm{jump}}^{\mathrm{ens}}$ 0.702 AUC (2.4ms); LODO +23.5\% risk red.} & \textbf{Gaps addressed: G1, G2, G3, G4} \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -147,7 +147,7 @@ Under U.S.\ ECOA Regulation~B~\cite{regb_cfpb} and the EU AI Act~\cite{euaiact20
 \caption{Construct Definitions and Operational Sources}
 \label{tab:constructs}
 \scriptsize
-\renewcommand{\arraystretch}{0.84}
+\renewcommand{\arraystretch}{0.76}
 \setlength{\tabcolsep}{2.4pt}
 \begin{tabular}{@{}p{2.05cm}p{3.75cm}p{2.2cm}@{}}
 \toprule
@@ -160,7 +160,8 @@ Noise floor ($q_i$) & $95$th pct.\ of $D_k$ across $K{=}10$ seeds on unperturbed
 $\tau$-preserv.\ draw & Perturbed $x'$ with $\hat{y}(x')=\hat{y}(x)$ and $|p(x')-p(x)|\le\tau$ & Khan~\cite{khan2024}; \cite{tolay2026} \\
 Perturb.\ scale ($s$) & Continuous-only noise $\delta_j \sim \mathcal{N}(0, (s\cdot\mathrm{SD}_j)^2)$ & Adapted from~\cite{tolay2026} \\
 Crossings ($C_{\mathrm{tree}},C_{\mathrm{bin}}$) & Per-tree split or LIME bin-edge crossings ($x{\to}x'$) & \cite{pala2024,breeden2026} \\
-Ex-ante $F(x)$ & Closed-form expected crossings under $\mathcal{N}(0,(s\cdot\mathrm{SD}_j)^2)$ & \textbf{Proposed (new)} \\
+Ex-ante $F(x)$ & Closed-form expected crossings ($F_{\mathrm{tree}}, F_{\mathrm{bin}}, F_{\mathrm{jump}}$) & \textbf{Proposed (Prop.~P2)} \\
+LODO gate ($F_{\mathrm{cal}}^{\mathrm{quant}}$) & Training-quantile rank of $F_{\mathrm{jump}}$ ($\mathrm{AURC}$) & \textbf{Proposed (new)} \\
 Cost-sensitivity & IDCS (\texttt{cslogit}, \texttt{csboost}) vs.\ CE (\texttt{logit}, \texttt{boost}) & Bahnsen~\cite{bahnsen2014}; \cite{hoppner2022} \\
 Imbalance ($\pi$) & Training default rate $\pi \in \{1, 5, 10, 20, 30\}\%$ & Ballegeer~\cite{ballegeer2025} \\
 \bottomrule
@@ -173,30 +174,28 @@ Imbalance ($\pi$) & Training default rate $\pi \in \{1, 5, 10, 20, 30\}\%$ & Bal
 % ==============================================================================
 
 \subsection{Conceptual Framework and Methodology Pipeline}
-Fig.~\ref{fig:conceptual_model} illustrates our integrated conceptual model linking the replicated base framework (left, blue) with the fixed-model, instance-level extension (right, green). In the base block, model class, cost-sensitivity (IDCS vs.\ standard cross-entropy), and training class imbalance ($\pi$) drive retraining instability ($\mathrm{CoV}$, $\mathrm{SRA}$). Estimation objective E1 bridges the two blocks by decomposing across-refit variance into genuine model variation versus explainer sampling noise. In the extension block, perturbation magnitude $s$ induces split-threshold ($C_{\mathrm{tree}}$) and bin-edge ($C_{\mathrm{bin}}$) crossings, which mediate local explanation change $\Delta E$ after controlling for the explainer noise floor $q_i$, moderated by explainer type and LIME discretisation. Prediction probability change $|\Delta p|$ acts only as a weak direct indicator of reason-code turnover (H3), whereas our structure-only fragility score $F(x)$ predicts unstable instances $Y_i$ ahead of any perturbation run (H5) and connects back to base-model factors (H6).
+Fig.~\ref{fig:conceptual_model} integrates the replicated base framework (left: model class, IDCS vs.\ CE, and imbalance $\pi$ driving retraining $\mathrm{CoV}$/$\mathrm{SRA}$) with our fixed-model extension (right). Estimation objective E1 separates retraining variance from explainer noise, while perturbation scale $s$ induces split ($C_{\mathrm{tree}}$) and bin-edge ($C_{\mathrm{bin}}$) crossings that mediate explanation drift $\Delta E$ above noise floor $q_i$. Probability change $|\Delta p|$ acts only as a weak flip signal (H3), whereas structure-only $F(x)$ predicts fragile instances ahead of perturbations (H5--H6). Fig.~\ref{fig:methodology_flowchart} outlines the six-stage pipeline (\texttt{01\_clean.py}--\texttt{06\_a\_star\_extension.py}).
 
-\begin{figure*}[!t]
+\begin{figure}[!t]
 \centering
-\includegraphics[width=0.46\textwidth]{figures/fig1_conceptual_model.pdf}
+\includegraphics[width=0.64\columnwidth]{figures/fig1_conceptual_model.pdf}
 \caption{Integrated conceptual framework linking the replicated retraining-stability model of Ballegeer et al.~\cite{ballegeer2025} (left) with the proposed fixed-model crossing-mechanism and ex-ante fragility extension (right).}
 \label{fig:conceptual_model}
-\end{figure*}
-
-Fig.~\ref{fig:methodology_flowchart} outlines the six-stage reproducible execution workflow: leak-free preparation (\texttt{01\_clean.py}), Part~1 replication and E1 decomposition (\texttt{02\_replicate.py}), fixed-model perturbation and fragility scoring (\texttt{03\_extend.py}), confirmatory and R1--R9 testing (\texttt{04\_robustness.py}), the HMEQ audit gate (\texttt{run\_demo.py}), and plotting (\texttt{05\_plots.py}).
+\end{figure}
 
 \subsection{Pre-Registered Hypotheses}
-Prior to executing main experimental runs, we locked the following directional hypotheses and estimation objective:
-\begin{itemize}
-    \item \textbf{H1a (Replication---Imbalance):} Across refits, instability ($\mathrm{CoV}$, $\mathrm{SRA}_{10}$) rises monotonically as default rate $\pi$ drops ($30\%{\to}1\%$).
-    \item \textbf{H1b (Replication---IDCS):} Cost-sensitive models (\texttt{cslogit}, \texttt{csboost}) exhibit higher instability than standard baselines (\texttt{logit}, \texttt{boost}).
-    \item \textbf{E1 (Variance Decomposition):} Quantify the share of across-refit variance caused by explainer noise vs.\ model retraining.
-    \item \textbf{H2 (Noise-Floor Exceedance):} Under $|\Delta p|{\le}\tau$, $\Delta E$ exceeds $q_i$ for tree ensembles (TreeSHAP, LIME) and for LIME across models.
-    \item \textbf{H3 (Weakness of $|\Delta p|$):} $|\Delta p|$ weakly discriminates $RC$ in trees (full-set AUROC upper CI $<0.70$~\cite{hosmer2013}), vs.\ stronger LR+LinearSHAP discrimination.
-    \item \textbf{H4a (Crossing Mediation):} Crossing count $C$ ($C_{\mathrm{tree}}$ / $C_{\mathrm{bin}}$) mediates perturbation scale $s \to \Delta E$.
-    \item \textbf{H4b (Double Dissociation):} TreeSHAP flips track $C_{\mathrm{tree}}$ ($\beta_{\mathrm{tree}}{>}0, \beta_{\mathrm{bin}}{\approx}0$); LIME flips track $C_{\mathrm{bin}}$ ($\beta_{\mathrm{bin}}{>}0, \beta_{\mathrm{tree}}{\approx}0$).
-    \item \textbf{H4c (Discretisation Intervention):} Disabling LIME quantile discretisation reduces $\bar{U}_i$ among bin-crossing instances ($C_{\mathrm{bin}}{>}0$).
-    \item \textbf{H5 (Ex-Ante Fragility):} $F(x)$ predicts unstable instances ($Y_i{=}1$) with higher AUROC than $B_{\mathrm{margin}}(x)$ and $B_{\mathrm{var}}(x)$.
-    \item \textbf{H6 (Exploratory Bridge):} Crossings and $F(x)$ raise $R^2$ beyond base design factors, and IDCS yields higher mean $F(x)$.
+Prior to main runs, we locked the following directional hypotheses and estimation objective:
+\begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}\setlength{\topsep}{2pt}
+    \item \textbf{H1a (Replication---Imbalance):} Across refits, $\mathrm{CoV}$ and $\mathrm{SRA}_{10}$ rise monotonically as $\pi$ drops ($30\%{\to}1\%$).
+    \item \textbf{H1b (Replication---IDCS):} Cost-sensitive models (\texttt{cslogit}, \texttt{csboost}) are less stable than (\texttt{logit}, \texttt{boost}).
+    \item \textbf{E1 (Variance Decomposition):} Quantify explainer noise vs.\ model-retraining share of refit variance.
+    \item \textbf{H2 (Noise-Floor Exceedance):} Under $|\Delta p|{\le}\tau$, $\Delta E$ exceeds $q_i$ for tree models and across-model LIME.
+    \item \textbf{H3 (Weakness of $|\Delta p|$):} $|\Delta p|$ weakly discriminates $RC$ in trees (full AUROC upper CI $<0.70$~\cite{hosmer2013}) vs.\ LR.
+    \item \textbf{H4a (Crossing Mediation):} Crossings $C$ ($C_{\mathrm{tree}}/C_{\mathrm{bin}}$) mediate perturbation scale $s \to \Delta E$.
+    \item \textbf{H4b (Double Dissociation):} TreeSHAP tracks $C_{\mathrm{tree}}$ ($\beta_{\mathrm{tree}}{>}0, \beta_{\mathrm{bin}}{\approx}0$); LIME tracks $C_{\mathrm{bin}}$ ($\beta_{\mathrm{bin}}{>}0, \beta_{\mathrm{tree}}{\approx}0$).
+    \item \textbf{H4c (Discretisation Intervention):} Disabling LIME discretisation reduces $\bar{U}_i$ on $C_{\mathrm{bin}}{>}0$ instances.
+    \item \textbf{H5 (Ex-Ante Fragility):} $F(x)$ predicts $Y_i{=}1$ with higher AUROC than $B_{\mathrm{margin}}(x)$ and $B_{\mathrm{var}}(x)$.
+    \item \textbf{H6 (Exploratory Bridge):} Crossings and $F(x)$ add $R^2$ over design factors; IDCS yields higher $F(x)$.
 \end{itemize}
 
 \subsection{Mathematical Formulation and Notation}
@@ -228,7 +227,35 @@ where $\mathrm{side}_n(z) = \mathbb{I}[z \prec_n \theta_n]$ and $\mathcal{P}$ de
 F_{\mathrm{tree}}^{\mathrm{unw}}(x; s) &= \frac{1}{T}\sum_{t=1}^T \sum_{n \in N_t,\, j(n)\in\mathcal{P}} \Phi\!\left(-\frac{|x_{j(n)} - \theta_n|}{s\cdot\mathrm{SD}_{j(n)}}\right), \label{eq:ftree} \\
 F_{\mathrm{bin}}^{\mathrm{unw}}(x; s) &= \sum_{j \in \mathcal{P}} \sum_{e \in E_j} \Phi\!\left(-\frac{|x_j - e|}{s\cdot\mathrm{SD}_j}\right). \label{eq:fbin}
 \end{align}
-We also evaluate one pre-specified cover-weighted variant $F_{\mathrm{tree}}^{\mathrm{cov}}(x; s)$ multiplying each node $n$ by its training sample cover normalized by its tree's root cover, $w_n = \mathrm{cover}_n / \mathrm{cover}_{\mathrm{root}(t)}$, with no fitted weights. Against $F(x)$, we benchmark two perturbation-free baselines: decision margin $B_{\mathrm{margin}}(x) = -|p(x) - t|$ and RF epistemic prediction variance across trees $B_{\mathrm{var}}(x) = \mathrm{Var}_{t=1}^T(p_t(x))$~\cite{mikriukov2026}.
+We also evaluate one pre-specified cover-weighted variant $F_{\mathrm{tree}}^{\mathrm{cov}}(x; s)$ multiplying each node $n$ by its training sample cover normalized by its tree's root cover, $w_n = \mathrm{cover}_n / \mathrm{cover}_{\mathrm{root}(t)}$, with no fitted weights. To account for heterogeneous leaf magnitudes across ensembles, define bottom-up on each tree $t$ the cover-weighted expected node output $V(u)$: at a leaf $u$, $V(u)$ equals the positive-class training proportion (RF) or leaf raw margin (XGBoost), and at an internal node $u$ with children $u_L, u_R$ and covers $c_L, c_R$, $V(u) = (c_L V(u_L) + c_R V(u_R))/(c_L + c_R)$. Letting $\Delta_{t,v} = |V(v_L) - V(v_R)|$ denote the expected split jump, $\bar{\Delta}_{t,v} = \max(|M_{v_L}^{\max}-M_{v_R}^{\min}|, |M_{v_R}^{\max}-M_{v_L}^{\min}|)$ the worst-case subtree leaf oscillation across bounds $[M_u^{\min}, M_u^{\max}]$, and $\hat{\sigma}_{\mathrm{pred}}(t) = \max(\mathrm{SD}(f_t(X_{\mathrm{train}})), 10^{-6})$ the per-tree scale (with ensemble-normalized variant $F_{\mathrm{jump}}^{\mathrm{ens}}$ replacing $\hat{\sigma}_{\mathrm{pred}}(t)$ by $\hat{\sigma}_{\mathrm{pred}}^{\mathrm{ens}} = \max(\mathrm{SD}(f(X_{\mathrm{train}})), 10^{-6})$ to preserve relative round magnitudes in additive boosting), Eq.~\eqref{eq:fjump} defines closed-form leaf-value-jump fragility:
+\begin{equation}
+\label{eq:fjump}
+\begin{aligned}
+F_{\mathrm{jump}}(x; s) &= \frac{1}{T}\sum_{t=1}^T \sum_{\substack{v \in N_t\\ j(v)\in\mathcal{P}}} \frac{\Delta_{t,v}}{\hat{\sigma}_{\mathrm{pred}}(t)}\, \Phi\!\left(-\frac{|x_{j(v)} - \theta_v|}{s\cdot\mathrm{SD}_{j(v)}}\right).
+\end{aligned}
+\end{equation}
+
+\begin{proposition}[Leaf-Value-Jump Attribution Sensitivity Bound]
+\label{prop:p2}
+Let $f(x) = \frac{1}{T}\sum_{t=1}^T f_t(x)$ be a tree ensemble with path-dependent TreeSHAP attribution $\phi_f^{\mathrm{path}}(x)$ (up to ensemble output rescaling factor $L_f \ge 1$; $L_f=1$ for additive probability/margin trees), and let $X' = x + \delta$ with $\delta_j \sim \mathcal{N}(0, (s\cdot\mathrm{SD}_j)^2)$ for $j\in\mathcal{P}$.
+\begin{enumerate}
+    \item[(a)] Expected local attribution drift is upper-bounded by the worst-case split-jump crossing sum:
+    \begin{equation}
+    \label{eq:p2bound}
+    \begin{aligned}
+    \mathbb{E}_{X'}\big[\|\phi_f^{\mathrm{path}}(X') - \phi_f^{\mathrm{path}}(x)\|_\infty\big] & \\
+    \le \frac{2 L_f}{T} \sum_{t=1}^T \sum_{\substack{v \in N_t\\ j(v)\in\mathcal{P}}} \bar{\Delta}_{t,v}\, \Phi\!\left(-\frac{|x_{j(v)} - \theta_v|}{s\cdot\mathrm{SD}_{j(v)}}\right). &
+    \end{aligned}
+    \end{equation}
+    \item[(b)] When $\Delta_{t,v}/\hat{\sigma}_{\mathrm{pred}}(t) \equiv 1$, $F_{\mathrm{jump}}(x;s)$ recovers $F_{\mathrm{tree}}^{\mathrm{unw}}(x;s)$, whereas for general ensembles $F_{\mathrm{jump}}$ is monotonically non-decreasing in $s>0$ and invariant to adding redundant zero-jump splits ($\Delta_{t,v} = 0$).
+\end{enumerate}
+\end{proposition}
+\noindent Appendix~\ref{app:p2_proof} gives the structural-induction proof of Proposition~\ref{prop:p2}. To enable zero-tuning Leave-One-Domain-Out (LODO) gating across models with arbitrary raw $F_{\mathrm{jump}}$ scales, Eq.~\eqref{eq:fcal} calibrates fragility via the Laplace-smoothed training quantile rank over a leak-free reference slice $X_{\mathrm{ref}}\subseteq X_{\mathrm{train}}$ ($n_{\mathrm{ref}} = \min(|X_{\mathrm{train}}|, 2{,}000)$, alongside a robust MAD/IQR $z$-score $F_{\mathrm{cal}}^{\mathrm{rz}}$):
+\begin{equation}
+\label{eq:fcal}
+F_{\mathrm{cal}}^{\mathrm{quant}}(x; s) = \frac{1 + \sum_{i=1}^{n_{\mathrm{ref}}} \mathbb{I}\big[F_{\mathrm{jump}}(x_i^{\mathrm{train}}; s) \le F_{\mathrm{jump}}(x; s)\big]}{n_{\mathrm{ref}} + 1}.
+\end{equation}
+Against $F_{\mathrm{tree}}$, $F_{\mathrm{bin}}$, $F_{\mathrm{jump}}$, and $F_{\mathrm{cal}}^{\mathrm{quant}}$, we benchmark decision margin $B_{\mathrm{margin}}(x) = -|p(x) - t|$ and five SOTA baselines: S-LIME~\cite{zhou2021}, GPEC~\cite{hill2024}, ST-SHAP~\cite{kelodjou2024}, Epistemic UQ ($B_{\mathrm{var}}$)~\cite{mikriukov2026}, and AXOM~\cite{pala2024}.
 
 To test H4a, we estimate clustered linear mediation~\cite{preacher2008} separately per model--explainer pair via Eq.~\eqref{eq:med}:
 \begin{equation}
@@ -255,23 +282,25 @@ Table~\ref{tab:notation} consolidates all mathematical symbols used in Eqs.~\eqr
 \caption{Summary of Mathematical Notation}
 \label{tab:notation}
 \scriptsize
-\renewcommand{\arraystretch}{0.82}
-\setlength{\tabcolsep}{3.0pt}
+\renewcommand{\arraystretch}{0.77}
+\setlength{\tabcolsep}{2.4pt}
 \begin{tabular}{@{}ll@{}}
 \toprule
 \textbf{Symbol} & \textbf{Definition} \\
 \midrule
 $x_i, x'_{ir}$ & Test instance $i$ and its $r$-th perturbed draw ($r=1\dots R$) \\
 $p(x), \hat{y}(x), t$ & Predicted default probability, class decision, threshold ($\hat{\pi}_1$) \\
-$\tau, s, \sigma_j$ & Probability shift tolerance ($0.05$), noise scale, $\sigma_j = s\cdot\mathrm{SD}_j$ \\
+$\tau, s, \sigma_j$ & Prob.\ tolerance ($0.05$), scale $s$, $\sigma_j = s\cdot\mathrm{SD}_j$ \\
 $\phi(x), T_k(\phi)$ & Local attribution vector and top-$k$ feature set ($k=4$) \\
 $D_k, D_\rho, D_1$ & Top-$k$ Jaccard, Spearman, and normalized $L_1$ distances \\
 $K, q_i$ & Noise-floor seed repeats ($10$) and $95$th percentile baseline \\
-$RC_{ir}, \bar{U}_i, Y_i$ & Reason-code flip, instance flip rate, instability label ($\bar{U}_i \ge 0.20$) \\
+$RC_{ir}, \bar{U}_i, Y_i$ & Reason flip, flip rate, instability ($\bar{U}_i \ge 0.20$) \\
 $C_{\mathrm{tree}}, C_{\mathrm{bin}}$ & Empirical per-tree split and LIME bin-edge crossing counts \\
-$F_{\mathrm{tree}}, F_{\mathrm{bin}}$ & Closed-form expected crossing counts (unweighted / cover) \\
-$\Phi(\cdot), w_n$ & Standard normal CDF; normalized tree-node cover weight \\
-$B_{\mathrm{margin}}, B_{\mathrm{var}}$ & Decision-margin and RF tree-variance baselines \\
+$F_{\mathrm{tree}}, F_{\mathrm{bin}}, F_{\mathrm{jump}}$ & Closed-form crossing counts (unw., cover, jump) \\
+$V(u), \Delta_{t,v}, \bar{\Delta}_{t,v}$ & Node expected output, mean jump, worst-case osc. \\
+$F_{\mathrm{cal}}^{\mathrm{quant}}, \mathrm{AURC}$ & Quantile fragility and risk--coverage area \\
+$\Phi(\cdot), w_n, \hat{\sigma}_{\mathrm{pred}}(t)$ & Normal CDF; cover wt.; tree SD \\
+$B_{\mathrm{margin}}, B_{\mathrm{var}}$ & Decision-margin and epistemic tree-variance baselines \\
 $\pi, J, \mathrm{CoV}, \mathrm{SRA}$ & Training default rate, refits, CoV, and depth-10 SRA \\
 $a\cdot b, \beta_{\mathrm{tree}}, \beta_{\mathrm{bin}}$ & Clustered indirect mediation effect and joint logistic slopes \\
 \bottomrule
@@ -281,12 +310,12 @@ $a\cdot b, \beta_{\mathrm{tree}}, \beta_{\mathrm{bin}}$ & Clustered indirect med
 \subsection{Sampling, Statistical Power, and Data Collection Procedure}
 Following Ballegeer et al.~\cite{ballegeer2025}, Part~1 reserves a fixed $N=300$ stratified test set per dataset and varies $\pi \in \{1, 5, 10, 20, 30\}\%$ at fixed pool size $\lfloor \#\text{defaults}_{\mathrm{train}}/0.30\rfloor$. Part~2 uses $70/30$ stratified splits (reusing the $300$-row SGCS test set) and draws $n=200$ test instances per dataset stratified $50/50$ by $\hat{y}(x)$, restoring population rates via inverse-probability weights. Exact a-priori power ($\rho=0.20, \alpha=0.05, 1-\beta=0.80$) requires $n_{\min}=193$ (achieved $0.8001$; Fisher-$z$ $n=194$), satisfied per dataset ($600$ pooled). All datasets~\cite{baesens2016,sgcs2019,yeh2009} use seed-locked pipelines with zero test leakage.
 
-\begin{figure*}[!t]
+\begin{figure}[!t]
 \centering
-\includegraphics[width=0.46\textwidth]{figures/fig2_methodology_flowchart.pdf}
+\includegraphics[width=0.64\columnwidth]{figures/fig2_methodology_flowchart.pdf}
 \caption{End-to-end six-stage research design and computational pipeline from raw credit data preprocessing to hypothesis testing, robustness ablation, and the adverse-action audit gate.}
 \label{fig:methodology_flowchart}
-\end{figure*}
+\end{figure}
 
 % ==============================================================================
 \section{Base vs. Extended Model Comparison}
@@ -300,7 +329,7 @@ Table~\ref{tab:base_vs_ext} contrasts the replicated base model of Ballegeer et 
 \caption{Side-by-Side Comparison of Base Model (Ballegeer et al., 2025) vs. Proposed Extended Model}
 \label{tab:base_vs_ext}
 \scriptsize
-\renewcommand{\arraystretch}{0.82}
+\renewcommand{\arraystretch}{0.77}
 \setlength{\tabcolsep}{2.6pt}
 \begin{tabular}{@{}p{2.3cm}p{6.5cm}p{7.6cm}@{}}
 \toprule
@@ -310,9 +339,9 @@ Instability source & Model retraining across $J$ resampled pools & Fixed-model G
 Core predictors & Model class, IDCS vs.\ CE loss, default rate $\pi$ & Perturbation scale $s$, crossings ($C_{\mathrm{tree}}, C_{\mathrm{bin}}$), ex-ante $F(x)$, $|\Delta p|$ \\
 Noise control & None (PermSHAP and LIME used unadjusted) & $K{=}10$ noise floor $q_i$ subtracted; E1 variance decomposition \\
 Causal mechanism & None (descriptive CoV/SRA curves only) & Clustered mediation ($s{\to}C{\to}\Delta E$), double dissociation, LIME ablation \\
-Ex-ante diagnostic & None & Closed-form $F_{\mathrm{tree}}(x)$ and $F_{\mathrm{bin}}(x)$ vs.\ margin/variance baselines \\
-Outcome metrics & $\mathrm{CoV}$ and depth-$10$ $\mathrm{SRA}$ across refits & Noise-adjusted $D_k$ ($k{=}4$), $D_\rho$, $D_1$, flips $RC_{ir}$, label $Y_i$ \\
-Datasets & GMSC, VUB (private), HMEQ, SGCS & HMEQ, SGCS (replicated) + Taiwan Default (independent main) \\
+Ex-ante diagnostic & None & Closed-form $F_{\mathrm{tree}}$, $F_{\mathrm{bin}}$, $F_{\mathrm{jump}}$, and LODO $F_{\mathrm{cal}}^{\mathrm{quant}}$ vs.\ 5 SOTA baselines \\
+Outcome metrics & $\mathrm{CoV}$ and depth-$10$ $\mathrm{SRA}$ across refits & Noise-adjusted $D_k$ ($k{=}4$), $D_\rho$, $D_1$, flips $RC_{ir}$, label $Y_i$, selective $\mathrm{AURC}$ \\
+Datasets & GMSC, VUB (private), HMEQ, SGCS & Credit (HMEQ, SGCS, Taiwan) + OpenML non-credit (Bank, Adult, Heart) \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -323,29 +352,34 @@ Datasets & GMSC, VUB (private), HMEQ, SGCS & HMEQ, SGCS (replicated) + Taiwan De
 % ==============================================================================
 
 \subsection{Datasets and Data Screening}
-We evaluate three public credit-scoring datasets: two benchmarks replicated from Ballegeer et al.~\cite{ballegeer2025}---Home Equity (HMEQ)~\cite{baesens2016} and South German Credit (SGCS)~\cite{sgcs2019}---and an independent main sample, Taiwan Default of Credit Card Clients~\cite{yeh2009}. Table~\ref{tab:sample_profile} reports sample sizes, default prevalence, train/test partitions, and loan exposure columns ($A_i$). Because all data come from public archival credit records rather than surveys, the archival coverage rate is $100\%$.
+We evaluate six public tabular datasets spanning consumer credit and three non-credit OpenML domains~\cite{vanschoren2014}: two benchmarks replicated from Ballegeer et al.~\cite{ballegeer2025}---Home Equity (HMEQ)~\cite{baesens2016} and South German Credit (SGCS)~\cite{sgcs2019}---an independent credit main sample, Taiwan Default~\cite{yeh2009}, plus Bank Marketing (OpenML~1461), Adult Census Income (OpenML~1590), and Heart Disease (OpenML~43682) for cross-domain and LODO testing. Table~\ref{tab:sample_profile} reports sample sizes, positive prevalence, partitions, and credit exposure columns ($A_i$). Archival coverage is $100\%$.
 
 \begin{table*}[!t]
 \centering
-\caption{Sample Profile and Partition Summary Across Credit Datasets}
+\caption{Sample Profile and Partition Summary Across Credit and OpenML Multi-Domain Datasets}
 \label{tab:sample_profile}
 \scriptsize
-\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{0.80}
+\setlength{\tabcolsep}{2.4pt}
 \begin{tabular}{@{}llrrrrrrrlr@{}}
 \toprule
-\textbf{Dataset} & \textbf{Role} & \textbf{Rows ($N$)} & \textbf{Feat.\ ($D$)} & \textbf{Perturb.} & \textbf{Defaults (\%)} & \textbf{Missing (\%)} & \textbf{Part~1 Split} & \textbf{Part~2 Split} & \textbf{Exposure ($A_i$)} & \textbf{Median (IQR)} \\
+\textbf{Dataset} & \textbf{Domain / Role} & \textbf{Rows ($N$)} & \textbf{Feat.\ ($D$)} & \textbf{Perturb.} & \textbf{Pos.\ Class (\%)} & \textbf{Missing (\%)} & \textbf{Part~1 Split} & \textbf{Part~2 Split} & \textbf{Exposure ($A_i$)} & \textbf{Median (IQR)} \\
 \midrule
-HMEQ~\cite{baesens2016} & Base benchmark 1 & 5,960 & 12 & 6 & 1,189 (19.95) & 5,271 (7.37) & 5,660 / 300 & 4,172 / 1,788 & \texttt{LOAN} & 16,300 (12,200) \\
-SGCS~\cite{sgcs2019} & Base benchmark 2 & 1,000 & 20 & 3 & 300 (30.00) & 0 (0.00) & 700 / 300 & 700 / 300 & \texttt{amount} & 2,320 (2,607) \\
-Taiwan~\cite{yeh2009} & Independent main & 30,000 & 23 & 13 & 6,636 (22.12) & 0 (0.00) & 29,700 / 300 & 21,000 / 9,000 & \texttt{LIMIT\_BAL} & 140,000 (190,000) \\
+HMEQ~\cite{baesens2016} & Credit (base 1) & 5,960 & 12 & 6 & 1,189 (19.95) & 5,271 (7.37) & 5,660 / 300 & 4,172 / 1,788 & \texttt{LOAN} & 16,300 (12,200) \\
+SGCS~\cite{sgcs2019} & Credit (base 2) & 1,000 & 20 & 3 & 300 (30.00) & 0 (0.00) & 700 / 300 & 700 / 300 & \texttt{amount} & 2,320 (2,607) \\
+Taiwan~\cite{yeh2009} & Credit (main) & 30,000 & 23 & 13 & 6,636 (22.12) & 0 (0.00) & 29,700 / 300 & 21,000 / 9,000 & \texttt{LIMIT\_BAL} & 140,000 (190,000) \\
+\midrule
+Bank~\cite{vanschoren2014} & Mktg (OML 1461) & 45,211 & 16 & 6 & 5,289 (11.70) & 0 (0.00) & --- & 31,647 / 13,564 & --- & --- \\
+Adult~\cite{vanschoren2014} & Census (OML 1590) & 48,842 & 14 & 5 & 11,687 (23.93) & 6,465 (0.95) & --- & 34,189 / 14,653 & --- & --- \\
+Heart~\cite{vanschoren2014} & Clinical (OML 43682) & 1,190 & 11 & 5 & 629 (52.86) & 0 (0.00) & --- & 833 / 357 & --- & --- \\
 \bottomrule
 \end{tabular}
 \end{table*}
 
-Appendix~\ref{app:tables} (Table~\ref{tab:screening}) details feature screening: SGCS and Taiwan have zero missing values, whereas HMEQ has $5{,}271$ missing cells ($7.37\%$, led by \texttt{DEBTINC} $21.26\%$, \texttt{DEROG} $11.88\%$, \texttt{DELINQ} $9.73\%$). Continuous variables are strongly right-skewed (e.g., HMEQ \texttt{VALUE} skew $3.05$, SGCS \texttt{amount} $1.95$, Taiwan \texttt{PAY\_AMT2} $30.45$); outliers are retained for credit realism, motivating non-parametric rank tests and cluster bootstraps. Only continuous features are perturbed, while categorical/count variables stay fixed.
+Appendix~\ref{app:tables} (Table~\ref{tab:screening}) details credit screening: SGCS, Taiwan, Bank, and Heart have zero missing values, whereas HMEQ has $5{,}271$ missing cells ($7.37\%$, led by \texttt{DEBTINC} $21.26\%$) and Adult has $6{,}465$ missing categorical cells ($0.95\%$, led by \texttt{occupation} $5.75\%$ and \texttt{workclass} $5.73\%$). Continuous variables are right-skewed (e.g., HMEQ \texttt{VALUE} skew $3.05$, Taiwan \texttt{PAY\_AMT2} $30.45$); outliers are retained and only continuous features are perturbed.
 
 \subsection{Tool Justification, Configuration, and Evaluation Criteria}
-We use script-based Python~3.11.4 (Table~\ref{tab:config}, Appendix~\ref{app:tables}) to access model tree splits, custom IDCS optimization, and seed-locked unit tests unavailable in menu-driven tools. Preprocessing is fitted strictly on training folds. Predictive quality uses ROC-AUC, AP, Brier score, and Savings/relAEC~\cite{ballegeer2025}; Part~1 stability uses $\mathrm{CoV}$ and $\mathrm{SRA}(10)$~\cite{ekstrom2019}; Part~2 uses noise-adjusted $D_k$ (Eq.~\eqref{eq:dk}), $RC_{ir}$ (Eq.~\eqref{eq:rc}), $Y_i$ (Eq.~\eqref{eq:instab}), the $\mathrm{AUROC}<0.70$ criterion for H3~\cite{hosmer2013}, and DeLong's test~\cite{delong1988} for H5.
+We use Python~3.11.4 (Table~\ref{tab:config}, Appendix~\ref{app:tables}) for exact tree splits, custom IDCS optimization, and seed-locked testing under train-only preprocessing. Predictive baselines use ROC-AUC, AP, Brier score, and Savings/relAEC~\cite{ballegeer2025}; Part~1 uses $\mathrm{CoV}$ and $\mathrm{SRA}(10)$~\cite{ekstrom2019}; Part~2 uses noise-adjusted $D_k$ (Eq.~\eqref{eq:dk}), $RC_{ir}$ (Eq.~\eqref{eq:rc}), $Y_i$ (Eq.~\eqref{eq:instab}), $\mathrm{AUROC}<0.70$ for H3~\cite{hosmer2013}, and DeLong's test~\cite{delong1988} for H5. Across all six Phase~2 domains (\texttt{rf}, \texttt{xgb}; $n{=}200$ stratified, $R{=}25$ for Exp.~A1/A2/A4; $n{=}100, K{=}3, R{=}5$ for Exp.~A3), $F_{\mathrm{jump}}$, $F_{\mathrm{jump}}^{\mathrm{ens}}$, and $F_{\mathrm{cal}}^{\mathrm{quant}}$ are compared against S-LIME ($n_{\mathrm{init}}{=}1000, n_{\max}{=}5000$)~\cite{zhou2021}, GPEC ($k{=}64$ GP)~\cite{hill2024}, ST-SHAP~\cite{kelodjou2024}, Epistemic UQ ($5$-subsample XGB variance)~\cite{mikriukov2026}, and AXOM ($\kappa{=}1.0$)~\cite{pala2024} via paired bootstrap AUROC, LODO $\mathrm{AURC}$, and Holm correction.
 
 % ==============================================================================
 \section{Results and Discussion}
@@ -358,19 +392,19 @@ Replicating Ballegeer et al.~\cite{ballegeer2025} across five imbalance rates ($
 
 H1b holds in $64/80$ ($80.0\%$) Wilcoxon tests ($33/40$ $\mathrm{CoV}$, $31/40$ $\mathrm{SRA}$): \texttt{cslogit} exceeds \texttt{logit} instability in $38/40$ ($95.0\%$) cells ($r \in [0.608, 1.000]$), while \texttt{csboost} exceeds \texttt{boost} in $26/40$ ($65.0\%$, led by SGCS $16/20$ and HMEQ PermSHAP $8/10$). Crucially, E1 decomposition ($K{=}5$, $5{,}000$ bootstraps on SGCS; Table~\ref{tab:replication_summary}) shows PermSHAP variance is refit-driven ($\mathrm{ICC}{=}0.657$--$0.959$; explainer share $4.1\%$--$34.3\%$), whereas at $\pi{=}30\%$, \textbf{explainer noise accounts for $95.8\%$ (\texttt{logit}) and $96.2\%$ (\texttt{boost}) of LIME refit variance} ($\mathrm{ICC}\le 0.042$). At $\pi{=}1\%$, refit variance surges $49\times$ (\texttt{logit}: $0.34{\to}16.56$) and $14\times$ (\texttt{boost}: $0.12{\to}1.73$), reducing LIME's explainer share to $41.4\%$ and $36.0\%$.
 
-\begin{figure*}[!t]
+\begin{figure}[!t]
 \centering
-\includegraphics[width=0.47\textwidth]{figures/fig3_replication_curves.pdf}
+\includegraphics[width=0.64\columnwidth]{figures/fig3_replication_curves.pdf}
 \caption{Part~1 retraining stability replication across training default rates $\pi \in \{1, 5, 10, 20, 30\}\%$ ($J{=}10$ refits, PermutationSHAP median $\pm$ IQR): lower prevalence and IDCS (\texttt{cslogit}, \texttt{csboost}) monotonically increase $\mathrm{CoV}$ and $\mathrm{SRA}(10)$, save for \texttt{cslogit} collapse at SGCS $\pi{=}1\%$.}
 \label{fig:replication_curves}
-\end{figure*}
+\end{figure}
 
 \begin{table}[!t]
 \centering
 \caption{Part~1 Replication Summary (H1a, H1b) and E1 Variance Decomposition (SGCS)}
 \label{tab:replication_summary}
 \scriptsize
-\renewcommand{\arraystretch}{0.84}
+\renewcommand{\arraystretch}{0.76}
 \setlength{\tabcolsep}{2.6pt}
 \resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}llrrrr@{}}
@@ -395,16 +429,14 @@ H1b \texttt{csboost} & vs.\ \texttt{boost} & 15/20 & 11/20 & 26/40 & $r \in [-0.
 
 \subsection{Predictive Baselines and Measurement Quality}
 \label{sec:res_mq}
-Part~2 predictive and economic baselines (detailed alongside Ballegeer et al.~\cite{ballegeer2025} averages in Appendix~\ref{app:tables}, Table~\ref{tab:model_perf}) confirm expected model ordering: \texttt{xgb} and \texttt{rf} outperform \texttt{lr} on discrimination (HMEQ AUC $0.964/0.960$ vs.\ $0.782$; Taiwan $0.777/0.775$ vs.\ $0.716$; SGCS $0.770/0.766$ vs.\ $0.743$), while IDCS variants (\texttt{cslogit}, \texttt{csboost}) trade AUC and Brier calibration for higher economic savings at the prior threshold (e.g., Taiwan \texttt{csboost} savings $0.411$ vs.\ \texttt{xgb} $0.331$; \texttt{cslogit} $0.323$ vs.\ \texttt{lr} $0.184$; SGCS \texttt{csboost} $0.350$ vs.\ \texttt{xgb} $0.294$).
-
-Because survey SEM metrics (Cronbach's $\alpha$, CR, AVE) do not apply to computational explainers, Table~\ref{tab:measurement_quality} reports the pre-registered psychometric measurement analogues across all 18 dataset--model--explainer cells. Exact LinearSHAP and TreeSHAP achieve perfect test--retest reliability ($\mathrm{ICC}(1)=1.000$, noise floor $q_{95}=0.000$). By contrast, LIME exhibits substantial run-to-run sampling noise even on unperturbed records ($\bar{q}_{95} \in [0.358, 0.722]$, $\mathrm{ICC}(1) \in [0.489, 0.828]$), meaning repeated LIME runs already disagree on roughly half of the top-4 features without any input perturbation. Convergent validity between $D_\rho$ and $D_1$ is moderate to strong ($\rho \in [0.467, 0.927]$), and discriminant validity ($\mathrm{HTMT} < 0.85$) passes in $17/18$ cells (failing only on SGCS \texttt{xgb}+TreeSHAP at $\mathrm{HTMT}=0.969$, where probability steps track leaf attribution shifts). Independent seeds eliminate common-method seed artifacts.
+Part~2 predictive and economic baselines (Appendix~\ref{app:tables}, Table~\ref{tab:model_perf}) confirm expected ordering: \texttt{xgb} and \texttt{rf} exceed \texttt{lr} in AUC ($0.964/0.960$ vs.\ $0.782$ HMEQ; $0.777/0.775$ vs.\ $0.716$ Taiwan), while IDCS (\texttt{cslogit}, \texttt{csboost}) trades AUC for higher prior-threshold savings (e.g., Taiwan \texttt{csboost} $0.411$ vs.\ \texttt{xgb} $0.331$). Table~\ref{tab:measurement_quality} reports psychometric analogues across all 18 credit cells: exact LinearSHAP/TreeSHAP achieve unit reliability ($\mathrm{ICC}(1){=}1.000, q_{95}{=}0.000$), whereas LIME incurs high unperturbed noise ($\bar{q}_{95}\in[0.358,0.722], \mathrm{ICC}(1)\in[0.489,0.828]$). Convergent validity holds ($\rho\in[0.467,0.927]$), and discriminant validity ($\mathrm{HTMT}<0.85$) passes in $17/18$ cells (failing only on SGCS \texttt{xgb}+TreeSHAP at $0.969$).
 
 \begin{table}[!t]
 \centering
 \caption{Measurement Quality Analogues Across Model--Explainer Cells}
 \label{tab:measurement_quality}
 \scriptsize
-\renewcommand{\arraystretch}{0.88}
+\renewcommand{\arraystretch}{0.76}
 \setlength{\tabcolsep}{2.2pt}
 \resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}llrrrrr@{}}
@@ -428,49 +460,47 @@ Taiwan & \texttt{xgb}--LIME / TreeSHAP & 0.722 / \textbf{0.000} & 0.489 / \textb
 
 \subsection{Noise-Floor Exceedance (H2) and Probability-Shift Signals (H3)}
 \label{sec:res_h2h3}
-Evaluating H2 across 36 dataset--model--explainer--scale cells reveals a sharp dichotomy between exact and stochastic explainers (supported in $18/36$ cells overall, $12/12$ tree+TreeSHAP cells; Fig.~\ref{fig:perturbation_vs_floor}). For exact TreeSHAP ($q_i=0$), prediction-preserving perturbations ($s=0.05$) flip top-4 reason codes in a large majority of instances: $92.3\%$ ($95\%$ Clopper--Pearson CI $[87.7, 95.7]\%$, mean $\bar{U}_i=0.632$) on Taiwan \texttt{rf}, $82.7\%$ ($[76.6, 87.7]\%$, mean $0.489$) on Taiwan \texttt{xgb}, $72.9\%$ ($[65.5, 79.5]\%$, mean $0.304$) on HMEQ \texttt{rf}, $84.6\%$ ($[78.4, 89.6]\%$, mean $0.521$) on HMEQ \texttt{xgb}, $61.0\%$ ($[53.9, 67.8]\%$, mean $0.197$) on SGCS \texttt{rf}, and $23.5\%$ ($[17.8, 30.0]\%$, mean $0.076$) on SGCS \texttt{xgb}. Even LinearSHAP exhibits nonzero flip proportions ($2.0\%$--$31.0\%$ at $s=0.05$), though mean $\bar{U}_i$ remains low ($0.005$--$0.080$). Conversely, LIME fails the one-sided Wilcoxon exceedance test in $18/18$ cells ($p_{\mathrm{Holm}}=1.0$, rank-biserial $r \in [-0.985, -0.619]$): because LIME's unperturbed $95$th-percentile noise floor ($q_{95} \in [0.400, 0.667]$) exceeds typical perturbation distances (median $D_k \in [0.144, 0.520]$), small input noise is largely submerged beneath LIME's own Monte Carlo variance.
+Evaluating H2 across 36 credit dataset--model--explainer--scale cells reveals a sharp dichotomy between exact and stochastic explainers (supported in $18/36$ cells, $12/12$ TreeSHAP; Fig.~\ref{fig:perturbation_vs_floor}). Under $s{=}0.05$ and $|\Delta p|\le 0.05$, exact TreeSHAP ($q_i{=}0$) flips top-4 reasons in $92.3\%$ ($\bar{U}_i{=}0.632$) on Taiwan \texttt{rf}, $82.7\%$ ($0.489$) on Taiwan \texttt{xgb}, $72.9\%$ ($0.304$) on HMEQ \texttt{rf}, $84.6\%$ ($0.521$) on HMEQ \texttt{xgb}, $61.0\%$ ($0.197$) on SGCS \texttt{rf}, and $23.5\%$ ($0.076$) on SGCS \texttt{xgb}; LinearSHAP flip rates stay low ($2.0\%$--$31.0\%$, $\bar{U}_i\le 0.080$). Conversely, LIME fails one-sided Wilcoxon exceedance in $18/18$ cells ($p_{\mathrm{Holm}}{=}1.0, r\in[-0.985,-0.619]$) because its noise floor ($q_{95}\in[0.400,0.667]$) submerges perturbation distances (median $D_k\in[0.144,0.520]$).
 
-\begin{figure*}[!t]
+\begin{figure}[!t]
 \centering
-\includegraphics[width=0.49\textwidth]{figures/fig4_perturbation_vs_floor.pdf}
+\includegraphics[width=0.64\columnwidth]{figures/fig4_perturbation_vs_floor.pdf}
 \caption{Unperturbed $95$th-percentile explainer noise floor $q_i$ vs.\ perturbed top-4 Jaccard distance $D_4$ ($|\Delta p| \le \tau$, $s{=}0.05$, mean $\pm 95\%$ CI). Exact SHAP baselines have zero noise floor and clear perturbation shifts, whereas LIME's sampling floor dominates perturbation-induced changes.}
 \label{fig:perturbation_vs_floor}
-\end{figure*}
+\end{figure}
 
-For H3, we test $|\Delta p|$ discrimination of $RC_{ir}$ ($5{,}000$ cluster bootstraps) on full (primary) and $\tau$-filtered draws. \textbf{LIME} yields full-set AUROC upper CI $<0.70$ in $5/6$ tree cells ($0.473$--$0.572$; HMEQ \texttt{rf} $0.679$ $[0.610,0.746]$), whereas \textbf{TreeSHAP fails H3} ($0/6$ cells $<0.70$): full-set AUROCs reach $0.801$ $[0.769,0.832]$ (HMEQ \texttt{rf}), $0.740$ $[0.707,0.773]$ (HMEQ \texttt{xgb}), $0.777$ $[0.736,0.817]$ (SGCS \texttt{rf}), $0.959$ $[0.942,0.973]$ (SGCS \texttt{xgb}), $0.677$ $[0.643,0.709]$ (Taiwan \texttt{rf}), and $0.747$ $[0.715,0.777]$ (Taiwan \texttt{xgb}). Filtering attenuates $|\Delta p|$ AUROC (HMEQ \texttt{rf} $0.801{\to}0.681$; Taiwan \texttt{rf} $0.677{\to}0.629$), confirming range restriction while showing multi-split crossings shift $p(x)$. Fig.~\ref{fig:roc_comparison} contrasts this post-hoc $|\Delta p|$ baseline against ex-ante $F(x)$ in Section~\ref{sec:res_h5h6}.
+For H3 ($5{,}000$ cluster bootstraps), \textbf{LIME} yields full-set $|\Delta p|$ AUROC upper CI $<0.70$ in $5/6$ tree cells ($0.473$--$0.572$; HMEQ \texttt{rf} $0.679$), whereas \textbf{TreeSHAP rejects H3} ($0/6$ cells $<0.70$; full AUROCs $0.677$ on Taiwan \texttt{rf} up to $0.959$ on SGCS \texttt{xgb}, attenuating under $\tau$-filtering to $0.629$--$0.681$ on Taiwan/HMEQ \texttt{rf}). Fig.~\ref{fig:roc_comparison} contrasts $|\Delta p|$ against ex-ante $F(x)$ (Section~\ref{sec:res_h5h6}).
 
-\begin{figure*}[!t]
+\begin{figure}[!t]
 \centering
-\includegraphics[width=0.49\textwidth]{figures/fig5_roc_comparison.pdf}
+\includegraphics[width=0.64\columnwidth]{figures/fig5_roc_comparison.pdf}
 \caption{Pooled tree-ensemble ROC curves (TreeSHAP+LIME) predicting instance instability $Y_i$ across HMEQ, SGCS, and Taiwan Default: zero-perturbation ex-ante $F(x)$ vs.\ margin baseline, tree prediction variance, and post-hoc $|\Delta p|$ reference.}
 \label{fig:roc_comparison}
-\end{figure*}
+\end{figure}
 
 \subsection{Crossing Mediation and Double Dissociation (H4a--H4c)}
 \label{sec:res_h4}
-Clustered mediation (Eq.~\eqref{eq:med}, $5{,}000$ instance-cluster bootstraps) confirms H4a in $10/15$ model--explainer cells after Holm--Bonferroni correction ($11/15$ unadjusted): \textbf{all $6/6$ TreeSHAP cells} show large, significant positive indirect effects $a\cdot b$ through $C_{\mathrm{tree}}$ ($p_{\mathrm{Holm}} < 0.001$), including HMEQ \texttt{rf} ($a\cdot b = 1.812$, $95\%$ CI $[1.254, 2.367]$), HMEQ \texttt{xgb} ($3.190$ $[2.630, 3.746]$), SGCS \texttt{rf} ($1.029$ $[0.803, 1.252]$), SGCS \texttt{xgb} ($0.231$ $[0.132, 0.345]$), Taiwan \texttt{rf} ($3.850$ $[3.121, 4.595]$), and Taiwan \texttt{xgb} ($1.949$ $[1.477, 2.407]$). For LIME, $C_{\mathrm{bin}}$ significantly mediates perturbation scale in $4/6$ tree-model cells (HMEQ \texttt{rf}: $0.214, p_{\mathrm{Holm}}=0.007$; HMEQ \texttt{xgb}: $0.110, p_{\mathrm{Holm}}=0.006$; SGCS \texttt{rf}: $0.178, p_{\mathrm{Holm}}<0.001$; SGCS \texttt{xgb}: $0.140, p_{\mathrm{Holm}}<0.001$), whereas LR and Taiwan LIME are masked by sampling noise.
+Clustered mediation (Eq.~\eqref{eq:med}, $5{,}000$ bootstraps) confirms H4a in $10/15$ Holm-corrected cells: \textbf{all $6/6$ TreeSHAP cells} show significant indirect effects $a\cdot b$ through $C_{\mathrm{tree}}$ ($p_{\mathrm{Holm}}<0.001$; $0.231$ on SGCS \texttt{xgb} to $3.850$ on Taiwan \texttt{rf}; HMEQ \texttt{rf}/\texttt{xgb} $1.812/3.190$; SGCS \texttt{rf} $1.029$; Taiwan \texttt{xgb} $1.949$). For LIME, $C_{\mathrm{bin}}$ mediates $4/6$ tree cells ($0.110$--$0.214, p_{\mathrm{Holm}}\le 0.007$), while LR and Taiwan LIME stay noise-masked.
 
-Joint clustered logistic regression on $48{,}547$ tree-model draws across $1{,}178$ instances (Eq.~\eqref{eq:dissoc}; Fig.~\ref{fig:double_dissociation}a) tests double dissociation (H4b). For \textbf{LIME}, the predicted crossover holds cleanly: bin crossings strongly increase flip odds ($\beta_{\mathrm{bin}}=0.309$, $\mathrm{OR}=1.361$ $[1.233, 1.503]$, $p_{\mathrm{Holm}}=2.0\times 10^{-9}$) while tree split crossings have no effect ($\beta_{\mathrm{tree}}=-0.019$, $\mathrm{OR}=0.981$, $p_{\mathrm{Holm}}=0.168$), replicating per dataset on HMEQ ($\beta_{\mathrm{bin}}=0.867, p<10^{-12}$ vs.\ $\beta_{\mathrm{tree}}=0.084, p=0.125$) and SGCS ($\beta_{\mathrm{bin}}=0.823, p=1.5\times 10^{-7}$ vs.\ $\beta_{\mathrm{tree}}=-0.035, p=0.899$). For \textbf{TreeSHAP}, $\beta_{\mathrm{tree}}$ is positive and highly significant across every dataset (pooled $\beta_{\mathrm{tree}}=0.087$, $\mathrm{OR}=1.091$, $p_{\mathrm{Holm}}=7.9\times 10^{-21}$; HMEQ $\beta_{\mathrm{tree}}=0.344, p<10^{-23}$ with non-significant $\beta_{\mathrm{bin}}=0.123, p=0.178$; SGCS $\mathrm{OR}_{\mathrm{tree}}=29.37$ vs.\ $\mathrm{OR}_{\mathrm{bin}}=1.32$), though pooled $\beta_{\mathrm{bin}}=0.171$ ($p_{\mathrm{Holm}}=5.1\times 10^{-10}$) remains nonzero due to residual co-variation in Taiwan continuous-feature neighborhoods. Crucially, the causal intervention H4c (disabling LIME quantile discretisation; Fig.~\ref{fig:double_dissociation}b) cuts mean instability $\bar{U}_i$ by $83.4\%$ on HMEQ ($0.0749 \to 0.0124$, $p=1.09\times 10^{-13}$, $r=0.694$) and $82.1\%$ on SGCS ($0.0818 \to 0.0147$, $p=2.62\times 10^{-16}$, $r=0.693$), with a smaller directional drop on Taiwan ($0.0347 \to 0.0295$, $p=0.072$).
+Joint clustered logit over $48{,}547$ credit tree draws ($1{,}178$ instances; Fig.~\ref{fig:double_dissociation}a) confirms H4b crossover on \textbf{LIME}: $C_{\mathrm{bin}}$ elevates flips ($\beta_{\mathrm{bin}}{=}0.309, \mathrm{OR}{=}1.361$ $[1.233,1.503], p_{\mathrm{Holm}}{=}2.0{\times}10^{-9}$) while $C_{\mathrm{tree}}$ is null ($\mathrm{OR}{=}0.981, p_{\mathrm{Holm}}{=}0.168$), holding cleanly on HMEQ and SGCS. For \textbf{TreeSHAP}, $\beta_{\mathrm{tree}}$ is strongly positive overall ($\mathrm{OR}{=}1.091, p_{\mathrm{Holm}}{=}7.9{\times}10^{-21}$; HMEQ $p{<}10^{-23}$ with $\beta_{\mathrm{bin}}$ null $p{=}0.178$; SGCS $\mathrm{OR}_{\mathrm{tree}}{=}29.37$), while pooled $\beta_{\mathrm{bin}}{=}0.171$ reflects Taiwan continuous-feature co-variation. Disabling LIME discretisation (H4c; Fig.~\ref{fig:double_dissociation}b) slashes $\bar{U}_i$ by $83.4\%$ on HMEQ ($p{=}1.09{\times}10^{-13}, r{=}0.694$) and $82.1\%$ on SGCS ($p{=}2.62{\times}10^{-16}, r{=}0.693$), with a directional drop on Taiwan ($0.0347{\to}0.0295, p{=}0.072$).
 
-\begin{figure*}[!t]
+\begin{figure}[!t]
 \centering
-\includegraphics[width=0.49\textwidth]{figures/fig6_double_dissociation.pdf}
+\includegraphics[width=0.64\columnwidth]{figures/fig6_double_dissociation.pdf}
 \caption{Mechanistic separation of instability sources: (a) H4b double dissociation showing LIME tracks quantile-bin crossings $C_{\mathrm{bin}}$ while TreeSHAP tracks tree split crossings $C_{\mathrm{tree}}$; (b) H4c causal intervention disabling LIME discretisation cuts $\bar{U}_i$ by $>82\%$ on HMEQ and SGCS.}
 \label{fig:double_dissociation}
-\end{figure*}
+\end{figure}
 
 \subsection{Ex-Ante Fragility Score (H5) and Exploratory Bridge (H6)}
 \label{sec:res_h5h6}
-Without running perturbations or holding out a calibration set, closed-form $F(x)$ correlates positively with instance instability $\bar{U}_i$ in $6/6$ TreeSHAP cells ($\rho \in [0.259, 0.531]$, all $p \le 5.5{\times}10^{-4}$). Fig.~\ref{fig:roc_comparison} contrasts pooled tree-ensemble ROC curves (TreeSHAP+LIME) against perturbation-free and $|\Delta p|$ baselines. Across 30 paired DeLong cell comparisons ($15$ cells $\times 2$ baselines), $F(x)$ wins Holm-significantly in $9/30$ cell tests and beats $B_{\mathrm{var}}$ on pooled tree instances across all three datasets: HMEQ ($0.735$ vs.\ $0.555$, $\Delta{=}{+}0.180, p{=}5.1{\times}10^{-14}$), SGCS ($0.595$ vs.\ $0.411$, $\Delta{=}{+}0.184, p{=}7.2{\times}10^{-9}$), and Taiwan ($0.561$ vs.\ $0.449$, $\Delta{=}{+}0.112, p{=}5.9{\times}10^{-5}$), while beating $B_{\mathrm{margin}}$ on HMEQ ($\Delta{=}{+}0.350, p{=}3.2{\times}10^{-40}$) and SGCS ($\Delta{=}{+}0.047, p{=}0.044$). Standout cells include SGCS \texttt{xgb}+TreeSHAP ($0.828$ vs.\ $0.440$ margin, $0.297$ variance, $p_{\mathrm{Holm}}{<}10^{-8}$) and Taiwan \texttt{rf}+TreeSHAP ($0.734$ vs.\ $0.328$ variance, $p_{\mathrm{Holm}}{=}1.5{\times}10^{-8}$); LR+LIME flips remain noise-dominated.
-
-Nested HC3 OLS for H6 ($n{=}3{,}458$) confirms progressive $R^2$ gains from $|\Delta p|$ ($M_1: 0.315{\to}0.345$, $F{=}92.0, p{<}10^{-20}$), empirical crossings ($M_2: {\to}0.360$, $F{=}28.2, p{=}7.0{\times}10^{-13}$), and ex-ante $F(x)$ ($M_3: {\to}0.396$, $F{=}221.1, p{=}1.6{\times}10^{-48}$). Higher IDCS $F_{\mathrm{tree}}(x)$ holds on Taiwan (\texttt{csboost} $0.283$ vs.\ \texttt{xgb} $0.121$, $p{=}2.8{\times}10^{-14}$) but reverses on HMEQ ($0.359$ vs.\ $0.974$) and SGCS ($0.0023$ vs.\ $0.0066$) due to shallower tuned \texttt{csboost} trees (\texttt{max\_depth}=5 vs.\ 7). Table~\ref{tab:hypotheses_summary} consolidates verdicts.
+Closed-form $F(x)$ correlates with $\bar{U}_i$ in $6/6$ TreeSHAP cells ($\rho\in[0.259,0.531], p\le 5.5{\times}10^{-4}$). Across 30 paired DeLong comparisons (Fig.~\ref{fig:roc_comparison}), $F(x)$ wins Holm-significantly in $9/30$ cell tests and beats $B_{\mathrm{var}}$ on pooled tree instances across every credit dataset: HMEQ ($0.735$ vs.\ $0.555, \Delta{=}{+}0.180, p{=}5.1{\times}10^{-14}$), SGCS ($0.595$ vs.\ $0.411, \Delta{=}{+}0.184, p{=}7.2{\times}10^{-9}$), and Taiwan ($0.561$ vs.\ $0.449, \Delta{=}{+}0.112, p{=}5.9{\times}10^{-5}$), while beating $B_{\mathrm{margin}}$ on HMEQ ($\Delta{=}{+}0.350$) and SGCS ($\Delta{=}{+}0.047$); standout cells include SGCS \texttt{xgb}+TreeSHAP ($0.828$) and Taiwan \texttt{rf}+TreeSHAP ($0.734$). Nested HC3 OLS for H6 ($n{=}3{,}458$) confirms progressive $R^2$ gains ($M_0{\to}M_1: 0.315{\to}0.345$; $M_2: {\to}0.360$; $M_3: {\to}0.396, F{=}221.1, p{=}1.6{\times}10^{-48}$). IDCS $F_{\mathrm{tree}}(x)$ is higher on Taiwan (\texttt{csboost} $0.283$ vs.\ \texttt{xgb} $0.121, p{=}2.8{\times}10^{-14}$) but reverses on HMEQ ($0.359$ vs.\ $0.974$) and SGCS ($0.0023$ vs.\ $0.0066$) from shallower tuned \texttt{csboost} trees (\texttt{max\_depth}=5 vs.\ 7). Table~\ref{tab:hypotheses_summary} summarizes verdicts.
 
 \begin{table}[!t]
 \centering
 \caption{Summary of Pre-Registered Hypotheses and Empirical Verdicts}
 \label{tab:hypotheses_summary}
 \scriptsize
-\renewcommand{\arraystretch}{0.82}
+\renewcommand{\arraystretch}{0.77}
 \setlength{\tabcolsep}{2.4pt}
 \begin{tabular}{@{}p{0.8cm}p{4.3cm}p{2.9cm}@{}}
 \toprule
@@ -490,6 +520,68 @@ H6 & $M_0{\to}M_3$ $\Delta R^2{=}{+}0.081$ ($p{<}10^{-47}$); IDCS $F$ higher on 
 \end{tabular}
 \end{table}
 
+\subsection{Multi-Domain Generalization, SOTA Baselines, and LODO Calibration (Exp.~A1--A4)}
+\label{sec:res_astar}
+Across all 12 dataset--model fits (ROC-AUC $0.750$--$0.967$; Appendix~\ref{app:p2_proof}, Table~\ref{tab:astar_per_domain}), Table~\ref{tab:astar_pooled} and Figs.~\ref{fig:astar_baselines}--\ref{fig:lodo_risk_coverage} report the Phase~2 A* evaluation.
+
+\textbf{Ex-ante fragility and $\hat{\sigma}_{\mathrm{pred}}$ ablation (Exp.~A1).} Pooled over $N{=}4{,}800$ observations ($2{,}400$ unique instances across six domains and both scales; Fig.~\ref{fig:astar_baselines}a), $F_{\mathrm{jump}}^{\mathrm{ens}}$ reaches \textbf{0.7020} AUROC ($95\%$ CI $[0.6839, 0.7189]$), \textbf{0.2377} AURC, and $\rho{=}\mathbf{0.4265}$ at $2.42\,\text{ms}$/instance---beating GPEC ($0.5189$ AUROC, $36.80\,\text{ms}$), Epistemic UQ ($0.4607$ AUROC, $4.65\,\text{ms}$), margin ($0.5592$), and unweighted $F_{\mathrm{tree}}^{\mathrm{unw}}$ ($0.6397$), while recovering $95.7\%$ of the post-hoc $|\Delta p|$ oracle AUROC ($0.7338$) $95\times$ faster ($2.42$ vs.\ $230.83\,\text{ms}$). Ablating $\hat{\sigma}_{\mathrm{pred}}$ exposes a boosting artifact: per-tree $F_{\mathrm{jump}}$ matches $F_{\mathrm{jump}}^{\mathrm{ens}}$ on RF ($0.7701$ vs.\ $0.7759$) yet drops on XGB ($0.6792$ vs.\ $0.7693$; pooled $0.6328$) as late-tree residual SDs shrink; ensemble normalization eliminates this distortion.
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=0.59\textwidth]{figures/fig9_astar_baselines_pareto.pdf}
+\caption{Phase~2 SOTA baselines across six domains: (a) Exp.~A1 AUROC vs.\ latency ($N{=}4{,}800$, $95\%$ CIs), showing $F_{\mathrm{jump}}^{\mathrm{ens}}$ achieves $95\times$ speedup over $|\Delta p|$ while beating GPEC, Epistemic UQ, and margin; (b) Exp.~A3 $\bar{D}_4$, instability, and fidelity divergence.}
+\label{fig:astar_baselines}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=0.59\textwidth]{figures/fig10_lodo_risk_coverage.pdf}
+\caption{Zero-tuning LODO gating (Exp.~A2): (a) selective risk--coverage $\hat{R}(c)$ and AURC; (b) held-out risk reduction across six domains ($F_{\mathrm{cal}}^{\mathrm{quant}}$ avoids the $0\%$-flag degenerate SGCS fold).}
+\label{fig:lodo_risk_coverage}
+\end{figure*}
+
+\textbf{Zero-tuning LODO transfer (Exp.~A2).} Under Leave-One-Domain-Out cutoff transfer across the six held-out domains (Fig.~\ref{fig:lodo_risk_coverage}; Appendix~\ref{app:p2_proof}, Table~\ref{tab:lodo_per_domain}), raw cutoffs incur $1/6$ degenerate folds ($0.0\%$ flagged on SGCS; $F_{\mathrm{unw}}^{\mathrm{raw}}$ yields $+3.39\%$ risk reduction). Training-quantile calibration $F_{\mathrm{cal}}^{\mathrm{quant}}$ eliminates degenerate folds ($0/6$), keeps flagging bounded ($48.7\%$--$53.5\%$ mean, range $42.1\%$--$62.9\%$), and reduces accepted instability risk by \textbf{+23.53\%} ($0.50$ cutoff; $+20.32\%$ Youden; $+21.53\%$ $F_{\mathrm{cal}}^{\mathrm{rz}}$) vs.\ $+1.97\%$ for calibrated GPEC and $-12.24\%$ for calibrated Epistemic UQ.
+
+\textbf{Mitigation and fidelity parity (Exp.~A3).} Across $n{=}100\times 12$ cells (Fig.~\ref{fig:astar_baselines}b; Table~\ref{tab:astar_pooled}, Panel~B), S-LIME ($4{,}780$ mean samples, $65.1\,\text{ms}$) lowers LIME's noise floor ($0.359{\to}0.242$) and $D_k$ ($0.380{\to}0.271$, Holm-significant in $11/12$ cells save \texttt{adult}/\texttt{xgb} $p{=}0.864$), yet leaves $74.3\%$ of instances unstable. Deferring the top-$30\%$ $F_{\mathrm{jump}}$-ranked cases on exact TreeSHAP ($F_{\mathrm{jump}}@70\%$) lowers accepted $D_k$ from $0.135$ to \textbf{0.112} ($49.8\%$ instability) with \textbf{0.000} attribution-fidelity divergence, whereas AXOM (RF only, $D_k{=}0.121$) and ST-SHAP ($D_k{=}0.152$) alter baseline TreeSHAP rankings by $0.225$ and $0.318$.
+
+\textbf{Out-of-domain mechanism replication (Exp.~A4).} Across $54{,}194$ prediction-preserving draws on Bank, Adult, and Heart ($1{,}200$ clusters), H4b double dissociation replicates: TreeSHAP flips track $C_{\mathrm{tree}}$ ($\beta{=}{+}0.0188, \mathrm{OR}{=}1.019, p_{\mathrm{Holm}}{=}1.22\times 10^{-7}$; $C_{\mathrm{bin}}$ $p_{\mathrm{Holm}}{=}0.422$) while LIME flips track $C_{\mathrm{bin}}$ ($\beta{=}{+}0.6231, \mathrm{OR}{=}1.865, p_{\mathrm{Holm}}{=}1.74\times 10^{-62}$; $C_{\mathrm{tree}}$ $p_{\mathrm{Holm}}{=}0.641$). Disabling LIME discretisation (H4c) cuts pooled non-credit instability by $7.97\,\text{pp}$ ($75.82\%{\to}67.85\%$, $p{=}1.63\times 10^{-22}$), driven by Adult ($-31.72\,\text{pp}$, $p{=}3.04\times 10^{-100}$), while remaining null on Bank ($+1.00\,\text{pp}$, $p{=}0.850$) and Heart ($+10.08\,\text{pp}$, $p{=}1.000$).
+
+\begin{table}[!t]
+\centering
+\caption{Phase~2 Pooled SOTA Baselines and Mitigation Parity (6 Domains)}
+\label{tab:astar_pooled}
+\scriptsize
+\renewcommand{\arraystretch}{0.92}
+\setlength{\tabcolsep}{2.4pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+\multicolumn{6}{l}{\textbf{Panel A: Exp.~A1 Ex-Ante Fragility Predictors (Pooled $N{=}4{,}800$)}} \\
+\textbf{Method} & \textbf{AUROC} & \textbf{AURC}$\downarrow$ & \textbf{E-AURC}$\downarrow$ & $\rho(D_k)$ & \textbf{ms/inst} \\
+\midrule
+$F_{\mathrm{jump}}^{\mathrm{ens}}$ (ours, ens.\ $\sigma$) & \textbf{0.7020} & \textbf{0.2377} & \textbf{0.1450} & \textbf{0.4265} & 2.42 \\
+$F_{\mathrm{tree}}^{\mathrm{unw}}$ (unweighted) & 0.6397 & 0.2738 & 0.1811 & 0.3246 & 2.70 \\
+$F_{\mathrm{jump}}$ (tree $\sigma$ abl.) & 0.6328 & 0.2866 & 0.1939 & 0.2986 & 2.42 \\
+$B_{\mathrm{margin}}$ (prob.\ margin) & 0.5592 & 0.3894 & 0.2967 & 0.0794 & $<$0.01 \\
+GPEC~\cite{hill2024} & 0.5189 & 0.4196 & 0.3269 & $-$0.0115 & 36.80 \\
+Epistemic UQ~\cite{mikriukov2026} & 0.4607 & 0.4128 & 0.3201 & $-$0.0298 & 4.65 \\
+Post-hoc $|\Delta p|$ (oracle ref.) & \textit{0.7338} & \textit{0.2143} & \textit{0.1216} & \textit{0.4790} & 230.83 \\
+\midrule
+\multicolumn{6}{l}{\textbf{Panel B: Exp.~A3 Mitigation \& Fidelity Parity ($n{=}100\times 12$)}} \\
+\textbf{Explainer / Gate} & \textbf{Cov.} & \textbf{Floor} & \textbf{Mean $D_k$} & \textbf{Instab.} & \textbf{Fid.\ Div.} \\
+\midrule
+TreeSHAP+$F_{\mathrm{jump}}@70\%$ & 0.70 & \textbf{0.000} & \textbf{0.112} & 49.8\% & \textbf{0.000} \\
+TreeSHAP (baseline) & 1.00 & \textbf{0.000} & 0.135 & 53.3\% & \textbf{0.000} \\
+AXOM~\cite{pala2024} (RF only) & 1.00 & \textbf{0.000} & 0.121 & \textbf{49.0\%} & 0.225 \\
+ST-SHAP~\cite{kelodjou2024} & 1.00 & \textbf{0.000} & 0.152 & 54.8\% & 0.318 \\
+LIME$_{\mathrm{std}}$ ($1\text{k}$) & 1.00 & 0.359 & 0.380 & 89.3\% & --- \\
+S-LIME~\cite{zhou2021} ($4.78\text{k}$) & 1.00 & 0.242 & 0.271 & 74.3\% & --- \\
+LIME$_{\mathrm{disc\text{-}off}}$ ($1\text{k}$) & 1.00 & $0.187^\dagger$ & 0.250 & 81.6\% & --- \\
+\bottomrule
+\multicolumn{6}{@{}l@{}}{\scriptsize $^\dagger$Floor averaged over the $6$ credit cells; non-credit cells are \texttt{NaN}.}
+\end{tabular}}
+\end{table}
+
 % ==============================================================================
 \section{Robustness Analysis}
 \label{sec:robustness}
@@ -501,7 +593,7 @@ We evaluate nine robustness checks (R1--R9) spanning structural ablations, toler
 \caption{Summary of Pre-Registered Robustness Checks (R1--R9)}
 \label{tab:robustness}
 \scriptsize
-\renewcommand{\arraystretch}{0.82}
+\renewcommand{\arraystretch}{0.77}
 \setlength{\tabcolsep}{2.4pt}
 \begin{tabular}{@{}p{0.45cm}p{2.35cm}p{5.1cm}@{}}
 \toprule
@@ -520,18 +612,14 @@ R9 & Cost $r_i$ (PV vs.\ $0.02$) & HMEQ/SGCS \texttt{csboost} AUC ($0.907$ vs.\ 
 \end{tabular}
 \end{table}
 
-\begin{figure*}[!t]
+\begin{figure}[!t]
 \centering
-\includegraphics[width=0.49\textwidth]{figures/fig7_robustness_ablation.pdf}
+\includegraphics[width=0.66\columnwidth]{figures/fig7_robustness_ablation.pdf}
 \caption{Robustness diagnostics: (a) R1 nested OLS $\Delta R^2$ progression ($M_0{\to}M_3$) and $F(x)$ component ablations ($95\%$ bootstrap CIs); (b) R3 monotonic scaling of TreeSHAP and LinearSHAP instability across $s \in \{0.01, 0.05, 0.10\}$ vs.\ noise-saturated LIME.}
 \label{fig:robustness}
-\end{figure*}
+\end{figure}
 
-\textbf{Structural ablations (R1).} On tree-ensemble instances ($n{=}2{,}862$), isolating $F_{\mathrm{tree}}(x)$ alone raises AUROC from $0.611$ ($F_{\mathrm{tree}}{+}F_{\mathrm{bin}}$) to \textbf{0.824} ($\Delta{=}{+}0.213$, DeLong $p{=}4.1{\times}10^{-62}$) and $\Delta R^2$ to $+0.077$ ($p{=}1.8{\times}10^{-77}$). Cover weighting drops AUROC to $0.411$ ($p{<}10^{-105}$), while $F_{\mathrm{bin}}$ alone yields $0.219$, proving unweighted leaf-path proximity drives TreeSHAP sensitivity.
-
-\textbf{Tolerance, scale, and outcomes (R2--R4).} Varying $\tau{\in}\{0.02,0.05,0.10\}$ shifts pass rate ($73.4\%{\to}88.5\%$) and $Y_i$ rate ($22.3\%{\to}26.1\%$) while $F(x)$ AUROC stays invariant ($0.612,0.611,0.599$). Across $s{\in}\{0.01,0.05,0.10\}$, exact SHAP flip rates scale monotonically (\texttt{rf} $36.9{\to}59.1{\to}71.7\%$; \texttt{xgb} $33.2{\to}54.5{\to}61.0\%$; \texttt{lr} $2.7{\to}10.2{\to}18.5\%$) while LIME stays noise-flat ($4.4\%$--$13.8\%$). Using $D_\rho$ or $D_1$ raises $\rho(F,\bar{U}_i)$ from $0.296$ $[0.261,0.330]$ to $0.419$ and $0.414$; depth $k{\in}\{3,4,5\}$ preserves $\bar{U}_i{\in}[0.518,0.549]$.
-
-\textbf{Budgets, LODO, thresholds, and cost (R5--R9).} Raising LIME samples $1\text{k}{\to}5\text{k}$ on HMEQ \texttt{xgb} lowers $\bar{q}_{95}$ ($0.494{\to}0.362$) and $\bar{U}_i$ ($0.148{\to}0.080$) only partially. PermSHAP (R6) incurs $\bar{q}_{95}{\in}[0.056,0.284]$ while tracking TreeSHAP ($\rho{=}0.30$--$0.76$). Subgroup splits (R7) hold in both classes ($y{=}0/1$: HMEQ $0.744/0.716$; SGCS $0.584/0.623$; Taiwan $0.561/0.561$). Under $t{=}0.50$ (R8), $F(x)$ AUROC is invariant ($0.611$ vs.\ $0.609$) while $B_{\mathrm{margin}}$ drops ($0.503{\to}0.421$). Finally, R9 ($r_i{=}0.02$ vs.\ present-value) leaves IDCS metrics unchanged.
+\textbf{Structural ablations and sensitivity (R1--R9).} On tree-ensemble instances ($n{=}2{,}862$), isolating $F_{\mathrm{tree}}(x)$ raises AUROC from $0.611$ ($F_{\mathrm{tree}}{+}F_{\mathrm{bin}}$) to \textbf{0.824} ($\Delta{=}{+}0.213$, DeLong $p{=}4.1{\times}10^{-62}$) and $\Delta R^2$ to $+0.077$ ($p{=}1.8{\times}10^{-77}$), whereas cover weighting drops AUROC to $0.411$ ($p{<}10^{-105}$) and $F_{\mathrm{bin}}$ alone yields $0.219$---proving unweighted leaf-path proximity drives TreeSHAP sensitivity. Table~\ref{tab:robustness} and Fig.~\ref{fig:robustness} show that $F(x)$ discrimination remains invariant across tolerance $\tau$ (R2) and threshold $t{=}0.50$ (R8, while $B_{\mathrm{margin}}$ drops $0.503{\to}0.421$), holds across $y{=}0/1$ classes (R7), strengthens under continuous rank/magnitude outcomes $D_\rho$ and $D_1$ (R4), and scales monotonically with $s$ for exact SHAP while LIME stays sampling-flat (R3, R5--R6).
 
 % ==============================================================================
 \section{Practical Implications and Case Study}
@@ -539,11 +627,11 @@ R9 & Cost $r_i$ (PV vs.\ $0.02$) & HMEQ/SGCS \texttt{csboost} AUC ($0.907$ vs.\ 
 % ==============================================================================
 
 \subsection{Operational Deployment: Adverse-Action Fragility Gate}
-To translate ex-ante fragility diagnostics into consumer-lending operations, we implement an automated reason-code fragility gate in Fig.~\ref{fig:case_study}. After a scoring model issues an adverse decision ($p(x) \ge t$) and an explainer extracts the top-4 principal reasons $T_4(\phi(x))$ aligned with Regulation~B~\cite{regb_cfpb}, the lender evaluates $F(x; s)$ using only model structure and feature standard deviations. Applicants with $F(x) \le \tau_F$ receive standard automated notices, whereas high-fragility applicants ($F(x) > \tau_F$) are routed to manual underwriter review or stabilized local-neighborhood consensus.
+To operationalize ex-ante fragility gating in consumer lending (Fig.~\ref{fig:case_study}), when a scorer issues an adverse decision ($p(x)\ge t$) with Regulation~B top-4 reasons $T_4(\phi(x))$~\cite{regb_cfpb}, the lender evaluates $F(x;s)$ solely from model structure and feature SDs: records with $F(x)\le\tau_F$ receive automated notices, whereas high-fragility cases ($F(x)>\tau_F$) route to underwriter review or stabilized local consensus.
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig8_case_study.pdf}
+\includegraphics[width=0.62\columnwidth]{figures/fig8_case_study.pdf}
 \caption{Operational adverse-action fragility gate workflow for a rejected HMEQ applicant: high-$F(x)$ predictions are routed to manual review or stabilized reason consensus prior to issuing notices.}
 \label{fig:case_study}
 \end{figure}
@@ -553,58 +641,51 @@ Following our pre-registered selection rule on the HMEQ XGBoost model ($t = 0.19
 
 \begin{table}[!t]
 \centering
-\caption{HMEQ Rejected-Applicant Case Study Walkthrough ($s{=}0.05$, XGBoost)}
+\caption{HMEQ Rejected-Applicant Case Study ($s{=}0.05$, XGBoost)}
 \label{tab:case_study}
 \scriptsize
-\renewcommand{\arraystretch}{0.88}
-\setlength{\tabcolsep}{2.6pt}
-\begin{tabular}{@{}p{2.2cm}p{2.6cm}p{2.6cm}@{}}
+\renewcommand{\arraystretch}{0.78}
+\setlength{\tabcolsep}{2.2pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lll@{}}
 \toprule
 \textbf{Attribute / Metric} & \textbf{High-Fragility (\texttt{\#369})} & \textbf{Low-Fragility (\texttt{\#166})} \\
 \midrule
 Loan / Mortgage & \texttt{LOAN}=\$20k, \texttt{MORTDUE}=\$152k & \texttt{LOAN}=\$7.5k, \texttt{MORTDUE}=\$12.1k \\
 Credit History & \texttt{DEROG}=2, \texttt{DELINQ}=5, \texttt{CLAGE}=146.5 & \texttt{DEROG}=3, \texttt{DELINQ}=6, \texttt{CLAGE}=234.9 \\
 $p(x)$ / Decision & $0.9999$ (REJECT) & $0.7908$ (REJECT) \\
-Ex-ante $F_{\mathrm{tree}}$ / $F_{\mathrm{bin}}$ & \textbf{1.096} / \textbf{1.500} & 0.617 / 0.012 \\
-Initial TreeSHAP Top-4 & \texttt{DELINQ}, \texttt{DEROG}, \texttt{DEBTINC}, \texttt{VALUE} & \texttt{DELINQ}, \texttt{DEROG}, \texttt{DEBTINC}, \texttt{CLAGE} \\
-Draws $\tau$-preserved & $25/25$ ($100\%$), $\overline{|\Delta p|}{=}0.0036$ & $100\%$ decision preserved \\
+Ex-ante $F_{\mathrm{tree}}$/$F_{\mathrm{bin}}$ & \textbf{1.096} / \textbf{1.500} & 0.617 / 0.012 \\
+TreeSHAP Top-4 & \texttt{DELINQ, DEROG, DEBTINC, VALUE} & \texttt{DELINQ, DEROG, DEBTINC, CLAGE} \\
+$\tau$-pres.\ Draws & $25/25$ ($100\%$), $\overline{|\Delta p|}{=}0.0036$ & $100\%$ decision preserved \\
 Mean $C_{\mathrm{tree}}$ & $1.142$ splits/tree & $0.588$ splits/tree \\
-TreeSHAP Flip Rate & \textbf{100.0\%} (\texttt{VALUE} $\leftrightarrow$ \texttt{CLAGE}) & \textbf{0.0\%} (all 4 stable) \\
+TreeSHAP Flip Rate & \textbf{100.0\%} (\texttt{VALUE}$\leftrightarrow$\texttt{CLAGE}) & \textbf{0.0\%} (all 4 stable) \\
 LIME Flip Rate & $24.0\%$ & $8.0\%$ \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
-Applicant~\texttt{\#369} (\texttt{DELINQ}{=}5, \texttt{DEROG}{=}2) is unambiguously rejected ($p{=}0.9999$); across $25$ $5\%$-noise draws, probability barely shifts ($\overline{|\Delta p|}{=}0.0036$) and all draws reject, yet TreeSHAP's fourth reason flips between \texttt{VALUE} ($\phi{=}{+}1.34$) and \texttt{CLAGE} in \textbf{100\% of draws} due to dense split crossings ($C_{\mathrm{tree}}{=}1.142$). Ex-ante $F_{\mathrm{tree}}{=}1.096$ flags \texttt{\#369} \emph{before} perturbations, whereas \texttt{\#166} ($F_{\mathrm{tree}}{=}0.617$, $F_{\mathrm{bin}}{=}0.012$) stays $100\%$ stable ($0\%$ flips). Cross-dataset LODO gating (R7) achieves $85.2\%$ precision and $54.0\%$ recall on held-out Taiwan ($\tau_F{=}0.3285$, $50.0\%$ flagged; $77.1\%$/$57.4\%$ on rejects), whereas unscaled cutoffs over-flag HMEQ ($\tau_F{=}0.0254$: $100\%$ recall, $64.8\%$ overall / $66.9\%$ reject prec.) and under-flag SGCS ($\tau_F{=}13.05$: $0\%$ flagged)—requiring target-portfolio validation-slice calibration.
-
-\subsection{Implications for Model Risk Management}
-Ex-ante $F(x)$ complements accuracy and calibration by exposing hidden reason-code fragility on confident denials ($p{=}0.9999$), allowing compliance teams to gate high-$F(x)$ notices and prioritize input verification (e.g., DTI and valuation) without claiming automated legal compliance.
+Applicant~\texttt{\#369} is unambiguously rejected ($p{=}0.9999$, $\overline{|\Delta p|}{=}0.0036$ across $25/25$ draws), yet TreeSHAP flips its fourth reason (\texttt{VALUE} $\leftrightarrow$ \texttt{CLAGE}) in \textbf{100\% of draws} ($C_{\mathrm{tree}}{=}1.142$); ex-ante $F_{\mathrm{tree}}{=}1.096$ flags \texttt{\#369} before any perturbation, whereas \texttt{\#166} ($F_{\mathrm{tree}}{=}0.617$) stays $100\%$ stable (Table~\ref{tab:case_study}). Under uncalibrated LODO transfer (R7), raw cutoffs succeed on Taiwan ($85.2\%$ prec., $54.0\%$ rec.) but fail on SGCS ($0\%$ flagged)---the scaling failure solved by training-quantile $F_{\mathrm{cal}}^{\mathrm{quant}}$ in Exp.~A2. For model risk management, ex-ante $F_{\mathrm{jump}}^{\mathrm{ens}}$ and $F_{\mathrm{cal}}^{\mathrm{quant}}$ expose hidden fragility on confident denials ($p{=}0.9999$) and gate notices for input verification without sacrificing accuracy or claiming legal compliance.
 
 % ==============================================================================
 \section{Limitations and Threats to Validity}
 \label{sec:limitations}
 % ==============================================================================
 
-\subsection{Validity Threats}
-\textbf{Construct validity.} Top-4 Jaccard distance ($D_k$) reflects Regulation~B practice~\cite{regb_cfpb} while treating top-4 rank swaps equally; we mitigate this via $D_\rho$, $D_1$, and $k{\in}\{3,5\}$ (R4). Closed-form $F(x)$ assumes independent unclipped Gaussian noise, whereas empirical evaluation validates clipped, $\tau$-filtered draws and unit tests verify unclipped analytical convergence.
-\textbf{Internal validity.} Train-only preprocessing, fixed splits, and independent explainer seeds prevent leakage and seed confounding. Omitting \texttt{csforest}, \texttt{net}, and \texttt{csnet} from Part~1 narrows coverage vs.~\cite{ballegeer2025} (Table~\ref{tab:deviations}).
-\textbf{External validity.} Findings rest on three public consumer-credit datasets (HMEQ, SGCS, Taiwan) across linear and tree-ensemble models and should not be uncritically extrapolated to deep networks or correlated multi-feature noise.
-\textbf{Conclusion validity.} Pre-registered thresholds ($\tau{=}0.05$, $k{=}4$, $\bar{U}_i{\ge}0.20$), Holm--Bonferroni corrections, and $5{,}000$-resample cluster bootstraps guard against multiplicity and within-instance draw correlation.
-
-\subsection{Ethics, Licensing, and Roadmap to Full Conference Submission}
-All datasets are anonymized secondary public benchmarks~\cite{baesens2016,sgcs2019,yeh2009} requiring no human-subjects consent, with checksum-verified downloads. Because SGCS contains demographic attributes, local explanation stability does not constitute a fairness audit; subgroup $F(x)$ disparity remains vital future work. Extending this study toward an A* venue (EJOR, AAAI, KDD, or FAccT) will expand coverage to 8--12 datasets, include GPEC and conformal baselines~\cite{hill2024,breeden2026}, and establish formal Lipschitz bounds for $\|\phi(x')-\phi(x)\|_1$.
+\textbf{Construct \& conclusion validity.} $D_k$ ($k{=}4$) aligns with Reg.~B~\cite{regb_cfpb} and holds under $D_\rho$, $D_1$, and $k{\in}\{3,5\}$ (R4); closed-form $F(x)$ assumes independent Gaussian noise, verified under clipped $\tau$-filtered draws, Holm corrections, and $5{,}000$ bootstraps.
+\textbf{Internal \& external validity.} Train-only preprocessing and fixed seeds prevent leakage; Part~1 omits \texttt{csforest}/\texttt{net}/\texttt{csnet} vs.~\cite{ballegeer2025} (Table~\ref{tab:deviations}), and six-domain tabular findings should not be extrapolated to deep networks or correlated perturbations.
+\textbf{Ethics \& licensing.} Public benchmarks~\cite{baesens2016,sgcs2019,yeh2009,vanschoren2014} (CC~BY~4.0/CC0) are anonymized records; demographic subgroup $F_{\mathrm{jump}}$ disparity auditing on SGCS/Adult remains essential future work.
 
 % ==============================================================================
 \section{Conclusion and Future Work}
 \label{sec:conclusion}
 % ==============================================================================
-Replicating Ballegeer et al.~\cite{ballegeer2025} confirmed monotonic instability growth under imbalance ($38/40$ cells) and higher IDCS instability ($64/80$ cells), while variance decomposition proved that $95.8\%$--$96.2\%$ of balanced-data LIME refit variance stems from explainer Monte Carlo noise rather than retraining. Under frozen models and $|\Delta p|\le 0.05$ noise, exact TreeSHAP flips top-4 reasons in $23.5\%$--$92.3\%$ of draws whereas LIME sits beneath its sampling floor ($\bar{q}_{95}\in[0.358,0.722]$). Joint regression across $48{,}547$ tree draws and discretisation ablation proved double dissociation: LIME tracks quantile bins ($\mathrm{OR}{=}1.361$, reduced $>82\%$ without discretisation), while TreeSHAP tracks tree splits ($\mathrm{OR}{=}1.091$). Closed-form fragility $F(x)$ beats tree-variance baselines without perturbations ($\Delta\mathrm{AUROC}{=}{+}0.112$ to $+0.184$), flags HMEQ rejection \texttt{\#369} ($100\%$ flip rate despite $p{=}0.9999$), and invites future target-calibrated thresholds, correlated perturbations, and formal Lipschitz extensions.
+Replicating~\cite{ballegeer2025} confirmed higher instability under imbalance ($38/40$ cells) and IDCS ($64/80$ cells), while proving $95.8\%$--$96.2\%$ of balanced LIME refit variance stems from Monte Carlo noise. Under frozen models ($|\Delta p|\le 0.05$), TreeSHAP flips top-4 reasons in $23.5\%$--$92.3\%$ of credit draws whereas LIME stays beneath its noise floor ($\bar{q}_{95}\in[0.358,0.722]$). Joint regression across $48{,}547$ credit and $54{,}194$ non-credit draws confirms double dissociation (LIME: $C_{\mathrm{bin}}$; TreeSHAP: $C_{\mathrm{tree}}$), and disabling discretisation cuts LIME instability by $>82\%$ on credit sets and $8.0\,\text{pp}$ out-of-domain. Proposition~P2 bounds attribution drift via leaf jumps: $F_{\mathrm{jump}}^{\mathrm{ens}}$ achieves $0.702$ AUROC ($0.238$ AURC) at $2.42\,\text{ms}$, outperforming GPEC and Epistemic UQ, while $F_{\mathrm{cal}}^{\mathrm{quant}}$ avoids degenerate LODO folds ($0/6$, $+23.5\%$ risk red.) and flags HMEQ \texttt{\#369} with zero fidelity loss. Correlated perturbations, fairness auditing, and neural extensions remain future work.
 
 \section*{Acknowledgment}
-In accordance with course academic integrity guidelines, the authors disclose that AI assistance was utilized solely for grammar checking, LaTeX formatting/debugging, code debugging, and initial research-plan structuring; all experimental execution, verification, and final manuscript authorship were reviewed and owned by the authors.
+AI tools were used solely for grammar checking, LaTeX formatting, code debugging, and initial plan structuring; all experiments, verification, and final prose were authored and owned by the authors.
 
 \section*{Author Contributions (CRediT)}
-\textbf{Shahoud Shahid (23i-2515):} Methodology (Part~2 perturbation engine, crossing extraction, closed-form $F(x)$ derivation), Formal analysis (H2--H5, statistical suite), Software, Visualization, Writing---original draft and review. \textbf{Saif Shahzad (23i-2634):} Conceptualization and literature synthesis (gap matrix, BibTeX verification), Methodology (Part~1 replication, IDCS models, E1), Validation (robustness R1--R9), Case study design, Writing---original draft and review.
+\textbf{Shahoud Shahid (23i-2515):} Methodology (Part~2 perturbations, crossings, $F(x)$/Prop.~P2), Formal analysis (H2--H5, Exp.~A1--A4), Software, Visualization, Writing. \textbf{Saif Shahzad (23i-2634):} Conceptualization, Literature (gap matrix, BibTeX), Methodology (Part~1, IDCS, E1, LODO), Validation (R1--R9), Case study, Writing.
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}
@@ -715,6 +796,98 @@ SGCS & \texttt{xgb}/\texttt{csboost} & \textbf{0.770}/0.713 & 0.581/0.469 & \tex
 Taiwan & \texttt{lr}/\texttt{cslogit} & 0.716/0.670 & 0.498/0.464 & 0.146/0.205 & 0.083/0.322 & 0.184/0.323 \\
 Taiwan & \texttt{rf} & 0.775 & \textbf{0.551} & \textbf{0.136} & 0.158 & 0.347 \\
 Taiwan & \texttt{xgb}/\texttt{csboost} & \textbf{0.777}/0.702 & 0.548/0.489 & \textbf{0.136}/0.227 & 0.163/\textbf{0.400} & 0.331/\textbf{0.411} \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\section{Proposition~P2 Proof and Extended Phase~2 Results}
+\label{app:p2_proof}
+
+\begin{proof}[Proof of Proposition~\ref{prop:p2}(a)]
+Fix a single tree $t$ and perturbation realization $x'$. By additivity of TreeSHAP across ensemble trees, $\phi_{f,j}^{\mathrm{path}}(x) = \frac{1}{T}\sum_{t=1}^T \phi_{t,j}^{\mathrm{path}}(x)$ (with $L_f$-rescaling absorbing raw-margin ensemble scale when needed). For any feature coalition $A \subseteq \{1,\dots,D\}$, let $g_t(x_A) = \mathbb{E}_{\mathrm{tree}}[f_t(X) \mid X_A = x_A]$ denote the path-dependent conditional expectation evaluated top-down from root to leaves~\cite{lundberg2020}, and let $g_{t,u}(\cdot)$ be its restriction to the subtree rooted at node $u \in N_t \cup \mathcal{L}_t$. Define the subtree discrepancy $E_u(x, x', A) := |g_{t,u}(x'_A) - g_{t,u}(x_A)|$, and let $C_t(x, x') \subseteq N_t$ denote the set of split nodes whose thresholds are crossed between $x$ and $x'$, with $N_t(u)$ denoting internal nodes in subtree $u$. We prove by structural induction on $u$ that for every $A \subseteq \{1,\dots,D\}$:
+\begin{equation}
+\label{eq:p2_ind}
+E_u(x, x', A) \;\le\; \sum_{v \in C_t(x, x') \cap N_t(u)} \bar{\Delta}_{t,v}.
+\end{equation}
+\textit{Base case ($u \in \mathcal{L}_t$):} Leaf values are constant in $x$, hence $E_u = 0$. \textit{Inductive step ($u \in N_t$):} Three cases arise:
+\begin{enumerate}
+    \item If $j(u) \notin A$, path-dependent TreeSHAP averages child subtrees with fixed training cover weights $w_L = c_{u_L}/(c_{u_L}+c_{u_R})$ and $w_R = 1 - w_L$. By the triangle inequality and inductive hypothesis, $E_u \le w_L E_{u_L} + w_R E_{u_R} \le \max(E_{u_L}, E_{u_R}) \le \sum_{v \in C_t(x,x')\cap N_t(u)} \bar{\Delta}_{t,v}$.
+    \item If $j(u) \in A$ and $u \notin C_t(x,x')$, both $x$ and $x'$ route to the same child $c \in \{u_L, u_R\}$, so $E_u = E_c \le \sum_{v \in C_t(x,x')\cap N_t(u)} \bar{\Delta}_{t,v}$.
+    \item If $j(u) \in A$ and $u \in C_t(x,x')$, $x$ and $x'$ route into disjoint subtrees $\mathcal{L}(u_L)$ and $\mathcal{L}(u_R)$. Because $g_{t,u_L}(\cdot)$ and $g_{t,u_R}(\cdot)$ are convex combinations of leaf values in $\mathcal{L}(u_L)$ and $\mathcal{L}(u_R)$, respectively, $E_u \le \max_{\ell \in \mathcal{L}(u_L),\, \ell' \in \mathcal{L}(u_R)} |V(\ell) - V(\ell')| = \bar{\Delta}_{t,u} \le \sum_{v \in C_t(x,x')\cap N_t(u)} \bar{\Delta}_{t,v}$.
+\end{enumerate}
+Evaluating Eq.~\eqref{eq:p2_ind} at $u = \mathrm{root}(t)$ yields $\max_A |g_t(x'_A) - g_t(x_A)| \le \sum_{v \in C_t(x,x')} \bar{\Delta}_{t,v}$. Because Shapley coalition weights $w_{|S|} = \frac{|S|!(D-|S|-1)!}{D!}$ are non-negative and sum to $1$ over $S \subseteq \{1,\dots,D\}\setminus\{j\}$,
+\begin{equation}
+\begin{aligned}
+|\phi_{t,j}^{\mathrm{path}}(x') - \phi_{t,j}^{\mathrm{path}}(x)| &\le \sum_{S} w_{|S|} \big(|g_t(x'_{S\cup\{j\}}) - g_t(x_{S\cup\{j\}})| \\
+&\quad + |g_t(x'_S) - g_t(x_S)|\big) \\
+&\le 2 \sum_{v \in C_t(x,x')} \bar{\Delta}_{t,v}.
+\end{aligned}
+\end{equation}
+Taking the maximum over $j$, averaging across $t=1,\dots,T$, and taking $\mathbb{E}_{X'}[\cdot]$ using $\mathbb{E}_{X'}[\mathbb{I}(v \in C_t(x, X'))] = \Phi(-|x_{j(v)}-\theta_v|/(s\cdot\mathrm{SD}_{j(v)}))$ for $j(v)\in\mathcal{P}$ (zero otherwise) yields Eq.~\eqref{eq:p2bound}.
+\end{proof}
+
+\noindent In deep ensembles, sparse outlier leaves can inflate $\bar{\Delta}_{t,v}$, motivating the cover-weighted conditional jump $\Delta_{t,v} = |V(v_L) - V(v_R)|$ in Eq.~\eqref{eq:fjump}. Tables~\ref{tab:astar_per_domain} and~\ref{tab:lodo_per_domain} report the complete 12-cell Phase~2 breakdown and six-domain Leave-One-Domain-Out (LODO) calibration metrics.
+
+\begin{table}[!t]
+\centering
+\caption{Phase~2 Model Fit and Exp.~A1 Ex-Ante AUROC Across 6 Domains}
+\label{tab:astar_per_domain}
+\scriptsize
+\renewcommand{\arraystretch}{0.76}
+\setlength{\tabcolsep}{2.4pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}llrrrrr@{}}
+\toprule
+\textbf{Dataset} & \textbf{Model} & \textbf{Fit AUC} & $F_{\mathrm{jump}}^{\mathrm{ens}}$ & $F_{\mathrm{tree}}^{\mathrm{unw}}$ & \textbf{GPEC} & \textbf{Epist.\ UQ} \\
+\midrule
+HMEQ & \texttt{rf} & 0.960 & 0.715 & \textbf{0.728} & 0.481 & 0.650 \\
+HMEQ & \texttt{xgb} & 0.967 & 0.764 & \textbf{0.765} & 0.494 & 0.494 \\
+SGCS & \texttt{rf} & 0.750 & 0.725 & \textbf{0.731} & 0.468 & 0.456 \\
+SGCS & \texttt{xgb} & 0.769 & 0.833 & \textbf{0.836} & 0.459 & 0.394 \\
+Taiwan & \texttt{rf} & 0.775 & \textbf{0.780} & 0.778 & 0.536 & 0.607 \\
+Taiwan & \texttt{xgb} & 0.777 & 0.775 & \textbf{0.777} & 0.405 & 0.612 \\
+Bank & \texttt{rf} & 0.924 & 0.659 & \textbf{0.662} & 0.499 & 0.472 \\
+Bank & \texttt{xgb} & 0.930 & 0.763 & \textbf{0.780} & 0.508 & 0.473 \\
+Adult & \texttt{rf} & 0.911 & 0.773 & \textbf{0.785} & 0.469 & 0.583 \\
+Adult & \texttt{xgb} & 0.929 & 0.709 & \textbf{0.711} & 0.498 & 0.363 \\
+Heart & \texttt{rf} & 0.967 & 0.686 & \textbf{0.687} & 0.480 & 0.537 \\
+Heart & \texttt{xgb} & 0.963 & 0.702 & \textbf{0.709} & 0.380 & 0.468 \\
+\midrule
+Pooled RF & $N{=}2{,}400$ & --- & \textbf{0.776} & \textbf{0.776} & 0.413 & 0.501 \\
+Pooled XGB & $N{=}2{,}400$ & --- & \textbf{0.769} & 0.706 & 0.478 & 0.422 \\
+\textbf{Pooled All} & $N{=}4{,}800$ & --- & \textbf{0.702} & 0.640 & 0.519 & 0.461 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{table}[!t]
+\centering
+\caption{Exp.~A2 Zero-Tuning LODO Gating Across 6 Held-Out Domains}
+\label{tab:lodo_per_domain}
+\scriptsize
+\renewcommand{\arraystretch}{1.04}
+\setlength{\tabcolsep}{2.4pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+\textbf{LODO Gate / Target} & \textbf{Flag \%} & \textbf{Degen.} & \textbf{Bal.\ Acc.} & \textbf{Risk Red.} & \textbf{AURC}$\downarrow$ \\
+\midrule
+\multicolumn{6}{l}{\textbf{Panel A: Pooled Across 6 Held-Out Domains ($\times 2$ Models)}} \\
+$F_{\mathrm{cal}}^{\mathrm{quant}}@0.50$ & 53.5 & \textbf{0/6} & \textbf{0.600} & \textbf{+23.5\%} & 0.313 \\
+$F_{\mathrm{cal}}^{\mathrm{quant}}$ (Youden) & 48.7 & \textbf{0/6} & 0.595 & +20.3\% & 0.313 \\
+$F_{\mathrm{cal}}^{\mathrm{rz}}$ (Youden) & 49.0 & \textbf{0/6} & \textbf{0.600} & +21.5\% & 0.332 \\
+$F_{\mathrm{jump}}^{\mathrm{raw}}$ (uncalibrated) & 40.3 & 1/6 & 0.562 & +18.1\% & 0.298 \\
+$F_{\mathrm{tree}}^{\mathrm{unw}}$ (raw) & 28.3 & 1/6 & 0.520 & +3.4\% & \textbf{0.296} \\
+GPEC$_{\mathrm{cal}}^{\mathrm{quant}}$ & 43.3 & \textbf{0/6} & 0.493 & +2.0\% & 0.420 \\
+Epistemic$_{\mathrm{cal}}^{\mathrm{quant}}$ & 47.6 & \textbf{0/6} & 0.481 & $-$12.2\% & 0.392 \\
+\midrule
+\multicolumn{4}{@{}l}{\textbf{Panel B: Held-Out Pooled RF/XGB}} & \multicolumn{2}{r@{}}{\textbf{Risk Red.\ \% ($F_{\mathrm{cal}}$/Raw/GPEC/Ep.)}} \\
+HMEQ (Flag 62.9\%) & 62.9 & 0/2 & 0.599 & \multicolumn{2}{r@{}}{\textbf{+20.4} / +4.1 / $-$1.2 / $-$13.4\%} \\
+SGCS (Flag 50.0\%) & 50.0 & 0/2 & 0.642 & \multicolumn{2}{r@{}}{\textbf{+44.9} / 0.0 / +12.9 / $-$18.0\%} \\
+Taiwan (Flag 54.1\%) & 54.1 & 0/2 & 0.658 & \multicolumn{2}{r@{}}{\textbf{+23.4} / +0.6 / +5.5 / +5.5\%} \\
+Bank (Flag 48.6\%) & 48.6 & 0/2 & 0.589 & \multicolumn{2}{r@{}}{+19.7 / \textbf{+23.3} / $-$0.3 / $-$6.3\%} \\
+Adult (Flag 54.1\%) & 54.1 & 0/2 & 0.513 & \multicolumn{2}{r@{}}{+4.8 / \textbf{+55.7} / +1.6 / $-$39.1\%} \\
+Heart (Flag 51.1\%) & 51.1 & 0/2 & 0.597 & \multicolumn{2}{r@{}}{\textbf{+28.0} / +24.7 / $-$6.7 / $-$2.1\%} \\
 \bottomrule
 \end{tabular}}
 \end{table}

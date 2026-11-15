@@ -25,7 +25,9 @@ if str(ANALYSIS_ROOT) not in sys.path:
     sys.path.insert(0, str(ANALYSIS_ROOT))
 
 from src.plots import (
+    plot_astar_baselines_pareto,
     plot_double_dissociation,
+    plot_lodo_risk_coverage,
     plot_perturbation_vs_floor,
     plot_replication_curves,
     plot_robustness_ablation,
@@ -155,6 +157,25 @@ def main(config_path: Path | None = None, results_dir_override: Path | None = No
         generated.append(f"Fig 7: {pdf_p.name}, {png_p.name}")
     else:
         skipped.append("Fig 7 (missing R1 nested/ablation results in results/)")
+
+    # 6. Fig 9 (Phase 2 A*): Baseline Pareto frontier (Exp A1) & Stabilization trade-off (Exp A3)
+    astar_dir = results_dir / "astar"
+    a1_pred_df = _load_table(astar_dir, ["astar_exp_a1_predictors.csv"])
+    a3_mit_df = _load_table(astar_dir, ["astar_exp_a3_mitigation.csv"])
+    if a1_pred_df is not None and not a1_pred_df.empty:
+        pdf_p, png_p = plot_astar_baselines_pareto(a1_pred_df, a3_mit_df, fig_out_dir, extra_dirs=extra_dirs)
+        generated.append(f"Fig 9: {pdf_p.name}, {png_p.name}")
+    else:
+        skipped.append("Fig 9 (missing Phase 2 results/astar/astar_exp_a1_predictors.csv)")
+
+    # 7. Fig 10 (Phase 2 A*): Selective Risk-Coverage (Exp A1/A2) & LODO domain transfer (Exp A2)
+    a1_inst_df = _load_table(astar_dir, ["astar_exp_a1_instance_scores.parquet"])
+    a2_lodo_df = _load_table(astar_dir, ["astar_exp_a2_lodo.csv"])
+    if a1_inst_df is not None and not a1_inst_df.empty:
+        pdf_p, png_p = plot_lodo_risk_coverage(a1_inst_df, a2_lodo_df, fig_out_dir, extra_dirs=extra_dirs)
+        generated.append(f"Fig 10: {pdf_p.name}, {png_p.name}")
+    else:
+        skipped.append("Fig 10 (missing Phase 2 results/astar/astar_exp_a1_instance_scores.parquet)")
 
     print("=== 05_plots.py Summary ===")
     for item in generated:

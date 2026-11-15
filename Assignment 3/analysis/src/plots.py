@@ -613,3 +613,391 @@ def plot_robustness_ablation(
     paths = save_figure(fig, out_dir, stem, extra_dirs=extra_dirs)
     plt.close(fig)
     return paths
+
+
+# ---------------------------------------------------------------------------
+# Phase 2 (A* Extension): Figs. 9-10
+# ---------------------------------------------------------------------------
+
+
+def plot_astar_baselines_pareto(
+    predictors_df: pd.DataFrame,
+    mitigation_df: pd.DataFrame | None,
+    out_dir: Path,
+    extra_dirs: Sequence[Path] | None = None,
+    stem: str = "fig9_astar_baselines_pareto",
+) -> tuple[Path, Path]:
+    """Plot Exp A1 fragility-latency Pareto frontier and Exp A3 mitigation trade-off.
+
+    Reads pooled predictor performance from ``astar_exp_a1_predictors.csv``
+    (``scope_dataset == 'POOLED_ALL'``, ``model == 'POOLED'``) and explanation
+    stabilization results from ``astar_exp_a3_mitigation.csv``.
+    """
+    apply_publication_style()
+    has_mit = mitigation_df is not None and not mitigation_df.empty
+    ncols = 2 if has_mit else 1
+    fig_w = IEEE_DOUBLE_COL_IN if has_mit else IEEE_SINGLE_COL_IN
+    fig, axes = plt.subplots(
+        1, ncols,
+        figsize=(fig_w, 3.25),
+        gridspec_kw={"width_ratios": [1.02, 1.15]} if has_mit else None,
+        squeeze=False,
+    )
+
+    # Panel (a): Ex-Ante AUROC vs. Inference Latency Pareto Frontier (POOLED_ALL, POOLED)
+    ax0 = axes[0, 0]
+    sub = predictors_df[
+        (predictors_df["scope_dataset"] == "POOLED_ALL")
+        & (predictors_df["model"] == "POOLED")
+    ].copy()
+    if sub.empty:
+        sub = predictors_df.copy()
+
+    # Keep non-redundant representative predictors matching Table / Exp A1
+    pred_spec: dict[str, tuple[str, str, str, tuple[float, float], str, str]] = {
+        # predictor: (label, color, marker, (dx_pts, dy_pts), ha, va)
+        "f_jump_ens": (r"$F_{\mathrm{jump}}$ (ens-$\sigma$)", OKABE_ITO["teal"], "*", (-10, 10), "right", "bottom"),
+        "f_unw": (r"$F_{\mathrm{unw}}$", OKABE_ITO["blue"], "^", (10, 5), "left", "bottom"),
+        "f_jump": (r"$F_{\mathrm{jump}}$ (tree-$\sigma$)", OKABE_ITO["orange"], "s", (10, -7), "left", "top"),
+        "b_margin": (r"$B_{\mathrm{margin}}$", OKABE_ITO["sky"], "o", (8, 6), "left", "bottom"),
+        "epistemic_uq": ("Epistemic UQ", OKABE_ITO["purple"], "v", (8, -2), "left", "top"),
+        "gpec": ("GPEC", OKABE_ITO["grey"], "X", (0, 9), "center", "bottom"),
+        "posthoc_abs_dp": (r"Post-hoc $|\Delta p|$", OKABE_ITO["vermilion"], "D", (-4, 11), "center", "bottom"),
+    }
+
+    ax0.axhline(0.50, color=OKABE_ITO["grey"], linestyle="--", linewidth=0.85, zorder=1)
+    ax0.text(1.4e-4, 0.506, "Chance (0.50)", fontsize=7.0, color=OKABE_ITO["grey"], ha="left", va="bottom")
+
+    plotted_pts: dict[str, tuple[float, float]] = {}
+    for pred_key, (lbl, col, mkr, (dx, dy), ha, va) in pred_spec.items():
+        row_df = sub[sub["predictor"] == pred_key]
+        if row_df.empty:
+            continue
+        row = row_df.iloc[0]
+        ms = max(float(row["infer_ms_per_inst"]), 8e-5)
+        auroc = float(row["auroc"])
+        plotted_pts[pred_key] = (ms, auroc)
+
+        yerr = None
+        if pd.notna(row.get("auroc_ci_low")) and pd.notna(row.get("auroc_ci_high")):
+            yerr = np.array([
+                [max(0.0, auroc - float(row["auroc_ci_low"]))],
+                [max(0.0, float(row["auroc_ci_high"]) - auroc)],
+            ])
+        msize = 9.0 if pred_key == "f_jump_ens" else 6.0
+        z = 5 if pred_key == "f_jump_ens" else 3
+        ax0.errorbar(
+            [ms], [auroc], yerr=yerr,
+            fmt=mkr, color=col, ecolor=col, elinewidth=1.0, capsize=2.5,
+            markersize=msize, markeredgecolor="#1E293B", markeredgewidth=0.6,
+            zorder=z,
+        )
+        txt = f"{lbl}\n({auroc:.3f}, {ms:.2f} ms)" if ms >= 0.01 else f"{lbl}\n({auroc:.3f})"
+        ax0.annotate(
+            txt,
+            xy=(ms, auroc),
+            xytext=(dx, dy),
+            textcoords="offset points",
+            ha=ha, va=va,
+            fontsize=6.9,
+            fontweight="bold" if pred_key == "f_jump_ens" else "normal",
+            color="#0F172A" if pred_key == "f_jump_ens" else "#334155",
+            arrowprops={"arrowstyle": "-", "color": "#94A3B8", "lw": 0.55} if abs(dx) >= 6 or abs(dy) >= 8 else None,
+        )
+
+    # Connect ex-ante Pareto frontier & post-hoc reference extension
+    if "b_margin" in plotted_pts and "f_jump_ens" in plotted_pts:
+        x_p, y_p = zip(plotted_pts["b_margin"], plotted_pts["f_jump_ens"])
+        ax0.plot(x_p, y_p, color=OKABE_ITO["teal"], linestyle="--", linewidth=1.1, alpha=0.85, zorder=2)
+    if "f_jump_ens" in plotted_pts and "posthoc_abs_dp" in plotted_pts:
+        x_r, y_r = zip(plotted_pts["f_jump_ens"], plotted_pts["posthoc_abs_dp"])
+        ax0.plot(x_r, y_r, color=OKABE_ITO["vermilion"], linestyle=":", linewidth=1.0, alpha=0.8, zorder=2)
+        mid_x = np.sqrt(x_r[0] * x_r[1])
+        mid_y = 0.5 * (y_r[0] + y_r[1]) - 0.015
+        speedup = x_r[1] / max(x_r[0], 1e-9)
+        ax0.text(mid_x, mid_y, f"{speedup:.0f}× faster", fontsize=6.9, color=OKABE_ITO["vermilion"],
+                 ha="center", va="top", style="italic")
+
+    ax0.set_xscale("log")
+    ax0.set_xlim(4e-5, 4500)
+    ax0.set_ylim(0.40, 0.825)
+    ax0.set_xlabel("Inference Latency (ms / instance, log scale)")
+    ax0.set_ylabel("Instability AUROC (95% Cluster CI)")
+    ax0.set_title("(a) A1: Ex-Ante Pareto vs. SOTA ($N=4{,}800$)")
+
+    # Panel (b): Exp A3 Explanation Stabilization & Fidelity Trade-Off
+    if has_mit:
+        ax1 = axes[0, 1]
+        agg = (
+            mitigation_df
+            .groupby(["family", "method"], as_index=False)[
+                ["mean_d_k", "instab_rate", "fidelity_dk_vs_treeshap", "ms_per_inst"]
+            ]
+            .mean()
+        )
+        method_order = [
+            "TreeSHAP+F_jump@70%",
+            "TreeSHAP+F_jump@80%",
+            "AXOM",
+            "TreeSHAP",
+            "ST_SHAP_L1",
+            "LIME_disc_off",
+            "S_LIME",
+            "LIME_std+F_bin@70%",
+            "LIME_std",
+        ]
+        present = [m for m in method_order if m in set(agg["method"])]
+        extra = [m for m in agg["method"].tolist() if m not in present]
+        ordered = present + extra
+        agg = agg.set_index("method").loc[ordered].reset_index()
+
+        label_map = {
+            "TreeSHAP+F_jump@70%": r"TreeSHAP + $F_{\mathrm{jump}}$@70%",
+            "TreeSHAP+F_jump@80%": r"TreeSHAP + $F_{\mathrm{jump}}$@80%",
+            "AXOM": "AXOM (RF only)",
+            "TreeSHAP": "TreeSHAP (base)",
+            "ST_SHAP_L1": r"ST-SHAP ($\ell_1$)",
+            "LIME_disc_off": "LIME (disc. off)",
+            "S_LIME": "S-LIME",
+            "LIME_std+F_bin@70%": r"LIME + $F_{\mathrm{bin}}$@70%",
+            "LIME_std": "LIME (std.)",
+        }
+
+        y_pos = np.arange(len(agg))
+        vals = agg["mean_d_k"].to_numpy(dtype=float)
+        colors = []
+        hatches = []
+        for _, r in agg.iterrows():
+            m = str(r["method"])
+            fid = r.get("fidelity_dk_vs_treeshap", np.nan)
+            has_drift = pd.notna(fid) and float(fid) > 1e-4
+            if "F_jump@70" in m:
+                colors.append(OKABE_ITO["teal"])
+            elif "F_jump@80" in m:
+                colors.append(OKABE_ITO["sky"])
+            elif m == "TreeSHAP":
+                colors.append(OKABE_ITO["blue"])
+            elif m in ("AXOM", "ST_SHAP_L1"):
+                colors.append(OKABE_ITO["orange"] if m == "AXOM" else OKABE_ITO["vermilion"])
+            elif m == "S_LIME":
+                colors.append(OKABE_ITO["purple"])
+            elif m == "LIME_disc_off":
+                colors.append(OKABE_ITO["sky"])
+            else:
+                colors.append(OKABE_ITO["slate"])
+            hatches.append("//" if has_drift else "")
+
+        bars = ax1.barh(
+            y_pos, vals, color=colors, edgecolor="#1E293B",
+            linewidth=0.65, height=0.62, alpha=0.92,
+        )
+        for bar, h in zip(bars, hatches):
+            if h:
+                bar.set_hatch(h)
+
+        # Divider between SHAP and LIME families
+        families = agg["family"].tolist()
+        for k in range(1, len(families)):
+            if families[k] != families[k - 1]:
+                ax1.axhline(k - 0.5, color=OKABE_ITO["grey"], linestyle="--", linewidth=0.9)
+
+        for idx, (_, r) in enumerate(agg.iterrows()):
+            dk_v = float(r["mean_d_k"])
+            inst_pct = 100.0 * float(r["instab_rate"])
+            fid = r.get("fidelity_dk_vs_treeshap", np.nan)
+            if str(r["family"]) == "SHAP" and pd.notna(fid):
+                note = f"{dk_v:.3f}  ({inst_pct:.1f}%, Fid={float(fid):.2f})"
+            else:
+                ms_v = float(r["ms_per_inst"])
+                note = f"{dk_v:.3f}  ({inst_pct:.1f}%, {ms_v:.0f} ms)"
+            ax1.text(
+                dk_v + 0.008, idx, note,
+                va="center", ha="left", fontsize=6.8,
+                fontweight="bold" if r["method"] == "TreeSHAP+F_jump@70%" else "normal",
+                color="#0F172A" if r["method"] == "TreeSHAP+F_jump@70%" else "#334155",
+            )
+
+        ax1.set_yticks(y_pos)
+        ax1.set_yticklabels([label_map.get(str(m), str(m)) for m in agg["method"]], fontsize=7.6)
+        ax1.invert_yaxis()
+        max_x = float(np.nanmax(vals))
+        ax1.set_xlim(0.0, max(0.64, max_x + 0.25))
+        ax1.set_xlabel(r"Mean Top-4 Distance $\bar{D}_4$ (lower = more stable)")
+        ax1.set_title("(b) A3: Stabilization vs. Fidelity / Latency")
+
+    fig.tight_layout(w_pad=1.6)
+    paths = save_figure(fig, out_dir, stem, extra_dirs=extra_dirs)
+    plt.close(fig)
+    return paths
+
+
+def plot_lodo_risk_coverage(
+    instance_scores_df: pd.DataFrame,
+    lodo_df: pd.DataFrame | None,
+    out_dir: Path,
+    extra_dirs: Sequence[Path] | None = None,
+    stem: str = "fig10_lodo_risk_coverage",
+) -> tuple[Path, Path]:
+    """Plot selective instability risk-coverage curves and LODO domain transfer.
+
+    Panel (a) computes exact tie-averaged selective risk-coverage curves from
+    ``astar_exp_a1_instance_scores.parquet`` using ``src.stats._tie_averaged_sorted_risks``.
+    Panel (b) compares LODO accepted-risk reduction (%) across all six held-out
+    domains from ``astar_exp_a2_lodo.csv``.
+    """
+    from src.stats import _tie_averaged_sorted_risks
+
+    apply_publication_style()
+    has_lodo = lodo_df is not None and not lodo_df.empty
+    ncols = 2 if has_lodo else 1
+    fig_w = IEEE_DOUBLE_COL_IN if has_lodo else IEEE_SINGLE_COL_IN
+    fig, axes = plt.subplots(
+        1, ncols,
+        figsize=(fig_w, 3.25),
+        gridspec_kw={"width_ratios": [1.0, 1.15]} if has_lodo else None,
+        squeeze=False,
+    )
+
+    # Panel (a): Selective Instability Risk-Coverage Curves (Pooled across 6 domains)
+    ax0 = axes[0, 0]
+    y_all = instance_scores_df["y_instab"].to_numpy(dtype=float)
+    base_risk = float(np.nanmean(y_all))
+
+    curve_specs: list[tuple[str, str, str, str, float]] = [
+        ("posthoc_abs_dp", r"Post-hoc $|\Delta p|$", OKABE_ITO["vermilion"], "--", 1.3),
+        ("f_jump_ens", r"$F_{\mathrm{jump}}$ (ens-$\sigma$)", OKABE_ITO["teal"], "-", 1.9),
+        ("f_unw", r"$F_{\mathrm{unw}}$", OKABE_ITO["blue"], "--", 1.3),
+        ("f_jump", r"$F_{\mathrm{jump}}$ (tree-$\sigma$)", OKABE_ITO["orange"], "-.", 1.3),
+        ("b_margin", r"$B_{\mathrm{margin}}$", OKABE_ITO["slate"], ":", 1.3),
+        ("epistemic_uq", "Epistemic UQ", OKABE_ITO["purple"], ":", 1.25),
+        ("gpec", "GPEC", OKABE_ITO["grey"], ":", 1.25),
+    ]
+
+    cov_grid = np.linspace(0.20, 1.00, 81)
+    # Oracle lower bound
+    valid_y = y_all[np.isfinite(y_all)]
+    n_tot = len(valid_y)
+    if n_tot > 0:
+        counts = np.arange(1, n_tot + 1, dtype=float)
+        oracle_cum = np.cumsum(np.sort(valid_y)) / counts
+        oracle_aurc = float(np.mean(oracle_cum))
+        idx_grid = np.clip(np.round(cov_grid * n_tot).astype(int) - 1, 0, n_tot - 1)
+        ax0.plot(
+            cov_grid, oracle_cum[idx_grid],
+            color="#0F172A", linestyle=(0, (4, 2)), linewidth=1.2,
+            label=f"Oracle ({oracle_aurc:.3f})", zorder=2,
+        )
+
+    for col_name, lbl, col, ls, lw in curve_specs:
+        if col_name not in instance_scores_df.columns:
+            continue
+        s_arr = instance_scores_df[col_name].to_numpy(dtype=float)
+        mask = np.isfinite(y_all) & np.isfinite(s_arr)
+        yv, sv = y_all[mask], s_arr[mask]
+        if len(yv) == 0:
+            continue
+        y_sorted = _tie_averaged_sorted_risks(yv, sv)
+        counts = np.arange(1, len(yv) + 1, dtype=float)
+        cum_risk = np.cumsum(y_sorted) / counts
+        aurc_val = float(np.mean(cum_risk))
+        idx_grid = np.clip(np.round(cov_grid * len(yv)).astype(int) - 1, 0, len(yv) - 1)
+        ax0.plot(
+            cov_grid, cum_risk[idx_grid],
+            color=col, linestyle=ls, linewidth=lw,
+            label=f"{lbl} ({aurc_val:.3f})",
+            zorder=4 if col_name == "f_jump_ens" else 3,
+        )
+
+    ax0.axhline(base_risk, color=OKABE_ITO["grey"], linestyle="-.", linewidth=0.85, alpha=0.8)
+    ax0.text(0.99, base_risk + 0.008, f"Un-gated ({base_risk:.3f})", fontsize=6.7, color="#475569", ha="right")
+
+    ax0.set_xlim(0.20, 1.00)
+    ax0.set_ylim(-0.015, 0.595)
+    ax0.set_xlabel(r"Coverage (Accepted Fraction $c$)")
+    ax0.set_ylabel(r"Accepted Instability Rate $\hat{R}(c)$")
+    ax0.set_title("(a) A2: Selective Risk–Coverage (AURC)")
+    ax0.legend(loc="upper right", fontsize=6.0, ncol=2, columnspacing=0.8, labelspacing=0.20, handlelength=1.6)
+
+    # Panel (b): Zero-Tuning LODO Risk Reduction Across 6 Held-Out Domains
+    if has_lodo:
+        ax1 = axes[0, 1]
+        sub2 = lodo_df[lodo_df["model"] == "POOLED_RF_XGB"].copy()
+        if sub2.empty:
+            sub2 = lodo_df.copy()
+
+        domain_order = ["hmeq", "sgcs", "taiwan", "bank", "adult", "heart"]
+        domains = [d for d in domain_order if d in set(sub2["held_out_dataset"])]
+        domain_labels = {
+            "hmeq": "HMEQ", "sgcs": "SGCS", "taiwan": "Taiwan",
+            "bank": "Bank", "adult": "Adult", "heart": "Heart",
+        }
+
+        methods_cfg = [
+            ("F_cal_quant@0.50", r"$F_{\mathrm{cal}}^{\mathrm{quant}}@0.50$", OKABE_ITO["teal"]),
+            ("F_cal_quant_youden", r"$F_{\mathrm{cal}}^{\mathrm{quant}}$ (Youden)", OKABE_ITO["blue"]),
+            ("F_jump_raw", r"$F_{\mathrm{jump}}$ (raw Youden)", OKABE_ITO["orange"]),
+            ("GPEC_cal_quant", "GPEC (cal.)", OKABE_ITO["grey"]),
+            ("Epistemic_cal_quant", "Epistemic UQ (cal.)", OKABE_ITO["purple"]),
+        ]
+        methods_cfg = [m for m in methods_cfg if m[0] in set(sub2["method"])]
+
+        x_labels = [domain_labels.get(d, d.upper()) for d in domains] + ["Mean"]
+        x_base = np.arange(len(x_labels), dtype=float)
+        # Visual separator before Mean column
+        x_base[-1] += 0.25
+        n_m = len(methods_cfg)
+        bar_w = min(0.155, 0.78 / max(1, n_m))
+
+        ax1.axhline(0.0, color="#334155", linewidth=0.9, zorder=1)
+        ax1.axvline(len(domains) - 0.375, color=OKABE_ITO["grey"], linestyle="--", linewidth=0.85, alpha=0.75)
+
+        for m_idx, (m_key, m_lbl, m_col) in enumerate(methods_cfg):
+            offset = (m_idx - (n_m - 1) / 2.0) * bar_w
+            vals_d: list[float] = []
+            flags_d: list[float] = []
+            for d in domains:
+                row_m = sub2[(sub2["held_out_dataset"] == d) & (sub2["method"] == m_key)]
+                if row_m.empty:
+                    vals_d.append(np.nan)
+                    flags_d.append(np.nan)
+                else:
+                    vals_d.append(float(row_m["risk_reduction_pct"].mean()))
+                    flags_d.append(float(row_m["flag_rate"].mean()))
+            mean_v = float(np.nanmean(vals_d))
+            vals_all = vals_d + [mean_v]
+
+            xs = x_base + offset
+            ax1.bar(
+                xs, vals_all, width=bar_w * 0.94, color=m_col,
+                edgecolor="#1E293B", linewidth=0.55, label=m_lbl, zorder=3,
+            )
+
+            # Mark degenerate 0% flag rate folds explicitly (e.g., F_jump_raw on SGCS)
+            for di, (x_val, flg) in enumerate(zip(xs[:-1], flags_d)):
+                if pd.notna(flg) and flg <= 1e-6:
+                    ax1.plot(x_val, 1.5, marker="x", color=OKABE_ITO["vermilion"], markersize=5.5, markeredgewidth=1.4, zorder=5)
+                    ax1.annotate(
+                        "0% flag\n(degen.)",
+                        xy=(x_val, 2.5),
+                        xytext=(x_val + 0.30, 23.0),
+                        fontsize=5.7,
+                        color=OKABE_ITO["vermilion"],
+                        ha="center",
+                        va="bottom",
+                        fontweight="bold",
+                        arrowprops={"arrowstyle": "->", "color": OKABE_ITO["vermilion"], "lw": 0.75},
+                        zorder=6,
+                    )
+
+        ax1.set_xticks(x_base)
+        ax1.set_xticklabels(x_labels, fontsize=7.6)
+        ax1.set_ylabel("Accepted Risk Reduction (%)")
+        ax1.set_ylim(-45, 79)
+        ax1.set_title("(b) A2: Zero-Tuning LODO Transfer (6 Domains)")
+        ax1.legend(loc="upper center", fontsize=6.1, ncol=3, columnspacing=0.75, labelspacing=0.22, handlelength=1.4)
+
+    fig.tight_layout(w_pad=1.5)
+    paths = save_figure(fig, out_dir, stem, extra_dirs=extra_dirs)
+    plt.close(fig)
+    return paths
+
