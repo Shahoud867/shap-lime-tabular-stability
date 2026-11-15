@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="Methodology_Flowchart" name="Methodology_Flowchart">
+    <mxGraphModel dx="1000" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="716" pageHeight="308" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="s0" value="&lt;b&gt;1. Data Preparation (01_clean.py)&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:8px'&gt;• HMEQ (5,960), SGCS (1,000), Taiwan (30,000)&lt;br&gt;• Train-only median/mode imputation &amp;amp; scaling&lt;br&gt;• Stratified splits (Part 1: 300 test; Part 2: 70/30)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=8;fillColor=#F1F5F9;strokeColor=#64748B;fontColor=#1E293B;strokeWidth=1.25;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="14.0" y="12.0" width="326.0" height="80.0" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" value="&lt;b&gt;2. Part 1 Replication &amp;amp; E1 (02_replicate.py)&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:8px'&gt;• Resample default rate $\pi \in \{1\dots 30\}\%$ ($J$ refits)&lt;br&gt;• LR, RF, XGB + IDCS (cslogit, csboost)&lt;br&gt;• PermSHAP &amp;amp; LIME $\rightarrow$ CoV, SRA (H1a/b, E1)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=8;fillColor=#E8F3FA;strokeColor=#0072B2;fontColor=#0C3B5E;strokeWidth=1.25;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="376.0" y="12.0" width="326.0" height="80.0" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" value="&lt;b&gt;3. Fixed-Model Perturbations (03_extend.py)&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:8px'&gt;• Tuned LR, RF, XGB at natural prior ($n=200$/data)&lt;br&gt;• Noise floor ($K=10$) + $R=25$ draws ($s=0.01, 0.05$)&lt;br&gt;• $\tau$-filter ($|\Delta p| \leq 0.05$) &amp;amp; crossings $C_{\mathrm{tree}}, C_{\mathrm{bin}}$&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=8;fillColor=#E6F5F0;strokeColor=#009E73;fontColor=#0B4F3C;strokeWidth=1.25;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="376.0" y="114.0" width="326.0" height="80.0" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="&lt;b&gt;4. Ex-Ante Fragility &amp;amp; Metrics (03_extend.py)&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:8px'&gt;• Structure-only $F_{\mathrm{tree}}(x), F_{\mathrm{bin}}(x)$ (no draws)&lt;br&gt;• Baselines: Decision Margin &amp;amp; RF Tree Variance&lt;br&gt;• Outcomes: $\Delta E$ ($D_k, D_\rho, D_1$), RC flip, label $Y_i$&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=8;fillColor=#E6F5F0;strokeColor=#009E73;fontColor=#0B4F3C;strokeWidth=1.25;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="14.0" y="114.0" width="326.0" height="80.0" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" value="&lt;b&gt;5. Statistical Suite &amp;amp; R1–R8 (04_robustness.py)&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:8px'&gt;• Confirmatory H1–H5 + Exploratory H6 (Holm corr.)&lt;br&gt;• 5,000-cluster bootstrap mediation &amp;amp; DeLong test&lt;br&gt;• Ablation R1 &amp;amp; sensitivity checks R2–R8&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=8;fillColor=#E6F5F0;strokeColor=#009E73;fontColor=#0B4F3C;strokeWidth=1.25;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="14.0" y="216.0" width="326.0" height="80.0" as="geometry" />
+        </mxCell>
+        <mxCell id="s5" value="&lt;b&gt;6. Case Study &amp;amp; Audit Gate (run_demo.py)&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:8px'&gt;• HMEQ adverse-action applicant walkthrough&lt;br&gt;• Gate policy: $F(x) &amp;gt; \tau_F \rightarrow$ Manual review&lt;br&gt;• Vector PDF &amp;amp; 400-DPI figure export (05_plots.py)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=8;fillColor=#FEF6E6;strokeColor=#E69F00;fontColor=#6B4700;strokeWidth=1.25;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="376.0" y="216.0" width="326.0" height="80.0" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeColor=#64748B;strokeWidth=1.2;dashed=0;fontFamily=Helvetica;fontSize=8;fontColor=#64748B;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="s0" target="s1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340.0" y="52.0" as="sourcePoint" />
+            <mxPoint x="376.0" y="52.0" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeColor=#0072B2;strokeWidth=1.2;dashed=0;fontFamily=Helvetica;fontSize=8;fontColor=#0072B2;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="539.0" y="92.0" as="sourcePoint" />
+            <mxPoint x="539.0" y="114.0" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeColor=#009E73;strokeWidth=1.2;dashed=0;fontFamily=Helvetica;fontSize=8;fontColor=#009E73;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="s2" target="s3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="376.0" y="154.0" as="sourcePoint" />
+            <mxPoint x="340.0" y="154.0" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeColor=#009E73;strokeWidth=1.2;dashed=0;fontFamily=Helvetica;fontSize=8;fontColor=#009E73;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="s3" target="s4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="177.0" y="194.0" as="sourcePoint" />
+            <mxPoint x="177.0" y="216.0" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeColor=#E69F00;strokeWidth=1.2;dashed=0;fontFamily=Helvetica;fontSize=8;fontColor=#E69F00;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="s4" target="s5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340.0" y="256.0" as="sourcePoint" />
+            <mxPoint x="376.0" y="256.0" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
