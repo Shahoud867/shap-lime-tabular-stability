@@ -27,3 +27,15 @@ node_modules
 Assignment 2/work/*/previews/
 Assignment 2/work/*/pdf_previews/
 
+# Assignment 3 virtual environments, caches, and raw data
+Assignment 3/analysis/.venv/
+Assignment 3/analysis/data/raw/*.csv
+Assignment 3/analysis/data/raw/*.xls
+Assignment 3/analysis/data/raw/*.xlsx
+Assignment 3/analysis/data/raw/*.data
+Assignment 3/analysis/data/raw/*.asc
+Assignment 3/analysis/data/raw/*.zip
+.pytest_cache/
+.ipynb_checkpoints/
+
+
