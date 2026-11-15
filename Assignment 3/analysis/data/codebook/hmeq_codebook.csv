@@ -1,0 +1,14 @@
+variable,type,description,unit,transformation,perturbable,cost_exposure_role,missing_count,missing_pct
+target,binary_target,"Default / bad credit indicator (1=default, 0=non-default)",binary,standardized to 1=default,False,target,0,0.0
+LOAN,continuous,Requested loan amount,USD,median_impute + standard_scale,True,exposure_A_i,0,0.0
+MORTDUE,continuous,Amount due on existing mortgage,USD,median_impute + standard_scale,True,none,518,8.6913
+VALUE,continuous,Value of current property,USD,median_impute + standard_scale,True,none,112,1.8792
+REASON,categorical,Loan purpose (DebtCon / HomeImp),category,mode_impute + one_hot_encode,False,none,252,4.2282
+JOB,categorical,Occupational category,category,mode_impute + one_hot_encode,False,none,279,4.6812
+YOJ,continuous,Years at present job,years,median_impute + standard_scale,True,none,515,8.6409
+DEROG,count,Number of major derogatory reports,count,median_impute + standard_scale,False,none,708,11.8792
+DELINQ,count,Number of delinquent credit lines,count,median_impute + standard_scale,False,none,580,9.7315
+CLAGE,continuous,Age of oldest credit line,months,median_impute + standard_scale,True,none,308,5.1678
+NINQ,count,Number of recent credit inquiries,count,median_impute + standard_scale,False,none,510,8.557
+CLNO,count,Number of credit lines,count,median_impute + standard_scale,False,none,222,3.7248
+DEBTINC,continuous,Debt-to-income ratio,percent,median_impute + standard_scale,True,none,1267,21.2584

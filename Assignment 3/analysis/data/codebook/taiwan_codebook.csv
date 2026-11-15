@@ -1,0 +1,25 @@
+variable,type,description,unit,transformation,perturbable,cost_exposure_role,missing_count,missing_pct
+LIMIT_BAL,continuous,Amount of given credit limit,NT_dollar,median_impute + standard_scale,True,exposure_A_i,0,0.0
+SEX,categorical,"Gender (1=male, 2=female)",code,mode_impute + one_hot_encode,False,none,0,0.0
+EDUCATION,categorical,Education level,code,mode_impute + one_hot_encode,False,none,0,0.0
+MARRIAGE,categorical,Marital status,code,mode_impute + one_hot_encode,False,none,0,0.0
+AGE,count,Age in years,years,median_impute + standard_scale,False,none,0,0.0
+PAY_0,ordinal,Repayment status in month 1,months_delay,median_impute + standard_scale,False,none,0,0.0
+PAY_2,ordinal,Repayment status in month 2,months_delay,median_impute + standard_scale,False,none,0,0.0
+PAY_3,ordinal,Repayment status in month 3,months_delay,median_impute + standard_scale,False,none,0,0.0
+PAY_4,ordinal,Repayment status in month 4,months_delay,median_impute + standard_scale,False,none,0,0.0
+PAY_5,ordinal,Repayment status in month 5,months_delay,median_impute + standard_scale,False,none,0,0.0
+PAY_6,ordinal,Repayment status in month 6,months_delay,median_impute + standard_scale,False,none,0,0.0
+BILL_AMT1,continuous,Bill statement amount month 1,NT_dollar,median_impute + standard_scale,True,none,0,0.0
+BILL_AMT2,continuous,Bill statement amount month 2,NT_dollar,median_impute + standard_scale,True,none,0,0.0
+BILL_AMT3,continuous,Bill statement amount month 3,NT_dollar,median_impute + standard_scale,True,none,0,0.0
+BILL_AMT4,continuous,Bill statement amount month 4,NT_dollar,median_impute + standard_scale,True,none,0,0.0
+BILL_AMT5,continuous,Bill statement amount month 5,NT_dollar,median_impute + standard_scale,True,none,0,0.0
+BILL_AMT6,continuous,Bill statement amount month 6,NT_dollar,median_impute + standard_scale,True,none,0,0.0
+PAY_AMT1,continuous,Previous payment amount month 1,NT_dollar,median_impute + standard_scale,True,none,0,0.0
+PAY_AMT2,continuous,Previous payment amount month 2,NT_dollar,median_impute + standard_scale,True,none,0,0.0
+PAY_AMT3,continuous,Previous payment amount month 3,NT_dollar,median_impute + standard_scale,True,none,0,0.0
+PAY_AMT4,continuous,Previous payment amount month 4,NT_dollar,median_impute + standard_scale,True,none,0,0.0
+PAY_AMT5,continuous,Previous payment amount month 5,NT_dollar,median_impute + standard_scale,True,none,0,0.0
+PAY_AMT6,continuous,Previous payment amount month 6,NT_dollar,median_impute + standard_scale,True,none,0,0.0
+target,binary_target,"Default / bad credit indicator (1=default, 0=non-default)",binary,standardized to 1=default,False,target,0,0.0

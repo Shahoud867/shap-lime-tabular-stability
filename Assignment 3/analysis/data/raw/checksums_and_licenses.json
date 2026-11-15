@@ -1,0 +1,38 @@
+{
+  "hmeq": {
+    "name": "Home Equity (HMEQ)",
+    "source_url": "https://raw.githubusercontent.com/sassoftware/sas-viya-dmml-pipelines/master/data/hmeq.csv",
+    "raw_file": "data\\raw\\hmeq.csv",
+    "sha256": "aecb99e8e6b3ccf5f3c0f8ee189bbcd6b7b457fccc5f8a61d8c9f1a0b27074cd",
+    "license": "Public benchmark dataset (Baesens et al., 2016; SAS Viya DMML Pipelines mirror)",
+    "source_ref": "Baesens, Roesch & Scheule (2016), Credit Risk Analytics; SAS GitHub mirror",
+    "rows": 5960,
+    "features": 12,
+    "positive_rate": 0.199497,
+    "total_missing_cells": 5271
+  },
+  "sgcs": {
+    "name": "South German Credit (UCI ID 522)",
+    "source_url": "https://archive.ics.uci.edu/static/public/522/south+german+credit.zip",
+    "raw_file": "data\\raw\\south_german_credit.zip",
+    "sha256": "0b40d40eb7321693d559e247a556f88a6cc8df8489c3cb2ae084db7592584551",
+    "license": "CC BY 4.0 (UCI Machine Learning Repository, DOI: 10.24432/C5X89F)",
+    "source_ref": "Groemping (2019), South German Credit, UCI ML Repository",
+    "rows": 1000,
+    "features": 20,
+    "positive_rate": 0.3,
+    "total_missing_cells": 0
+  },
+  "taiwan": {
+    "name": "Default of Credit Card Clients (Taiwan, UCI ID 350)",
+    "source_url": "https://www.openml.org/d/42477",
+    "raw_file": "data\\raw\\taiwan_default.csv",
+    "sha256": "febb7438e64468a5fb175ace36bc4f718a1cc11c22555beced7bdedfc6d32a21",
+    "license": "CC BY 4.0 (UCI Machine Learning Repository, DOI: 10.24432/C55S3H; OpenML ID 42477)",
+    "source_ref": "Yeh & Lien (2009), Expert Systems with Applications; UCI ML Repository",
+    "rows": 30000,
+    "features": 23,
+    "positive_rate": 0.2212,
+    "total_missing_cells": 0
+  }
+}

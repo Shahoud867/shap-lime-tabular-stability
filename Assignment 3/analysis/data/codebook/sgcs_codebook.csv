@@ -1,0 +1,22 @@
+variable,type,description,unit,transformation,perturbable,cost_exposure_role,missing_count,missing_pct
+status,categorical,Status of existing checking account,code,mode_impute + one_hot_encode,False,none,0,0.0
+duration,continuous,Loan duration,months,median_impute + standard_scale,True,none,0,0.0
+credit_history,categorical,Previous credit compliance history,code,mode_impute + one_hot_encode,False,none,0,0.0
+purpose,categorical,Loan purpose,code,mode_impute + one_hot_encode,False,none,0,0.0
+amount,continuous,Credit amount,DEM,median_impute + standard_scale,True,exposure_A_i,0,0.0
+savings,categorical,Savings account / bonds balance,code,mode_impute + one_hot_encode,False,none,0,0.0
+employment_duration,ordinal,Duration of present employment,code,median_impute + standard_scale,False,none,0,0.0
+installment_rate,ordinal,Installment rate as percentage of disposable income,code,median_impute + standard_scale,False,none,0,0.0
+personal_status_sex,categorical,Personal status and sex,code,mode_impute + one_hot_encode,False,none,0,0.0
+other_debtors,categorical,Other debtors / guarantors,code,mode_impute + one_hot_encode,False,none,0,0.0
+present_residence,ordinal,Years at present residence,code,median_impute + standard_scale,False,none,0,0.0
+property,categorical,Most valuable property type,code,mode_impute + one_hot_encode,False,none,0,0.0
+age,continuous,Applicant age,years,median_impute + standard_scale,True,none,0,0.0
+other_installment_plans,categorical,Other installment plans,code,mode_impute + one_hot_encode,False,none,0,0.0
+housing,categorical,Housing type (rent/own/free),code,mode_impute + one_hot_encode,False,none,0,0.0
+number_credits,ordinal,Number of existing credits at this bank,code,median_impute + standard_scale,False,none,0,0.0
+job,categorical,Employment skill / job level,code,mode_impute + one_hot_encode,False,none,0,0.0
+people_liable,categorical,Number of dependents liable to support,code,mode_impute + one_hot_encode,False,none,0,0.0
+telephone,categorical,Registered telephone indicator,code,mode_impute + one_hot_encode,False,none,0,0.0
+foreign_worker,categorical,Foreign worker indicator,code,mode_impute + one_hot_encode,False,none,0,0.0
+target,binary_target,"Default / bad credit indicator (1=default, 0=non-default)",binary,standardized to 1=default,False,target,0,0.0
