@@ -1,0 +1,74 @@
+# Single source of truth for Assignment 3 experiments
+seed: 42
+n_jobs: -1
+
+paths:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  codebook_dir: "data/codebook"
+  results_dir: "results"
+  figures_dir: "results/figures"
+
+datasets:
+  - hmeq
+  - sgcs
+  - taiwan
+
+data:
+  part1_test_size: 300
+  part2_test_frac: 0.30
+  outlier_iqr_multiplier: 1.5
+  clip_percentiles: [0.5, 99.5]
+
+cost_model:
+  lgd: 0.75
+  int_r_annual: 0.0479
+  int_cf_annual: 0.0294
+  n_term_months: 24
+  sensitivity_margin_m: 0.02
+
+part1:
+  datasets: ["hmeq", "sgcs"]
+  default_rates: [0.01, 0.03, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30]
+  j_iterations: 10
+  models: ["logit", "cslogit", "boost", "csboost", "forest"]
+  explainers: ["permutation_shap", "lime"]
+  sra_depth: 10
+  resample_max_ratio: 0.30
+  cv_folds: 5
+  e1:
+    dataset: "sgcs"
+    rates: [0.01, 0.30]
+    k_repeats: 5
+    models: ["logit", "boost"]
+
+part2:
+  datasets: ["taiwan", "hmeq", "sgcs"]
+  models: ["lr", "rf", "xgb"]
+  idcs_h6_models: ["cslogit", "csboost"]
+  sample_n: 200
+  threshold_mode: "prior"
+  noise_floor_k: 10
+  perturbation_r: 25
+  scales_s: [0.01, 0.05]
+  tau: 0.05
+  top_k: 4
+  instability_cutoff: 0.2
+  instability_sensitivity_cutoffs: [0.1, 0.3]
+  tree_shap_background_size: 100
+  lime_num_samples: 1000
+  lime_discretize_continuous: true
+  permutation_shap_max_evals: 500
+
+stats:
+  alpha: 0.05
+  bootstrap_resamples: 5000
+  auroc_weak_upper_bound: 0.70
+
+robustness:
+  tau_values: [0.02, 0.05, 0.10]
+  s_values: [0.01, 0.05, 0.10]
+  k_values: [3, 4, 5]
+  lime_num_samples_values: [1000, 5000]
+  threshold_modes: ["prior", 0.5]
+  j_sensitivity: 25

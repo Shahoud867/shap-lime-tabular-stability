@@ -1,0 +1,73 @@
+# Reduced demo configuration (~12.4 min across full 5-stage demo pipeline; ~1.2s for single-applicant run_demo.py --dataset hmeq)
+seed: 42
+n_jobs: 4
+
+paths:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  codebook_dir: "data/codebook"
+  results_dir: "results/demo"
+  figures_dir: "results/demo/figures"
+
+datasets:
+  - hmeq
+  - sgcs
+
+data:
+  part1_test_size: 300
+  part2_test_frac: 0.30
+  outlier_iqr_multiplier: 1.5
+  clip_percentiles: [0.5, 99.5]
+
+cost_model:
+  lgd: 0.75
+  int_r_annual: 0.0479
+  int_cf_annual: 0.0294
+  n_term_months: 24
+  sensitivity_margin_m: 0.02
+
+part1:
+  datasets: ["sgcs"]
+  default_rates: [0.05, 0.30]
+  j_iterations: 3
+  models: ["logit", "cslogit", "boost", "csboost"]
+  explainers: ["permutation_shap", "lime"]
+  sra_depth: 10
+  resample_max_ratio: 0.30
+  cv_folds: 3
+  e1:
+    dataset: "sgcs"
+    rates: [0.05, 0.30]
+    k_repeats: 3
+    models: ["logit", "boost"]
+
+part2:
+  datasets: ["hmeq", "sgcs"]
+  models: ["lr", "rf", "xgb"]
+  idcs_h6_models: ["cslogit", "csboost"]
+  sample_n: 10
+  threshold_mode: "prior"
+  noise_floor_k: 3
+  perturbation_r: 10
+  scales_s: [0.01, 0.05]
+  tau: 0.05
+  top_k: 4
+  instability_cutoff: 0.2
+  instability_sensitivity_cutoffs: [0.1, 0.3]
+  tree_shap_background_size: 50
+  lime_num_samples: 500
+  lime_discretize_continuous: true
+  permutation_shap_max_evals: 200
+
+stats:
+  alpha: 0.05
+  bootstrap_resamples: 200
+  auroc_weak_upper_bound: 0.70
+
+robustness:
+  tau_values: [0.02, 0.05, 0.10]
+  s_values: [0.01, 0.05, 0.10]
+  k_values: [3, 4, 5]
+  lime_num_samples_values: [500, 1000]
+  threshold_modes: ["prior", 0.5]
+  j_sensitivity: 5
