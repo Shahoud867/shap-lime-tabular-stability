@@ -1,0 +1,152 @@
+{
+  "dataset": "hmeq",
+  "model": "xgb",
+  "s": 0.05,
+  "tau": 0.05,
+  "threshold_t": 0.19942473633748803,
+  "high_fragility_applicant": {
+    "role": "High-F Unstable Rejected Applicant",
+    "instance_id": 207,
+    "raw_profile": {
+      "target": 1,
+      "LOAN": 23000,
+      "MORTDUE": 58577.0,
+      "VALUE": 69327.0,
+      "REASON": null,
+      "JOB": "Other",
+      "YOJ": 4.0,
+      "DEROG": 0.0,
+      "DELINQ": 2.0,
+      "CLAGE": 110.4144797,
+      "NINQ": 2.0,
+      "CLNO": 33.0,
+      "DEBTINC": 133.52827043
+    },
+    "p_default": 0.9789050221443176,
+    "threshold_t": 0.19942473633748803,
+    "decision": "REJECT (predicted default)",
+    "f_tree": 0.7419613929927195,
+    "f_bin": 0.5390877610387309,
+    "all_dec_preserved": true,
+    "all_tau_preserved": true,
+    "reason_flip_rate_treeshap": 0.6,
+    "reason_flip_rate_lime": 0.1,
+    "treeshap_top4": [
+      {
+        "feature": "DEBTINC",
+        "phi": 6.7791993924113925
+      },
+      {
+        "feature": "DELINQ",
+        "phi": 2.7750815229915315
+      },
+      {
+        "feature": "MORTDUE",
+        "phi": -0.7669484742009081
+      },
+      {
+        "feature": "VALUE",
+        "phi": -0.3691049651862704
+      }
+    ],
+    "treeshap_flipped_example": [
+      "DEBTINC",
+      "DELINQ",
+      "VALUE",
+      "YOJ"
+    ],
+    "lime_top4": [
+      {
+        "feature": "DEBTINC",
+        "phi": 0.3863946282423881
+      },
+      {
+        "feature": "DELINQ",
+        "phi": 0.20261597926736993
+      },
+      {
+        "feature": "JOB_Sales",
+        "phi": -0.17845827030713066
+      },
+      {
+        "feature": "JOB_Office",
+        "phi": 0.1055194542141733
+      }
+    ],
+    "mean_c_tree": 0.749,
+    "mean_abs_dp": 0.006846809387207031
+  },
+  "low_fragility_contrast": {
+    "role": "Low-F Stable Contrast Rejected Applicant",
+    "instance_id": 1192,
+    "raw_profile": {
+      "target": 1,
+      "LOAN": 20100,
+      "MORTDUE": 16755.0,
+      "VALUE": 29412.0,
+      "REASON": "HomeImp",
+      "JOB": "Other",
+      "YOJ": 3.0,
+      "DEROG": 1.0,
+      "DELINQ": 0.0,
+      "CLAGE": 62.050110801,
+      "NINQ": 2.0,
+      "CLNO": 21.0,
+      "DEBTINC": 58.132182899
+    },
+    "p_default": 0.9985881447792053,
+    "threshold_t": 0.19942473633748803,
+    "decision": "REJECT (predicted default)",
+    "f_tree": 0.5260994978731651,
+    "f_bin": 0.5000000054941277,
+    "all_dec_preserved": true,
+    "all_tau_preserved": true,
+    "reason_flip_rate_treeshap": 0.1,
+    "reason_flip_rate_lime": 0.0,
+    "treeshap_top4": [
+      {
+        "feature": "DEBTINC",
+        "phi": 5.767462204482581
+      },
+      {
+        "feature": "CLAGE",
+        "phi": 1.297373111739289
+      },
+      {
+        "feature": "DEROG",
+        "phi": 1.1202483389733242
+      },
+      {
+        "feature": "YOJ",
+        "phi": 1.0605036345633563
+      }
+    ],
+    "treeshap_flipped_example": [
+      "DEBTINC",
+      "DEROG",
+      "CLAGE",
+      "VALUE"
+    ],
+    "lime_top4": [
+      {
+        "feature": "DEBTINC",
+        "phi": 0.3508235421633646
+      },
+      {
+        "feature": "JOB_Sales",
+        "phi": -0.2854426684769636
+      },
+      {
+        "feature": "DELINQ",
+        "phi": -0.25171843426974694
+      },
+      {
+        "feature": "DEROG",
+        "phi": 0.13707953167774226
+      }
+    ],
+    "mean_c_tree": 0.497,
+    "mean_abs_dp": 0.000386732816696167
+  },
+  "n_rejected_candidates": 5
+}

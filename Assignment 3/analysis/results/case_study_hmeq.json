@@ -1,0 +1,152 @@
+{
+  "dataset": "hmeq",
+  "model": "xgb",
+  "s": 0.05,
+  "tau": 0.05,
+  "threshold_t": 0.19942473633748803,
+  "high_fragility_applicant": {
+    "role": "High-F Unstable Rejected Applicant",
+    "instance_id": 369,
+    "raw_profile": {
+      "target": 1,
+      "LOAN": 20000,
+      "MORTDUE": 151982.0,
+      "VALUE": null,
+      "REASON": "DebtCon",
+      "JOB": "Self",
+      "YOJ": null,
+      "DEROG": 2.0,
+      "DELINQ": 5.0,
+      "CLAGE": 146.5,
+      "NINQ": 1.0,
+      "CLNO": 43.0,
+      "DEBTINC": null
+    },
+    "p_default": 0.9999312162399292,
+    "threshold_t": 0.19942473633748803,
+    "decision": "REJECT (predicted default)",
+    "f_tree": 1.0958755951351888,
+    "f_bin": 1.500000002006903,
+    "all_dec_preserved": true,
+    "all_tau_preserved": true,
+    "reason_flip_rate_treeshap": 1.0,
+    "reason_flip_rate_lime": 0.24,
+    "treeshap_top4": [
+      {
+        "feature": "DELINQ",
+        "phi": 4.405466655992641
+      },
+      {
+        "feature": "DEROG",
+        "phi": 2.590369820005144
+      },
+      {
+        "feature": "DEBTINC",
+        "phi": 2.389788366286666
+      },
+      {
+        "feature": "VALUE",
+        "phi": 1.342510228487954
+      }
+    ],
+    "treeshap_flipped_example": [
+      "DELINQ",
+      "DEROG",
+      "DEBTINC",
+      "CLAGE"
+    ],
+    "lime_top4": [
+      {
+        "feature": "DELINQ",
+        "phi": 0.19846483585420416
+      },
+      {
+        "feature": "DEBTINC",
+        "phi": -0.17026957082048327
+      },
+      {
+        "feature": "DEROG",
+        "phi": 0.13988267504676616
+      },
+      {
+        "feature": "JOB_Office",
+        "phi": 0.08226034780373999
+      }
+    ],
+    "mean_c_tree": 1.1416,
+    "mean_abs_dp": 0.0036027216911315918
+  },
+  "low_fragility_contrast": {
+    "role": "Low-F Stable Contrast Rejected Applicant",
+    "instance_id": 166,
+    "raw_profile": {
+      "target": 1,
+      "LOAN": 7500,
+      "MORTDUE": 12115.0,
+      "VALUE": 35910.0,
+      "REASON": "HomeImp",
+      "JOB": "Office",
+      "YOJ": 13.0,
+      "DEROG": 3.0,
+      "DELINQ": 6.0,
+      "CLAGE": 234.90075082,
+      "NINQ": 0.0,
+      "CLNO": 24.0,
+      "DEBTINC": 24.662276673
+    },
+    "p_default": 0.7908006310462952,
+    "threshold_t": 0.19942473633748803,
+    "decision": "REJECT (predicted default)",
+    "f_tree": 0.6173510911437483,
+    "f_bin": 0.012054348760354206,
+    "all_dec_preserved": true,
+    "all_tau_preserved": false,
+    "reason_flip_rate_treeshap": 0.0,
+    "reason_flip_rate_lime": 0.08,
+    "treeshap_top4": [
+      {
+        "feature": "DELINQ",
+        "phi": 5.547192524402944
+      },
+      {
+        "feature": "DEROG",
+        "phi": 2.5551442075819066
+      },
+      {
+        "feature": "DEBTINC",
+        "phi": -1.1751389251076763
+      },
+      {
+        "feature": "CLAGE",
+        "phi": -0.7289680766113452
+      }
+    ],
+    "treeshap_flipped_example": [
+      "DELINQ",
+      "DEROG",
+      "DEBTINC",
+      "CLAGE"
+    ],
+    "lime_top4": [
+      {
+        "feature": "DELINQ",
+        "phi": 0.2283006208944986
+      },
+      {
+        "feature": "DEROG",
+        "phi": 0.21300551037829227
+      },
+      {
+        "feature": "JOB_Sales",
+        "phi": -0.16998210553178703
+      },
+      {
+        "feature": "DEBTINC",
+        "phi": -0.13300651566522997
+      }
+    ],
+    "mean_c_tree": 0.5884,
+    "mean_abs_dp": 0.027462146282196044
+  },
+  "n_rejected_candidates": 100
+}

@@ -1,0 +1,37 @@
+{
+  "h1a": {
+    "cov": {
+      "n_cells": 20,
+      "n_supported_holm": 19
+    },
+    "sra": {
+      "n_cells": 20,
+      "n_supported_holm": 19
+    }
+  },
+  "h1b": {
+    "cov": {
+      "n_cells": 40,
+      "n_supported_holm": 33
+    },
+    "sra": {
+      "n_cells": 40,
+      "n_supported_holm": 31
+    }
+  },
+  "j_iterations": 10,
+  "runtime_governance": {
+    "cut3_5_rates_applied": true,
+    "rates": [
+      0.01,
+      0.05,
+      0.1,
+      0.2,
+      0.3
+    ],
+    "part1_bg_size": 25,
+    "part1_lime_num_samples": 500,
+    "part1_permutation_shap_max_evals": 150
+  },
+  "elapsed_sec": 3243.34
+}

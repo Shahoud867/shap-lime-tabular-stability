@@ -1,0 +1,10 @@
+{
+  "rho": 0.2,
+  "alpha": 0.05,
+  "power_target": 0.8,
+  "two_sided": true,
+  "n_exact": 193,
+  "achieved_power_exact": 0.8000845550829667,
+  "n_fisher_z": 194,
+  "n_fisher_z_continuous": 193.9680401839892
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "held_out_dataset": "hmeq",
+    "dev_cutoff_f_tree": 0.0253912412501478,
+    "n_test": 341,
+    "flag_rate": 1.0,
+    "precision": 0.6480938416422287,
+    "recall_unstable_avoided": 1.0,
+    "rejected_flag_rate": 1.0,
+    "rejected_precision": 0.6690140845070423,
+    "rejected_recall_unstable_avoided": 1.0
+  },
+  {
+    "held_out_dataset": "sgcs",
+    "dev_cutoff_f_tree": 13.04883346068018,
+    "n_test": 400,
+    "flag_rate": 0.0,
+    "precision": 0.0,
+    "recall_unstable_avoided": 0.0,
+    "rejected_flag_rate": 0.0,
+    "rejected_precision": 0.0,
+    "rejected_recall_unstable_avoided": 0.0
+  },
+  {
+    "held_out_dataset": "taiwan",
+    "dev_cutoff_f_tree": 0.328529736894099,
+    "n_test": 392,
+    "flag_rate": 0.5,
+    "precision": 0.8520408163265306,
+    "recall_unstable_avoided": 0.540453074433657,
+    "rejected_flag_rate": 0.5,
+    "rejected_precision": 0.7708333333333334,
+    "rejected_recall_unstable_avoided": 0.5736434108527132
+  }
+]

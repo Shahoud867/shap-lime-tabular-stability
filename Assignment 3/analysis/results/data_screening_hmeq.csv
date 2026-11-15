@@ -1,0 +1,13 @@
+dataset,variable,type,perturbable,n_valid,missing_count,missing_pct,mean,sd,median,iqr,outlier_count,outlier_pct,skewness,n_unique,mode
+hmeq,LOAN,continuous,True,5960,0,0.0,18607.9698,11207.4804,16300.0,12200.0,256,4.295,2.0238,540,
+hmeq,MORTDUE,continuous,True,5442,518,8.691,73760.8172,44457.6095,65019.0,45212.0,234,4.3,1.8145,5053,
+hmeq,VALUE,continuous,True,5848,112,1.879,101776.0487,57385.7753,89235.5,53748.75,320,5.472,3.0533,5381,
+hmeq,REASON,categorical,False,5708,252,4.228,,,,,0,0.0,,2,DebtCon
+hmeq,JOB,categorical,False,5681,279,4.681,,,,,0,0.0,,6,Other
+hmeq,YOJ,continuous,True,5445,515,8.641,8.9223,7.574,7.0,10.0,91,1.671,0.9885,99,
+hmeq,DEROG,count,False,5252,708,11.879,0.2546,0.846,0.0,0.0,725,13.804,5.3209,11,
+hmeq,DELINQ,count,False,5380,580,9.732,0.4494,1.1273,0.0,0.0,1201,22.323,4.0231,14,
+hmeq,CLAGE,continuous,True,5652,308,5.168,179.7663,85.8101,173.4667,116.4456,47,0.832,1.3434,5314,
+hmeq,NINQ,count,False,5450,510,8.557,1.1861,1.7287,1.0,2.0,177,3.248,2.622,16,
+hmeq,CLNO,count,False,5738,222,3.725,21.2961,10.1389,20.0,11.0,219,3.817,0.7751,62,
+hmeq,DEBTINC,continuous,True,4693,1267,21.258,33.7799,8.6017,34.8183,9.8631,94,2.003,2.8524,4693,

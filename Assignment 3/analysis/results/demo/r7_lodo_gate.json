@@ -1,0 +1,24 @@
+[
+  {
+    "held_out_dataset": "hmeq",
+    "dev_cutoff_f_tree": 0.42064755194385556,
+    "n_test": 16,
+    "flag_rate": 1.0,
+    "precision": 0.4375,
+    "recall_unstable_avoided": 1.0,
+    "rejected_flag_rate": 1.0,
+    "rejected_precision": 0.3333333333333333,
+    "rejected_recall_unstable_avoided": 1.0
+  },
+  {
+    "held_out_dataset": "sgcs",
+    "dev_cutoff_f_tree": 0.6113008638173556,
+    "n_test": 20,
+    "flag_rate": 0.0,
+    "precision": 0.0,
+    "recall_unstable_avoided": 0.0,
+    "rejected_flag_rate": 0.0,
+    "rejected_precision": 0.0,
+    "rejected_recall_unstable_avoided": 0.0
+  }
+]
