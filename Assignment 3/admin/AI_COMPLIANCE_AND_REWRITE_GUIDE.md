@@ -20,7 +20,7 @@ Per `Assignment_3_Research_Paper.pdf` (pp. 1, 9):
 
 The compiled `main.tex` and `main.pdf` in this workspace are a **verified structural, mathematical, and empirical reference draft**:
 - All citations come exclusively from verified entries in `references.bib` (with DOIs/URLs).
-- All numbers, metrics, p-values, confidence intervals, and tables come directly from the executed pipeline in `Assignment 3/analysis/results/`.
+- All numbers, metrics, p-values, confidence intervals, and tables come directly from the executed pipeline in `Assignment 3/analysis/results/` (including `astar/`).
 - All formatting follows `\documentclass[conference]{IEEEtran}` (`booktabs`, captions above tables / below figures, bolded best metrics, numbered hypotheses/equations, cross-references before first appearance).
 
 **Before university submission, you MUST perform the following manual rewrite workflow:**
@@ -33,7 +33,7 @@ The compiled `main.tex` and `main.pdf` in this workspace are a **verified struct
 2. **Paraphrase & Rewrite All Prose in Your Own Voice:**
    - Read each subsection of `main.tex` alongside the underlying source paper / `analysis/results/` output, **close the reference draft**, and type the explanation in your own academic phrasing.
    - **Keep exact and unchanged:**
-     - Mathematical definitions, equations, and symbol notation (`F_tree`, `F_bin`, `D_k`, `SRA`, `CoV`, Proposition P1).
+     - Mathematical definitions, equations, and symbol notation (`F_tree`, `F_bin`, `F_jump`, `F_cal^quant`, `D_k`, `SRA`, `CoV`, Propositions P1–P2 and Appendix B proof).
      - Exact empirical values (sample sizes, AUROCs, p-values, confidence intervals, regression coefficients, robustness deltas, case-study applicant numbers).
      - BibTeX citation keys (`\cite{...}`) and figure/table `\ref{...}` structure.
    - **Never** copy text from Assignment 2 (`Assignment 2/Deliverables/report/main.tex`) or `plan.md`; reusing Assignment 2 text risks Turnitin self-plagiarism and AI-detection flags.
