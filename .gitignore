@@ -35,6 +35,7 @@ Assignment 3/analysis/data/raw/*.xlsx
 Assignment 3/analysis/data/raw/*.data
 Assignment 3/analysis/data/raw/*.asc
 Assignment 3/analysis/data/raw/*.zip
+Assignment 3/analysis/results/astar/checkpoints/
 .pytest_cache/
 .ipynb_checkpoints/
 
